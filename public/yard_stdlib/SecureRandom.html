@@ -1,0 +1,832 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: SecureRandom
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (S)</a> &raquo; 
+    
+    
+    <span class="title">SecureRandom</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: SecureRandom
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/securerandom.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#base64-class_method" title="base64 (class method)">+ (Object) <strong>base64</strong>(n = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SecureRandom.base64 generates a random base64 string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hex-class_method" title="hex (class method)">+ (Object) <strong>hex</strong>(n = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SecureRandom.hex generates a random hex string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#lastWin32ErrorMessage-class_method" title="lastWin32ErrorMessage (class method)">+ (Object) <strong>lastWin32ErrorMessage</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Following code is based on David Garamond's GUID library for Ruby.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#random_bytes-class_method" title="random_bytes (class method)">+ (Object) <strong>random_bytes</strong>(n = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SecureRandom.random_bytes generates a random binary string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#random_number-class_method" title="random_number (class method)">+ (Object) <strong>random_number</strong>(n = 0) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SecureRandom.random_number generates a random number.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#urlsafe_base64-class_method" title="urlsafe_base64 (class method)">+ (Object) <strong>urlsafe_base64</strong>(n = nil, padding = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SecureRandom.urlsafe_base64 generates a random URL-safe base64 string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uuid-class_method" title="uuid (class method)">+ (Object) <strong>uuid</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SecureRandom.uuid generates a v4 random UUID (Universally Unique
+IDentifier).</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="base64-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>base64</strong>(n = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>SecureRandom.base64 generates a random base64 string.</p>
+
+<p>The argument <em>n</em> specifies the length of the random length. The
+length of the result string is about 4/3 of <em>n</em>.</p>
+
+<p>If <em>n</em> is not specified, 16 is assumed. It may be larger in future.</p>
+
+<p>The result may contain A-Z, a-z, 0-9, "+", "/" and "=".</p>
+
+<pre class="code"><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id base64'>base64</span> <span class='comment'>#=&gt; &quot;/2BuBuLf3+WfSKyQbRcc/A==&quot;
+</span><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id base64'>base64</span> <span class='comment'>#=&gt; &quot;6BbW0pxO0YENxn38HMUbcQ==&quot;</span></pre>
+
+<p>If secure random number generator is not available, NotImplementedError is
+raised.</p>
+
+<p>See RFC 3548 for the definition of base64.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160
+161
+162</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/securerandom.rb', line 160</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id base64'>base64</span><span class='lparen'>(</span><span class='id n'>n</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='lbracket'>[</span><span class='id random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='id n'>n</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>m*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="hex-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>hex</strong>(n = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>SecureRandom.hex generates a random hex string.</p>
+
+<p>The argument <em>n</em> specifies the length of the random length. The
+length of the result string is twice of <em>n</em>.</p>
+
+<p>If <em>n</em> is not specified, 16 is assumed. It may be larger in future.</p>
+
+<p>The result may contain 0-9 and a-f.</p>
+
+<pre class="code"><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id hex'>hex</span> <span class='comment'>#=&gt; &quot;eb693ec8252cd630102fd0d0fb7c3485&quot;
+</span><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id hex'>hex</span> <span class='comment'>#=&gt; &quot;91dc3bfb4de5b11d029d376634589b61&quot;</span></pre>
+
+<p>If secure random number generator is not available, NotImplementedError is
+raised.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/securerandom.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id hex'>hex</span><span class='lparen'>(</span><span class='id n'>n</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='id n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>H*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="lastWin32ErrorMessage-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>lastWin32ErrorMessage</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Following code is based on David Garamond's GUID library for Ruby.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/securerandom.rb', line 254</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id lastWin32ErrorMessage'>lastWin32ErrorMessage</span> <span class='comment'># :nodoc:
+</span>  <span class='id get_last_error'>get_last_error</span> <span class='op'>=</span> <span class='const'>Win32API</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>kernel32</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GetLastError</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>L</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id format_message'>format_message</span> <span class='op'>=</span> <span class='const'>Win32API</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>kernel32</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FormatMessageA</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>LPLLPLPPPPPPPP</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>L</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id format_message_ignore_inserts'>format_message_ignore_inserts</span> <span class='op'>=</span> <span class='int'>0x00000200</span>
+  <span class='id format_message_from_system'>format_message_from_system</span>    <span class='op'>=</span> <span class='int'>0x00001000</span>
+
+  <span class='id code'>code</span> <span class='op'>=</span> <span class='id get_last_error'>get_last_error</span><span class='period'>.</span><span class='id call'>call</span>
+  <span class='id msg'>msg</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\0</span><span class='tstring_end'>&quot;</span></span> <span class='op'>*</span> <span class='int'>1024</span>
+  <span class='id len'>len</span> <span class='op'>=</span> <span class='id format_message'>format_message</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id format_message_ignore_inserts'>format_message_ignore_inserts</span> <span class='op'>+</span> <span class='id format_message_from_system'>format_message_from_system</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id code'>code</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id msg'>msg</span><span class='comma'>,</span> <span class='int'>1024</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id msg'>msg</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='id len'>len</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id tr'>tr</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\r</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id chomp'>chomp</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="random_bytes-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>random_bytes</strong>(n = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>SecureRandom.random_bytes generates a random binary string.</p>
+
+<p>The argument <em>n</em> specifies the length of the result string.</p>
+
+<p>If <em>n</em> is not specified, 16 is assumed. It may be larger in future.</p>
+
+<p>The result may contain any byte: "x00" - "xff".</p>
+
+<pre class="code"><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id random_bytes'>random_bytes</span> <span class='comment'>#=&gt; &quot;\xD8\\\xE0\xF4\r\xB2\xFC*WM\xFF\x83\x18\xF45\xB6&quot;
+</span><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id random_bytes'>random_bytes</span> <span class='comment'>#=&gt; &quot;m\xDC\xFC/\a\x00Uf\xB2\xB2P\xBD\xFF6S\x97&quot;</span></pre>
+
+<p>If secure random number generator is not available, NotImplementedError is
+raised.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>NotImplementedError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/securerandom.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='id n'>n</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id n'>n</span> <span class='op'>||=</span> <span class='int'>16</span>
+
+  <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>Random</span>
+    <span class='ivar'>@pid</span> <span class='op'>=</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>defined?</span><span class='lparen'>(</span><span class='ivar'>@pid</span><span class='rparen'>)</span>
+    <span class='id pid'>pid</span> <span class='op'>=</span> <span class='gvar'>$$</span>
+    <span class='kw'>if</span> <span class='ivar'>@pid</span> <span class='op'>!=</span> <span class='id pid'>pid</span>
+      <span class='id now'>now</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span>
+      <span class='id ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id now'>now</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='comma'>,</span> <span class='id now'>now</span><span class='period'>.</span><span class='id nsec'>nsec</span><span class='comma'>,</span> <span class='ivar'>@pid</span><span class='comma'>,</span> <span class='id pid'>pid</span><span class='rbracket'>]</span>
+      <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>Random</span><span class='period'>.</span><span class='id seed'>seed</span><span class='lparen'>(</span><span class='id ary'>ary</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+      <span class='ivar'>@pid</span> <span class='op'>=</span> <span class='id pid'>pid</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>Random</span><span class='period'>.</span><span class='id random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='id n'>n</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>defined?</span><span class='lparen'>(</span><span class='ivar'>@has_urandom</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='ivar'>@has_urandom</span>
+    <span class='id flags'>flags</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>RDONLY</span>
+    <span class='id flags'>flags</span> <span class='op'>|=</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>NONBLOCK</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>NONBLOCK</span>
+    <span class='id flags'>flags</span> <span class='op'>|=</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>NOCTTY</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>NOCTTY</span>
+    <span class='kw'>begin</span>
+      <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dev/urandom</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id flags'>flags</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+        <span class='kw'>unless</span> <span class='id f'>f</span><span class='period'>.</span><span class='id stat'>stat</span><span class='period'>.</span><span class='id chardev?'>chardev?</span>
+          <span class='id raise'>raise</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOENT</span>
+        <span class='kw'>end</span>
+        <span class='ivar'>@has_urandom</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id ret'>ret</span> <span class='op'>=</span> <span class='id f'>f</span><span class='period'>.</span><span class='id readpartial'>readpartial</span><span class='lparen'>(</span><span class='id n'>n</span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id ret'>ret</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>!=</span> <span class='id n'>n</span>
+          <span class='id raise'>raise</span> <span class='const'>NotImplementedError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unexpected partial read from random device</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>end</span>
+        <span class='kw'>return</span> <span class='id ret'>ret</span>
+      <span class='rbrace'>}</span>
+    <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOENT</span>
+      <span class='ivar'>@has_urandom</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>defined?</span><span class='lparen'>(</span><span class='ivar'>@has_win32</span><span class='rparen'>)</span>
+    <span class='kw'>begin</span>
+      <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Win32API</span><span class='tstring_end'>'</span></span>
+
+      <span class='id crypt_acquire_context'>crypt_acquire_context</span> <span class='op'>=</span> <span class='const'>Win32API</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>advapi32</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CryptAcquireContext</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>PPPII</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>L</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='ivar'>@crypt_gen_random</span> <span class='op'>=</span> <span class='const'>Win32API</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>advapi32</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CryptGenRandom</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>LIP</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>L</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id hProvStr'>hProvStr</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='op'>*</span> <span class='int'>4</span>
+      <span class='id prov_rsa_full'>prov_rsa_full</span> <span class='op'>=</span> <span class='int'>1</span>
+      <span class='id crypt_verifycontext'>crypt_verifycontext</span> <span class='op'>=</span> <span class='int'>0xF0000000</span>
+
+      <span class='kw'>if</span> <span class='id crypt_acquire_context'>crypt_acquire_context</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id hProvStr'>hProvStr</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id prov_rsa_full'>prov_rsa_full</span><span class='comma'>,</span> <span class='id crypt_verifycontext'>crypt_verifycontext</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='int'>0</span>
+        <span class='id raise'>raise</span> <span class='const'>SystemCallError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CryptAcquireContext failed: </span><span class='embexpr_beg'>#{</span><span class='id lastWin32ErrorMessage'>lastWin32ErrorMessage</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='ivar'>@hProv</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id hProvStr'>hProvStr</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>L</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='ivar'>@has_win32</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>rescue</span> <span class='const'>LoadError</span>
+      <span class='ivar'>@has_win32</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@has_win32</span>
+    <span class='id bytes'>bytes</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ASCII-8BIT</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id n'>n</span>
+    <span class='kw'>if</span> <span class='ivar'>@crypt_gen_random</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='ivar'>@hProv</span><span class='comma'>,</span> <span class='id bytes'>bytes</span><span class='period'>.</span><span class='id size'>size</span><span class='comma'>,</span> <span class='id bytes'>bytes</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='id raise'>raise</span> <span class='const'>SystemCallError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CryptGenRandom failed: </span><span class='embexpr_beg'>#{</span><span class='id lastWin32ErrorMessage'>lastWin32ErrorMessage</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id bytes'>bytes</span>
+  <span class='kw'>end</span>
+
+  <span class='id raise'>raise</span> <span class='const'>NotImplementedError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No random device</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="random_number-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>random_number</strong>(n = 0) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>SecureRandom.random_number generates a random number.</p>
+
+<p>If a positive integer is given as <em>n</em>, SecureRandom.random_number
+returns an integer: 0 &lt;= SecureRandom.random_number(n) &lt; n.</p>
+
+<pre class="code"><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id random_number'>random_number</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span> <span class='comment'>#=&gt; 15
+</span><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id random_number'>random_number</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span> <span class='comment'>#=&gt; 88</span></pre>
+
+<p>If 0 is given or an argument is not given, SecureRandom.random_number
+returns a float: 0.0 &lt;= SecureRandom.random_number() &lt; 1.0.</p>
+
+<pre class="code"><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id random_number'>random_number</span> <span class='comment'>#=&gt; 0.596506046187744
+</span><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id random_number'>random_number</span> <span class='comment'>#=&gt; 0.350621695741409</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/securerandom.rb', line 214</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id random_number'>random_number</span><span class='lparen'>(</span><span class='id n'>n</span><span class='op'>=</span><span class='int'>0</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='int'>0</span> <span class='op'>&lt;</span> <span class='id n'>n</span>
+    <span class='id hex'>hex</span> <span class='op'>=</span> <span class='id n'>n</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span>
+    <span class='id hex'>hex</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>0</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id hex'>hex</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id hex'>hex</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>&amp;</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='id bin'>bin</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id hex'>hex</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>H*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id mask'>mask</span> <span class='op'>=</span> <span class='id bin'>bin</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id ord'>ord</span>
+    <span class='id mask'>mask</span> <span class='op'>|=</span> <span class='id mask'>mask</span> <span class='op'>&gt;&gt;</span> <span class='int'>1</span>
+    <span class='id mask'>mask</span> <span class='op'>|=</span> <span class='id mask'>mask</span> <span class='op'>&gt;&gt;</span> <span class='int'>2</span>
+    <span class='id mask'>mask</span> <span class='op'>|=</span> <span class='id mask'>mask</span> <span class='op'>&gt;&gt;</span> <span class='int'>4</span>
+    <span class='kw'>begin</span>
+      <span class='id rnd'>rnd</span> <span class='op'>=</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='id bin'>bin</span><span class='period'>.</span><span class='id length'>length</span><span class='rparen'>)</span>
+      <span class='id rnd'>rnd</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id rnd'>rnd</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id ord'>ord</span> <span class='op'>&amp;</span> <span class='id mask'>mask</span><span class='rparen'>)</span><span class='period'>.</span><span class='id chr'>chr</span>
+    <span class='kw'>end</span> <span class='kw'>until</span> <span class='id rnd'>rnd</span> <span class='op'>&lt;</span> <span class='id bin'>bin</span>
+    <span class='id rnd'>rnd</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>H*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id hex'>hex</span>
+  <span class='kw'>else</span>
+    <span class='comment'># assumption: Float::MANT_DIG &lt;= 64
+</span>    <span class='id i64'>i64</span> <span class='op'>=</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='int'>8</span><span class='rparen'>)</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Q</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='const'>Math</span><span class='period'>.</span><span class='id ldexp'>ldexp</span><span class='lparen'>(</span><span class='id i64'>i64</span> <span class='op'>&gt;&gt;</span> <span class='lparen'>(</span><span class='int'>64</span><span class='op'>-</span><span class='const'>Float</span><span class='op'>::</span><span class='const'>MANT_DIG</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>-</span><span class='const'>Float</span><span class='op'>::</span><span class='const'>MANT_DIG</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="urlsafe_base64-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>urlsafe_base64</strong>(n = nil, padding = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>SecureRandom.urlsafe_base64 generates a random URL-safe base64 string.</p>
+
+<p>The argument <em>n</em> specifies the length of the random length. The
+length of the result string is about 4/3 of <em>n</em>.</p>
+
+<p>If <em>n</em> is not specified, 16 is assumed. It may be larger in future.</p>
+
+<p>The boolean argument <em>padding</em> specifies the padding. If it is false
+or nil, padding is not generated. Otherwise padding is generated. By
+default, padding is not generated because "=" may be used as a URL
+delimiter.</p>
+
+<p>The result may contain A-Z, a-z, 0-9, "-" and "_". "=" is also used if
+<em>padding</em> is true.</p>
+
+<pre class="code"><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id urlsafe_base64'>urlsafe_base64</span> <span class='comment'>#=&gt; &quot;b4GOKm4pOYU_-BOXcrUGDg&quot;
+</span><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id urlsafe_base64'>urlsafe_base64</span> <span class='comment'>#=&gt; &quot;UZLdOkzop70Ddx-IJR0ABg&quot;
+</span>
+<span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id urlsafe_base64'>urlsafe_base64</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;i0XQ-7gglIsHGV2_BNPrdQ==&quot;
+</span><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id urlsafe_base64'>urlsafe_base64</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;-M8rLhr7JEpJlqFGUMmOxg==&quot;</span></pre>
+
+<p>If secure random number generator is not available, NotImplementedError is
+raised.</p>
+
+<p>See RFC 3548 for the definition of URL-safe base64.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190
+191
+192
+193
+194
+195
+196</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/securerandom.rb', line 190</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id urlsafe_base64'>urlsafe_base64</span><span class='lparen'>(</span><span class='id n'>n</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id padding'>padding</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='id n'>n</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>m*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id s'>s</span><span class='period'>.</span><span class='id delete!'>delete!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id s'>s</span><span class='period'>.</span><span class='id tr!'>tr!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>+/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-_</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id s'>s</span><span class='period'>.</span><span class='id delete!'>delete!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id padding'>padding</span>
+  <span class='id s'>s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="uuid-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>uuid</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>SecureRandom.uuid generates a v4 random UUID (Universally Unique
+IDentifier).</p>
+
+<pre class="code"><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id uuid'>uuid</span> <span class='comment'>#=&gt; &quot;2d931510-d99f-494a-8c67-87feb05e1594&quot;
+</span><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id uuid'>uuid</span> <span class='comment'>#=&gt; &quot;bad85eb9-0713-4da7-8d36-07a8e4b00eab&quot;
+</span><span class='id p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id uuid'>uuid</span> <span class='comment'>#=&gt; &quot;62936e70-1815-439b-bf89-8492855a7e6b&quot;</span></pre>
+
+<p>The version 4 UUID is purely random (except the version). It doesn't
+contain meaningful information such as MAC address, time, etc.</p>
+
+<p>See RFC 4122 for details of UUID.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+246
+247
+248
+249
+250
+251</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/securerandom.rb', line 246</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id uuid'>uuid</span>
+  <span class='id ary'>ary</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NnnnnN</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ary'>ary</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id ary'>ary</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>&amp;</span> <span class='int'>0x0fff</span><span class='rparen'>)</span> <span class='op'>|</span> <span class='int'>0x4000</span>
+  <span class='id ary'>ary</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id ary'>ary</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>&amp;</span> <span class='int'>0x3fff</span><span class='rparen'>)</span> <span class='op'>|</span> <span class='int'>0x8000</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%08x-%04x-%04x-%04x-%04x%08x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id ary'>ary</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:59 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

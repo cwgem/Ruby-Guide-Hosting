@@ -1,0 +1,2181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Gem::SourceIndex
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Gem.html" title="Gem (module)">Gem</a></span></span>
+     &raquo; 
+    <span class="title">SourceIndex</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Gem::SourceIndex
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Gem::SourceIndex</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2"><span class='object_link'><a href="../Deprecate.html" title="Deprecate (module)">Deprecate</a></span></dd>
+      
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rubygems/source_index.rb<span class="defines">,<br />
+  lib/rubygems/source_index.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>The SourceIndex object indexes all the gems available from a particular
+source (e.g. a list of gem directories, or a remote source).  A SourceIndex
+maps a gem full name to a gem specification.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>NOTE</p></td>
+<td>
+<p>The class used to be named Cache, but that became confusing when cached
+source fetchers where introduced. The constant Gem::Cache is an alias for
+this class to allow old YAMLized source index objects to load properly.</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gems-instance_method" title="#gems (instance method)">- (Object) <strong>gems</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#spec_dirs-instance_method" title="#spec_dirs (instance method)">- (Object) <strong>spec_dirs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Directories to use to refresh this SourceIndex when calling refresh!.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#from_gems_in-class_method" title="from_gems_in (class method)">+ (Object) <strong>from_gems_in</strong>(*spec_dirs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new SourceIndex from the ruby format gem specifications in
+<tt>spec_dirs</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#from_installed_gems-class_method" title="from_installed_gems (class method)">+ (Object) <strong>from_installed_gems</strong>(*deprecated) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Factory method to construct a source index instance for a given path.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#installed_spec_directories-class_method" title="installed_spec_directories (class method)">+ (Object) <strong>installed_spec_directories</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a list of directories from Gem.path that contain specifications.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_specification-class_method" title="load_specification (class method)">+ (Object) <strong>load_specification</strong>(file_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Loads a ruby-format specification from <tt>file_name</tt> and returns the
+loaded spec.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_spec-instance_method" title="#add_spec (instance method)">- (Object) <strong>add_spec</strong>(gem_spec, name = gem_spec.full_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add a gem specification to the source index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_specs-instance_method" title="#add_specs (instance method)">- (Object) <strong>add_specs</strong>(*gem_specs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add gem specifications to the source index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_gems-instance_method" title="#all_gems (instance method)">- (Object) <strong>all_gems</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump-instance_method" title="#dump (instance method)">- (Object) <strong>dump</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterate over the specifications in the source index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#find_name-instance_method" title="#find_name (instance method)">- (Object) <strong>find_name</strong>(gem_name, requirement = Gem::Requirement.default) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Find a gem by an exact match on the short name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gem_signature-instance_method" title="#gem_signature (instance method)">- (Object) <strong>gem_signature</strong>(gem_full_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The signature for the given gem specification.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#index_signature-instance_method" title="#index_signature (instance method)">- (Object) <strong>index_signature</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The signature for the source index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (SourceIndex) <strong>initialize</strong>(specs_or_dirs = []) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a source index instance from the provided specifications, which
+is a Hash of gem full names and Gem::Specifications.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#latest_specs-instance_method" title="#latest_specs (instance method)">- (Object) <strong>latest_specs</strong>(include_prerelease = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an Array specifications for the latest released versions of each
+gem in this index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_gems_in-instance_method" title="#load_gems_in (instance method)">- (Object) <strong>load_gems_in</strong>(*spec_dirs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reconstruct the source index from the specifications in <tt>spec_dirs</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#outdated-instance_method" title="#outdated (instance method)">- (Object) <strong>outdated</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an Array of Gem::Specifications that are not up to date.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prerelease_gems-instance_method" title="#prerelease_gems (instance method)">- (Object) <strong>prerelease_gems</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prerelease_specs-instance_method" title="#prerelease_specs (instance method)">- (Object) <strong>prerelease_specs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array including only the prerelease gemspecs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#refresh%21-instance_method" title="#refresh! (instance method)">- (Object) <strong>refresh!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Replaces the gems in the source index from specifications in the
+directories this source index was created from.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#released_gems-instance_method" title="#released_gems (instance method)">- (Object) <strong>released_gems</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#released_specs-instance_method" title="#released_specs (instance method)">- (Object) <strong>released_specs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array including only the released gemspecs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_spec-instance_method" title="#remove_spec (instance method)">- (Object) <strong>remove_spec</strong>(full_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Remove a gem specification named <tt>full_name</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#search-instance_method" title="#search (instance method)">- (Object) <strong>search</strong>(gem_pattern, platform_or_requirement = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Search for a gem by Gem::Dependency <tt>gem_pattern</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#size-instance_method" title="#size (instance method)">- (Object) <strong>size</strong> </a>
+    
+
+    
+      (also: #length)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#specification-instance_method" title="#specification (instance method)">- (Object) <strong>specification</strong>(full_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The gem specification given a full gem spec name.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Deprecate.html" title="Deprecate (module)">Deprecate</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Deprecate.html#deprecate-instance_method" title="Deprecate#deprecate (method)">deprecate</a></span>, <span class='object_link'><a href="../Deprecate.html#skip-class_method" title="Deprecate.skip (method)">skip</a></span>, <span class='object_link'><a href="../Deprecate.html#skip%3D-class_method" title="Deprecate.skip= (method)">skip=</a></span>, <span class='object_link'><a href="../Deprecate.html#skip_during-instance_method" title="Deprecate#skip_during (method)">skip_during</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Enumerable.html#to_set-instance_method" title="Enumerable#to_set (method)">#to_set</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Gem::SourceIndex (class)">SourceIndex</a></span></tt>) <strong>initialize</strong>(specs_or_dirs = []) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a source index instance from the provided specifications, which
+is a Hash of gem full names and Gem::Specifications.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span> <span class='id specs_or_dirs'>specs_or_dirs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@gems</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@spec_dirs</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>case</span> <span class='id specs_or_dirs'>specs_or_dirs</span>
+  <span class='kw'>when</span> <span class='const'>Hash</span> <span class='kw'>then</span>
+    <span class='id specs_or_dirs'>specs_or_dirs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id full_name'>full_name</span><span class='comma'>,</span> <span class='id spec'>spec</span><span class='op'>|</span>
+      <span class='id add_spec'>add_spec</span> <span class='id spec'>spec</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='const'>Array</span><span class='comma'>,</span> <span class='const'>String</span> <span class='kw'>then</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id spec_dirs'>spec_dirs</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id specs_or_dirs'>specs_or_dirs</span><span class='rparen'>)</span>
+    <span class='id refresh!'>refresh!</span>
+  <span class='kw'>else</span>
+    <span class='id arg'>arg</span> <span class='op'>=</span> <span class='id specs_or_dirs'>specs_or_dirs</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+    <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NOTE: SourceIndex.new(</span><span class='embexpr_beg'>#{</span><span class='id arg'>arg</span><span class='rbrace'>}</span><span class='tstring_content'>) is deprecated; From </span><span class='embexpr_beg'>#{</span><span class='id caller'>caller</span><span class='period'>.</span><span class='id first'>first</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="gems-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="gems-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>gems</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id gems'>gems</span>
+  <span class='ivar'>@gems</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="spec_dirs=-instance_method"></span>
+      <span id="spec_dirs-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="spec_dirs-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>spec_dirs</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Directories to use to refresh this SourceIndex when calling refresh!</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id spec_dirs'>spec_dirs</span>
+  <span class='ivar'>@spec_dirs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="from_gems_in-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>from_gems_in</strong>(*spec_dirs) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new SourceIndex from the ruby format gem specifications in
+<tt>spec_dirs</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id from_gems_in'>from_gems_in</span><span class='lparen'>(</span><span class='op'>*</span><span class='id spec_dirs'>spec_dirs</span><span class='rparen'>)</span>
+  <span class='id new'>new</span> <span class='id spec_dirs'>spec_dirs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="from_installed_gems-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>from_installed_gems</strong>(*deprecated) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Factory method to construct a source index instance for a given path.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>deprecated</p></td>
+<td>
+<p>If supplied, from_installed_gems will act just like <tt>from_gems_in</tt>. 
+This argument is deprecated and is provided just for backwards
+compatibility, and should not generally be used.</p>
+</td></tr><tr><td class="rdoc-term"><p>return</p></td>
+<td>
+<p>SourceIndex instance</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id from_installed_gems'>from_installed_gems</span><span class='lparen'>(</span><span class='op'>*</span><span class='id deprecated'>deprecated</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id deprecated'>deprecated</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='id from_gems_in'>from_gems_in</span><span class='lparen'>(</span><span class='op'>*</span><span class='id installed_spec_directories'>installed_spec_directories</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NOTE: from_installed_gems(arg) is deprecated. From </span><span class='embexpr_beg'>#{</span><span class='id caller'>caller</span><span class='period'>.</span><span class='id first'>first</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id from_gems_in'>from_gems_in</span><span class='lparen'>(</span><span class='op'>*</span><span class='id deprecated'>deprecated</span><span class='rparen'>)</span> <span class='comment'># HACK warn
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="installed_spec_directories-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>installed_spec_directories</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a list of directories from Gem.path that contain specifications.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id installed_spec_directories'>installed_spec_directories</span>
+  <span class='comment'># TODO: move to Gem::Utils
+</span>  <span class='const'>Gem</span><span class='period'>.</span><span class='id path'>path</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id dir'>dir</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='id dir'>dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>specifications</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load_specification-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>load_specification</strong>(file_name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Loads a ruby-format specification from <tt>file_name</tt> and returns the
+loaded spec.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 74</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id load_specification'>load_specification</span><span class='lparen'>(</span><span class='id file_name'>file_name</span><span class='rparen'>)</span>
+  <span class='const'>Deprecate</span><span class='period'>.</span><span class='id skip_during'>skip_during</span> <span class='kw'>do</span>
+    <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id load'>load</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Path</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id file_name'>file_name</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="==-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>==</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+346
+347
+348</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 346</span>
+
+<span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span> <span class='op'>===</span> <span class='id other'>other</span> <span class='kw'>and</span> <span class='ivar'>@gems</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id gems'>gems</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add_spec-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_spec</strong>(gem_spec, name = gem_spec.full_name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Add a gem specification to the source index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188
+189
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id add_spec'>add_spec</span><span class='lparen'>(</span><span class='id gem_spec'>gem_spec</span><span class='comma'>,</span> <span class='id name'>name</span> <span class='op'>=</span> <span class='id gem_spec'>gem_spec</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='rparen'>)</span>
+  <span class='comment'># No idea why, but the Indexer wants to insert them using original_name
+</span>  <span class='comment'># instead of full_name. So we make it an optional arg.
+</span>  <span class='ivar'>@gems</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id gem_spec'>gem_spec</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add_specs-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_specs</strong>(*gem_specs) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Add gem specifications to the source index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+195
+196
+197
+198
+199
+200
+201</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 195</span>
+
+<span class='kw'>def</span> <span class='id add_specs'>add_specs</span><span class='lparen'>(</span><span class='op'>*</span><span class='id gem_specs'>gem_specs</span><span class='rparen'>)</span>
+  <span class='const'>Deprecate</span><span class='period'>.</span><span class='id skip_during'>skip_during</span> <span class='kw'>do</span>
+    <span class='id gem_specs'>gem_specs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec'>spec</span><span class='op'>|</span>
+      <span class='id add_spec'>add_spec</span> <span class='id spec'>spec</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="all_gems-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>all_gems</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id all_gems'>all_gems</span>
+  <span class='id gems'>gems</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="dump-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>dump</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+350
+351
+352</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 350</span>
+
+<span class='kw'>def</span> <span class='id dump'>dump</span>
+  <span class='const'>Marshal</span><span class='period'>.</span><span class='id dump'>dump</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>each</strong>(&amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterate over the specifications in the source index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 213</span>
+
+<span class='kw'>def</span> <span class='id each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span> <span class='comment'># :yields: gem.full_name, gem
+</span>  <span class='ivar'>@gems</span><span class='period'>.</span><span class='id each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="find_name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>find_name</strong>(gem_name, requirement = Gem::Requirement.default) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Find a gem by an exact match on the short name.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+251
+252
+253
+254
+255
+256
+257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 251</span>
+
+<span class='kw'>def</span> <span class='id find_name'>find_name</span><span class='lparen'>(</span><span class='id gem_name'>gem_name</span><span class='comma'>,</span> <span class='id requirement'>requirement</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Requirement</span><span class='period'>.</span><span class='id default'>default</span><span class='rparen'>)</span>
+  <span class='id dep'>dep</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Dependency</span><span class='period'>.</span><span class='id new'>new</span> <span class='id gem_name'>gem_name</span><span class='comma'>,</span> <span class='id requirement'>requirement</span>
+
+  <span class='const'>Deprecate</span><span class='period'>.</span><span class='id skip_during'>skip_during</span> <span class='kw'>do</span>
+    <span class='id search'>search</span> <span class='id dep'>dep</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="gem_signature-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>gem_signature</strong>(gem_full_name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The signature for the given gem specification.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239
+240
+241</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 237</span>
+
+<span class='kw'>def</span> <span class='id gem_signature'>gem_signature</span><span class='lparen'>(</span><span class='id gem_full_name'>gem_full_name</span><span class='rparen'>)</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>digest</span><span class='tstring_end'>'</span></span>
+
+  <span class='const'>Digest</span><span class='op'>::</span><span class='const'>SHA256</span><span class='period'>.</span><span class='id new'>new</span><span class='period'>.</span><span class='id hexdigest'>hexdigest</span><span class='lparen'>(</span><span class='ivar'>@gems</span><span class='lbracket'>[</span><span class='id gem_full_name'>gem_full_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_yaml'>to_yaml</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="index_signature-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>index_signature</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The signature for the source index.  Changes in the signature indicate a
+change in the index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+228
+229
+230
+231
+232</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 228</span>
+
+<span class='kw'>def</span> <span class='id index_signature'>index_signature</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>digest</span><span class='tstring_end'>'</span></span>
+
+  <span class='const'>Digest</span><span class='op'>::</span><span class='const'>SHA256</span><span class='period'>.</span><span class='id new'>new</span><span class='period'>.</span><span class='id hexdigest'>hexdigest</span><span class='lparen'>(</span><span class='ivar'>@gems</span><span class='period'>.</span><span class='id keys'>keys</span><span class='period'>.</span><span class='id sort'>sort</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="latest_specs-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>latest_specs</strong>(include_prerelease = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an Array specifications for the latest released versions of each
+gem in this index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 138</span>
+
+<span class='kw'>def</span> <span class='id latest_specs'>latest_specs</span><span class='lparen'>(</span><span class='id include_prerelease'>include_prerelease</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id result'>result</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id h'>h</span><span class='comma'>,</span><span class='id k'>k</span><span class='op'>|</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='id latest'>latest</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+  <span class='id sort'>sort</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id _'>_</span><span class='comma'>,</span> <span class='id spec'>spec</span><span class='op'>|</span>
+    <span class='id name'>name</span> <span class='op'>=</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id name'>name</span>
+    <span class='id curr_ver'>curr_ver</span> <span class='op'>=</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id version'>version</span>
+    <span class='id prev_ver'>prev_ver</span> <span class='op'>=</span> <span class='id latest'>latest</span><span class='period'>.</span><span class='id key?'>key?</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id latest'>latest</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id version'>version</span> <span class='op'>:</span> <span class='kw'>nil</span>
+
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id include_prerelease'>include_prerelease</span> <span class='op'>&amp;&amp;</span> <span class='id curr_ver'>curr_ver</span><span class='period'>.</span><span class='id prerelease?'>prerelease?</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id prev_ver'>prev_ver</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id curr_ver'>curr_ver</span> <span class='op'>&gt;=</span> <span class='id prev_ver'>prev_ver</span> <span class='kw'>or</span>
+                <span class='id latest'>latest</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id platform'>platform</span> <span class='op'>!=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='op'>::</span><span class='const'>RUBY</span>
+
+    <span class='kw'>if</span> <span class='id prev_ver'>prev_ver</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span>
+       <span class='lparen'>(</span><span class='id curr_ver'>curr_ver</span> <span class='op'>&gt;</span> <span class='id prev_ver'>prev_ver</span> <span class='kw'>and</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id platform'>platform</span> <span class='op'>==</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='op'>::</span><span class='const'>RUBY</span><span class='rparen'>)</span> <span class='kw'>then</span>
+      <span class='id result'>result</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id clear'>clear</span>
+      <span class='id latest'>latest</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id spec'>spec</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id platform'>platform</span> <span class='op'>!=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='op'>::</span><span class='const'>RUBY</span> <span class='kw'>then</span>
+      <span class='id result'>result</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id delete_if'>delete_if</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id result_spec'>result_spec</span><span class='op'>|</span>
+        <span class='id result_spec'>result_spec</span><span class='period'>.</span><span class='id platform'>platform</span> <span class='op'>==</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id platform'>platform</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id result'>result</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id spec'>spec</span>
+  <span class='kw'>end</span>
+
+  <span class='id result'>result</span><span class='period'>.</span><span class='id values'>values</span><span class='period'>.</span><span class='id flatten'>flatten</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load_gems_in-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>load_gems_in</strong>(*spec_dirs) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Reconstruct the source index from the specifications in <tt>spec_dirs</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 117</span>
+
+<span class='kw'>def</span> <span class='id load_gems_in'>load_gems_in</span><span class='lparen'>(</span><span class='op'>*</span><span class='id spec_dirs'>spec_dirs</span><span class='rparen'>)</span>
+  <span class='ivar'>@gems</span><span class='period'>.</span><span class='id clear'>clear</span>
+
+  <span class='id spec_dirs'>spec_dirs</span><span class='period'>.</span><span class='id reverse_each'>reverse_each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec_dir'>spec_dir</span><span class='op'>|</span>
+    <span class='id spec_files'>spec_files</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='lbracket'>[</span><span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='id spec_dir'>spec_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.gemspec</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbracket'>]</span>
+
+    <span class='id spec_files'>spec_files</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec_file'>spec_file</span><span class='op'>|</span>
+      <span class='id gemspec'>gemspec</span> <span class='op'>=</span> <span class='const'>Deprecate</span><span class='period'>.</span><span class='id skip_during'>skip_during</span> <span class='kw'>do</span>
+        <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id load'>load</span> <span class='id spec_file'>spec_file</span>
+      <span class='kw'>end</span>
+      <span class='id add_spec'>add_spec</span> <span class='id gemspec'>gemspec</span> <span class='kw'>if</span> <span class='id gemspec'>gemspec</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="outdated-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>outdated</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an Array of Gem::Specifications that are not up to date.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 328</span>
+
+<span class='kw'>def</span> <span class='id outdated'>outdated</span>
+  <span class='id outdateds'>outdateds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id latest_specs'>latest_specs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id local'>local</span><span class='op'>|</span>
+    <span class='id dependency'>dependency</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Dependency</span><span class='period'>.</span><span class='id new'>new</span> <span class='id local'>local</span><span class='period'>.</span><span class='id name'>name</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;= </span><span class='embexpr_beg'>#{</span><span class='id local'>local</span><span class='period'>.</span><span class='id version'>version</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='id fetcher'>fetcher</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>SpecFetcher</span><span class='period'>.</span><span class='id fetcher'>fetcher</span>
+    <span class='id remotes'>remotes</span> <span class='op'>=</span> <span class='id fetcher'>fetcher</span><span class='period'>.</span><span class='id find_matching'>find_matching</span> <span class='id dependency'>dependency</span>
+    <span class='id remotes'>remotes</span> <span class='op'>=</span> <span class='id remotes'>remotes</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id _'>_</span><span class='comma'>,</span> <span class='id version'>version</span><span class='comma'>,</span> <span class='id _'>_</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id _'>_</span><span class='op'>|</span> <span class='id version'>version</span> <span class='rbrace'>}</span>
+
+    <span class='id latest'>latest</span> <span class='op'>=</span> <span class='id remotes'>remotes</span><span class='period'>.</span><span class='id sort'>sort</span><span class='period'>.</span><span class='id last'>last</span>
+
+    <span class='id outdateds'>outdateds</span> <span class='op'>&lt;&lt;</span> <span class='id local'>local</span><span class='period'>.</span><span class='id name'>name</span> <span class='kw'>if</span> <span class='id latest'>latest</span> <span class='kw'>and</span> <span class='id local'>local</span><span class='period'>.</span><span class='id version'>version</span> <span class='op'>&lt;</span> <span class='id latest'>latest</span>
+  <span class='kw'>end</span>
+
+  <span class='id outdateds'>outdateds</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="prerelease_gems-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>prerelease_gems</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 106</span>
+
+<span class='kw'>def</span> <span class='id prerelease_gems'>prerelease_gems</span>
+  <span class='ivar'>@gems</span><span class='period'>.</span><span class='id reject'>reject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id gem'>gem</span><span class='op'>|</span> <span class='op'>!</span><span class='id gem'>gem</span><span class='period'>.</span><span class='id version'>version</span><span class='period'>.</span><span class='id prerelease?'>prerelease?</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="prerelease_specs-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>prerelease_specs</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>An array including only the prerelease gemspecs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172
+173
+174</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 172</span>
+
+<span class='kw'>def</span> <span class='id prerelease_specs'>prerelease_specs</span>
+  <span class='id prerelease_gems'>prerelease_gems</span><span class='period'>.</span><span class='id values'>values</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="refresh!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>refresh!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Replaces the gems in the source index from specifications in the
+directories this source index was created from.  Raises an exception if
+this source index wasn't created from a directory (via from_gems_in or
+from_installed_gems, or having spec_dirs set).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+320
+321
+322
+323</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 320</span>
+
+<span class='kw'>def</span> <span class='id refresh!'>refresh!</span>
+  <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>source index not created from disk</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='ivar'>@spec_dirs</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+  <span class='id load_gems_in'>load_gems_in</span><span class='lparen'>(</span><span class='op'>*</span><span class='ivar'>@spec_dirs</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="released_gems-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>released_gems</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='id released_gems'>released_gems</span>
+  <span class='ivar'>@gems</span><span class='period'>.</span><span class='id reject'>reject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id gem'>gem</span><span class='op'>|</span> <span class='id gem'>gem</span><span class='period'>.</span><span class='id version'>version</span><span class='period'>.</span><span class='id prerelease?'>prerelease?</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="released_specs-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>released_specs</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>An array including only the released gemspecs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179
+180
+181</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 179</span>
+
+<span class='kw'>def</span> <span class='id released_specs'>released_specs</span>
+  <span class='id released_gems'>released_gems</span><span class='period'>.</span><span class='id values'>values</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove_spec-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>remove_spec</strong>(full_name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Remove a gem specification named <tt>full_name</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+206
+207
+208</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 206</span>
+
+<span class='kw'>def</span> <span class='id remove_spec'>remove_spec</span><span class='lparen'>(</span><span class='id full_name'>full_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@gems</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='id full_name'>full_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="search-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>search</strong>(gem_pattern, platform_or_requirement = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Search for a gem by Gem::Dependency <tt>gem_pattern</tt>.  If
+<tt>only_platform</tt> is true, only gems matching Gem::Platform.local will
+be returned.  An Array of matching Gem::Specification objects is returned.</p>
+
+<p>For backwards compatibility, a String or Regexp pattern may be passed as
+<tt>gem_pattern</tt>, and a Gem::Requirement for <tt>platform_only</tt>. 
+This behavior is deprecated and will be removed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 268</span>
+
+<span class='kw'>def</span> <span class='id search'>search</span><span class='lparen'>(</span><span class='id gem_pattern'>gem_pattern</span><span class='comma'>,</span> <span class='id platform_or_requirement'>platform_or_requirement</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id requirement'>requirement</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id only_platform'>only_platform</span> <span class='op'>=</span> <span class='kw'>false</span> <span class='comment'># FIX: WTF is this?!?
+</span>
+  <span class='comment'># TODO - Remove support and warning for legacy arguments after 2008/11
+</span>  <span class='kw'>unless</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Dependency</span> <span class='op'>===</span> <span class='id gem_pattern'>gem_pattern</span>
+    <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Gem</span><span class='period'>.</span><span class='id location_of_caller'>location_of_caller</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_content'>:Warning: Gem::SourceIndex#search support for </span><span class='embexpr_beg'>#{</span><span class='id gem_pattern'>gem_pattern</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> patterns is deprecated, use #find_name</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>case</span> <span class='id gem_pattern'>gem_pattern</span>
+  <span class='kw'>when</span> <span class='const'>Regexp</span> <span class='kw'>then</span>
+    <span class='id requirement'>requirement</span> <span class='op'>=</span> <span class='id platform_or_requirement'>platform_or_requirement</span> <span class='op'>||</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Requirement</span><span class='period'>.</span><span class='id default'>default</span>
+  <span class='kw'>when</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Dependency</span> <span class='kw'>then</span>
+    <span class='id only_platform'>only_platform</span> <span class='op'>=</span> <span class='id platform_or_requirement'>platform_or_requirement</span>
+    <span class='id requirement'>requirement</span> <span class='op'>=</span> <span class='id gem_pattern'>gem_pattern</span><span class='period'>.</span><span class='id requirement'>requirement</span>
+
+    <span class='id gem_pattern'>gem_pattern</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='const'>Regexp</span> <span class='op'>===</span> <span class='id gem_pattern'>gem_pattern</span><span class='period'>.</span><span class='id name'>name</span> <span class='kw'>then</span>
+                    <span class='id gem_pattern'>gem_pattern</span><span class='period'>.</span><span class='id name'>name</span>
+                  <span class='kw'>elsif</span> <span class='id gem_pattern'>gem_pattern</span><span class='period'>.</span><span class='id name'>name</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='kw'>then</span>
+                    <span class='tstring'><span class='regexp_beg'>/</span><span class='regexp_end'>/</span></span>
+                  <span class='kw'>else</span>
+                    <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='const'>Regexp</span><span class='period'>.</span><span class='id escape'>escape</span> <span class='id gem_pattern'>gem_pattern</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='regexp_end'>/</span></span>
+                  <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id requirement'>requirement</span> <span class='op'>=</span> <span class='id platform_or_requirement'>platform_or_requirement</span> <span class='op'>||</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Requirement</span><span class='period'>.</span><span class='id default'>default</span>
+    <span class='id gem_pattern'>gem_pattern</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='embexpr_beg'>#{</span><span class='id gem_pattern'>gem_pattern</span><span class='rbrace'>}</span><span class='regexp_end'>/i</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Requirement</span> <span class='op'>===</span> <span class='id requirement'>requirement</span> <span class='kw'>then</span>
+    <span class='id requirement'>requirement</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Requirement</span><span class='period'>.</span><span class='id create'>create</span> <span class='id requirement'>requirement</span>
+  <span class='kw'>end</span>
+
+  <span class='id specs'>specs</span> <span class='op'>=</span> <span class='ivar'>@gems</span><span class='period'>.</span><span class='id values'>values</span><span class='period'>.</span><span class='id select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec'>spec</span><span class='op'>|</span>
+    <span class='id spec'>spec</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>=~</span> <span class='id gem_pattern'>gem_pattern</span> <span class='kw'>and</span>
+      <span class='id requirement'>requirement</span><span class='period'>.</span><span class='id satisfied_by?'>satisfied_by?</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id version'>version</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id only_platform'>only_platform</span> <span class='kw'>then</span>
+    <span class='id specs'>specs</span> <span class='op'>=</span> <span class='id specs'>specs</span><span class='period'>.</span><span class='id select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec'>spec</span><span class='op'>|</span>
+      <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='period'>.</span><span class='id match'>match</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id platform'>platform</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id specs'>specs</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='id s'>s</span><span class='period'>.</span><span class='id sort_obj'>sort_obj</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="size-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>size</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='length-instance_method'>length</span></span>
+    </span>
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+243
+244
+245</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 243</span>
+
+<span class='kw'>def</span> <span class='id size'>size</span>
+  <span class='ivar'>@gems</span><span class='period'>.</span><span class='id size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="specification-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>specification</strong>(full_name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The gem specification given a full gem spec name.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+220
+221
+222</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/source_index.rb', line 220</span>
+
+<span class='kw'>def</span> <span class='id specification'>specification</span><span class='lparen'>(</span><span class='id full_name'>full_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@gems</span><span class='lbracket'>[</span><span class='id full_name'>full_name</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:32 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

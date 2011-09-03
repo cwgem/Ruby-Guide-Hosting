@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: WeakRef
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (W)</a> &raquo; 
+    
+    
+    <span class="title">WeakRef</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: WeakRef
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Delegator.html" title="Delegator (class)">Delegator</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="Delegator.html" title="Delegator (class)">Delegator</a></span></li>
+          
+            <li class="next">WeakRef</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/weakref.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Weak Reference class that does allows a referenced object to be
+garbage-collected.  A WeakRef may be used exactly like the object it
+references.</p>
+
+<p>Usage:</p>
+
+<pre class="code"><span class='id foo'>foo</span> <span class='op'>=</span> <span class='const'>Object</span><span class='period'>.</span><span class='id new'>new</span>
+<span class='id foo'>foo</span> <span class='op'>=</span> <span class='const'>Object</span><span class='period'>.</span><span class='id new'>new</span>
+<span class='id p'>p</span> <span class='id foo'>foo</span><span class='period'>.</span><span class='id to_s'>to_s</span>                  <span class='comment'># original's class
+</span><span class='id foo'>foo</span> <span class='op'>=</span> <span class='const'>WeakRef</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id foo'>foo</span><span class='rparen'>)</span>
+<span class='id p'>p</span> <span class='id foo'>foo</span><span class='period'>.</span><span class='id to_s'>to_s</span>                  <span class='comment'># should be same class
+</span><span class='const'>ObjectSpace</span><span class='period'>.</span><span class='id garbage_collect'>garbage_collect</span>
+<span class='id p'>p</span> <span class='id foo'>foo</span><span class='period'>.</span><span class='id to_s'>to_s</span>                  <span class='comment'># should raise exception (recycled)</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="WeakRef/RefError.html" title="WeakRef::RefError (class)">RefError</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="id_map-classvariable" class="">@@id_map =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="id_rev_map-classvariable" class="">@@id_rev_map =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>obj -&gt; [ref,...] ref -&gt; obj</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="mutex-classvariable" class="">@@mutex =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Mutex</span><span class='period'>.</span><span class='id new'>new</span></pre></dd>
+      
+        <dt id="final-classvariable" class="">@@final =
+          
+        </dt>
+        <dd><pre class="code"><span class='id lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id id'>id</span><span class='op'>|</span>
+  <span class='cvar'>@@mutex</span><span class='period'>.</span><span class='id synchronize'>synchronize</span> <span class='lbrace'>{</span>
+    <span class='id rids'>rids</span> <span class='op'>=</span> <span class='cvar'>@@id_map</span><span class='lbracket'>[</span><span class='id id'>id</span><span class='rbracket'>]</span>
+    <span class='kw'>if</span> <span class='id rids'>rids</span>
+      <span class='kw'>for</span> <span class='id rid'>rid</span> <span class='kw'>in</span> <span class='id rids'>rids</span>
+        <span class='cvar'>@@id_rev_map</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id rid'>rid</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='cvar'>@@id_map</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id id'>id</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='id rid'>rid</span> <span class='op'>=</span> <span class='cvar'>@@id_rev_map</span><span class='lbracket'>[</span><span class='id id'>id</span><span class='rbracket'>]</span>
+    <span class='kw'>if</span> <span class='id rid'>rid</span>
+      <span class='cvar'>@@id_rev_map</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id id'>id</span><span class='rparen'>)</span>
+      <span class='cvar'>@@id_map</span><span class='lbracket'>[</span><span class='id rid'>rid</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id id'>id</span><span class='rparen'>)</span>
+      <span class='cvar'>@@id_map</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id rid'>rid</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='cvar'>@@id_map</span><span class='lbracket'>[</span><span class='id rid'>rid</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#__getobj__-instance_method" title="#__getobj__ (instance method)">- (Object) <strong>__getobj__</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#__setobj__-instance_method" title="#__setobj__ (instance method)">- (Object) <strong>__setobj__</strong>(obj) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (WeakRef) <strong>initialize</strong>(orig) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a weak reference to <tt>orig</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#weakref_alive%3F-instance_method" title="#weakref_alive? (instance method)">- (Boolean) <strong>weakref_alive?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the referenced object is still alive.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Delegator.html" title="Delegator (class)">Delegator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Delegator.html#%21-instance_method" title="Delegator#! (method)">#!</a></span>, <span class='object_link'><a href="Delegator.html#%21%3D-instance_method" title="Delegator#!= (method)">#!=</a></span>, <span class='object_link'><a href="Delegator.html#%3D%3D-instance_method" title="Delegator#== (method)">#==</a></span>, <span class='object_link'><a href="Delegator.html#const_missing-class_method" title="Delegator.const_missing (method)">const_missing</a></span>, <span class='object_link'><a href="Delegator.html#delegating_block-class_method" title="Delegator.delegating_block (method)">delegating_block</a></span>, <span class='object_link'><a href="Delegator.html#marshal_dump-instance_method" title="Delegator#marshal_dump (method)">#marshal_dump</a></span>, <span class='object_link'><a href="Delegator.html#marshal_load-instance_method" title="Delegator#marshal_load (method)">#marshal_load</a></span>, <span class='object_link'><a href="Delegator.html#method-instance_method" title="Delegator#method (method)">#method</a></span>, <span class='object_link'><a href="Delegator.html#method_missing-instance_method" title="Delegator#method_missing (method)">#method_missing</a></span>, <span class='object_link'><a href="Delegator.html#methods-instance_method" title="Delegator#methods (method)">#methods</a></span>, <span class='object_link'><a href="Delegator.html#protected_methods-instance_method" title="Delegator#protected_methods (method)">#protected_methods</a></span>, <span class='object_link'><a href="Delegator.html#public_api-class_method" title="Delegator.public_api (method)">public_api</a></span>, <span class='object_link'><a href="Delegator.html#public_methods-instance_method" title="Delegator#public_methods (method)">#public_methods</a></span>, <span class='object_link'><a href="Delegator.html#respond_to_missing%3F-instance_method" title="Delegator#respond_to_missing? (method)">#respond_to_missing?</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="WeakRef (class)">WeakRef</a></span></tt>) <strong>initialize</strong>(orig) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a weak reference to <tt>orig</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/weakref.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id orig'>orig</span><span class='rparen'>)</span>
+  <span class='ivar'>@__id</span> <span class='op'>=</span> <span class='id orig'>orig</span><span class='period'>.</span><span class='id object_id'>object_id</span>
+  <span class='const'>ObjectSpace</span><span class='period'>.</span><span class='id define_finalizer'>define_finalizer</span> <span class='id orig'>orig</span><span class='comma'>,</span> <span class='cvar'>@@final</span>
+  <span class='const'>ObjectSpace</span><span class='period'>.</span><span class='id define_finalizer'>define_finalizer</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='cvar'>@@final</span>
+  <span class='cvar'>@@mutex</span><span class='period'>.</span><span class='id synchronize'>synchronize</span> <span class='lbrace'>{</span>
+    <span class='cvar'>@@id_map</span><span class='lbracket'>[</span><span class='ivar'>@__id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='cvar'>@@id_map</span><span class='lbracket'>[</span><span class='ivar'>@__id</span><span class='rbracket'>]</span>
+  <span class='rbrace'>}</span>
+  <span class='cvar'>@@id_map</span><span class='lbracket'>[</span><span class='ivar'>@__id</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id push'>push</span> <span class='kw'>self</span><span class='period'>.</span><span class='id object_id'>object_id</span>
+  <span class='cvar'>@@id_rev_map</span><span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@__id</span>
+  <span class='kw'>super</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice super">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+      in the class <span class='object_link'><a href="Delegator.html#method_missing-instance_method" title="Delegator#method_missing (method)">Delegator</a></span>
+    
+  </p>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="__getobj__-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>__getobj__</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/weakref.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id __getobj__'>__getobj__</span> <span class='comment'># :nodoc:
+</span>  <span class='kw'>unless</span> <span class='cvar'>@@id_rev_map</span><span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='ivar'>@__id</span>
+    <span class='const'>Kernel</span><span class='op'>::</span><span class='id raise'>raise</span> <span class='const'>RefError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid Reference - probably recycled</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Kernel</span><span class='op'>::</span><span class='id caller'>caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>begin</span>
+    <span class='const'>ObjectSpace</span><span class='period'>.</span><span class='id _id2ref'>_id2ref</span><span class='lparen'>(</span><span class='ivar'>@__id</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>RangeError</span>
+    <span class='const'>Kernel</span><span class='op'>::</span><span class='id raise'>raise</span> <span class='const'>RefError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid Reference - probably recycled</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Kernel</span><span class='op'>::</span><span class='id caller'>caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="__setobj__-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>__setobj__</strong>(obj) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/weakref.rb', line 74</span>
+
+<span class='kw'>def</span> <span class='id __setobj__'>__setobj__</span><span class='lparen'>(</span><span class='id obj'>obj</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="weakref_alive?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>weakref_alive?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if the referenced object is still alive.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/weakref.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id weakref_alive?'>weakref_alive?</span>
+  <span class='cvar'>@@id_rev_map</span><span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='ivar'>@__id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:21 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

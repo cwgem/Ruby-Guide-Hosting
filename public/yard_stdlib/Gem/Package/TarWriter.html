@@ -1,0 +1,1049 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Gem::Package::TarWriter
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Gem.html" title="Gem (module)">Gem</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Package.html" title="Gem::Package (module)">Package</a></span></span>
+     &raquo; 
+    <span class="title">TarWriter</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Gem::Package::TarWriter
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Gem::Package::TarWriter</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rubygems/package/tar_writer.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Allows writing of tar files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="TarWriter/BoundedStream.html" title="Gem::Package::TarWriter::BoundedStream (class)">BoundedStream</a></span>, <span class='object_link'><a href="TarWriter/FileOverflow.html" title="Gem::Package::TarWriter::FileOverflow (class)">FileOverflow</a></span>, <span class='object_link'><a href="TarWriter/RestrictedStream.html" title="Gem::Package::TarWriter::RestrictedStream (class)">RestrictedStream</a></span>
+    
+  
+</p>
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new-class_method" title="new (class method)">+ (Object) <strong>new</strong>(io) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new TarWriter, yielding it if a block is given.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_file-instance_method" title="#add_file (instance method)">- (Object) <strong>add_file</strong>(name, mode) {|RestrictedStream.new(@io)| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds file <tt>name</tt> with permissions <tt>mode</tt>, and yields an IO
+for writing the file to.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_file_simple-instance_method" title="#add_file_simple (instance method)">- (Object) <strong>add_file_simple</strong>(name, mode, size) {|os| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add file <tt>name</tt> with permissions <tt>mode</tt> <tt>size</tt> bytes
+long.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check_closed-instance_method" title="#check_closed (instance method)">- (Object) <strong>check_closed</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Raises IOError if the TarWriter is closed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close-instance_method" title="#close (instance method)">- (Object) <strong>close</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Closes the TarWriter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#closed%3F-instance_method" title="#closed? (instance method)">- (Boolean) <strong>closed?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Is the TarWriter closed?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flush-instance_method" title="#flush (instance method)">- (Object) <strong>flush</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Flushes the TarWriter's IO.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (TarWriter) <strong>initialize</strong>(io) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new TarWriter that will write to <tt>io</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mkdir-instance_method" title="#mkdir (instance method)">- (Object) <strong>mkdir</strong>(name, mode) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new directory in the tar file <tt>name</tt> with <tt>mode</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#split_name-instance_method" title="#split_name (instance method)">- (Object) <strong>split_name</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Splits <tt>name</tt> into a name and prefix that can fit in the TarHeader.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Gem::Package::TarWriter (class)">TarWriter</a></span></tt>) <strong>initialize</strong>(io) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new TarWriter that will write to <tt>io</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id io'>io</span><span class='rparen'>)</span>
+  <span class='ivar'>@io</span> <span class='op'>=</span> <span class='id io'>io</span>
+  <span class='ivar'>@closed</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="new-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>new</strong>(io) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new TarWriter, yielding it if a block is given</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id io'>io</span><span class='rparen'>)</span>
+  <span class='id writer'>writer</span> <span class='op'>=</span> <span class='kw'>super</span>
+
+  <span class='kw'>return</span> <span class='id writer'>writer</span> <span class='kw'>unless</span> <span class='id block_given?'>block_given?</span>
+
+  <span class='kw'>begin</span>
+    <span class='kw'>yield</span> <span class='id writer'>writer</span>
+  <span class='kw'>ensure</span>
+    <span class='id writer'>writer</span><span class='period'>.</span><span class='id close'>close</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_file-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_file</strong>(name, mode) {|RestrictedStream.new(@io)| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds file <tt>name</tt> with permissions <tt>mode</tt>, and yields an IO
+for writing the file to</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TarWriter/RestrictedStream.html" title="Gem::Package::TarWriter::RestrictedStream (class)">RestrictedStream</a></span>.<span class='object_link'><a href="#new-class_method" title="Gem::Package::TarWriter.new (method)">new</a></span>(@io)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="NonSeekableIO.html" title="Gem::Package::NonSeekableIO (class)">Gem::Package::NonSeekableIO</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id add_file'>add_file</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id mode'>mode</span><span class='rparen'>)</span> <span class='comment'># :yields: io
+</span>  <span class='id check_closed'>check_closed</span>
+
+  <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Package</span><span class='op'>::</span><span class='const'>NonSeekableIO</span> <span class='kw'>unless</span> <span class='ivar'>@io</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span> <span class='symbol'>:pos=</span>
+
+  <span class='id name'>name</span><span class='comma'>,</span> <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='id split_name'>split_name</span> <span class='id name'>name</span>
+
+  <span class='id init_pos'>init_pos</span> <span class='op'>=</span> <span class='ivar'>@io</span><span class='period'>.</span><span class='id pos'>pos</span>
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id write'>write</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\0</span><span class='tstring_end'>&quot;</span></span> <span class='op'>*</span> <span class='int'>512</span> <span class='comment'># placeholder for the header
+</span>
+  <span class='kw'>yield</span> <span class='const'>RestrictedStream</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@io</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+
+  <span class='id size'>size</span> <span class='op'>=</span> <span class='ivar'>@io</span><span class='period'>.</span><span class='id pos'>pos</span> <span class='op'>-</span> <span class='id init_pos'>init_pos</span> <span class='op'>-</span> <span class='int'>512</span>
+
+  <span class='id remainder'>remainder</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>512</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='id size'>size</span> <span class='op'>%</span> <span class='int'>512</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>%</span> <span class='int'>512</span>
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id write'>write</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\0</span><span class='tstring_end'>&quot;</span></span> <span class='op'>*</span> <span class='id remainder'>remainder</span>
+
+  <span class='id final_pos'>final_pos</span> <span class='op'>=</span> <span class='ivar'>@io</span><span class='period'>.</span><span class='id pos'>pos</span>
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id pos'>pos</span> <span class='op'>=</span> <span class='id init_pos'>init_pos</span>
+
+  <span class='id header'>header</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Package</span><span class='op'>::</span><span class='const'>TarHeader</span><span class='period'>.</span><span class='id new'>new</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='symbol'>:mode</span> <span class='op'>=&gt;</span> <span class='id mode'>mode</span><span class='comma'>,</span>
+                                       <span class='symbol'>:size</span> <span class='op'>=&gt;</span> <span class='id size'>size</span><span class='comma'>,</span> <span class='symbol'>:prefix</span> <span class='op'>=&gt;</span> <span class='id prefix'>prefix</span>
+
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id write'>write</span> <span class='id header'>header</span>
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id pos'>pos</span> <span class='op'>=</span> <span class='id final_pos'>final_pos</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add_file_simple-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_file_simple</strong>(name, mode, size) {|os| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Add file <tt>name</tt> with permissions <tt>mode</tt> <tt>size</tt> bytes
+long.  Yields an IO to write the file to.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>os</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id add_file_simple'>add_file_simple</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id mode'>mode</span><span class='comma'>,</span> <span class='id size'>size</span><span class='rparen'>)</span> <span class='comment'># :yields: io
+</span>  <span class='id check_closed'>check_closed</span>
+
+  <span class='id name'>name</span><span class='comma'>,</span> <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='id split_name'>split_name</span> <span class='id name'>name</span>
+
+  <span class='id header'>header</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Package</span><span class='op'>::</span><span class='const'>TarHeader</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='symbol'>:mode</span> <span class='op'>=&gt;</span> <span class='id mode'>mode</span><span class='comma'>,</span>
+                                       <span class='symbol'>:size</span> <span class='op'>=&gt;</span> <span class='id size'>size</span><span class='comma'>,</span> <span class='symbol'>:prefix</span> <span class='op'>=&gt;</span> <span class='id prefix'>prefix</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id write'>write</span> <span class='id header'>header</span>
+  <span class='id os'>os</span> <span class='op'>=</span> <span class='const'>BoundedStream</span><span class='period'>.</span><span class='id new'>new</span> <span class='ivar'>@io</span><span class='comma'>,</span> <span class='id size'>size</span>
+
+  <span class='kw'>yield</span> <span class='id os'>os</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+
+  <span class='id min_padding'>min_padding</span> <span class='op'>=</span> <span class='id size'>size</span> <span class='op'>-</span> <span class='id os'>os</span><span class='period'>.</span><span class='id written'>written</span>
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\0</span><span class='tstring_end'>&quot;</span></span> <span class='op'>*</span> <span class='id min_padding'>min_padding</span><span class='rparen'>)</span>
+
+  <span class='id remainder'>remainder</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>512</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='id size'>size</span> <span class='op'>%</span> <span class='int'>512</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>%</span> <span class='int'>512</span>
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\0</span><span class='tstring_end'>&quot;</span></span> <span class='op'>*</span> <span class='id remainder'>remainder</span><span class='rparen'>)</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="check_closed-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>check_closed</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Raises IOError if the TarWriter is closed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>IOError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161
+162
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 161</span>
+
+<span class='kw'>def</span> <span class='id check_closed'>check_closed</span>
+  <span class='id raise'>raise</span> <span class='const'>IOError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>closed </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id closed?'>closed?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="close-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>close</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Closes the TarWriter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+168
+169
+170
+171
+172
+173
+174
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 168</span>
+
+<span class='kw'>def</span> <span class='id close'>close</span>
+  <span class='id check_closed'>check_closed</span>
+
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id write'>write</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\0</span><span class='tstring_end'>&quot;</span></span> <span class='op'>*</span> <span class='int'>1024</span>
+  <span class='id flush'>flush</span>
+
+  <span class='ivar'>@closed</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="closed?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>closed?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Is the TarWriter closed?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 180</span>
+
+<span class='kw'>def</span> <span class='id closed?'>closed?</span>
+  <span class='ivar'>@closed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="flush-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>flush</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Flushes the TarWriter's IO</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187
+188
+189
+190
+191</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 187</span>
+
+<span class='kw'>def</span> <span class='id flush'>flush</span>
+  <span class='id check_closed'>check_closed</span>
+
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id flush'>flush</span> <span class='kw'>if</span> <span class='ivar'>@io</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span> <span class='symbol'>:flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mkdir-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>mkdir</strong>(name, mode) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new directory in the tar file <tt>name</tt> with <tt>mode</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 196</span>
+
+<span class='kw'>def</span> <span class='id mkdir'>mkdir</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id mode'>mode</span><span class='rparen'>)</span>
+  <span class='id check_closed'>check_closed</span>
+
+  <span class='id name'>name</span><span class='comma'>,</span> <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='id split_name'>split_name</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+
+  <span class='id header'>header</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Package</span><span class='op'>::</span><span class='const'>TarHeader</span><span class='period'>.</span><span class='id new'>new</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='symbol'>:mode</span> <span class='op'>=&gt;</span> <span class='id mode'>mode</span><span class='comma'>,</span>
+                                       <span class='symbol'>:typeflag</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>5</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:size</span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
+                                       <span class='symbol'>:prefix</span> <span class='op'>=&gt;</span> <span class='id prefix'>prefix</span>
+
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id write'>write</span> <span class='id header'>header</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="split_name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>split_name</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Splits <tt>name</tt> into a name and prefix that can fit in the TarHeader</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TooLongFileName.html" title="Gem::Package::TooLongFileName (class)">Gem::Package::TooLongFileName</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/package/tar_writer.rb', line 213</span>
+
+<span class='kw'>def</span> <span class='id split_name'>split_name</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Package</span><span class='op'>::</span><span class='const'>TooLongFileName</span> <span class='kw'>if</span> <span class='id name'>name</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>256</span>
+
+  <span class='kw'>if</span> <span class='id name'>name</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&lt;=</span> <span class='int'>100</span> <span class='kw'>then</span>
+    <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id parts'>parts</span> <span class='op'>=</span> <span class='id name'>name</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\/</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+    <span class='id newname'>newname</span> <span class='op'>=</span> <span class='id parts'>parts</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='id nxt'>nxt</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='id loop'>loop</span> <span class='kw'>do</span>
+      <span class='id nxt'>nxt</span> <span class='op'>=</span> <span class='id parts'>parts</span><span class='period'>.</span><span class='id pop'>pop</span>
+      <span class='kw'>break</span> <span class='kw'>if</span> <span class='id newname'>newname</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>+</span> <span class='int'>1</span> <span class='op'>+</span> <span class='id nxt'>nxt</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>100</span>
+      <span class='id newname'>newname</span> <span class='op'>=</span> <span class='id nxt'>nxt</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id newname'>newname</span>
+    <span class='kw'>end</span>
+
+    <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id parts'>parts</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id nxt'>nxt</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id name'>name</span> <span class='op'>=</span> <span class='id newname'>newname</span>
+
+    <span class='kw'>if</span> <span class='id name'>name</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>100</span> <span class='kw'>or</span> <span class='id prefix'>prefix</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>155</span> <span class='kw'>then</span>
+      <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Package</span><span class='op'>::</span><span class='const'>TooLongFileName</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id prefix'>prefix</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:44 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

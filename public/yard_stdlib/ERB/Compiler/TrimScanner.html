@@ -1,0 +1,902 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: ERB::Compiler::TrimScanner
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../ERB.html" title="ERB (class)">ERB</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Compiler.html" title="ERB::Compiler (class)">Compiler</a></span></span>
+     &raquo; 
+    <span class="title">TrimScanner</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: ERB::Compiler::TrimScanner
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Scanner.html" title="ERB::Compiler::Scanner (class)">Scanner</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="Scanner.html" title="ERB::Compiler::Scanner (class)">Scanner</a></span></li>
+          
+            <li class="next">ERB::Compiler::TrimScanner</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/erb.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="ERB_STAG-constant" class="">ERB_STAG =
+          
+        </dt>
+        <dd><pre class="code">[0] == ?%
+    @scan_line.call(line, &amp;block)
+  else
+    yield(PercentLine.new(line.chomp))
+  end
+end
+
+def scan_line(line)
+  line.scan(/(.*?)(&lt;%%|%%&gt;|&lt;%=|&lt;%#|&lt;%|%&gt;|\n|\z)/m) do |tokens|
+    tokens.each do |token|
+      next if token.empty?
+      yield(token)
+    end
+  end
+end
+
+def trim_line1(line)
+  line.scan(/(.*?)(&lt;%%|%%&gt;|&lt;%=|&lt;%#|&lt;%|%&gt;\n|%&gt;|\n|\z)/m) do |tokens|
+    tokens.each do |token|
+      next if token.empty?
+      if token == &quot;%&gt;\n&quot;
+        yield('%&gt;')
+        yield(:cr)
+      else
+        yield(token)
+      end
+    end
+  end
+end
+
+def trim_line2(line)
+  head = nil
+  line.scan(/(.*?)(&lt;%%|%%&gt;|&lt;%=|&lt;%#|&lt;%|%&gt;\n|%&gt;|\n|\z)/m) do |tokens|
+    tokens.each do |token|
+      next if token.empty?
+      head = token unless head
+      if token == &quot;%&gt;\n&quot;
+        yield('%&gt;')
+        if is_erb_stag?(head)
+          yield(:cr)
+        else
+          yield(&quot;\n&quot;)
+        end
+        head = nil
+      else
+        yield(token)
+        head = nil if token == &quot;\n&quot;
+      end
+    end
+  end
+end
+
+def explicit_trim_line(line)
+  line.scan(/(.*?)(^[ \t]*&lt;%\-|&lt;%\-|&lt;%%|%%&gt;|&lt;%=|&lt;%#|&lt;%|-%&gt;\n|-%&gt;|%&gt;|\z)/m) do |tokens|
+    tokens.each do |token|
+      next if token.empty?
+      if @stag.nil? &amp;&amp; /[ \t]*&lt;%-/ =~ token
+        yield('&lt;%')
+      elsif @stag &amp;&amp; token == &quot;-%&gt;\n&quot;
+        yield('%&gt;')
+        yield(:cr)
+      elsif @stag &amp;&amp; token == '-%&gt;'
+        yield('%&gt;')
+      else
+        yield(token)
+      end
+    end
+  end
+end
+
+ERB_STAG = %w(&lt;%= &lt;%# &lt;%)</pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stag-instance_method" title="#stag (instance method)">- (Object) <strong>stag</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute stag.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Scanner.html" title="ERB::Compiler::Scanner (class)">Scanner</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Scanner.html#stag-instance_method" title="ERB::Compiler::Scanner#stag (method)">stag</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#explicit_trim_line-instance_method" title="#explicit_trim_line (instance method)">- (Object) <strong>explicit_trim_line</strong>(line) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (TrimScanner) <strong>initialize</strong>(src, trim_mode, percent) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of TrimScanner.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_erb_stag%3F-instance_method" title="#is_erb_stag? (instance method)">- (Boolean) <strong>is_erb_stag?</strong>(s) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#percent_line-instance_method" title="#percent_line (instance method)">- (Object) <strong>percent_line</strong>(line, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scan-instance_method" title="#scan (instance method)">- (Object) <strong>scan</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scan_line-instance_method" title="#scan_line (instance method)">- (Object) <strong>scan_line</strong>(line) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trim_line1-instance_method" title="#trim_line1 (instance method)">- (Object) <strong>trim_line1</strong>(line) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trim_line2-instance_method" title="#trim_line2 (instance method)">- (Object) <strong>trim_line2</strong>(line) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Scanner.html" title="ERB::Compiler::Scanner (class)">Scanner</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Scanner.html#default_scanner%3D-class_method" title="ERB::Compiler::Scanner.default_scanner= (method)">default_scanner=</a></span>, <span class='object_link'><a href="Scanner.html#make_scanner-class_method" title="ERB::Compiler::Scanner.make_scanner (method)">make_scanner</a></span>, <span class='object_link'><a href="Scanner.html#regist_scanner-class_method" title="ERB::Compiler::Scanner.regist_scanner (method)">regist_scanner</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="ERB::Compiler::TrimScanner (class)">TrimScanner</a></span></tt>) <strong>initialize</strong>(src, trim_mode, percent) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of TrimScanner</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 376</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id src'>src</span><span class='comma'>,</span> <span class='id trim_mode'>trim_mode</span><span class='comma'>,</span> <span class='id percent'>percent</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
+  <span class='ivar'>@trim_mode</span> <span class='op'>=</span> <span class='id trim_mode'>trim_mode</span>
+  <span class='ivar'>@percent</span> <span class='op'>=</span> <span class='id percent'>percent</span>
+  <span class='kw'>if</span> <span class='ivar'>@trim_mode</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>'</span></span>
+    <span class='ivar'>@scan_line</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id method'>method</span><span class='lparen'>(</span><span class='symbol'>:trim_line1</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='ivar'>@trim_mode</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;&gt;</span><span class='tstring_end'>'</span></span>
+    <span class='ivar'>@scan_line</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id method'>method</span><span class='lparen'>(</span><span class='symbol'>:trim_line2</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='ivar'>@trim_mode</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-</span><span class='tstring_end'>'</span></span>
+    <span class='ivar'>@scan_line</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id method'>method</span><span class='lparen'>(</span><span class='symbol'>:explicit_trim_line</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@scan_line</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id method'>method</span><span class='lparen'>(</span><span class='symbol'>:scan_line</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="stag=-instance_method"></span>
+      <span id="stag-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="stag-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>stag</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute stag</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+390
+391
+392</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 390</span>
+
+<span class='kw'>def</span> <span class='id stag'>stag</span>
+  <span class='ivar'>@stag</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="explicit_trim_line-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>explicit_trim_line</strong>(line) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 462</span>
+
+<span class='kw'>def</span> <span class='id explicit_trim_line'>explicit_trim_line</span><span class='lparen'>(</span><span class='id line'>line</span><span class='rparen'>)</span>
+  <span class='id line'>line</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.*?)(^[ \t]*&lt;%\-|&lt;%\-|&lt;%%|%%&gt;|&lt;%=|&lt;%#|&lt;%|-%&gt;\n|-%&gt;|%&gt;|\z)</span><span class='regexp_end'>/m</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id tokens'>tokens</span><span class='op'>|</span>
+    <span class='id tokens'>tokens</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id token'>token</span><span class='op'>|</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id token'>token</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+      <span class='kw'>if</span> <span class='ivar'>@stag</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[ \t]*&lt;%-</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id token'>token</span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;%</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='kw'>elsif</span> <span class='ivar'>@stag</span> <span class='op'>&amp;&amp;</span> <span class='id token'>token</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-%&gt;\n</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='symbol'>:cr</span><span class='rparen'>)</span>
+      <span class='kw'>elsif</span> <span class='ivar'>@stag</span> <span class='op'>&amp;&amp;</span> <span class='id token'>token</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-%&gt;</span><span class='tstring_end'>'</span></span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='id token'>token</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="is_erb_stag?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>is_erb_stag?</strong>(s) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+481
+482
+483</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 481</span>
+
+<span class='kw'>def</span> <span class='id is_erb_stag?'>is_erb_stag?</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span>
+  <span class='const'>ERB_STAG</span><span class='period'>.</span><span class='id member?'>member?</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="percent_line-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>percent_line</strong>(line, &amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 404</span>
+
+<span class='kw'>def</span> <span class='id percent_line'>percent_line</span><span class='lparen'>(</span><span class='id line'>line</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@stag</span> <span class='op'>||</span> <span class='id line'>line</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='CHAR'>?%</span>
+    <span class='kw'>return</span> <span class='ivar'>@scan_line</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id line'>line</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id line'>line</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='id line'>line</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?%</span>
+    <span class='ivar'>@scan_line</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id line'>line</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>yield</span><span class='lparen'>(</span><span class='const'>PercentLine</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id line'>line</span><span class='period'>.</span><span class='id chomp'>chomp</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="scan-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>scan</strong>(&amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 392</span>
+
+<span class='kw'>def</span> <span class='id scan'>scan</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@stag</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>if</span> <span class='ivar'>@percent</span>
+    <span class='ivar'>@src</span><span class='period'>.</span><span class='id each_line'>each_line</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+      <span class='id percent_line'>percent_line</span><span class='lparen'>(</span><span class='id line'>line</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@scan_line</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='ivar'>@src</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="scan_line-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>scan_line</strong>(line) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+417
+418
+419
+420
+421
+422
+423
+424</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 417</span>
+
+<span class='kw'>def</span> <span class='id scan_line'>scan_line</span><span class='lparen'>(</span><span class='id line'>line</span><span class='rparen'>)</span>
+  <span class='id line'>line</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.*?)(&lt;%%|%%&gt;|&lt;%=|&lt;%#|&lt;%|%&gt;|\n|\z)</span><span class='regexp_end'>/m</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id tokens'>tokens</span><span class='op'>|</span>
+    <span class='id tokens'>tokens</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id token'>token</span><span class='op'>|</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id token'>token</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+      <span class='kw'>yield</span><span class='lparen'>(</span><span class='id token'>token</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="trim_line1-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>trim_line1</strong>(line) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 426</span>
+
+<span class='kw'>def</span> <span class='id trim_line1'>trim_line1</span><span class='lparen'>(</span><span class='id line'>line</span><span class='rparen'>)</span>
+  <span class='id line'>line</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.*?)(&lt;%%|%%&gt;|&lt;%=|&lt;%#|&lt;%|%&gt;\n|%&gt;|\n|\z)</span><span class='regexp_end'>/m</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id tokens'>tokens</span><span class='op'>|</span>
+    <span class='id tokens'>tokens</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id token'>token</span><span class='op'>|</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id token'>token</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+      <span class='kw'>if</span> <span class='id token'>token</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%&gt;\n</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='symbol'>:cr</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='id token'>token</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="trim_line2-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>trim_line2</strong>(line) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 440</span>
+
+<span class='kw'>def</span> <span class='id trim_line2'>trim_line2</span><span class='lparen'>(</span><span class='id line'>line</span><span class='rparen'>)</span>
+  <span class='id head'>head</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id line'>line</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.*?)(&lt;%%|%%&gt;|&lt;%=|&lt;%#|&lt;%|%&gt;\n|%&gt;|\n|\z)</span><span class='regexp_end'>/m</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id tokens'>tokens</span><span class='op'>|</span>
+    <span class='id tokens'>tokens</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id token'>token</span><span class='op'>|</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id token'>token</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+      <span class='id head'>head</span> <span class='op'>=</span> <span class='id token'>token</span> <span class='kw'>unless</span> <span class='id head'>head</span>
+      <span class='kw'>if</span> <span class='id token'>token</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%&gt;\n</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id is_erb_stag?'>is_erb_stag?</span><span class='lparen'>(</span><span class='id head'>head</span><span class='rparen'>)</span>
+          <span class='kw'>yield</span><span class='lparen'>(</span><span class='symbol'>:cr</span><span class='rparen'>)</span>
+        <span class='kw'>else</span>
+          <span class='kw'>yield</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+        <span class='id head'>head</span> <span class='op'>=</span> <span class='kw'>nil</span>
+      <span class='kw'>else</span>
+        <span class='kw'>yield</span><span class='lparen'>(</span><span class='id token'>token</span><span class='rparen'>)</span>
+        <span class='id head'>head</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id token'>token</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:09:56 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

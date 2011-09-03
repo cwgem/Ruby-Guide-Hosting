@@ -1,0 +1,1728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: URI::Parser
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (P)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../URI.html" title="URI (module)">URI</a></span></span>
+     &raquo; 
+    <span class="title">Parser</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: URI::Parser
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">URI::Parser</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="REGEXP.html" title="URI::REGEXP (module)">REGEXP</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/uri/common.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>class that Parses String's into URI's</p>
+
+<p>It contains a Hash set of patterns and Regexp's that match and validate.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="to_s-classvariable" class="">@@to_s =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Kernel</span><span class='period'>.</span><span class='id instance_method'>instance_method</span><span class='lparen'>(</span><span class='symbol'>:to_s</span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pattern-instance_method" title="#pattern (instance method)">- (Object) <strong>pattern</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The Hash of patterns.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#regexp-instance_method" title="#regexp (instance method)">- (Object) <strong>regexp</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The Hash of Regexp.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert_to_uri-instance_method" title="#convert_to_uri (instance method)">- (Object) <strong>convert_to_uri</strong>(uri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escape-instance_method" title="#escape (instance method)">- (Object) <strong>escape</strong>(str, unsafe = @regexp[:UNSAFE]) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extract-instance_method" title="#extract (instance method)">- (Object) <strong>extract</strong>(str, schemes = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Parser) <strong>initialize</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Synopsis.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize_pattern-instance_method" title="#initialize_pattern (instance method)">- (Object) <strong>initialize_pattern</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs the default Hash of patterns.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize_regexp-instance_method" title="#initialize_regexp (instance method)">- (Object) <strong>initialize_regexp</strong>(pattern) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs the default Hash of Regexp's.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#join-instance_method" title="#join (instance method)">- (Object) <strong>join</strong>(*uris) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#make_regexp-instance_method" title="#make_regexp (instance method)">- (Object) <strong>make_regexp</strong>(schemes = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns Regexp that is default self.regexp[:ABS_URI_REF], unless
+<tt>schemes</tt> is provided.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse-instance_method" title="#parse (instance method)">- (Object) <strong>parse</strong>(uri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#split-instance_method" title="#split (instance method)">- (Object) <strong>split</strong>(uri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a split URI against regexp[:ABS_URI].</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unescape-instance_method" title="#unescape (instance method)">- (Object) <strong>unescape</strong>(str, escaped = @regexp[:ESCAPED]) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="URI::Parser (class)">Parser</a></span></tt>) <strong>initialize</strong>(opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Synopsis</h2>
+
+<pre class="code"><span class='const'>URI</span><span class='op'>::</span><span class='const'>Parser</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id opts'>opts</span><span class='rbracket'>]</span><span class='rparen'>)</span></pre>
+
+<h2>Args</h2>
+
+<p>The constructor accepts a hash as options for parser. Keys of options are
+pattern names of URI components and values of options are pattern strings.
+The constructor generetes set of regexps for parsing URIs.</p>
+
+<p>You can use the following keys:</p>
+
+<pre class="code">* &lt;tt&gt;:ESCAPED&lt;/tt&gt; (URI::PATTERN::ESCAPED in default)
+* &lt;tt&gt;:UNRESERVED&lt;/tt&gt; (URI::PATTERN::UNRESERVED in default)
+* &lt;tt&gt;:DOMLABEL&lt;/tt&gt; (URI::PATTERN::DOMLABEL in default)
+* &lt;tt&gt;:TOPLABEL&lt;/tt&gt; (URI::PATTERN::TOPLABEL in default)
+* &lt;tt&gt;:HOSTNAME&lt;/tt&gt; (URI::PATTERN::HOSTNAME in default)</pre>
+
+<h2>Examples</h2>
+
+<pre class="code">p = URI::Parser.new(:ESCPAED =&gt; &quot;(?:%[a-fA-F0-9]{2}|%u[a-fA-F0-9]{4})&quot;
+u = p.parse(&quot;http://example.jp/%uABCD&quot;) #=&gt; #&lt;URI::HTTP:0xb78cf4f8 URL:http://example.jp/%uABCD&gt;
+URI.parse(u.to_s) #=&gt; raises URI::InvalidURIError
+
+s = &quot;http://examle.com/ABCD&quot;
+u1 = p.parse(s) #=&gt; #&lt;URI::HTTP:0xb78c3220 URL:http://example.com/ABCD&gt;
+u2 = URI.parse(s) #=&gt; #&lt;URI::HTTP:0xb78b6d54 URL:http://example.com/ABCD&gt;
+u1 == u2 #=&gt; true
+u1.eql?(u2) #=&gt; false</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101
+102
+103
+104
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 99</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@pattern</span> <span class='op'>=</span> <span class='id initialize_pattern'>initialize_pattern</span><span class='lparen'>(</span><span class='id opts'>opts</span><span class='rparen'>)</span>
+  <span class='ivar'>@pattern</span><span class='period'>.</span><span class='id each_value'>each_value</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id v'>v</span><span class='period'>.</span><span class='id freeze'>freeze</span><span class='rbrace'>}</span>
+  <span class='ivar'>@pattern</span><span class='period'>.</span><span class='id freeze'>freeze</span>
+
+  <span class='ivar'>@regexp</span> <span class='op'>=</span> <span class='id initialize_regexp'>initialize_regexp</span><span class='lparen'>(</span><span class='ivar'>@pattern</span><span class='rparen'>)</span>
+  <span class='ivar'>@regexp</span><span class='period'>.</span><span class='id each_value'>each_value</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id v'>v</span><span class='period'>.</span><span class='id freeze'>freeze</span><span class='rbrace'>}</span>
+  <span class='ivar'>@regexp</span><span class='period'>.</span><span class='id freeze'>freeze</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="pattern-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="pattern-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>pattern</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The Hash of patterns.</p>
+
+<p>see also URI::Parser.initialize_pattern</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id pattern'>pattern</span>
+  <span class='ivar'>@pattern</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="regexp-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="regexp-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>regexp</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The Hash of Regexp</p>
+
+<p>see also URI::Parser.initialize_regexp</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 117</span>
+
+<span class='kw'>def</span> <span class='id regexp'>regexp</span>
+  <span class='ivar'>@regexp</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="convert_to_uri-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>convert_to_uri</strong>(uri) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 531</span>
+
+<span class='kw'>def</span> <span class='id convert_to_uri'>convert_to_uri</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>URI</span><span class='op'>::</span><span class='const'>Generic</span><span class='rparen'>)</span>
+    <span class='id uri'>uri</span>
+  <span class='kw'>elsif</span> <span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>String</span><span class='period'>.</span><span class='id try_convert'>try_convert</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+    <span class='id parse'>parse</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad argument (expected URI object or URI string)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="escape-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>escape</strong>(str, unsafe = @regexp[:UNSAFE]) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:call-seq:</p>
+
+<pre class="code"><span class='id escape'>escape</span><span class='lparen'>(</span> <span class='id str'>str</span> <span class='rparen'>)</span>
+<span class='id escape'>escape</span><span class='lparen'>(</span> <span class='id str'>str</span><span class='comma'>,</span> <span class='id unsafe'>unsafe</span> <span class='rparen'>)</span></pre>
+
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>str</tt></p></td>
+<td>
+<p>String to make safe</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>unsafe</tt></p></td>
+<td>
+<p>Regexp to apply. Defaults to self.regexp[:UNSAFE]</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>constructs a safe String from <tt>str</tt>, removing unsafe characters,
+replacing them with codes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 299</span>
+
+<span class='kw'>def</span> <span class='id escape'>escape</span><span class='lparen'>(</span><span class='id str'>str</span><span class='comma'>,</span> <span class='id unsafe'>unsafe</span> <span class='op'>=</span> <span class='ivar'>@regexp</span><span class='lbracket'>[</span><span class='symbol'>:UNSAFE</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id unsafe'>unsafe</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Regexp</span><span class='rparen'>)</span>
+    <span class='comment'># perhaps unsafe is String object
+</span>    <span class='id unsafe'>unsafe</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='embexpr_beg'>#{</span><span class='const'>Regexp</span><span class='period'>.</span><span class='id quote'>quote</span><span class='lparen'>(</span><span class='id unsafe'>unsafe</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id str'>str</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='id unsafe'>unsafe</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id us'>us</span> <span class='op'>=</span> <span class='backref'>$&amp;</span>
+    <span class='id tmp'>tmp</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+    <span class='id us'>us</span><span class='period'>.</span><span class='id each_byte'>each_byte</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id uc'>uc</span><span class='op'>|</span>
+      <span class='id tmp'>tmp</span> <span class='op'>&lt;&lt;</span> <span class='id sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%%%02X</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id uc'>uc</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='id tmp'>tmp</span>
+  <span class='kw'>end</span><span class='period'>.</span><span class='id force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='const'>Encoding</span><span class='op'>::</span><span class='const'>US_ASCII</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="extract-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>extract</strong>(str, schemes = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:call-seq:</p>
+
+<pre class="code"><span class='id extract'>extract</span><span class='lparen'>(</span> <span class='id str'>str</span> <span class='rparen'>)</span>
+<span class='id extract'>extract</span><span class='lparen'>(</span> <span class='id str'>str</span><span class='comma'>,</span> <span class='id schemes'>schemes</span> <span class='rparen'>)</span>
+<span class='id extract'>extract</span><span class='lparen'>(</span> <span class='id str'>str</span><span class='comma'>,</span> <span class='id schemes'>schemes</span> <span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span> <span class='id block'>block</span> <span class='rbrace'>}</span></pre>
+
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>str</tt></p></td>
+<td>
+<p>String to search</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>schemes</tt></p></td>
+<td>
+<p>Patterns to apply to <tt>str</tt></p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Attempts to parse and merge a set of URIs If no <tt>block</tt> given , then
+returns the result, else it calls <tt>block</tt> for each element in
+result.</p>
+
+<p>see also URI::Parser.make_regexp</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 261</span>
+
+<span class='kw'>def</span> <span class='id extract'>extract</span><span class='lparen'>(</span><span class='id str'>str</span><span class='comma'>,</span> <span class='id schemes'>schemes</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+    <span class='id str'>str</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='id make_regexp'>make_regexp</span><span class='lparen'>(</span><span class='id schemes'>schemes</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='kw'>yield</span> <span class='backref'>$&amp;</span> <span class='rbrace'>}</span>
+    <span class='kw'>nil</span>
+  <span class='kw'>else</span>
+    <span class='id result'>result</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id str'>str</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='id make_regexp'>make_regexp</span><span class='lparen'>(</span><span class='id schemes'>schemes</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id result'>result</span><span class='period'>.</span><span class='id push'>push</span> <span class='backref'>$&amp;</span> <span class='rbrace'>}</span>
+    <span class='id result'>result</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="initialize_pattern-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>initialize_pattern</strong>(opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs the default Hash of patterns</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 342</span>
+
+<span class='kw'>def</span> <span class='id initialize_pattern'>initialize_pattern</span><span class='lparen'>(</span><span class='id opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:ESCAPED</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id escaped'>escaped</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id opts'>opts</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:ESCAPED</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='const'>PATTERN</span><span class='op'>::</span><span class='const'>ESCAPED</span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:UNRESERVED</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id unreserved'>unreserved</span> <span class='op'>=</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:UNRESERVED</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='const'>PATTERN</span><span class='op'>::</span><span class='const'>UNRESERVED</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:RESERVED</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id reserved'>reserved</span> <span class='op'>=</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:RESERVED</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='const'>PATTERN</span><span class='op'>::</span><span class='const'>RESERVED</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:DOMLABEL</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:DOMLABEL</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='const'>PATTERN</span><span class='op'>::</span><span class='const'>DOMLABEL</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:TOPLABEL</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:TOPLABEL</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='const'>PATTERN</span><span class='op'>::</span><span class='const'>TOPLABEL</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:HOSTNAME</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id hostname'>hostname</span> <span class='op'>=</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:HOSTNAME</span><span class='rparen'>)</span>
+
+  <span class='comment'># RFC 2396 (URI Generic Syntax)
+</span>  <span class='comment'># RFC 2732 (IPv6 Literal Addresses in URL's)
+</span>  <span class='comment'># RFC 2373 (IPv6 Addressing Architecture)
+</span>
+  <span class='comment'># uric          = reserved | unreserved | escaped
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:URIC</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id uric'>uric</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:[</span><span class='embexpr_beg'>#{</span><span class='id unreserved'>unreserved</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id reserved'>reserved</span><span class='rbrace'>}</span><span class='tstring_content'>]|</span><span class='embexpr_beg'>#{</span><span class='id escaped'>escaped</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># uric_no_slash = unreserved | escaped | &quot;;&quot; | &quot;?&quot; | &quot;:&quot; | &quot;@&quot; |
+</span>  <span class='comment'>#                 &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; | &quot;$&quot; | &quot;,&quot;
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:URIC_NO_SLASH</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id uric_no_slash'>uric_no_slash</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:[</span><span class='embexpr_beg'>#{</span><span class='id unreserved'>unreserved</span><span class='rbrace'>}</span><span class='tstring_content'>;?:@&amp;=+$,]|</span><span class='embexpr_beg'>#{</span><span class='id escaped'>escaped</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># query         = *uric
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:QUERY</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id query'>query</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id uric'>uric</span><span class='rbrace'>}</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># fragment      = *uric
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:FRAGMENT</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id fragment'>fragment</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id uric'>uric</span><span class='rbrace'>}</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># hostname      = *( domainlabel &quot;.&quot; ) toplabel [ &quot;.&quot; ]
+</span>  <span class='comment'># reg-name      = *( unreserved / pct-encoded / sub-delims ) # RFC3986
+</span>  <span class='kw'>unless</span> <span class='id hostname'>hostname</span>
+    <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:HOSTNAME</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id hostname'>hostname</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:[a-zA-Z0-9\\-.]|%\\h\\h)+</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># RFC 2373, APPENDIX B:
+</span>  <span class='comment'># IPv6address = hexpart [ &quot;:&quot; IPv4address ]
+</span>  <span class='comment'># IPv4address   = 1*3DIGIT &quot;.&quot; 1*3DIGIT &quot;.&quot; 1*3DIGIT &quot;.&quot; 1*3DIGIT
+</span>  <span class='comment'># hexpart = hexseq | hexseq &quot;::&quot; [ hexseq ] | &quot;::&quot; [ hexseq ]
+</span>  <span class='comment'># hexseq  = hex4 *( &quot;:&quot; hex4)
+</span>  <span class='comment'># hex4    = 1*4HEXDIG
+</span>  <span class='comment'>#
+</span>  <span class='comment'># XXX: This definition has a flaw. &quot;::&quot; + IPv4address must be
+</span>  <span class='comment'># allowed too.  Here is a replacement.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># IPv4address = 1*3DIGIT &quot;.&quot; 1*3DIGIT &quot;.&quot; 1*3DIGIT &quot;.&quot; 1*3DIGIT
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:IPV4ADDR</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id ipv4addr'>ipv4addr</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># hex4     = 1*4HEXDIG
+</span>  <span class='id hex4'>hex4</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='embexpr_beg'>#{</span><span class='const'>PATTERN</span><span class='op'>::</span><span class='const'>HEX</span><span class='rbrace'>}</span><span class='tstring_content'>]{1,4}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># lastpart = hex4 | IPv4address
+</span>  <span class='id lastpart'>lastpart</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id hex4'>hex4</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id ipv4addr'>ipv4addr</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># hexseq1  = *( hex4 &quot;:&quot; ) hex4
+</span>  <span class='id hexseq1'>hexseq1</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id hex4'>hex4</span><span class='rbrace'>}</span><span class='tstring_content'>:)*</span><span class='embexpr_beg'>#{</span><span class='id hex4'>hex4</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># hexseq2  = *( hex4 &quot;:&quot; ) lastpart
+</span>  <span class='id hexseq2'>hexseq2</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id hex4'>hex4</span><span class='rbrace'>}</span><span class='tstring_content'>:)*</span><span class='embexpr_beg'>#{</span><span class='id lastpart'>lastpart</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># IPv6address = hexseq2 | [ hexseq1 ] &quot;::&quot; [ hexseq2 ]
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:IPV6ADDR</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id ipv6addr'>ipv6addr</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id hexseq2'>hexseq2</span><span class='rbrace'>}</span><span class='tstring_content'>|(?:</span><span class='embexpr_beg'>#{</span><span class='id hexseq1'>hexseq1</span><span class='rbrace'>}</span><span class='tstring_content'>)?::(?:</span><span class='embexpr_beg'>#{</span><span class='id hexseq2'>hexseq2</span><span class='rbrace'>}</span><span class='tstring_content'>)?)</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># IPv6prefix  = ( hexseq1 | [ hexseq1 ] &quot;::&quot; [ hexseq1 ] ) &quot;/&quot; 1*2DIGIT
+</span>  <span class='comment'># unused
+</span>
+  <span class='comment'># ipv6reference = &quot;[&quot; IPv6address &quot;]&quot; (RFC 2732)
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:IPV6REF</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id ipv6ref'>ipv6ref</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\[</span><span class='embexpr_beg'>#{</span><span class='id ipv6addr'>ipv6addr</span><span class='rbrace'>}</span><span class='tstring_content'>\\]</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># host          = hostname | IPv4address
+</span>  <span class='comment'># host          = hostname | IPv4address | IPv6reference (RFC 2732)
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:HOST</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id host'>host</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id hostname'>hostname</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id ipv4addr'>ipv4addr</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id ipv6ref'>ipv6ref</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># port          = *digit
+</span>  <span class='id port'>port</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\d*</span><span class='tstring_end'>'</span></span>
+  <span class='comment'># hostport      = host [ &quot;:&quot; port ]
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:HOSTPORT</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id hostport'>hostport</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id host'>host</span><span class='rbrace'>}</span><span class='tstring_content'>(?::</span><span class='embexpr_beg'>#{</span><span class='id port'>port</span><span class='rbrace'>}</span><span class='tstring_content'>)?</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># userinfo      = *( unreserved | escaped |
+</span>  <span class='comment'>#                    &quot;;&quot; | &quot;:&quot; | &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; | &quot;$&quot; | &quot;,&quot; )
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:USERINFO</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id userinfo'>userinfo</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:[</span><span class='embexpr_beg'>#{</span><span class='id unreserved'>unreserved</span><span class='rbrace'>}</span><span class='tstring_content'>;:&amp;=+$,]|</span><span class='embexpr_beg'>#{</span><span class='id escaped'>escaped</span><span class='rbrace'>}</span><span class='tstring_content'>)*</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># pchar         = unreserved | escaped |
+</span>  <span class='comment'>#                 &quot;:&quot; | &quot;@&quot; | &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; | &quot;$&quot; | &quot;,&quot;
+</span>  <span class='id pchar'>pchar</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:[</span><span class='embexpr_beg'>#{</span><span class='id unreserved'>unreserved</span><span class='rbrace'>}</span><span class='tstring_content'>:@&amp;=+$,]|</span><span class='embexpr_beg'>#{</span><span class='id escaped'>escaped</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># param         = *pchar
+</span>  <span class='id param'>param</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id pchar'>pchar</span><span class='rbrace'>}</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># segment       = *pchar *( &quot;;&quot; param )
+</span>  <span class='id segment'>segment</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id pchar'>pchar</span><span class='rbrace'>}</span><span class='tstring_content'>*(?:;</span><span class='embexpr_beg'>#{</span><span class='id param'>param</span><span class='rbrace'>}</span><span class='tstring_content'>)*</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># path_segments = segment *( &quot;/&quot; segment )
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:PATH_SEGMENTS</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id path_segments'>path_segments</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id segment'>segment</span><span class='rbrace'>}</span><span class='tstring_content'>(?:/</span><span class='embexpr_beg'>#{</span><span class='id segment'>segment</span><span class='rbrace'>}</span><span class='tstring_content'>)*</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># server        = [ [ userinfo &quot;@&quot; ] hostport ]
+</span>  <span class='id server'>server</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id userinfo'>userinfo</span><span class='rbrace'>}</span><span class='tstring_content'>@)?</span><span class='embexpr_beg'>#{</span><span class='id hostport'>hostport</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># reg_name      = 1*( unreserved | escaped | &quot;$&quot; | &quot;,&quot; |
+</span>  <span class='comment'>#                     &quot;;&quot; | &quot;:&quot; | &quot;@&quot; | &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; )
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:REG_NAME</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id reg_name'>reg_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:[</span><span class='embexpr_beg'>#{</span><span class='id unreserved'>unreserved</span><span class='rbrace'>}</span><span class='tstring_content'>$,;:@&amp;=+]|</span><span class='embexpr_beg'>#{</span><span class='id escaped'>escaped</span><span class='rbrace'>}</span><span class='tstring_content'>)+</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># authority     = server | reg_name
+</span>  <span class='id authority'>authority</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id server'>server</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id reg_name'>reg_name</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># rel_segment   = 1*( unreserved | escaped |
+</span>  <span class='comment'>#                     &quot;;&quot; | &quot;@&quot; | &quot;&amp;&quot; | &quot;=&quot; | &quot;+&quot; | &quot;$&quot; | &quot;,&quot; )
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:REL_SEGMENT</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id rel_segment'>rel_segment</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:[</span><span class='embexpr_beg'>#{</span><span class='id unreserved'>unreserved</span><span class='rbrace'>}</span><span class='tstring_content'>;@&amp;=+$,]|</span><span class='embexpr_beg'>#{</span><span class='id escaped'>escaped</span><span class='rbrace'>}</span><span class='tstring_content'>)+</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># scheme        = alpha *( alpha | digit | &quot;+&quot; | &quot;-&quot; | &quot;.&quot; )
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:SCHEME</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id scheme'>scheme</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='embexpr_beg'>#{</span><span class='const'>PATTERN</span><span class='op'>::</span><span class='const'>ALPHA</span><span class='rbrace'>}</span><span class='tstring_content'>][\\-+.</span><span class='embexpr_beg'>#{</span><span class='const'>PATTERN</span><span class='op'>::</span><span class='const'>ALPHA</span><span class='rbrace'>}</span><span class='tstring_content'>\\d]*</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># abs_path      = &quot;/&quot;  path_segments
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:ABS_PATH</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id abs_path'>abs_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id path_segments'>path_segments</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># rel_path      = rel_segment [ abs_path ]
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:REL_PATH</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id rel_path'>rel_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id rel_segment'>rel_segment</span><span class='rbrace'>}</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id abs_path'>abs_path</span><span class='rbrace'>}</span><span class='tstring_content'>)?</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># net_path      = &quot;//&quot; authority [ abs_path ]
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:NET_PATH</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id net_path'>net_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>//</span><span class='embexpr_beg'>#{</span><span class='id authority'>authority</span><span class='rbrace'>}</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id abs_path'>abs_path</span><span class='rbrace'>}</span><span class='tstring_content'>)?</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># hier_part     = ( net_path | abs_path ) [ &quot;?&quot; query ]
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:HIER_PART</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id hier_part'>hier_part</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id net_path'>net_path</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id abs_path'>abs_path</span><span class='rbrace'>}</span><span class='tstring_content'>)(?:\\?(?:</span><span class='embexpr_beg'>#{</span><span class='id query'>query</span><span class='rbrace'>}</span><span class='tstring_content'>))?</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># opaque_part   = uric_no_slash *uric
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:OPAQUE_PART</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id opaque_part'>opaque_part</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id uric_no_slash'>uric_no_slash</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id uric'>uric</span><span class='rbrace'>}</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># absoluteURI   = scheme &quot;:&quot; ( hier_part | opaque_part )
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:ABS_URI</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id abs_uri'>abs_uri</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id scheme'>scheme</span><span class='rbrace'>}</span><span class='tstring_content'>:(?:</span><span class='embexpr_beg'>#{</span><span class='id hier_part'>hier_part</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id opaque_part'>opaque_part</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># relativeURI   = ( net_path | abs_path | rel_path ) [ &quot;?&quot; query ]
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:REL_URI</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id rel_uri'>rel_uri</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id net_path'>net_path</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id abs_path'>abs_path</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id rel_path'>rel_path</span><span class='rbrace'>}</span><span class='tstring_content'>)(?:\\?</span><span class='embexpr_beg'>#{</span><span class='id query'>query</span><span class='rbrace'>}</span><span class='tstring_content'>)?</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># URI-reference = [ absoluteURI | relativeURI ] [ &quot;#&quot; fragment ]
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:URI_REF</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?:</span><span class='embexpr_beg'>#{</span><span class='id abs_uri'>abs_uri</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id rel_uri'>rel_uri</span><span class='rbrace'>}</span><span class='tstring_content'>)?(?:#</span><span class='embexpr_beg'>#{</span><span class='id fragment'>fragment</span><span class='rbrace'>}</span><span class='tstring_content'>)?</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:X_ABS_URI</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    (</span><span class='embexpr_beg'>#{</span><span class='id scheme'>scheme</span><span class='rbrace'>}</span><span class='tstring_content'>):                           (?# 1: scheme)
+    (?:
+       (</span><span class='embexpr_beg'>#{</span><span class='id opaque_part'>opaque_part</span><span class='rbrace'>}</span><span class='tstring_content'>)                    (?# 2: opaque)
+    |
+       (?:(?:
+         //(?:
+             (?:(?:(</span><span class='embexpr_beg'>#{</span><span class='id userinfo'>userinfo</span><span class='rbrace'>}</span><span class='tstring_content'>)@)?        (?# 3: userinfo)
+               (?:(</span><span class='embexpr_beg'>#{</span><span class='id host'>host</span><span class='rbrace'>}</span><span class='tstring_content'>)(?::(\\d*))?))? (?# 4: host, 5: port)
+           |
+             (</span><span class='embexpr_beg'>#{</span><span class='id reg_name'>reg_name</span><span class='rbrace'>}</span><span class='tstring_content'>)                 (?# 6: registry)
+           )
+         |
+         (?!//))                           (?# XXX: '//' is the mark for hostport)
+         (</span><span class='embexpr_beg'>#{</span><span class='id abs_path'>abs_path</span><span class='rbrace'>}</span><span class='tstring_content'>)?                    (?# 7: path)
+       )(?:\\?(</span><span class='embexpr_beg'>#{</span><span class='id query'>query</span><span class='rbrace'>}</span><span class='tstring_content'>))?                 (?# 8: query)
+    )
+    (?:\\#(</span><span class='embexpr_beg'>#{</span><span class='id fragment'>fragment</span><span class='rbrace'>}</span><span class='tstring_content'>))?                  (?# 9: fragment)
+  </span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:X_REL_URI</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    (?:
+      (?:
+        //
+        (?:
+          (?:(</span><span class='embexpr_beg'>#{</span><span class='id userinfo'>userinfo</span><span class='rbrace'>}</span><span class='tstring_content'>)@)?       (?# 1: userinfo)
+            (</span><span class='embexpr_beg'>#{</span><span class='id host'>host</span><span class='rbrace'>}</span><span class='tstring_content'>)?(?::(\\d*))?  (?# 2: host, 3: port)
+        |
+          (</span><span class='embexpr_beg'>#{</span><span class='id reg_name'>reg_name</span><span class='rbrace'>}</span><span class='tstring_content'>)             (?# 4: registry)
+        )
+      )
+    |
+      (</span><span class='embexpr_beg'>#{</span><span class='id rel_segment'>rel_segment</span><span class='rbrace'>}</span><span class='tstring_content'>)              (?# 5: rel_segment)
+    )?
+    (</span><span class='embexpr_beg'>#{</span><span class='id abs_path'>abs_path</span><span class='rbrace'>}</span><span class='tstring_content'>)?                  (?# 6: abs_path)
+    (?:\\?(</span><span class='embexpr_beg'>#{</span><span class='id query'>query</span><span class='rbrace'>}</span><span class='tstring_content'>))?              (?# 7: query)
+    (?:\\#(</span><span class='embexpr_beg'>#{</span><span class='id fragment'>fragment</span><span class='rbrace'>}</span><span class='tstring_content'>))?           (?# 8: fragment)
+  </span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id ret'>ret</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="initialize_regexp-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>initialize_regexp</strong>(pattern) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs the default Hash of Regexp's</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 500</span>
+
+<span class='kw'>def</span> <span class='id initialize_regexp'>initialize_regexp</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+  <span class='comment'># for URI::split
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:ABS_URI</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\A\s*</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:X_ABS_URI</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\s*\z</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>Regexp</span><span class='op'>::</span><span class='const'>EXTENDED</span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:REL_URI</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\A\s*</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:X_REL_URI</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\s*\z</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>Regexp</span><span class='op'>::</span><span class='const'>EXTENDED</span><span class='rparen'>)</span>
+
+  <span class='comment'># for URI::extract
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:URI_REF</span><span class='rbracket'>]</span>     <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:URI_REF</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:ABS_URI_REF</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:X_ABS_URI</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Regexp</span><span class='op'>::</span><span class='const'>EXTENDED</span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:REL_URI_REF</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:X_REL_URI</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Regexp</span><span class='op'>::</span><span class='const'>EXTENDED</span><span class='rparen'>)</span>
+
+  <span class='comment'># for URI::escape/unescape
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:ESCAPED</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:ESCAPED</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:UNSAFE</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:UNRESERVED</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:RESERVED</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='comment'># for Generic#initialize
+</span>  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:SCHEME</span><span class='rbracket'>]</span>   <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:SCHEME</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:USERINFO</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:USERINFO</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:HOST</span><span class='rbracket'>]</span>     <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:HOST</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:PORT</span><span class='rbracket'>]</span>     <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:PORT</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:OPAQUE</span><span class='rbracket'>]</span>   <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:OPAQUE_PART</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:REGISTRY</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:REG_NAME</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:ABS_PATH</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:ABS_PATH</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:REL_PATH</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:REL_PATH</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:QUERY</span><span class='rbracket'>]</span>    <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:QUERY</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:FRAGMENT</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='lbracket'>[</span><span class='symbol'>:FRAGMENT</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='id ret'>ret</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+335
+336
+337</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 335</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='cvar'>@@to_s</span><span class='period'>.</span><span class='id bind'>bind</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id call'>call</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="join-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>join</strong>(*uris) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>uris</tt></p></td>
+<td>
+<p>an Array of Strings</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Attempts to parse and merge a set of URIs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+235
+236
+237
+238</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 235</span>
+
+<span class='kw'>def</span> <span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='id uris'>uris</span><span class='rparen'>)</span>
+  <span class='id uris'>uris</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id convert_to_uri'>convert_to_uri</span><span class='lparen'>(</span><span class='id uris'>uris</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id uris'>uris</span><span class='period'>.</span><span class='id inject'>inject</span> <span class='symbol'>:merge</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="make_regexp-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>make_regexp</strong>(schemes = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns Regexp that is default self.regexp[:ABS_URI_REF], unless
+<tt>schemes</tt> is provided. Then it is a Regexp.union with
+self.pattern[:X_ABS_URI]</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+274
+275
+276
+277
+278
+279
+280</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 274</span>
+
+<span class='kw'>def</span> <span class='id make_regexp'>make_regexp</span><span class='lparen'>(</span><span class='id schemes'>schemes</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id schemes'>schemes</span>
+    <span class='ivar'>@regexp</span><span class='lbracket'>[</span><span class='symbol'>:ABS_URI_REF</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?=</span><span class='embexpr_beg'>#{</span><span class='const'>Regexp</span><span class='period'>.</span><span class='id union'>union</span><span class='lparen'>(</span><span class='op'>*</span><span class='id schemes'>schemes</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>:)</span><span class='embexpr_beg'>#{</span><span class='ivar'>@pattern</span><span class='lbracket'>[</span><span class='symbol'>:X_ABS_URI</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='regexp_end'>/x</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parse-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parse</strong>(uri) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>uri</tt></p></td>
+<td>
+<p>String</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>parses <tt>uri</tt> and constructs either matching URI scheme object (FTP,
+HTTP, HTTPS, LDAP, LDAPS, or MailTo) or URI::Generic</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id p'>p</span> <span class='op'>=</span> <span class='const'>URI</span><span class='op'>::</span><span class='const'>Parser</span><span class='period'>.</span><span class='id new'>new</span>
+<span class='id p'>p</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ldap://ldap.example.com/dc=example?user=john</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; #&lt;URI::LDAP:0x00000000b9e7e8 URL:ldap://ldap.example.com/dc=example?user=john&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 209</span>
+
+<span class='kw'>def</span> <span class='id parse'>parse</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='id scheme'>scheme</span><span class='comma'>,</span> <span class='id userinfo'>userinfo</span><span class='comma'>,</span> <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span>
+    <span class='id registry'>registry</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id opaque'>opaque</span><span class='comma'>,</span> <span class='id query'>query</span><span class='comma'>,</span> <span class='id fragment'>fragment</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id scheme'>scheme</span> <span class='op'>&amp;&amp;</span> <span class='const'>URI</span><span class='period'>.</span><span class='id scheme_list'>scheme_list</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id scheme'>scheme</span><span class='period'>.</span><span class='id upcase'>upcase</span><span class='rparen'>)</span>
+    <span class='const'>URI</span><span class='period'>.</span><span class='id scheme_list'>scheme_list</span><span class='lbracket'>[</span><span class='id scheme'>scheme</span><span class='period'>.</span><span class='id upcase'>upcase</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id scheme'>scheme</span><span class='comma'>,</span> <span class='id userinfo'>userinfo</span><span class='comma'>,</span> <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span>
+                                       <span class='id registry'>registry</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id opaque'>opaque</span><span class='comma'>,</span> <span class='id query'>query</span><span class='comma'>,</span>
+                                       <span class='id fragment'>fragment</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'>Generic</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id scheme'>scheme</span><span class='comma'>,</span> <span class='id userinfo'>userinfo</span><span class='comma'>,</span> <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span>
+                <span class='id registry'>registry</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id opaque'>opaque</span><span class='comma'>,</span> <span class='id query'>query</span><span class='comma'>,</span>
+                <span class='id fragment'>fragment</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="split-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>split</strong>(uri) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a split URI against regexp[:ABS_URI]</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id split'>split</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id uri'>uri</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+    <span class='comment'># null uri
+</span>
+  <span class='kw'>when</span> <span class='ivar'>@regexp</span><span class='lbracket'>[</span><span class='symbol'>:ABS_URI</span><span class='rbracket'>]</span>
+    <span class='id scheme'>scheme</span><span class='comma'>,</span> <span class='id opaque'>opaque</span><span class='comma'>,</span> <span class='id userinfo'>userinfo</span><span class='comma'>,</span> <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span>
+      <span class='id registry'>registry</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id query'>query</span><span class='comma'>,</span> <span class='id fragment'>fragment</span> <span class='op'>=</span> <span class='gvar'>$~</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+
+    <span class='comment'># URI-reference = [ absoluteURI | relativeURI ] [ &quot;#&quot; fragment ]
+</span>
+    <span class='comment'># absoluteURI   = scheme &quot;:&quot; ( hier_part | opaque_part )
+</span>    <span class='comment'># hier_part     = ( net_path | abs_path ) [ &quot;?&quot; query ]
+</span>    <span class='comment'># opaque_part   = uric_no_slash *uric
+</span>
+    <span class='comment'># abs_path      = &quot;/&quot;  path_segments
+</span>    <span class='comment'># net_path      = &quot;//&quot; authority [ abs_path ]
+</span>
+    <span class='comment'># authority     = server | reg_name
+</span>    <span class='comment'># server        = [ [ userinfo &quot;@&quot; ] hostport ]
+</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='id scheme'>scheme</span>
+      <span class='id raise'>raise</span> <span class='const'>InvalidURIError</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad URI(absolute but no scheme): </span><span class='embexpr_beg'>#{</span><span class='id uri'>uri</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='id opaque'>opaque</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id path'>path</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id host'>host</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id registry'>registry</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='id raise'>raise</span> <span class='const'>InvalidURIError</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad URI(absolute but no path): </span><span class='embexpr_beg'>#{</span><span class='id uri'>uri</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+  <span class='kw'>when</span> <span class='ivar'>@regexp</span><span class='lbracket'>[</span><span class='symbol'>:REL_URI</span><span class='rbracket'>]</span>
+    <span class='id scheme'>scheme</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='id opaque'>opaque</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+    <span class='id userinfo'>userinfo</span><span class='comma'>,</span> <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id registry'>registry</span><span class='comma'>,</span>
+      <span class='id rel_segment'>rel_segment</span><span class='comma'>,</span> <span class='id abs_path'>abs_path</span><span class='comma'>,</span> <span class='id query'>query</span><span class='comma'>,</span> <span class='id fragment'>fragment</span> <span class='op'>=</span> <span class='gvar'>$~</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='kw'>if</span> <span class='id rel_segment'>rel_segment</span> <span class='op'>&amp;&amp;</span> <span class='id abs_path'>abs_path</span>
+      <span class='id path'>path</span> <span class='op'>=</span> <span class='id rel_segment'>rel_segment</span> <span class='op'>+</span> <span class='id abs_path'>abs_path</span>
+    <span class='kw'>elsif</span> <span class='id rel_segment'>rel_segment</span>
+      <span class='id path'>path</span> <span class='op'>=</span> <span class='id rel_segment'>rel_segment</span>
+    <span class='kw'>elsif</span> <span class='id abs_path'>abs_path</span>
+      <span class='id path'>path</span> <span class='op'>=</span> <span class='id abs_path'>abs_path</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># URI-reference = [ absoluteURI | relativeURI ] [ &quot;#&quot; fragment ]
+</span>
+    <span class='comment'># relativeURI   = ( net_path | abs_path | rel_path ) [ &quot;?&quot; query ]
+</span>
+    <span class='comment'># net_path      = &quot;//&quot; authority [ abs_path ]
+</span>    <span class='comment'># abs_path      = &quot;/&quot;  path_segments
+</span>    <span class='comment'># rel_path      = rel_segment [ abs_path ]
+</span>
+    <span class='comment'># authority     = server | reg_name
+</span>    <span class='comment'># server        = [ [ userinfo &quot;@&quot; ] hostport ]
+</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>InvalidURIError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad URI(is not URI?): </span><span class='embexpr_beg'>#{</span><span class='id uri'>uri</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='id path'>path</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id opaque'>opaque</span> <span class='comment'># (see RFC2396 Section 5.2)
+</span>  <span class='id ret'>ret</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+    <span class='id scheme'>scheme</span><span class='comma'>,</span>
+    <span class='id userinfo'>userinfo</span><span class='comma'>,</span> <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span>         <span class='comment'># X
+</span>    <span class='id registry'>registry</span><span class='comma'>,</span>                     <span class='comment'># X
+</span>    <span class='id path'>path</span><span class='comma'>,</span>                         <span class='comment'># Y
+</span>    <span class='id opaque'>opaque</span><span class='comma'>,</span>                       <span class='comment'># Y
+</span>    <span class='id query'>query</span><span class='comma'>,</span>
+    <span class='id fragment'>fragment</span>
+  <span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='id ret'>ret</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="unescape-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>unescape</strong>(str, escaped = @regexp[:ESCAPED]) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:call-seq:</p>
+
+<pre class="code"><span class='id unescape'>unescape</span><span class='lparen'>(</span> <span class='id str'>str</span> <span class='rparen'>)</span>
+<span class='id unescape'>unescape</span><span class='lparen'>(</span> <span class='id str'>str</span><span class='comma'>,</span> <span class='id unsafe'>unsafe</span> <span class='rparen'>)</span></pre>
+
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>str</tt></p></td>
+<td>
+<p>String to remove escapes from</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>unsafe</tt></p></td>
+<td>
+<p>Regexp to apply. Defaults to self.regexp[:ESCAPED]</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Removes escapes from <tt>str</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+330
+331
+332</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 330</span>
+
+<span class='kw'>def</span> <span class='id unescape'>unescape</span><span class='lparen'>(</span><span class='id str'>str</span><span class='comma'>,</span> <span class='id escaped'>escaped</span> <span class='op'>=</span> <span class='ivar'>@regexp</span><span class='lbracket'>[</span><span class='symbol'>:ESCAPED</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id str'>str</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='id escaped'>escaped</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbracket'>[</span><span class='backref'>$&amp;</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id hex'>hex</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>C</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='id str'>str</span><span class='period'>.</span><span class='id encoding'>encoding</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:54 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

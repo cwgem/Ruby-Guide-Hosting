@@ -1,0 +1,1002 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: CGI::Cookie
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../CGI.html" title="CGI (class)">CGI</a></span></span>
+     &raquo; 
+    <span class="title">Cookie</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: CGI::Cookie
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Array.html" title="Array (class)">Array</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="../Array.html" title="Array (class)">Array</a></span></li>
+          
+            <li class="next">CGI::Cookie</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/cgi/cookie.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Class representing an HTTP cookie.</p>
+
+<p>In addition to its specific fields and methods, a Cookie instance is a
+delegator to the array of its values.</p>
+
+<p>See RFC 2965.</p>
+
+<h2>Examples of use</h2>
+
+<pre class="code">cookie1 = CGI::Cookie::new(&quot;name&quot;, &quot;value1&quot;, &quot;value2&quot;, ...)
+cookie1 = CGI::Cookie::new(&quot;name&quot; =&gt; &quot;name&quot;, &quot;value&quot; =&gt; &quot;value&quot;)
+cookie1 = CGI::Cookie::new('name'    =&gt; 'name',
+                           'value'   =&gt; ['value1', 'value2', ...],
+                           'path'    =&gt; 'path',   # optional
+                           'domain'  =&gt; 'domain', # optional
+                           'expires' =&gt; Time.now, # optional
+                           'secure'  =&gt; true      # optional
+                          )
+
+cgi.out(&quot;cookie&quot; =&gt; [cookie1, cookie2]) { &quot;string&quot; }
+
+name    = cookie1.name
+values  = cookie1.value
+path    = cookie1.path
+domain  = cookie1.domain
+expires = cookie1.expires
+secure  = cookie1.secure
+
+cookie1.name    = 'name'
+cookie1.value   = ['value1', 'value2', ...]
+cookie1.path    = 'path'
+cookie1.domain  = 'domain'
+cookie1.expires = Time.now + 30
+cookie1.secure  = true</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#domain-instance_method" title="#domain (instance method)">- (Object) <strong>domain</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Domain for which this cookie applies, as a <tt>String</tt>.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expires-instance_method" title="#expires (instance method)">- (Object) <strong>expires</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Time at which this cookie expires, as a <tt>Time</tt>.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Name of this cookie, as a <tt>String</tt>.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path-instance_method" title="#path (instance method)">- (Object) <strong>path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Path for which this cookie applies, as a <tt>String</tt>.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#secure-instance_method" title="#secure (instance method)">- (Object) <strong>secure</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>True if this cookie is secure; false otherwise.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse-class_method" title="parse (class method)">+ (Object) <strong>parse</strong>(raw_cookie) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Parse a raw cookie string into a hash of cookie-name=&gt;Cookie pairs.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Cookie) <strong>initialize</strong>(name = &quot;&quot;, *value) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new CGI::Cookie object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Convert the Cookie to its string representation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value-instance_method" title="#value (instance method)">- (Object) <strong>value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value or list of values for this cookie.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value%3D-instance_method" title="#value= (instance method)">- (Object) <strong>value=</strong>(val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Replaces the value of this cookie with a new value or list of values.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../Array.html" title="Array (class)">Array</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Array.html#abbrev-instance_method" title="Array#abbrev (method)">#abbrev</a></span>, <span class='object_link'><a href="../Array.html#dclone-instance_method" title="Array#dclone (method)">#dclone</a></span>, <span class='object_link'><a href="../Array.html#pretty_print-instance_method" title="Array#pretty_print (method)">#pretty_print</a></span>, <span class='object_link'><a href="../Array.html#pretty_print_cycle-instance_method" title="Array#pretty_print_cycle (method)">#pretty_print_cycle</a></span>, <span class='object_link'><a href="../Array.html#shelljoin-instance_method" title="Array#shelljoin (method)">#shelljoin</a></span>, <span class='object_link'><a href="../Array.html#to_csv-instance_method" title="Array#to_csv (method)">#to_csv</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="CGI::Cookie (class)">Cookie</a></span></tt>) <strong>initialize</strong>(name = &quot;&quot;, *value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new CGI::Cookie object.</p>
+
+<p>:call-seq:</p>
+
+<pre class="code"><span class='const'>Cookie</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id name_string'>name_string</span><span class='comma'>,</span><span class='op'>*</span><span class='id value'>value</span><span class='rparen'>)</span>
+<span class='const'>Cookie</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id options_hash'>options_hash</span><span class='rparen'>)</span></pre>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>name_string</tt></p></td>
+<td>
+<p>The name of the cookie; in this form, there is no #domain or #expiration. 
+The #path is gleaned from the <tt>SCRIPT_NAME</tt> environment variable,
+and #secure is false.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>*value</tt></p></td>
+<td>
+<p>value or list of values of the cookie</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>options_hash</tt></p></td>
+<td>
+<p>A Hash of options to initialize this Cookie.  Possible options are:</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>name</p></td>
+<td>
+<p>the name of the cookie.  Required.</p>
+</td></tr><tr><td class="rdoc-term"><p>value</p></td>
+<td>
+<p>the cookie's value or list of values.</p>
+</td></tr><tr><td class="rdoc-term"><p>path</p></td>
+<td>
+<p>the path for which this cookie applies.  Defaults to the the value of the
+<tt>SCRIPT_NAME</tt> environment variable.</p>
+</td></tr><tr><td class="rdoc-term"><p>domain</p></td>
+<td>
+<p>the domain for which this cookie applies.</p>
+</td></tr><tr><td class="rdoc-term"><p>expires</p></td>
+<td>
+<p>the time at which this cookie expires, as a <tt>Time</tt> object.</p>
+</td></tr><tr><td class="rdoc-term"><p>secure</p></td>
+<td>
+<p>whether this cookie is a secure cookie or not (default to false).  Secure
+cookies are only transmitted to HTTPS servers.</p>
+</td></tr></table>
+
+<p>These keywords correspond to attributes of the cookie object.</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id name'>name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@domain</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@expires</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>if</span> <span class='id name'>name</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
+    <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id name'>name</span>
+    <span class='tstring'><span class='regexp_beg'>%r|</span><span class='tstring_content'>^(.*/)</span><span class='regexp_end'>|</span></span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SCRIPT_NAME</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='ivar'>@path</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='backref'>$1</span> <span class='kw'>or</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='ivar'>@secure</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>return</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id options'>options</span> <span class='op'>=</span> <span class='id name'>name</span>
+  <span class='kw'>unless</span> <span class='id options'>options</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`name' required</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='id value'>value</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>value</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='comment'># simple support for IE
+</span>  <span class='kw'>if</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>path</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='ivar'>@path</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>path</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='regexp_beg'>%r|</span><span class='tstring_content'>^(.*/)</span><span class='regexp_end'>|</span></span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SCRIPT_NAME</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='ivar'>@path</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='backref'>$1</span> <span class='kw'>or</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@domain</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>domain</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@expires</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expires</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@secure</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>secure</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>true</span> <span class='op'>?</span> <span class='kw'>true</span> <span class='op'>:</span> <span class='kw'>false</span>
+
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="domain=-instance_method"></span>
+      <span id="domain-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="domain-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>domain</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Domain for which this cookie applies, as a <tt>String</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id domain'>domain</span>
+  <span class='ivar'>@domain</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="expires=-instance_method"></span>
+      <span id="expires-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="expires-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>expires</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Time at which this cookie expires, as a <tt>Time</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id expires'>expires</span>
+  <span class='ivar'>@expires</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="name=-instance_method"></span>
+      <span id="name-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>name</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Name of this cookie, as a <tt>String</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id name'>name</span>
+  <span class='ivar'>@name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="path=-instance_method"></span>
+      <span id="path-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>path</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Path for which this cookie applies, as a <tt>String</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 99</span>
+
+<span class='kw'>def</span> <span class='id path'>path</span>
+  <span class='ivar'>@path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="secure=-instance_method"></span>
+      <span id="secure-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="secure-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>secure</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>True if this cookie is secure; false otherwise</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='id secure'>secure</span>
+  <span class='ivar'>@secure</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="parse-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parse</strong>(raw_cookie) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Parse a raw cookie string into a hash of cookie-name=&gt;Cookie pairs.</p>
+
+<pre class="code"><span class='id cookies'>cookies</span> <span class='op'>=</span> <span class='const'>CGI</span><span class='op'>::</span><span class='const'>Cookie</span><span class='op'>::</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>raw_cookie_string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='comment'># { &quot;name1&quot; =&gt; cookie1, &quot;name2&quot; =&gt; cookie2, ... }</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 144</span>
+
+<span class='kw'>def</span> <span class='const'>Cookie</span><span class='op'>::</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id raw_cookie'>raw_cookie</span><span class='rparen'>)</span>
+  <span class='id cookies'>cookies</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id cookies'>cookies</span> <span class='kw'>unless</span> <span class='id raw_cookie'>raw_cookie</span>
+
+  <span class='id raw_cookie'>raw_cookie</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[;,]\s?</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id pairs'>pairs</span><span class='op'>|</span>
+    <span class='id name'>name</span><span class='comma'>,</span> <span class='id values'>values</span> <span class='op'>=</span> <span class='id pairs'>pairs</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>=</span><span class='tstring_end'>'</span></span><span class='comma'>,</span><span class='int'>2</span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id name'>name</span> <span class='kw'>and</span> <span class='id values'>values</span>
+    <span class='id name'>name</span> <span class='op'>=</span> <span class='const'>CGI</span><span class='op'>::</span><span class='id unescape'>unescape</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+    <span class='id values'>values</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id values'>values</span> <span class='op'>=</span> <span class='id values'>values</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='const'>CGI</span><span class='op'>::</span><span class='id unescape'>unescape</span><span class='lparen'>(</span><span class='id v'>v</span><span class='comma'>,</span><span class='cvar'>@@accept_charset</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>if</span> <span class='id cookies'>cookies</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+      <span class='id values'>values</span> <span class='op'>=</span> <span class='id cookies'>cookies</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span> <span class='op'>+</span> <span class='id values'>values</span>
+    <span class='kw'>end</span>
+    <span class='id cookies'>cookies</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Cookie</span><span class='op'>::</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id values'>values</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id cookies'>cookies</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="to_s-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Convert the Cookie to its string representation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128
+129
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 126</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='id val'>val</span> <span class='op'>=</span> <span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='const'>CGI</span><span class='op'>::</span><span class='id escape'>escape</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id buf'>buf</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@name</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='embexpr_beg'>#{</span><span class='id val'>val</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id buf'>buf</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; domain=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@domain</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@domain</span>
+  <span class='id buf'>buf</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; path=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>     <span class='kw'>if</span> <span class='ivar'>@path</span>
+  <span class='id buf'>buf</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; expires=</span><span class='embexpr_beg'>#{</span><span class='const'>CGI</span><span class='op'>::</span><span class='id rfc1123_date'>rfc1123_date</span><span class='lparen'>(</span><span class='ivar'>@expires</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@expires</span>
+  <span class='id buf'>buf</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; secure</span><span class='tstring_end'>&quot;</span></span>            <span class='kw'>if</span> <span class='ivar'>@secure</span> <span class='op'>==</span> <span class='kw'>true</span>
+  <span class='id buf'>buf</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="value-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>value</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value or list of values for this cookie.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 108</span>
+
+<span class='kw'>def</span> <span class='id value'>value</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="value=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>value=</strong>(val) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Replaces the value of this cookie with a new value or list of values.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cgi/cookie.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id value='>value=</span><span class='lparen'>(</span><span class='id val'>val</span><span class='rparen'>)</span>
+  <span class='id replace'>replace</span><span class='lparen'>(</span><span class='const'>Array</span><span class='lparen'>(</span><span class='id val'>val</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:55 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

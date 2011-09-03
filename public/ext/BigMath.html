@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Module: BigMath</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="module">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./ext/bigdecimal/bigdecimal_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/bigdecimal/bigdecimal.c">ext/bigdecimal/bigdecimal.c</a></li>
+          
+            <li><a href="./ext/bigdecimal/lib/bigdecimal/math_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/bigdecimal/lib/bigdecimal/math.rb">ext/bigdecimal/lib/bigdecimal/math.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-exp">::exp</a></li>
+          
+          <li><a href="#method-c-log">::log</a></li>
+          
+          <li><a href="#method-i-E">#E</a></li>
+          
+          <li><a href="#method-i-PI">#PI</a></li>
+          
+          <li><a href="#method-i-atan">#atan</a></li>
+          
+          <li><a href="#method-i-cos">#cos</a></li>
+          
+          <li><a href="#method-i-sin">#sin</a></li>
+          
+          <li><a href="#method-i-sqrt">#sqrt</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="./OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="./OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="./OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="./OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="./OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="./OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="./OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="./OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="./OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="./OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="./OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="./OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="./OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="./OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="./OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="./OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="./OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="./OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="./OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="./OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="./OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="./OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="./OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="./OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="./Psych.html">Psych</a></li>
+        
+          <li><a href="./Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="./Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="./Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="./Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="./Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="./Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="./Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="./Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="./Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="./Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="./Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="./Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="./Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="./Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="./Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="./Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="./Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="./Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="./Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="./Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="./Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="./Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="./Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="./Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="./Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="./Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="./Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="./Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="./Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="./DL.html">DL</a></li>
+        
+          <li><a href="./DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="./DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="./DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="./DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="./DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="./DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="./DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="./DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="./DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="./DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="./DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="./DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="./DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="./DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="./DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="./DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="./DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="./DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="./DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="./DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="./DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="./DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="./Zlib.html">Zlib</a></li>
+        
+          <li><a href="./Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="./Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="./Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="./Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="./Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="./Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="./Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="./Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="./Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="./Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="./Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="./Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="./Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="./Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="./Win32.html">Win32</a></li>
+        
+          <li><a href="./Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="./Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="./Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="./Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="./Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="./Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="./Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="./Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="./Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="./Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="./Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="./Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="./Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="./Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="./JSON.html">JSON</a></li>
+        
+          <li><a href="./JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="./JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="./JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="./JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="./JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="./Iconv.html">Iconv</a></li>
+        
+          <li><a href="./Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="./Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="./Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="./Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="./Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="./Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="./Ripper.html">Ripper</a></li>
+        
+          <li><a href="./Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="./Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="./Digest.html">Digest</a></li>
+        
+          <li><a href="./Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="./Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="./Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="./Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="./Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="./Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="./Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="./Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="./DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="./Socket.html">Socket</a></li>
+        
+          <li><a href="./Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="./Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="./Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="./Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="./Curses.html">Curses</a></li>
+        
+          <li><a href="./Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="./Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="./Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="./PTY.html">PTY</a></li>
+        
+          <li><a href="./PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="./StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="./StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="./Syslog.html">Syslog</a></li>
+        
+          <li><a href="./Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="./WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="./WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="./Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="./BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="./BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="./BigMath.html">BigMath</a></li>
+        
+          <li><a href="./Class.html">Class</a></li>
+        
+          <li><a href="./Coverage.html">Coverage</a></li>
+        
+          <li><a href="./DBM.html">DBM</a></li>
+        
+          <li><a href="./DBMError.html">DBMError</a></li>
+        
+          <li><a href="./Date.html">Date</a></li>
+        
+          <li><a href="./DateTime.html">DateTime</a></li>
+        
+          <li><a href="./Etc.html">Etc</a></li>
+        
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          <li><a href="./Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="./Float.html">Float</a></li>
+        
+          <li><a href="./GDBM.html">GDBM</a></li>
+        
+          <li><a href="./GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="./GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="./IO.html">IO</a></li>
+        
+          <li><a href="./IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          <li><a href="./Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="./Kconv.html">Kconv</a></li>
+        
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          <li><a href="./LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="./Module.html">Module</a></li>
+        
+          <li><a href="./NKF.html">NKF</a></li>
+        
+          <li><a href="./Newton.html">Newton</a></li>
+        
+          <li><a href="./OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Pathname.html">Pathname</a></li>
+        
+          <li><a href="./Range.html">Range</a></li>
+        
+          <li><a href="./Rational.html">Rational</a></li>
+        
+          <li><a href="./Readline.html">Readline</a></li>
+        
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          <li><a href="./SDBM.html">SDBM</a></li>
+        
+          <li><a href="./SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="./SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="./SocketError.html">SocketError</a></li>
+        
+          <li><a href="./String.html">String</a></li>
+        
+          <li><a href="./StringIO.html">StringIO</a></li>
+        
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          <li><a href="./TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="./TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          <li><a href="./Time.html">Time</a></li>
+        
+          <li><a href="./UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="./UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="./UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="./WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="./WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="./WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="./WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="./WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="./WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="./WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="./WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="./Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="module">BigMath</h1>
+
+    <div id="description" class="description">
+      
+<p><a href="Class.html">Class</a> and method registration</p>
+<hr style="height: 1px">
+
+<p>Provides mathematical functions.</p>
+
+<p>Example:</p>
+
+<pre>require &quot;bigdecimal&quot;
+require &quot;bigdecimal/math&quot;
+
+include BigMath
+
+a = BigDecimal((PI(100)/2).to_s)
+puts sin(a,100) # -&gt; 0.10000000000000000000......E1</pre>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="exp-method" class="method-detail ">
+          <a name="method-c-exp"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">exp(x, prec)</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Computes the value of e (the base of natural logarithms) raised to the
+power of x, to the specified number of digits of precision.</p>
+
+<p>If x is infinite, returns Infinity.</p>
+
+<p>If x is NaN, returns NaN.</p>
+            
+
+            
+            <div class="method-source-code" id="exp-source">
+<pre>
+static VALUE
+BigMath_s_exp(VALUE klass, VALUE x, VALUE vprec)
+{
+    ssize_t prec, n, i;
+    Real* vx = NULL;
+    VALUE one, d, x1, y, z;
+    int negative = 0;
+    int infinite = 0;
+    int nan = 0;
+    double flo;
+
+    prec = NUM2SSIZET(vprec);
+    if (prec &lt;= 0) {
+        rb_raise(rb_eArgError, &quot;Zero or negative precision for exp&quot;);
+    }
+
+    /* TODO: the following switch statement is almostly the same as one in the
+     *       BigDecimalCmp function. */
+    switch (TYPE(x)) {
+      case T_DATA:
+          if (!is_kind_of_BigDecimal(x)) break;
+          vx = DATA_PTR(x);
+          negative = VpGetSign(vx) &lt; 0;
+          infinite = VpIsPosInf(vx) || VpIsNegInf(vx);
+          nan = VpIsNaN(vx);
+          break;
+
+      case T_FIXNUM:
+          /* fall through */
+      case T_BIGNUM:
+          vx = GetVpValue(x, 0);
+          break;
+
+      case T_FLOAT:
+        flo = RFLOAT_VALUE(x);
+        negative = flo &lt; 0;
+        infinite = isinf(flo);
+        nan = isnan(flo);
+        if (!infinite &amp;&amp; !nan) {
+            vx = GetVpValueWithPrec(x, DBL_DIG+1, 0);
+        }
+        break;
+
+      case T_RATIONAL:
+        vx = GetVpValueWithPrec(x, prec, 0);
+        break;
+
+      default:
+        break;
+    }
+    if (infinite) {
+        if (negative) {
+            return ToValue(GetVpValueWithPrec(INT2NUM(0), prec, 1));
+        }
+        else {
+            Real* vy;
+            vy = VpCreateRbObject(prec, &quot;#0&quot;);
+            RB_GC_GUARD(vy-&gt;obj);
+            VpSetInf(vy, VP_SIGN_POSITIVE_INFINITE);
+            return ToValue(vy);
+        }
+    }
+    else if (nan) {
+        Real* vy;
+        vy = VpCreateRbObject(prec, &quot;#0&quot;);
+        RB_GC_GUARD(vy-&gt;obj);
+        VpSetNaN(vy);
+        return ToValue(vy);
+    }
+    else if (vx == NULL) {
+        rb_raise(rb_eArgError, &quot;%s can't be coerced into BigDecimal&quot;,
+                 rb_special_const_p(x) ? RSTRING_PTR(rb_inspect(x)) : rb_obj_classname(x));
+    }
+    RB_GC_GUARD(vx-&gt;obj);
+
+    n = prec + rmpd_double_figures();
+    negative = VpGetSign(vx) &lt; 0;
+    if (negative) {
+        VpSetSign(vx, 1);
+    }
+
+    RB_GC_GUARD(one) = ToValue(VpCreateRbObject(1, &quot;1&quot;));
+    RB_GC_GUARD(x1) = one;
+    RB_GC_GUARD(y)  = one;
+    RB_GC_GUARD(d)  = y;
+    RB_GC_GUARD(z)  = one;
+    i  = 0;
+
+    while (!VpIsZero((Real*)DATA_PTR(d))) {
+        VALUE argv[2];
+        SIGNED_VALUE const ey = VpExponent10(DATA_PTR(y));
+        SIGNED_VALUE const ed = VpExponent10(DATA_PTR(d));
+        ssize_t m = n - vabs(ey - ed);
+        if (m &lt;= 0) {
+            break;
+        }
+        else if ((size_t)m &lt; rmpd_double_figures()) {
+            m = rmpd_double_figures();
+        }
+
+        x1 = BigDecimal_mult2(x1, x, SSIZET2NUM(n));
+        ++i;
+        z = BigDecimal_mult(z, SSIZET2NUM(i));
+        argv[0] = z;
+        argv[1] = SSIZET2NUM(m);
+        d = BigDecimal_div2(2, argv, x1);
+        y = BigDecimal_add(y, d);
+    }
+
+    if (negative) {
+        VALUE argv[2];
+        argv[0] = y;
+        argv[1] = vprec;
+        return BigDecimal_div2(2, argv, one);
+    }
+    else {
+        vprec = SSIZET2NUM(prec - VpExponent10(DATA_PTR(y)));
+        return BigDecimal_round(1, &amp;vprec, y);
+    }
+}</pre>
+            </div><!-- exp-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- exp-method -->
+
+      
+        <div id="log-method" class="method-detail ">
+          <a name="method-c-log"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">log(x, prec)</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Computes the natural logarithm of x to the specified number of digits of
+precision.</p>
+
+<p>If x is zero or negative, raises Math::DomainError.</p>
+
+<p>If x is positive infinite, returns Infinity.</p>
+
+<p>If x is NaN, returns NaN.</p>
+            
+
+            
+            <div class="method-source-code" id="log-source">
+<pre>
+static VALUE
+BigMath_s_log(VALUE klass, VALUE x, VALUE vprec)
+{
+    ssize_t prec, n, i;
+    SIGNED_VALUE expo;
+    Real* vx = NULL;
+    VALUE argv[2], vn, one, two, w, x2, y, d;
+    int zero = 0;
+    int negative = 0;
+    int infinite = 0;
+    int nan = 0;
+    double flo;
+    long fix;
+
+    if (TYPE(vprec) != T_FIXNUM &amp;&amp; TYPE(vprec) != T_BIGNUM) {
+        rb_raise(rb_eArgError, &quot;precision must be an Integer&quot;);
+    }
+
+    prec = NUM2SSIZET(vprec);
+    if (prec &lt;= 0) {
+        rb_raise(rb_eArgError, &quot;Zero or negative precision for exp&quot;);
+    }
+
+    /* TODO: the following switch statement is almostly the same as one in the
+     *       BigDecimalCmp function. */
+    switch (TYPE(x)) {
+      case T_DATA:
+          if (!is_kind_of_BigDecimal(x)) break;
+          vx = DATA_PTR(x);
+          zero = VpIsZero(vx);
+          negative = VpGetSign(vx) &lt; 0;
+          infinite = VpIsPosInf(vx) || VpIsNegInf(vx);
+          nan = VpIsNaN(vx);
+          break;
+
+      case T_FIXNUM:
+        fix = FIX2LONG(x);
+        zero = fix == 0;
+        negative = fix &lt; 0;
+        goto get_vp_value;
+
+      case T_BIGNUM:
+        zero = RBIGNUM_ZERO_P(x);
+        negative = RBIGNUM_NEGATIVE_P(x);
+get_vp_value:
+        if (zero || negative) break;
+        vx = GetVpValue(x, 0);
+        break;
+
+      case T_FLOAT:
+        flo = RFLOAT_VALUE(x);
+        zero = flo == 0;
+        negative = flo &lt; 0;
+        infinite = isinf(flo);
+        nan = isnan(flo);
+        if (!zero &amp;&amp; !negative &amp;&amp; !infinite &amp;&amp; !nan) {
+            vx = GetVpValueWithPrec(x, DBL_DIG+1, 1);
+        }
+        break;
+
+      case T_RATIONAL:
+        zero = RRATIONAL_ZERO_P(x);
+        negative = RRATIONAL_NEGATIVE_P(x);
+        if (zero || negative) break;
+        vx = GetVpValueWithPrec(x, prec, 1);
+        break;
+
+      case T_COMPLEX:
+        rb_raise(rb_eMathDomainError,
+                 &quot;Complex argument for BigMath.log&quot;);
+
+      default:
+        break;
+    }
+    if (infinite &amp;&amp; !negative) {
+        Real* vy;
+        vy = VpCreateRbObject(prec, &quot;#0&quot;);
+        RB_GC_GUARD(vy-&gt;obj);
+        VpSetInf(vy, VP_SIGN_POSITIVE_INFINITE);
+        return ToValue(vy);
+    }
+    else if (nan) {
+        Real* vy;
+        vy = VpCreateRbObject(prec, &quot;#0&quot;);
+        RB_GC_GUARD(vy-&gt;obj);
+        VpSetNaN(vy);
+        return ToValue(vy);
+    }
+    else if (zero || negative) {
+        rb_raise(rb_eMathDomainError,
+                 &quot;Zero or negative argument for log&quot;);
+    }
+    else if (vx == NULL) {
+        rb_raise(rb_eArgError, &quot;%s can't be coerced into BigDecimal&quot;,
+                 rb_special_const_p(x) ? RSTRING_PTR(rb_inspect(x)) : rb_obj_classname(x));
+    }
+    x = ToValue(vx);
+
+    RB_GC_GUARD(one) = ToValue(VpCreateRbObject(1, &quot;1&quot;));
+    RB_GC_GUARD(two) = ToValue(VpCreateRbObject(1, &quot;2&quot;));
+
+    n = prec + rmpd_double_figures();
+    RB_GC_GUARD(vn) = SSIZET2NUM(n);
+    expo = VpExponent10(vx);
+    if (expo &lt; 0 || expo &gt;= 3) {
+        char buf[16];
+        snprintf(buf, 16, &quot;1E%ld&quot;, -expo);
+        x = BigDecimal_mult2(x, ToValue(VpCreateRbObject(1, buf)), vn);
+    }
+    else {
+        expo = 0;
+    }
+    w = BigDecimal_sub(x, one);
+    argv[0] = BigDecimal_add(x, one);
+    argv[1] = vn;
+    x = BigDecimal_div2(2, argv, w);
+    RB_GC_GUARD(x2) = BigDecimal_mult2(x, x, vn);
+    RB_GC_GUARD(y)  = x;
+    RB_GC_GUARD(d)  = y;
+    i = 1;
+    while (!VpIsZero((Real*)DATA_PTR(d))) {
+        SIGNED_VALUE const ey = VpExponent10(DATA_PTR(y));
+        SIGNED_VALUE const ed = VpExponent10(DATA_PTR(d));
+        ssize_t m = n - vabs(ey - ed);
+        if (m &lt;= 0) {
+            break;
+        }
+        else if ((size_t)m &lt; rmpd_double_figures()) {
+            m = rmpd_double_figures();
+        }
+
+        x = BigDecimal_mult2(x2, x, vn);
+        i += 2;
+        argv[0] = SSIZET2NUM(i);
+        argv[1] = SSIZET2NUM(m);
+        d = BigDecimal_div2(2, argv, x);
+        y = BigDecimal_add(y, d);
+    }
+
+    y = BigDecimal_mult(y, two);
+    if (expo != 0) {
+        VALUE log10, vexpo, dy;
+        log10 = BigMath_s_log(klass, INT2FIX(10), vprec);
+        vexpo = ToValue(GetVpValue(SSIZET2NUM(expo), 1));
+        dy = BigDecimal_mult(log10, vexpo);
+        y = BigDecimal_add(y, dy);
+    }
+
+    return y;
+}</pre>
+            </div><!-- log-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- log-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="E-method" class="method-detail ">
+          <a name="method-i-E"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">E</span><span
+              class="method-args">(prec)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Computes e (the base of natural logarithms) to the specified number of
+digits of precision.</p>
+            
+
+            
+            <div class="method-source-code" id="E-source">
+<pre>
+<span class="ruby-comment"># File ext/bigdecimal/lib/bigdecimal/math.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">E</span>(<span class="ruby-identifier">prec</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Zero or negative precision for E&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prec</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">n</span>    = <span class="ruby-identifier">prec</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+  <span class="ruby-identifier">one</span>  = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;1&quot;</span>)
+  <span class="ruby-identifier">y</span>  = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">d</span>  = <span class="ruby-identifier">y</span>
+  <span class="ruby-identifier">z</span>  = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">i</span>  = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">nonzero?</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">m</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">y</span>.<span class="ruby-identifier">exponent</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">exponent</span>).<span class="ruby-identifier">abs</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">m</span> = <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+    <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">z</span> <span class="ruby-operator">*=</span> <span class="ruby-identifier">i</span>
+    <span class="ruby-identifier">d</span>  = <span class="ruby-identifier">one</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">z</span>,<span class="ruby-identifier">m</span>)
+    <span class="ruby-identifier">y</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">d</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">y</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- E-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- E-method -->
+
+      
+        <div id="PI-method" class="method-detail ">
+          <a name="method-i-PI"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">PI</span><span
+              class="method-args">(prec)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Computes the value of pi to the specified number of digits of precision.</p>
+            
+
+            
+            <div class="method-source-code" id="PI-source">
+<pre>
+<span class="ruby-comment"># File ext/bigdecimal/lib/bigdecimal/math.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">PI</span>(<span class="ruby-identifier">prec</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Zero or negative argument for PI&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prec</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">n</span>      = <span class="ruby-identifier">prec</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+  <span class="ruby-identifier">zero</span>   = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;0&quot;</span>)
+  <span class="ruby-identifier">one</span>    = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;1&quot;</span>)
+  <span class="ruby-identifier">two</span>    = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;2&quot;</span>)
+
+  <span class="ruby-identifier">m25</span>    = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;-0.04&quot;</span>)
+  <span class="ruby-identifier">m57121</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;-57121&quot;</span>)
+
+  <span class="ruby-identifier">pi</span>     = <span class="ruby-identifier">zero</span>
+
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">k</span> = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">w</span> = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;-80&quot;</span>)
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">nonzero?</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">m</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">pi</span>.<span class="ruby-identifier">exponent</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">exponent</span>).<span class="ruby-identifier">abs</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">m</span> = <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+    <span class="ruby-identifier">t</span>   = <span class="ruby-identifier">t</span>*<span class="ruby-identifier">m25</span>
+    <span class="ruby-identifier">d</span>   = <span class="ruby-identifier">t</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">k</span>,<span class="ruby-identifier">m</span>)
+    <span class="ruby-identifier">k</span>   = <span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-identifier">two</span>
+    <span class="ruby-identifier">pi</span>  = <span class="ruby-identifier">pi</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">d</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">k</span> = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">w</span> = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;956&quot;</span>)
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">nonzero?</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">m</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">pi</span>.<span class="ruby-identifier">exponent</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">exponent</span>).<span class="ruby-identifier">abs</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">m</span> = <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+    <span class="ruby-identifier">t</span>   = <span class="ruby-identifier">t</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">m57121</span>,<span class="ruby-identifier">n</span>)
+    <span class="ruby-identifier">d</span>   = <span class="ruby-identifier">t</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">k</span>,<span class="ruby-identifier">m</span>)
+    <span class="ruby-identifier">pi</span>  = <span class="ruby-identifier">pi</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">d</span>
+    <span class="ruby-identifier">k</span>   = <span class="ruby-identifier">k</span><span class="ruby-operator">+</span><span class="ruby-identifier">two</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">pi</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- PI-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- PI-method -->
+
+      
+        <div id="atan-method" class="method-detail ">
+          <a name="method-i-atan"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">atan</span><span
+              class="method-args">(x, prec)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Computes the arctangent of x to the specified number of digits of
+precision.</p>
+
+<p>If x is NaN, returns NaN.</p>
+            
+
+            
+            <div class="method-source-code" id="atan-source">
+<pre>
+<span class="ruby-comment"># File ext/bigdecimal/lib/bigdecimal/math.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">atan</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">prec</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Zero or negative precision for atan&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prec</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;NaN&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">nan?</span>
+  <span class="ruby-identifier">pi</span> = <span class="ruby-constant">PI</span>(<span class="ruby-identifier">prec</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">x</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">neg</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">pi</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">neg</span> <span class="ruby-operator">?</span> <span class="ruby-value">-2</span> <span class="ruby-operator">:</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">prec</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">infinite?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">pi</span> <span class="ruby-operator">/</span> (<span class="ruby-identifier">neg</span> <span class="ruby-operator">?</span> <span class="ruby-value">-4</span> <span class="ruby-operator">:</span> <span class="ruby-value">4</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">round</span>(<span class="ruby-identifier">prec</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">x</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;1&quot;</span>).<span class="ruby-identifier">div</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">prec</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">inv</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">x</span> = (<span class="ruby-value">-1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">sqrt</span>(<span class="ruby-value">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">x</span><span class="ruby-operator">**</span><span class="ruby-value">2</span>, <span class="ruby-identifier">prec</span>))<span class="ruby-operator">/</span><span class="ruby-identifier">x</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">dbl</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0.5</span>
+  <span class="ruby-identifier">n</span>    = <span class="ruby-identifier">prec</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+  <span class="ruby-identifier">y</span> = <span class="ruby-identifier">x</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">y</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">x</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;3&quot;</span>)
+  <span class="ruby-identifier">x2</span> = <span class="ruby-identifier">x</span>.<span class="ruby-identifier">mult</span>(<span class="ruby-identifier">x</span>,<span class="ruby-identifier">n</span>)
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">nonzero?</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">m</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">y</span>.<span class="ruby-identifier">exponent</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">exponent</span>).<span class="ruby-identifier">abs</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">m</span> = <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+    <span class="ruby-identifier">t</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">t</span>.<span class="ruby-identifier">mult</span>(<span class="ruby-identifier">x2</span>,<span class="ruby-identifier">n</span>)
+    <span class="ruby-identifier">d</span> = <span class="ruby-identifier">t</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">r</span>,<span class="ruby-identifier">m</span>)
+    <span class="ruby-identifier">y</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">d</span>
+    <span class="ruby-identifier">r</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">y</span> <span class="ruby-operator">*=</span> <span class="ruby-value">2</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">dbl</span>
+  <span class="ruby-identifier">y</span> = <span class="ruby-identifier">pi</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">inv</span>
+  <span class="ruby-identifier">y</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">y</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">neg</span>
+  <span class="ruby-identifier">y</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- atan-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- atan-method -->
+
+      
+        <div id="cos-method" class="method-detail ">
+          <a name="method-i-cos"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">cos</span><span
+              class="method-args">(x, prec)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Computes the cosine of x to the specified number of digits of precision.</p>
+
+<p>If x is infinite or NaN, returns NaN.</p>
+            
+
+            
+            <div class="method-source-code" id="cos-source">
+<pre>
+<span class="ruby-comment"># File ext/bigdecimal/lib/bigdecimal/math.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cos</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">prec</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Zero or negative precision for cos&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prec</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;NaN&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">infinite?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">nan?</span>
+  <span class="ruby-identifier">n</span>    = <span class="ruby-identifier">prec</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+  <span class="ruby-identifier">one</span>  = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;1&quot;</span>)
+  <span class="ruby-identifier">two</span>  = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;2&quot;</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">x</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">twopi</span> = <span class="ruby-identifier">two</span> * <span class="ruby-constant">BigMath</span>.<span class="ruby-constant">PI</span>(<span class="ruby-identifier">prec</span>))
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">30</span>
+      <span class="ruby-identifier">x</span> <span class="ruby-operator">=</span> <span class="ruby-identifier">twopi</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">x</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">twopi</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">twopi</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">x1</span> = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">x2</span> = <span class="ruby-identifier">x</span>.<span class="ruby-identifier">mult</span>(<span class="ruby-identifier">x</span>,<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">sign</span> = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">y</span> = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">y</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;0&quot;</span>)
+  <span class="ruby-identifier">z</span> = <span class="ruby-identifier">one</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">nonzero?</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">m</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">y</span>.<span class="ruby-identifier">exponent</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">exponent</span>).<span class="ruby-identifier">abs</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">m</span> = <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+    <span class="ruby-identifier">sign</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">sign</span>
+    <span class="ruby-identifier">x1</span>  = <span class="ruby-identifier">x2</span>.<span class="ruby-identifier">mult</span>(<span class="ruby-identifier">x1</span>,<span class="ruby-identifier">n</span>)
+    <span class="ruby-identifier">i</span>  <span class="ruby-operator">+=</span> <span class="ruby-identifier">two</span>
+    <span class="ruby-identifier">z</span>  <span class="ruby-operator">*=</span> (<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-identifier">one</span>) * <span class="ruby-identifier">i</span>
+    <span class="ruby-identifier">d</span>   = <span class="ruby-identifier">sign</span> * <span class="ruby-identifier">x1</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">z</span>,<span class="ruby-identifier">m</span>)
+    <span class="ruby-identifier">y</span>  <span class="ruby-operator">+=</span> <span class="ruby-identifier">d</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">y</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- cos-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- cos-method -->
+
+      
+        <div id="sin-method" class="method-detail ">
+          <a name="method-i-sin"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">sin</span><span
+              class="method-args">(x, prec)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Computes the sine of x to the specified number of digits of precision.</p>
+
+<p>If x is infinite or NaN, returns NaN.</p>
+            
+
+            
+            <div class="method-source-code" id="sin-source">
+<pre>
+<span class="ruby-comment"># File ext/bigdecimal/lib/bigdecimal/math.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sin</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">prec</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Zero or negative precision for sin&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prec</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;NaN&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">infinite?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">nan?</span>
+  <span class="ruby-identifier">n</span>    = <span class="ruby-identifier">prec</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+  <span class="ruby-identifier">one</span>  = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;1&quot;</span>)
+  <span class="ruby-identifier">two</span>  = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&quot;2&quot;</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">x</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">neg</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">twopi</span> = <span class="ruby-identifier">two</span> * <span class="ruby-constant">BigMath</span>.<span class="ruby-constant">PI</span>(<span class="ruby-identifier">prec</span>))
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">30</span>
+      <span class="ruby-identifier">x</span> <span class="ruby-operator">=</span> <span class="ruby-identifier">twopi</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">x</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">twopi</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">twopi</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">x1</span>   = <span class="ruby-identifier">x</span>
+  <span class="ruby-identifier">x2</span>   = <span class="ruby-identifier">x</span>.<span class="ruby-identifier">mult</span>(<span class="ruby-identifier">x</span>,<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">sign</span> = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">y</span>    = <span class="ruby-identifier">x</span>
+  <span class="ruby-identifier">d</span>    = <span class="ruby-identifier">y</span>
+  <span class="ruby-identifier">i</span>    = <span class="ruby-identifier">one</span>
+  <span class="ruby-identifier">z</span>    = <span class="ruby-identifier">one</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">nonzero?</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">m</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">y</span>.<span class="ruby-identifier">exponent</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">exponent</span>).<span class="ruby-identifier">abs</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">m</span> = <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">double_fig</span>
+    <span class="ruby-identifier">sign</span> = <span class="ruby-operator">-</span><span class="ruby-identifier">sign</span>
+    <span class="ruby-identifier">x1</span>  = <span class="ruby-identifier">x2</span>.<span class="ruby-identifier">mult</span>(<span class="ruby-identifier">x1</span>,<span class="ruby-identifier">n</span>)
+    <span class="ruby-identifier">i</span>  <span class="ruby-operator">+=</span> <span class="ruby-identifier">two</span>
+    <span class="ruby-identifier">z</span>  <span class="ruby-operator">*=</span> (<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-identifier">one</span>) * <span class="ruby-identifier">i</span>
+    <span class="ruby-identifier">d</span>   = <span class="ruby-identifier">sign</span> * <span class="ruby-identifier">x1</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">z</span>,<span class="ruby-identifier">m</span>)
+    <span class="ruby-identifier">y</span>  <span class="ruby-operator">+=</span> <span class="ruby-identifier">d</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">neg</span> <span class="ruby-operator">?</span> <span class="ruby-operator">-</span><span class="ruby-identifier">y</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">y</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- sin-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sin-method -->
+
+      
+        <div id="sqrt-method" class="method-detail ">
+          <a name="method-i-sqrt"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">sqrt</span><span
+              class="method-args">(x,prec)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Computes the square root of x to the specified number of digits of
+precision.</p>
+
+<p><a
+href="BigDecimal.html#method-c-new">BigDecimal.new</a>('2').sqrt(16).to_s</p>
+
+<pre>-&gt; &quot;0.14142135623730950488016887242096975E1&quot;</pre>
+            
+
+            
+            <div class="method-source-code" id="sqrt-source">
+<pre>
+<span class="ruby-comment"># File ext/bigdecimal/lib/bigdecimal/math.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">x</span>,<span class="ruby-identifier">prec</span>)
+  <span class="ruby-identifier">x</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">prec</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- sqrt-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sqrt-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

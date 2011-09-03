@@ -1,0 +1,1285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: REXML::Elements
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (E)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../REXML.html" title="REXML (module)">REXML</a></span></span>
+     &raquo; 
+    <span class="title">Elements</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: REXML::Elements
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">REXML::Elements</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rexml/element.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A class which provides filtering of children for Elements, and XPath search
+support.  You are expected to only encounter this class as the
+<tt>element.elements</tt> object.  Therefore, you are <em>not</em> expected
+to instantiate this yourself.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  
+  
+  
+  
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- (Object) <strong>[]</strong>(index, name = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches a child element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D%3D-instance_method" title="#[]= (instance method)">- (Object) <strong>[]=</strong>(index, element) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets an element, replacing any previous matching element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add-instance_method" title="#add (instance method)">- (Object) <strong>add</strong>(element = nil) </a>
+    
+
+    
+      (also: #&lt;&lt;)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds an element element::.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#collect-instance_method" title="#collect (instance method)">- (Object) <strong>collect</strong>(xpath = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(element) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes a child Element element::.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_all-instance_method" title="#delete_all (instance method)">- (Object) <strong>delete_all</strong>(xpath) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Removes multiple elements.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong>(xpath = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterates through all of the child Elements, optionally filtering them by a
+given XPath xpath::.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#empty%3F-instance_method" title="#empty? (instance method)">- (Boolean) <strong>empty?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> if there are no <tt>Element</tt> children,
+<tt>false</tt> otherwise.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#index-instance_method" title="#index (instance method)">- (Object) <strong>index</strong>(element) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the index of the supplied child (starting at 1), or -1 if the
+element is not a child</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>element</p></td>
+<td>
+<p>an <tt>Element</tt> child.</p>
+</td></tr></table>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Elements) <strong>initialize</strong>(parent) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructor</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>parent</p></td>
+<td>
+<p>the parent Element.</p>
+</td></tr></table>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inject-instance_method" title="#inject (instance method)">- (Object) <strong>inject</strong>(xpath = nil, initial = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#literalize-instance_method" title="#literalize (instance method)">- (Object) <strong>literalize</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private helper class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#size-instance_method" title="#size (instance method)">- (Object) <strong>size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of <tt>Element</tt> children of the parent object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_a-instance_method" title="#to_a (instance method)">- (Object) <strong>to_a</strong>(xpath = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an Array of Element children.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Enumerable.html#to_set-instance_method" title="Enumerable#to_set (method)">#to_set</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="REXML::Elements (class)">Elements</a></span></tt>) <strong>initialize</strong>(parent) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructor</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>parent</p></td>
+<td>
+<p>the parent Element</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+743
+744
+745</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 743</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span> <span class='id parent'>parent</span>
+  <span class='ivar'>@element</span> <span class='op'>=</span> <span class='id parent'>parent</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="[]-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]</strong>(index, name = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Fetches a child element.  Filters only Element children, regardless of the
+XPath match.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>index</p></td>
+<td>
+<p>the search parameter.  This is either an Integer, which will be used to
+find the index'th child Element, or an XPath, which will be used to search
+for the Element.  <em>Because of the nature of XPath searches, any element
+in the connected XML document can be fetched through any other
+element.</em>  <b>The Integer index is 1-based, not 0-based.</b>  This
+means that the first child element is at index 1, not 0, and the <tt>n</tt>th
+element is at index <tt>n</tt>, not <tt>n-1</tt>.  This is because XPath
+indexes element children starting from 1, not 0, and the indexes should be
+the same.</p>
+</td></tr><tr><td class="rdoc-term"><p>name</p></td>
+<td>
+<p>optional, and only used in the first argument is an Integer.  In that case,
+the index'th child Element that has the supplied name will be returned. 
+Note again that the indexes start at 1.</p>
+</td></tr><tr><td class="rdoc-term"><p>Returns</p></td>
+<td>
+<p>the first matching Element, or nil if no child matched</p>
+</td></tr></table>
+
+<pre class="code"><span class='id doc'>doc</span> <span class='op'>=</span> <span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;a&gt;&lt;b/&gt;&lt;c id=&quot;1&quot;/&gt;&lt;c id=&quot;2&quot;/&gt;&lt;d/&gt;&lt;/a&gt;</span><span class='tstring_end'>'</span></span>
+<span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>       <span class='comment'>#-&gt; &lt;b/&gt;
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>     <span class='comment'>#-&gt; &lt;c id=&quot;1&quot;/&gt;
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lbracket'>[</span><span class='int'>2</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>   <span class='comment'>#-&gt; &lt;c id=&quot;2&quot;/&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 768</span>
+
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span> <span class='id index'>index</span><span class='comma'>,</span> <span class='id name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id index'>index</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Integer</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>index (</span><span class='embexpr_beg'>#{</span><span class='id index'>index</span><span class='rbrace'>}</span><span class='tstring_content'>) must be &gt;= 1</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id index'>index</span> <span class='op'>&lt;</span> <span class='int'>1</span>
+    <span class='id name'>name</span> <span class='op'>=</span> <span class='id literalize'>literalize</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id name'>name</span>
+    <span class='id num'>num</span> <span class='op'>=</span> <span class='int'>0</span>
+    <span class='ivar'>@element</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id child'>child</span><span class='op'>|</span>
+      <span class='id child'>child</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span> <span class='kw'>and</span>
+      <span class='lparen'>(</span><span class='id name'>name</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>?</span> <span class='kw'>true</span> <span class='op'>:</span> <span class='id child'>child</span><span class='period'>.</span><span class='id has_name?'>has_name?</span><span class='lparen'>(</span> <span class='id name'>name</span> <span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>and</span>
+      <span class='lparen'>(</span><span class='id num'>num</span> <span class='op'>+=</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id index'>index</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='const'>XPath</span><span class='op'>::</span><span class='id first'>first</span><span class='lparen'>(</span> <span class='ivar'>@element</span><span class='comma'>,</span> <span class='id index'>index</span> <span class='rparen'>)</span>
+    <span class='comment'>#{ |element|
+</span>    <span class='comment'>#       return element if element.kind_of? Element
+</span>    <span class='comment'>#}
+</span>    <span class='comment'>#return nil
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="[]=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]=</strong>(index, element) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets an element, replacing any previous matching element.  If no existing
+element is found ,the element is added.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>index</p></td>
+<td>
+<p>Used to find a matching element to replace.  See []().</p>
+</td></tr><tr><td class="rdoc-term"><p>element</p></td>
+<td>
+<p>The element to replace the existing element with the previous element</p>
+</td></tr><tr><td class="rdoc-term"><p>Returns</p></td>
+<td>
+<p>nil if no previous element was found.</p>
+</td></tr></table>
+
+<pre class="code"><span class='id doc'>doc</span> <span class='op'>=</span> <span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;a/&gt;</span><span class='tstring_end'>'</span></span>
+<span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Element</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>    <span class='comment'>#-&gt; &lt;a&gt;&lt;b/&gt;&lt;/a&gt;
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>                        <span class='comment'>#-&gt; &lt;b/&gt;
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Element</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>     <span class='comment'>#-&gt; &lt;a&gt;&lt;c/&gt;&lt;/a&gt;
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Element</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>   <span class='comment'>#-&gt; &lt;a&gt;&lt;d/&gt;&lt;/a&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+800
+801
+802
+803
+804
+805
+806
+807
+808</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 800</span>
+
+<span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span> <span class='id index'>index</span><span class='comma'>,</span> <span class='id element'>element</span> <span class='rparen'>)</span>
+  <span class='id previous'>previous</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id index'>index</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id previous'>previous</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='ivar'>@element</span><span class='period'>.</span><span class='id add'>add</span> <span class='id element'>element</span>
+  <span class='kw'>else</span>
+    <span class='id previous'>previous</span><span class='period'>.</span><span class='id replace_with'>replace_with</span> <span class='id element'>element</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id previous'>previous</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add</strong>(element = nil) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='<<-instance_method'>&lt;&lt;</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds an element</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>element</p></td>
+<td>
+<p>if supplied, is either an Element, String, or Source (see
+Element.initialize).  If not supplied or nil, a new, default Element will
+be constructed</p>
+</td></tr><tr><td class="rdoc-term"><p>Returns</p></td>
+<td>
+<p>the added Element</p>
+</td></tr></table>
+
+<pre class="code"><span class='id a'>a</span> <span class='op'>=</span> <span class='const'>Element</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id a'>a</span><span class='period'>.</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id add'>add</span><span class='lparen'>(</span><span class='const'>Element</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span>  <span class='comment'>#-&gt; &lt;a&gt;&lt;b/&gt;&lt;/a&gt;
+</span><span class='id a'>a</span><span class='period'>.</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id add'>add</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>               <span class='comment'>#-&gt; &lt;a&gt;&lt;b/&gt;&lt;c/&gt;&lt;/a&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 876</span>
+
+<span class='kw'>def</span> <span class='id add'>add</span> <span class='id element'>element</span><span class='op'>=</span><span class='kw'>nil</span>
+  <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='const'>Element</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='ivar'>@element</span><span class='period'>.</span><span class='id context'>context</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='kw'>not</span> <span class='id element'>element</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Element</span><span class='rparen'>)</span>
+    <span class='const'>Element</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id element'>element</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='ivar'>@element</span><span class='period'>.</span><span class='id context'>context</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@element</span> <span class='op'>&lt;&lt;</span> <span class='id element'>element</span>
+    <span class='id element'>element</span><span class='period'>.</span><span class='id context'>context</span> <span class='op'>=</span> <span class='ivar'>@element</span><span class='period'>.</span><span class='id context'>context</span>
+    <span class='id element'>element</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="collect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>collect</strong>(xpath = nil, &amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+908
+909
+910
+911
+912
+913
+914</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 908</span>
+
+<span class='kw'>def</span> <span class='id collect'>collect</span><span class='lparen'>(</span> <span class='id xpath'>xpath</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span> <span class='rparen'>)</span>
+  <span class='id collection'>collection</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='const'>XPath</span><span class='op'>::</span><span class='id each'>each</span><span class='lparen'>(</span> <span class='ivar'>@element</span><span class='comma'>,</span> <span class='id xpath'>xpath</span> <span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span>
+    <span class='id collection'>collection</span> <span class='op'>&lt;&lt;</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='id e'>e</span><span class='rparen'>)</span>  <span class='kw'>if</span> <span class='id e'>e</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Element</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+  <span class='id collection'>collection</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete</strong>(element) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes a child Element</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>element</p></td>
+<td>
+<p>Either an Element, which is removed directly; an xpath, where the first
+matching child is removed; or an Integer, where the n'th Element is
+removed.</p>
+</td></tr><tr><td class="rdoc-term"><p>Returns</p></td>
+<td>
+<p>the removed child</p>
+</td></tr></table>
+
+<pre class="code"><span class='id doc'>doc</span> <span class='op'>=</span> <span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;a&gt;&lt;b/&gt;&lt;c/&gt;&lt;c id=&quot;1&quot;/&gt;&lt;/a&gt;</span><span class='tstring_end'>'</span></span>
+<span class='id b'>b</span> <span class='op'>=</span> <span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+<span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='id b'>b</span>           <span class='comment'>#-&gt; &lt;a&gt;&lt;c/&gt;&lt;c id=&quot;1&quot;/&gt;&lt;/a&gt;
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a/c[@id='1']</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>  <span class='comment'>#-&gt; &lt;a&gt;&lt;c/&gt;&lt;/a&gt;
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='int'>1</span>           <span class='comment'>#-&gt; &lt;a/&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+840
+841
+842
+843
+844
+845
+846
+847</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 840</span>
+
+<span class='kw'>def</span> <span class='id delete'>delete</span> <span class='id element'>element</span>
+  <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+    <span class='ivar'>@element</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='id element'>element</span>
+  <span class='kw'>else</span>
+    <span class='id el'>el</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id element'>element</span><span class='rbracket'>]</span>
+    <span class='id el'>el</span><span class='period'>.</span><span class='id remove'>remove</span> <span class='kw'>if</span> <span class='id el'>el</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete_all-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete_all</strong>(xpath) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Removes multiple elements.  Filters for Element children, regardless of
+XPath matching.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>xpath</p></td>
+<td>
+<p>all elements matching this String path are removed.</p>
+</td></tr><tr><td class="rdoc-term"><p>Returns</p></td>
+<td>
+<p>an Array of Elements that have been removed</p>
+</td></tr></table>
+
+<pre class="code"><span class='id doc'>doc</span> <span class='op'>=</span> <span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;a&gt;&lt;c/&gt;&lt;c/&gt;&lt;c/&gt;&lt;c/&gt;&lt;/a&gt;</span><span class='tstring_end'>'</span></span>
+<span class='id deleted'>deleted</span> <span class='op'>=</span> <span class='id doc'>doc</span><span class='period'>.</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id delete_all'>delete_all</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a/c</span><span class='tstring_end'>'</span></span> <span class='comment'>#-&gt; [&lt;c/&gt;, &lt;c/&gt;, &lt;c/&gt;, &lt;c/&gt;]</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 855</span>
+
+<span class='kw'>def</span> <span class='id delete_all'>delete_all</span><span class='lparen'>(</span> <span class='id xpath'>xpath</span> <span class='rparen'>)</span>
+  <span class='id rv'>rv</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='const'>XPath</span><span class='op'>::</span><span class='id each'>each</span><span class='lparen'>(</span> <span class='ivar'>@element</span><span class='comma'>,</span> <span class='id xpath'>xpath</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+    <span class='id rv'>rv</span> <span class='op'>&lt;&lt;</span> <span class='id element'>element</span> <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+  <span class='rbrace'>}</span>
+  <span class='id rv'>rv</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+    <span class='ivar'>@element</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='id element'>element</span>
+    <span class='id element'>element</span><span class='period'>.</span><span class='id remove'>remove</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id rv'>rv</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>each</strong>(xpath = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterates through all of the child Elements, optionally filtering them by a
+given XPath</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>xpath</p></td>
+<td>
+<p>optional.  If supplied, this is a String XPath, and is used to filter the
+children, so that only matching children are yielded.  Note that XPaths are
+automatically filtered for Elements, so that non-Element children will not
+be yielded</p>
+</td></tr></table>
+
+<pre class="code"><span class='id doc'>doc</span> <span class='op'>=</span> <span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;a&gt;&lt;b/&gt;&lt;c/&gt;&lt;d/&gt;sean&lt;b/&gt;&lt;c/&gt;&lt;d/&gt;&lt;/a&gt;</span><span class='tstring_end'>'</span></span>
+<span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span><span class='id p'>p</span> <span class='id e'>e</span><span class='rbrace'>}</span>       <span class='comment'>#-&gt; Yields b, c, d, b, c, d elements
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id each'>each</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span><span class='id p'>p</span> <span class='id e'>e</span><span class='rbrace'>}</span>  <span class='comment'>#-&gt; Yields b, b elements
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id each'>each</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>child::node()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>  <span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span><span class='id p'>p</span> <span class='id e'>e</span><span class='rbrace'>}</span>
+<span class='comment'>#-&gt; Yields &lt;b/&gt;, &lt;c/&gt;, &lt;d/&gt;, &lt;b/&gt;, &lt;c/&gt;, &lt;d/&gt;
+</span><span class='const'>XPath</span><span class='period'>.</span><span class='id each'>each</span><span class='lparen'>(</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>child::node()</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='comment'>#-&gt; Yields &lt;b/&gt;, &lt;c/&gt;, &lt;d/&gt;, sean, &lt;b/&gt;, &lt;c/&gt;, &lt;d/&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+904
+905
+906</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 904</span>
+
+<span class='kw'>def</span> <span class='id each'>each</span><span class='lparen'>(</span> <span class='id xpath'>xpath</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='const'>XPath</span><span class='op'>::</span><span class='id each'>each</span><span class='lparen'>(</span> <span class='ivar'>@element</span><span class='comma'>,</span> <span class='id xpath'>xpath</span> <span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id e'>e</span> <span class='kw'>if</span> <span class='id e'>e</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="empty?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>empty?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> if there are no <tt>Element</tt> children,
+<tt>false</tt> otherwise</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+811
+812
+813</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 811</span>
+
+<span class='kw'>def</span> <span class='id empty?'>empty?</span>
+  <span class='ivar'>@element</span><span class='period'>.</span><span class='id find'>find</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id child'>child</span><span class='op'>|</span> <span class='id child'>child</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="index-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>index</strong>(element) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the index of the supplied child (starting at 1), or -1 if the
+element is not a child</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>element</p></td>
+<td>
+<p>an <tt>Element</tt> child</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 818</span>
+
+<span class='kw'>def</span> <span class='id index'>index</span> <span class='id element'>element</span>
+  <span class='id rv'>rv</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id found'>found</span> <span class='op'>=</span> <span class='ivar'>@element</span><span class='period'>.</span><span class='id find'>find</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id child'>child</span><span class='op'>|</span>
+    <span class='id child'>child</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span> <span class='kw'>and</span>
+    <span class='lparen'>(</span><span class='id rv'>rv</span> <span class='op'>+=</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>and</span>
+    <span class='id child'>child</span> <span class='op'>==</span> <span class='id element'>element</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id rv'>rv</span> <span class='kw'>if</span> <span class='id found'>found</span> <span class='op'>==</span> <span class='id element'>element</span>
+  <span class='kw'>return</span> <span class='op'>-</span><span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inject-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inject</strong>(xpath = nil, initial = nil, &amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 916</span>
+
+<span class='kw'>def</span> <span class='id inject'>inject</span><span class='lparen'>(</span> <span class='id xpath'>xpath</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id initial'>initial</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span> <span class='rparen'>)</span>
+  <span class='id first'>first</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='const'>XPath</span><span class='op'>::</span><span class='id each'>each</span><span class='lparen'>(</span> <span class='ivar'>@element</span><span class='comma'>,</span> <span class='id xpath'>xpath</span> <span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id e'>e</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span><span class='rparen'>)</span>
+      <span class='kw'>if</span> <span class='lparen'>(</span><span class='id first'>first</span> <span class='kw'>and</span> <span class='id initial'>initial</span> <span class='op'>==</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+        <span class='id initial'>initial</span> <span class='op'>=</span> <span class='id e'>e</span>
+        <span class='id first'>first</span> <span class='op'>=</span> <span class='kw'>false</span>
+      <span class='kw'>else</span>
+        <span class='id initial'>initial</span> <span class='op'>=</span> <span class='kw'>yield</span><span class='lparen'>(</span> <span class='id initial'>initial</span><span class='comma'>,</span> <span class='id e'>e</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id e'>e</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+  <span class='id initial'>initial</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="literalize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>literalize</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Private helper class.  Removes quotes from quoted strings</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+956
+957
+958
+959</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 956</span>
+
+<span class='kw'>def</span> <span class='id literalize'>literalize</span> <span class='id name'>name</span>
+  <span class='id name'>name</span> <span class='op'>=</span> <span class='id name'>name</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id name'>name</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?'</span> <span class='kw'>or</span> <span class='id name'>name</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?&quot;</span>               <span class='comment'>#'
+</span>  <span class='id name'>name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="size-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>size</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of <tt>Element</tt> children of the parent object.</p>
+
+<pre class="code"><span class='id doc'>doc</span> <span class='op'>=</span> <span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;a&gt;sean&lt;b/&gt;elliott&lt;b/&gt;russell&lt;b/&gt;&lt;/a&gt;</span><span class='tstring_end'>'</span></span>
+<span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id size'>size</span>            <span class='comment'>#-&gt; 6, 3 element and 3 text nodes
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id size'>size</span>   <span class='comment'>#-&gt; 3</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+935
+936
+937
+938
+939</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 935</span>
+
+<span class='kw'>def</span> <span class='id size'>size</span>
+  <span class='id count'>count</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='ivar'>@element</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id child'>child</span><span class='op'>|</span> <span class='id count'>count</span><span class='op'>+=</span><span class='int'>1</span> <span class='kw'>if</span> <span class='id child'>child</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span> <span class='rbrace'>}</span>
+  <span class='id count'>count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_a-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_a</strong>(xpath = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an Array of Element children.  An XPath may be supplied to filter
+the children.  Only Element children are returned, even if the supplied
+XPath matches non-Element children.</p>
+
+<pre class="code"><span class='id doc'>doc</span> <span class='op'>=</span> <span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;a&gt;sean&lt;b/&gt;elliott&lt;c/&gt;&lt;/a&gt;</span><span class='tstring_end'>'</span></span>
+<span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id to_a'>to_a</span>                  <span class='comment'>#-&gt; [ &lt;b/&gt;, &lt;c/&gt; ]
+</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id to_a'>to_a</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>child::node()</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#-&gt; [ &lt;b/&gt;, &lt;c/&gt; ]
+</span><span class='const'>XPath</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='id doc'>doc</span><span class='period'>.</span><span class='id root'>root</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>child::node()</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>  <span class='comment'>#-&gt; [ sean, &lt;b/&gt;, elliott, &lt;c/&gt; ]</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+948
+949
+950
+951
+952</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/element.rb', line 948</span>
+
+<span class='kw'>def</span> <span class='id to_a'>to_a</span><span class='lparen'>(</span> <span class='id xpath'>xpath</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id rv'>rv</span> <span class='op'>=</span> <span class='const'>XPath</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span> <span class='ivar'>@element</span><span class='comma'>,</span> <span class='id xpath'>xpath</span> <span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id rv'>rv</span><span class='period'>.</span><span class='id find_all'>find_all</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span><span class='rbrace'>}</span> <span class='kw'>if</span> <span class='id xpath'>xpath</span>
+  <span class='id rv'>rv</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:06 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

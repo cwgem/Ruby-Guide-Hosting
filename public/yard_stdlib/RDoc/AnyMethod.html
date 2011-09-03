@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RDoc::AnyMethod
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (A)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../RDoc.html" title="RDoc (module)">RDoc</a></span></span>
+     &raquo; 
+    <span class="title">AnyMethod</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: RDoc::AnyMethod
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">RDoc::AnyMethod</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Generator/Markup.html" title="RDoc::Generator::Markup (module)">Generator::Markup</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rdoc/generator/markup.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+  
+  
+  
+  
+  <h2>Class Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_line_numbers-class_method" title="add_line_numbers (class method)">+ (Object) <strong>add_line_numbers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Allows controlling whether <tt>#markup_code</tt> adds line numbers to the
+source code.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_line_numbers-instance_method" title="#add_line_numbers (instance method)">- (Object) <strong>add_line_numbers</strong>(src) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Prepend <tt>src</tt> with line numbers.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#markup_code-instance_method" title="#markup_code (instance method)">- (Object) <strong>markup_code</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Turns the method's token stream into HTML.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Generator/Markup.html" title="RDoc::Generator::Markup (module)">Generator::Markup</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Generator/Markup.html#aref_to-instance_method" title="RDoc::Generator::Markup#aref_to (method)">#aref_to</a></span>, <span class='object_link'><a href="Generator/Markup.html#as_href-instance_method" title="RDoc::Generator::Markup#as_href (method)">#as_href</a></span>, <span class='object_link'><a href="Generator/Markup.html#cvs_url-instance_method" title="RDoc::Generator::Markup#cvs_url (method)">#cvs_url</a></span>, <span class='object_link'><a href="Generator/Markup.html#description-instance_method" title="RDoc::Generator::Markup#description (method)">#description</a></span>, <span class='object_link'><a href="Generator/Markup.html#formatter-instance_method" title="RDoc::Generator::Markup#formatter (method)">#formatter</a></span></p>
+
+  <div id="class_attr_details" class="attr_details">
+    <h2>Class Attribute Details</h2>
+    
+      
+      <span id="add_line_numbers=-class_method"></span>
+      <span id="add_line_numbers-class_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="add_line_numbers-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_line_numbers</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Allows controlling whether <tt>#markup_code</tt> adds line numbers to the
+source code.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/markup.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id add_line_numbers'>add_line_numbers</span>
+  <span class='ivar'>@add_line_numbers</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_line_numbers-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_line_numbers</strong>(src) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Prepend <tt>src</tt> with line numbers.  Relies on the first line of a
+source code listing having:</p>
+
+<pre class="code"><span class='comment'># File xxxxx, line dddd</span></pre>
+
+<p>If it has, line numbers are added an ', line dddd' is removed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/markup.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id add_line_numbers'>add_line_numbers</span><span class='lparen'>(</span><span class='id src'>src</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id src'>src</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(.*)(, line (\d+))</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id first'>first</span> <span class='op'>=</span> <span class='backref'>$3</span><span class='period'>.</span><span class='id to_i'>to_i</span> <span class='op'>-</span> <span class='int'>1</span>
+  <span class='id last'>last</span>  <span class='op'>=</span> <span class='id first'>first</span> <span class='op'>+</span> <span class='id src'>src</span><span class='period'>.</span><span class='id count'>count</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id size'>size</span> <span class='op'>=</span> <span class='id last'>last</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id length'>length</span>
+
+  <span class='id line'>line</span> <span class='op'>=</span> <span class='id first'>first</span>
+  <span class='id src'>src</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id res'>res</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id line'>line</span> <span class='op'>==</span> <span class='id first'>first</span> <span class='kw'>then</span>
+            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id size'>size</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+          <span class='kw'>else</span>
+            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;span class=\&quot;line-num\&quot;&gt;%2$*1$d&lt;/span&gt; </span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id size'>size</span><span class='comma'>,</span> <span class='id line'>line</span><span class='rbracket'>]</span>
+          <span class='kw'>end</span>
+
+    <span class='id line'>line</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='id res'>res</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="markup_code-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>markup_code</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Turns the method's token stream into HTML.</p>
+
+<p>Prepends line numbers if <tt>add_line_numbers</tt> is true.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/markup.rb', line 111</span>
+
+<span class='kw'>def</span> <span class='id markup_code'>markup_code</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>unless</span> <span class='ivar'>@token_stream</span>
+
+  <span class='id src'>src</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='ivar'>@token_stream</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id t'>t</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id t'>t</span>
+
+    <span class='id style'>style</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='id t'>t</span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkCONSTANT</span> <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-constant</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkKW</span>       <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-keyword</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkIVAR</span>     <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-ivar</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkOp</span>       <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-operator</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkId</span>       <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-identifier</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkNode</span>     <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-node</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkCOMMENT</span>  <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-comment</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkREGEXP</span>   <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-regexp</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkSTRING</span>   <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-string</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RubyToken</span><span class='op'>::</span><span class='const'>TkVal</span>      <span class='kw'>then</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby-value</span><span class='tstring_end'>'</span></span>
+            <span class='kw'>end</span>
+
+    <span class='id text'>text</span> <span class='op'>=</span> <span class='const'>CGI</span><span class='period'>.</span><span class='id escapeHTML'>escapeHTML</span> <span class='id t'>t</span><span class='period'>.</span><span class='id text'>text</span>
+
+    <span class='kw'>if</span> <span class='id style'>style</span> <span class='kw'>then</span>
+      <span class='id src'>src</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;span class=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id style'>style</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id text'>text</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/span&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+      <span class='id src'>src</span> <span class='op'>&lt;&lt;</span> <span class='id text'>text</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># dedent the source
+</span>  <span class='id indent'>indent</span> <span class='op'>=</span> <span class='id src'>src</span><span class='period'>.</span><span class='id length'>length</span>
+  <span class='id lines'>lines</span> <span class='op'>=</span> <span class='id src'>src</span><span class='period'>.</span><span class='id lines'>lines</span><span class='period'>.</span><span class='id to_a'>to_a</span>
+  <span class='id lines'>lines</span><span class='period'>.</span><span class='id shift'>shift</span> <span class='kw'>if</span> <span class='id src'>src</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A.*#\ *File</span><span class='regexp_end'>/i</span></span> <span class='comment'># remove '# File' comment
+</span>  <span class='id lines'>lines</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id line'>line</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^ *(?=\S)</span><span class='regexp_end'>/</span></span>
+      <span class='id n'>n</span> <span class='op'>=</span> <span class='backref'>$&amp;</span><span class='period'>.</span><span class='id length'>length</span>
+      <span class='id indent'>indent</span> <span class='op'>=</span> <span class='id n'>n</span> <span class='kw'>if</span> <span class='id n'>n</span> <span class='op'>&lt;</span> <span class='id indent'>indent</span>
+      <span class='kw'>break</span> <span class='kw'>if</span> <span class='id n'>n</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id src'>src</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span> <span class='op'>*</span> <span class='id indent'>indent</span><span class='rbrace'>}</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id indent'>indent</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+
+  <span class='id add_line_numbers'>add_line_numbers</span><span class='lparen'>(</span><span class='id src'>src</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id add_line_numbers'>add_line_numbers</span>
+
+  <span class='id src'>src</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:14 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: XMLRPC::XMLParser::StreamParserMixin
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (S)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../XMLRPC.html" title="XMLRPC (module)">XMLRPC</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../XMLParser.html" title="XMLRPC::XMLParser (module)">XMLParser</a></span></span>
+     &raquo; 
+    <span class="title">StreamParserMixin</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: XMLRPC::XMLParser::StreamParserMixin
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="NQXMLStreamParser/XMLRPCParser.html" title="XMLRPC::XMLParser::NQXMLStreamParser::XMLRPCParser (class)">NQXMLStreamParser::XMLRPCParser</a></span>, <span class='object_link'><a href="REXMLStreamParser/StreamListener.html" title="XMLRPC::XMLParser::REXMLStreamParser::StreamListener (class)">REXMLStreamParser::StreamListener</a></span>, <span class='object_link'><a href="XMLScanStreamParser/XMLScanParser.html" title="XMLRPC::XMLParser::XMLScanStreamParser::XMLScanParser (class)">XMLScanStreamParser::XMLScanParser</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/xmlrpc/parser.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fault-instance_method" title="#fault (instance method)">- (Object) <strong>fault</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute fault.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#method_name-instance_method" title="#method_name (instance method)">- (Object) <strong>method_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute method_name.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#params-instance_method" title="#params (instance method)">- (Object) <strong>params</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute params.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#character-instance_method" title="#character (instance method)">- (Object) <strong>character</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#endElement-instance_method" title="#endElement (instance method)">- (Object) <strong>endElement</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (StreamParserMixin) <strong>initialize</strong>(*a) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of StreamParserMixin.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#startElement-instance_method" title="#startElement (instance method)">- (Object) <strong>startElement</strong>(name, attrs = []) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="fault-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="fault-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fault</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute fault</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+483
+484
+485</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/parser.rb', line 483</span>
+
+<span class='kw'>def</span> <span class='id fault'>fault</span>
+  <span class='ivar'>@fault</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="method_name-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="method_name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>method_name</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute method_name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+482
+483
+484</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/parser.rb', line 482</span>
+
+<span class='kw'>def</span> <span class='id method_name'>method_name</span>
+  <span class='ivar'>@method_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="params-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="params-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>params</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute params</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+481
+482
+483</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/parser.rb', line 481</span>
+
+<span class='kw'>def</span> <span class='id params'>params</span>
+  <span class='ivar'>@params</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="character-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>character</strong>(data) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+568
+569
+570
+571
+572
+573
+574</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/parser.rb', line 568</span>
+
+<span class='kw'>def</span> <span class='id character'>character</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@data</span>
+    <span class='ivar'>@data</span> <span class='op'>&lt;&lt;</span> <span class='id data'>data</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@data</span> <span class='op'>=</span> <span class='id data'>data</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="endElement-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>endElement</strong>(name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/parser.rb', line 523</span>
+
+<span class='kw'>def</span> <span class='id endElement'>endElement</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='ivar'>@data</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>case</span> <span class='id name'>name</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>string</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='ivar'>@data</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>i4</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>int</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='const'>Convert</span><span class='period'>.</span><span class='id int'>int</span><span class='lparen'>(</span><span class='ivar'>@data</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>boolean</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='const'>Convert</span><span class='period'>.</span><span class='id boolean'>boolean</span><span class='lparen'>(</span><span class='ivar'>@data</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>double</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='const'>Convert</span><span class='period'>.</span><span class='id double'>double</span><span class='lparen'>(</span><span class='ivar'>@data</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>dateTime.iso8601</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='const'>Convert</span><span class='period'>.</span><span class='id dateTime'>dateTime</span><span class='lparen'>(</span><span class='ivar'>@data</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>base64</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='const'>Convert</span><span class='period'>.</span><span class='id base64'>base64</span><span class='lparen'>(</span><span class='ivar'>@data</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>value</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='ivar'>@data</span> <span class='kw'>if</span> <span class='ivar'>@value</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='ivar'>@values</span> <span class='op'>&lt;&lt;</span> <span class='lparen'>(</span><span class='ivar'>@value</span> <span class='op'>==</span> <span class='symbol'>:nil</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='ivar'>@value</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>array</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='ivar'>@values</span>
+    <span class='ivar'>@values</span> <span class='op'>=</span> <span class='ivar'>@val_stack</span><span class='period'>.</span><span class='id pop'>pop</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>struct</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='const'>Convert</span><span class='period'>.</span><span class='id struct'>struct</span><span class='lparen'>(</span><span class='ivar'>@struct</span><span class='rparen'>)</span>
+
+    <span class='ivar'>@name</span> <span class='op'>=</span> <span class='ivar'>@names</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='ivar'>@struct</span> <span class='op'>=</span> <span class='ivar'>@structs</span><span class='period'>.</span><span class='id pop'>pop</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@name</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@data</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>member</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@struct</span><span class='lbracket'>[</span><span class='ivar'>@name</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@values</span><span class='period'>.</span><span class='id pop'>pop</span>
+
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>param</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@params</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@values</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='ivar'>@values</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fault</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@fault</span> <span class='op'>=</span> <span class='const'>Convert</span><span class='period'>.</span><span class='id fault'>fault</span><span class='lparen'>(</span><span class='ivar'>@values</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>methodName</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@method_name</span> <span class='op'>=</span> <span class='ivar'>@data</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@data</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="XMLRPC::XMLParser::StreamParserMixin (module)">StreamParserMixin</a></span></tt>) <strong>initialize</strong>(*a) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of StreamParserMixin</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/parser.rb', line 485</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id a'>a</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='op'>*</span><span class='id a'>a</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@values</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@val_stack</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='ivar'>@names</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='ivar'>@structs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@struct</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+  <span class='ivar'>@method_name</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@fault</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@data</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="startElement-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>startElement</strong>(name, attrs = []) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/parser.rb', line 503</span>
+
+<span class='kw'>def</span> <span class='id startElement'>startElement</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id attrs'>attrs</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='ivar'>@data</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>case</span> <span class='id name'>name</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>value</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nil</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wrong/unknown XML-RPC type 'nil'</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'>Config</span><span class='op'>::</span><span class='const'>ENABLE_NIL_PARSER</span>
+    <span class='ivar'>@value</span> <span class='op'>=</span> <span class='symbol'>:nil</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>array</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@val_stack</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@values</span>
+    <span class='ivar'>@values</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>struct</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@names</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@name</span>
+    <span class='ivar'>@name</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+    <span class='ivar'>@structs</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@struct</span>
+    <span class='ivar'>@struct</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:09 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

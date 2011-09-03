@@ -1,0 +1,1198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: ERB::Compiler
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../ERB.html" title="ERB (class)">ERB</a></span></span>
+     &raquo; 
+    <span class="title">Compiler</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: ERB::Compiler
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">ERB::Compiler</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/erb.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h1>ERB::Compiler</h1>
+
+<p>Compiles ERB templates into Ruby code; the compiled code produces the
+template result when evaluated. ERB::Compiler provides hooks to define how
+generated output is handled.</p>
+
+<p>Internally ERB does something like this to generate the code returned by
+ERB#src:</p>
+
+<pre class="code"><span class='id compiler'>compiler</span> <span class='op'>=</span> <span class='const'>ERB</span><span class='op'>::</span><span class='const'>Compiler</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id compiler'>compiler</span><span class='period'>.</span><span class='id pre_cmd'>pre_cmd</span>    <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_erbout=''</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+<span class='id compiler'>compiler</span><span class='period'>.</span><span class='id put_cmd'>put_cmd</span>    <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_erbout.concat</span><span class='tstring_end'>&quot;</span></span>
+<span class='id compiler'>compiler</span><span class='period'>.</span><span class='id insert_cmd'>insert_cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_erbout.concat</span><span class='tstring_end'>&quot;</span></span>
+<span class='id compiler'>compiler</span><span class='period'>.</span><span class='id post_cmd'>post_cmd</span>   <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_erbout</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+
+<span class='id code'>code</span><span class='comma'>,</span> <span class='id enc'>enc</span> <span class='op'>=</span> <span class='id compiler'>compiler</span><span class='period'>.</span><span class='id compile'>compile</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got &lt;%= obj %&gt;!\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id puts'>puts</span> <span class='id code'>code</span></pre>
+
+<p><em>Generates</em>:</p>
+
+<pre class="code"><span class='comment'>#coding:UTF-8
+</span><span class='id _erbout'>_erbout</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='semicolon'>;</span> <span class='id _erbout'>_erbout</span><span class='period'>.</span><span class='id concat'>concat</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got </span><span class='tstring_end'>&quot;</span></span><span class='semicolon'>;</span> <span class='id _erbout'>_erbout</span><span class='period'>.</span><span class='id concat'>concat</span><span class='lparen'>(</span><span class='lparen'>(</span> <span class='id obj'>obj</span> <span class='rparen'>)</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='id _erbout'>_erbout</span><span class='period'>.</span><span class='id concat'>concat</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>!\n</span><span class='tstring_end'>&quot;</span></span><span class='semicolon'>;</span> <span class='id _erbout'>_erbout</span></pre>
+
+<p>By default the output is sent to the print method.  For example:</p>
+
+<pre class="code"><span class='id compiler'>compiler</span> <span class='op'>=</span> <span class='const'>ERB</span><span class='op'>::</span><span class='const'>Compiler</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id code'>code</span><span class='comma'>,</span> <span class='id enc'>enc</span> <span class='op'>=</span> <span class='id compiler'>compiler</span><span class='period'>.</span><span class='id compile'>compile</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got &lt;%= obj %&gt;!\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id puts'>puts</span> <span class='id code'>code</span></pre>
+
+<p><em>Generates</em>:</p>
+
+<pre class="code"><span class='comment'>#coding:UTF-8
+</span><span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got </span><span class='tstring_end'>&quot;</span></span><span class='semicolon'>;</span> <span class='id print'>print</span><span class='lparen'>(</span><span class='lparen'>(</span> <span class='id obj'>obj</span> <span class='rparen'>)</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>!\n</span><span class='tstring_end'>&quot;</span></span></pre>
+
+<h2>Evaluation</h2>
+
+<p>The compiled code can be used in any context where the names in the code
+correctly resolve. Using the last example, each of these print 'Got It!'</p>
+
+<p>Evaluate using a variable:</p>
+
+<pre class="code"><span class='id obj'>obj</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>It</span><span class='tstring_end'>'</span></span>
+<span class='id eval'>eval</span> <span class='id code'>code</span></pre>
+
+<p>Evaluate using an input:</p>
+
+<pre class="code"><span class='id mod'>mod</span> <span class='op'>=</span> <span class='const'>Module</span><span class='period'>.</span><span class='id new'>new</span>
+<span class='id mod'>mod</span><span class='period'>.</span><span class='id module_eval'>module_eval</span> <span class='tstring'><span class='tstring_beg'>%{</span><span class='tstring_content'>
+  def get(obj)
+    </span><span class='embexpr_beg'>#{</span><span class='id code'>code</span><span class='rbrace'>}</span><span class='tstring_content'>
+  end
+</span><span class='tstring_end'>}</span></span>
+<span class='id extend'>extend</span> <span class='id mod'>mod</span>
+<span class='id get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>It</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span></pre>
+
+<p>Evaluate using an accessor:</p>
+
+<pre class="code"><span class='id klass'>klass</span> <span class='op'>=</span> <span class='const'>Class</span><span class='period'>.</span><span class='id new'>new</span> <span class='const'>Object</span>
+<span class='id klass'>klass</span><span class='period'>.</span><span class='id class_eval'>class_eval</span> <span class='tstring'><span class='tstring_beg'>%{</span><span class='tstring_content'>
+  attr_accessor :obj
+  def initialize(obj)
+    @obj = obj
+  end
+  def get_it
+    </span><span class='embexpr_beg'>#{</span><span class='id code'>code</span><span class='rbrace'>}</span><span class='tstring_content'>
+  end
+</span><span class='tstring_end'>}</span></span>
+<span class='id klass'>klass</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>It</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id get_it'>get_it</span></pre>
+
+<p>Good! See also ERB#def_method, ERB#def_module, and ERB#def_class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Compiler/Buffer.html" title="ERB::Compiler::Buffer (class)">Buffer</a></span>, <span class='object_link'><a href="Compiler/PercentLine.html" title="ERB::Compiler::PercentLine (class)">PercentLine</a></span>, <span class='object_link'><a href="Compiler/Scanner.html" title="ERB::Compiler::Scanner (class)">Scanner</a></span>, <span class='object_link'><a href="Compiler/SimpleScanner.html" title="ERB::Compiler::SimpleScanner (class)">SimpleScanner</a></span>, <span class='object_link'><a href="Compiler/TrimScanner.html" title="ERB::Compiler::TrimScanner (class)">TrimScanner</a></span>
+    
+  
+</p>
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#insert_cmd-instance_method" title="#insert_cmd (instance method)">- (Object) <strong>insert_cmd</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The command to handle text that is inserted prior to a newline.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#percent-instance_method" title="#percent (instance method)">- (Object) <strong>percent</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute percent.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#post_cmd-instance_method" title="#post_cmd (instance method)">- (Object) <strong>post_cmd</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array of commands appended to compiled code.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pre_cmd-instance_method" title="#pre_cmd (instance method)">- (Object) <strong>pre_cmd</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array of commands prepended to compiled code.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#put_cmd-instance_method" title="#put_cmd (instance method)">- (Object) <strong>put_cmd</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The command to handle text that ends with a newline.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trim_mode-instance_method" title="#trim_mode (instance method)">- (Object) <strong>trim_mode</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute trim_mode.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compile-instance_method" title="#compile (instance method)">- (Object) <strong>compile</strong>(s) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compiles an ERB template into Ruby code.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#content_dump-instance_method" title="#content_dump (instance method)">- (Object) <strong>content_dump</strong>(s) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#detect_magic_comment-instance_method" title="#detect_magic_comment (instance method)">- (Object) <strong>detect_magic_comment</strong>(s) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Compiler) <strong>initialize</strong>(trim_mode) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Construct a new compiler using the trim_mode.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#make_scanner-instance_method" title="#make_scanner (instance method)">- (Object) <strong>make_scanner</strong>(src) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prepare_trim_mode-instance_method" title="#prepare_trim_mode (instance method)">- (Object) <strong>prepare_trim_mode</strong>(mode) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="ERB::Compiler (class)">Compiler</a></span></tt>) <strong>initialize</strong>(trim_mode) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Construct a new compiler using the trim_mode. See ERB#new for available
+trim modes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+680
+681
+682
+683
+684
+685
+686</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 680</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id trim_mode'>trim_mode</span><span class='rparen'>)</span>
+  <span class='ivar'>@percent</span><span class='comma'>,</span> <span class='ivar'>@trim_mode</span> <span class='op'>=</span> <span class='id prepare_trim_mode'>prepare_trim_mode</span><span class='lparen'>(</span><span class='id trim_mode'>trim_mode</span><span class='rparen'>)</span>
+  <span class='ivar'>@put_cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>print</span><span class='tstring_end'>'</span></span>
+  <span class='ivar'>@insert_cmd</span> <span class='op'>=</span> <span class='ivar'>@put_cmd</span>
+  <span class='ivar'>@pre_cmd</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@post_cmd</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="insert_cmd=-instance_method"></span>
+      <span id="insert_cmd-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="insert_cmd-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>insert_cmd</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The command to handle text that is inserted prior to a newline</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+693
+694
+695</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 693</span>
+
+<span class='kw'>def</span> <span class='id insert_cmd'>insert_cmd</span>
+  <span class='ivar'>@insert_cmd</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="percent-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="percent-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>percent</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute percent</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+687
+688
+689</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 687</span>
+
+<span class='kw'>def</span> <span class='id percent'>percent</span>
+  <span class='ivar'>@percent</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="post_cmd=-instance_method"></span>
+      <span id="post_cmd-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="post_cmd-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>post_cmd</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>An array of commands appended to compiled code</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+699
+700
+701</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 699</span>
+
+<span class='kw'>def</span> <span class='id post_cmd'>post_cmd</span>
+  <span class='ivar'>@post_cmd</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pre_cmd=-instance_method"></span>
+      <span id="pre_cmd-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="pre_cmd-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>pre_cmd</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>An array of commands prepended to compiled code</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+696
+697
+698</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 696</span>
+
+<span class='kw'>def</span> <span class='id pre_cmd'>pre_cmd</span>
+  <span class='ivar'>@pre_cmd</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="put_cmd=-instance_method"></span>
+      <span id="put_cmd-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="put_cmd-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>put_cmd</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The command to handle text that ends with a newline</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+690
+691
+692</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 690</span>
+
+<span class='kw'>def</span> <span class='id put_cmd'>put_cmd</span>
+  <span class='ivar'>@put_cmd</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="trim_mode-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="trim_mode-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>trim_mode</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute trim_mode</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+687
+688
+689</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 687</span>
+
+<span class='kw'>def</span> <span class='id trim_mode'>trim_mode</span>
+  <span class='ivar'>@trim_mode</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="compile-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>compile</strong>(s) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Compiles an ERB template into Ruby code.  Returns an array of the code and
+encoding like ["code", Encoding].</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 585</span>
+
+<span class='kw'>def</span> <span class='id compile'>compile</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span>
+  <span class='id enc'>enc</span> <span class='op'>=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id encoding'>encoding</span>
+  <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id enc'>enc</span><span class='rbrace'>}</span><span class='tstring_content'> is not ASCII compatible</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id enc'>enc</span><span class='period'>.</span><span class='id dummy?'>dummy?</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id dup'>dup</span><span class='period'>.</span><span class='id force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ASCII-8BIT</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># don't use constant Enoding::ASCII_8BIT for miniruby
+</span>  <span class='id enc'>enc</span> <span class='op'>=</span> <span class='id detect_magic_comment'>detect_magic_comment</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id enc'>enc</span>
+  <span class='id out'>out</span> <span class='op'>=</span> <span class='const'>Buffer</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id enc'>enc</span><span class='rparen'>)</span>
+
+  <span class='id content'>content</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='id scanner'>scanner</span> <span class='op'>=</span> <span class='id make_scanner'>make_scanner</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span>
+  <span class='id scanner'>scanner</span><span class='period'>.</span><span class='id scan'>scan</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id token'>token</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id token'>token</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id token'>token</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>if</span> <span class='id scanner'>scanner</span><span class='period'>.</span><span class='id stag'>stag</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+      <span class='kw'>case</span> <span class='id token'>token</span>
+      <span class='kw'>when</span> <span class='const'>PercentLine</span>
+        <span class='id out'>out</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@put_cmd</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id content_dump'>content_dump</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id content'>content</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+        <span class='id content'>content</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+        <span class='id out'>out</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='id token'>token</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+        <span class='id out'>out</span><span class='period'>.</span><span class='id cr'>cr</span>
+      <span class='kw'>when</span> <span class='symbol'>:cr</span>
+        <span class='id out'>out</span><span class='period'>.</span><span class='id cr'>cr</span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;%</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;%=</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;%#</span><span class='tstring_end'>'</span></span>
+        <span class='id scanner'>scanner</span><span class='period'>.</span><span class='id stag'>stag</span> <span class='op'>=</span> <span class='id token'>token</span>
+        <span class='id out'>out</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@put_cmd</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id content_dump'>content_dump</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id content'>content</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+        <span class='id content'>content</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id content'>content</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id out'>out</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@put_cmd</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id content_dump'>content_dump</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='id content'>content</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;%%</span><span class='tstring_end'>'</span></span>
+        <span class='id content'>content</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;%</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>else</span>
+        <span class='id content'>content</span> <span class='op'>&lt;&lt;</span> <span class='id token'>token</span>
+      <span class='kw'>end</span>
+    <span class='kw'>else</span>
+      <span class='kw'>case</span> <span class='id token'>token</span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%&gt;</span><span class='tstring_end'>'</span></span>
+        <span class='kw'>case</span> <span class='id scanner'>scanner</span><span class='period'>.</span><span class='id stag'>stag</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;%</span><span class='tstring_end'>'</span></span>
+          <span class='kw'>if</span> <span class='id content'>content</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?\n</span>
+            <span class='id content'>content</span><span class='period'>.</span><span class='id chop!'>chop!</span>
+            <span class='id out'>out</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span>
+            <span class='id out'>out</span><span class='period'>.</span><span class='id cr'>cr</span>
+          <span class='kw'>else</span>
+            <span class='id out'>out</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span>
+          <span class='kw'>end</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;%=</span><span class='tstring_end'>'</span></span>
+          <span class='id out'>out</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@insert_cmd</span><span class='rbrace'>}</span><span class='tstring_content'>((</span><span class='embexpr_beg'>#{</span><span class='id content'>content</span><span class='rbrace'>}</span><span class='tstring_content'>).to_s)</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;%#</span><span class='tstring_end'>'</span></span>
+          <span class='comment'># out.push(&quot;# #{content_dump(content)}&quot;)
+</span>        <span class='kw'>end</span>
+        <span class='id scanner'>scanner</span><span class='period'>.</span><span class='id stag'>stag</span> <span class='op'>=</span> <span class='kw'>nil</span>
+        <span class='id content'>content</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%%&gt;</span><span class='tstring_end'>'</span></span>
+        <span class='id content'>content</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%&gt;</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>else</span>
+        <span class='id content'>content</span> <span class='op'>&lt;&lt;</span> <span class='id token'>token</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id out'>out</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@put_cmd</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id content_dump'>content_dump</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id content'>content</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+  <span class='id out'>out</span><span class='period'>.</span><span class='id close'>close</span>
+  <span class='kw'>return</span> <span class='id out'>out</span><span class='period'>.</span><span class='id script'>script</span><span class='comma'>,</span> <span class='id enc'>enc</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="content_dump-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>content_dump</strong>(s) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+574
+575
+576
+577
+578
+579
+580
+581</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 574</span>
+
+<span class='kw'>def</span> <span class='id content_dump'>content_dump</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='id n'>n</span> <span class='op'>=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id count'>count</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id n'>n</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id dump'>dump</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>*</span> <span class='id n'>n</span>
+  <span class='kw'>else</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id dump'>dump</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="detect_magic_comment-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>detect_magic_comment</strong>(s) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 702</span>
+
+<span class='kw'>def</span> <span class='id detect_magic_comment'>detect_magic_comment</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A&lt;%#(.*)%&gt;</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id s'>s</span> <span class='kw'>or</span> <span class='lparen'>(</span><span class='ivar'>@percent</span> <span class='kw'>and</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A%#(.*)</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id s'>s</span><span class='rparen'>)</span>
+    <span class='id comment'>comment</span> <span class='op'>=</span> <span class='backref'>$1</span>
+    <span class='id comment'>comment</span> <span class='op'>=</span> <span class='backref'>$1</span> <span class='kw'>if</span> <span class='id comment'>comment</span><span class='lbracket'>[</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>-\*-\s*(.*?)\s*-*-$</span><span class='regexp_end'>/</span></span><span class='rbracket'>]</span>
+    <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>%r&quot;</span><span class='tstring_content'>coding\s*[=:]\s*([[:alnum:]\-_]+)</span><span class='regexp_end'>&quot;</span></span> <span class='op'>=~</span> <span class='id comment'>comment</span>
+      <span class='id enc'>enc</span> <span class='op'>=</span> <span class='backref'>$1</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>-(?:mac|dos|unix)</span><span class='regexp_end'>/i</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='id enc'>enc</span> <span class='op'>=</span> <span class='const'>Encoding</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id enc'>enc</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="make_scanner-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>make_scanner</strong>(src) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+674
+675
+676</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 674</span>
+
+<span class='kw'>def</span> <span class='id make_scanner'>make_scanner</span><span class='lparen'>(</span><span class='id src'>src</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='const'>Scanner</span><span class='period'>.</span><span class='id make_scanner'>make_scanner</span><span class='lparen'>(</span><span class='id src'>src</span><span class='comma'>,</span> <span class='ivar'>@trim_mode</span><span class='comma'>,</span> <span class='ivar'>@percent</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="prepare_trim_mode-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>prepare_trim_mode</strong>(mode) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/erb.rb', line 650</span>
+
+<span class='kw'>def</span> <span class='id prepare_trim_mode'>prepare_trim_mode</span><span class='lparen'>(</span><span class='id mode'>mode</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='kw'>case</span> <span class='id mode'>mode</span>
+  <span class='kw'>when</span> <span class='int'>1</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='int'>2</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='int'>0</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='const'>String</span>
+    <span class='id perc'>perc</span> <span class='op'>=</span> <span class='id mode'>mode</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id mode'>mode</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='id perc'>perc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+    <span class='kw'>elsif</span> <span class='id mode'>mode</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='id perc'>perc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+    <span class='kw'>elsif</span> <span class='id mode'>mode</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='id perc'>perc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+      <span class='lbracket'>[</span><span class='id perc'>perc</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:09:56 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,3739 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Gem::TestCase
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Gem.html" title="Gem (module)">Gem</a></span></span>
+     &raquo; 
+    <span class="title">TestCase</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Gem::TestCase
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></li>
+          
+            <li class="next">Gem::TestCase</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="DefaultUserInteraction.html" title="Gem::DefaultUserInteraction (module)">DefaultUserInteraction</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rubygems/test_case.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>RubyGemTestCase provides a variety of methods for testing rubygems and
+gem-related behavior in a sandbox.  Through RubyGemTestCase you can install
+and uninstall gems, fetch remote gems through a stub fetcher and be assured
+your normal set of gems is not affected.</p>
+
+<p>Tests are always run at a safe level of 1.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="InstallerTestCase.html" title="Gem::InstallerTestCase (class)">InstallerTestCase</a></span>, <span class='object_link'><a href="Package/TarTestCase.html" title="Gem::Package::TarTestCase (class)">Package::TarTestCase</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="project_dir-classvariable" class="">@@project_dir =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Dir</span><span class='period'>.</span><span class='id pwd'>pwd</span></pre></dd>
+      
+        <dt id="ruby-classvariable" class="">@@ruby =
+          
+        </dt>
+        <dd><pre class="code"><span class='id rubybin'>rubybin</span></pre></dd>
+      
+        <dt id="rake-classvariable" class="">@@rake =
+          
+        </dt>
+        <dd><pre class="code"><span class='kw'>if</span> <span class='id env_rake'>env_rake</span> <span class='kw'>then</span>
+  <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rake</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+<span class='kw'>elsif</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span> <span class='id ruby19_rake'>ruby19_rake</span> <span class='kw'>then</span>
+  <span class='cvar'>@@ruby</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id ruby19_rake'>ruby19_rake</span>
+<span class='kw'>else</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rake</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Constants inherited from <span class='object_link'><a href="../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../MiniTest/Unit/TestCase.html#PASSTHROUGH_EXCEPTIONS-constant" title="MiniTest::Unit::TestCase::PASSTHROUGH_EXCEPTIONS (constant)">PASSTHROUGH_EXCEPTIONS</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#SUPPORTS_INFO_SIGNAL-constant" title="MiniTest::Unit::TestCase::SUPPORTS_INFO_SIGNAL (constant)">SUPPORTS_INFO_SIGNAL</a></span></p>
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="../MiniTest/Assertions.html" title="MiniTest::Assertions (module)">MiniTest::Assertions</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../MiniTest/Assertions.html#WINDOZE-constant" title="MiniTest::Assertions::WINDOZE (constant)">WINDOZE</a></span></p>
+
+
+
+  
+  
+  
+  
+  
+  
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../MiniTest/Unit/TestCase.html#__name__-instance_method" title="MiniTest::Unit::TestCase#__name__ (method)">__name__</a></span></p>
+
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#make_command-class_method" title="make_command (class method)">+ (Object) <strong>make_command</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the make command for the current platform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#process_based_port-class_method" title="process_based_port (class method)">+ (Object) <strong>process_based_port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Allows tests to use a random (but controlled) port number instead of a
+hardcoded one.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rubybin-class_method" title="rubybin (class method)">+ (Object) <strong>rubybin</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Finds the path to the ruby executable.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vc_windows%3F-class_method" title="vc_windows? (class method)">+ (Boolean) <strong>vc_windows?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether or not we're on a version of Ruby built with VC++ (or
+Borland) versus Cygwin, Mingw, etc.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#win_platform%3F-class_method" title="win_platform? (class method)">+ (Boolean) <strong>win_platform?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Is this test being run on a Windows platform?.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_spec_names-instance_method" title="#all_spec_names (instance method)">- (Object) <strong>all_spec_names</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assert_path_exists-instance_method" title="#assert_path_exists (instance method)">- (Object) <strong>assert_path_exists</strong>(path, msg = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>TODO: move to minitest.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_rake_in-instance_method" title="#build_rake_in (instance method)">- (Object) <strong>build_rake_in</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Allows the proper version of <tt>rake</tt> to be used for the test.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_tmpdir-instance_method" title="#create_tmpdir (instance method)">- (Object) <strong>create_tmpdir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>creates a temporary directory with hax.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dep-instance_method" title="#dep (instance method)">- (Object) <strong>dep</strong>(name, *requirements) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Construct a new Gem::Dependency.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_gem-instance_method" title="#install_gem (instance method)">- (Object) <strong>install_gem</strong>(spec) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Builds and installs the Gem::Specification <tt>spec</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_specs-instance_method" title="#install_specs (instance method)">- (Object) <strong>install_specs</strong>(*specs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Install the provided specs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#make_command-instance_method" title="#make_command (instance method)">- (Object) <strong>make_command</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the make command for the current platform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mu_pp-instance_method" title="#mu_pp (instance method)">- (Object) <strong>mu_pp</strong>(obj) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Enables pretty-print for all tests.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new_spec-instance_method" title="#new_spec (instance method)">- (Object) <strong>new_spec</strong>(name, version, deps = nil, *files) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new spec (or gem if passed an array of files) and set it up
+properly.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#nmake_found%3F-instance_method" title="#nmake_found? (instance method)">- (Boolean) <strong>nmake_found?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether or not the nmake command could be found.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#process_based_port-instance_method" title="#process_based_port (instance method)">- (Object) <strong>process_based_port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>See ::process_based_port.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#quick_gem-instance_method" title="#quick_gem (instance method)">- (Object) <strong>quick_gem</strong>(name, version = '2') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a Gem::Specification with a minimum of extra work.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#quick_spec-instance_method" title="#quick_spec (instance method)">- (Object) <strong>quick_spec</strong>(name, version = '2') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_binary-instance_method" title="#read_binary (instance method)">- (Object) <strong>read_binary</strong>(path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reads a binary file at <tt>path</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_cache-instance_method" title="#read_cache (instance method)">- (Object) <strong>read_cache</strong>(path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reads a Marshal file at <tt>path</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#refute_path_exists-instance_method" title="#refute_path_exists (instance method)">- (Object) <strong>refute_path_exists</strong>(path, msg = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>TODO: move to minitest.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#req-instance_method" title="#req (instance method)">- (Object) <strong>req</strong>(*requirements) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a new Gem::Requirement.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup-instance_method" title="#setup (instance method)">- (Object) <strong>setup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>#setup prepares a sandboxed location to install gems.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#spec-instance_method" title="#spec (instance method)">- (Object) <strong>spec</strong>(name, version, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a new Gem::Specification.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#teardown-instance_method" title="#teardown (instance method)">- (Object) <strong>teardown</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>#teardown restores the process to its original state and removes the
+tempdir unless the <tt>KEEP_FILES</tt> environment variable was set.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uninstall_gem-instance_method" title="#uninstall_gem (instance method)">- (Object) <strong>uninstall_gem</strong>(spec) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Uninstalls the Gem::Specification <tt>spec</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_build_gem-instance_method" title="#util_build_gem (instance method)">- (Object) <strong>util_build_gem</strong>(spec) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Builds a gem from <tt>spec</tt> and places it in <tt>File.join @gemhome,
+'cache'</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_clear_gems-instance_method" title="#util_clear_gems (instance method)">- (Object) <strong>util_clear_gems</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Removes all installed gems from <tt>@gemhome</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_gem-instance_method" title="#util_gem (instance method)">- (Object) <strong>util_gem</strong>(name, version, deps = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a gem with <tt>name</tt>, <tt>version</tt> and <tt>deps</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_gzip-instance_method" title="#util_gzip (instance method)">- (Object) <strong>util_gzip</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gzips <tt>data</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_make_gems-instance_method" title="#util_make_gems (instance method)">- (Object) <strong>util_make_gems</strong>(prerelease = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates several default gems which all have a lib/code.rb file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_set_arch-instance_method" title="#util_set_arch (instance method)">- (Object) <strong>util_set_arch</strong>(arch) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set the platform to <tt>arch</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_setup_fake_fetcher-instance_method" title="#util_setup_fake_fetcher (instance method)">- (Object) <strong>util_setup_fake_fetcher</strong>(prerelease = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets up a fake fetcher using the gems from #util_make_gems.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_setup_spec_fetcher-instance_method" title="#util_setup_spec_fetcher (instance method)">- (Object) <strong>util_setup_spec_fetcher</strong>(*specs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets up Gem::SpecFetcher to return information from the gems in
+<tt>specs</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_spec-instance_method" title="#util_spec (instance method)">- (Object) <strong>util_spec</strong>(name, version, deps = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a spec with <tt>name</tt>, <tt>version</tt> and <tt>deps</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#util_zip-instance_method" title="#util_zip (instance method)">- (Object) <strong>util_zip</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deflates <tt>data</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#v-instance_method" title="#v (instance method)">- (Object) <strong>v</strong>(string) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Construct a new Gem::Version.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vc_windows%3F-instance_method" title="#vc_windows? (instance method)">- (Boolean) <strong>vc_windows?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether or not we're on a version of Ruby built with VC++ (or
+Borland) versus Cygwin, Mingw, etc.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#win_platform%3F-instance_method" title="#win_platform? (instance method)">- (Boolean) <strong>win_platform?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Is this test being run on a Windows platform?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_file-instance_method" title="#write_file (instance method)">- (Object) <strong>write_file</strong>(path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes a binary file to <tt>path</tt> which is relative to <tt>@gemhome</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="DefaultUserInteraction.html" title="Gem::DefaultUserInteraction (module)">DefaultUserInteraction</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="DefaultUserInteraction.html#ui-class_method" title="Gem::DefaultUserInteraction.ui (method)">ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui-instance_method" title="Gem::DefaultUserInteraction#ui (method)">#ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui%3D-instance_method" title="Gem::DefaultUserInteraction#ui= (method)">#ui=</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui%3D-class_method" title="Gem::DefaultUserInteraction.ui= (method)">ui=</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#use_ui-class_method" title="Gem::DefaultUserInteraction.use_ui (method)">use_ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#use_ui-instance_method" title="Gem::DefaultUserInteraction#use_ui (method)">#use_ui</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../MiniTest/Unit/TestCase.html#assert_performance-instance_method" title="MiniTest::Unit::TestCase#assert_performance (method)">#assert_performance</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#assert_performance_constant-instance_method" title="MiniTest::Unit::TestCase#assert_performance_constant (method)">#assert_performance_constant</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#assert_performance_exponential-instance_method" title="MiniTest::Unit::TestCase#assert_performance_exponential (method)">#assert_performance_exponential</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#assert_performance_linear-instance_method" title="MiniTest::Unit::TestCase#assert_performance_linear (method)">#assert_performance_linear</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#assert_performance_power-instance_method" title="MiniTest::Unit::TestCase#assert_performance_power (method)">#assert_performance_power</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#bench_exp-class_method" title="MiniTest::Unit::TestCase.bench_exp (method)">bench_exp</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#bench_linear-class_method" title="MiniTest::Unit::TestCase.bench_linear (method)">bench_linear</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#bench_range-class_method" title="MiniTest::Unit::TestCase.bench_range (method)">bench_range</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#benchmark_methods-class_method" title="MiniTest::Unit::TestCase.benchmark_methods (method)">benchmark_methods</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#benchmark_suites-class_method" title="MiniTest::Unit::TestCase.benchmark_suites (method)">benchmark_suites</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#fit_error-instance_method" title="MiniTest::Unit::TestCase#fit_error (method)">#fit_error</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#fit_exponential-instance_method" title="MiniTest::Unit::TestCase#fit_exponential (method)">#fit_exponential</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#fit_linear-instance_method" title="MiniTest::Unit::TestCase#fit_linear (method)">#fit_linear</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#fit_power-instance_method" title="MiniTest::Unit::TestCase#fit_power (method)">#fit_power</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#inherited-class_method" title="MiniTest::Unit::TestCase.inherited (method)">inherited</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#initialize-instance_method" title="MiniTest::Unit::TestCase#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#io-instance_method" title="MiniTest::Unit::TestCase#io (method)">#io</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#io%3F-instance_method" title="MiniTest::Unit::TestCase#io? (method)">#io?</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#passed%3F-instance_method" title="MiniTest::Unit::TestCase#passed? (method)">#passed?</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#reset-class_method" title="MiniTest::Unit::TestCase.reset (method)">reset</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#run-instance_method" title="MiniTest::Unit::TestCase#run (method)">#run</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#sigma-instance_method" title="MiniTest::Unit::TestCase#sigma (method)">#sigma</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#test_methods-class_method" title="MiniTest::Unit::TestCase.test_methods (method)">test_methods</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#test_order-class_method" title="MiniTest::Unit::TestCase.test_order (method)">test_order</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#test_suites-class_method" title="MiniTest::Unit::TestCase.test_suites (method)">test_suites</a></span>, <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#validation_for_fit-instance_method" title="MiniTest::Unit::TestCase#validation_for_fit (method)">#validation_for_fit</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../MiniTest/Assertions.html" title="MiniTest::Assertions (module)">MiniTest::Assertions</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../MiniTest/Assertions.html#_assertions-instance_method" title="MiniTest::Assertions#_assertions (method)">#_assertions</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#_assertions%3D-instance_method" title="MiniTest::Assertions#_assertions= (method)">#_assertions=</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert-instance_method" title="MiniTest::Assertions#assert (method)">#assert</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_block-instance_method" title="MiniTest::Assertions#assert_block (method)">#assert_block</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_empty-instance_method" title="MiniTest::Assertions#assert_empty (method)">#assert_empty</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_equal-instance_method" title="MiniTest::Assertions#assert_equal (method)">#assert_equal</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_in_delta-instance_method" title="MiniTest::Assertions#assert_in_delta (method)">#assert_in_delta</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_in_epsilon-instance_method" title="MiniTest::Assertions#assert_in_epsilon (method)">#assert_in_epsilon</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_includes-instance_method" title="MiniTest::Assertions#assert_includes (method)">#assert_includes</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_instance_of-instance_method" title="MiniTest::Assertions#assert_instance_of (method)">#assert_instance_of</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_kind_of-instance_method" title="MiniTest::Assertions#assert_kind_of (method)">#assert_kind_of</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_match-instance_method" title="MiniTest::Assertions#assert_match (method)">#assert_match</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_nil-instance_method" title="MiniTest::Assertions#assert_nil (method)">#assert_nil</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_operator-instance_method" title="MiniTest::Assertions#assert_operator (method)">#assert_operator</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_output-instance_method" title="MiniTest::Assertions#assert_output (method)">#assert_output</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_raises-instance_method" title="MiniTest::Assertions#assert_raises (method)">#assert_raises</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_respond_to-instance_method" title="MiniTest::Assertions#assert_respond_to (method)">#assert_respond_to</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_same-instance_method" title="MiniTest::Assertions#assert_same (method)">#assert_same</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_send-instance_method" title="MiniTest::Assertions#assert_send (method)">#assert_send</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_silent-instance_method" title="MiniTest::Assertions#assert_silent (method)">#assert_silent</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#assert_throws-instance_method" title="MiniTest::Assertions#assert_throws (method)">#assert_throws</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#capture_io-instance_method" title="MiniTest::Assertions#capture_io (method)">#capture_io</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#diff-class_method" title="MiniTest::Assertions.diff (method)">diff</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#diff-instance_method" title="MiniTest::Assertions#diff (method)">#diff</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#diff%3D-class_method" title="MiniTest::Assertions.diff= (method)">diff=</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#exception_details-instance_method" title="MiniTest::Assertions#exception_details (method)">#exception_details</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#flunk-instance_method" title="MiniTest::Assertions#flunk (method)">#flunk</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#message-instance_method" title="MiniTest::Assertions#message (method)">#message</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#mu_pp_for_diff-instance_method" title="MiniTest::Assertions#mu_pp_for_diff (method)">#mu_pp_for_diff</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#pass-instance_method" title="MiniTest::Assertions#pass (method)">#pass</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute-instance_method" title="MiniTest::Assertions#refute (method)">#refute</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_empty-instance_method" title="MiniTest::Assertions#refute_empty (method)">#refute_empty</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_equal-instance_method" title="MiniTest::Assertions#refute_equal (method)">#refute_equal</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_in_delta-instance_method" title="MiniTest::Assertions#refute_in_delta (method)">#refute_in_delta</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_in_epsilon-instance_method" title="MiniTest::Assertions#refute_in_epsilon (method)">#refute_in_epsilon</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_includes-instance_method" title="MiniTest::Assertions#refute_includes (method)">#refute_includes</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_instance_of-instance_method" title="MiniTest::Assertions#refute_instance_of (method)">#refute_instance_of</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_kind_of-instance_method" title="MiniTest::Assertions#refute_kind_of (method)">#refute_kind_of</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_match-instance_method" title="MiniTest::Assertions#refute_match (method)">#refute_match</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_nil-instance_method" title="MiniTest::Assertions#refute_nil (method)">#refute_nil</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_operator-instance_method" title="MiniTest::Assertions#refute_operator (method)">#refute_operator</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_respond_to-instance_method" title="MiniTest::Assertions#refute_respond_to (method)">#refute_respond_to</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#refute_same-instance_method" title="MiniTest::Assertions#refute_same (method)">#refute_same</a></span>, <span class='object_link'><a href="../MiniTest/Assertions.html#skip-instance_method" title="MiniTest::Assertions#skip (method)">#skip</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="../MiniTest/Unit/TestCase.html#initialize-instance_method" title="MiniTest::Unit::TestCase#initialize (method)">MiniTest::Unit::TestCase</a></span></p>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="make_command-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>make_command</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the make command for the current platform. For versions of Ruby
+built on MS Windows with VC++ or Borland it will return 'nmake'. On all
+other platforms, including Cygwin, it will return 'make'.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+733
+734
+735</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 733</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id make_command'>make_command</span>
+  <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>make</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id vc_windows?'>vc_windows?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nmake</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>make</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="process_based_port-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>process_based_port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Allows tests to use a random (but controlled) port number instead of a
+hardcoded one. This helps CI tools when running parallels builds on the
+same builder slave.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+758
+759
+760</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 758</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id process_based_port'>process_based_port</span>
+  <span class='cvar'>@@process_based_port</span> <span class='op'>||=</span> <span class='int'>8000</span> <span class='op'>+</span> <span class='gvar'>$$</span> <span class='op'>%</span> <span class='int'>1000</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rubybin-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>rubybin</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Finds the path to the ruby executable</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 790</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id rubybin'>rubybin</span>
+  <span class='id ruby'>ruby</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RUBY</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='id ruby'>ruby</span> <span class='kw'>if</span> <span class='id ruby'>ruby</span>
+  <span class='id ruby'>ruby</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ruby</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id rubyexe'>rubyexe</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id ruby'>ruby</span><span class='rbrace'>}</span><span class='tstring_content'>.exe</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='int'>3</span><span class='period'>.</span><span class='id times'>times</span> <span class='kw'>do</span>
+    <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span> <span class='id ruby'>ruby</span> <span class='kw'>and</span> <span class='const'>File</span><span class='period'>.</span><span class='id executable?'>executable?</span> <span class='id ruby'>ruby</span> <span class='kw'>and</span> <span class='op'>!</span><span class='const'>File</span><span class='period'>.</span><span class='id directory?'>directory?</span> <span class='id ruby'>ruby</span>
+      <span class='kw'>return</span> <span class='const'>File</span><span class='period'>.</span><span class='id expand_path'>expand_path</span><span class='lparen'>(</span><span class='id ruby'>ruby</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span> <span class='id rubyexe'>rubyexe</span> <span class='kw'>and</span> <span class='const'>File</span><span class='period'>.</span><span class='id executable?'>executable?</span> <span class='id rubyexe'>rubyexe</span>
+      <span class='kw'>return</span> <span class='const'>File</span><span class='period'>.</span><span class='id expand_path'>expand_path</span><span class='lparen'>(</span><span class='id rubyexe'>rubyexe</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='id ruby'>ruby</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>..</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id ruby'>ruby</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>begin</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rbconfig</span><span class='tstring_end'>&quot;</span></span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='const'>RbConfig</span><span class='op'>::</span><span class='const'>CONFIG</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bindir</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+              <span class='const'>RbConfig</span><span class='op'>::</span><span class='const'>CONFIG</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ruby_install_name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+</span>
+              <span class='const'>RbConfig</span><span class='op'>::</span><span class='const'>CONFIG</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>EXEEXT</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>LoadError</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ruby</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="vc_windows?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>vc_windows?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether or not we're on a version of Ruby built with VC++ (or
+Borland) versus Cygwin, Mingw, etc.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+716
+717
+718</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 716</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id vc_windows?'>vc_windows?</span>
+  <span class='const'>RUBY_PLATFORM</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>mswin</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="win_platform?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>win_platform?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Is this test being run on a Windows platform?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+701
+702
+703</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 701</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id win_platform?'>win_platform?</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id win_platform?'>win_platform?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="all_spec_names-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>all_spec_names</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+321
+322
+323</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 321</span>
+
+<span class='kw'>def</span> <span class='id all_spec_names'>all_spec_names</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:full_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="assert_path_exists-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>assert_path_exists</strong>(path, msg = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>TODO: move to minitest</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id assert_path_exists'>assert_path_exists</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id msg'>msg</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id msg'>msg</span> <span class='op'>=</span> <span class='id message'>message</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Expected path '</span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>' to exist</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='id assert'>assert</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id msg'>msg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build_rake_in-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>build_rake_in</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Allows the proper version of <tt>rake</tt> to be used for the test.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 772</span>
+
+<span class='kw'>def</span> <span class='id build_rake_in'>build_rake_in</span>
+  <span class='id gem_ruby'>gem_ruby</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='period'>.</span><span class='id ruby'>ruby</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id ruby'>ruby</span> <span class='op'>=</span> <span class='cvar'>@@ruby</span>
+  <span class='id env_rake'>env_rake</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rake</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rake</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='cvar'>@@rake</span>
+  <span class='kw'>yield</span> <span class='cvar'>@@rake</span>
+<span class='kw'>ensure</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id ruby'>ruby</span> <span class='op'>=</span> <span class='id gem_ruby'>gem_ruby</span>
+  <span class='kw'>if</span> <span class='id env_rake'>env_rake</span>
+    <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rake</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id env_rake'>env_rake</span>
+  <span class='kw'>else</span>
+    <span class='const'>ENV</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rake</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="create_tmpdir-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>create_tmpdir</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>creates a temporary directory with hax</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+272
+273
+274
+275
+276
+277
+278</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 272</span>
+
+<span class='kw'>def</span> <span class='id create_tmpdir'>create_tmpdir</span>
+  <span class='id tmpdir'>tmpdir</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='const'>Dir</span><span class='period'>.</span><span class='id chdir'>chdir</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id tmpdir'>tmpdir</span> <span class='kw'>do</span> <span class='id tmpdir'>tmpdir</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id pwd'>pwd</span> <span class='kw'>end</span> <span class='comment'># HACK OSX /private/tmp
+</span>  <span class='id tmpdir'>tmpdir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='id tmpdir'>tmpdir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test_rubygems_</span><span class='embexpr_beg'>#{</span><span class='gvar'>$$</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='id tmpdir'>tmpdir</span>
+  <span class='kw'>return</span> <span class='id tmpdir'>tmpdir</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="dep-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>dep</strong>(name, *requirements) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Construct a new Gem::Dependency.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+830
+831
+832</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 830</span>
+
+<span class='kw'>def</span> <span class='id dep'>dep</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id requirements'>requirements</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Dependency</span><span class='period'>.</span><span class='id new'>new</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id requirements'>requirements</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_gem-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_gem</strong>(spec) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Builds and installs the Gem::Specification <tt>spec</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 246</span>
+
+<span class='kw'>def</span> <span class='id install_gem'>install_gem</span> <span class='id spec'>spec</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rubygems/installer</span><span class='tstring_end'>'</span></span>
+
+  <span class='id use_ui'>use_ui</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>MockGemUi</span><span class='period'>.</span><span class='id new'>new</span> <span class='kw'>do</span>
+    <span class='const'>Dir</span><span class='period'>.</span><span class='id chdir'>chdir</span> <span class='ivar'>@tempdir</span> <span class='kw'>do</span>
+      <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id spec'>spec</span><span class='rparen'>)</span><span class='period'>.</span><span class='id build'>build</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id gem'>gem</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='ivar'>@tempdir</span><span class='comma'>,</span> <span class='const'>File</span><span class='period'>.</span><span class='id basename'>basename</span><span class='lparen'>(</span><span class='id spec'>spec</span><span class='period'>.</span><span class='id cache_file'>cache_file</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id untaint'>untaint</span>
+
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Installer</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id gem'>gem</span><span class='comma'>,</span> <span class='symbol'>:wrappers</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span><span class='period'>.</span><span class='id install'>install</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_specs-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_specs</strong>(*specs) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Install the provided specs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+425
+426
+427
+428</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 425</span>
+
+<span class='kw'>def</span> <span class='id install_specs'>install_specs</span><span class='lparen'>(</span><span class='op'>*</span><span class='id specs'>specs</span><span class='rparen'>)</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id add_specs'>add_specs</span><span class='lparen'>(</span><span class='op'>*</span><span class='id specs'>specs</span><span class='rparen'>)</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id searcher'>searcher</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="make_command-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>make_command</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the make command for the current platform. For versions of Ruby
+built on MS Windows with VC++ or Borland it will return 'nmake'. On all
+other platforms, including Cygwin, it will return 'make'.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+742
+743
+744</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 742</span>
+
+<span class='kw'>def</span> <span class='id make_command'>make_command</span>
+  <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>make</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id vc_windows?'>vc_windows?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nmake</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>make</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mu_pp-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>mu_pp</strong>(obj) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Enables pretty-print for all tests</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+283
+284
+285
+286
+287
+288</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 283</span>
+
+<span class='kw'>def</span> <span class='id mu_pp'>mu_pp</span><span class='lparen'>(</span><span class='id obj'>obj</span><span class='rparen'>)</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='const'>PP</span><span class='period'>.</span><span class='id pp'>pp</span> <span class='id obj'>obj</span><span class='comma'>,</span> <span class='id s'>s</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='const'>Encoding</span><span class='period'>.</span><span class='id default_external'>default_external</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='const'>Encoding</span>
+  <span class='id s'>s</span><span class='period'>.</span><span class='id chomp'>chomp</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="new_spec-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>new_spec</strong>(name, version, deps = nil, *files) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new spec (or gem if passed an array of files) and set it up
+properly. Use this instead of util_spec and util_gem.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 434</span>
+
+<span class='kw'>def</span> <span class='id new_spec'>new_spec</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id version'>version</span><span class='comma'>,</span> <span class='id deps'>deps</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id files'>files</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rubygems/specification</span><span class='tstring_end'>'</span></span>
+
+  <span class='id spec'>spec</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id platform'>platform</span>    <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='op'>::</span><span class='const'>RUBY</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id name'>name</span>        <span class='op'>=</span> <span class='id name'>name</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id version'>version</span>     <span class='op'>=</span> <span class='id version'>version</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id author'>author</span>      <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>A User</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id email'>email</span>       <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>example@example.com</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id homepage'>homepage</span>    <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://example.com</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id summary'>summary</span>     <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this is a summary</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id description'>description</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This is a test description</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='const'>Array</span><span class='lparen'>(</span><span class='id deps'>deps</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='comma'>,</span> <span class='id req'>req</span><span class='op'>|</span>
+      <span class='id s'>s</span><span class='period'>.</span><span class='id add_dependency'>add_dependency</span> <span class='id n'>n</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id req'>req</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&gt;= 0</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id s'>s</span><span class='period'>.</span><span class='id files'>files</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id files'>files</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id files'>files</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+
+    <span class='kw'>yield</span> <span class='id s'>s</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+  <span class='kw'>end</span>
+
+  <span class='id spec'>spec</span><span class='period'>.</span><span class='id loaded_from'>loaded_from</span> <span class='op'>=</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id spec_file'>spec_file</span>
+
+  <span class='kw'>unless</span> <span class='id files'>files</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='kw'>then</span>
+    <span class='id write_file'>write_file</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id spec_file'>spec_file</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span>
+      <span class='id io'>io</span><span class='period'>.</span><span class='id write'>write</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id to_ruby_for_cache'>to_ruby_for_cache</span>
+    <span class='kw'>end</span>
+
+    <span class='id util_build_gem'>util_build_gem</span> <span class='id spec'>spec</span>
+
+    <span class='id cache_file'>cache_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='ivar'>@tempdir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>gems</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id spec'>spec</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'>.gem</span><span class='tstring_end'>&quot;</span></span>
+    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span> <span class='id cache_file'>cache_file</span>
+    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mv'>mv</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id cache_file'>cache_file</span><span class='comma'>,</span> <span class='id cache_file'>cache_file</span>
+    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm'>rm</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id spec_file'>spec_file</span>
+  <span class='kw'>end</span>
+
+  <span class='id spec'>spec</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="nmake_found?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>nmake_found?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether or not the nmake command could be found.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+749
+750
+751</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 749</span>
+
+<span class='kw'>def</span> <span class='id nmake_found?'>nmake_found?</span>
+  <span class='id system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nmake /? 1&gt;NUL 2&gt;&amp;1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="process_based_port-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>process_based_port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>See ::process_based_port</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+765
+766
+767</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 765</span>
+
+<span class='kw'>def</span> <span class='id process_based_port'>process_based_port</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id process_based_port'>process_based_port</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="quick_gem-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>quick_gem</strong>(name, version = '2') 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a Gem::Specification with a minimum of extra work.  <tt>name</tt>
+and <tt>version</tt> are the gem's name and version,  platform, author,
+email, homepage, summary and description are defaulted.  The specification
+is yielded for customization.</p>
+
+<p>The gem is added to the installed gems in <tt>@gemhome</tt> and to the current
+source_index.</p>
+
+<p>Use this with #write_file to build an installed gem.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 336</span>
+
+<span class='kw'>def</span> <span class='id quick_gem'>quick_gem</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id version'>version</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>2</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rubygems/specification</span><span class='tstring_end'>'</span></span>
+
+  <span class='id spec'>spec</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id platform'>platform</span>    <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='op'>::</span><span class='const'>RUBY</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id name'>name</span>        <span class='op'>=</span> <span class='id name'>name</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id version'>version</span>     <span class='op'>=</span> <span class='id version'>version</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id author'>author</span>      <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>A User</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id email'>email</span>       <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>example@example.com</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id homepage'>homepage</span>    <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://example.com</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id summary'>summary</span>     <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this is a summary</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id description'>description</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This is a test description</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='kw'>yield</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id map'>map</span> <span class='comment'># HACK: force specs to (re-)load before we write
+</span>
+  <span class='id written_path'>written_path</span> <span class='op'>=</span> <span class='id write_file'>write_file</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id spec_file'>spec_file</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span>
+    <span class='id io'>io</span><span class='period'>.</span><span class='id write'>write</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id to_ruby_for_cache'>to_ruby_for_cache</span>
+  <span class='kw'>end</span>
+
+  <span class='id spec'>spec</span><span class='period'>.</span><span class='id loaded_from'>loaded_from</span> <span class='op'>=</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id loaded_from'>loaded_from</span> <span class='op'>=</span> <span class='id written_path'>written_path</span>
+
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id add_spec'>add_spec</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id for_cache'>for_cache</span>
+
+  <span class='kw'>return</span> <span class='id spec'>spec</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="quick_spec-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>quick_spec</strong>(name, version = '2') 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 365</span>
+
+<span class='kw'>def</span> <span class='id quick_spec'>quick_spec</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id version'>version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>2</span><span class='tstring_end'>'</span></span>
+  <span class='comment'># TODO: deprecate
+</span>  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rubygems/specification</span><span class='tstring_end'>'</span></span>
+
+  <span class='id spec'>spec</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id platform'>platform</span>    <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='op'>::</span><span class='const'>RUBY</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id name'>name</span>        <span class='op'>=</span> <span class='id name'>name</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id version'>version</span>     <span class='op'>=</span> <span class='id version'>version</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id author'>author</span>      <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>A User</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id email'>email</span>       <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>example@example.com</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id homepage'>homepage</span>    <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://example.com</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id summary'>summary</span>     <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this is a summary</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id description'>description</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This is a test description</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='kw'>yield</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+  <span class='kw'>end</span>
+
+  <span class='id spec'>spec</span><span class='period'>.</span><span class='id loaded_from'>loaded_from</span> <span class='op'>=</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id spec_file'>spec_file</span>
+
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id add_spec'>add_spec</span> <span class='id spec'>spec</span>
+
+  <span class='kw'>return</span> <span class='id spec'>spec</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_binary-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_binary</strong>(path) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Reads a binary file at <tt>path</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+302
+303
+304</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 302</span>
+
+<span class='kw'>def</span> <span class='id read_binary'>read_binary</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id read_binary'>read_binary</span> <span class='id path'>path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_cache-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_cache</strong>(path) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Reads a Marshal file at <tt>path</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+293
+294
+295
+296
+297</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 293</span>
+
+<span class='kw'>def</span> <span class='id read_cache'>read_cache</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='id open'>open</span> <span class='id path'>path</span><span class='period'>.</span><span class='id dup'>dup</span><span class='period'>.</span><span class='id untaint'>untaint</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rb</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span>
+    <span class='const'>Marshal</span><span class='period'>.</span><span class='id load'>load</span> <span class='id io'>io</span><span class='period'>.</span><span class='id read'>read</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="refute_path_exists-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>refute_path_exists</strong>(path, msg = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>TODO: move to minitest</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id refute_path_exists'>refute_path_exists</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id msg'>msg</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id msg'>msg</span> <span class='op'>=</span> <span class='id message'>message</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Expected path '</span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>' to not exist</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='id refute'>refute</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id msg'>msg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="req-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>req</strong>(*requirements) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a new Gem::Requirement.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+837
+838
+839
+840</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 837</span>
+
+<span class='kw'>def</span> <span class='id req'>req</span> <span class='op'>*</span><span class='id requirements'>requirements</span>
+  <span class='kw'>return</span> <span class='id requirements'>requirements</span><span class='period'>.</span><span class='id first'>first</span> <span class='kw'>if</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Requirement</span> <span class='op'>===</span> <span class='id requirements'>requirements</span><span class='period'>.</span><span class='id first'>first</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Requirement</span><span class='period'>.</span><span class='id create'>create</span> <span class='id requirements'>requirements</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="setup-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>setup</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>#setup prepares a sandboxed location to install gems.  All installs are
+directed to a temporary directory.  All install plugins are removed.</p>
+
+<p>If the <tt>RUBY</tt> environment variable is set the given path is used for
+Gem::ruby.  The local platform is set to <tt>i386-mswin32</tt> for Windows
+or <tt>i686-darwin8.10.1</tt> otherwise.</p>
+
+<p>If the <tt>KEEP_FILES</tt> environment variable is set the files will not
+be removed from <tt>/tmp/test_rubygems_#{$$}.#{Time.now.to_i}</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id setup'>setup</span>
+  <span class='kw'>super</span>
+
+  <span class='ivar'>@orig_gem_home</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GEM_HOME</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@orig_gem_path</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GEM_PATH</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+
+  <span class='ivar'>@current_dir</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id pwd'>pwd</span>
+  <span class='ivar'>@ui</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>MockGemUi</span><span class='period'>.</span><span class='id new'>new</span>
+
+  <span class='id tmpdir'>tmpdir</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='const'>Dir</span><span class='period'>.</span><span class='id chdir'>chdir</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id tmpdir'>tmpdir</span> <span class='kw'>do</span> <span class='id tmpdir'>tmpdir</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id pwd'>pwd</span> <span class='kw'>end</span> <span class='comment'># HACK OSX /private/tmp
+</span>
+  <span class='kw'>if</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>KEEP_FILES</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='kw'>then</span>
+    <span class='ivar'>@tempdir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='id tmpdir'>tmpdir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test_rubygems_</span><span class='embexpr_beg'>#{</span><span class='gvar'>$$</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@tempdir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='id tmpdir'>tmpdir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test_rubygems_</span><span class='embexpr_beg'>#{</span><span class='gvar'>$$</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@tempdir</span><span class='period'>.</span><span class='id untaint'>untaint</span>
+  <span class='ivar'>@gemhome</span>  <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='ivar'>@tempdir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>gemhome</span><span class='tstring_end'>'</span></span>
+  <span class='ivar'>@userhome</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='ivar'>@tempdir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>userhome</span><span class='tstring_end'>'</span></span>
+
+  <span class='ivar'>@orig_ruby</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id ruby'>ruby</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RUBY</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='kw'>then</span>
+                 <span class='const'>Gem</span><span class='period'>.</span><span class='id class_eval'>class_eval</span> <span class='lbrace'>{</span> <span class='id ruby'>ruby</span><span class='comma'>,</span> <span class='ivar'>@ruby</span> <span class='op'>=</span> <span class='ivar'>@ruby</span><span class='comma'>,</span> <span class='id ruby'>ruby</span> <span class='rbrace'>}</span>
+                 <span class='id ruby'>ruby</span>
+               <span class='kw'>end</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id ensure_gem_subdirectories'>ensure_gem_subdirectories</span> <span class='ivar'>@gemhome</span>
+
+  <span class='ivar'>@orig_LOAD_PATH</span> <span class='op'>=</span> <span class='gvar'>$LOAD_PATH</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='gvar'>$LOAD_PATH</span><span class='period'>.</span><span class='id map!'>map!</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id expand_path'>expand_path</span> <span class='id s'>s</span> <span class='rbrace'>}</span>
+
+  <span class='const'>Dir</span><span class='period'>.</span><span class='id chdir'>chdir</span> <span class='ivar'>@tempdir</span>
+
+  <span class='ivar'>@orig_ENV_HOME</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HOME</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+  <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HOME</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@userhome</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id instance_variable_set'>instance_variable_set</span> <span class='symbol'>:@user_home</span><span class='comma'>,</span> <span class='kw'>nil</span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='ivar'>@gemhome</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='ivar'>@userhome</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id use_paths'>use_paths</span><span class='lparen'>(</span><span class='ivar'>@gemhome</span><span class='rparen'>)</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id loaded_specs'>loaded_specs</span><span class='period'>.</span><span class='id clear'>clear</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id unresolved_deps'>unresolved_deps</span><span class='period'>.</span><span class='id clear'>clear</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id verbose'>verbose</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id update_sources'>update_sources</span> <span class='op'>=</span> <span class='kw'>true</span>
+
+  <span class='ivar'>@gem_repo</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://gems.example.com/</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span> <span class='ivar'>@gem_repo</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id sources'>sources</span><span class='period'>.</span><span class='id replace'>replace</span> <span class='lbracket'>[</span><span class='ivar'>@gem_repo</span><span class='rbracket'>]</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id searcher'>searcher</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>SpecFetcher</span><span class='period'>.</span><span class='id fetcher'>fetcher</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@orig_BASERUBY</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>ConfigMap</span><span class='lbracket'>[</span><span class='symbol'>:BASERUBY</span><span class='rbracket'>]</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>ConfigMap</span><span class='lbracket'>[</span><span class='symbol'>:BASERUBY</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>ConfigMap</span><span class='lbracket'>[</span><span class='symbol'>:ruby_install_name</span><span class='rbracket'>]</span>
+
+  <span class='ivar'>@orig_arch</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>ConfigMap</span><span class='lbracket'>[</span><span class='symbol'>:arch</span><span class='rbracket'>]</span>
+
+  <span class='kw'>if</span> <span class='id win_platform?'>win_platform?</span>
+    <span class='id util_set_arch'>util_set_arch</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>i386-mswin32</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>else</span>
+    <span class='id util_set_arch'>util_set_arch</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>i686-darwin8.10.1</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@marshal_version</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>Marshal</span><span class='op'>::</span><span class='const'>MAJOR_VERSION</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='const'>Marshal</span><span class='op'>::</span><span class='const'>MINOR_VERSION</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># TODO: move to installer test cases
+</span>  <span class='const'>Gem</span><span class='period'>.</span><span class='id post_build_hooks'>post_build_hooks</span><span class='period'>.</span><span class='id clear'>clear</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id post_install_hooks'>post_install_hooks</span><span class='period'>.</span><span class='id clear'>clear</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id post_uninstall_hooks'>post_uninstall_hooks</span><span class='period'>.</span><span class='id clear'>clear</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id pre_install_hooks'>pre_install_hooks</span><span class='period'>.</span><span class='id clear'>clear</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id pre_uninstall_hooks'>pre_uninstall_hooks</span><span class='period'>.</span><span class='id clear'>clear</span>
+
+  <span class='comment'># TODO: move to installer test cases
+</span>  <span class='const'>Gem</span><span class='period'>.</span><span class='id post_build'>post_build</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id installer'>installer</span><span class='op'>|</span>
+    <span class='ivar'>@post_build_hook_arg</span> <span class='op'>=</span> <span class='id installer'>installer</span>
+    <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id post_install'>post_install</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id installer'>installer</span><span class='op'>|</span>
+    <span class='ivar'>@post_install_hook_arg</span> <span class='op'>=</span> <span class='id installer'>installer</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id post_uninstall'>post_uninstall</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id uninstaller'>uninstaller</span><span class='op'>|</span>
+    <span class='ivar'>@post_uninstall_hook_arg</span> <span class='op'>=</span> <span class='id uninstaller'>uninstaller</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id pre_install'>pre_install</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id installer'>installer</span><span class='op'>|</span>
+    <span class='ivar'>@pre_install_hook_arg</span> <span class='op'>=</span> <span class='id installer'>installer</span>
+    <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id pre_uninstall'>pre_uninstall</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id uninstaller'>uninstaller</span><span class='op'>|</span>
+    <span class='ivar'>@pre_uninstall_hook_arg</span> <span class='op'>=</span> <span class='id uninstaller'>uninstaller</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="spec-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>spec</strong>(name, version, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a new Gem::Specification.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+845
+846
+847</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 845</span>
+
+<span class='kw'>def</span> <span class='id spec'>spec</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id version'>version</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id new'>new</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id v'>v</span><span class='lparen'>(</span><span class='id version'>version</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="teardown-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>teardown</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>#teardown restores the process to its original state and removes the
+tempdir unless the <tt>KEEP_FILES</tt> environment variable was set.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 216</span>
+
+<span class='kw'>def</span> <span class='id teardown'>teardown</span>
+  <span class='gvar'>$LOAD_PATH</span><span class='period'>.</span><span class='id replace'>replace</span> <span class='ivar'>@orig_LOAD_PATH</span>
+
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>ConfigMap</span><span class='lbracket'>[</span><span class='symbol'>:BASERUBY</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@orig_BASERUBY</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>ConfigMap</span><span class='lbracket'>[</span><span class='symbol'>:arch</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@orig_arch</span>
+
+  <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>RemoteFetcher</span> <span class='kw'>then</span>
+    <span class='const'>Gem</span><span class='op'>::</span><span class='const'>RemoteFetcher</span><span class='period'>.</span><span class='id fetcher'>fetcher</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>Dir</span><span class='period'>.</span><span class='id chdir'>chdir</span> <span class='ivar'>@current_dir</span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm_rf'>rm_rf</span> <span class='ivar'>@tempdir</span> <span class='kw'>unless</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>KEEP_FILES</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+
+  <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GEM_HOME</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@orig_gem_home</span>
+  <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GEM_PATH</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@orig_gem_path</span>
+
+  <span class='id _'>_</span> <span class='op'>=</span> <span class='ivar'>@orig_ruby</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id class_eval'>class_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@ruby</span> <span class='op'>=</span> <span class='id _'>_</span> <span class='rbrace'>}</span> <span class='kw'>if</span> <span class='id _'>_</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@orig_ENV_HOME</span> <span class='kw'>then</span>
+    <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HOME</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@orig_ENV_HOME</span>
+  <span class='kw'>else</span>
+    <span class='const'>ENV</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HOME</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="uninstall_gem-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>uninstall_gem</strong>(spec) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Uninstalls the Gem::Specification <tt>spec</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+262
+263
+264
+265
+266
+267</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 262</span>
+
+<span class='kw'>def</span> <span class='id uninstall_gem'>uninstall_gem</span> <span class='id spec'>spec</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rubygems/uninstaller</span><span class='tstring_end'>'</span></span>
+
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Uninstaller</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id spec'>spec</span><span class='period'>.</span><span class='id name'>name</span><span class='comma'>,</span>
+                       <span class='symbol'>:executables</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='symbol'>:user_install</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span><span class='period'>.</span><span class='id uninstall'>uninstall</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_build_gem-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_build_gem</strong>(spec) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Builds a gem from <tt>spec</tt> and places it in <tt>File.join @gemhome,
+'cache'</tt>.  Automatically creates files based on <tt>spec.files</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 393</span>
+
+<span class='kw'>def</span> <span class='id util_build_gem'>util_build_gem</span><span class='lparen'>(</span><span class='id spec'>spec</span><span class='rparen'>)</span>
+  <span class='id dir'>dir</span> <span class='op'>=</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id gem_dir'>gem_dir</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='id dir'>dir</span>
+
+  <span class='const'>Dir</span><span class='period'>.</span><span class='id chdir'>chdir</span> <span class='id dir'>dir</span> <span class='kw'>do</span>
+    <span class='id spec'>spec</span><span class='period'>.</span><span class='id files'>files</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id file'>file</span><span class='op'>|</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span> <span class='id file'>file</span>
+      <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span><span class='lparen'>(</span><span class='id file'>file</span><span class='rparen'>)</span>
+      <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span> <span class='id file'>file</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>w</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id fp'>fp</span><span class='op'>|</span> <span class='id fp'>fp</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'># </span><span class='embexpr_beg'>#{</span><span class='id file'>file</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id use_ui'>use_ui</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>MockGemUi</span><span class='period'>.</span><span class='id new'>new</span> <span class='kw'>do</span>
+      <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id spec'>spec</span><span class='rparen'>)</span><span class='period'>.</span><span class='id build'>build</span>
+    <span class='kw'>end</span>
+
+    <span class='id cache'>cache</span> <span class='op'>=</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id cache_file'>cache_file</span>
+    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mv'>mv</span> <span class='const'>File</span><span class='period'>.</span><span class='id basename'>basename</span><span class='lparen'>(</span><span class='id cache'>cache</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id cache'>cache</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_clear_gems-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_clear_gems</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Removes all installed gems from <tt>@gemhome</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+416
+417
+418
+419
+420</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 416</span>
+
+<span class='kw'>def</span> <span class='id util_clear_gems'>util_clear_gems</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm_rf'>rm_rf</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='ivar'>@gemhome</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>gems</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># TODO: use Gem::Dirs
+</span>  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm_rf'>rm_rf</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='ivar'>@gemhome</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>specifications</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id reset'>reset</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_gem-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_gem</strong>(name, version, deps = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a gem with <tt>name</tt>, <tt>version</tt> and <tt>deps</tt>.  The
+specification will be yielded before gem creation for customization.  The
+gem will be placed in <tt>File.join @tempdir, 'gems'</tt>.  The
+specification and .gem file location are returned.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 498</span>
+
+<span class='kw'>def</span> <span class='id util_gem'>util_gem</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id version'>version</span><span class='comma'>,</span> <span class='id deps'>deps</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='comment'># TODO: deprecate
+</span>  <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>deps or block, not both</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id deps'>deps</span> <span class='kw'>and</span> <span class='id block'>block</span>
+
+  <span class='kw'>if</span> <span class='id deps'>deps</span> <span class='kw'>then</span>
+    <span class='id block'>block</span> <span class='op'>=</span> <span class='id proc'>proc</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+      <span class='id deps'>deps</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='comma'>,</span> <span class='id req'>req</span><span class='op'>|</span>
+        <span class='id s'>s</span><span class='period'>.</span><span class='id add_dependency'>add_dependency</span> <span class='id n'>n</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id req'>req</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&gt;= 0</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id spec'>spec</span> <span class='op'>=</span> <span class='id quick_gem'>quick_gem</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id version'>version</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+
+  <span class='id util_build_gem'>util_build_gem</span> <span class='id spec'>spec</span>
+
+  <span class='id cache_file'>cache_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='ivar'>@tempdir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>gems</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id spec'>spec</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='tstring_content'>.gem</span><span class='tstring_end'>&quot;</span></span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span> <span class='id cache_file'>cache_file</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mv'>mv</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id cache_file'>cache_file</span><span class='comma'>,</span> <span class='id cache_file'>cache_file</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm'>rm</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id spec_file'>spec_file</span>
+
+  <span class='id spec'>spec</span><span class='period'>.</span><span class='id loaded_from'>loaded_from</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='lbracket'>[</span><span class='id spec'>spec</span><span class='comma'>,</span> <span class='id cache_file'>cache_file</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_gzip-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_gzip</strong>(data) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Gzips <tt>data</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+527
+528
+529
+530
+531
+532
+533
+534
+535</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 527</span>
+
+<span class='kw'>def</span> <span class='id util_gzip'>util_gzip</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+  <span class='id out'>out</span> <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id new'>new</span>
+
+  <span class='const'>Zlib</span><span class='op'>::</span><span class='const'>GzipWriter</span><span class='period'>.</span><span class='id wrap'>wrap</span> <span class='id out'>out</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span>
+    <span class='id io'>io</span><span class='period'>.</span><span class='id write'>write</span> <span class='id data'>data</span>
+  <span class='kw'>end</span>
+
+  <span class='id out'>out</span><span class='period'>.</span><span class='id string'>string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_make_gems-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_make_gems</strong>(prerelease = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates several default gems which all have a lib/code.rb file.  The gems
+are not installed but are available in the cache dir.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>@a1</tt></p></td>
+<td>
+<p>gem a version 1, this is the best-described gem.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@a2</tt></p></td>
+<td>
+<p>gem a version 2</p>
+</td></tr><tr><td class="rdoc-term"><p>+@a3a</p></td>
+<td>
+<p>gem a version 3.a</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@a_evil9</tt></p></td>
+<td>
+<p>gem a_evil version 9, use this to ensure similarly-named gems don't collide
+with a.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@b2</tt></p></td>
+<td>
+<p>gem b version 2</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@c1_2</tt></p></td>
+<td>
+<p>gem c version 1.2</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@pl1</tt></p></td>
+<td>
+<p>gem pl version 1, this gem has a legacy platform of i386-linux.</p>
+</td></tr></table>
+
+<p>Additional <tt>prerelease</tt> gems may also be created:</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>@a2_pre</tt></p></td>
+<td>
+<p>gem a version 2.a</p>
+</td></tr></table>
+
+<p>TODO: nuke this and fix tests. this should speed up a lot</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 555</span>
+
+<span class='kw'>def</span> <span class='id util_make_gems'>util_make_gems</span><span class='lparen'>(</span><span class='id prerelease'>prerelease</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@a1</span> <span class='op'>=</span> <span class='id quick_gem'>quick_gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>1</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id files'>files</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>lib/code.rb</span><span class='words_sep'>]</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id require_paths'>require_paths</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>lib</span><span class='words_sep'>]</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id date'>date</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='op'>::</span><span class='const'>TODAY</span> <span class='op'>-</span> <span class='int'>86400</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id homepage'>homepage</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://a.example.com</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id email'>email</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>example@example.com</span><span class='words_sep'> </span><span class='tstring_content'>example2@example.com</span><span class='words_sep'>]</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id authors'>authors</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>Example</span><span class='words_sep'> </span><span class='tstring_content'>Example2</span><span class='words_sep'>]</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id description'>description</span> <span class='op'>=</span> <span class='heredoc_beg'>&lt;&lt;-DESC</span>
+<span class='tstring_content'>This line is really, really long.  So long, in fact, that it is more than eighty characters long!  The purpose of this line is for testing wrapping behavior because sometimes people don't wrap their text to eighty characters.  Without the wrapping, the text might not look good in the RSS feed.
+
+Also, a list:
+* An entry that\'s actually kind of sort
+* an entry that\'s really long, which will probably get wrapped funny.  That's ok, somebody wasn't thinking straight when they made it more than eighty characters.
+</span><span class='heredoc_end'>    DESC
+</span>  <span class='kw'>end</span>
+
+  <span class='id init'>init</span> <span class='op'>=</span> <span class='id proc'>proc</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id files'>files</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>lib/code.rb</span><span class='words_sep'>]</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id require_paths'>require_paths</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>lib</span><span class='words_sep'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@a2</span>      <span class='op'>=</span> <span class='id quick_gem'>quick_gem</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>2</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>      <span class='op'>&amp;</span><span class='id init'>init</span><span class='rparen'>)</span>
+  <span class='ivar'>@a3a</span>     <span class='op'>=</span> <span class='id quick_gem'>quick_gem</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>3.a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>    <span class='op'>&amp;</span><span class='id init'>init</span><span class='rparen'>)</span>
+  <span class='ivar'>@a_evil9</span> <span class='op'>=</span> <span class='id quick_gem'>quick_gem</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a_evil</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>9</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id init'>init</span><span class='rparen'>)</span>
+  <span class='ivar'>@b2</span>      <span class='op'>=</span> <span class='id quick_gem'>quick_gem</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>2</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>      <span class='op'>&amp;</span><span class='id init'>init</span><span class='rparen'>)</span>
+  <span class='ivar'>@c1_2</span>    <span class='op'>=</span> <span class='id quick_gem'>quick_gem</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>1.2</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>    <span class='op'>&amp;</span><span class='id init'>init</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@pl1</span>     <span class='op'>=</span> <span class='id quick_gem'>quick_gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pl</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>1</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='comment'># l for legacy
+</span>    <span class='id s'>s</span><span class='period'>.</span><span class='id files'>files</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>lib/code.rb</span><span class='words_sep'>]</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id require_paths'>require_paths</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>lib</span><span class='words_sep'>]</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id platform'>platform</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>i386-linux</span><span class='tstring_end'>'</span></span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id instance_variable_set'>instance_variable_set</span> <span class='symbol'>:@original_platform</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>i386-linux</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id prerelease'>prerelease</span>
+    <span class='ivar'>@a2_pre</span> <span class='op'>=</span> <span class='id quick_gem'>quick_gem</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>2.a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id init'>init</span><span class='rparen'>)</span>
+    <span class='id write_file'>write_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='words_beg'>%W[</span><span class='tstring_content'>gems</span><span class='words_sep'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@a2_pre</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='words_sep'> </span><span class='tstring_content'>lib</span><span class='words_sep'> </span><span class='tstring_content'>code.rb</span><span class='words_sep'>]</span><span class='rparen'>)</span>
+    <span class='id util_build_gem'>util_build_gem</span> <span class='ivar'>@a2_pre</span>
+  <span class='kw'>end</span>
+
+  <span class='id write_file'>write_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='words_beg'>%W[</span><span class='tstring_content'>gems</span><span class='words_sep'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@a1</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='words_sep'>   </span><span class='tstring_content'>lib</span><span class='words_sep'> </span><span class='tstring_content'>code.rb</span><span class='words_sep'>]</span><span class='rparen'>)</span>
+  <span class='id write_file'>write_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='words_beg'>%W[</span><span class='tstring_content'>gems</span><span class='words_sep'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@a2</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='words_sep'>   </span><span class='tstring_content'>lib</span><span class='words_sep'> </span><span class='tstring_content'>code.rb</span><span class='words_sep'>]</span><span class='rparen'>)</span>
+  <span class='id write_file'>write_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='words_beg'>%W[</span><span class='tstring_content'>gems</span><span class='words_sep'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@a3a</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='words_sep'>  </span><span class='tstring_content'>lib</span><span class='words_sep'> </span><span class='tstring_content'>code.rb</span><span class='words_sep'>]</span><span class='rparen'>)</span>
+  <span class='id write_file'>write_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='words_beg'>%W[</span><span class='tstring_content'>gems</span><span class='words_sep'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@b2</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='words_sep'>   </span><span class='tstring_content'>lib</span><span class='words_sep'> </span><span class='tstring_content'>code.rb</span><span class='words_sep'>]</span><span class='rparen'>)</span>
+  <span class='id write_file'>write_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='words_beg'>%W[</span><span class='tstring_content'>gems</span><span class='words_sep'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@c1_2</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='words_sep'> </span><span class='tstring_content'>lib</span><span class='words_sep'> </span><span class='tstring_content'>code.rb</span><span class='words_sep'>]</span><span class='rparen'>)</span>
+  <span class='id write_file'>write_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='words_beg'>%W[</span><span class='tstring_content'>gems</span><span class='words_sep'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@pl1</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='words_sep'>  </span><span class='tstring_content'>lib</span><span class='words_sep'> </span><span class='tstring_content'>code.rb</span><span class='words_sep'>]</span><span class='rparen'>)</span>
+
+  <span class='lbracket'>[</span><span class='ivar'>@a1</span><span class='comma'>,</span> <span class='ivar'>@a2</span><span class='comma'>,</span> <span class='ivar'>@a3a</span><span class='comma'>,</span> <span class='ivar'>@a_evil9</span><span class='comma'>,</span> <span class='ivar'>@b2</span><span class='comma'>,</span> <span class='ivar'>@c1_2</span><span class='comma'>,</span> <span class='ivar'>@pl1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec'>spec</span><span class='op'>|</span>
+    <span class='id util_build_gem'>util_build_gem</span> <span class='id spec'>spec</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm_r'>rm_r</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='ivar'>@gemhome</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>gems</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='ivar'>@pl1</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_set_arch-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_set_arch</strong>(arch) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Set the platform to <tt>arch</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+613
+614
+615
+616
+617
+618
+619
+620
+621</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 613</span>
+
+<span class='kw'>def</span> <span class='id util_set_arch'>util_set_arch</span><span class='lparen'>(</span><span class='id arch'>arch</span><span class='rparen'>)</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>ConfigMap</span><span class='lbracket'>[</span><span class='symbol'>:arch</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id arch'>arch</span>
+  <span class='id platform'>platform</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='period'>.</span><span class='id new'>new</span> <span class='id arch'>arch</span>
+
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id instance_variable_set'>instance_variable_set</span> <span class='symbol'>:@platforms</span><span class='comma'>,</span> <span class='kw'>nil</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='period'>.</span><span class='id instance_variable_set'>instance_variable_set</span> <span class='symbol'>:@local</span><span class='comma'>,</span> <span class='kw'>nil</span>
+
+  <span class='id platform'>platform</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_setup_fake_fetcher-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_setup_fake_fetcher</strong>(prerelease = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets up a fake fetcher using the gems from #util_make_gems.  Optionally
+additional <tt>prerelease</tt> gems may be included.</p>
+
+<p>Gems created by this method may be fetched using Gem::RemoteFetcher.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 629</span>
+
+<span class='kw'>def</span> <span class='id util_setup_fake_fetcher'>util_setup_fake_fetcher</span><span class='lparen'>(</span><span class='id prerelease'>prerelease</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>zlib</span><span class='tstring_end'>'</span></span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>socket</span><span class='tstring_end'>'</span></span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rubygems/remote_fetcher</span><span class='tstring_end'>'</span></span>
+
+  <span class='ivar'>@fetcher</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>FakeFetcher</span><span class='period'>.</span><span class='id new'>new</span>
+
+  <span class='id util_make_gems'>util_make_gems</span><span class='lparen'>(</span><span class='id prerelease'>prerelease</span><span class='rparen'>)</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id reset'>reset</span>
+
+  <span class='ivar'>@all_gems</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='ivar'>@a1</span><span class='comma'>,</span> <span class='ivar'>@a2</span><span class='comma'>,</span> <span class='ivar'>@a3a</span><span class='comma'>,</span> <span class='ivar'>@a_evil9</span><span class='comma'>,</span> <span class='ivar'>@b2</span><span class='comma'>,</span> <span class='ivar'>@c1_2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id sort'>sort</span>
+  <span class='ivar'>@all_gem_names</span> <span class='op'>=</span> <span class='ivar'>@all_gems</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id gem'>gem</span><span class='op'>|</span> <span class='id gem'>gem</span><span class='period'>.</span><span class='id full_name'>full_name</span> <span class='rbrace'>}</span>
+
+  <span class='id gem_names'>gem_names</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='ivar'>@a1</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='comma'>,</span> <span class='ivar'>@a2</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='comma'>,</span> <span class='ivar'>@a3a</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='comma'>,</span> <span class='ivar'>@b2</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='rbracket'>]</span>
+  <span class='ivar'>@gem_names</span> <span class='op'>=</span> <span class='id gem_names'>gem_names</span><span class='period'>.</span><span class='id sort'>sort</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>RemoteFetcher</span><span class='period'>.</span><span class='id fetcher'>fetcher</span> <span class='op'>=</span> <span class='ivar'>@fetcher</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_setup_spec_fetcher-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_setup_spec_fetcher</strong>(*specs) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets up Gem::SpecFetcher to return information from the gems in
+<tt>specs</tt>. Best used with <tt>@all_gems</tt> from #util_setup_fake_fetcher.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 652</span>
+
+<span class='kw'>def</span> <span class='id util_setup_spec_fetcher'>util_setup_spec_fetcher</span><span class='lparen'>(</span><span class='op'>*</span><span class='id specs'>specs</span><span class='rparen'>)</span>
+  <span class='id specs'>specs</span> <span class='op'>-=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id _all'>_all</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id add_specs'>add_specs</span><span class='lparen'>(</span><span class='op'>*</span><span class='id specs'>specs</span><span class='rparen'>)</span>
+
+  <span class='id spec_fetcher'>spec_fetcher</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>SpecFetcher</span><span class='period'>.</span><span class='id fetcher'>fetcher</span>
+
+  <span class='id prerelease'>prerelease</span><span class='comma'>,</span> <span class='id _'>_</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id partition'>partition</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id spec'>spec</span><span class='op'>|</span>
+    <span class='id spec'>spec</span><span class='period'>.</span><span class='id version'>version</span><span class='period'>.</span><span class='id prerelease?'>prerelease?</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id spec_fetcher'>spec_fetcher</span><span class='period'>.</span><span class='id specs'>specs</span><span class='lbracket'>[</span><span class='ivar'>@uri</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec'>spec</span><span class='op'>|</span>
+    <span class='id spec_tuple'>spec_tuple</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id spec'>spec</span><span class='period'>.</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id version'>version</span><span class='comma'>,</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id original_platform'>original_platform</span><span class='rbracket'>]</span>
+    <span class='id spec_fetcher'>spec_fetcher</span><span class='period'>.</span><span class='id specs'>specs</span><span class='lbracket'>[</span><span class='ivar'>@uri</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id spec_tuple'>spec_tuple</span>
+  <span class='kw'>end</span>
+
+  <span class='id spec_fetcher'>spec_fetcher</span><span class='period'>.</span><span class='id latest_specs'>latest_specs</span><span class='lbracket'>[</span><span class='ivar'>@uri</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id latest_specs'>latest_specs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec'>spec</span><span class='op'>|</span>
+    <span class='id spec_tuple'>spec_tuple</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id spec'>spec</span><span class='period'>.</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id version'>version</span><span class='comma'>,</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id original_platform'>original_platform</span><span class='rbracket'>]</span>
+    <span class='id spec_fetcher'>spec_fetcher</span><span class='period'>.</span><span class='id latest_specs'>latest_specs</span><span class='lbracket'>[</span><span class='ivar'>@uri</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id spec_tuple'>spec_tuple</span>
+  <span class='kw'>end</span>
+
+  <span class='id spec_fetcher'>spec_fetcher</span><span class='period'>.</span><span class='id prerelease_specs'>prerelease_specs</span><span class='lbracket'>[</span><span class='ivar'>@uri</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id prerelease'>prerelease</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec'>spec</span><span class='op'>|</span>
+    <span class='id spec_tuple'>spec_tuple</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id spec'>spec</span><span class='period'>.</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id version'>version</span><span class='comma'>,</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id original_platform'>original_platform</span><span class='rbracket'>]</span>
+    <span class='id spec_fetcher'>spec_fetcher</span><span class='period'>.</span><span class='id prerelease_specs'>prerelease_specs</span><span class='lbracket'>[</span><span class='ivar'>@uri</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id spec_tuple'>spec_tuple</span>
+  <span class='kw'>end</span>
+
+  <span class='id v'>v</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='period'>.</span><span class='id marshal_version'>marshal_version</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id spec'>spec</span><span class='op'>|</span>
+    <span class='id path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@gem_repo</span><span class='rbrace'>}</span><span class='tstring_content'>quick/Marshal.</span><span class='embexpr_beg'>#{</span><span class='id v'>v</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id spec'>spec</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='tstring_content'>.gemspec.rz</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id data'>data</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id dump'>dump</span> <span class='id spec'>spec</span>
+    <span class='id data_deflate'>data_deflate</span> <span class='op'>=</span> <span class='const'>Zlib</span><span class='op'>::</span><span class='const'>Deflate</span><span class='period'>.</span><span class='id deflate'>deflate</span> <span class='id data'>data</span>
+    <span class='ivar'>@fetcher</span><span class='period'>.</span><span class='id data'>data</span><span class='lbracket'>[</span><span class='id path'>path</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id data_deflate'>data_deflate</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>nil</span> <span class='comment'># force errors
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_spec-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_spec</strong>(name, version, deps = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a spec with <tt>name</tt>, <tt>version</tt> and <tt>deps</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 477</span>
+
+<span class='kw'>def</span> <span class='id util_spec'>util_spec</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id version'>version</span><span class='comma'>,</span> <span class='id deps'>deps</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='comment'># TODO: deprecate
+</span>  <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>deps or block, not both</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id deps'>deps</span> <span class='kw'>and</span> <span class='id block'>block</span>
+
+  <span class='kw'>if</span> <span class='id deps'>deps</span> <span class='kw'>then</span>
+    <span class='id block'>block</span> <span class='op'>=</span> <span class='id proc'>proc</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+      <span class='id deps'>deps</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='comma'>,</span> <span class='id req'>req</span><span class='op'>|</span>
+        <span class='id s'>s</span><span class='period'>.</span><span class='id add_dependency'>add_dependency</span> <span class='id n'>n</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id req'>req</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&gt;= 0</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id quick_spec'>quick_spec</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id version'>version</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="util_zip-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>util_zip</strong>(data) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Deflates <tt>data</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+694
+695
+696</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 694</span>
+
+<span class='kw'>def</span> <span class='id util_zip'>util_zip</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+  <span class='const'>Zlib</span><span class='op'>::</span><span class='const'>Deflate</span><span class='period'>.</span><span class='id deflate'>deflate</span> <span class='id data'>data</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="v-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>v</strong>(string) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Construct a new Gem::Version.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+852
+853
+854</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 852</span>
+
+<span class='kw'>def</span> <span class='id v'>v</span> <span class='id string'>string</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id create'>create</span> <span class='id string'>string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="vc_windows?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>vc_windows?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether or not we're on a version of Ruby built with VC++ (or
+Borland) versus Cygwin, Mingw, etc.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+724
+725
+726</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 724</span>
+
+<span class='kw'>def</span> <span class='id vc_windows?'>vc_windows?</span>
+  <span class='const'>RUBY_PLATFORM</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>mswin</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="win_platform?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>win_platform?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Is this test being run on a Windows platform?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+708
+709
+710</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 708</span>
+
+<span class='kw'>def</span> <span class='id win_platform?'>win_platform?</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id win_platform?'>win_platform?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="write_file-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>write_file</strong>(path) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes a binary file to <tt>path</tt> which is relative to <tt>@gemhome</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_case.rb', line 309</span>
+
+<span class='kw'>def</span> <span class='id write_file'>write_file</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='id path'>path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='ivar'>@gemhome</span><span class='comma'>,</span> <span class='id path'>path</span> <span class='kw'>unless</span> <span class='const'>Pathname</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span><span class='period'>.</span><span class='id absolute?'>absolute?</span>
+  <span class='id dir'>dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span> <span class='id path'>path</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='id dir'>dir</span>
+
+  <span class='id open'>open</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>wb</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span>
+    <span class='kw'>yield</span> <span class='id io'>io</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+  <span class='kw'>end</span>
+
+  <span class='id path'>path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:23 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

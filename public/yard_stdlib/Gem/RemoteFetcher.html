@@ -1,0 +1,1991 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Gem::RemoteFetcher
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Gem.html" title="Gem (module)">Gem</a></span></span>
+     &raquo; 
+    <span class="title">RemoteFetcher</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Gem::RemoteFetcher
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Gem::RemoteFetcher</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="UserInteraction.html" title="Gem::UserInteraction (module)">UserInteraction</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rubygems/remote_fetcher.rb<span class="defines">,<br />
+  lib/rubygems/test_utilities.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>:stopdoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RemoteFetcher/FetchError.html" title="Gem::RemoteFetcher::FetchError (class)">FetchError</a></span>
+    
+  
+</p>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetcher-class_method" title="fetcher (class method)">+ (Object) <strong>fetcher</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Cached RemoteFetcher instance.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetcher%3D-class_method" title="fetcher= (class method)">+ (Object) <strong>fetcher=</strong>(fetcher) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#connection_for-instance_method" title="#connection_for (instance method)">- (Object) <strong>connection_for</strong>(uri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates or an HTTP connection based on <tt>uri</tt>, or retrieves an
+existing connection, using a proxy if needed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#correct_for_windows_path-instance_method" title="#correct_for_windows_path (instance method)">- (Object) <strong>correct_for_windows_path</strong>(path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#download-instance_method" title="#download (instance method)">- (Object) <strong>download</strong>(spec, source_uri, install_dir = Gem.dir) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Moves the gem <tt>spec</tt> from <tt>source_uri</tt> to the cache dir
+unless it is already there.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#download_to_cache-instance_method" title="#download_to_cache (instance method)">- (Object) <strong>download_to_cache</strong>(dependency) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Given a name and requirement, downloads this gem into cache and returns the
+filename.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escape-instance_method" title="#escape (instance method)">- (Object) <strong>escape</strong>(str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch_file-instance_method" title="#fetch_file (instance method)">- (Object) <strong>fetch_file</strong>(uri, *_) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>File Fetcher.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch_http-instance_method" title="#fetch_http (instance method)">- (Object) <strong>fetch_http</strong>(uri, last_modified = nil, head = false, depth = 0) </a>
+    
+
+    
+      (also: #fetch_https)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>HTTP Fetcher.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch_path-instance_method" title="#fetch_path (instance method)">- (Object) <strong>fetch_path</strong>(uri, mtime = nil, head = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Downloads <tt>uri</tt> and returns it as a String.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch_size-instance_method" title="#fetch_size (instance method)">- (Object) <strong>fetch_size</strong>(uri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the size of <tt>uri</tt> in bytes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_proxy_from_env-instance_method" title="#get_proxy_from_env (instance method)">- (Object) <strong>get_proxy_from_env</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an HTTP proxy URI if one is set in the environment variables.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (RemoteFetcher) <strong>initialize</strong>(proxy = nil) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize a remote fetcher using the source URI and possible proxy
+information.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#normalize_uri-instance_method" title="#normalize_uri (instance method)">- (Object) <strong>normalize_uri</strong>(uri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Normalize the URI by adding "http://" if it is missing.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open_uri_or_path-instance_method" title="#open_uri_or_path (instance method)">- (Object) <strong>open_uri_or_path</strong>(uri, last_modified = nil, head = false, depth = 0) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Read the data from the (source based) URI, but if it is a file:// URI, read
+from the filesystem instead.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request-instance_method" title="#request (instance method)">- (Object) <strong>request</strong>(uri, request_class, last_modified = nil) {|request| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs a Net::HTTP request of type <tt>request_class</tt> on <tt>uri</tt>
+returning a Net::HTTP response object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reset-instance_method" title="#reset (instance method)">- (Object) <strong>reset</strong>(connection) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Resets HTTP connection <tt>connection</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unescape-instance_method" title="#unescape (instance method)">- (Object) <strong>unescape</strong>(str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uri_escaper-instance_method" title="#uri_escaper (instance method)">- (Object) <strong>uri_escaper</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user_agent-instance_method" title="#user_agent (instance method)">- (Object) <strong>user_agent</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="UserInteraction.html" title="Gem::UserInteraction (module)">UserInteraction</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="UserInteraction.html#alert-instance_method" title="Gem::UserInteraction#alert (method)">#alert</a></span>, <span class='object_link'><a href="UserInteraction.html#alert_error-instance_method" title="Gem::UserInteraction#alert_error (method)">#alert_error</a></span>, <span class='object_link'><a href="UserInteraction.html#alert_warning-instance_method" title="Gem::UserInteraction#alert_warning (method)">#alert_warning</a></span>, <span class='object_link'><a href="UserInteraction.html#ask-instance_method" title="Gem::UserInteraction#ask (method)">#ask</a></span>, <span class='object_link'><a href="UserInteraction.html#ask_for_password-instance_method" title="Gem::UserInteraction#ask_for_password (method)">#ask_for_password</a></span>, <span class='object_link'><a href="UserInteraction.html#ask_yes_no-instance_method" title="Gem::UserInteraction#ask_yes_no (method)">#ask_yes_no</a></span>, <span class='object_link'><a href="UserInteraction.html#choose_from_list-instance_method" title="Gem::UserInteraction#choose_from_list (method)">#choose_from_list</a></span>, <span class='object_link'><a href="UserInteraction.html#say-instance_method" title="Gem::UserInteraction#say (method)">#say</a></span>, <span class='object_link'><a href="UserInteraction.html#terminate_interaction-instance_method" title="Gem::UserInteraction#terminate_interaction (method)">#terminate_interaction</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="DefaultUserInteraction.html" title="Gem::DefaultUserInteraction (module)">DefaultUserInteraction</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="DefaultUserInteraction.html#ui-class_method" title="Gem::DefaultUserInteraction.ui (method)">ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui-instance_method" title="Gem::DefaultUserInteraction#ui (method)">#ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui%3D-instance_method" title="Gem::DefaultUserInteraction#ui= (method)">#ui=</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui%3D-class_method" title="Gem::DefaultUserInteraction.ui= (method)">ui=</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#use_ui-class_method" title="Gem::DefaultUserInteraction.use_ui (method)">use_ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#use_ui-instance_method" title="Gem::DefaultUserInteraction#use_ui (method)">#use_ui</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Gem::RemoteFetcher (class)">RemoteFetcher</a></span></tt>) <strong>initialize</strong>(proxy = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize a remote fetcher using the source URI and possible proxy
+information.</p>
+
+<p><tt>proxy</tt></p>
+<ul><li>
+<p>[String]: explicit specification of proxy; overrides any environment</p>
+
+<pre class="code"><span class='id variable'>variable</span> <span class='id setting'>setting</span></pre>
+</li><li>
+<p>nil: respect environment variables (HTTP_PROXY, HTTP_PROXY_USER,</p>
+
+<pre class="code">HTTP_PROXY_PASS)</pre>
+</li><li>
+<p><tt>:no_proxy</tt>: ignore environment variables and _don't_ use a proxy</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id proxy'>proxy</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>net/http</span><span class='tstring_end'>'</span></span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>stringio</span><span class='tstring_end'>'</span></span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>time</span><span class='tstring_end'>'</span></span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+  <span class='const'>Socket</span><span class='period'>.</span><span class='id do_not_reverse_lookup'>do_not_reverse_lookup</span> <span class='op'>=</span> <span class='kw'>true</span>
+
+  <span class='ivar'>@connections</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@requests</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span> <span class='int'>0</span>
+  <span class='ivar'>@proxy_uri</span> <span class='op'>=</span>
+    <span class='kw'>case</span> <span class='id proxy'>proxy</span>
+    <span class='kw'>when</span> <span class='symbol'>:no_proxy</span> <span class='kw'>then</span> <span class='kw'>nil</span>
+    <span class='kw'>when</span> <span class='kw'>nil</span> <span class='kw'>then</span> <span class='id get_proxy_from_env'>get_proxy_from_env</span>
+    <span class='kw'>when</span> <span class='const'>URI</span><span class='op'>::</span><span class='const'>HTTP</span> <span class='kw'>then</span> <span class='id proxy'>proxy</span>
+    <span class='kw'>else</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id proxy'>proxy</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='ivar'>@user_agent</span> <span class='op'>=</span> <span class='id user_agent'>user_agent</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="fetcher-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fetcher</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Cached RemoteFetcher instance.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id fetcher'>fetcher</span>
+  <span class='ivar'>@fetcher</span> <span class='op'>||=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id new'>new</span> <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='lbracket'>[</span><span class='symbol'>:http_proxy</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fetcher=-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fetcher=</strong>(fetcher) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/test_utilities.rb', line 132</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id fetcher='>fetcher=</span><span class='lparen'>(</span><span class='id fetcher'>fetcher</span><span class='rparen'>)</span>
+  <span class='ivar'>@fetcher</span> <span class='op'>=</span> <span class='id fetcher'>fetcher</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="connection_for-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>connection_for</strong>(uri) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates or an HTTP connection based on <tt>uri</tt>, or retrieves an
+existing connection, using a proxy if needed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 299</span>
+
+<span class='kw'>def</span> <span class='id connection_for'>connection_for</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='id net_http_args'>net_http_args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id uri'>uri</span><span class='period'>.</span><span class='id host'>host</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id port'>port</span><span class='rbracket'>]</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@proxy_uri</span> <span class='kw'>then</span>
+    <span class='id net_http_args'>net_http_args</span> <span class='op'>+=</span> <span class='lbracket'>[</span>
+      <span class='ivar'>@proxy_uri</span><span class='period'>.</span><span class='id host'>host</span><span class='comma'>,</span>
+      <span class='ivar'>@proxy_uri</span><span class='period'>.</span><span class='id port'>port</span><span class='comma'>,</span>
+      <span class='ivar'>@proxy_uri</span><span class='period'>.</span><span class='id user'>user</span><span class='comma'>,</span>
+      <span class='ivar'>@proxy_uri</span><span class='period'>.</span><span class='id password'>password</span>
+    <span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='id connection_id'>connection_id</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>Thread</span><span class='period'>.</span><span class='id current'>current</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='comma'>,</span> <span class='op'>*</span><span class='id net_http_args'>net_http_args</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span>
+  <span class='ivar'>@connections</span><span class='lbracket'>[</span><span class='id connection_id'>connection_id</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id net_http_args'>net_http_args</span><span class='rparen'>)</span>
+  <span class='id connection'>connection</span> <span class='op'>=</span> <span class='ivar'>@connections</span><span class='lbracket'>[</span><span class='id connection_id'>connection_id</span><span class='rbracket'>]</span>
+
+  <span class='kw'>if</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id scheme'>scheme</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>https</span><span class='tstring_end'>'</span></span> <span class='kw'>and</span> <span class='kw'>not</span> <span class='id connection'>connection</span><span class='period'>.</span><span class='id started?'>started?</span> <span class='kw'>then</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>net/https</span><span class='tstring_end'>'</span></span>
+    <span class='id connection'>connection</span><span class='period'>.</span><span class='id use_ssl'>use_ssl</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='id connection'>connection</span><span class='period'>.</span><span class='id verify_mode'>verify_mode</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>VERIFY_NONE</span>
+  <span class='kw'>end</span>
+
+  <span class='id connection'>connection</span><span class='period'>.</span><span class='id start'>start</span> <span class='kw'>unless</span> <span class='id connection'>connection</span><span class='period'>.</span><span class='id started?'>started?</span>
+
+  <span class='id connection'>connection</span>
+<span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>EHOSTDOWN</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+  <span class='id raise'>raise</span> <span class='const'>FetchError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="correct_for_windows_path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>correct_for_windows_path</strong>(path) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+328
+329
+330
+331
+332
+333
+334</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 328</span>
+
+<span class='kw'>def</span> <span class='id correct_for_windows_path'>correct_for_windows_path</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id chr'>chr</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span> <span class='op'>&amp;&amp;</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id chr'>chr</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[a-z]</span><span class='regexp_end'>/i</span></span> <span class='op'>&amp;&amp;</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id chr'>chr</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span>
+    <span class='id path'>path</span> <span class='op'>=</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id path'>path</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="download-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>download</strong>(spec, source_uri, install_dir = Gem.dir) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Moves the gem <tt>spec</tt> from <tt>source_uri</tt> to the cache dir
+unless it is already there.  If the source_uri is local the gem cache dir
+copy is always replaced.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 98</span>
+
+<span class='kw'>def</span> <span class='id download'>download</span><span class='lparen'>(</span><span class='id spec'>spec</span><span class='comma'>,</span> <span class='id source_uri'>source_uri</span><span class='comma'>,</span> <span class='id install_dir'>install_dir</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='period'>.</span><span class='id dir'>dir</span><span class='rparen'>)</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id ensure_gem_subdirectories'>ensure_gem_subdirectories</span><span class='lparen'>(</span><span class='id install_dir'>install_dir</span><span class='rparen'>)</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+
+  <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id writable?'>writable?</span><span class='lparen'>(</span><span class='id install_dir'>install_dir</span><span class='rparen'>)</span>
+    <span class='id cache_dir'>cache_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='id install_dir'>install_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cache</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id cache_dir'>cache_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='const'>Gem</span><span class='period'>.</span><span class='id user_dir'>user_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cache</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id gem_file_name'>gem_file_name</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id basename'>basename</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id cache_file'>cache_file</span>
+  <span class='id local_gem_path'>local_gem_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='id cache_dir'>cache_dir</span><span class='comma'>,</span> <span class='id gem_file_name'>gem_file_name</span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='id cache_dir'>cache_dir</span> <span class='kw'>rescue</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span> <span class='id cache_dir'>cache_dir</span>
+
+ <span class='comment'># Always escape URI's to deal with potential spaces and such
+</span>  <span class='kw'>unless</span> <span class='const'>URI</span><span class='op'>::</span><span class='const'>Generic</span> <span class='op'>===</span> <span class='id source_uri'>source_uri</span>
+    <span class='id source_uri'>source_uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='const'>URI</span><span class='period'>.</span><span class='id const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='symbol'>:DEFAULT_PARSER</span><span class='rparen'>)</span> <span class='op'>?</span>
+                           <span class='const'>URI</span><span class='op'>::</span><span class='const'>DEFAULT_PARSER</span><span class='period'>.</span><span class='id escape'>escape</span><span class='lparen'>(</span><span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span> <span class='op'>:</span>
+                           <span class='const'>URI</span><span class='period'>.</span><span class='id escape'>escape</span><span class='lparen'>(</span><span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id scheme'>scheme</span> <span class='op'>=</span> <span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id scheme'>scheme</span>
+
+  <span class='comment'># URI.parse gets confused by MS Windows paths with forward slashes.
+</span>  <span class='id scheme'>scheme</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id scheme'>scheme</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^[a-z]$</span><span class='regexp_end'>/i</span></span>
+
+  <span class='kw'>case</span> <span class='id scheme'>scheme</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>https</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span>
+    <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span> <span class='id local_gem_path'>local_gem_path</span> <span class='kw'>then</span>
+      <span class='kw'>begin</span>
+        <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Downloading gem </span><span class='embexpr_beg'>#{</span><span class='id gem_file_name'>gem_file_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span>
+          <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id really_verbose'>really_verbose</span>
+
+        <span class='id remote_gem_path'>remote_gem_path</span> <span class='op'>=</span> <span class='id source_uri'>source_uri</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>gems/</span><span class='embexpr_beg'>#{</span><span class='id gem_file_name'>gem_file_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+        <span class='id gem'>gem</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id fetch_path'>fetch_path</span> <span class='id remote_gem_path'>remote_gem_path</span>
+      <span class='kw'>rescue</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>RemoteFetcher</span><span class='op'>::</span><span class='const'>FetchError</span>
+        <span class='id raise'>raise</span> <span class='kw'>if</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id original_platform'>original_platform</span> <span class='op'>==</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id platform'>platform</span>
+
+        <span class='id alternate_name'>alternate_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id spec'>spec</span><span class='period'>.</span><span class='id original_name'>original_name</span><span class='rbrace'>}</span><span class='tstring_content'>.gem</span><span class='tstring_end'>&quot;</span></span>
+
+        <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Failed, downloading gem </span><span class='embexpr_beg'>#{</span><span class='id alternate_name'>alternate_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span>
+          <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id really_verbose'>really_verbose</span>
+
+        <span class='id remote_gem_path'>remote_gem_path</span> <span class='op'>=</span> <span class='id source_uri'>source_uri</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>gems/</span><span class='embexpr_beg'>#{</span><span class='id alternate_name'>alternate_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+        <span class='id gem'>gem</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id fetch_path'>fetch_path</span> <span class='id remote_gem_path'>remote_gem_path</span>
+      <span class='kw'>end</span>
+
+      <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span> <span class='id local_gem_path'>local_gem_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>wb</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id fp'>fp</span><span class='op'>|</span>
+        <span class='id fp'>fp</span><span class='period'>.</span><span class='id write'>write</span> <span class='id gem'>gem</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>file</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span>
+    <span class='kw'>begin</span>
+      <span class='id path'>path</span> <span class='op'>=</span> <span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id path'>path</span>
+      <span class='id path'>path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id extname'>extname</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.gem</span><span class='tstring_end'>'</span></span>
+
+      <span class='id remote_gem_path'>remote_gem_path</span> <span class='op'>=</span> <span class='id correct_for_windows_path'>correct_for_windows_path</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='id path'>path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>gems</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id gem_file_name'>gem_file_name</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+      <span class='const'>FileUtils</span><span class='period'>.</span><span class='id cp'>cp</span><span class='lparen'>(</span><span class='id remote_gem_path'>remote_gem_path</span><span class='comma'>,</span> <span class='id local_gem_path'>local_gem_path</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>EACCES</span>
+      <span class='id local_gem_path'>local_gem_path</span> <span class='op'>=</span> <span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using local gem </span><span class='embexpr_beg'>#{</span><span class='id local_gem_path'>local_gem_path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span>
+      <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id really_verbose'>really_verbose</span>
+  <span class='kw'>when</span> <span class='kw'>nil</span> <span class='kw'>then</span> <span class='comment'># TODO test for local overriding cache
+</span>    <span class='id source_path'>source_path</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='const'>Gem</span><span class='period'>.</span><span class='id win_platform?'>win_platform?</span> <span class='op'>&amp;&amp;</span> <span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id scheme'>scheme</span> <span class='op'>&amp;&amp;</span>
+                     <span class='op'>!</span><span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id path'>path</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>then</span>
+                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id scheme'>scheme</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id path'>path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+                  <span class='kw'>else</span>
+                    <span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id path'>path</span>
+                  <span class='kw'>end</span>
+
+    <span class='id source_path'>source_path</span> <span class='op'>=</span> <span class='id unescape'>unescape</span> <span class='id source_path'>source_path</span>
+
+    <span class='kw'>begin</span>
+      <span class='const'>FileUtils</span><span class='period'>.</span><span class='id cp'>cp</span> <span class='id source_path'>source_path</span><span class='comma'>,</span> <span class='id local_gem_path'>local_gem_path</span> <span class='kw'>unless</span>
+        <span class='const'>File</span><span class='period'>.</span><span class='id expand_path'>expand_path</span><span class='lparen'>(</span><span class='id source_path'>source_path</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='const'>File</span><span class='period'>.</span><span class='id expand_path'>expand_path</span><span class='lparen'>(</span><span class='id local_gem_path'>local_gem_path</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>EACCES</span>
+      <span class='id local_gem_path'>local_gem_path</span> <span class='op'>=</span> <span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using local gem </span><span class='embexpr_beg'>#{</span><span class='id local_gem_path'>local_gem_path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span>
+      <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id really_verbose'>really_verbose</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>InstallError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported URI scheme </span><span class='embexpr_beg'>#{</span><span class='id source_uri'>source_uri</span><span class='period'>.</span><span class='id scheme'>scheme</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id local_gem_path'>local_gem_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="download_to_cache-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>download_to_cache</strong>(dependency) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Given a name and requirement, downloads this gem into cache and returns the
+filename. Returns nil if the gem cannot be located. -- Should probably be
+integrated with #download below, but that will be a larger, more
+emcompassing effort. -erikh</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id download_to_cache'>download_to_cache</span> <span class='id dependency'>dependency</span>
+  <span class='id found'>found</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>SpecFetcher</span><span class='period'>.</span><span class='id fetcher'>fetcher</span><span class='period'>.</span><span class='id fetch'>fetch</span> <span class='id dependency'>dependency</span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span>
+                                         <span class='id dependency'>dependency</span><span class='period'>.</span><span class='id prerelease?'>prerelease?</span>
+
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id found'>found</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+
+  <span class='id spec'>spec</span><span class='comma'>,</span> <span class='id source_uri'>source_uri</span> <span class='op'>=</span> <span class='id found'>found</span><span class='period'>.</span><span class='id first'>first</span>
+
+  <span class='id download'>download</span> <span class='id spec'>spec</span><span class='comma'>,</span> <span class='id source_uri'>source_uri</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="escape-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>escape</strong>(str) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+251
+252
+253
+254
+255</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 251</span>
+
+<span class='kw'>def</span> <span class='id escape'>escape</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id str'>str</span>
+  <span class='ivar'>@uri_parser</span> <span class='op'>||=</span> <span class='id uri_escaper'>uri_escaper</span>
+  <span class='ivar'>@uri_parser</span><span class='period'>.</span><span class='id escape'>escape</span> <span class='id str'>str</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fetch_file-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fetch_file</strong>(uri, *_) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>File Fetcher. Dispatched by <tt>fetch_path</tt>. Use it instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+194
+195
+196</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 194</span>
+
+<span class='kw'>def</span> <span class='id fetch_file'>fetch_file</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='op'>*</span><span class='id _'>_</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id read_binary'>read_binary</span> <span class='id correct_for_windows_path'>correct_for_windows_path</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id path'>path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fetch_http-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fetch_http</strong>(uri, last_modified = nil, head = false, depth = 0) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='fetch_https-instance_method'>fetch_https</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>HTTP Fetcher. Dispatched by <tt>fetch_path</tt>. Use it instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 201</span>
+
+<span class='kw'>def</span> <span class='id fetch_http'>fetch_http</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id last_modified'>last_modified</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id head'>head</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='id depth'>depth</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id fetch_type'>fetch_type</span> <span class='op'>=</span> <span class='id head'>head</span> <span class='op'>?</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Head</span> <span class='op'>:</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Get</span>
+  <span class='id response'>response</span>   <span class='op'>=</span> <span class='id request'>request</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id fetch_type'>fetch_type</span><span class='comma'>,</span> <span class='id last_modified'>last_modified</span>
+
+  <span class='kw'>case</span> <span class='id response'>response</span>
+  <span class='kw'>when</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPOK</span><span class='comma'>,</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPNotModified</span> <span class='kw'>then</span>
+    <span class='id head'>head</span> <span class='op'>?</span> <span class='id response'>response</span> <span class='op'>:</span> <span class='id response'>response</span><span class='period'>.</span><span class='id body'>body</span>
+  <span class='kw'>when</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPMovedPermanently</span><span class='comma'>,</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPFound</span><span class='comma'>,</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPSeeOther</span><span class='comma'>,</span>
+       <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPTemporaryRedirect</span> <span class='kw'>then</span>
+    <span class='id raise'>raise</span> <span class='const'>FetchError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>too many redirects</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id depth'>depth</span> <span class='op'>&gt;</span> <span class='int'>10</span>
+
+    <span class='id location'>location</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span> <span class='id response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Location</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+    <span class='id fetch_http'>fetch_http</span><span class='lparen'>(</span><span class='id location'>location</span><span class='comma'>,</span> <span class='id last_modified'>last_modified</span><span class='comma'>,</span> <span class='id head'>head</span><span class='comma'>,</span> <span class='id depth'>depth</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>FetchError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad response </span><span class='embexpr_beg'>#{</span><span class='id response'>response</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id response'>response</span><span class='period'>.</span><span class='id code'>code</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fetch_path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fetch_path</strong>(uri, mtime = nil, head = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Downloads <tt>uri</tt> and returns it as a String.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 224</span>
+
+<span class='kw'>def</span> <span class='id fetch_path'>fetch_path</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id mtime'>mtime</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id head'>head</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span> <span class='id uri'>uri</span> <span class='kw'>unless</span> <span class='const'>URI</span><span class='op'>::</span><span class='const'>Generic</span> <span class='op'>===</span> <span class='id uri'>uri</span>
+
+  <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad uri: </span><span class='embexpr_beg'>#{</span><span class='id uri'>uri</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id uri'>uri</span>
+  <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uri scheme is invalid: </span><span class='embexpr_beg'>#{</span><span class='id uri'>uri</span><span class='period'>.</span><span class='id scheme'>scheme</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span>
+    <span class='id uri'>uri</span><span class='period'>.</span><span class='id scheme'>scheme</span>
+
+  <span class='id data'>data</span> <span class='op'>=</span> <span class='id send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fetch_</span><span class='embexpr_beg'>#{</span><span class='id uri'>uri</span><span class='period'>.</span><span class='id scheme'>scheme</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id mtime'>mtime</span><span class='comma'>,</span> <span class='id head'>head</span>
+  <span class='id data'>data</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='period'>.</span><span class='id gunzip'>gunzip</span> <span class='id data'>data</span> <span class='kw'>if</span> <span class='id data'>data</span> <span class='kw'>and</span> <span class='kw'>not</span> <span class='id head'>head</span> <span class='kw'>and</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>gz$</span><span class='regexp_end'>/</span></span>
+  <span class='id data'>data</span>
+<span class='kw'>rescue</span> <span class='const'>FetchError</span>
+  <span class='id raise'>raise</span>
+<span class='kw'>rescue</span> <span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span>
+  <span class='id raise'>raise</span> <span class='const'>FetchError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>timed out</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+<span class='kw'>rescue</span> <span class='const'>IOError</span><span class='comma'>,</span> <span class='const'>SocketError</span><span class='comma'>,</span> <span class='const'>SystemCallError</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+  <span class='id raise'>raise</span> <span class='const'>FetchError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fetch_size-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fetch_size</strong>(uri) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the size of <tt>uri</tt> in bytes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+245
+246
+247
+248
+249</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 245</span>
+
+<span class='kw'>def</span> <span class='id fetch_size'>fetch_size</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span> <span class='comment'># TODO: phase this out
+</span>  <span class='id response'>response</span> <span class='op'>=</span> <span class='id fetch_path'>fetch_path</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+
+  <span class='id response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content-length</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_proxy_from_env-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_proxy_from_env</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an HTTP proxy URI if one is set in the environment variables.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 272</span>
+
+<span class='kw'>def</span> <span class='id get_proxy_from_env'>get_proxy_from_env</span>
+  <span class='id env_proxy'>env_proxy</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http_proxy</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HTTP_PROXY</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id env_proxy'>env_proxy</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id env_proxy'>env_proxy</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+
+  <span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id normalize_uri'>normalize_uri</span><span class='lparen'>(</span><span class='id env_proxy'>env_proxy</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id uri'>uri</span> <span class='kw'>and</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id user'>user</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>and</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id password'>password</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>then</span>
+    <span class='comment'># Probably we have http_proxy_* variables?
+</span>    <span class='id uri'>uri</span><span class='period'>.</span><span class='id user'>user</span> <span class='op'>=</span> <span class='id escape'>escape</span><span class='lparen'>(</span><span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http_proxy_user</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HTTP_PROXY_USER</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id uri'>uri</span><span class='period'>.</span><span class='id password'>password</span> <span class='op'>=</span> <span class='id escape'>escape</span><span class='lparen'>(</span><span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http_proxy_pass</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HTTP_PROXY_PASS</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id uri'>uri</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="normalize_uri-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>normalize_uri</strong>(uri) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Normalize the URI by adding "http://" if it is missing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+291
+292
+293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 291</span>
+
+<span class='kw'>def</span> <span class='id normalize_uri'>normalize_uri</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='id uri'>uri</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^(https?|ftp|file):</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id uri'>uri</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://</span><span class='embexpr_beg'>#{</span><span class='id uri'>uri</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="open_uri_or_path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>open_uri_or_path</strong>(uri, last_modified = nil, head = false, depth = 0) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Read the data from the (source based) URI, but if it is a file:// URI, read
+from the filesystem instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+340
+341
+342
+343</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 340</span>
+
+<span class='kw'>def</span> <span class='id open_uri_or_path'>open_uri_or_path</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id last_modified'>last_modified</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id head'>head</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='id depth'>depth</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NO: Use fetch_path instead</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># TODO: deprecate for fetch_path
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="request-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>request</strong>(uri, request_class, last_modified = nil) {|request| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs a Net::HTTP request of type <tt>request_class</tt> on <tt>uri</tt>
+returning a Net::HTTP response object.  request maintains a table of
+persistent connections to reduce connect overhead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>request</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 350</span>
+
+<span class='kw'>def</span> <span class='id request'>request</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id request_class'>request_class</span><span class='comma'>,</span> <span class='id last_modified'>last_modified</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id request'>request</span> <span class='op'>=</span> <span class='id request_class'>request_class</span><span class='period'>.</span><span class='id new'>new</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id request_uri'>request_uri</span>
+
+  <span class='kw'>unless</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id user'>user</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id user'>user</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='kw'>then</span>
+    <span class='id request'>request</span><span class='period'>.</span><span class='id basic_auth'>basic_auth</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id user'>user</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id password'>password</span>
+  <span class='kw'>end</span>
+
+  <span class='id request'>request</span><span class='period'>.</span><span class='id add_field'>add_field</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>User-Agent</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='ivar'>@user_agent</span>
+  <span class='id request'>request</span><span class='period'>.</span><span class='id add_field'>add_field</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Connection</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>keep-alive</span><span class='tstring_end'>'</span></span>
+  <span class='id request'>request</span><span class='period'>.</span><span class='id add_field'>add_field</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Keep-Alive</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>30</span><span class='tstring_end'>'</span></span>
+
+  <span class='kw'>if</span> <span class='id last_modified'>last_modified</span> <span class='kw'>then</span>
+    <span class='id last_modified'>last_modified</span> <span class='op'>=</span> <span class='id last_modified'>last_modified</span><span class='period'>.</span><span class='id utc'>utc</span>
+    <span class='id request'>request</span><span class='period'>.</span><span class='id add_field'>add_field</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>If-Modified-Since</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id last_modified'>last_modified</span><span class='period'>.</span><span class='id rfc2822'>rfc2822</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>yield</span> <span class='id request'>request</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+
+  <span class='id connection'>connection</span> <span class='op'>=</span> <span class='id connection_for'>connection_for</span> <span class='id uri'>uri</span>
+
+  <span class='id retried'>retried</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='id bad_response'>bad_response</span> <span class='op'>=</span> <span class='kw'>false</span>
+
+  <span class='kw'>begin</span>
+    <span class='ivar'>@requests</span><span class='lbracket'>[</span><span class='id connection'>connection</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='int'>1</span>
+
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id request'>request</span><span class='period'>.</span><span class='id method'>method</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id uri'>uri</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span>
+      <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id really_verbose'>really_verbose</span>
+
+    <span class='id file_name'>file_name</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id basename'>basename</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='period'>.</span><span class='id path'>path</span><span class='rparen'>)</span>
+    <span class='comment'># perform download progress reporter only for gems
+</span>    <span class='kw'>if</span> <span class='id request'>request</span><span class='period'>.</span><span class='id response_body_permitted?'>response_body_permitted?</span> <span class='op'>&amp;&amp;</span> <span class='id file_name'>file_name</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.gem$</span><span class='regexp_end'>/</span></span>
+      <span class='id reporter'>reporter</span> <span class='op'>=</span> <span class='id ui'>ui</span><span class='period'>.</span><span class='id download_reporter'>download_reporter</span>
+      <span class='id response'>response</span> <span class='op'>=</span> <span class='id connection'>connection</span><span class='period'>.</span><span class='id request'>request</span><span class='lparen'>(</span><span class='id request'>request</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id incomplete_response'>incomplete_response</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPOK</span> <span class='op'>===</span> <span class='id incomplete_response'>incomplete_response</span>
+          <span class='id reporter'>reporter</span><span class='period'>.</span><span class='id fetch'>fetch</span><span class='lparen'>(</span><span class='id file_name'>file_name</span><span class='comma'>,</span> <span class='id incomplete_response'>incomplete_response</span><span class='period'>.</span><span class='id content_length'>content_length</span><span class='rparen'>)</span>
+          <span class='id downloaded'>downloaded</span> <span class='op'>=</span> <span class='int'>0</span>
+          <span class='id data'>data</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+
+          <span class='id incomplete_response'>incomplete_response</span><span class='period'>.</span><span class='id read_body'>read_body</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id segment'>segment</span><span class='op'>|</span>
+            <span class='id data'>data</span> <span class='op'>&lt;&lt;</span> <span class='id segment'>segment</span>
+            <span class='id downloaded'>downloaded</span> <span class='op'>+=</span> <span class='id segment'>segment</span><span class='period'>.</span><span class='id length'>length</span>
+            <span class='id reporter'>reporter</span><span class='period'>.</span><span class='id update'>update</span><span class='lparen'>(</span><span class='id downloaded'>downloaded</span><span class='rparen'>)</span>
+          <span class='kw'>end</span>
+          <span class='id reporter'>reporter</span><span class='period'>.</span><span class='id done'>done</span>
+          <span class='kw'>if</span> <span class='id incomplete_response'>incomplete_response</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span> <span class='symbol'>:body=</span>
+            <span class='id incomplete_response'>incomplete_response</span><span class='period'>.</span><span class='id body'>body</span> <span class='op'>=</span> <span class='id data'>data</span>
+          <span class='kw'>else</span>
+            <span class='id incomplete_response'>incomplete_response</span><span class='period'>.</span><span class='id instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='symbol'>:@body</span><span class='comma'>,</span> <span class='id data'>data</span><span class='rparen'>)</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>else</span>
+      <span class='id response'>response</span> <span class='op'>=</span> <span class='id connection'>connection</span><span class='period'>.</span><span class='id request'>request</span> <span class='id request'>request</span>
+    <span class='kw'>end</span>
+
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id response'>response</span><span class='period'>.</span><span class='id code'>code</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id response'>response</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span>
+      <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id really_verbose'>really_verbose</span>
+
+  <span class='kw'>rescue</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTPBadResponse</span>
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad response</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id really_verbose'>really_verbose</span>
+
+    <span class='id reset'>reset</span> <span class='id connection'>connection</span>
+
+    <span class='id raise'>raise</span> <span class='const'>FetchError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>too many bad responses</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id bad_response'>bad_response</span>
+
+    <span class='id bad_response'>bad_response</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>retry</span>
+  <span class='comment'># HACK work around EOFError bug in Net::HTTP
+</span>  <span class='comment'># NOTE Errno::ECONNABORTED raised a lot on Windows, and make impossible
+</span>  <span class='comment'># to install gems.
+</span>  <span class='kw'>rescue</span> <span class='const'>EOFError</span><span class='comma'>,</span> <span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span>
+         <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ECONNABORTED</span><span class='comma'>,</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ECONNRESET</span><span class='comma'>,</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>EPIPE</span>
+
+    <span class='id requests'>requests</span> <span class='op'>=</span> <span class='ivar'>@requests</span><span class='lbracket'>[</span><span class='id connection'>connection</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='rbracket'>]</span>
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>connection reset after </span><span class='embexpr_beg'>#{</span><span class='id requests'>requests</span><span class='rbrace'>}</span><span class='tstring_content'> requests, retrying</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span>
+      <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id really_verbose'>really_verbose</span>
+
+    <span class='id raise'>raise</span> <span class='const'>FetchError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>too many connection resets</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id retried'>retried</span>
+
+    <span class='id reset'>reset</span> <span class='id connection'>connection</span>
+
+    <span class='id retried'>retried</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>retry</span>
+  <span class='kw'>end</span>
+
+  <span class='id response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="reset-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>reset</strong>(connection) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Resets HTTP connection <tt>connection</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+442
+443
+444
+445
+446
+447</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 442</span>
+
+<span class='kw'>def</span> <span class='id reset'>reset</span><span class='lparen'>(</span><span class='id connection'>connection</span><span class='rparen'>)</span>
+  <span class='ivar'>@requests</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='id connection'>connection</span><span class='period'>.</span><span class='id object_id'>object_id</span>
+
+  <span class='id connection'>connection</span><span class='period'>.</span><span class='id finish'>finish</span>
+  <span class='id connection'>connection</span><span class='period'>.</span><span class='id start'>start</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="unescape-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>unescape</strong>(str) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+257
+258
+259
+260
+261</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 257</span>
+
+<span class='kw'>def</span> <span class='id unescape'>unescape</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id str'>str</span>
+  <span class='ivar'>@uri_parser</span> <span class='op'>||=</span> <span class='id uri_escaper'>uri_escaper</span>
+  <span class='ivar'>@uri_parser</span><span class='period'>.</span><span class='id unescape'>unescape</span> <span class='id str'>str</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="uri_escaper-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>uri_escaper</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+263
+264
+265
+266
+267</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 263</span>
+
+<span class='kw'>def</span> <span class='id uri_escaper'>uri_escaper</span>
+  <span class='const'>URI</span><span class='op'>::</span><span class='const'>Parser</span><span class='period'>.</span><span class='id new'>new</span>
+<span class='kw'>rescue</span> <span class='const'>NameError</span>
+  <span class='const'>URI</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="user_agent-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>user_agent</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/remote_fetcher.rb', line 449</span>
+
+<span class='kw'>def</span> <span class='id user_agent'>user_agent</span>
+  <span class='id ua'>ua</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RubyGems/</span><span class='embexpr_beg'>#{</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>VERSION</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>Platform</span><span class='period'>.</span><span class='id local'>local</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id ruby_version'>ruby_version</span> <span class='op'>=</span> <span class='const'>RUBY_VERSION</span>
+  <span class='id ruby_version'>ruby_version</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>dev</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='const'>RUBY_PATCHLEVEL</span> <span class='op'>==</span> <span class='op'>-</span><span class='int'>1</span>
+
+  <span class='id ua'>ua</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> Ruby/</span><span class='embexpr_beg'>#{</span><span class='id ruby_version'>ruby_version</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_RELEASE_DATE</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>if</span> <span class='const'>RUBY_PATCHLEVEL</span> <span class='op'>&gt;=</span> <span class='int'>0</span> <span class='kw'>then</span>
+    <span class='id ua'>ua</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> patchlevel </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_PATCHLEVEL</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>elsif</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>RUBY_REVISION</span><span class='rparen'>)</span> <span class='kw'>then</span>
+    <span class='id ua'>ua</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> revision </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_REVISION</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id ua'>ua</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id ua'>ua</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_ENGINE</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>RUBY_ENGINE</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='const'>RUBY_ENGINE</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby</span><span class='tstring_end'>'</span></span>
+
+  <span class='id ua'>ua</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:37 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

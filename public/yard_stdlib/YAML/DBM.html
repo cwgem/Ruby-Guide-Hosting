@@ -1,0 +1,1544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: YAML::DBM
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../YAML.html" title="YAML (module)">YAML</a></span></span>
+     &raquo; 
+    <span class="title">DBM</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: YAML::DBM
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">DBM</span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">DBM</li>
+          
+            <li class="next">YAML::DBM</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/yaml/dbm.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>YAML + DBM = YDBM</p>
+
+<p>YAML::DBM provides the same interface as ::DBM.</p>
+
+<p>However, while DBM only allows strings for both keys and values, this
+library allows one to use most Ruby objects for values by first converting
+them to YAML. Keys must be strings.</p>
+
+<p>Conversion to and from YAML is performed automatically.</p>
+
+<p>See the documentation for ::DBM and ::YAML for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.1</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+
+
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- (Object) <strong>[]</strong>(key) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return value associated with <tt>key</tt> from database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D%3D-instance_method" title="#[]= (instance method)">- (Object) <strong>[]=</strong>(key, val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(key) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes value from database associated with <tt>key</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_if-instance_method" title="#delete_if (instance method)">- (Object) <strong>delete_if</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calls the given block once for each <tt>key</tt>, <tt>value</tt> pair in
+the database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_pair-instance_method" title="#each_pair (instance method)">- (Object) <strong>each_pair</strong> </a>
+    
+
+    
+      (also: #each)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calls the given block once for each <tt>key</tt>, <tt>value</tt> pair in
+the database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_value-instance_method" title="#each_value (instance method)">- (Object) <strong>each_value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calls the given block for each value in database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch-instance_method" title="#fetch (instance method)">- (Object) <strong>fetch</strong>(keystr, ifnone = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_value%3F-instance_method" title="#has_value? (instance method)">- (Boolean) <strong>has_value?</strong>(val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if specified value is found in the database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#index-instance_method" title="#index (instance method)">- (Object) <strong>index</strong>(keystr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deprecated, used YAML::DBM#key instead.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#invert-instance_method" title="#invert (instance method)">- (Object) <strong>invert</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a Hash (not a DBM database) created by using each value in the
+database as a key, with the corresponding key as its value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reject-instance_method" title="#reject (instance method)">- (Object) <strong>reject</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts the contents of the database to an in-memory Hash, then calls
+Hash#reject with the specified code block, returning a new Hash.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#replace-instance_method" title="#replace (instance method)">- (Object) <strong>replace</strong>(hsh) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Replaces the contents of the database with the contents of the specified
+object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#select-instance_method" title="#select (instance method)">- (Object) <strong>select</strong>(*keys) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#shift-instance_method" title="#shift (instance method)">- (Object) <strong>shift</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Removes a [key, value] pair from the database, and returns it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#store-instance_method" title="#store (instance method)">- (Object) <strong>store</strong>(key, val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_a-instance_method" title="#to_a (instance method)">- (Object) <strong>to_a</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts the contents of the database to an array of [key, value] arrays,
+and returns it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_hash-instance_method" title="#to_hash (instance method)">- (Object) <strong>to_hash</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts the contents of the database to an in-memory Hash object, and
+returns it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(hsh) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Updates the database with multiple values from the specified object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#values-instance_method" title="#values (instance method)">- (Object) <strong>values</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of values from the database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#values_at-instance_method" title="#values_at (instance method)">- (Object) <strong>values_at</strong>(*keys) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array containing the values associated with the given keys.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="[]-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]</strong>(key) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return value associated with <tt>key</tt> from database.</p>
+
+<p>Returns <tt>nil</tt> if there is no such <tt>key</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span> <span class='id key'>key</span> <span class='rparen'>)</span>
+    <span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id key'>key</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="[]=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]=</strong>(key, val) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:call-seq:</p>
+
+<pre class="code">[]=( key, value )</pre>
+
+<p>Set <tt>key</tt> to <tt>value</tt> in database.</p>
+
+<p><tt>value</tt> will be converted to YAML before storage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span> <span class='id key'>key</span><span class='comma'>,</span> <span class='id val'>val</span> <span class='rparen'>)</span>
+    <span class='id store'>store</span><span class='lparen'>(</span> <span class='id key'>key</span><span class='comma'>,</span> <span class='id val'>val</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete</strong>(key) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes value from database associated with <tt>key</tt>.</p>
+
+<p>Returns value or <tt>nil</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='id delete'>delete</span><span class='lparen'>(</span> <span class='id key'>key</span> <span class='rparen'>)</span>
+    <span class='id v'>v</span> <span class='op'>=</span> <span class='kw'>super</span><span class='lparen'>(</span> <span class='id key'>key</span> <span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='const'>String</span> <span class='op'>===</span> <span class='id v'>v</span>
+        <span class='id v'>v</span> <span class='op'>=</span> <span class='const'>YAML</span><span class='period'>.</span><span class='id load'>load</span><span class='lparen'>(</span> <span class='id v'>v</span> <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='id v'>v</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete_if-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete_if</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Calls the given block once for each <tt>key</tt>, <tt>value</tt> pair in
+the database. Deletes all entries for which the block returns true.</p>
+
+<p>Returns <tt>self</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id delete_if'>delete_if</span> <span class='comment'># :yields: [key, value]
+</span>    <span class='id del_keys'>del_keys</span> <span class='op'>=</span> <span class='id keys'>keys</span><span class='period'>.</span><span class='id dup'>dup</span>
+    <span class='id del_keys'>del_keys</span><span class='period'>.</span><span class='id delete_if'>delete_if</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span> <span class='kw'>yield</span><span class='lparen'>(</span> <span class='id k'>k</span><span class='comma'>,</span> <span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id k'>k</span> <span class='rparen'>)</span> <span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span> <span class='rbrace'>}</span>
+    <span class='id del_keys'>del_keys</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span> <span class='id delete'>delete</span><span class='lparen'>(</span> <span class='id k'>k</span> <span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each_pair-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>each_pair</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='each-instance_method'>each</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Calls the given block once for each <tt>key</tt>, <tt>value</tt> pair in
+the database.</p>
+
+<p>Returns <tt>self</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id each_pair'>each_pair</span> <span class='comment'># :yields: [key, value]
+</span>    <span class='id keys'>keys</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id k'>k</span><span class='comma'>,</span> <span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id k'>k</span> <span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each_value-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>each_value</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Calls the given block for each value in database.</p>
+
+<p>Returns <tt>self</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='id each_value'>each_value</span> <span class='comment'># :yields: value
+</span>    <span class='kw'>super</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='const'>YAML</span><span class='period'>.</span><span class='id load'>load</span><span class='lparen'>(</span> <span class='id v'>v</span> <span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fetch-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fetch</strong>(keystr, ifnone = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:call-seq:</p>
+
+<pre class="code"><span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id key'>key</span><span class='comma'>,</span> <span class='id ifnone'>ifnone</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='rparen'>)</span>
+<span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id key'>key</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span> <span class='rparen'>)</span></pre>
+
+<p>Return value associated with <tt>key</tt>.</p>
+
+<p>If there is no value for <tt>key</tt> and no block is given, returns
+<tt>ifnone</tt>.</p>
+
+<p>Otherwise, calls block passing in the given <tt>key</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id keystr'>keystr</span><span class='comma'>,</span> <span class='id ifnone'>ifnone</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='rparen'>)</span>
+    <span class='kw'>begin</span>
+        <span class='id val'>val</span> <span class='op'>=</span> <span class='kw'>super</span><span class='lparen'>(</span> <span class='id keystr'>keystr</span> <span class='rparen'>)</span>
+        <span class='kw'>return</span> <span class='const'>YAML</span><span class='period'>.</span><span class='id load'>load</span><span class='lparen'>(</span> <span class='id val'>val</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='const'>String</span> <span class='op'>===</span> <span class='id val'>val</span>
+    <span class='kw'>rescue</span> <span class='const'>IndexError</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+        <span class='kw'>yield</span> <span class='id keystr'>keystr</span>
+    <span class='kw'>else</span>
+        <span class='id ifnone'>ifnone</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="has_value?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>has_value?</strong>(val) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if specified value is found in the database.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id has_value?'>has_value?</span><span class='lparen'>(</span> <span class='id val'>val</span> <span class='rparen'>)</span>
+    <span class='id each_value'>each_value</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id v'>v</span> <span class='op'>==</span> <span class='id val'>val</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="index-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>index</strong>(keystr) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Deprecated, used YAML::DBM#key instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id index'>index</span><span class='lparen'>(</span> <span class='id keystr'>keystr</span> <span class='rparen'>)</span>
+    <span class='kw'>super</span><span class='lparen'>(</span> <span class='id keystr'>keystr</span><span class='period'>.</span><span class='id to_yaml'>to_yaml</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="invert-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>invert</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a Hash (not a DBM database) created by using each value in the
+database as a key, with the corresponding key as its value.</p>
+
+<p>Note that all values in the hash will be Strings, but the keys will be
+actual objects.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 130</span>
+
+<span class='kw'>def</span> <span class='id invert'>invert</span>
+    <span class='id h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='id keys'>keys</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span> <span class='id h'>h</span><span class='lbracket'>[</span> <span class='kw'>self</span><span class='period'>.</span><span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id k'>k</span> <span class='rparen'>)</span> <span class='rbracket'>]</span> <span class='op'>=</span> <span class='id k'>k</span> <span class='rbrace'>}</span>
+    <span class='id h'>h</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="reject-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>reject</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Converts the contents of the database to an in-memory Hash, then calls
+Hash#reject with the specified code block, returning a new Hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 93</span>
+
+<span class='kw'>def</span> <span class='id reject'>reject</span>
+    <span class='id hsh'>hsh</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id to_hash'>to_hash</span>
+    <span class='id hsh'>hsh</span><span class='period'>.</span><span class='id reject'>reject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span><span class='id v'>v</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id k'>k</span><span class='comma'>,</span> <span class='id v'>v</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="replace-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>replace</strong>(hsh) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Replaces the contents of the database with the contents of the specified
+object. Takes any object which implements the each_pair method, including
+Hash and DBM objects.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id replace'>replace</span><span class='lparen'>(</span> <span class='id hsh'>hsh</span> <span class='rparen'>)</span>
+    <span class='id clear'>clear</span>
+    <span class='id update'>update</span><span class='lparen'>(</span> <span class='id hsh'>hsh</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="select-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>select</strong>(*keys) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:call-seq:</p>
+
+<pre class="code"><span class='id select'>select</span><span class='lparen'>(</span> <span class='op'>&amp;</span><span class='id block'>block</span> <span class='rparen'>)</span>
+<span class='id select'>select</span><span class='lparen'>(</span> <span class='op'>*</span><span class='id keys'>keys</span> <span class='rparen'>)</span></pre>
+
+<p>If a block is provided, returns a new array containing [key, value] pairs
+for which the block returns true.</p>
+
+<p>Otherwise, same as #values_at</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+162
+163
+164
+165
+166
+167
+168</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 162</span>
+
+<span class='kw'>def</span> <span class='id select'>select</span><span class='lparen'>(</span> <span class='op'>*</span><span class='id keys'>keys</span> <span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+        <span class='kw'>self</span><span class='period'>.</span><span class='id keys'>keys</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span> <span class='id v'>v</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span><span class='semicolon'>;</span> <span class='lbracket'>[</span><span class='id k'>k</span><span class='comma'>,</span> <span class='id v'>v</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='kw'>yield</span> <span class='id k'>k</span><span class='comma'>,</span> <span class='id v'>v</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id compact'>compact</span>
+    <span class='kw'>else</span>
+        <span class='id values_at'>values_at</span><span class='lparen'>(</span> <span class='op'>*</span><span class='id keys'>keys</span> <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="shift-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>shift</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Removes a [key, value] pair from the database, and returns it. If the
+database is empty, returns <tt>nil</tt>.</p>
+
+<p>The order in which values are removed/returned is not guaranteed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150
+151
+152</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 148</span>
+
+<span class='kw'>def</span> <span class='id shift'>shift</span>
+    <span class='id a'>a</span> <span class='op'>=</span> <span class='kw'>super</span>
+    <span class='id a'>a</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>YAML</span><span class='period'>.</span><span class='id load'>load</span><span class='lparen'>(</span> <span class='id a'>a</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id a'>a</span>
+    <span class='id a'>a</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="store-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>store</strong>(key, val) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:call-seq:</p>
+
+<pre class="code"><span class='id store'>store</span><span class='lparen'>(</span> <span class='id key'>key</span><span class='comma'>,</span> <span class='id value'>value</span> <span class='rparen'>)</span></pre>
+
+<p>Stores <tt>value</tt> in database with <tt>key</tt> as the index.
+<tt>value</tt> is converted to YAML before being stored.</p>
+
+<p>Returns <tt>value</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+177
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 177</span>
+
+<span class='kw'>def</span> <span class='id store'>store</span><span class='lparen'>(</span> <span class='id key'>key</span><span class='comma'>,</span> <span class='id val'>val</span> <span class='rparen'>)</span>
+    <span class='kw'>super</span><span class='lparen'>(</span> <span class='id key'>key</span><span class='comma'>,</span> <span class='id val'>val</span><span class='period'>.</span><span class='id to_yaml'>to_yaml</span> <span class='rparen'>)</span>
+    <span class='id val'>val</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_a-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_a</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Converts the contents of the database to an array of [key, value] arrays,
+and returns it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+196
+197
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 196</span>
+
+<span class='kw'>def</span> <span class='id to_a'>to_a</span>
+    <span class='id a'>a</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id keys'>keys</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span> <span class='id a'>a</span><span class='period'>.</span><span class='id push'>push</span> <span class='lbracket'>[</span> <span class='id k'>k</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id k'>k</span> <span class='rparen'>)</span> <span class='rbracket'>]</span> <span class='rbrace'>}</span>
+    <span class='id a'>a</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_hash-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_hash</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Converts the contents of the database to an in-memory Hash object, and
+returns it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 205</span>
+
+<span class='kw'>def</span> <span class='id to_hash'>to_hash</span>
+    <span class='id h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='id keys'>keys</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span> <span class='id h'>h</span><span class='lbracket'>[</span> <span class='id k'>k</span> <span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id k'>k</span> <span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='id h'>h</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="update-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>update</strong>(hsh) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Updates the database with multiple values from the specified object. Takes
+any object which implements the each_pair method, including Hash and DBM
+objects.</p>
+
+<p>Returns <tt>self</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187
+188
+189
+190
+191
+192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 187</span>
+
+<span class='kw'>def</span> <span class='id update'>update</span><span class='lparen'>(</span> <span class='id hsh'>hsh</span> <span class='rparen'>)</span>
+    <span class='id hsh'>hsh</span><span class='period'>.</span><span class='id keys'>keys</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span>
+        <span class='kw'>self</span><span class='period'>.</span><span class='id store'>store</span><span class='lparen'>(</span> <span class='id k'>k</span><span class='comma'>,</span> <span class='id hsh'>hsh</span><span class='period'>.</span><span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id k'>k</span> <span class='rparen'>)</span> <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="values-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>values</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array of values from the database.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id values'>values</span>
+    <span class='kw'>super</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='const'>YAML</span><span class='period'>.</span><span class='id load'>load</span><span class='lparen'>(</span> <span class='id v'>v</span> <span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="values_at-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>values_at</strong>(*keys) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array containing the values associated with the given keys.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yaml/dbm.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id values_at'>values_at</span><span class='lparen'>(</span> <span class='op'>*</span><span class='id keys'>keys</span> <span class='rparen'>)</span>
+    <span class='id keys'>keys</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='op'>|</span> <span class='id fetch'>fetch</span><span class='lparen'>(</span> <span class='id k'>k</span> <span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:24 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

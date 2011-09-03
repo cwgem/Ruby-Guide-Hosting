@@ -1,0 +1,955 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Resolv::DNS::Message::MessageDecoder
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (M)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../../Resolv.html" title="Resolv (class)">Resolv</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../DNS.html" title="Resolv::DNS (class)">DNS</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Message.html" title="Resolv::DNS::Message (class)">Message</a></span></span>
+     &raquo; 
+    <span class="title">MessageDecoder</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Resolv::DNS::Message::MessageDecoder
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Resolv::DNS::Message::MessageDecoder</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/resolv.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_bytes-instance_method" title="#get_bytes (instance method)">- (Object) <strong>get_bytes</strong>(len = @limit - @index) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_label-instance_method" title="#get_label (instance method)">- (Object) <strong>get_label</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_labels-instance_method" title="#get_labels (instance method)">- (Object) <strong>get_labels</strong>(limit = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_length16-instance_method" title="#get_length16 (instance method)">- (Object) <strong>get_length16</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_name-instance_method" title="#get_name (instance method)">- (Object) <strong>get_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_question-instance_method" title="#get_question (instance method)">- (Object) <strong>get_question</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_rr-instance_method" title="#get_rr (instance method)">- (Object) <strong>get_rr</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_string-instance_method" title="#get_string (instance method)">- (Object) <strong>get_string</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_string_list-instance_method" title="#get_string_list (instance method)">- (Object) <strong>get_string_list</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_unpack-instance_method" title="#get_unpack (instance method)">- (Object) <strong>get_unpack</strong>(template) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (MessageDecoder) <strong>initialize</strong>(data) {|_self| ... }</a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of MessageDecoder.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Resolv::DNS::Message::MessageDecoder (class)">MessageDecoder</a></span></tt>) <strong>initialize</strong>(data) {|_self| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of MessageDecoder</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>_self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Yield Parameters:</h3>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>_self</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Resolv::DNS::Message::MessageDecoder (class)">Resolv::DNS::Message::MessageDecoder</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object that the method was called on</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1434
+1435
+1436
+1437
+1438
+1439</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1434</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+  <span class='ivar'>@data</span> <span class='op'>=</span> <span class='id data'>data</span>
+  <span class='ivar'>@index</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='ivar'>@limit</span> <span class='op'>=</span> <span class='id data'>data</span><span class='period'>.</span><span class='id length'>length</span>
+  <span class='kw'>yield</span> <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="get_bytes-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_bytes</strong>(len = @limit - @index) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1459
+1460
+1461
+1462
+1463</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1459</span>
+
+<span class='kw'>def</span> <span class='id get_bytes'>get_bytes</span><span class='lparen'>(</span><span class='id len'>len</span> <span class='op'>=</span> <span class='ivar'>@limit</span> <span class='op'>-</span> <span class='ivar'>@index</span><span class='rparen'>)</span>
+  <span class='id d'>d</span> <span class='op'>=</span> <span class='ivar'>@data</span><span class='lbracket'>[</span><span class='ivar'>@index</span><span class='comma'>,</span> <span class='id len'>len</span><span class='rbracket'>]</span>
+  <span class='ivar'>@index</span> <span class='op'>+=</span> <span class='id len'>len</span>
+  <span class='kw'>return</span> <span class='id d'>d</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_label-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_label</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1531
+1532
+1533</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1531</span>
+
+<span class='kw'>def</span> <span class='id get_label'>get_label</span>
+  <span class='kw'>return</span> <span class='const'>Label</span><span class='op'>::</span><span class='const'>Str</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id get_string'>get_string</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_labels-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_labels</strong>(limit = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1506
+1507
+1508
+1509
+1510
+1511
+1512
+1513
+1514
+1515
+1516
+1517
+1518
+1519
+1520
+1521
+1522
+1523
+1524
+1525
+1526
+1527
+1528
+1529</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1506</span>
+
+<span class='kw'>def</span> <span class='id get_labels'>get_labels</span><span class='lparen'>(</span><span class='id limit'>limit</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id limit'>limit</span> <span class='op'>=</span> <span class='ivar'>@index</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id limit'>limit</span> <span class='op'>||</span> <span class='ivar'>@index</span> <span class='op'>&lt;</span> <span class='id limit'>limit</span>
+  <span class='id d'>d</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>while</span> <span class='kw'>true</span>
+    <span class='kw'>case</span> <span class='ivar'>@data</span><span class='lbracket'>[</span><span class='ivar'>@index</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id ord'>ord</span>
+    <span class='kw'>when</span> <span class='int'>0</span>
+      <span class='ivar'>@index</span> <span class='op'>+=</span> <span class='int'>1</span>
+      <span class='kw'>return</span> <span class='id d'>d</span>
+    <span class='kw'>when</span> <span class='int'>192</span><span class='op'>..</span><span class='int'>255</span>
+      <span class='id idx'>idx</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_unpack'>get_unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>n</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>&amp;</span> <span class='int'>0x3fff</span>
+      <span class='kw'>if</span> <span class='id limit'>limit</span> <span class='op'>&lt;=</span> <span class='id idx'>idx</span>
+        <span class='id raise'>raise</span> <span class='const'>DecodeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>non-backward name pointer</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='id save_index'>save_index</span> <span class='op'>=</span> <span class='ivar'>@index</span>
+      <span class='ivar'>@index</span> <span class='op'>=</span> <span class='id idx'>idx</span>
+      <span class='id d'>d</span> <span class='op'>+=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_labels'>get_labels</span><span class='lparen'>(</span><span class='id limit'>limit</span><span class='rparen'>)</span>
+      <span class='ivar'>@index</span> <span class='op'>=</span> <span class='id save_index'>save_index</span>
+      <span class='kw'>return</span> <span class='id d'>d</span>
+    <span class='kw'>else</span>
+      <span class='id d'>d</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_label'>get_label</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id d'>d</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_length16-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_length16</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1445
+1446
+1447
+1448
+1449
+1450
+1451
+1452
+1453
+1454
+1455
+1456
+1457</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1445</span>
+
+<span class='kw'>def</span> <span class='id get_length16'>get_length16</span>
+  <span class='id len'>len</span><span class='comma'>,</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_unpack'>get_unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>n</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id save_limit'>save_limit</span> <span class='op'>=</span> <span class='ivar'>@limit</span>
+  <span class='ivar'>@limit</span> <span class='op'>=</span> <span class='ivar'>@index</span> <span class='op'>+</span> <span class='id len'>len</span>
+  <span class='id d'>d</span> <span class='op'>=</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='id len'>len</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@index</span> <span class='op'>&lt;</span> <span class='ivar'>@limit</span>
+    <span class='id raise'>raise</span> <span class='const'>DecodeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>junk exists</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='ivar'>@limit</span> <span class='op'>&lt;</span> <span class='ivar'>@index</span>
+    <span class='id raise'>raise</span> <span class='const'>DecodeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>limit exceeded</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@limit</span> <span class='op'>=</span> <span class='id save_limit'>save_limit</span>
+  <span class='kw'>return</span> <span class='id d'>d</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_name</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1502
+1503
+1504</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1502</span>
+
+<span class='kw'>def</span> <span class='id get_name'>get_name</span>
+  <span class='kw'>return</span> <span class='const'>Name</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id get_labels'>get_labels</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_question-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_question</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1535
+1536
+1537
+1538
+1539</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1535</span>
+
+<span class='kw'>def</span> <span class='id get_question'>get_question</span>
+  <span class='id name'>name</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_name'>get_name</span>
+  <span class='id type'>type</span><span class='comma'>,</span> <span class='id klass'>klass</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_unpack'>get_unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nn</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='const'>Resource</span><span class='period'>.</span><span class='id get_class'>get_class</span><span class='lparen'>(</span><span class='id type'>type</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_rr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_rr</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1541
+1542
+1543
+1544
+1545
+1546
+1547
+1548</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1541</span>
+
+<span class='kw'>def</span> <span class='id get_rr'>get_rr</span>
+  <span class='id name'>name</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_name'>get_name</span>
+  <span class='id type'>type</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='comma'>,</span> <span class='id ttl'>ttl</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_unpack'>get_unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nnN</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id typeclass'>typeclass</span> <span class='op'>=</span> <span class='const'>Resource</span><span class='period'>.</span><span class='id get_class'>get_class</span><span class='lparen'>(</span><span class='id type'>type</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='rparen'>)</span>
+  <span class='id res'>res</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_length16'>get_length16</span> <span class='lbrace'>{</span> <span class='id typeclass'>typeclass</span><span class='period'>.</span><span class='id decode_rdata'>decode_rdata</span> <span class='kw'>self</span> <span class='rbrace'>}</span>
+  <span class='id res'>res</span><span class='period'>.</span><span class='id instance_variable_set'>instance_variable_set</span> <span class='symbol'>:@ttl</span><span class='comma'>,</span> <span class='id ttl'>ttl</span>
+  <span class='kw'>return</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id ttl'>ttl</span><span class='comma'>,</span> <span class='id res'>res</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_string-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_string</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../DecodeError.html" title="Resolv::DNS::DecodeError (class)">DecodeError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1486
+1487
+1488
+1489
+1490
+1491
+1492</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1486</span>
+
+<span class='kw'>def</span> <span class='id get_string'>get_string</span>
+  <span class='id len'>len</span> <span class='op'>=</span> <span class='ivar'>@data</span><span class='lbracket'>[</span><span class='ivar'>@index</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id ord'>ord</span>
+  <span class='id raise'>raise</span> <span class='const'>DecodeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>limit exceeded</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@limit</span> <span class='op'>&lt;</span> <span class='ivar'>@index</span> <span class='op'>+</span> <span class='int'>1</span> <span class='op'>+</span> <span class='id len'>len</span>
+  <span class='id d'>d</span> <span class='op'>=</span> <span class='ivar'>@data</span><span class='lbracket'>[</span><span class='ivar'>@index</span> <span class='op'>+</span> <span class='int'>1</span><span class='comma'>,</span> <span class='id len'>len</span><span class='rbracket'>]</span>
+  <span class='ivar'>@index</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='op'>+</span> <span class='id len'>len</span>
+  <span class='kw'>return</span> <span class='id d'>d</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_string_list-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_string_list</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1494
+1495
+1496
+1497
+1498
+1499
+1500</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1494</span>
+
+<span class='kw'>def</span> <span class='id get_string_list'>get_string_list</span>
+  <span class='id strings'>strings</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>while</span> <span class='ivar'>@index</span> <span class='op'>&lt;</span> <span class='ivar'>@limit</span>
+    <span class='id strings'>strings</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_string'>get_string</span>
+  <span class='kw'>end</span>
+  <span class='id strings'>strings</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_unpack-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_unpack</strong>(template) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../DecodeError.html" title="Resolv::DNS::DecodeError (class)">DecodeError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1465
+1466
+1467
+1468
+1469
+1470
+1471
+1472
+1473
+1474
+1475
+1476
+1477
+1478
+1479
+1480
+1481
+1482
+1483
+1484</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1465</span>
+
+<span class='kw'>def</span> <span class='id get_unpack'>get_unpack</span><span class='lparen'>(</span><span class='id template'>template</span><span class='rparen'>)</span>
+  <span class='id len'>len</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id template'>template</span><span class='period'>.</span><span class='id each_byte'>each_byte</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id byte'>byte</span><span class='op'>|</span>
+    <span class='id byte'>byte</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%c</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id byte'>byte</span>
+    <span class='kw'>case</span> <span class='id byte'>byte</span>
+    <span class='kw'>when</span> <span class='CHAR'>?c</span><span class='comma'>,</span> <span class='CHAR'>?C</span>
+      <span class='id len'>len</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='kw'>when</span> <span class='CHAR'>?n</span>
+      <span class='id len'>len</span> <span class='op'>+=</span> <span class='int'>2</span>
+    <span class='kw'>when</span> <span class='CHAR'>?N</span>
+      <span class='id len'>len</span> <span class='op'>+=</span> <span class='int'>4</span>
+    <span class='kw'>else</span>
+      <span class='id raise'>raise</span> <span class='const'>StandardError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported template: '</span><span class='embexpr_beg'>#{</span><span class='id byte'>byte</span><span class='period'>.</span><span class='id chr'>chr</span><span class='rbrace'>}</span><span class='tstring_content'>' in '</span><span class='embexpr_beg'>#{</span><span class='id template'>template</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+  <span class='id raise'>raise</span> <span class='const'>DecodeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>limit exceeded</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@limit</span> <span class='op'>&lt;</span> <span class='ivar'>@index</span> <span class='op'>+</span> <span class='id len'>len</span>
+  <span class='id arr'>arr</span> <span class='op'>=</span> <span class='ivar'>@data</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@</span><span class='embexpr_beg'>#{</span><span class='ivar'>@index</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id template'>template</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@index</span> <span class='op'>+=</span> <span class='id len'>len</span>
+  <span class='kw'>return</span> <span class='id arr'>arr</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1441
+1442
+1443</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv.rb', line 1441</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='ivar'>@index</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@data</span><span class='lbracket'>[</span><span class='ivar'>@index</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:06 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

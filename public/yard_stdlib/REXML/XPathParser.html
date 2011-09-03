@@ -1,0 +1,2666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: REXML::XPathParser
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (X)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../REXML.html" title="REXML (module)">REXML</a></span></span>
+     &raquo; 
+    <span class="title">XPathParser</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: REXML::XPathParser
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">REXML::XPathParser</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="XMLTokens.html" title="REXML::XMLTokens (module)">XMLTokens</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rexml/xpath_parser.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>You don't want to use this class.  Really.  Use XPath, which is a wrapper
+for this class.  Believe me.  You don't want to poke around in here. There
+is strange, dark magic at work in this code.  Beware.  Go back!  Go back
+while you still can!</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="LITERAL-constant" class="">LITERAL =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^'([^']*)'|^&quot;([^&quot;]*)&quot;</span><span class='regexp_end'>/u</span></span></pre></dd>
+      
+        <dt id="ALL-constant" class="">ALL =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Expr takes a stack of path elements and a set of nodes (either a Parent or
+an Array and returns an Array of matching nodes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='symbol'>:attribute</span><span class='comma'>,</span> <span class='symbol'>:element</span><span class='comma'>,</span> <span class='symbol'>:text</span><span class='comma'>,</span> <span class='symbol'>:processing_instruction</span><span class='comma'>,</span> <span class='symbol'>:comment</span> <span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="ELEMENTS-constant" class="">ELEMENTS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='symbol'>:element</span> <span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="XMLTokens.html" title="REXML::XMLTokens (module)">XMLTokens</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="XMLTokens.html#NAME-constant" title="REXML::XMLTokens::NAME (constant)">NAME</a></span>, <span class='object_link'><a href="XMLTokens.html#NAMECHAR-constant" title="REXML::XMLTokens::NAMECHAR (constant)">NAMECHAR</a></span>, <span class='object_link'><a href="XMLTokens.html#NAME_STR-constant" title="REXML::XMLTokens::NAME_STR (constant)">NAME_STR</a></span>, <span class='object_link'><a href="XMLTokens.html#NCNAME_STR-constant" title="REXML::XMLTokens::NCNAME_STR (constant)">NCNAME_STR</a></span>, <span class='object_link'><a href="XMLTokens.html#NMTOKEN-constant" title="REXML::XMLTokens::NMTOKEN (constant)">NMTOKEN</a></span>, <span class='object_link'><a href="XMLTokens.html#NMTOKENS-constant" title="REXML::XMLTokens::NMTOKENS (constant)">NMTOKENS</a></span>, <span class='object_link'><a href="XMLTokens.html#REFERENCE-constant" title="REXML::XMLTokens::REFERENCE (constant)">REFERENCE</a></span></p>
+
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D%3D-instance_method" title="#[]= (instance method)">- (Object) <strong>[]=</strong>(variable_name, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compare-instance_method" title="#compare (instance method)">- (Object) <strong>compare</strong>(a, op, b) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#d_o_s-instance_method" title="#d_o_s (instance method)">- (Object) <strong>d_o_s</strong>(p, ns, r) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#descendant_or_self-instance_method" title="#descendant_or_self (instance method)">- (Object) <strong>descendant_or_self</strong>(path_stack, nodeset) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>FIXME The next two methods are BAD MOJO! This is my achilles heel.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#document_order-instance_method" title="#document_order (instance method)">- (Object) <strong>document_order</strong>(array_of_nodes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reorders an array of nodes so that they are in document order It tries to
+do this efficiently.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#equality_relational_compare-instance_method" title="#equality_relational_compare (instance method)">- (Object) <strong>equality_relational_compare</strong>(set1, op, set2) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expr-instance_method" title="#expr (instance method)">- (Object) <strong>expr</strong>(path_stack, nodeset, context = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#first-instance_method" title="#first (instance method)">- (Object) <strong>first</strong>(path_stack, node) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs a depth-first (document order) XPath search, and returns the first
+match.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#following-instance_method" title="#following (instance method)">- (Object) <strong>following</strong>(node) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#following_node_of-instance_method" title="#following_node_of (instance method)">- (Object) <strong>following_node_of</strong>(node) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_first-instance_method" title="#get_first (instance method)">- (Object) <strong>get_first</strong>(path, nodeset) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_namespace-instance_method" title="#get_namespace (instance method)">- (Object) <strong>get_namespace</strong>(node, prefix) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a String namespace for a node, given a prefix The rules are:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (XPathParser) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of XPathParser.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#match-instance_method" title="#match (instance method)">- (Object) <strong>match</strong>(path_stack, nodeset) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#namespaces%3D-instance_method" title="#namespaces= (instance method)">- (Object) <strong>namespaces=</strong>(namespaces = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#next_sibling_node-instance_method" title="#next_sibling_node (instance method)">- (Object) <strong>next_sibling_node</strong>(node) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#norm-instance_method" title="#norm (instance method)">- (Object) <strong>norm</strong>(b) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse-instance_method" title="#parse (instance method)">- (Object) <strong>parse</strong>(path, nodeset) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#preceding-instance_method" title="#preceding (instance method)">- (Object) <strong>preceding</strong>(node) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Builds a nodeset of all of the preceding nodes of the supplied node, in
+reverse document order</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>preceding</p></td>
+<td>
+<p>includes every element in the document that precedes this node,</p>
+</td></tr></table>
+
+<p>except for ancestors.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#preceding_node_of-instance_method" title="#preceding_node_of (instance method)">- (Object) <strong>preceding_node_of</strong>(node) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#predicate-instance_method" title="#predicate (instance method)">- (Object) <strong>predicate</strong>(path, nodeset) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#recurse-instance_method" title="#recurse (instance method)">- (Object) <strong>recurse</strong>(nodeset, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#variables%3D-instance_method" title="#variables= (instance method)">- (Object) <strong>variables=</strong>(vars = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="REXML::XPathParser (class)">XPathParser</a></span></tt>) <strong>initialize</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of XPathParser</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span> <span class='rparen'>)</span>
+  <span class='ivar'>@parser</span> <span class='op'>=</span> <span class='const'>REXML</span><span class='op'>::</span><span class='const'>Parsers</span><span class='op'>::</span><span class='const'>XPathParser</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@namespaces</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@variables</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="[]=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]=</strong>(variable_name, value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span> <span class='id variable_name'>variable_name</span><span class='comma'>,</span> <span class='id value'>value</span> <span class='rparen'>)</span>
+  <span class='ivar'>@variables</span><span class='lbracket'>[</span> <span class='id variable_name'>variable_name</span> <span class='rbracket'>]</span> <span class='op'>=</span> <span class='id value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="compare-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>compare</strong>(a, op, b) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 779</span>
+
+<span class='kw'>def</span> <span class='id compare'>compare</span> <span class='id a'>a</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id b'>b</span>
+  <span class='comment'>#puts &quot;COMPARE #{a.inspect}(#{a.class.name}) #{op} #{b.inspect}(#{b.class.name})&quot;
+</span>  <span class='kw'>case</span> <span class='id op'>op</span>
+  <span class='kw'>when</span> <span class='symbol'>:eq</span>
+    <span class='id a'>a</span> <span class='op'>==</span> <span class='id b'>b</span>
+  <span class='kw'>when</span> <span class='symbol'>:neq</span>
+    <span class='id a'>a</span> <span class='op'>!=</span> <span class='id b'>b</span>
+  <span class='kw'>when</span> <span class='symbol'>:lt</span>
+    <span class='id a'>a</span> <span class='op'>&lt;</span> <span class='id b'>b</span>
+  <span class='kw'>when</span> <span class='symbol'>:lteq</span>
+    <span class='id a'>a</span> <span class='op'>&lt;=</span> <span class='id b'>b</span>
+  <span class='kw'>when</span> <span class='symbol'>:gt</span>
+    <span class='id a'>a</span> <span class='op'>&gt;</span> <span class='id b'>b</span>
+  <span class='kw'>when</span> <span class='symbol'>:gteq</span>
+    <span class='id a'>a</span> <span class='op'>&gt;=</span> <span class='id b'>b</span>
+  <span class='kw'>when</span> <span class='symbol'>:and</span>
+    <span class='id a'>a</span> <span class='kw'>and</span> <span class='id b'>b</span>
+  <span class='kw'>when</span> <span class='symbol'>:or</span>
+    <span class='id a'>a</span> <span class='kw'>or</span> <span class='id b'>b</span>
+  <span class='kw'>else</span>
+    <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="d_o_s-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>d_o_s</strong>(p, ns, r) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 544</span>
+
+<span class='kw'>def</span> <span class='id d_o_s'>d_o_s</span><span class='lparen'>(</span> <span class='id p'>p</span><span class='comma'>,</span> <span class='id ns'>ns</span><span class='comma'>,</span> <span class='id r'>r</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;IN DOS with #{ns.inspect}; ALREADY HAVE #{r.inspect}&quot;
+</span>  <span class='id nt'>nt</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id ns'>ns</span><span class='period'>.</span><span class='id each_index'>each_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+    <span class='id n'>n</span> <span class='op'>=</span> <span class='id ns'>ns</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span>
+    <span class='comment'>#puts &quot;P =&gt; #{p.inspect}&quot;
+</span>    <span class='id x'>x</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id p'>p</span><span class='period'>.</span><span class='id dclone'>dclone</span><span class='comma'>,</span> <span class='lbracket'>[</span> <span class='id n'>n</span> <span class='rbracket'>]</span> <span class='rparen'>)</span>
+    <span class='id nt'>nt</span> <span class='op'>=</span> <span class='id n'>n</span><span class='period'>.</span><span class='id node_type'>node_type</span>
+    <span class='id d_o_s'>d_o_s</span><span class='lparen'>(</span> <span class='id p'>p</span><span class='comma'>,</span> <span class='id n'>n</span><span class='period'>.</span><span class='id children'>children</span><span class='comma'>,</span> <span class='id x'>x</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id nt'>nt</span> <span class='op'>==</span> <span class='symbol'>:element</span> <span class='kw'>or</span> <span class='id nt'>nt</span> <span class='op'>==</span> <span class='symbol'>:document</span> <span class='kw'>and</span> <span class='id n'>n</span><span class='period'>.</span><span class='id children'>children</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id r'>r</span><span class='period'>.</span><span class='id concat'>concat</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id x'>x</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="descendant_or_self-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>descendant_or_self</strong>(path_stack, nodeset) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>FIXME The next two methods are BAD MOJO! This is my achilles heel.  If
+anybody thinks of a better way of doing this, be my guest.  This really
+sucks, but it is a wonder it works at all.
+########################################################</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 533</span>
+
+<span class='kw'>def</span> <span class='id descendant_or_self'>descendant_or_self</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span> <span class='rparen'>)</span>
+  <span class='id rs'>rs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='comment'>#puts &quot;#&quot;*80
+</span>  <span class='comment'>#puts &quot;PATH_STACK = #{path_stack.inspect}&quot;
+</span>  <span class='comment'>#puts &quot;NODESET = #{nodeset.collect{|n|n.inspect}.inspect}&quot;
+</span>  <span class='id d_o_s'>d_o_s</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id rs'>rs</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;RS = #{rs.collect{|n|n.inspect}.inspect}&quot;
+</span>  <span class='id document_order'>document_order</span><span class='lparen'>(</span><span class='id rs'>rs</span><span class='period'>.</span><span class='id flatten'>flatten</span><span class='period'>.</span><span class='id compact'>compact</span><span class='rparen'>)</span>
+  <span class='comment'>#rs.flatten.compact
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="document_order-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>document_order</strong>(array_of_nodes) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Reorders an array of nodes so that they are in document order It tries to
+do this efficiently.</p>
+
+<p>FIXME: I need to get rid of this, but the issue is that most of the XPath
+interpreter functions as a filter, which means that we lose context going
+in and out of function calls.  If I knew what the index of the nodes was, I
+wouldn't have to do this.  Maybe add a document IDX for each node? Problems
+with mutable documents.  Or, rewrite everything.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 566</span>
+
+<span class='kw'>def</span> <span class='id document_order'>document_order</span><span class='lparen'>(</span> <span class='id array_of_nodes'>array_of_nodes</span> <span class='rparen'>)</span>
+  <span class='id new_arry'>new_arry</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id array_of_nodes'>array_of_nodes</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+    <span class='id node_idx'>node_idx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id np'>np</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:attribute</span> <span class='op'>?</span> <span class='id node'>node</span><span class='period'>.</span><span class='id element'>element</span> <span class='op'>:</span> <span class='id node'>node</span>
+    <span class='kw'>while</span> <span class='id np'>np</span><span class='period'>.</span><span class='id parent'>parent</span> <span class='kw'>and</span> <span class='id np'>np</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+      <span class='id node_idx'>node_idx</span> <span class='op'>&lt;&lt;</span> <span class='id np'>np</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span> <span class='id np'>np</span> <span class='rparen'>)</span>
+      <span class='id np'>np</span> <span class='op'>=</span> <span class='id np'>np</span><span class='period'>.</span><span class='id parent'>parent</span>
+    <span class='kw'>end</span>
+    <span class='id new_arry'>new_arry</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='id node_idx'>node_idx</span><span class='period'>.</span><span class='id reverse'>reverse</span><span class='comma'>,</span> <span class='id node'>node</span> <span class='rbracket'>]</span>
+  <span class='rbrace'>}</span>
+  <span class='comment'>#puts &quot;new_arry = #{new_arry.inspect}&quot;
+</span>  <span class='id new_arry'>new_arry</span><span class='period'>.</span><span class='id sort'>sort</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id s1'>s1</span><span class='comma'>,</span> <span class='id s2'>s2</span><span class='op'>|</span> <span class='id s1'>s1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>&lt;=&gt;</span> <span class='id s2'>s2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='id s'>s</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="equality_relational_compare-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>equality_relational_compare</strong>(set1, op, set2) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 686</span>
+
+<span class='kw'>def</span> <span class='id equality_relational_compare'>equality_relational_compare</span><span class='lparen'>(</span> <span class='id set1'>set1</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id set2'>set2</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;EQ_REL_COMP(#{set1.inspect} #{op.inspect} #{set2.inspect})&quot;
+</span>  <span class='kw'>if</span> <span class='id set1'>set1</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Array</span> <span class='kw'>and</span> <span class='id set2'>set2</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Array</span>
+    <span class='comment'>#puts &quot;#{set1.size} &amp; #{set2.size}&quot;
+</span>    <span class='kw'>if</span> <span class='id set1'>set1</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>1</span> <span class='kw'>and</span> <span class='id set2'>set2</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>1</span>
+      <span class='id set1'>set1</span> <span class='op'>=</span> <span class='id set1'>set1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='id set2'>set2</span> <span class='op'>=</span> <span class='id set2'>set2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='kw'>elsif</span> <span class='id set1'>set1</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span> <span class='kw'>or</span> <span class='id set2'>set2</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='id nd'>nd</span> <span class='op'>=</span> <span class='id set1'>set1</span><span class='period'>.</span><span class='id size'>size</span><span class='op'>==</span><span class='int'>0</span> <span class='op'>?</span> <span class='id set2'>set2</span> <span class='op'>:</span> <span class='id set1'>set1</span>
+      <span class='id rv'>rv</span> <span class='op'>=</span> <span class='id nd'>nd</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id il'>il</span><span class='op'>|</span> <span class='id compare'>compare</span><span class='lparen'>(</span> <span class='id il'>il</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='kw'>nil</span> <span class='rparen'>)</span> <span class='rbrace'>}</span>
+      <span class='comment'>#puts &quot;RV = #{rv.inspect}&quot;
+</span>      <span class='kw'>return</span> <span class='id rv'>rv</span>
+    <span class='kw'>else</span>
+      <span class='id res'>res</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='const'>SyncEnumerator</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='id set1'>set1</span><span class='comma'>,</span> <span class='id set2'>set2</span> <span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i1'>i1</span><span class='comma'>,</span> <span class='id i2'>i2</span><span class='op'>|</span>
+        <span class='comment'>#puts &quot;i1 = #{i1.inspect} (#{i1.class.name})&quot;
+</span>        <span class='comment'>#puts &quot;i2 = #{i2.inspect} (#{i2.class.name})&quot;
+</span>        <span class='id i1'>i1</span> <span class='op'>=</span> <span class='id norm'>norm</span><span class='lparen'>(</span> <span class='id i1'>i1</span> <span class='rparen'>)</span>
+        <span class='id i2'>i2</span> <span class='op'>=</span> <span class='id norm'>norm</span><span class='lparen'>(</span> <span class='id i2'>i2</span> <span class='rparen'>)</span>
+        <span class='id res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id compare'>compare</span><span class='lparen'>(</span> <span class='id i1'>i1</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id i2'>i2</span> <span class='rparen'>)</span>
+      <span class='rbrace'>}</span>
+      <span class='kw'>return</span> <span class='id res'>res</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='comment'>#puts &quot;EQ_REL_COMP: #{set1.inspect} (#{set1.class.name}), #{op}, #{set2.inspect} (#{set2.class.name})&quot;
+</span>  <span class='comment'>#puts &quot;COMPARING VALUES&quot;
+</span>  <span class='comment'># If one is nodeset and other is number, compare number to each item
+</span>  <span class='comment'># in nodeset s.t. number op number(string(item))
+</span>  <span class='comment'># If one is nodeset and other is string, compare string to each item
+</span>  <span class='comment'># in nodeset s.t. string op string(item)
+</span>  <span class='comment'># If one is nodeset and other is boolean, compare boolean to each item
+</span>  <span class='comment'># in nodeset s.t. boolean op boolean(item)
+</span>  <span class='kw'>if</span> <span class='id set1'>set1</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Array</span> <span class='kw'>or</span> <span class='id set2'>set2</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Array</span>
+    <span class='comment'>#puts &quot;ISA ARRAY&quot;
+</span>    <span class='kw'>if</span> <span class='id set1'>set1</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Array</span>
+      <span class='id a'>a</span> <span class='op'>=</span> <span class='id set1'>set1</span>
+      <span class='id b'>b</span> <span class='op'>=</span> <span class='id set2'>set2</span>
+    <span class='kw'>else</span>
+      <span class='id a'>a</span> <span class='op'>=</span> <span class='id set2'>set2</span>
+      <span class='id b'>b</span> <span class='op'>=</span> <span class='id set1'>set1</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>case</span> <span class='id b'>b</span>
+    <span class='kw'>when</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='kw'>false</span>
+      <span class='kw'>return</span> <span class='id a'>a</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id compare'>compare</span><span class='lparen'>(</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id boolean'>boolean</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id b'>b</span> <span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>when</span> <span class='const'>Numeric</span>
+      <span class='kw'>return</span> <span class='id a'>a</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id compare'>compare</span><span class='lparen'>(</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id b'>b</span> <span class='rparen'>)</span><span class='rbrace'>}</span>
+    <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\d+(\.\d+)?$</span><span class='regexp_end'>/</span></span>
+      <span class='id b'>b</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span> <span class='id b'>b</span> <span class='rparen'>)</span>
+      <span class='comment'>#puts &quot;B = #{b.inspect}&quot;
+</span>      <span class='kw'>return</span> <span class='id a'>a</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id compare'>compare</span><span class='lparen'>(</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id b'>b</span> <span class='rparen'>)</span><span class='rbrace'>}</span>
+    <span class='kw'>else</span>
+      <span class='comment'>#puts &quot;Functions::string( #{b}(#{b.class.name}) ) = #{Functions::string(b)}&quot;
+</span>      <span class='id b'>b</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id string'>string</span><span class='lparen'>(</span> <span class='id b'>b</span> <span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='id a'>a</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id compare'>compare</span><span class='lparen'>(</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id string'>string</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id b'>b</span> <span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='comment'># If neither is nodeset,
+</span>    <span class='comment'>#   If op is = or !=
+</span>    <span class='comment'>#     If either boolean, convert to boolean
+</span>    <span class='comment'>#     If either number, convert to number
+</span>    <span class='comment'>#     Else, convert to string
+</span>    <span class='comment'>#   Else
+</span>    <span class='comment'>#     Convert both to numbers and compare
+</span>    <span class='id s1'>s1</span> <span class='op'>=</span> <span class='id set1'>set1</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+    <span class='id s2'>s2</span> <span class='op'>=</span> <span class='id set2'>set2</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+    <span class='comment'>#puts &quot;EQ_REL_COMP: #{set1}=&gt;#{s1}, #{set2}=&gt;#{s2}&quot;
+</span>    <span class='kw'>if</span> <span class='id s1'>s1</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>true</span><span class='tstring_end'>'</span></span> <span class='kw'>or</span> <span class='id s1'>s1</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>false</span><span class='tstring_end'>'</span></span> <span class='kw'>or</span> <span class='id s2'>s2</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>true</span><span class='tstring_end'>'</span></span> <span class='kw'>or</span> <span class='id s2'>s2</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>false</span><span class='tstring_end'>'</span></span>
+      <span class='comment'>#puts &quot;Functions::boolean(#{set1})=&gt;#{Functions::boolean(set1)}&quot;
+</span>      <span class='comment'>#puts &quot;Functions::boolean(#{set2})=&gt;#{Functions::boolean(set2)}&quot;
+</span>      <span class='id set1'>set1</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id boolean'>boolean</span><span class='lparen'>(</span> <span class='id set1'>set1</span> <span class='rparen'>)</span>
+      <span class='id set2'>set2</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id boolean'>boolean</span><span class='lparen'>(</span> <span class='id set2'>set2</span> <span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='kw'>if</span> <span class='id op'>op</span> <span class='op'>==</span> <span class='symbol'>:eq</span> <span class='kw'>or</span> <span class='id op'>op</span> <span class='op'>==</span> <span class='symbol'>:neq</span>
+        <span class='kw'>if</span> <span class='id s1'>s1</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\d+(\.\d+)?$</span><span class='regexp_end'>/</span></span> <span class='kw'>or</span> <span class='id s2'>s2</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\d+(\.\d+)?$</span><span class='regexp_end'>/</span></span>
+          <span class='id set1'>set1</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span> <span class='id s1'>s1</span> <span class='rparen'>)</span>
+          <span class='id set2'>set2</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span> <span class='id s2'>s2</span> <span class='rparen'>)</span>
+        <span class='kw'>else</span>
+          <span class='id set1'>set1</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id string'>string</span><span class='lparen'>(</span> <span class='id set1'>set1</span> <span class='rparen'>)</span>
+          <span class='id set2'>set2</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id string'>string</span><span class='lparen'>(</span> <span class='id set2'>set2</span> <span class='rparen'>)</span>
+        <span class='kw'>end</span>
+      <span class='kw'>else</span>
+        <span class='id set1'>set1</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span> <span class='id set1'>set1</span> <span class='rparen'>)</span>
+        <span class='id set2'>set2</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span> <span class='id set2'>set2</span> <span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='comment'>#puts &quot;EQ_REL_COMP: #{set1} #{op} #{set2}&quot;
+</span>    <span class='comment'>#puts &quot;&gt;&gt;&gt; #{compare( set1, op, set2 )}&quot;
+</span>    <span class='kw'>return</span> <span class='id compare'>compare</span><span class='lparen'>(</span> <span class='id set1'>set1</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id set2'>set2</span> <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="expr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>expr</strong>(path_stack, nodeset, context = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 166</span>
+
+<span class='kw'>def</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;#&quot;*15
+</span>  <span class='comment'>#puts &quot;In expr with #{path_stack.inspect}&quot;
+</span>  <span class='comment'>#puts &quot;Returning&quot; if path_stack.length == 0 || nodeset.length == 0
+</span>  <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+  <span class='kw'>return</span> <span class='id nodeset'>nodeset</span> <span class='kw'>if</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>==</span> <span class='int'>0</span> <span class='op'>||</span> <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>==</span> <span class='int'>0</span>
+  <span class='kw'>while</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='comment'>#puts &quot;#&quot;*5
+</span>    <span class='comment'>#puts &quot;Path stack = #{path_stack.inspect}&quot;
+</span>    <span class='comment'>#puts &quot;Nodeset is #{nodeset.inspect}&quot;
+</span>    <span class='kw'>if</span> <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id clear'>clear</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='kw'>case</span> <span class='lparen'>(</span><span class='id op'>op</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='rparen'>)</span>
+    <span class='kw'>when</span> <span class='symbol'>:document</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='id nodeset'>nodeset</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id root_node'>root_node</span> <span class='rbracket'>]</span>
+      <span class='comment'>#puts &quot;:document, nodeset = #{nodeset.inspect}&quot;
+</span>
+    <span class='kw'>when</span> <span class='symbol'>:qname</span>
+      <span class='comment'>#puts &quot;IN QNAME&quot;
+</span>      <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+      <span class='id name'>name</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id delete_if'>delete_if</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='comment'># FIXME: This DOUBLES the time XPath searches take
+</span>        <span class='id ns'>ns</span> <span class='op'>=</span> <span class='id get_namespace'>get_namespace</span><span class='lparen'>(</span> <span class='id node'>node</span><span class='comma'>,</span> <span class='id prefix'>prefix</span> <span class='rparen'>)</span>
+        <span class='comment'>#puts &quot;NS = #{ns.inspect}&quot;
+</span>        <span class='comment'>#puts &quot;node.node_type == :element =&gt; #{node.node_type == :element}&quot;
+</span>        <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+          <span class='comment'>#puts &quot;node.name == #{name} =&gt; #{node.name == name}&quot;
+</span>          <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>==</span> <span class='id name'>name</span>
+            <span class='comment'>#puts &quot;node.namespace == #{ns.inspect} =&gt; #{node.namespace == ns}&quot;
+</span>          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+        <span class='op'>!</span><span class='lparen'>(</span><span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span> <span class='kw'>and</span>
+          <span class='id node'>node</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>==</span> <span class='id name'>name</span> <span class='kw'>and</span>
+          <span class='id node'>node</span><span class='period'>.</span><span class='id namespace'>namespace</span> <span class='op'>==</span> <span class='id ns'>ns</span> <span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:any</span>
+      <span class='comment'>#puts &quot;ANY 1: nodeset = #{nodeset.inspect}&quot;
+</span>      <span class='comment'>#puts &quot;ANY 1: node_types = #{node_types.inspect}&quot;
+</span>      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id delete_if'>delete_if</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span> <span class='op'>!</span><span class='id node_types'>node_types</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+      <span class='comment'>#puts &quot;ANY 2: nodeset = #{nodeset.inspect}&quot;
+</span>
+    <span class='kw'>when</span> <span class='symbol'>:self</span>
+      <span class='comment'># This space left intentionally blank
+</span>
+    <span class='kw'>when</span> <span class='symbol'>:processing_instruction</span>
+      <span class='id target'>target</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id delete_if'>delete_if</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='lparen'>(</span><span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>!=</span> <span class='symbol'>:processing_instruction</span><span class='rparen'>)</span> <span class='kw'>or</span>
+        <span class='lparen'>(</span> <span class='id target'>target</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>and</span> <span class='lparen'>(</span> <span class='id node'>node</span><span class='period'>.</span><span class='id target'>target</span> <span class='op'>!=</span> <span class='id target'>target</span> <span class='rparen'>)</span> <span class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:text</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id delete_if'>delete_if</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>!=</span> <span class='symbol'>:text</span> <span class='rbrace'>}</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:comment</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id delete_if'>delete_if</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>!=</span> <span class='symbol'>:comment</span> <span class='rbrace'>}</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:node</span>
+      <span class='comment'># This space left intentionally blank
+</span>      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ALL</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:child</span>
+      <span class='id new_nodeset'>new_nodeset</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id nt'>nt</span> <span class='op'>=</span> <span class='kw'>nil</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='id nt'>nt</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span>
+        <span class='id new_nodeset'>new_nodeset</span> <span class='op'>+=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id children'>children</span> <span class='kw'>if</span> <span class='id nt'>nt</span> <span class='op'>==</span> <span class='symbol'>:element</span> <span class='kw'>or</span> <span class='id nt'>nt</span> <span class='op'>==</span> <span class='symbol'>:document</span>
+      <span class='kw'>end</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id new_nodeset'>new_nodeset</span>
+      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:literal</span>
+      <span class='kw'>return</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:attribute</span>
+      <span class='id new_nodeset'>new_nodeset</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='kw'>case</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+      <span class='kw'>when</span> <span class='symbol'>:qname</span>
+        <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+        <span class='id name'>name</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+        <span class='kw'>for</span> <span class='id element'>element</span> <span class='kw'>in</span> <span class='id nodeset'>nodeset</span>
+          <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+            <span class='comment'>#puts &quot;Element name = #{element.name}&quot;
+</span>            <span class='comment'>#puts &quot;get_namespace( #{element.inspect}, #{prefix} ) = #{get_namespace(element, prefix)}&quot;
+</span>            <span class='id attrib'>attrib</span> <span class='op'>=</span> <span class='id element'>element</span><span class='period'>.</span><span class='id attribute'>attribute</span><span class='lparen'>(</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id get_namespace'>get_namespace</span><span class='lparen'>(</span><span class='id element'>element</span><span class='comma'>,</span> <span class='id prefix'>prefix</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+            <span class='comment'>#puts &quot;attrib = #{attrib.inspect}&quot;
+</span>            <span class='id new_nodeset'>new_nodeset</span> <span class='op'>&lt;&lt;</span> <span class='id attrib'>attrib</span> <span class='kw'>if</span> <span class='id attrib'>attrib</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>when</span> <span class='symbol'>:any</span>
+        <span class='comment'>#puts &quot;ANY&quot;
+</span>        <span class='kw'>for</span> <span class='id element'>element</span> <span class='kw'>in</span> <span class='id nodeset'>nodeset</span>
+          <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+            <span class='id new_nodeset'>new_nodeset</span> <span class='op'>+=</span> <span class='id element'>element</span><span class='period'>.</span><span class='id attributes'>attributes</span><span class='period'>.</span><span class='id to_a'>to_a</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id new_nodeset'>new_nodeset</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:parent</span>
+      <span class='comment'>#puts &quot;PARENT 1: nodeset = #{nodeset}&quot;
+</span>      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id n'>n</span><span class='period'>.</span><span class='id parent'>parent</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id compact'>compact</span>
+      <span class='comment'>#nodeset = expr(path_stack.dclone, nodeset.collect{|n| n.parent}.compact)
+</span>      <span class='comment'>#puts &quot;PARENT 2: nodeset = #{nodeset.inspect}&quot;
+</span>      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:ancestor</span>
+      <span class='id new_nodeset'>new_nodeset</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='kw'>while</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span>
+          <span class='id node'>node</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span>
+          <span class='id new_nodeset'>new_nodeset</span> <span class='op'>&lt;&lt;</span> <span class='id node'>node</span> <span class='kw'>unless</span> <span class='id new_nodeset'>new_nodeset</span><span class='period'>.</span><span class='id include?'>include?</span> <span class='id node'>node</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id new_nodeset'>new_nodeset</span>
+      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:ancestor_or_self</span>
+      <span class='id new_nodeset'>new_nodeset</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+          <span class='id new_nodeset'>new_nodeset</span> <span class='op'>&lt;&lt;</span> <span class='id node'>node</span>
+          <span class='kw'>while</span> <span class='lparen'>(</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span> <span class='rparen'>)</span>
+            <span class='id node'>node</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span>
+            <span class='id new_nodeset'>new_nodeset</span> <span class='op'>&lt;&lt;</span> <span class='id node'>node</span> <span class='kw'>unless</span> <span class='id new_nodeset'>new_nodeset</span><span class='period'>.</span><span class='id include?'>include?</span> <span class='id node'>node</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id new_nodeset'>new_nodeset</span>
+      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:predicate</span>
+      <span class='id new_nodeset'>new_nodeset</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id subcontext'>subcontext</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:size</span> <span class='op'>=&gt;</span> <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id size'>size</span> <span class='rbrace'>}</span>
+      <span class='id pred'>pred</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each_with_index'>each_with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id node'>node</span><span class='comma'>,</span> <span class='id index'>index</span><span class='op'>|</span>
+        <span class='id subcontext'>subcontext</span><span class='lbracket'>[</span> <span class='symbol'>:node</span> <span class='rbracket'>]</span> <span class='op'>=</span> <span class='id node'>node</span>
+        <span class='comment'>#puts &quot;PREDICATE SETTING CONTEXT INDEX TO #{index+1}&quot;
+</span>        <span class='id subcontext'>subcontext</span><span class='lbracket'>[</span> <span class='symbol'>:index</span> <span class='rbracket'>]</span> <span class='op'>=</span> <span class='id index'>index</span><span class='op'>+</span><span class='int'>1</span>
+        <span class='id pc'>pc</span> <span class='op'>=</span> <span class='id pred'>pred</span><span class='period'>.</span><span class='id dclone'>dclone</span>
+        <span class='comment'>#puts &quot;#{node.hash}) Recursing with #{pred.inspect} and [#{node.inspect}]&quot;
+</span>        <span class='id result'>result</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id pc'>pc</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='id node'>node</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id subcontext'>subcontext</span> <span class='rparen'>)</span>
+        <span class='id result'>result</span> <span class='op'>=</span> <span class='id result'>result</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id result'>result</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Array</span> <span class='kw'>and</span> <span class='id result'>result</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>==</span> <span class='int'>1</span>
+        <span class='comment'>#puts &quot;#{node.hash}) Result = #{result.inspect} (#{result.class.name})&quot;
+</span>        <span class='kw'>if</span> <span class='id result'>result</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Numeric</span>
+          <span class='comment'>#puts &quot;Adding node #{node.inspect}&quot; if result == (index+1)
+</span>          <span class='id new_nodeset'>new_nodeset</span> <span class='op'>&lt;&lt;</span> <span class='id node'>node</span> <span class='kw'>if</span> <span class='id result'>result</span> <span class='op'>==</span> <span class='lparen'>(</span><span class='id index'>index</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+        <span class='kw'>elsif</span> <span class='id result'>result</span><span class='period'>.</span><span class='id instance_of?'>instance_of?</span> <span class='const'>Array</span>
+          <span class='kw'>if</span> <span class='id result'>result</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='kw'>and</span> <span class='id result'>result</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span><span class='id s'>s</span><span class='op'>|</span> <span class='id s'>s</span> <span class='kw'>or</span> <span class='id k'>k</span><span class='rbrace'>}</span>
+            <span class='comment'>#puts &quot;Adding node #{node.inspect}&quot; if result.size &gt; 0
+</span>            <span class='id new_nodeset'>new_nodeset</span> <span class='op'>&lt;&lt;</span> <span class='id node'>node</span> <span class='kw'>if</span> <span class='id result'>result</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+          <span class='kw'>end</span>
+        <span class='kw'>else</span>
+          <span class='comment'>#puts &quot;Adding node #{node.inspect}&quot; if result
+</span>          <span class='id new_nodeset'>new_nodeset</span> <span class='op'>&lt;&lt;</span> <span class='id node'>node</span> <span class='kw'>if</span> <span class='id result'>result</span>
+        <span class='kw'>end</span>
+      <span class='rbrace'>}</span>
+      <span class='comment'>#puts &quot;New nodeset = #{new_nodeset.inspect}&quot;
+</span>      <span class='comment'>#puts &quot;Path_stack  = #{path_stack.inspect}&quot;
+</span>      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id new_nodeset'>new_nodeset</span>
+<span class='embdoc_beg'>=begin
+</span><span class='embdoc'>      predicate = path_stack.shift
+</span><span class='embdoc'>      ns = nodeset.clone
+</span><span class='embdoc'>      result = expr( predicate, ns )
+</span><span class='embdoc'>      #puts &quot;Result = #{result.inspect} (#{result.class.name})&quot;
+</span><span class='embdoc'>      #puts &quot;nodeset = #{nodeset.inspect}&quot;
+</span><span class='embdoc'>      if result.kind_of? Array
+</span><span class='embdoc'>        nodeset = result.zip(ns).collect{|m,n| n if m}.compact
+</span><span class='embdoc'>      else
+</span><span class='embdoc'>        nodeset = result ? nodeset : []
+</span><span class='embdoc'>      end
+</span><span class='embdoc'>      #puts &quot;Outgoing NS = #{nodeset.inspect}&quot;
+</span><span class='embdoc_end'>=end
+</span>
+    <span class='kw'>when</span> <span class='symbol'>:descendant_or_self</span>
+      <span class='id rv'>rv</span> <span class='op'>=</span> <span class='id descendant_or_self'>descendant_or_self</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span> <span class='rparen'>)</span>
+      <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id clear'>clear</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id rv'>rv</span>
+      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:descendant</span>
+      <span class='id results'>results</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id nt'>nt</span> <span class='op'>=</span> <span class='kw'>nil</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='id nt'>nt</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span>
+        <span class='id results'>results</span> <span class='op'>+=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id dclone'>dclone</span><span class='period'>.</span><span class='id unshift'>unshift</span><span class='lparen'>(</span> <span class='symbol'>:descendant_or_self</span> <span class='rparen'>)</span><span class='comma'>,</span>
+          <span class='id node'>node</span><span class='period'>.</span><span class='id children'>children</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id nt'>nt</span> <span class='op'>==</span> <span class='symbol'>:element</span> <span class='kw'>or</span> <span class='id nt'>nt</span> <span class='op'>==</span> <span class='symbol'>:document</span>
+      <span class='kw'>end</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id results'>results</span>
+      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:following_sibling</span>
+      <span class='comment'>#puts &quot;FOLLOWING_SIBLING 1: nodeset = #{nodeset}&quot;
+</span>      <span class='id results'>results</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='kw'>next</span> <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+        <span class='id all_siblings'>all_siblings</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id children'>children</span>
+        <span class='id current_index'>current_index</span> <span class='op'>=</span> <span class='id all_siblings'>all_siblings</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+        <span class='id following_siblings'>following_siblings</span> <span class='op'>=</span> <span class='id all_siblings'>all_siblings</span><span class='lbracket'>[</span> <span class='id current_index'>current_index</span><span class='op'>+</span><span class='int'>1</span> <span class='op'>..</span> <span class='op'>-</span><span class='int'>1</span> <span class='rbracket'>]</span>
+        <span class='id results'>results</span> <span class='op'>+=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id dclone'>dclone</span><span class='comma'>,</span> <span class='id following_siblings'>following_siblings</span> <span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='comment'>#puts &quot;FOLLOWING_SIBLING 2: nodeset = #{nodeset}&quot;
+</span>      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id results'>results</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:preceding_sibling</span>
+      <span class='id results'>results</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='kw'>next</span> <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+        <span class='id all_siblings'>all_siblings</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id children'>children</span>
+        <span class='id current_index'>current_index</span> <span class='op'>=</span> <span class='id all_siblings'>all_siblings</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+        <span class='id preceding_siblings'>preceding_siblings</span> <span class='op'>=</span> <span class='id all_siblings'>all_siblings</span><span class='lbracket'>[</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id current_index'>current_index</span> <span class='rbracket'>]</span><span class='period'>.</span><span class='id reverse'>reverse</span>
+        <span class='id results'>results</span> <span class='op'>+=</span> <span class='id preceding_siblings'>preceding_siblings</span>
+      <span class='kw'>end</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id results'>results</span>
+      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:preceding</span>
+      <span class='id new_nodeset'>new_nodeset</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='id new_nodeset'>new_nodeset</span> <span class='op'>+=</span> <span class='id preceding'>preceding</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='comment'>#puts &quot;NEW NODESET =&gt; #{new_nodeset.inspect}&quot;
+</span>      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id new_nodeset'>new_nodeset</span>
+      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:following</span>
+      <span class='id new_nodeset'>new_nodeset</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='id new_nodeset'>new_nodeset</span> <span class='op'>+=</span> <span class='id following'>following</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id new_nodeset'>new_nodeset</span>
+      <span class='id node_types'>node_types</span> <span class='op'>=</span> <span class='const'>ELEMENTS</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:namespace</span>
+      <span class='comment'>#puts &quot;In :namespace&quot;
+</span>      <span class='id new_nodeset'>new_nodeset</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='lparen'>(</span><span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span> <span class='kw'>or</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:attribute</span><span class='rparen'>)</span>
+          <span class='kw'>if</span> <span class='ivar'>@namespaces</span>
+            <span class='id namespaces'>namespaces</span> <span class='op'>=</span> <span class='ivar'>@namespaces</span>
+          <span class='kw'>elsif</span> <span class='lparen'>(</span><span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span><span class='rparen'>)</span>
+            <span class='id namespaces'>namespaces</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id namespaces'>namespaces</span>
+          <span class='kw'>else</span>
+            <span class='id namespaces'>namespaces</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id element'>element</span><span class='period'>.</span><span class='id namesapces'>namesapces</span>
+          <span class='kw'>end</span>
+          <span class='comment'>#puts &quot;Namespaces = #{namespaces.inspect}&quot;
+</span>          <span class='comment'>#puts &quot;Prefix = #{prefix.inspect}&quot;
+</span>          <span class='comment'>#puts &quot;Node.namespace = #{node.namespace}&quot;
+</span>          <span class='kw'>if</span> <span class='lparen'>(</span><span class='id node'>node</span><span class='period'>.</span><span class='id namespace'>namespace</span> <span class='op'>==</span> <span class='id namespaces'>namespaces</span><span class='lbracket'>[</span><span class='id prefix'>prefix</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+            <span class='id new_nodeset'>new_nodeset</span> <span class='op'>&lt;&lt;</span> <span class='id node'>node</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+      <span class='id nodeset'>nodeset</span> <span class='op'>=</span> <span class='id new_nodeset'>new_nodeset</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:variable</span>
+      <span class='id var_name'>var_name</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+      <span class='kw'>return</span> <span class='ivar'>@variables</span><span class='lbracket'>[</span> <span class='id var_name'>var_name</span> <span class='rbracket'>]</span>
+
+    <span class='comment'># :and, :or, :eq, :neq, :lt, :lteq, :gt, :gteq
+</span>    <span class='comment'># TODO: Special case for :or and :and -- not evaluate the right
+</span>    <span class='comment'># operand if the left alone determines result (i.e. is true for
+</span>    <span class='comment'># :or and false for :and).
+</span>    <span class='kw'>when</span> <span class='symbol'>:eq</span><span class='comma'>,</span> <span class='symbol'>:neq</span><span class='comma'>,</span> <span class='symbol'>:lt</span><span class='comma'>,</span> <span class='symbol'>:lteq</span><span class='comma'>,</span> <span class='symbol'>:gt</span><span class='comma'>,</span> <span class='symbol'>:gteq</span><span class='comma'>,</span> <span class='symbol'>:or</span>
+      <span class='id left'>left</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id dup'>dup</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span>
+      <span class='comment'>#puts &quot;LEFT =&gt; #{left.inspect} (#{left.class.name})&quot;
+</span>      <span class='id right'>right</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id dup'>dup</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span>
+      <span class='comment'>#puts &quot;RIGHT =&gt; #{right.inspect} (#{right.class.name})&quot;
+</span>      <span class='id res'>res</span> <span class='op'>=</span> <span class='id equality_relational_compare'>equality_relational_compare</span><span class='lparen'>(</span> <span class='id left'>left</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id right'>right</span> <span class='rparen'>)</span>
+      <span class='comment'>#puts &quot;RES =&gt; #{res.inspect}&quot;
+</span>      <span class='kw'>return</span> <span class='id res'>res</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:and</span>
+      <span class='id left'>left</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id dup'>dup</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span>
+      <span class='comment'>#puts &quot;LEFT =&gt; #{left.inspect} (#{left.class.name})&quot;
+</span>      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id left'>left</span>
+      <span class='kw'>if</span> <span class='id left'>left</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:inject</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='op'>!</span><span class='id left'>left</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id a'>a</span><span class='comma'>,</span><span class='id b'>b</span><span class='op'>|</span> <span class='id a'>a</span> <span class='op'>|</span> <span class='id b'>b</span><span class='rbrace'>}</span>
+        <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='kw'>end</span>
+      <span class='id right'>right</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id dup'>dup</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span>
+      <span class='comment'>#puts &quot;RIGHT =&gt; #{right.inspect} (#{right.class.name})&quot;
+</span>      <span class='id res'>res</span> <span class='op'>=</span> <span class='id equality_relational_compare'>equality_relational_compare</span><span class='lparen'>(</span> <span class='id left'>left</span><span class='comma'>,</span> <span class='id op'>op</span><span class='comma'>,</span> <span class='id right'>right</span> <span class='rparen'>)</span>
+      <span class='comment'>#puts &quot;RES =&gt; #{res.inspect}&quot;
+</span>      <span class='kw'>return</span> <span class='id res'>res</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:div</span>
+      <span class='id left'>left</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='id right'>right</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='kw'>return</span> <span class='lparen'>(</span><span class='id left'>left</span> <span class='op'>/</span> <span class='id right'>right</span><span class='rparen'>)</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:mod</span>
+      <span class='id left'>left</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='id right'>right</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='kw'>return</span> <span class='lparen'>(</span><span class='id left'>left</span> <span class='op'>%</span> <span class='id right'>right</span><span class='rparen'>)</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:mult</span>
+      <span class='id left'>left</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='id right'>right</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='kw'>return</span> <span class='lparen'>(</span><span class='id left'>left</span> <span class='op'>*</span> <span class='id right'>right</span><span class='rparen'>)</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:plus</span>
+      <span class='id left'>left</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='id right'>right</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='kw'>return</span> <span class='lparen'>(</span><span class='id left'>left</span> <span class='op'>+</span> <span class='id right'>right</span><span class='rparen'>)</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:minus</span>
+      <span class='id left'>left</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='id right'>right</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span><span class='id expr'>expr</span><span class='lparen'>(</span><span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+      <span class='kw'>return</span> <span class='lparen'>(</span><span class='id left'>left</span> <span class='op'>-</span> <span class='id right'>right</span><span class='rparen'>)</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:union</span>
+      <span class='id left'>left</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span>
+      <span class='id right'>right</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='lparen'>(</span><span class='id left'>left</span> <span class='op'>|</span> <span class='id right'>right</span><span class='rparen'>)</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:neg</span>
+      <span class='id res'>res</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='id context'>context</span> <span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='op'>-</span><span class='lparen'>(</span><span class='id res'>res</span><span class='period'>.</span><span class='id to_f'>to_f</span><span class='rparen'>)</span>
+
+    <span class='kw'>when</span> <span class='symbol'>:not</span>
+    <span class='kw'>when</span> <span class='symbol'>:function</span>
+      <span class='id func_name'>func_name</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span><span class='period'>.</span><span class='id tr'>tr</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-</span><span class='tstring_end'>'</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>_</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='id arguments'>arguments</span> <span class='op'>=</span> <span class='id path_stack'>path_stack</span><span class='period'>.</span><span class='id shift'>shift</span>
+      <span class='comment'>#puts &quot;FUNCTION 0: #{func_name}(#{arguments.collect{|a|a.inspect}.join(', ')})&quot;
+</span>      <span class='id subcontext'>subcontext</span> <span class='op'>=</span> <span class='id context'>context</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='lbrace'>{</span> <span class='symbol'>:size</span> <span class='op'>=&gt;</span> <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id size'>size</span> <span class='rbrace'>}</span>
+
+      <span class='id res'>res</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id cont'>cont</span> <span class='op'>=</span> <span class='id context'>context</span>
+      <span class='id nodeset'>nodeset</span><span class='period'>.</span><span class='id each_with_index'>each_with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id n'>n</span><span class='comma'>,</span> <span class='id i'>i</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id subcontext'>subcontext</span>
+          <span class='id subcontext'>subcontext</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id n'>n</span>
+          <span class='id subcontext'>subcontext</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id i'>i</span>
+          <span class='id cont'>cont</span> <span class='op'>=</span> <span class='id subcontext'>subcontext</span>
+        <span class='kw'>end</span>
+        <span class='id arg_clone'>arg_clone</span> <span class='op'>=</span> <span class='id arguments'>arguments</span><span class='period'>.</span><span class='id dclone'>dclone</span>
+        <span class='id args'>args</span> <span class='op'>=</span> <span class='id arg_clone'>arg_clone</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id arg'>arg</span><span class='op'>|</span>
+          <span class='comment'>#puts &quot;FUNCTION 1: Calling expr( #{arg.inspect}, [#{n.inspect}] )&quot;
+</span>          <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id arg'>arg</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='id n'>n</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id cont'>cont</span> <span class='rparen'>)</span>
+        <span class='rbrace'>}</span>
+        <span class='comment'>#puts &quot;FUNCTION 2: #{func_name}(#{args.collect{|a|a.inspect}.join(', ')})&quot;
+</span>        <span class='const'>Functions</span><span class='period'>.</span><span class='id context'>context</span> <span class='op'>=</span> <span class='id cont'>cont</span>
+        <span class='id res'>res</span> <span class='op'>&lt;&lt;</span> <span class='const'>Functions</span><span class='period'>.</span><span class='id send'>send</span><span class='lparen'>(</span> <span class='id func_name'>func_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span> <span class='rparen'>)</span>
+        <span class='comment'>#puts &quot;FUNCTION 3: #{res[-1].inspect}&quot;
+</span>      <span class='rbrace'>}</span>
+      <span class='kw'>return</span> <span class='id res'>res</span>
+
+    <span class='kw'>end</span>
+  <span class='kw'>end</span> <span class='comment'># while
+</span>  <span class='comment'>#puts &quot;EXPR returning #{nodeset.inspect}&quot;
+</span>  <span class='kw'>return</span> <span class='id nodeset'>nodeset</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="first-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>first</strong>(path_stack, node) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs a depth-first (document order) XPath search, and returns the first
+match.  This is the fastest, lightest way to return a single result.</p>
+
+<p>FIXME: This method is incomplete!</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id first'>first</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;#{depth}) Entering match( #{path.inspect}, #{tree.inspect} )&quot;
+</span>  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id path'>path</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
+
+  <span class='kw'>case</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='symbol'>:document</span>
+    <span class='comment'># do nothing
+</span>    <span class='kw'>return</span> <span class='id first'>first</span><span class='lparen'>(</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='symbol'>:child</span>
+    <span class='kw'>for</span> <span class='id c'>c</span> <span class='kw'>in</span> <span class='id node'>node</span><span class='period'>.</span><span class='id children'>children</span>
+      <span class='comment'>#puts &quot;#{depth}) CHILD checking #{name(c)}&quot;
+</span>      <span class='id r'>r</span> <span class='op'>=</span> <span class='id first'>first</span><span class='lparen'>(</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id c'>c</span> <span class='rparen'>)</span>
+      <span class='comment'>#puts &quot;#{depth}) RETURNING #{r.inspect}&quot; if r
+</span>      <span class='kw'>return</span> <span class='id r'>r</span> <span class='kw'>if</span> <span class='id r'>r</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='symbol'>:qname</span>
+    <span class='id name'>name</span> <span class='op'>=</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+    <span class='comment'>#puts &quot;#{depth}) QNAME #{name(tree)} == #{name} (path =&gt; #{path.size})&quot;
+</span>    <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>==</span> <span class='id name'>name</span>
+      <span class='comment'>#puts &quot;#{depth}) RETURNING #{tree.inspect}&quot; if path.size == 3
+</span>      <span class='kw'>return</span> <span class='id node'>node</span> <span class='kw'>if</span> <span class='id path'>path</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>3</span>
+      <span class='kw'>return</span> <span class='id first'>first</span><span class='lparen'>(</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>3</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='kw'>return</span> <span class='kw'>nil</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='symbol'>:descendant_or_self</span>
+    <span class='id r'>r</span> <span class='op'>=</span> <span class='id first'>first</span><span class='lparen'>(</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id r'>r</span> <span class='kw'>if</span> <span class='id r'>r</span>
+    <span class='kw'>for</span> <span class='id c'>c</span> <span class='kw'>in</span> <span class='id node'>node</span><span class='period'>.</span><span class='id children'>children</span>
+      <span class='id r'>r</span> <span class='op'>=</span> <span class='id first'>first</span><span class='lparen'>(</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id c'>c</span> <span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='id r'>r</span> <span class='kw'>if</span> <span class='id r'>r</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='symbol'>:node</span>
+    <span class='kw'>return</span> <span class='id first'>first</span><span class='lparen'>(</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='symbol'>:any</span>
+    <span class='kw'>return</span> <span class='id first'>first</span><span class='lparen'>(</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="following-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>following</strong>(node) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 637</span>
+
+<span class='kw'>def</span> <span class='id following'>following</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;IN PRECEDING&quot;
+</span>  <span class='id acc'>acc</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id p'>p</span> <span class='op'>=</span> <span class='id next_sibling_node'>next_sibling_node</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;P = #{p.inspect}&quot;
+</span>  <span class='kw'>while</span> <span class='id p'>p</span>
+    <span class='id acc'>acc</span> <span class='op'>&lt;&lt;</span> <span class='id p'>p</span>
+    <span class='id p'>p</span> <span class='op'>=</span> <span class='id following_node_of'>following_node_of</span><span class='lparen'>(</span> <span class='id p'>p</span> <span class='rparen'>)</span>
+    <span class='comment'>#puts &quot;P = #{p.inspect}&quot;
+</span>  <span class='kw'>end</span>
+  <span class='id acc'>acc</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="following_node_of-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>following_node_of</strong>(node) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+650
+651
+652
+653
+654
+655
+656
+657
+658</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 650</span>
+
+<span class='kw'>def</span> <span class='id following_node_of'>following_node_of</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;NODE: #{node.inspect}&quot;
+</span>  <span class='comment'>#puts &quot;PREVIOUS NODE: #{node.previous_sibling_node.inspect}&quot;
+</span>  <span class='comment'>#puts &quot;PARENT NODE: #{node.parent}&quot;
+</span>  <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span> <span class='kw'>and</span> <span class='id node'>node</span><span class='period'>.</span><span class='id children'>children</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='kw'>return</span> <span class='id node'>node</span><span class='period'>.</span><span class='id children'>children</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id next_sibling_node'>next_sibling_node</span><span class='lparen'>(</span><span class='id node'>node</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_first-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_first</strong>(path, nodeset) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id get_first'>get_first</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span>
+ <span class='comment'>#puts &quot;#&quot;*40
+</span> <span class='id path_stack'>path_stack</span> <span class='op'>=</span> <span class='ivar'>@parser</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span> <span class='id path'>path</span> <span class='rparen'>)</span>
+ <span class='comment'>#puts &quot;PARSE: #{path} =&gt; #{path_stack.inspect}&quot;
+</span> <span class='comment'>#puts &quot;PARSE: nodeset = #{nodeset.inspect}&quot;
+</span> <span class='id first'>first</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_namespace-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_namespace</strong>(node, prefix) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a String namespace for a node, given a prefix The rules are:</p>
+
+<pre class="code">1. Use the supplied namespace mapping first.
+2. If no mapping was supplied, use the context node to look up the namespace</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id get_namespace'>get_namespace</span><span class='lparen'>(</span> <span class='id node'>node</span><span class='comma'>,</span> <span class='id prefix'>prefix</span> <span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@namespaces</span>
+    <span class='kw'>return</span> <span class='ivar'>@namespaces</span><span class='lbracket'>[</span><span class='id prefix'>prefix</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='id node'>node</span><span class='period'>.</span><span class='id namespace'>namespace</span><span class='lparen'>(</span> <span class='id prefix'>prefix</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="match-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>match</strong>(path_stack, nodeset) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138
+139
+140
+141
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id match'>match</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;MATCH: path_stack = #{path_stack.inspect}&quot;
+</span>  <span class='comment'>#puts &quot;MATCH: nodeset = #{nodeset.inspect}&quot;
+</span>  <span class='id r'>r</span> <span class='op'>=</span> <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;MAIN EXPR =&gt; #{r.inspect}&quot;
+</span>  <span class='id r'>r</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="namespaces=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>namespaces=</strong>(namespaces = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id namespaces='>namespaces=</span><span class='lparen'>(</span> <span class='id namespaces'>namespaces</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='rparen'>)</span>
+  <span class='const'>Functions</span><span class='op'>::</span><span class='id namespace_context'>namespace_context</span> <span class='op'>=</span> <span class='id namespaces'>namespaces</span>
+  <span class='ivar'>@namespaces</span> <span class='op'>=</span> <span class='id namespaces'>namespaces</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="next_sibling_node-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>next_sibling_node</strong>(node) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 660</span>
+
+<span class='kw'>def</span> <span class='id next_sibling_node'>next_sibling_node</span><span class='lparen'>(</span><span class='id node'>node</span><span class='rparen'>)</span>
+  <span class='id psn'>psn</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id next_sibling_node'>next_sibling_node</span>
+  <span class='kw'>while</span> <span class='id psn'>psn</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id class'>class</span> <span class='op'>==</span> <span class='const'>Document</span>
+      <span class='kw'>return</span> <span class='kw'>nil</span>
+    <span class='kw'>end</span>
+    <span class='id node'>node</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span>
+    <span class='id psn'>psn</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id next_sibling_node'>next_sibling_node</span>
+    <span class='comment'>#puts &quot;psn = #{psn.inspect}&quot;
+</span>  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id psn'>psn</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="norm-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>norm</strong>(b) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 673</span>
+
+<span class='kw'>def</span> <span class='id norm'>norm</span> <span class='id b'>b</span>
+  <span class='kw'>case</span> <span class='id b'>b</span>
+  <span class='kw'>when</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='kw'>false</span>
+    <span class='kw'>return</span> <span class='id b'>b</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>true</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>false</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id boolean'>boolean</span><span class='lparen'>(</span> <span class='id b'>b</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\d+(\.\d+)?$</span><span class='regexp_end'>/</span></span>
+    <span class='kw'>return</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span> <span class='id b'>b</span> <span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id string'>string</span><span class='lparen'>(</span> <span class='id b'>b</span> <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parse-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parse</strong>(path, nodeset) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id parse'>parse</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span>
+ <span class='comment'>#puts &quot;#&quot;*40
+</span> <span class='id path_stack'>path_stack</span> <span class='op'>=</span> <span class='ivar'>@parser</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span> <span class='id path'>path</span> <span class='rparen'>)</span>
+ <span class='comment'>#puts &quot;PARSE: #{path} =&gt; #{path_stack.inspect}&quot;
+</span> <span class='comment'>#puts &quot;PARSE: nodeset = #{nodeset.inspect}&quot;
+</span> <span class='id match'>match</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="preceding-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>preceding</strong>(node) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Builds a nodeset of all of the preceding nodes of the supplied node, in
+reverse document order</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>preceding</p></td>
+<td>
+<p>includes every element in the document that precedes this node,</p>
+</td></tr></table>
+
+<p>except for ancestors</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 595</span>
+
+<span class='kw'>def</span> <span class='id preceding'>preceding</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;IN PRECEDING&quot;
+</span>  <span class='id ancestors'>ancestors</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id p'>p</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span>
+  <span class='kw'>while</span> <span class='id p'>p</span>
+    <span class='id ancestors'>ancestors</span> <span class='op'>&lt;&lt;</span> <span class='id p'>p</span>
+    <span class='id p'>p</span> <span class='op'>=</span> <span class='id p'>p</span><span class='period'>.</span><span class='id parent'>parent</span>
+  <span class='kw'>end</span>
+
+  <span class='id acc'>acc</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id p'>p</span> <span class='op'>=</span> <span class='id preceding_node_of'>preceding_node_of</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;P = #{p.inspect}&quot;
+</span>  <span class='kw'>while</span> <span class='id p'>p</span>
+    <span class='kw'>if</span> <span class='id ancestors'>ancestors</span><span class='period'>.</span><span class='id include?'>include?</span> <span class='id p'>p</span>
+      <span class='id ancestors'>ancestors</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id p'>p</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id acc'>acc</span> <span class='op'>&lt;&lt;</span> <span class='id p'>p</span>
+    <span class='kw'>end</span>
+    <span class='id p'>p</span> <span class='op'>=</span> <span class='id preceding_node_of'>preceding_node_of</span><span class='lparen'>(</span> <span class='id p'>p</span> <span class='rparen'>)</span>
+    <span class='comment'>#puts &quot;P = #{p.inspect}&quot;
+</span>  <span class='kw'>end</span>
+  <span class='id acc'>acc</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="preceding_node_of-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>preceding_node_of</strong>(node) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 619</span>
+
+<span class='kw'>def</span> <span class='id preceding_node_of'>preceding_node_of</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+ <span class='comment'>#puts &quot;NODE: #{node.inspect}&quot;
+</span> <span class='comment'>#puts &quot;PREVIOUS NODE: #{node.previous_sibling_node.inspect}&quot;
+</span> <span class='comment'>#puts &quot;PARENT NODE: #{node.parent}&quot;
+</span>  <span class='id psn'>psn</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id previous_sibling_node'>previous_sibling_node</span>
+  <span class='kw'>if</span> <span class='id psn'>psn</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id class'>class</span> <span class='op'>==</span> <span class='const'>Document</span>
+      <span class='kw'>return</span> <span class='kw'>nil</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span>
+    <span class='comment'>#psn = preceding_node_of( node.parent )
+</span>  <span class='kw'>end</span>
+  <span class='kw'>while</span> <span class='id psn'>psn</span> <span class='kw'>and</span> <span class='id psn'>psn</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span> <span class='kw'>and</span> <span class='id psn'>psn</span><span class='period'>.</span><span class='id children'>children</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id psn'>psn</span> <span class='op'>=</span> <span class='id psn'>psn</span><span class='period'>.</span><span class='id children'>children</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='id psn'>psn</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="predicate-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>predicate</strong>(path, nodeset) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id predicate'>predicate</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span>
+  <span class='id path_stack'>path_stack</span> <span class='op'>=</span> <span class='ivar'>@parser</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span> <span class='id path'>path</span> <span class='rparen'>)</span>
+  <span class='id expr'>expr</span><span class='lparen'>(</span> <span class='id path_stack'>path_stack</span><span class='comma'>,</span> <span class='id nodeset'>nodeset</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="recurse-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>recurse</strong>(nodeset, &amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+582
+583
+584
+585
+586
+587</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 582</span>
+
+<span class='kw'>def</span> <span class='id recurse'>recurse</span><span class='lparen'>(</span> <span class='id nodeset'>nodeset</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span> <span class='rparen'>)</span>
+  <span class='kw'>for</span> <span class='id node'>node</span> <span class='kw'>in</span> <span class='id nodeset'>nodeset</span>
+    <span class='kw'>yield</span> <span class='id node'>node</span>
+    <span class='id recurse'>recurse</span><span class='lparen'>(</span> <span class='id node'>node</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="variables=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>variables=</strong>(vars = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/xpath_parser.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id variables='>variables=</span><span class='lparen'>(</span> <span class='id vars'>vars</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='rparen'>)</span>
+  <span class='const'>Functions</span><span class='op'>::</span><span class='id variables'>variables</span> <span class='op'>=</span> <span class='id vars'>vars</span>
+  <span class='ivar'>@variables</span> <span class='op'>=</span> <span class='id vars'>vars</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:25 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

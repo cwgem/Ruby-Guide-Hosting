@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RDoc::Markup::TextFormatterTestCase
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../RDoc.html" title="RDoc (module)">RDoc</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Markup.html" title="RDoc::Markup (class)">Markup</a></span></span>
+     &raquo; 
+    <span class="title">TextFormatterTestCase</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: RDoc::Markup::TextFormatterTestCase
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="FormatterTestCase.html" title="RDoc::Markup::FormatterTestCase (class)">FormatterTestCase</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="../../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="FormatterTestCase.html" title="RDoc::Markup::FormatterTestCase (class)">FormatterTestCase</a></span></li>
+          
+            <li class="next">RDoc::Markup::TextFormatterTestCase</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rdoc/markup/text_formatter_test_case.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Test case for creating new plain-text RDoc::Markup formatters.  See also
+RDoc::Markup::FormatterTestCase</p>
+
+<p>See test_rdoc_markup_to_rdoc.rb for a complete example.</p>
+
+<p>Example:</p>
+
+<pre class="code"><span class='kw'>class</span> <span class='const'>TestRDocMarkupToNewTextFormat</span> <span class='op'>&lt;</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span><span class='op'>::</span><span class='const'>TextFormatterTestCase</span>
+
+  <span class='id add_visitor_tests'>add_visitor_tests</span>
+  <span class='id add_text_tests'>add_text_tests</span>
+
+  <span class='kw'>def</span> <span class='id setup'>setup</span>
+    <span class='kw'>super</span>
+
+    <span class='ivar'>@to</span> <span class='op'>=</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span><span class='op'>::</span><span class='const'>ToNewTextFormat</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id accept_blank_line'>accept_blank_line</span>
+    <span class='id assert_equal'>assert_equal</span> <span class='symbol'>:junk</span><span class='comma'>,</span> <span class='ivar'>@to</span><span class='period'>.</span><span class='id res'>res</span><span class='period'>.</span><span class='id join'>join</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># ...
+</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Constants inherited from <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#PASSTHROUGH_EXCEPTIONS-constant" title="MiniTest::Unit::TestCase::PASSTHROUGH_EXCEPTIONS (constant)">PASSTHROUGH_EXCEPTIONS</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#SUPPORTS_INFO_SIGNAL-constant" title="MiniTest::Unit::TestCase::SUPPORTS_INFO_SIGNAL (constant)">SUPPORTS_INFO_SIGNAL</a></span></p>
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="../../MiniTest/Assertions.html" title="MiniTest::Assertions (module)">MiniTest::Assertions</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Assertions.html#WINDOZE-constant" title="MiniTest::Assertions::WINDOZE (constant)">WINDOZE</a></span></p>
+
+
+
+  
+  
+  
+  
+  
+  
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#__name__-instance_method" title="MiniTest::Unit::TestCase#__name__ (method)">__name__</a></span></p>
+
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_text_tests-class_method" title="add_text_tests (class method)">+ (Object) <strong>add_text_tests</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds test cases to the calling TestCase.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="FormatterTestCase.html" title="RDoc::Markup::FormatterTestCase (class)">FormatterTestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="FormatterTestCase.html#add_visitor_tests-class_method" title="RDoc::Markup::FormatterTestCase.add_visitor_tests (method)">add_visitor_tests</a></span>, <span class='object_link'><a href="FormatterTestCase.html#setup-instance_method" title="RDoc::Markup::FormatterTestCase#setup (method)">#setup</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance-instance_method" title="MiniTest::Unit::TestCase#assert_performance (method)">#assert_performance</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance_constant-instance_method" title="MiniTest::Unit::TestCase#assert_performance_constant (method)">#assert_performance_constant</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance_exponential-instance_method" title="MiniTest::Unit::TestCase#assert_performance_exponential (method)">#assert_performance_exponential</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance_linear-instance_method" title="MiniTest::Unit::TestCase#assert_performance_linear (method)">#assert_performance_linear</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance_power-instance_method" title="MiniTest::Unit::TestCase#assert_performance_power (method)">#assert_performance_power</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#bench_exp-class_method" title="MiniTest::Unit::TestCase.bench_exp (method)">bench_exp</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#bench_linear-class_method" title="MiniTest::Unit::TestCase.bench_linear (method)">bench_linear</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#bench_range-class_method" title="MiniTest::Unit::TestCase.bench_range (method)">bench_range</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#benchmark_methods-class_method" title="MiniTest::Unit::TestCase.benchmark_methods (method)">benchmark_methods</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#benchmark_suites-class_method" title="MiniTest::Unit::TestCase.benchmark_suites (method)">benchmark_suites</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#fit_error-instance_method" title="MiniTest::Unit::TestCase#fit_error (method)">#fit_error</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#fit_exponential-instance_method" title="MiniTest::Unit::TestCase#fit_exponential (method)">#fit_exponential</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#fit_linear-instance_method" title="MiniTest::Unit::TestCase#fit_linear (method)">#fit_linear</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#fit_power-instance_method" title="MiniTest::Unit::TestCase#fit_power (method)">#fit_power</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#inherited-class_method" title="MiniTest::Unit::TestCase.inherited (method)">inherited</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#initialize-instance_method" title="MiniTest::Unit::TestCase#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#io-instance_method" title="MiniTest::Unit::TestCase#io (method)">#io</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#io%3F-instance_method" title="MiniTest::Unit::TestCase#io? (method)">#io?</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#passed%3F-instance_method" title="MiniTest::Unit::TestCase#passed? (method)">#passed?</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#reset-class_method" title="MiniTest::Unit::TestCase.reset (method)">reset</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#run-instance_method" title="MiniTest::Unit::TestCase#run (method)">#run</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#setup-instance_method" title="MiniTest::Unit::TestCase#setup (method)">#setup</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#sigma-instance_method" title="MiniTest::Unit::TestCase#sigma (method)">#sigma</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#teardown-instance_method" title="MiniTest::Unit::TestCase#teardown (method)">#teardown</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#test_methods-class_method" title="MiniTest::Unit::TestCase.test_methods (method)">test_methods</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#test_order-class_method" title="MiniTest::Unit::TestCase.test_order (method)">test_order</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#test_suites-class_method" title="MiniTest::Unit::TestCase.test_suites (method)">test_suites</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#validation_for_fit-instance_method" title="MiniTest::Unit::TestCase#validation_for_fit (method)">#validation_for_fit</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../MiniTest/Assertions.html" title="MiniTest::Assertions (module)">MiniTest::Assertions</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Assertions.html#_assertions-instance_method" title="MiniTest::Assertions#_assertions (method)">#_assertions</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#_assertions%3D-instance_method" title="MiniTest::Assertions#_assertions= (method)">#_assertions=</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert-instance_method" title="MiniTest::Assertions#assert (method)">#assert</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_block-instance_method" title="MiniTest::Assertions#assert_block (method)">#assert_block</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_empty-instance_method" title="MiniTest::Assertions#assert_empty (method)">#assert_empty</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_equal-instance_method" title="MiniTest::Assertions#assert_equal (method)">#assert_equal</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_in_delta-instance_method" title="MiniTest::Assertions#assert_in_delta (method)">#assert_in_delta</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_in_epsilon-instance_method" title="MiniTest::Assertions#assert_in_epsilon (method)">#assert_in_epsilon</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_includes-instance_method" title="MiniTest::Assertions#assert_includes (method)">#assert_includes</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_instance_of-instance_method" title="MiniTest::Assertions#assert_instance_of (method)">#assert_instance_of</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_kind_of-instance_method" title="MiniTest::Assertions#assert_kind_of (method)">#assert_kind_of</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_match-instance_method" title="MiniTest::Assertions#assert_match (method)">#assert_match</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_nil-instance_method" title="MiniTest::Assertions#assert_nil (method)">#assert_nil</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_operator-instance_method" title="MiniTest::Assertions#assert_operator (method)">#assert_operator</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_output-instance_method" title="MiniTest::Assertions#assert_output (method)">#assert_output</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_raises-instance_method" title="MiniTest::Assertions#assert_raises (method)">#assert_raises</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_respond_to-instance_method" title="MiniTest::Assertions#assert_respond_to (method)">#assert_respond_to</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_same-instance_method" title="MiniTest::Assertions#assert_same (method)">#assert_same</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_send-instance_method" title="MiniTest::Assertions#assert_send (method)">#assert_send</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_silent-instance_method" title="MiniTest::Assertions#assert_silent (method)">#assert_silent</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_throws-instance_method" title="MiniTest::Assertions#assert_throws (method)">#assert_throws</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#capture_io-instance_method" title="MiniTest::Assertions#capture_io (method)">#capture_io</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#diff-class_method" title="MiniTest::Assertions.diff (method)">diff</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#diff-instance_method" title="MiniTest::Assertions#diff (method)">#diff</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#diff%3D-class_method" title="MiniTest::Assertions.diff= (method)">diff=</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#exception_details-instance_method" title="MiniTest::Assertions#exception_details (method)">#exception_details</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#flunk-instance_method" title="MiniTest::Assertions#flunk (method)">#flunk</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#message-instance_method" title="MiniTest::Assertions#message (method)">#message</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#mu_pp-instance_method" title="MiniTest::Assertions#mu_pp (method)">#mu_pp</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#mu_pp_for_diff-instance_method" title="MiniTest::Assertions#mu_pp_for_diff (method)">#mu_pp_for_diff</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#pass-instance_method" title="MiniTest::Assertions#pass (method)">#pass</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute-instance_method" title="MiniTest::Assertions#refute (method)">#refute</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_empty-instance_method" title="MiniTest::Assertions#refute_empty (method)">#refute_empty</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_equal-instance_method" title="MiniTest::Assertions#refute_equal (method)">#refute_equal</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_in_delta-instance_method" title="MiniTest::Assertions#refute_in_delta (method)">#refute_in_delta</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_in_epsilon-instance_method" title="MiniTest::Assertions#refute_in_epsilon (method)">#refute_in_epsilon</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_includes-instance_method" title="MiniTest::Assertions#refute_includes (method)">#refute_includes</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_instance_of-instance_method" title="MiniTest::Assertions#refute_instance_of (method)">#refute_instance_of</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_kind_of-instance_method" title="MiniTest::Assertions#refute_kind_of (method)">#refute_kind_of</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_match-instance_method" title="MiniTest::Assertions#refute_match (method)">#refute_match</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_nil-instance_method" title="MiniTest::Assertions#refute_nil (method)">#refute_nil</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_operator-instance_method" title="MiniTest::Assertions#refute_operator (method)">#refute_operator</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_respond_to-instance_method" title="MiniTest::Assertions#refute_respond_to (method)">#refute_respond_to</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_same-instance_method" title="MiniTest::Assertions#refute_same (method)">#refute_same</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#skip-instance_method" title="MiniTest::Assertions#skip (method)">#skip</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#initialize-instance_method" title="MiniTest::Unit::TestCase#initialize (method)">MiniTest::Unit::TestCase</a></span></p>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_text_tests-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_text_tests</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds test cases to the calling TestCase.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/text_formatter_test_case.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id add_text_tests'>add_text_tests</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class_eval'>class_eval</span> <span class='kw'>do</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Test case that calls &lt;tt&gt;@to.accept_heading&lt;/tt&gt;
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_heading_indent'>test_accept_heading_indent</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id indent'>indent</span> <span class='op'>=</span> <span class='int'>3</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_heading'>accept_heading</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Heading</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Hello</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_heading_indent'>accept_heading_indent</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Test case that calls &lt;tt&gt;@to.accept_rule&lt;/tt&gt;
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_rule_indent'>test_accept_rule_indent</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id indent'>indent</span> <span class='op'>=</span> <span class='int'>3</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_rule'>accept_rule</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Rule</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+
+      <span class='id accept_rule_indent'>accept_rule_indent</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Test case that calls &lt;tt&gt;@to.accept_verbatim&lt;/tt&gt;
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_verbatim_indent'>test_accept_verbatim_indent</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id indent'>indent</span> <span class='op'>=</span> <span class='int'>2</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_verbatim'>accept_verbatim</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Verbatim</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hi\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> world\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_verbatim_indent'>accept_verbatim_indent</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Test case that calls &lt;tt&gt;@to.accept_verbatim&lt;/tt&gt; with a big indent
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_verbatim_big_indent'>test_accept_verbatim_big_indent</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id indent'>indent</span> <span class='op'>=</span> <span class='int'>2</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_verbatim'>accept_verbatim</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Verbatim</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hi\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>world\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_verbatim_big_indent'>accept_verbatim_big_indent</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Test case that calls &lt;tt&gt;@to.accept_paragraph&lt;/tt&gt; with an indent
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_paragraph_indent'>test_accept_paragraph_indent</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id indent'>indent</span> <span class='op'>=</span> <span class='int'>3</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_paragraph'>accept_paragraph</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>words </span><span class='tstring_end'>'</span></span> <span class='op'>*</span> <span class='int'>30</span><span class='rparen'>)</span><span class='period'>.</span><span class='id strip'>strip</span><span class='rparen'>)</span>
+
+      <span class='id accept_paragraph_indent'>accept_paragraph_indent</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Test case that calls &lt;tt&gt;@to.accept_paragraph&lt;/tt&gt; with a long line
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_paragraph_wrap'>test_accept_paragraph_wrap</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_paragraph'>accept_paragraph</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>words </span><span class='tstring_end'>'</span></span> <span class='op'>*</span> <span class='int'>30</span><span class='rparen'>)</span><span class='period'>.</span><span class='id strip'>strip</span><span class='rparen'>)</span>
+
+      <span class='id accept_paragraph_wrap'>accept_paragraph_wrap</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Test case that calls &lt;tt&gt;@to.attributes&lt;/tt&gt; with an escaped
+</span>    <span class='comment'># cross-reference.  If this test doesn't pass something may be very
+</span>    <span class='comment'># wrong.
+</span>
+    <span class='kw'>def</span> <span class='id test_attributes'>test_attributes</span>
+      <span class='id assert_equal'>assert_equal</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Dog</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='ivar'>@to</span><span class='period'>.</span><span class='id attributes'>attributes</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\Dog</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:52 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

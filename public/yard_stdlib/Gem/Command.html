@@ -1,0 +1,2915 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Gem::Command
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Gem.html" title="Gem (module)">Gem</a></span></span>
+     &raquo; 
+    <span class="title">Command</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Gem::Command
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Gem::Command</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="UserInteraction.html" title="Gem::UserInteraction (module)">UserInteraction</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rubygems/command.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Base class for all Gem commands.  When creating a new gem command, define
+#new, #execute, #arguments, #defaults_str, #description and #usage (as
+appropriate).  See the above mentioned methods for details.</p>
+
+<p>A very good example to look at is Gem::Commands::ContentsCommand</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="Commands/BuildCommand.html" title="Gem::Commands::BuildCommand (class)">Gem::Commands::BuildCommand</a></span>, <span class='object_link'><a href="Commands/CertCommand.html" title="Gem::Commands::CertCommand (class)">Gem::Commands::CertCommand</a></span>, <span class='object_link'><a href="Commands/CheckCommand.html" title="Gem::Commands::CheckCommand (class)">Gem::Commands::CheckCommand</a></span>, <span class='object_link'><a href="Commands/CleanupCommand.html" title="Gem::Commands::CleanupCommand (class)">Gem::Commands::CleanupCommand</a></span>, <span class='object_link'><a href="Commands/ContentsCommand.html" title="Gem::Commands::ContentsCommand (class)">Gem::Commands::ContentsCommand</a></span>, <span class='object_link'><a href="Commands/DependencyCommand.html" title="Gem::Commands::DependencyCommand (class)">Gem::Commands::DependencyCommand</a></span>, <span class='object_link'><a href="Commands/EnvironmentCommand.html" title="Gem::Commands::EnvironmentCommand (class)">Gem::Commands::EnvironmentCommand</a></span>, <span class='object_link'><a href="Commands/FetchCommand.html" title="Gem::Commands::FetchCommand (class)">Gem::Commands::FetchCommand</a></span>, <span class='object_link'><a href="Commands/GenerateIndexCommand.html" title="Gem::Commands::GenerateIndexCommand (class)">Gem::Commands::GenerateIndexCommand</a></span>, <span class='object_link'><a href="Commands/HelpCommand.html" title="Gem::Commands::HelpCommand (class)">Gem::Commands::HelpCommand</a></span>, <span class='object_link'><a href="Commands/InstallCommand.html" title="Gem::Commands::InstallCommand (class)">Gem::Commands::InstallCommand</a></span>, <span class='object_link'><a href="Commands/LockCommand.html" title="Gem::Commands::LockCommand (class)">Gem::Commands::LockCommand</a></span>, <span class='object_link'><a href="Commands/OutdatedCommand.html" title="Gem::Commands::OutdatedCommand (class)">Gem::Commands::OutdatedCommand</a></span>, <span class='object_link'><a href="Commands/OwnerCommand.html" title="Gem::Commands::OwnerCommand (class)">Gem::Commands::OwnerCommand</a></span>, <span class='object_link'><a href="Commands/PristineCommand.html" title="Gem::Commands::PristineCommand (class)">Gem::Commands::PristineCommand</a></span>, <span class='object_link'><a href="Commands/PushCommand.html" title="Gem::Commands::PushCommand (class)">Gem::Commands::PushCommand</a></span>, <span class='object_link'><a href="Commands/QueryCommand.html" title="Gem::Commands::QueryCommand (class)">Gem::Commands::QueryCommand</a></span>, <span class='object_link'><a href="Commands/RdocCommand.html" title="Gem::Commands::RdocCommand (class)">Gem::Commands::RdocCommand</a></span>, <span class='object_link'><a href="Commands/ServerCommand.html" title="Gem::Commands::ServerCommand (class)">Gem::Commands::ServerCommand</a></span>, <span class='object_link'><a href="Commands/SetupCommand.html" title="Gem::Commands::SetupCommand (class)">Gem::Commands::SetupCommand</a></span>, <span class='object_link'><a href="Commands/SourcesCommand.html" title="Gem::Commands::SourcesCommand (class)">Gem::Commands::SourcesCommand</a></span>, <span class='object_link'><a href="Commands/SpecificationCommand.html" title="Gem::Commands::SpecificationCommand (class)">Gem::Commands::SpecificationCommand</a></span>, <span class='object_link'><a href="Commands/StaleCommand.html" title="Gem::Commands::StaleCommand (class)">Gem::Commands::StaleCommand</a></span>, <span class='object_link'><a href="Commands/UninstallCommand.html" title="Gem::Commands::UninstallCommand (class)">Gem::Commands::UninstallCommand</a></span>, <span class='object_link'><a href="Commands/UnpackCommand.html" title="Gem::Commands::UnpackCommand (class)">Gem::Commands::UnpackCommand</a></span>, <span class='object_link'><a href="Commands/UpdateCommand.html" title="Gem::Commands::UpdateCommand (class)">Gem::Commands::UpdateCommand</a></span>, <span class='object_link'><a href="Commands/WhichCommand.html" title="Gem::Commands::WhichCommand (class)">Gem::Commands::WhichCommand</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="HELP-constant" class="">HELP =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>:stopdoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;-HELP</span>
+<span class='tstring_content'>RubyGems is a sophisticated package manager for Ruby.  This is a
+basic help message containing pointers to more information.
+
+Usage:
+  gem -h/--help
+  gem -v/--version
+  gem command [arguments...] [options...]
+
+Examples:
+  gem install rake
+  gem list --local
+  gem build package.gemspec
+  gem help install
+
+Further help:
+  gem help commands            list all 'gem' commands
+  gem help examples            show some examples of usage
+  gem help platforms           show information about platforms
+  gem help &lt;COMMAND&gt;           show help on COMMAND
+                                 (e.g. 'gem help install')
+  gem server                   present a web page at
+                               http://localhost:8808/
+                               with info about installed gems
+Further information:
+  http://rubygems.rubyforge.org
+</span><span class='heredoc_end'>HELP</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#command-instance_method" title="#command (instance method)">- (Object) <strong>command</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The name of the command.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#defaults-instance_method" title="#defaults (instance method)">- (Object) <strong>defaults</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The default options for the command.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">- (Object) <strong>options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The options for the command.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#program_name-instance_method" title="#program_name (instance method)">- (Object) <strong>program_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The name of the command for command-line invocation.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#summary-instance_method" title="#summary (instance method)">- (Object) <strong>summary</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A short description of the command.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_common_option-class_method" title="add_common_option (class method)">+ (Object) <strong>add_common_option</strong>(*args, &amp;handler) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_specific_extra_args-class_method" title="add_specific_extra_args (class method)">+ (Object) <strong>add_specific_extra_args</strong>(cmd, args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add a list of extra arguments for the given command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_args-class_method" title="build_args (class method)">+ (Object) <strong>build_args</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Arguments used when building gems.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_args%3D-class_method" title="build_args= (class method)">+ (Object) <strong>build_args=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#common_options-class_method" title="common_options (class method)">+ (Object) <strong>common_options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extra_args-class_method" title="extra_args (class method)">+ (Object) <strong>extra_args</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extra_args%3D-class_method" title="extra_args= (class method)">+ (Object) <strong>extra_args=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#specific_extra_args-class_method" title="specific_extra_args (class method)">+ (Object) <strong>specific_extra_args</strong>(cmd) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return an array of extra arguments for the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#specific_extra_args_hash-class_method" title="specific_extra_args_hash (class method)">+ (Object) <strong>specific_extra_args_hash</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Accessor for the specific extra args hash (self initializing).</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_extra_args-instance_method" title="#add_extra_args (instance method)">- (Object) <strong>add_extra_args</strong>(args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds extra args from ~/.gemrc.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_option-instance_method" title="#add_option (instance method)">- (Object) <strong>add_option</strong>(*opts, &amp;handler) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add a command-line option and handler to the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#arguments-instance_method" title="#arguments (instance method)">- (Object) <strong>arguments</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Override to provide details of the arguments a command takes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#begins%3F-instance_method" title="#begins? (instance method)">- (Boolean) <strong>begins?</strong>(long, short) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>True if <tt>long</tt> begins with the characters from <tt>short</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configure_options-instance_method" title="#configure_options (instance method)">- (Object) <strong>configure_options</strong>(header, option_list) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_option_parser-instance_method" title="#create_option_parser (instance method)">- (Object) <strong>create_option_parser</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#defaults_str-instance_method" title="#defaults_str (instance method)">- (Object) <strong>defaults_str</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Override to display the default values of the command options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#description-instance_method" title="#description (instance method)">- (Object) <strong>description</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Override to display a longer description of what this command does.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute-instance_method" title="#execute (instance method)">- (Object) <strong>execute</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Override to provide command handling.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_all_gem_names-instance_method" title="#get_all_gem_names (instance method)">- (Object) <strong>get_all_gem_names</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get all gem names from the command line.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_one_gem_name-instance_method" title="#get_one_gem_name (instance method)">- (Object) <strong>get_one_gem_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get a single gem name from the command line.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_one_optional_argument-instance_method" title="#get_one_optional_argument (instance method)">- (Object) <strong>get_one_optional_argument</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get a single optional argument from the command line.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#handle_options-instance_method" title="#handle_options (instance method)">- (Object) <strong>handle_options</strong>(args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Handle the given list of arguments by parsing them and recording the
+results.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#handles%3F-instance_method" title="#handles? (instance method)">- (Boolean) <strong>handles?</strong>(args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>True if the command handles the given argument list.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Command) <strong>initialize</strong>(command, summary = nil, defaults = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initializes a generic gem command named <tt>command</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#invoke-instance_method" title="#invoke (instance method)">- (Object) <strong>invoke</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Invoke the command with the given list of arguments.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#merge_options-instance_method" title="#merge_options (instance method)">- (Object) <strong>merge_options</strong>(new_options) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Merge a set of command options with the set of default options (without
+modifying the default option hash).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parser-instance_method" title="#parser (instance method)">- (Object) <strong>parser</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create on demand parser.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_option-instance_method" title="#remove_option (instance method)">- (Object) <strong>remove_option</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Remove previously defined command-line argument <tt>name</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_help-instance_method" title="#show_help (instance method)">- (Object) <strong>show_help</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Display the help message for the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_lookup_failure-instance_method" title="#show_lookup_failure (instance method)">- (Object) <strong>show_lookup_failure</strong>(gem_name, version, errors, domain) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Display to the user that a gem couldn't be found and reasons why.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#usage-instance_method" title="#usage (instance method)">- (Object) <strong>usage</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Override to display the usage for an individual gem command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#when_invoked-instance_method" title="#when_invoked (instance method)">- (Object) <strong>when_invoked</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call the given block when invoked.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wrap-instance_method" title="#wrap (instance method)">- (Object) <strong>wrap</strong>(text, width) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Wraps <tt>text</tt> to <tt>width</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="UserInteraction.html" title="Gem::UserInteraction (module)">UserInteraction</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="UserInteraction.html#alert-instance_method" title="Gem::UserInteraction#alert (method)">#alert</a></span>, <span class='object_link'><a href="UserInteraction.html#alert_error-instance_method" title="Gem::UserInteraction#alert_error (method)">#alert_error</a></span>, <span class='object_link'><a href="UserInteraction.html#alert_warning-instance_method" title="Gem::UserInteraction#alert_warning (method)">#alert_warning</a></span>, <span class='object_link'><a href="UserInteraction.html#ask-instance_method" title="Gem::UserInteraction#ask (method)">#ask</a></span>, <span class='object_link'><a href="UserInteraction.html#ask_for_password-instance_method" title="Gem::UserInteraction#ask_for_password (method)">#ask_for_password</a></span>, <span class='object_link'><a href="UserInteraction.html#ask_yes_no-instance_method" title="Gem::UserInteraction#ask_yes_no (method)">#ask_yes_no</a></span>, <span class='object_link'><a href="UserInteraction.html#choose_from_list-instance_method" title="Gem::UserInteraction#choose_from_list (method)">#choose_from_list</a></span>, <span class='object_link'><a href="UserInteraction.html#say-instance_method" title="Gem::UserInteraction#say (method)">#say</a></span>, <span class='object_link'><a href="UserInteraction.html#terminate_interaction-instance_method" title="Gem::UserInteraction#terminate_interaction (method)">#terminate_interaction</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="DefaultUserInteraction.html" title="Gem::DefaultUserInteraction (module)">DefaultUserInteraction</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="DefaultUserInteraction.html#ui-class_method" title="Gem::DefaultUserInteraction.ui (method)">ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui-instance_method" title="Gem::DefaultUserInteraction#ui (method)">#ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui%3D-instance_method" title="Gem::DefaultUserInteraction#ui= (method)">#ui=</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui%3D-class_method" title="Gem::DefaultUserInteraction.ui= (method)">ui=</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#use_ui-class_method" title="Gem::DefaultUserInteraction.use_ui (method)">use_ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#use_ui-instance_method" title="Gem::DefaultUserInteraction#use_ui (method)">#use_ui</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Gem::Command (class)">Command</a></span></tt>) <strong>initialize</strong>(command, summary = nil, defaults = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Initializes a generic gem command named <tt>command</tt>.  <tt>summary</tt>
+is a short description displayed in `gem help commands`.  <tt>defaults</tt>
+are the default options.  Defaults should be mirrored in #defaults_str,
+unless there are none.</p>
+
+<p>When defining a new command subclass, use add_option to add command-line
+switches.</p>
+
+<p>Unhandled arguments (gem names, files, etc.) are left in
+<tt>options[:args]</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 116</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id command'>command</span><span class='comma'>,</span> <span class='id summary'>summary</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id defaults'>defaults</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@command</span> <span class='op'>=</span> <span class='id command'>command</span>
+  <span class='ivar'>@summary</span> <span class='op'>=</span> <span class='id summary'>summary</span>
+  <span class='ivar'>@program_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>gem </span><span class='embexpr_beg'>#{</span><span class='id command'>command</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@defaults</span> <span class='op'>=</span> <span class='id defaults'>defaults</span>
+  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='id defaults'>defaults</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='ivar'>@option_groups</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id h'>h</span><span class='comma'>,</span><span class='id k'>k</span><span class='op'>|</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='ivar'>@parser</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@when_invoked</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="command-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="command-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>command</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The name of the command.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id command'>command</span>
+  <span class='ivar'>@command</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="defaults=-instance_method"></span>
+      <span id="defaults-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="defaults-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>defaults</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The default options for the command.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id defaults'>defaults</span>
+  <span class='ivar'>@defaults</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="options-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="options-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>options</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The options for the command.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id options'>options</span>
+  <span class='ivar'>@options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="program_name=-instance_method"></span>
+      <span id="program_name-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="program_name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>program_name</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The name of the command for command-line invocation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id program_name'>program_name</span>
+  <span class='ivar'>@program_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="summary=-instance_method"></span>
+      <span id="summary-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="summary-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>summary</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A short description of the command.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id summary'>summary</span>
+  <span class='ivar'>@summary</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_common_option-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_common_option</strong>(*args, &amp;handler) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id add_common_option'>add_common_option</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id handler'>handler</span><span class='rparen'>)</span>
+  <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Command</span><span class='period'>.</span><span class='id common_options'>common_options</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id args'>args</span><span class='comma'>,</span> <span class='id handler'>handler</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add_specific_extra_args-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_specific_extra_args</strong>(cmd, args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Add a list of extra arguments for the given command.  <tt>args</tt> may be
+an array or a string to be split on white space.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id add_specific_extra_args'>add_specific_extra_args</span><span class='lparen'>(</span><span class='id cmd'>cmd</span><span class='comma'>,</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id args'>args</span> <span class='op'>=</span> <span class='id args'>args</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\s+</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id args'>args</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>String</span>
+  <span class='id specific_extra_args_hash'>specific_extra_args_hash</span><span class='lbracket'>[</span><span class='id cmd'>cmd</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id args'>args</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build_args-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>build_args</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Arguments used when building gems</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id build_args'>build_args</span>
+  <span class='ivar'>@build_args</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build_args=-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>build_args=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id build_args='>build_args=</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@build_args</span> <span class='op'>=</span> <span class='id value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="common_options-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>common_options</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id common_options'>common_options</span>
+  <span class='ivar'>@common_options</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="extra_args-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>extra_args</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id extra_args'>extra_args</span>
+  <span class='ivar'>@extra_args</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="extra_args=-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>extra_args=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71
+72
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id extra_args='>extra_args=</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id value'>value</span>
+  <span class='kw'>when</span> <span class='const'>Array</span>
+    <span class='ivar'>@extra_args</span> <span class='op'>=</span> <span class='id value'>value</span>
+  <span class='kw'>when</span> <span class='const'>String</span>
+    <span class='ivar'>@extra_args</span> <span class='op'>=</span> <span class='id value'>value</span><span class='period'>.</span><span class='id split'>split</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="specific_extra_args-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>specific_extra_args</strong>(cmd) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return an array of extra arguments for the command.  The extra arguments
+come from the gem configuration file read at program startup.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id specific_extra_args'>specific_extra_args</span><span class='lparen'>(</span><span class='id cmd'>cmd</span><span class='rparen'>)</span>
+  <span class='id specific_extra_args_hash'>specific_extra_args_hash</span><span class='lbracket'>[</span><span class='id cmd'>cmd</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="specific_extra_args_hash-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>specific_extra_args_hash</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Accessor for the specific extra args hash (self initializing).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 98</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id specific_extra_args_hash'>specific_extra_args_hash</span>
+  <span class='ivar'>@specific_extra_args_hash</span> <span class='op'>||=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id h'>h</span><span class='comma'>,</span><span class='id k'>k</span><span class='op'>|</span>
+    <span class='id h'>h</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_extra_args-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_extra_args</strong>(args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds extra args from ~/.gemrc</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 355</span>
+
+<span class='kw'>def</span> <span class='id add_extra_args'>add_extra_args</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id result'>result</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id s_extra'>s_extra</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Command</span><span class='period'>.</span><span class='id specific_extra_args'>specific_extra_args</span><span class='lparen'>(</span><span class='ivar'>@command</span><span class='rparen'>)</span>
+  <span class='id extra'>extra</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Command</span><span class='period'>.</span><span class='id extra_args'>extra_args</span> <span class='op'>+</span> <span class='id s_extra'>s_extra</span>
+
+  <span class='kw'>until</span> <span class='id extra'>extra</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='kw'>do</span>
+    <span class='id ex'>ex</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id ex'>ex</span> <span class='op'>&lt;&lt;</span> <span class='id extra'>extra</span><span class='period'>.</span><span class='id shift'>shift</span>
+    <span class='id ex'>ex</span> <span class='op'>&lt;&lt;</span> <span class='id extra'>extra</span><span class='period'>.</span><span class='id shift'>shift</span> <span class='kw'>if</span> <span class='id extra'>extra</span><span class='period'>.</span><span class='id first'>first</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^[^-]</span><span class='regexp_end'>/</span></span>
+    <span class='id result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id ex'>ex</span> <span class='kw'>if</span> <span class='id handles?'>handles?</span><span class='lparen'>(</span><span class='id ex'>ex</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id result'>result</span><span class='period'>.</span><span class='id flatten!'>flatten!</span>
+  <span class='id result'>result</span><span class='period'>.</span><span class='id concat'>concat</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add_option-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_option</strong>(*opts, &amp;handler) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Add a command-line option and handler to the command.</p>
+
+<p>See OptionParser#make_switch for an explanation of <tt>opts</tt>.</p>
+
+<p><tt>handler</tt> will be called with two values, the value of the argument
+and the options hash.</p>
+
+<p>If the first argument of add_option is a Symbol, it's used to group options
+in output.  See `gem help list` for an example.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+305
+306
+307
+308
+309</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 305</span>
+
+<span class='kw'>def</span> <span class='id add_option'>add_option</span><span class='lparen'>(</span><span class='op'>*</span><span class='id opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id handler'>handler</span><span class='rparen'>)</span> <span class='comment'># :yields: value, options
+</span>  <span class='id group_name'>group_name</span> <span class='op'>=</span> <span class='const'>Symbol</span> <span class='op'>===</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id first'>first</span> <span class='op'>?</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id shift'>shift</span> <span class='op'>:</span> <span class='symbol'>:options</span>
+
+  <span class='ivar'>@option_groups</span><span class='lbracket'>[</span><span class='id group_name'>group_name</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id opts'>opts</span><span class='comma'>,</span> <span class='id handler'>handler</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="arguments-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>arguments</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Override to provide details of the arguments a command takes.  It should
+return a left-justified string, one argument per line.</p>
+
+<p>For example:</p>
+
+<pre class="code"><span class='kw'>def</span> <span class='id usage'>usage</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id program_name'>program_name</span><span class='rbrace'>}</span><span class='tstring_content'> FILE [FILE ...]</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+
+<span class='kw'>def</span> <span class='id arguments'>arguments</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FILE          name of file to find</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+225
+226
+227</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 225</span>
+
+<span class='kw'>def</span> <span class='id arguments'>arguments</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="begins?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>begins?</strong>(long, short) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>True if <tt>long</tt> begins with the characters from <tt>short</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 130</span>
+
+<span class='kw'>def</span> <span class='id begins?'>begins?</span><span class='lparen'>(</span><span class='id long'>long</span><span class='comma'>,</span> <span class='id short'>short</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id short'>short</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+  <span class='id long'>long</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='id short'>short</span><span class='period'>.</span><span class='id length'>length</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id short'>short</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="configure_options-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>configure_options</strong>(header, option_list) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 436</span>
+
+<span class='kw'>def</span> <span class='id configure_options'>configure_options</span><span class='lparen'>(</span><span class='id header'>header</span><span class='comma'>,</span> <span class='id option_list'>option_list</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id option_list'>option_list</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id option_list'>option_list</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+
+  <span class='id header'>header</span> <span class='op'>=</span> <span class='id header'>header</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id header'>header</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='embexpr_beg'>#{</span><span class='id header'>header</span><span class='rbrace'>}</span><span class='tstring_content'>Options:</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id option_list'>option_list</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id args'>args</span><span class='comma'>,</span> <span class='id handler'>handler</span><span class='op'>|</span>
+    <span class='id args'>args</span><span class='period'>.</span><span class='id select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id arg'>arg</span><span class='op'>|</span> <span class='id arg'>arg</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^-</span><span class='regexp_end'>/</span></span> <span class='rbrace'>}</span>
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id on'>on</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+      <span class='id handler'>handler</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id value'>value</span><span class='comma'>,</span> <span class='ivar'>@options</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="create_option_parser-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>create_option_parser</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 383</span>
+
+<span class='kw'>def</span> <span class='id create_option_parser'>create_option_parser</span>
+  <span class='ivar'>@parser</span> <span class='op'>=</span> <span class='const'>OptionParser</span><span class='period'>.</span><span class='id new'>new</span>
+
+  <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='kw'>nil</span>
+  <span class='id regular_options'>regular_options</span> <span class='op'>=</span> <span class='ivar'>@option_groups</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='symbol'>:options</span>
+
+  <span class='id configure_options'>configure_options</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id regular_options'>regular_options</span>
+
+  <span class='ivar'>@option_groups</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id n'>n</span><span class='comma'>,</span><span class='id _'>_</span><span class='op'>|</span> <span class='id n'>n</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id group_name'>group_name</span><span class='comma'>,</span> <span class='id option_list'>option_list</span><span class='op'>|</span>
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='kw'>nil</span>
+    <span class='id configure_options'>configure_options</span> <span class='id group_name'>group_name</span><span class='comma'>,</span> <span class='id option_list'>option_list</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='kw'>nil</span>
+  <span class='id configure_options'>configure_options</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Common</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Command</span><span class='period'>.</span><span class='id common_options'>common_options</span>
+
+  <span class='kw'>unless</span> <span class='id arguments'>arguments</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='kw'>nil</span>
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  Arguments:</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id arguments'>arguments</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id arg_desc'>arg_desc</span><span class='op'>|</span>
+      <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    </span><span class='embexpr_beg'>#{</span><span class='id arg_desc'>arg_desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@summary</span> <span class='kw'>then</span>
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='kw'>nil</span>
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  Summary:</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id wrap'>wrap</span><span class='lparen'>(</span><span class='ivar'>@summary</span><span class='comma'>,</span> <span class='int'>80</span> <span class='op'>-</span> <span class='int'>4</span><span class='rparen'>)</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+      <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    </span><span class='embexpr_beg'>#{</span><span class='id line'>line</span><span class='period'>.</span><span class='id strip'>strip</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id description'>description</span> <span class='kw'>then</span>
+    <span class='id formatted'>formatted</span> <span class='op'>=</span> <span class='id description'>description</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id chunk'>chunk</span><span class='op'>|</span>
+      <span class='id wrap'>wrap</span> <span class='id chunk'>chunk</span><span class='comma'>,</span> <span class='int'>80</span> <span class='op'>-</span> <span class='int'>4</span>
+    <span class='kw'>end</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='kw'>nil</span>
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  Description:</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id formatted'>formatted</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+      <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    </span><span class='embexpr_beg'>#{</span><span class='id line'>line</span><span class='period'>.</span><span class='id rstrip'>rstrip</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id defaults_str'>defaults_str</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='kw'>nil</span>
+    <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  Defaults:</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id defaults_str'>defaults_str</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+      <span class='ivar'>@parser</span><span class='period'>.</span><span class='id separator'>separator</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    </span><span class='embexpr_beg'>#{</span><span class='id line'>line</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="defaults_str-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>defaults_str</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Override to display the default values of the command options. (similar to
+<tt>arguments</tt>, but displays the default values).</p>
+
+<p>For example:</p>
+
+<pre class="code">def defaults_str
+  --no-gems-first --no-all
+end</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+239
+240
+241</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 239</span>
+
+<span class='kw'>def</span> <span class='id defaults_str'>defaults_str</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="description-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>description</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Override to display a longer description of what this command does.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+246
+247
+248</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 246</span>
+
+<span class='kw'>def</span> <span class='id description'>description</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="execute-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>execute</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Override to provide command handling.</p>
+
+<p>#options will be filled in with your parsed options, unparsed options will
+be left in <tt>options[:args]</tt>.</p>
+
+<p>See also: #get_all_gem_names, #get_one_gem_name, #get_one_optional_argument</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Exception.html" title="Gem::Exception (class)">Gem::Exception</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 144</span>
+
+<span class='kw'>def</span> <span class='id execute'>execute</span>
+  <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Exception</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>generic command has no actions</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_all_gem_names-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_all_gem_names</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get all gem names from the command line.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 171</span>
+
+<span class='kw'>def</span> <span class='id get_all_gem_names'>get_all_gem_names</span>
+  <span class='id args'>args</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:args</span><span class='rbracket'>]</span>
+
+  <span class='kw'>if</span> <span class='id args'>args</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id args'>args</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='kw'>then</span>
+    <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>CommandLineError</span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please specify at least one gem name (e.g. gem build GEMNAME)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id args'>args</span><span class='period'>.</span><span class='id select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id arg'>arg</span><span class='op'>|</span> <span class='id arg'>arg</span> <span class='op'>!~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^-</span><span class='regexp_end'>/</span></span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_one_gem_name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_one_gem_name</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get a single gem name from the command line.  Fail if there is no gem name
+or if there is more than one gem name given.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id get_one_gem_name'>get_one_gem_name</span>
+  <span class='id args'>args</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:args</span><span class='rbracket'>]</span>
+
+  <span class='kw'>if</span> <span class='id args'>args</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id args'>args</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='kw'>then</span>
+    <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>CommandLineError</span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please specify a gem name on the command line (e.g. gem build GEMNAME)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id args'>args</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>1</span> <span class='kw'>then</span>
+    <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>CommandLineError</span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Too many gem names (</span><span class='embexpr_beg'>#{</span><span class='id args'>args</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>); please specify only one</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id args'>args</span><span class='period'>.</span><span class='id first'>first</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_one_optional_argument-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_one_optional_argument</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get a single optional argument from the command line.  If more than one
+argument is given, return only the first. Return nil if none are given.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+206
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 206</span>
+
+<span class='kw'>def</span> <span class='id get_one_optional_argument'>get_one_optional_argument</span>
+  <span class='id args'>args</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:args</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id args'>args</span><span class='period'>.</span><span class='id first'>first</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="handle_options-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>handle_options</strong>(args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Handle the given list of arguments by parsing them and recording the
+results.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+345
+346
+347
+348
+349
+350</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 345</span>
+
+<span class='kw'>def</span> <span class='id handle_options'>handle_options</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id args'>args</span> <span class='op'>=</span> <span class='id add_extra_args'>add_extra_args</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='ivar'>@defaults</span><span class='period'>.</span><span class='id clone'>clone</span>
+  <span class='id parser'>parser</span><span class='period'>.</span><span class='id parse!'>parse!</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:args</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id args'>args</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="handles?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>handles?</strong>(args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>True if the command handles the given argument list.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+332
+333
+334
+335
+336
+337
+338
+339</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 332</span>
+
+<span class='kw'>def</span> <span class='id handles?'>handles?</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id parser'>parser</span><span class='period'>.</span><span class='id parse!'>parse!</span><span class='lparen'>(</span><span class='id args'>args</span><span class='period'>.</span><span class='id dup'>dup</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>rescue</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="invoke-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>invoke</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Invoke the command with the given list of arguments.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 270</span>
+
+<span class='kw'>def</span> <span class='id invoke'>invoke</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id handle_options'>handle_options</span> <span class='id args'>args</span>
+
+  <span class='kw'>if</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:help</span><span class='rbracket'>]</span> <span class='kw'>then</span>
+    <span class='id show_help'>show_help</span>
+  <span class='kw'>elsif</span> <span class='ivar'>@when_invoked</span> <span class='kw'>then</span>
+    <span class='ivar'>@when_invoked</span><span class='period'>.</span><span class='id call'>call</span> <span class='id options'>options</span>
+  <span class='kw'>else</span>
+    <span class='id execute'>execute</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="merge_options-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>merge_options</strong>(new_options) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Merge a set of command options with the set of default options (without
+modifying the default option hash).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+324
+325
+326
+327</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 324</span>
+
+<span class='kw'>def</span> <span class='id merge_options'>merge_options</span><span class='lparen'>(</span><span class='id new_options'>new_options</span><span class='rparen'>)</span>
+  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='ivar'>@defaults</span><span class='period'>.</span><span class='id clone'>clone</span>
+  <span class='id new_options'>new_options</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span><span class='id v'>v</span><span class='op'>|</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id v'>v</span> <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parser-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parser</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create on demand parser.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+378
+379
+380
+381</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 378</span>
+
+<span class='kw'>def</span> <span class='id parser'>parser</span>
+  <span class='id create_option_parser'>create_option_parser</span> <span class='kw'>if</span> <span class='ivar'>@parser</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+  <span class='ivar'>@parser</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove_option-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>remove_option</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Remove previously defined command-line argument <tt>name</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+314
+315
+316
+317
+318</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 314</span>
+
+<span class='kw'>def</span> <span class='id remove_option'>remove_option</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='ivar'>@option_groups</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id _'>_</span><span class='comma'>,</span> <span class='id option_list'>option_list</span><span class='op'>|</span>
+    <span class='id option_list'>option_list</span><span class='period'>.</span><span class='id reject!'>reject!</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id args'>args</span><span class='comma'>,</span> <span class='id _'>_</span><span class='op'>|</span> <span class='id args'>args</span><span class='period'>.</span><span class='id any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id x'>x</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='regexp_end'>/</span></span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="show_help-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>show_help</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Display the help message for the command.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+262
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 262</span>
+
+<span class='kw'>def</span> <span class='id show_help'>show_help</span>
+  <span class='id parser'>parser</span><span class='period'>.</span><span class='id program_name'>program_name</span> <span class='op'>=</span> <span class='id usage'>usage</span>
+  <span class='id say'>say</span> <span class='id parser'>parser</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="show_lookup_failure-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>show_lookup_failure</strong>(gem_name, version, errors, domain) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Display to the user that a gem couldn't be found and reasons why</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id show_lookup_failure'>show_lookup_failure</span><span class='lparen'>(</span><span class='id gem_name'>gem_name</span><span class='comma'>,</span> <span class='id version'>version</span><span class='comma'>,</span> <span class='id errors'>errors</span><span class='comma'>,</span> <span class='id domain'>domain</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id errors'>errors</span> <span class='kw'>and</span> <span class='op'>!</span><span class='id errors'>errors</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='id alert_error'>alert_error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not find a valid gem '</span><span class='embexpr_beg'>#{</span><span class='id gem_name'>gem_name</span><span class='rbrace'>}</span><span class='tstring_content'>' (</span><span class='embexpr_beg'>#{</span><span class='id version'>version</span><span class='rbrace'>}</span><span class='tstring_content'>), here is why:</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id errors'>errors</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>          </span><span class='embexpr_beg'>#{</span><span class='id x'>x</span><span class='period'>.</span><span class='id wordy'>wordy</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='id alert_error'>alert_error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not find a valid gem '</span><span class='embexpr_beg'>#{</span><span class='id gem_name'>gem_name</span><span class='rbrace'>}</span><span class='tstring_content'>' (</span><span class='embexpr_beg'>#{</span><span class='id version'>version</span><span class='rbrace'>}</span><span class='tstring_content'>) in any repository</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id domain'>domain</span> <span class='op'>==</span> <span class='symbol'>:local</span> <span class='kw'>then</span> <span class='comment'># HACK
+</span>    <span class='id suggestions'>suggestions</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>SpecFetcher</span><span class='period'>.</span><span class='id fetcher'>fetcher</span><span class='period'>.</span><span class='id suggest_gems_from_name'>suggest_gems_from_name</span> <span class='id gem_name'>gem_name</span>
+
+    <span class='kw'>unless</span> <span class='id suggestions'>suggestions</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+      <span class='id alert_error'>alert_error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Possible alternatives: </span><span class='embexpr_beg'>#{</span><span class='id suggestions'>suggestions</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="usage-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>usage</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Override to display the usage for an individual gem command.</p>
+
+<p>The text "[options]" is automatically appended to the usage text.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+255
+256
+257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 255</span>
+
+<span class='kw'>def</span> <span class='id usage'>usage</span>
+  <span class='id program_name'>program_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="when_invoked-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>when_invoked</strong>(&amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Call the given block when invoked.</p>
+
+<p>Normal command invocations just executes the <tt>execute</tt> method of the
+command.  Specifying an invocation block allows the test methods to
+override the normal action of a command to determine that it has been
+invoked correctly.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+290
+291
+292</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 290</span>
+
+<span class='kw'>def</span> <span class='id when_invoked'>when_invoked</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@when_invoked</span> <span class='op'>=</span> <span class='id block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="wrap-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>wrap</strong>(text, width) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Wraps <tt>text</tt> to <tt>width</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+455
+456
+457</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/command.rb', line 455</span>
+
+<span class='kw'>def</span> <span class='id wrap'>wrap</span><span class='lparen'>(</span><span class='id text'>text</span><span class='comma'>,</span> <span class='id width'>width</span><span class='rparen'>)</span> <span class='comment'># :doc:
+</span>  <span class='id text'>text</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.{1,</span><span class='embexpr_beg'>#{</span><span class='id width'>width</span><span class='rbrace'>}</span><span class='tstring_content'>})( +|$\n?)|(.{1,</span><span class='embexpr_beg'>#{</span><span class='id width'>width</span><span class='rbrace'>}</span><span class='tstring_content'>})</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\1\\3\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:19 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

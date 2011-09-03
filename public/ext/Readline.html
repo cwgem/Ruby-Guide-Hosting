@@ -1,0 +1,2380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Module: Readline</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="module">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./ext/readline/readline_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/readline/readline.c">ext/readline/readline.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-basic_quote_characters">::basic_quote_characters</a></li>
+          
+          <li><a href="#method-c-basic_quote_characters-3D">::basic_quote_characters=</a></li>
+          
+          <li><a href="#method-c-basic_word_break_characters">::basic_word_break_characters</a></li>
+          
+          <li><a href="#method-c-basic_word_break_characters-3D">::basic_word_break_characters=</a></li>
+          
+          <li><a href="#method-c-completer_quote_characters">::completer_quote_characters</a></li>
+          
+          <li><a href="#method-c-completer_quote_characters-3D">::completer_quote_characters=</a></li>
+          
+          <li><a href="#method-c-completer_word_break_characters">::completer_word_break_characters</a></li>
+          
+          <li><a href="#method-c-completer_word_break_characters-3D">::completer_word_break_characters=</a></li>
+          
+          <li><a href="#method-c-completion_append_character">::completion_append_character</a></li>
+          
+          <li><a href="#method-c-completion_append_character-3D">::completion_append_character=</a></li>
+          
+          <li><a href="#method-c-completion_case_fold">::completion_case_fold</a></li>
+          
+          <li><a href="#method-c-completion_case_fold-3D">::completion_case_fold=</a></li>
+          
+          <li><a href="#method-c-completion_proc">::completion_proc</a></li>
+          
+          <li><a href="#method-c-completion_proc-3D">::completion_proc=</a></li>
+          
+          <li><a href="#method-c-emacs_editing_mode">::emacs_editing_mode</a></li>
+          
+          <li><a href="#method-c-emacs_editing_mode-3F">::emacs_editing_mode?</a></li>
+          
+          <li><a href="#method-c-filename_quote_characters">::filename_quote_characters</a></li>
+          
+          <li><a href="#method-c-filename_quote_characters-3D">::filename_quote_characters=</a></li>
+          
+          <li><a href="#method-c-get_screen_size">::get_screen_size</a></li>
+          
+          <li><a href="#method-c-input-3D">::input=</a></li>
+          
+          <li><a href="#method-c-line_buffer">::line_buffer</a></li>
+          
+          <li><a href="#method-c-output-3D">::output=</a></li>
+          
+          <li><a href="#method-c-point">::point</a></li>
+          
+          <li><a href="#method-c-readline">::readline</a></li>
+          
+          <li><a href="#method-c-refresh_line">::refresh_line</a></li>
+          
+          <li><a href="#method-c-set_screen_size">::set_screen_size</a></li>
+          
+          <li><a href="#method-c-vi_editing_mode">::vi_editing_mode</a></li>
+          
+          <li><a href="#method-c-vi_editing_mode-3F">::vi_editing_mode?</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="./OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="./OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="./OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="./OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="./OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="./OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="./OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="./OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="./OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="./OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="./OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="./OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="./OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="./OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="./OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="./OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="./OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="./OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="./OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="./OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="./OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="./OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="./OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="./OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="./Psych.html">Psych</a></li>
+        
+          <li><a href="./Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="./Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="./Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="./Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="./Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="./Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="./Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="./Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="./Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="./Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="./Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="./Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="./Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="./Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="./Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="./Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="./Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="./Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="./Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="./Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="./Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="./Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="./Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="./Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="./Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="./Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="./Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="./Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="./Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="./DL.html">DL</a></li>
+        
+          <li><a href="./DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="./DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="./DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="./DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="./DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="./DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="./DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="./DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="./DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="./DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="./DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="./DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="./DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="./DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="./DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="./DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="./DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="./DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="./DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="./DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="./DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="./DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="./Zlib.html">Zlib</a></li>
+        
+          <li><a href="./Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="./Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="./Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="./Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="./Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="./Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="./Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="./Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="./Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="./Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="./Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="./Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="./Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="./Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="./Win32.html">Win32</a></li>
+        
+          <li><a href="./Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="./Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="./Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="./Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="./Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="./Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="./Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="./Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="./Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="./Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="./Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="./Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="./Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="./Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="./JSON.html">JSON</a></li>
+        
+          <li><a href="./JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="./JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="./JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="./JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="./JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="./Iconv.html">Iconv</a></li>
+        
+          <li><a href="./Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="./Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="./Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="./Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="./Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="./Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="./Ripper.html">Ripper</a></li>
+        
+          <li><a href="./Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="./Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="./Digest.html">Digest</a></li>
+        
+          <li><a href="./Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="./Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="./Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="./Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="./Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="./Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="./Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="./Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="./DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="./Socket.html">Socket</a></li>
+        
+          <li><a href="./Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="./Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="./Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="./Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="./Curses.html">Curses</a></li>
+        
+          <li><a href="./Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="./Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="./Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="./PTY.html">PTY</a></li>
+        
+          <li><a href="./PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="./StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="./StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="./Syslog.html">Syslog</a></li>
+        
+          <li><a href="./Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="./WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="./WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="./Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="./BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="./BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="./BigMath.html">BigMath</a></li>
+        
+          <li><a href="./Class.html">Class</a></li>
+        
+          <li><a href="./Coverage.html">Coverage</a></li>
+        
+          <li><a href="./DBM.html">DBM</a></li>
+        
+          <li><a href="./DBMError.html">DBMError</a></li>
+        
+          <li><a href="./Date.html">Date</a></li>
+        
+          <li><a href="./DateTime.html">DateTime</a></li>
+        
+          <li><a href="./Etc.html">Etc</a></li>
+        
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          <li><a href="./Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="./Float.html">Float</a></li>
+        
+          <li><a href="./GDBM.html">GDBM</a></li>
+        
+          <li><a href="./GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="./GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="./IO.html">IO</a></li>
+        
+          <li><a href="./IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          <li><a href="./Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="./Kconv.html">Kconv</a></li>
+        
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          <li><a href="./LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="./Module.html">Module</a></li>
+        
+          <li><a href="./NKF.html">NKF</a></li>
+        
+          <li><a href="./Newton.html">Newton</a></li>
+        
+          <li><a href="./OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Pathname.html">Pathname</a></li>
+        
+          <li><a href="./Range.html">Range</a></li>
+        
+          <li><a href="./Rational.html">Rational</a></li>
+        
+          <li><a href="./Readline.html">Readline</a></li>
+        
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          <li><a href="./SDBM.html">SDBM</a></li>
+        
+          <li><a href="./SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="./SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="./SocketError.html">SocketError</a></li>
+        
+          <li><a href="./String.html">String</a></li>
+        
+          <li><a href="./StringIO.html">StringIO</a></li>
+        
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          <li><a href="./TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="./TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          <li><a href="./Time.html">Time</a></li>
+        
+          <li><a href="./UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="./UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="./UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="./WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="./WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="./WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="./WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="./WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="./WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="./WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="./WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="./Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="module">Readline</h1>
+
+    <div id="description" class="description">
+      
+<p>The <a href="Readline.html">Readline</a> module provides interface for GNU
+<a href="Readline.html">Readline</a>. This module defines a number of
+methods to facilitate completion and accesses input history from the Ruby
+interpreter. This module supported Edit Line(libedit) too. libedit is
+compatible with GNU <a href="Readline.html">Readline</a>.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>GNU <a href="Readline.html">Readline</a></p></td>
+<td>
+<p><a
+href="http://www.gnu.org/directory/readline.html">www.gnu.org/directory/readline.html</a></p>
+</td></tr><tr><td class="rdoc-term"><p>libedit</p></td>
+<td>
+<p><a href="http://www.thrysoee.dk/editline/">www.thrysoee.dk/editline/</a></p>
+</td></tr></table>
+
+<p>Reads one inputted line with line edit by <a
+href="Readline.html#method-c-readline">Readline.readline</a> method. At
+this time, the facilitatation completion and the key bind like Emacs can be
+operated like GNU <a href="Readline.html">Readline</a>.</p>
+
+<pre>require &quot;readline&quot;
+while buf = Readline.readline(&quot;&gt; &quot;, true)
+  p buf
+end</pre>
+
+<p>The content that the user input can be recorded to the history. The history
+can be accessed by Readline::HISTORY constant.</p>
+
+<pre>require &quot;readline&quot;
+while buf = Readline.readline(&quot;&gt; &quot;, true)
+  p Readline::HISTORY.to_a
+  print(&quot;-&gt; &quot;, buf, &quot;\n&quot;)
+end</pre>
+
+<p>Most of methods raise SecurityError exception if $SAFE is 4.</p>
+
+<p>Documented by TAKAO Kouji &lt;kouji at takao7 dot net&gt;.</p>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+      <!-- Constants -->
+      <div id="constants-list" class="section">
+        <h3 class="section-header">Constants</h3>
+        <dl>
+        
+          <dt><a name="FILENAME_COMPLETION_PROC">FILENAME_COMPLETION_PROC</a></dt>
+          
+          <dd class="description"><p>The <a href="Object.html">Object</a> with the call method that is a
+completion for filename. This is sets by <a
+href="Readline.html#method-c-completion_proc-3D">Readline.completion_proc=</a>
+method.</p></dd>
+          
+        
+          <dt><a name="HISTORY">HISTORY</a></dt>
+          
+          <dd class="description"><p>The history buffer. It extends Enumerable module, so it behaves just like
+an array. For example, gets the fifth content that the user input by
+HISTORY[4].</p></dd>
+          
+        
+          <dt><a name="USERNAME_COMPLETION_PROC">USERNAME_COMPLETION_PROC</a></dt>
+          
+          <dd class="description"><p>The <a href="Object.html">Object</a> with the call method that is a
+completion for usernames. This is sets by <a
+href="Readline.html#method-c-completion_proc-3D">Readline.completion_proc=</a>
+method.</p></dd>
+          
+        
+          <dt><a name="VERSION">VERSION</a></dt>
+          
+          <dd class="description"><p>Version string of GNU <a href="Readline.html">Readline</a> or libedit.</p></dd>
+          
+        
+        </dl>
+      </div>
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="basic_quote_characters-method" class="method-detail ">
+          <a name="method-c-basic_quote_characters"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">basic_quote_characters &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Gets a list of quote characters which can cause a word break.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="basic_quote_characters-source">
+<pre>
+static VALUE
+readline_s_get_basic_quote_characters(VALUE self, VALUE str)
+{
+    rb_secure(4);
+    if (rl_basic_quote_characters == NULL)
+        return Qnil;
+    return rb_locale_str_new_cstr(rl_basic_quote_characters);
+}</pre>
+            </div><!-- basic_quote_characters-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- basic_quote_characters-method -->
+
+      
+        <div id="basic_quote_characters-3D-method" class="method-detail ">
+          <a name="method-c-basic_quote_characters-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">basic_quote_characters = string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Sets a list of quote characters which can cause a word break.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="basic_quote_characters-3D-source">
+<pre>
+static VALUE
+readline_s_set_basic_quote_characters(VALUE self, VALUE str)
+{
+    static char *basic_quote_characters = NULL;
+
+    rb_secure(4);
+    OutputStringValue(str);
+    if (basic_quote_characters == NULL) {
+        basic_quote_characters =
+            ALLOC_N(char, RSTRING_LEN(str) + 1);
+    }
+    else {
+        REALLOC_N(basic_quote_characters, char, RSTRING_LEN(str) + 1);
+    }
+    strncpy(basic_quote_characters,
+            RSTRING_PTR(str), RSTRING_LEN(str));
+    basic_quote_characters[RSTRING_LEN(str)] = '\0';
+    rl_basic_quote_characters = basic_quote_characters;
+
+    return self;
+}</pre>
+            </div><!-- basic_quote_characters-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- basic_quote_characters-3D-method -->
+
+      
+        <div id="basic_word_break_characters-method" class="method-detail ">
+          <a name="method-c-basic_word_break_characters"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">basic_word_break_characters &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Gets the basic list of characters that signal a break between words for the
+completer routine.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="basic_word_break_characters-source">
+<pre>
+static VALUE
+readline_s_get_basic_word_break_characters(VALUE self, VALUE str)
+{
+    rb_secure(4);
+    if (rl_basic_word_break_characters == NULL)
+        return Qnil;
+    return rb_locale_str_new_cstr(rl_basic_word_break_characters);
+}</pre>
+            </div><!-- basic_word_break_characters-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- basic_word_break_characters-method -->
+
+      
+        <div id="basic_word_break_characters-3D-method" class="method-detail ">
+          <a name="method-c-basic_word_break_characters-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">basic_word_break_characters = string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Sets the basic list of characters that signal a break between words for the
+completer routine. The default is the characters which break words for
+completion in Bash: “tn"\‘`@$&gt;&lt;=;|&amp;{(”.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="basic_word_break_characters-3D-source">
+<pre>
+static VALUE
+readline_s_set_basic_word_break_characters(VALUE self, VALUE str)
+{
+    static char *basic_word_break_characters = NULL;
+
+    rb_secure(4);
+    OutputStringValue(str);
+    if (basic_word_break_characters == NULL) {
+        basic_word_break_characters =
+            ALLOC_N(char, RSTRING_LEN(str) + 1);
+    }
+    else {
+        REALLOC_N(basic_word_break_characters, char, RSTRING_LEN(str) + 1);
+    }
+    strncpy(basic_word_break_characters,
+            RSTRING_PTR(str), RSTRING_LEN(str));
+    basic_word_break_characters[RSTRING_LEN(str)] = '\0';
+    rl_basic_word_break_characters = basic_word_break_characters;
+    return self;
+}</pre>
+            </div><!-- basic_word_break_characters-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- basic_word_break_characters-3D-method -->
+
+      
+        <div id="completer_quote_characters-method" class="method-detail ">
+          <a name="method-c-completer_quote_characters"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completer_quote_characters &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Gets a list of characters which can be used to quote a substring of the
+line.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completer_quote_characters-source">
+<pre>
+static VALUE
+readline_s_get_completer_quote_characters(VALUE self, VALUE str)
+{
+    rb_secure(4);
+    if (rl_completer_quote_characters == NULL)
+        return Qnil;
+    return rb_locale_str_new_cstr(rl_completer_quote_characters);
+}</pre>
+            </div><!-- completer_quote_characters-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completer_quote_characters-method -->
+
+      
+        <div id="completer_quote_characters-3D-method" class="method-detail ">
+          <a name="method-c-completer_quote_characters-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completer_quote_characters = string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Sets a list of characters which can be used to quote a substring of the
+line. Completion occurs on the entire substring, and within the substring
+<a
+href="Readline.html#method-c-completer_word_break_characters">Readline.completer_word_break_characters</a>
+are treated as any other character, unless they also appear within this
+list.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completer_quote_characters-3D-source">
+<pre>
+static VALUE
+readline_s_set_completer_quote_characters(VALUE self, VALUE str)
+{
+    static char *completer_quote_characters = NULL;
+
+    rb_secure(4);
+    OutputStringValue(str);
+    if (completer_quote_characters == NULL) {
+        completer_quote_characters =
+            ALLOC_N(char, RSTRING_LEN(str) + 1);
+    }
+    else {
+        REALLOC_N(completer_quote_characters, char, RSTRING_LEN(str) + 1);
+    }
+    strncpy(completer_quote_characters, RSTRING_PTR(str), RSTRING_LEN(str));
+    completer_quote_characters[RSTRING_LEN(str)] = '\0';
+    rl_completer_quote_characters = completer_quote_characters;
+
+    return self;
+}</pre>
+            </div><!-- completer_quote_characters-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completer_quote_characters-3D-method -->
+
+      
+        <div id="completer_word_break_characters-method" class="method-detail ">
+          <a name="method-c-completer_word_break_characters"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completer_word_break_characters &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Gets the basic list of characters that signal a break between words for
+rl_complete_internal().</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completer_word_break_characters-source">
+<pre>
+static VALUE
+readline_s_get_completer_word_break_characters(VALUE self, VALUE str)
+{
+    rb_secure(4);
+    if (rl_completer_word_break_characters == NULL)
+        return Qnil;
+    return rb_locale_str_new_cstr(rl_completer_word_break_characters);
+}</pre>
+            </div><!-- completer_word_break_characters-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completer_word_break_characters-method -->
+
+      
+        <div id="completer_word_break_characters-3D-method" class="method-detail ">
+          <a name="method-c-completer_word_break_characters-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completer_word_break_characters = string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Sets the basic list of characters that signal a break between words for
+rl_complete_internal(). The default is the value of <a
+href="Readline.html#method-c-basic_word_break_characters">Readline.basic_word_break_characters</a>.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completer_word_break_characters-3D-source">
+<pre>
+static VALUE
+readline_s_set_completer_word_break_characters(VALUE self, VALUE str)
+{
+    static char *completer_word_break_characters = NULL;
+
+    rb_secure(4);
+    OutputStringValue(str);
+    if (completer_word_break_characters == NULL) {
+        completer_word_break_characters =
+            ALLOC_N(char, RSTRING_LEN(str) + 1);
+    }
+    else {
+        REALLOC_N(completer_word_break_characters, char, RSTRING_LEN(str) + 1);
+    }
+    strncpy(completer_word_break_characters,
+            RSTRING_PTR(str), RSTRING_LEN(str));
+    completer_word_break_characters[RSTRING_LEN(str)] = '\0';
+    rl_completer_word_break_characters = completer_word_break_characters;
+    return self;
+}</pre>
+            </div><!-- completer_word_break_characters-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completer_word_break_characters-3D-method -->
+
+      
+        <div id="completion_append_character-method" class="method-detail ">
+          <a name="method-c-completion_append_character"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completion_append_character &rarr; char</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns a string containing a character to be appended on completion. The
+default is a space (“ ”).</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completion_append_character-source">
+<pre>
+static VALUE
+readline_s_get_completion_append_character(VALUE self)
+{
+    char buf[1];
+
+    rb_secure(4);
+    if (rl_completion_append_character == '\0')
+        return Qnil;
+
+    buf[0] = (char) rl_completion_append_character;
+    return rb_locale_str_new(buf, 1);
+}</pre>
+            </div><!-- completion_append_character-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completion_append_character-method -->
+
+      
+        <div id="completion_append_character-3D-method" class="method-detail ">
+          <a name="method-c-completion_append_character-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completion_append_character = char</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Specifies a character to be appended on completion. Nothing will be
+appended if an empty string (“”) or nil is specified.</p>
+
+<p>For example:</p>
+
+<pre>require &quot;readline&quot;
+
+Readline.readline(&quot;&gt; &quot;, true)
+Readline.completion_append_character = &quot; &quot;</pre>
+
+<p>Result:</p>
+
+<pre>&gt;
+Input &quot;/var/li&quot;.
+
+&gt; /var/li
+Press TAB key.
+
+&gt; /var/lib
+Completes &quot;b&quot; and appends &quot; &quot;. So, you can continuously input &quot;/usr&quot;.
+
+&gt; /var/lib /usr</pre>
+
+<p>NOTE: Only one character can be specified. When “string” is specified, sets
+only “s” that is the first.</p>
+
+<pre>require &quot;readline&quot;
+
+Readline.completion_append_character = &quot;string&quot;
+p Readline.completion_append_character # =&gt; &quot;s&quot;</pre>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completion_append_character-3D-source">
+<pre>
+static VALUE
+readline_s_set_completion_append_character(VALUE self, VALUE str)
+{
+    rb_secure(4);
+    if (NIL_P(str)) {
+        rl_completion_append_character = '\0';
+    }
+    else {
+        OutputStringValue(str);
+        if (RSTRING_LEN(str) == 0) {
+            rl_completion_append_character = '\0';
+        } else {
+            rl_completion_append_character = RSTRING_PTR(str)[0];
+        }
+    }
+    return self;
+}</pre>
+            </div><!-- completion_append_character-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completion_append_character-3D-method -->
+
+      
+        <div id="completion_case_fold-method" class="method-detail ">
+          <a name="method-c-completion_case_fold"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completion_case_fold &rarr; bool</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if completion ignores case. If no, returns false.</p>
+
+<p>NOTE: Returns the same object that is specified by <a
+href="Readline.html#method-c-completion_case_fold-3D">Readline.completion_case_fold=</a>
+method.</p>
+
+<pre>require &quot;readline&quot;
+
+Readline.completion_case_fold = &quot;This is a String.&quot;
+p Readline.completion_case_fold # =&gt; &quot;This is a String.&quot;</pre>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completion_case_fold-source">
+<pre>
+static VALUE
+readline_s_get_completion_case_fold(VALUE self)
+{
+    rb_secure(4);
+    return rb_attr_get(mReadline, completion_case_fold);
+}</pre>
+            </div><!-- completion_case_fold-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completion_case_fold-method -->
+
+      
+        <div id="completion_case_fold-3D-method" class="method-detail ">
+          <a name="method-c-completion_case_fold-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completion_case_fold = bool</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Sets whether or not to ignore case on completion.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completion_case_fold-3D-source">
+<pre>
+static VALUE
+readline_s_set_completion_case_fold(VALUE self, VALUE val)
+{
+    rb_secure(4);
+    return rb_ivar_set(mReadline, completion_case_fold, val);
+}</pre>
+            </div><!-- completion_case_fold-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completion_case_fold-3D-method -->
+
+      
+        <div id="completion_proc-method" class="method-detail ">
+          <a name="method-c-completion_proc"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completion_proc &rarr; proc</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the completion Proc object.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completion_proc-source">
+<pre>
+static VALUE
+readline_s_get_completion_proc(VALUE self)
+{
+    rb_secure(4);
+    return rb_attr_get(mReadline, completion_proc);
+}</pre>
+            </div><!-- completion_proc-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completion_proc-method -->
+
+      
+        <div id="completion_proc-3D-method" class="method-detail ">
+          <a name="method-c-completion_proc-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">completion_proc = proc</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Specifies a Proc object <tt>proc</tt> to determine completion behavior.  It
+should take input string and return an array of completion candidates.</p>
+
+<p>The default completion is used if <tt>proc</tt> is nil.</p>
+
+<p>The <a href="String.html">String</a> that is passed to the Proc depends on
+the <a
+href="Readline.html#method-c-completer_word_break_characters">Readline.completer_word_break_characters</a>
+property.  By default the word under the cursor is passed to the Proc.  For
+example, if the input is “foo bar” then only “bar” would be passed to the
+completion Proc.</p>
+
+<p>Upon successful completion the <a
+href="Readline.html#method-c-completion_append_character">Readline.completion_append_character</a>
+will be appended to the input so the user can start working on their next
+argument.</p>
+
+<h1>Examples</h1>
+
+<h2>Completion for a Static List</h2>
+
+<pre>require 'readline'
+
+LIST = [
+  'search', 'download', 'open',
+  'help', 'history', 'quit',
+  'url', 'next', 'clear',
+  'prev', 'past'
+].sort
+
+comp = proc { |s| LIST.grep(/^#{Regexp.escape(s)}/) }
+
+Readline.completion_append_character = &quot; &quot;
+Readline.completion_proc = comp
+
+while line = Readline.readline('&gt; ', true)
+  p line
+end</pre>
+
+<h2>Completion For Directory Contents</h2>
+
+<pre>require 'readline'
+
+Readline.completion_append_character = &quot; &quot;
+Readline.completion_proc = Proc.new do |str|
+  Dir[str+'*'].grep(/^#{Regexp.escape(str)}/)
+end
+
+while line = Readline.readline('&gt; ', true)
+  p line
+end</pre>
+
+<h1>Autocomplete strategies</h1>
+
+<p>When working with auto-complete there are some strategies that work well.
+To get some ideas you can take a look at the <a
+href="http://svn.ruby-lang.org/repos/ruby/trunk/lib/irb/completion.rb">completion.rb</a>
+file for irb.</p>
+
+<p>The common strategy is to take a list of possible completions and filter it
+down to those completions that start with the user input.  In the above
+examples Enumerator.grep is used.  The input is escaped to prevent <a
+href="Regexp.html">Regexp</a> special characters from interfering with the
+matching.</p>
+
+<p>It may also be helpful to use the Abbrev library to generate completions.</p>
+
+<p>Raises ArgumentError if <tt>proc</tt> does not respond to the call method.</p>
+
+<p>Raises SecurityError if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="completion_proc-3D-source">
+<pre>
+static VALUE
+readline_s_set_completion_proc(VALUE self, VALUE proc)
+{
+    rb_secure(4);
+    if (!NIL_P(proc) &amp;&amp; !rb_respond_to(proc, rb_intern(&quot;call&quot;)))
+        rb_raise(rb_eArgError, &quot;argument must respond to `call'&quot;);
+    return rb_ivar_set(mReadline, completion_proc, proc);
+}</pre>
+            </div><!-- completion_proc-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- completion_proc-3D-method -->
+
+      
+        <div id="emacs_editing_mode-method" class="method-detail ">
+          <a name="method-c-emacs_editing_mode"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">emacs_editing_mode &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Specifies Emacs editing mode. The default is this mode. See the manual of
+GNU <a href="Readline.html">Readline</a> for details of Emacs editing mode.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="emacs_editing_mode-source">
+<pre>
+static VALUE
+readline_s_emacs_editing_mode(VALUE self)
+{
+    rb_secure(4);
+    rl_emacs_editing_mode(1,0);
+    return Qnil;
+}</pre>
+            </div><!-- emacs_editing_mode-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- emacs_editing_mode-method -->
+
+      
+        <div id="emacs_editing_mode-3F-method" class="method-detail ">
+          <a name="method-c-emacs_editing_mode-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">emacs_editing_mode? &rarr; bool</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if emacs mode is active. Returns false if not.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="emacs_editing_mode-3F-source">
+<pre>
+static VALUE
+readline_s_emacs_editing_mode_p(VALUE self)
+{
+    rb_secure(4);
+    return rl_editing_mode == 1 ? Qtrue : Qfalse;
+}</pre>
+            </div><!-- emacs_editing_mode-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- emacs_editing_mode-3F-method -->
+
+      
+        <div id="filename_quote_characters-method" class="method-detail ">
+          <a name="method-c-filename_quote_characters"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">filename_quote_characters &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Gets a list of characters that cause a filename to be quoted by the
+completer when they appear in a completed filename.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="filename_quote_characters-source">
+<pre>
+static VALUE
+readline_s_get_filename_quote_characters(VALUE self, VALUE str)
+{
+    rb_secure(4);
+    if (rl_filename_quote_characters == NULL)
+        return Qnil;
+    return rb_locale_str_new_cstr(rl_filename_quote_characters);
+}</pre>
+            </div><!-- filename_quote_characters-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- filename_quote_characters-method -->
+
+      
+        <div id="filename_quote_characters-3D-method" class="method-detail ">
+          <a name="method-c-filename_quote_characters-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">filename_quote_characters = string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Sets a list of characters that cause a filename to be quoted by the
+completer when they appear in a completed filename. The default is nil.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="filename_quote_characters-3D-source">
+<pre>
+static VALUE
+readline_s_set_filename_quote_characters(VALUE self, VALUE str)
+{
+    static char *filename_quote_characters = NULL;
+
+    rb_secure(4);
+    OutputStringValue(str);
+    if (filename_quote_characters == NULL) {
+        filename_quote_characters =
+            ALLOC_N(char, RSTRING_LEN(str) + 1);
+    }
+    else {
+        REALLOC_N(filename_quote_characters, char, RSTRING_LEN(str) + 1);
+    }
+    strncpy(filename_quote_characters, RSTRING_PTR(str), RSTRING_LEN(str));
+    filename_quote_characters[RSTRING_LEN(str)] = '\0';
+    rl_filename_quote_characters = filename_quote_characters;
+
+    return self;
+}</pre>
+            </div><!-- filename_quote_characters-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- filename_quote_characters-3D-method -->
+
+      
+        <div id="get_screen_size-method" class="method-detail ">
+          <a name="method-c-get_screen_size"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">get_screen_size &rarr; [rows, columns]</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the terminal’s rows and columns.</p>
+
+<p>See GNU Readline’s rl_get_screen_size function.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="get_screen_size-source">
+<pre>
+static VALUE
+readline_s_get_screen_size(VALUE self)
+{
+    int rows, columns;
+    VALUE res;
+
+    rb_secure(4);
+    rl_get_screen_size(&amp;rows, &amp;columns);
+    res = rb_ary_new();
+    rb_ary_push(res, INT2NUM(rows));
+    rb_ary_push(res, INT2NUM(columns));
+    return res;
+}</pre>
+            </div><!-- get_screen_size-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- get_screen_size-method -->
+
+      
+        <div id="input-3D-method" class="method-detail ">
+          <a name="method-c-input-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">input = input</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Specifies a File object <tt>input</tt> that is input stream for <a
+href="Readline.html#method-c-readline">Readline.readline</a> method.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="input-3D-source">
+<pre>
+static VALUE
+readline_s_set_input(VALUE self, VALUE input)
+{
+    rb_io_t *ifp;
+
+    rb_secure(4);
+    Check_Type(input, T_FILE);
+    GetOpenFile(input, ifp);
+    rl_instream = rb_io_stdio_file(ifp);
+#ifdef HAVE_RL_GETC_FUNCTION
+    readline_instream = input;
+#endif
+    return input;
+}</pre>
+            </div><!-- input-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- input-3D-method -->
+
+      
+        <div id="line_buffer-method" class="method-detail ">
+          <a name="method-c-line_buffer"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">line_buffer &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the full line that is being edited. This is useful from within the
+complete_proc for determining the context of the completion request.</p>
+
+<p>The length of <tt><a
+href="Readline.html#method-c-line_buffer">Readline.line_buffer</a></tt> and
+GNU Readline’s rl_end are same.</p>
+            
+
+            
+            <div class="method-source-code" id="line_buffer-source">
+<pre>
+static VALUE
+readline_s_get_line_buffer(VALUE self)
+{
+    rb_secure(4);
+    if (rl_line_buffer == NULL)
+        return Qnil;
+    return rb_locale_str_new_cstr(rl_line_buffer);
+}</pre>
+            </div><!-- line_buffer-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- line_buffer-method -->
+
+      
+        <div id="output-3D-method" class="method-detail ">
+          <a name="method-c-output-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">output = output</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Specifies a File object <tt>output</tt> that is output stream for <a
+href="Readline.html#method-c-readline">Readline.readline</a> method.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="output-3D-source">
+<pre>
+static VALUE
+readline_s_set_output(VALUE self, VALUE output)
+{
+    rb_io_t *ofp;
+
+    rb_secure(4);
+    Check_Type(output, T_FILE);
+    GetOpenFile(output, ofp);
+    rl_outstream = rb_io_stdio_file(ofp);
+    return output;
+}</pre>
+            </div><!-- output-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- output-3D-method -->
+
+      
+        <div id="point-method" class="method-detail ">
+          <a name="method-c-point"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">point &rarr; int</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the index of the current cursor position in <tt><a
+href="Readline.html#method-c-line_buffer">Readline.line_buffer</a></tt>.</p>
+
+<p>The index in <tt><a
+href="Readline.html#method-c-line_buffer">Readline.line_buffer</a></tt>
+which matches the start of input-string passed to <a
+href="Readline.html#method-c-completion_proc">completion_proc</a> is
+computed by subtracting the length of input-string from <tt><a
+href="Readline.html#method-c-point">Readline.point</a></tt>.</p>
+
+<pre>start = (the length of input-string) - Readline.point</pre>
+            
+
+            
+            <div class="method-source-code" id="point-source">
+<pre>
+static VALUE
+readline_s_get_point(VALUE self)
+{
+    rb_secure(4);
+    return INT2NUM(rl_point);
+}</pre>
+            </div><!-- point-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- point-method -->
+
+      
+        <div id="readline-method" class="method-detail ">
+          <a name="method-c-readline"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readline(prompt = "", add_hist = false) &rarr; string or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Shows the <tt>prompt</tt> and reads the inputted line with line editing.
+The inputted line is added to the history if <tt>add_hist</tt> is true.</p>
+
+<p>Returns nil when the inputted line is empty and user inputs EOF (Presses ^D
+on UNIX).</p>
+
+<p>Raises IOError exception if below conditions are satisfied.</p>
+<ol><li>
+<p>stdin is not tty.</p>
+</li><li>
+<p>stdin was closed. (errno is EBADF after called isatty(2).)</p>
+</li></ol>
+
+<p>This method supports thread. Switchs the thread context when waits
+inputting line.</p>
+
+<p>Supports line edit when inputs line. Provides VI and Emacs editing mode.
+Default is Emacs editing mode.</p>
+
+<p>NOTE: Terminates ruby interpreter and does not return the terminal status
+after user pressed ‘^C’ when wait inputting line. Give 3 examples that
+avoid it.</p>
+<ul><li>
+<p>Catches the Interrupt exception by pressed ^C after returns terminal
+status:</p>
+
+<pre>require &quot;readline&quot;
+
+stty_save = `stty -g`.chomp
+begin
+  while buf = Readline.readline
+      p buf
+      end
+    rescue Interrupt
+      system(&quot;stty&quot;, stty_save)
+      exit
+    end
+  end
+end</pre>
+</li><li>
+<p>Catches the INT signal by pressed ^C after returns terminal status:</p>
+
+<pre>require &quot;readline&quot;
+
+stty_save = `stty -g`.chomp
+trap(&quot;INT&quot;) { system &quot;stty&quot;, stty_save; exit }
+
+while buf = Readline.readline
+  p buf
+end</pre>
+</li><li>
+<p>Ignores pressing ^C:</p>
+
+<pre>require &quot;readline&quot;
+
+trap(&quot;INT&quot;, &quot;SIG_IGN&quot;)
+
+while buf = Readline.readline
+  p buf
+end</pre>
+</li></ul>
+
+<p>Can make as follows with Readline::HISTORY constant. It does not record to
+the history if the inputted line is empty or the same it as last one.</p>
+
+<pre>require &quot;readline&quot;
+
+while buf = Readline.readline(&quot;&gt; &quot;, true)
+  # p Readline::HISTORY.to_a
+  Readline::HISTORY.pop if /^\s*$/ =~ buf
+
+  begin
+    if Readline::HISTORY[Readline::HISTORY.length-2] == buf
+      Readline::HISTORY.pop
+    end
+  rescue IndexError
+  end
+
+  # p Readline::HISTORY.to_a
+  print &quot;-&gt; &quot;, buf, &quot;\n&quot;
+end</pre>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="readline-source">
+<pre>
+static VALUE
+readline_readline(int argc, VALUE *argv, VALUE self)
+{
+    VALUE tmp, add_hist, result;
+    char *prompt = NULL;
+    char *buff;
+    int status;
+
+    rb_secure(4);
+    if (rb_scan_args(argc, argv, &quot;02&quot;, &amp;tmp, &amp;add_hist) &gt; 0) {
+        OutputStringValue(tmp);
+#if USE_INSERT_IGNORE_ESCAPE
+        tmp = insert_ignore_escape(self, tmp);
+        rb_str_locktmp(tmp);
+#endif
+        prompt = RSTRING_PTR(tmp);
+    }
+
+    if (!isatty(fileno(rl_instream)) &amp;&amp; errno == EBADF) rb_raise(rb_eIOError, &quot;closed stdin&quot;);
+
+#ifdef _WIN32
+    rl_prep_terminal(1);
+#endif
+    buff = (char*)rb_protect(readline_get, (VALUE)prompt, &amp;status);
+#if USE_INSERT_IGNORE_ESCAPE
+    if (prompt) {
+        rb_str_unlocktmp(tmp);
+    }
+#endif
+    if (status) {
+#if defined HAVE_RL_CLEANUP_AFTER_SIGNAL
+        /* restore terminal mode and signal handler*/
+#if defined HAVE_RL_FREE_LINE_STATE
+        rl_free_line_state();
+#endif
+        rl_cleanup_after_signal();
+#elif defined HAVE_RL_DEPREP_TERM_FUNCTION
+        /* restore terminal mode */
+        if (rl_deprep_term_function != NULL) /* NULL in libedit. [ruby-dev:29116] */
+            (*rl_deprep_term_function)();
+        else
+#else
+        rl_deprep_terminal();
+#endif
+        rb_jump_tag(status);
+    }
+
+    if (RTEST(add_hist) &amp;&amp; buff) {
+        add_history(buff);
+    }
+    if (buff) {
+        result = rb_locale_str_new_cstr(buff);
+    }
+    else
+        result = Qnil;
+    if (buff) free(buff);
+    return result;
+}</pre>
+            </div><!-- readline-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readline-method -->
+
+      
+        <div id="refresh_line-method" class="method-detail ">
+          <a name="method-c-refresh_line"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">refresh_line &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Clear the current input line.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="refresh_line-source">
+<pre>
+static VALUE
+readline_s_refresh_line(VALUE self)
+{
+    rb_secure(4);
+    rl_refresh_line(0, 0);
+    return Qnil;
+}</pre>
+            </div><!-- refresh_line-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- refresh_line-method -->
+
+      
+        <div id="set_screen_size-method" class="method-detail ">
+          <a name="method-c-set_screen_size"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">set_screen_size(rows, columns) &rarr; self</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Set terminal size to <tt>rows</tt> and <tt>columns</tt>.</p>
+
+<p>See GNU Readline’s rl_set_screen_size function.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="set_screen_size-source">
+<pre>
+static VALUE
+readline_s_set_screen_size(VALUE self, VALUE rows, VALUE columns)
+{
+    rb_secure(4);
+    rl_set_screen_size(NUM2INT(rows), NUM2INT(columns));
+    return self;
+}</pre>
+            </div><!-- set_screen_size-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- set_screen_size-method -->
+
+      
+        <div id="vi_editing_mode-method" class="method-detail ">
+          <a name="method-c-vi_editing_mode"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">vi_editing_mode &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Specifies VI editing mode. See the manual of GNU <a
+href="Readline.html">Readline</a> for details of VI editing mode.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="vi_editing_mode-source">
+<pre>
+static VALUE
+readline_s_vi_editing_mode(VALUE self)
+{
+    rb_secure(4);
+    rl_vi_editing_mode(1,0);
+    return Qnil;
+}</pre>
+            </div><!-- vi_editing_mode-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- vi_editing_mode-method -->
+
+      
+        <div id="vi_editing_mode-3F-method" class="method-detail ">
+          <a name="method-c-vi_editing_mode-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">vi_editing_mode? &rarr; bool</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if vi mode is active. Returns false if not.</p>
+
+<p>Raises NotImplementedError if the using readline library does not support.</p>
+
+<p>Raises SecurityError exception if $SAFE is 4.</p>
+            
+
+            
+            <div class="method-source-code" id="vi_editing_mode-3F-source">
+<pre>
+static VALUE
+readline_s_vi_editing_mode_p(VALUE self)
+{
+    rb_secure(4);
+    return rl_editing_mode == 0 ? Qtrue : Qfalse;
+}</pre>
+            </div><!-- vi_editing_mode-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- vi_editing_mode-3F-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: IPSocket
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (I)</a> &raquo; 
+    
+    
+    <span class="title">IPSocket</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: IPSocket
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">IPSocket</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ipaddr.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="TCPSocket.html" title="TCPSocket (class)">TCPSocket</a></span>, <span class='object_link'><a href="UDPSocket.html" title="UDPSocket (class)">UDPSocket</a></span></p>
+</div>
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getaddress-class_method" title="getaddress (class method)">+ (Object) <strong>getaddress</strong>(host) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:startdoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getaddress_orig-class_method" title="getaddress_orig (class method)">+ (Object) <strong>getaddress_orig</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#original_resolv_getaddress-class_method" title="original_resolv_getaddress (class method)">+ (Object) <strong>original_resolv_getaddress</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <tt>String</tt> based representation of a valid DNS hostname,
+IPv4 or IPv6 address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid%3F-class_method" title="valid? (class method)">+ (Boolean) <strong>valid?</strong>(addr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> if <tt>addr</tt> is either a valid IPv4 or IPv6
+address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid_v4%3F-class_method" title="valid_v4? (class method)">+ (Boolean) <strong>valid_v4?</strong>(addr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> if <tt>addr</tt> is a valid IPv4 address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid_v6%3F-class_method" title="valid_v6? (class method)">+ (Boolean) <strong>valid_v6?</strong>(addr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> if <tt>addr</tt> is a valid IPv6 address.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="getaddress-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>getaddress</strong>(host) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:startdoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id getaddress'>getaddress</span><span class='lparen'>(</span><span class='id host'>host</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='kw'>return</span> <span class='const'>Resolv</span><span class='period'>.</span><span class='id getaddress'>getaddress</span><span class='lparen'>(</span><span class='id host'>host</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='kw'>rescue</span> <span class='const'>Resolv</span><span class='op'>::</span><span class='const'>ResolvError</span>
+    <span class='id raise'>raise</span> <span class='const'>SocketError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hostname not known: </span><span class='embexpr_beg'>#{</span><span class='id host'>host</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="getaddress_orig-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>getaddress_orig</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 54</span>
+
+<span class='kw'>alias</span> <span class='id getaddress_orig'>getaddress_orig</span> <span class='id getaddress'>getaddress</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="original_resolv_getaddress-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>original_resolv_getaddress</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <tt>String</tt> based representation of a valid DNS hostname,
+IPv4 or IPv6 address.</p>
+
+<pre class="code"><span class='const'>IPSocket</span><span class='period'>.</span><span class='id getaddress'>getaddress</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>localhost</span><span class='tstring_end'>'</span></span>         <span class='comment'>#=&gt; &quot;::1&quot;
+</span><span class='const'>IPSocket</span><span class='period'>.</span><span class='id getaddress'>getaddress</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>broadcasthost</span><span class='tstring_end'>'</span></span>     <span class='comment'>#=&gt; &quot;255.255.255.255&quot;
+</span><span class='const'>IPSocket</span><span class='period'>.</span><span class='id getaddress'>getaddress</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>www.ruby-lang.org</span><span class='tstring_end'>'</span></span> <span class='comment'>#=&gt; &quot;221.186.184.68&quot;
+</span><span class='const'>IPSocket</span><span class='period'>.</span><span class='id getaddress'>getaddress</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>www.ccc.de</span><span class='tstring_end'>'</span></span>        <span class='comment'>#=&gt; &quot;2a00:1328:e102:ccc0::122&quot;</span></pre>
+
+<p>:stopdoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resolv-replace.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id getaddress'>getaddress</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id valid?'>valid?</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span>
+    <span class='id s'>s</span>
+  <span class='kw'>elsif</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[-A-Za-z\d.]+\Z</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id s'>s</span>
+    <span class='id getaddress_orig'>getaddress_orig</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid address</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="valid?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>valid?</strong>(addr) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> if <tt>addr</tt> is either a valid IPv4 or IPv6
+address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id valid?'>valid?</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span>
+  <span class='id valid_v4?'>valid_v4?</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id valid_v6?'>valid_v6?</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="valid_v4?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>valid_v4?</strong>(addr) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> if <tt>addr</tt> is a valid IPv4 address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id valid_v4?'>valid_v4?</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\Z</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id addr'>addr</span>
+    <span class='kw'>return</span> <span class='gvar'>$~</span><span class='period'>.</span><span class='id captures'>captures</span><span class='period'>.</span><span class='id all?'>all?</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id to_i'>to_i</span> <span class='op'>&lt;</span> <span class='int'>256</span><span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="valid_v6?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>valid_v6?</strong>(addr) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> if <tt>addr</tt> is a valid IPv6 address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id valid_v6?'>valid_v6?</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span>
+  <span class='comment'># IPv6 (normal)
+</span>  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4})*\Z</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id addr'>addr</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4})*::([\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4})*)?\Z</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id addr'>addr</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A::([\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4})*)?\Z</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id addr'>addr</span>
+  <span class='comment'># IPv6 (IPv4 compat)
+</span>  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4})*:</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id addr'>addr</span> <span class='op'>&amp;&amp;</span> <span class='id valid_v4?'>valid_v4?</span><span class='lparen'>(</span><span class='backref'>$'</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4})*::([\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4})*:)?</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id addr'>addr</span> <span class='op'>&amp;&amp;</span> <span class='id valid_v4?'>valid_v4?</span><span class='lparen'>(</span><span class='backref'>$'</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A::([\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4})*:)?</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id addr'>addr</span> <span class='op'>&amp;&amp;</span> <span class='id valid_v4?'>valid_v4?</span><span class='lparen'>(</span><span class='backref'>$'</span><span class='rparen'>)</span>
+
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:11 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

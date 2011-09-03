@@ -1,0 +1,1224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: URI
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (U)</a> &raquo; 
+    
+    
+    <span class="title">URI</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: URI
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1"><span class='object_link'><a href="URI/Escape.html" title="URI::Escape (module)">Escape</a></span></dd>
+      
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="URI/REGEXP.html" title="URI::REGEXP (module)">REGEXP</a></span></dd>
+      
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="URI/Generic.html" title="URI::Generic (class)">Generic</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/uri.rb<span class="defines">,<br />
+  lib/uri/ftp.rb,<br /> lib/uri/ldap.rb,<br /> lib/open-uri.rb,<br /> lib/uri/http.rb,<br /> lib/uri/ldaps.rb,<br /> lib/uri/https.rb,<br /> lib/uri/mailto.rb,<br /> lib/uri/common.rb,<br /> lib/uri/generic.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>--</p>
+
+<h1>uri/common.rb</h1>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>Author</p></td>
+<td>
+<p>Akira Yamada &lt;akira@ruby-lang.org&gt;</p>
+</td></tr><tr><td class="rdoc-term"><p>Revision</p></td>
+<td>
+<p>$Id: common.rb 32633 2011-07-22 21:17:36Z naruse $</p>
+</td></tr><tr><td class="rdoc-term"><p>License</p></td>
+<td>
+<p>You can redistribute it and/or modify it under the same term as Ruby.</p>
+</td></tr></table>
+
+<p>See URI for general documentation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="URI/Escape.html" title="URI::Escape (module)">Escape</a></span>, <span class='object_link'><a href="URI/REGEXP.html" title="URI::REGEXP (module)">REGEXP</a></span>, <span class='object_link'><a href="URI/Util.html" title="URI::Util (module)">Util</a></span>
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="URI/BadURIError.html" title="URI::BadURIError (class)">BadURIError</a></span>, <span class='object_link'><a href="URI/Error.html" title="URI::Error (class)">Error</a></span>, <span class='object_link'><a href="URI/FTP.html" title="URI::FTP (class)">FTP</a></span>, <span class='object_link'><a href="URI/Generic.html" title="URI::Generic (class)">Generic</a></span>, <span class='object_link'><a href="URI/HTTP.html" title="URI::HTTP (class)">HTTP</a></span>, <span class='object_link'><a href="URI/HTTPS.html" title="URI::HTTPS (class)">HTTPS</a></span>, <span class='object_link'><a href="URI/InvalidComponentError.html" title="URI::InvalidComponentError (class)">InvalidComponentError</a></span>, <span class='object_link'><a href="URI/InvalidURIError.html" title="URI::InvalidURIError (class)">InvalidURIError</a></span>, <span class='object_link'><a href="URI/LDAP.html" title="URI::LDAP (class)">LDAP</a></span>, <span class='object_link'><a href="URI/LDAPS.html" title="URI::LDAPS (class)">LDAPS</a></span>, <span class='object_link'><a href="URI/MailTo.html" title="URI::MailTo (class)">MailTo</a></span>, <span class='object_link'><a href="URI/Parser.html" title="URI::Parser (class)">Parser</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="VERSION_CODE-constant" class="">VERSION_CODE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>:stopdoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>000911</span><span class='tstring_end'>'</span></span><span class='period'>.</span><span class='id freeze'>freeze</span></pre></dd>
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>VERSION_CODE</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>..</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id n'>n</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id freeze'>freeze</span></pre></dd>
+      
+        <dt id="DEFAULT_PARSER-constant" class="">DEFAULT_PARSER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>URI::Parser.new</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Parser</span><span class='period'>.</span><span class='id new'>new</span></pre></dd>
+      
+        <dt id="TBLENCWWWCOMP_-constant" class="">TBLENCWWWCOMP_ =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="TBLDECWWWCOMP_-constant" class="">TBLDECWWWCOMP_ =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc: :nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="HTML5ASCIIINCOMPAT-constant" class="">HTML5ASCIIINCOMPAT =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='const'>Encoding</span><span class='op'>::</span><span class='const'>UTF_7</span><span class='comma'>,</span> <span class='const'>Encoding</span><span class='op'>::</span><span class='const'>UTF_16BE</span><span class='comma'>,</span> <span class='const'>Encoding</span><span class='op'>::</span><span class='const'>UTF_16LE</span><span class='comma'>,</span>
+<span class='const'>Encoding</span><span class='op'>::</span><span class='const'>UTF_32BE</span><span class='comma'>,</span> <span class='const'>Encoding</span><span class='op'>::</span><span class='const'>UTF_32LE</span><span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="WFKV_-constant" class="">WFKV_ =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>(?:[^%#=;&amp;]*(?:%\h\h[^%#=;&amp;]*)*)</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="schemes-classvariable" class="">@@schemes =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#decode_www_form-class_method" title="decode_www_form (class method)">+ (Object) <strong>decode_www_form</strong>(str, enc = Encoding::UTF_8) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Decode URL-encoded form data from given <tt>str</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#decode_www_form_component-class_method" title="decode_www_form_component (class method)">+ (Object) <strong>decode_www_form_component</strong>(str, enc = Encoding::UTF_8) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Decode given <tt>str</tt> of URL-encoded form data.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#encode_www_form-class_method" title="encode_www_form (class method)">+ (Object) <strong>encode_www_form</strong>(enum) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate URL-encoded form data from given <tt>enum</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#encode_www_form_component-class_method" title="encode_www_form_component (class method)">+ (Object) <strong>encode_www_form_component</strong>(str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Encode given <tt>str</tt> to URL-encoded form data.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extract-class_method" title="extract (class method)">+ (Object) <strong>extract</strong>(str, schemes = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Synopsis.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#join-class_method" title="join (class method)">+ (Object) <strong>join</strong>(*str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Synopsis.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse-class_method" title="parse (class method)">+ (Object) <strong>parse</strong>(uri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Synopsis.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#regexp-class_method" title="regexp (class method)">+ (Object) <strong>regexp</strong>(schemes = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Synopsis.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scheme_list-class_method" title="scheme_list (class method)">+ (Object) <strong>scheme_list</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a Hash of the defined schemes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#split-class_method" title="split (class method)">+ (Object) <strong>split</strong>(uri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Synopsis.</h2>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="URI/Escape.html" title="URI::Escape (module)">Escape</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="URI/Escape.html#escape-instance_method" title="URI::Escape#escape (method)">escape</a></span>, <span class='object_link'><a href="URI/Escape.html#unescape-instance_method" title="URI::Escape#unescape (method)">unescape</a></span></p>
+
+  
+  
+  
+  
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="decode_www_form-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>decode_www_form</strong>(str, enc = Encoding::UTF_8) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Decode URL-encoded form data from given <tt>str</tt>.</p>
+
+<p>This decodes application/x-www-form-urlencoded data and returns array of
+key-value array. This internally uses URI.decode_www_form_component.</p>
+
+<p><em>charset</em> hack is not supported now because the mapping from given
+charset to Ruby's encoding is not clear yet. see also <a
+href="http://www.w3.org/TR/html5/syntax.html#character-encodings-0">www.w3.org/TR/html5/syntax.html#character-encodings-0</a></p>
+
+<p>This refers <a
+href="http://www.w3.org/TR/html5/forms.html#url-encoded-form-data">www.w3.org/TR/html5/forms.html#url-encoded-form-data</a></p>
+
+<p>ary = URI.decode_www_form("a=1&amp;a=2&amp;b=3") p ary                 
+#=&gt; [['a', '1'], ['a', '2'], ['b', '3']] p ary.assoc('a').last  #=&gt;
+'1' p ary.assoc('b').last  #=&gt; '3' p ary.rassoc('a').last #=&gt; '2' p
+Hash[ary]            # =&gt; "b"=&gt;"3"</p>
+
+<p>See URI.decode_www_form_component, URI.encode_www_form</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+985
+986
+987
+988
+989
+990
+991
+992
+993
+994
+995</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 985</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id decode_www_form'>decode_www_form</span><span class='lparen'>(</span><span class='id str'>str</span><span class='comma'>,</span> <span class='id enc'>enc</span><span class='op'>=</span><span class='const'>Encoding</span><span class='op'>::</span><span class='const'>UTF_8</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id str'>str</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+  <span class='kw'>unless</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A</span><span class='embexpr_beg'>#{</span><span class='const'>WFKV_</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='embexpr_beg'>#{</span><span class='const'>WFKV_</span><span class='rbrace'>}</span><span class='tstring_content'>(?:[;&amp;]</span><span class='embexpr_beg'>#{</span><span class='const'>WFKV_</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='embexpr_beg'>#{</span><span class='const'>WFKV_</span><span class='rbrace'>}</span><span class='tstring_content'>)*\z</span><span class='regexp_end'>/o</span></span> <span class='op'>=~</span> <span class='id str'>str</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid data of application/x-www-form-urlencoded (</span><span class='embexpr_beg'>#{</span><span class='id str'>str</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='backref'>$&amp;</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>([^=;&amp;]+)=([^;&amp;]*)</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id ary'>ary</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id decode_www_form_component'>decode_www_form_component</span><span class='lparen'>(</span><span class='backref'>$1</span><span class='comma'>,</span> <span class='id enc'>enc</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id decode_www_form_component'>decode_www_form_component</span><span class='lparen'>(</span><span class='backref'>$2</span><span class='comma'>,</span> <span class='id enc'>enc</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='id ary'>ary</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="decode_www_form_component-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>decode_www_form_component</strong>(str, enc = Encoding::UTF_8) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Decode given <tt>str</tt> of URL-encoded form data.</p>
+
+<p>This decods + to SP.</p>
+
+<p>See URI.encode_www_form_component, URI.decode_www_form</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 894</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id decode_www_form_component'>decode_www_form_component</span><span class='lparen'>(</span><span class='id str'>str</span><span class='comma'>,</span> <span class='id enc'>enc</span><span class='op'>=</span><span class='const'>Encoding</span><span class='op'>::</span><span class='const'>UTF_8</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='const'>TBLDECWWWCOMP_</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='id tbl'>tbl</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='int'>256</span><span class='period'>.</span><span class='id times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+      <span class='id h'>h</span><span class='comma'>,</span> <span class='id l'>l</span> <span class='op'>=</span> <span class='id i'>i</span><span class='op'>&gt;&gt;</span><span class='int'>4</span><span class='comma'>,</span> <span class='id i'>i</span><span class='op'>&amp;</span><span class='int'>15</span>
+      <span class='id tbl'>tbl</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%%%X%X</span><span class='tstring_end'>'</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id h'>h</span><span class='comma'>,</span> <span class='id l'>l</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id i'>i</span><span class='period'>.</span><span class='id chr'>chr</span>
+      <span class='id tbl'>tbl</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%%%x%X</span><span class='tstring_end'>'</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id h'>h</span><span class='comma'>,</span> <span class='id l'>l</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id i'>i</span><span class='period'>.</span><span class='id chr'>chr</span>
+      <span class='id tbl'>tbl</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%%%X%x</span><span class='tstring_end'>'</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id h'>h</span><span class='comma'>,</span> <span class='id l'>l</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id i'>i</span><span class='period'>.</span><span class='id chr'>chr</span>
+      <span class='id tbl'>tbl</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%%%x%x</span><span class='tstring_end'>'</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id h'>h</span><span class='comma'>,</span> <span class='id l'>l</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id i'>i</span><span class='period'>.</span><span class='id chr'>chr</span>
+    <span class='kw'>end</span>
+    <span class='id tbl'>tbl</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>+</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span>
+    <span class='kw'>begin</span>
+      <span class='const'>TBLDECWWWCOMP_</span><span class='period'>.</span><span class='id replace'>replace</span><span class='lparen'>(</span><span class='id tbl'>tbl</span><span class='rparen'>)</span>
+      <span class='const'>TBLDECWWWCOMP_</span><span class='period'>.</span><span class='id freeze'>freeze</span>
+    <span class='kw'>rescue</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid %-encoding (</span><span class='embexpr_beg'>#{</span><span class='id str'>str</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[^%]*(?:%\h\h[^%]*)*\z</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id str'>str</span>
+  <span class='id str'>str</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\+|%\h\h</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='const'>TBLDECWWWCOMP_</span><span class='rparen'>)</span><span class='period'>.</span><span class='id force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='id enc'>enc</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="encode_www_form-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>encode_www_form</strong>(enum) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate URL-encoded form data from given <tt>enum</tt>.</p>
+
+<p>This generates application/x-www-form-urlencoded data defined in HTML5 from
+given an Enumerable object.</p>
+
+<p>This internally uses URI.encode_www_form_component(str).</p>
+
+<p>This method doesn't convert the encoding of given items, so convert them
+before call this method if you want to send data as other than original
+encoding or mixed encoding data. (Strings which are encoded in an HTML5
+ASCII incompatible encoding are converted to UTF-8.)</p>
+
+<p>This method doesn't handle files.  When you send a file, use
+multipart/form-data.</p>
+
+<p>This is an implementation of <a
+href="http://www.w3.org/TR/html5/forms.html#url-encoded-form-data">www.w3.org/TR/html5/forms.html#url-encoded-form-data</a></p>
+
+<pre class="code"><span class='const'>URI</span><span class='period'>.</span><span class='id encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>q</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ruby</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lang</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>en</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; &quot;q=ruby&amp;lang=en&quot;
+</span><span class='const'>URI</span><span class='period'>.</span><span class='id encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>q</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ruby</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lang</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>en</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; &quot;q=ruby&amp;lang=en&quot;
+</span><span class='const'>URI</span><span class='period'>.</span><span class='id encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>q</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ruby</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>perl</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lang</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>en</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; &quot;q=ruby&amp;q=perl&amp;lang=en&quot;
+</span><span class='const'>URI</span><span class='period'>.</span><span class='id encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>q</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ruby</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>q</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>perl</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lang</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>en</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; &quot;q=ruby&amp;q=perl&amp;lang=en&quot;</span></pre>
+
+<p>See URI.encode_www_form_component, URI.decode_www_form</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 943</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='id enum'>enum</span><span class='rparen'>)</span>
+  <span class='id enum'>enum</span><span class='period'>.</span><span class='id map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span><span class='id v'>v</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id v'>v</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+      <span class='id encode_www_form_component'>encode_www_form_component</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='id v'>v</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_ary</span><span class='rparen'>)</span>
+      <span class='id v'>v</span><span class='period'>.</span><span class='id to_ary'>to_ary</span><span class='period'>.</span><span class='id map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id w'>w</span><span class='op'>|</span>
+        <span class='id str'>str</span> <span class='op'>=</span> <span class='id encode_www_form_component'>encode_www_form_component</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span>
+        <span class='kw'>unless</span> <span class='id w'>w</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+          <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>=</span><span class='tstring_end'>'</span></span>
+          <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='id encode_www_form_component'>encode_www_form_component</span><span class='lparen'>(</span><span class='id w'>w</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id str'>str</span> <span class='op'>=</span> <span class='id encode_www_form_component'>encode_www_form_component</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span>
+      <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>=</span><span class='tstring_end'>'</span></span>
+      <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='id encode_www_form_component'>encode_www_form_component</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="encode_www_form_component-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>encode_www_form_component</strong>(str) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Encode given <tt>str</tt> to URL-encoded form data.</p>
+
+<p>This method doesn't convert *, -, ., 0-9, A-Z, _, a-z, but does convert SP
+(ASCII space) to + and converts others to %XX.</p>
+
+<p>This is an implementation of <a
+href="http://www.w3.org/TR/html5/forms.html#url-encoded-form-data">www.w3.org/TR/html5/forms.html#url-encoded-form-data</a></p>
+
+<p>See URI.decode_www_form_component, URI.encode_www_form</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 865</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id encode_www_form_component'>encode_www_form_component</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='const'>TBLENCWWWCOMP_</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='id tbl'>tbl</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='int'>256</span><span class='period'>.</span><span class='id times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+      <span class='id tbl'>tbl</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='period'>.</span><span class='id chr'>chr</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%%%02X</span><span class='tstring_end'>'</span></span> <span class='op'>%</span> <span class='id i'>i</span>
+    <span class='kw'>end</span>
+    <span class='id tbl'>tbl</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>+</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>begin</span>
+      <span class='const'>TBLENCWWWCOMP_</span><span class='period'>.</span><span class='id replace'>replace</span><span class='lparen'>(</span><span class='id tbl'>tbl</span><span class='rparen'>)</span>
+      <span class='const'>TBLENCWWWCOMP_</span><span class='period'>.</span><span class='id freeze'>freeze</span>
+    <span class='kw'>rescue</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id str'>str</span> <span class='op'>=</span> <span class='id str'>str</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='kw'>if</span> <span class='const'>HTML5ASCIIINCOMPAT</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id str'>str</span><span class='period'>.</span><span class='id encoding'>encoding</span><span class='rparen'>)</span>
+    <span class='id str'>str</span> <span class='op'>=</span> <span class='id str'>str</span><span class='period'>.</span><span class='id encode'>encode</span><span class='lparen'>(</span><span class='const'>Encoding</span><span class='op'>::</span><span class='const'>UTF_8</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id str'>str</span> <span class='op'>=</span> <span class='id str'>str</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='kw'>end</span>
+  <span class='id str'>str</span><span class='period'>.</span><span class='id force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='const'>Encoding</span><span class='op'>::</span><span class='const'>ASCII_8BIT</span><span class='rparen'>)</span>
+  <span class='id str'>str</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[^*\-.0-9A-Z_a-z]</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='const'>TBLENCWWWCOMP_</span><span class='rparen'>)</span>
+  <span class='id str'>str</span><span class='period'>.</span><span class='id force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='const'>Encoding</span><span class='op'>::</span><span class='const'>US_ASCII</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="extract-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>extract</strong>(str, schemes = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Synopsis</h2>
+
+<pre class="code">URI::extract(str[, schemes][,&amp;blk])</pre>
+
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>str</tt></p></td>
+<td>
+<p>String to extract URIs from.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>schemes</tt></p></td>
+<td>
+<p>Limit URI matching to a specific schemes.</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Extracts URIs from a string. If block given, iterates through all matched
+URIs. Returns nil if block given or array with matches.</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='const'>URI</span><span class='period'>.</span><span class='id extract'>extract</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text here http://foo.example.org/bla and here mailto:test@example.com and here also.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; [&quot;http://foo.example.com/bla&quot;, &quot;mailto:test@example.com&quot;]</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+812
+813
+814</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 812</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id extract'>extract</span><span class='lparen'>(</span><span class='id str'>str</span><span class='comma'>,</span> <span class='id schemes'>schemes</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='const'>DEFAULT_PARSER</span><span class='period'>.</span><span class='id extract'>extract</span><span class='lparen'>(</span><span class='id str'>str</span><span class='comma'>,</span> <span class='id schemes'>schemes</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="join-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>join</strong>(*str) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Synopsis</h2>
+
+<pre class="code">URI::join(str[, str, ...])</pre>
+
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>str</tt></p></td>
+<td>
+<p>String(s) to work with</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Joins URIs.</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id p'>p</span> <span class='const'>URI</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://example.com/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>main.rbx</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; #&lt;URI::HTTP:0x2022ac02 URL:http://localhost/main.rbx&gt;
+</span>
+<span class='id p'>p</span> <span class='const'>URI</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>foo</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; #&lt;URI::HTTP:0x01ab80a0 URL:http://example.com/foo&gt;
+</span>
+<span class='id p'>p</span> <span class='const'>URI</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/bar</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; #&lt;URI::HTTP:0x01aaf0b0 URL:http://example.com/bar&gt;
+</span>
+<span class='id p'>p</span> <span class='const'>URI</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>bar</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; #&lt;URI::HTTP:0x801a92af0 URL:http://example.com/bar&gt;
+</span>
+<span class='id p'>p</span> <span class='const'>URI</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>bar</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; #&lt;URI::HTTP:0x80135a3a0 URL:http://example.com/foo/bar&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+784
+785
+786</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 784</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='const'>DEFAULT_PARSER</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='id str'>str</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parse-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>parse</strong>(uri) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Synopsis</h2>
+
+<pre class="code"><span class='const'>URI</span><span class='op'>::</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id uri_str'>uri_str</span><span class='rparen'>)</span></pre>
+
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>uri_str</tt></p></td>
+<td>
+<p>String with URI.</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Creates one of the URI's subclasses instance from the string.</p>
+
+<h2>Raises</h2>
+
+<p>URI::InvalidURIError</p>
+
+<pre class="code">Raised if URI given is not a correct one.</pre>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://www.ruby-lang.org/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id p'>p</span> <span class='id uri'>uri</span>
+<span class='comment'># =&gt; #&lt;URI::HTTP:0x202281be URL:http://www.ruby-lang.org/&gt;
+</span><span class='id p'>p</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id scheme'>scheme</span>
+<span class='comment'># =&gt; &quot;http&quot;
+</span><span class='id p'>p</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id host'>host</span>
+<span class='comment'># =&gt; &quot;www.ruby-lang.org&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+746
+747
+748</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 746</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='const'>DEFAULT_PARSER</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="regexp-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>regexp</strong>(schemes = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Synopsis</h2>
+
+<pre class="code"><span class='const'>URI</span><span class='op'>::</span><span class='id regexp'>regexp</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id match_schemes'>match_schemes</span><span class='rbracket'>]</span><span class='rparen'>)</span></pre>
+
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>match_schemes</tt></p></td>
+<td>
+<p>Array of schemes. If given, resulting regexp matches to URIs whose scheme
+is one of the match_schemes.</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Returns a Regexp object which matches to URI-like strings. The Regexp
+object returned by this method includes arbitrary number of capture group
+(parentheses).  Never rely on it's number.</p>
+
+<h2>Usage</h2>
+
+<pre class="code">require 'uri'
+
+# extract first URI from html_string
+html_string.slice(URI.regexp)
+
+# remove ftp URIs
+html_string.sub(URI.regexp(['ftp'])
+
+# You should not rely on the number of parentheses
+html_string.scan(URI.regexp) do |*matches|
+  p $&amp;
+end</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+847
+848
+849</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 847</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id regexp'>regexp</span><span class='lparen'>(</span><span class='id schemes'>schemes</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='const'>DEFAULT_PARSER</span><span class='period'>.</span><span class='id make_regexp'>make_regexp</span><span class='lparen'>(</span><span class='id schemes'>schemes</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="scheme_list-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>scheme_list</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a Hash of the defined schemes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+659
+660
+661</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 659</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id scheme_list'>scheme_list</span>
+  <span class='cvar'>@@schemes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="split-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>split</strong>(uri) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Synopsis</h2>
+
+<pre class="code"><span class='const'>URI</span><span class='op'>::</span><span class='id split'>split</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span></pre>
+
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>uri</tt></p></td>
+<td>
+<p>String with URI.</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Splits the string on following parts and returns array with result:</p>
+
+<pre class="code">* Scheme
+* Userinfo
+* Host
+* Port
+* Registry
+* Path
+* Opaque
+* Query
+* Fragment</pre>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id p'>p</span> <span class='const'>URI</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://www.ruby-lang.org/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; [&quot;http&quot;, nil, &quot;www.ruby-lang.org&quot;, nil, nil, &quot;/&quot;, nil, nil, nil]</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+711
+712
+713</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/common.rb', line 711</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='const'>DEFAULT_PARSER</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:09:56 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,2476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Logger
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (L)</a> &raquo; 
+    
+    
+    <span class="title">Logger</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Logger
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Logger</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Logger/Severity.html" title="Logger::Severity (module)">Severity</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/logger.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Description</h2>
+
+<p>The Logger class provides a simple but sophisticated logging utility that
+you can use to output messages.</p>
+
+<p>The messages have associated levels, such as <tt>INFO</tt> or
+<tt>ERROR</tt> that indicate their importance.  You can then give the
+Logger a level, and only messages at that level of higher will be printed.</p>
+
+<p>The levels are:</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>FATAL</tt></p></td>
+<td>
+<p>an unhandleable error that results in a program crash</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>ERROR</tt></p></td>
+<td>
+<p>a handleable error condition</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>WARN</tt></p></td>
+<td>
+<p>a warning</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>INFO</tt></p></td>
+<td>
+<p>generic (useful) information about system operation</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>DEBUG</tt></p></td>
+<td>
+<p>low-level information for developers</p>
+</td></tr></table>
+
+<p>For instance, in a production system, you may have your Logger set to
+<tt>INFO</tt> or even <tt>WARN</tt> When you are developing the system,
+however, you probably want to know about the program's internal state, and
+would set the Logger to <tt>DEBUG</tt>.</p>
+
+<p><b>Note</b>: Logger does not escape or sanitize any messages passed to it.
+Developers should be aware of when potentially malicious data (user-input)
+is passed to Logger, and manually escape the untrusted data:</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>User-input: </span><span class='embexpr_beg'>#{</span><span class='id input'>input</span><span class='period'>.</span><span class='id dump'>dump</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id logger'>logger</span><span class='period'>.</span><span class='id info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>User-input: %p</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id input'>input</span><span class='rparen'>)</span></pre>
+
+<p>You can use #formatter= for escaping all data.</p>
+
+<pre class="code"><span class='id original_formatter'>original_formatter</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='op'>::</span><span class='const'>Formatter</span><span class='period'>.</span><span class='id new'>new</span>
+<span class='id logger'>logger</span><span class='period'>.</span><span class='id formatter'>formatter</span> <span class='op'>=</span> <span class='id proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id severity'>severity</span><span class='comma'>,</span> <span class='id datetime'>datetime</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='id msg'>msg</span><span class='op'>|</span>
+  <span class='id original_formatter'>original_formatter</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id severity'>severity</span><span class='comma'>,</span> <span class='id datetime'>datetime</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='id msg'>msg</span><span class='period'>.</span><span class='id dump'>dump</span><span class='rparen'>)</span>
+<span class='rbrace'>}</span>
+<span class='id logger'>logger</span><span class='period'>.</span><span class='id info'>info</span><span class='lparen'>(</span><span class='id input'>input</span><span class='rparen'>)</span></pre>
+
+<h3>Example</h3>
+
+<p>This creates a logger to the standard output stream, with a level of
+<tt>WARN</tt></p>
+
+<pre class="code"><span class='id log'>log</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>STDOUT</span><span class='rparen'>)</span>
+<span class='id log'>log</span><span class='period'>.</span><span class='id level'>level</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='op'>::</span><span class='const'>WARN</span>
+
+<span class='id log'>log</span><span class='period'>.</span><span class='id debug'>debug</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Created logger</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id log'>log</span><span class='period'>.</span><span class='id info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Program started</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id log'>log</span><span class='period'>.</span><span class='id warn'>warn</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nothing to do!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='kw'>begin</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id each_line'>each_line</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+    <span class='kw'>unless</span> <span class='id line'>line</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^(\w+) = (.*)$</span><span class='regexp_end'>/</span></span>
+      <span class='id log'>log</span><span class='period'>.</span><span class='id error'>error</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Line in wrong format: </span><span class='embexpr_beg'>#{</span><span class='id line'>line</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id err'>err</span>
+  <span class='id log'>log</span><span class='period'>.</span><span class='id fatal'>fatal</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Caught exception; exiting</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id log'>log</span><span class='period'>.</span><span class='id fatal'>fatal</span><span class='lparen'>(</span><span class='id err'>err</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+
+<p>Because the Logger's level is set to <tt>WARN</tt>, only the warning,
+error, and fatal messages are recorded.  The debug and info messages are
+silently discarded.</p>
+
+<h3>Features</h3>
+
+<p>There are several interesting features that Logger provides, like
+auto-rolling of log files, setting the format of log messages, and
+specifying a program name in conjunction with the message.  The next
+section shows you how to achieve these things.</p>
+
+<h2>HOWTOs</h2>
+
+<h3>How to create a logger</h3>
+
+<p>The options below give you various choices, in more or less increasing
+complexity.</p>
+<ol><li>
+<p>Create a logger which logs messages to STDERR/STDOUT.</p>
+
+<pre class="code"><span class='id logger'>logger</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>STDERR</span><span class='rparen'>)</span>
+<span class='id logger'>logger</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>STDOUT</span><span class='rparen'>)</span></pre>
+</li><li>
+<p>Create a logger for the file which has the specified name.</p>
+
+<pre class="code"><span class='id logger'>logger</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>logfile.log</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span></pre>
+</li><li>
+<p>Create a logger for the specified file.</p>
+
+<pre class="code"><span class='id file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>foo.log</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>WRONLY</span> <span class='op'>|</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>APPEND</span><span class='rparen'>)</span>
+<span class='comment'># To create new (and to remove old) logfile, add File::CREAT like;
+</span><span class='comment'>#   file = open('foo.log', File::WRONLY | File::APPEND | File::CREAT)
+</span><span class='id logger'>logger</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id file'>file</span><span class='rparen'>)</span></pre>
+</li><li>
+<p>Create a logger which ages logfile once it reaches a certain size.  Leave
+10 "old log files" and each file is about 1,024,000 bytes.</p>
+
+<pre class="code"><span class='id logger'>logger</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>foo.log</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>10</span><span class='comma'>,</span> <span class='int'>1024000</span><span class='rparen'>)</span></pre>
+</li><li>
+<p>Create a logger which ages logfile daily/weekly/monthly.</p>
+
+<pre class="code"><span class='id logger'>logger</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>foo.log</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>daily</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id logger'>logger</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>foo.log</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>weekly</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id logger'>logger</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>foo.log</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>monthly</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span></pre>
+</li></ol>
+
+<h3>How to log a message</h3>
+
+<p>Notice the different methods (<tt>fatal</tt>, <tt>error</tt>,
+<tt>info</tt>) being used to log messages of various levels?  Other methods
+in this family are <tt>warn</tt> and <tt>debug</tt>.  <tt>add</tt> is used
+below to log a message of an arbitrary (perhaps dynamic) level.</p>
+<ol><li>
+<p>Message in block.</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id fatal'>fatal</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Argument 'foo' not given.</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span></pre>
+</li><li>
+<p>Message as a string.</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id error'>error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Argument </span><span class='embexpr_beg'>#{</span> <span class='ivar'>@foo</span> <span class='rbrace'>}</span><span class='tstring_content'> mismatch.</span><span class='tstring_end'>&quot;</span></span></pre>
+</li><li>
+<p>With progname.</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>initialize</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Initializing...</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span></pre>
+</li><li>
+<p>With severity.</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id add'>add</span><span class='lparen'>(</span><span class='const'>Logger</span><span class='op'>::</span><span class='const'>FATAL</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Fatal error!</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span></pre>
+</li></ol>
+
+<p>The block form allows you to create potentially complex log messages, but
+to delay their evaluation until and unless the message is logged.  For
+example, if we have the following:</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id debug'>debug</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This is a </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id potentially'>potentially</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> expensive operation</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span></pre>
+
+<p>If the logger's level is <tt>INFO</tt> or higher, no debug messages will be
+logged, and the entire block will not even be evaluated.  Compare to this:</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id debug'>debug</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This is a </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id potentially'>potentially</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> expensive operation</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></pre>
+
+<p>Here, the string concatenation is done every time, even if the log level is
+not set to show the debug message.</p>
+
+<h3>How to close a logger</h3>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id close'>close</span></pre>
+
+<h3>Setting severity threshold</h3>
+<ol><li>
+<p>Original interface.</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id sev_threshold'>sev_threshold</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='op'>::</span><span class='const'>WARN</span></pre>
+</li><li>
+<p>Log4r (somewhat) compatible interface.</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id level'>level</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='op'>::</span><span class='const'>INFO</span>
+
+<span class='const'>DEBUG</span> <span class='op'>&lt;</span> <span class='const'>INFO</span> <span class='op'>&lt;</span> <span class='const'>WARN</span> <span class='op'>&lt;</span> <span class='const'>ERROR</span> <span class='op'>&lt;</span> <span class='const'>FATAL</span> <span class='op'>&lt;</span> <span class='const'>UNKNOWN</span></pre>
+</li></ol>
+
+<h2>Format</h2>
+
+<p>Log messages are rendered in the output stream in a certain format by
+default.  The default format and a sample are shown below:</p>
+
+<p>Log format:</p>
+
+<pre class="code">SeverityID, [Date Time mSec #pid] SeverityLabel -- ProgName: message</pre>
+
+<p>Log sample:</p>
+
+<pre class="code">I, [Wed Mar 03 02:34:24 JST 1999 895701 #19074]  INFO -- Main: info.</pre>
+
+<p>You may change the date and time format via #datetime_format=</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id datetime_format'>datetime_format</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%Y-%m-%d %H:%M:%S</span><span class='tstring_end'>&quot;</span></span>
+      <span class='comment'># e.g. &quot;2004-01-03 00:54:26&quot;</span></pre>
+
+<p>Or, you may change the overall format with #formatter= method.</p>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id formatter'>formatter</span> <span class='op'>=</span> <span class='id proc'>proc</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id severity'>severity</span><span class='comma'>,</span> <span class='id datetime'>datetime</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='id msg'>msg</span><span class='op'>|</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id datetime'>datetime</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id msg'>msg</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+<span class='comment'># e.g. &quot;Thu Sep 22 08:51:08 GMT+9:00 2005: hello world&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Logger/Severity.html" title="Logger::Severity (module)">Severity</a></span>
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Logger/Application.html" title="Logger::Application (class)">Application</a></span>, <span class='object_link'><a href="Logger/Error.html" title="Logger::Error (class)">Error</a></span>, <span class='object_link'><a href="Logger/Formatter.html" title="Logger::Formatter (class)">Formatter</a></span>, <span class='object_link'><a href="Logger/LogDevice.html" title="Logger::LogDevice (class)">LogDevice</a></span>, <span class='object_link'><a href="Logger/ShiftingError.html" title="Logger::ShiftingError (class)">ShiftingError</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1.2.7</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="ProgName-constant" class="">ProgName =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id rev'>rev</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="SEV_LABEL-constant" class="">SEV_LABEL =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Severity label for logging. (max 5 char)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code">require 'monitor'
+
+# == Description
+#
+# The Logger class provides a simple but sophisticated logging utility that
+# you can use to output messages.
+#
+# The messages have associated levels, such as +INFO+ or +ERROR+ that indicate
+# their importance.  You can then give the Logger a level, and only messages
+# at that level of higher will be printed.
+#
+# The levels are:
+#
+# +FATAL+:: an unhandleable error that results in a program crash
+# +ERROR+:: a handleable error condition
+# +WARN+::  a warning
+# +INFO+::  generic (useful) information about system operation
+# +DEBUG+:: low-level information for developers
+#
+# For instance, in a production system, you may have your Logger set to
+# +INFO+ or even +WARN+
+# When you are developing the system, however, you probably
+# want to know about the program's internal state, and would set the Logger to
+# +DEBUG+.
+#
+# *Note*: Logger does not escape or sanitize any messages passed to it.
+# Developers should be aware of when potentially malicious data (user-input)
+# is passed to Logger, and manually escape the untrusted data:
+#
+#   logger.info(&quot;User-input: #{input.dump}&quot;)
+#   logger.info(&quot;User-input: %p&quot; % input)
+#
+# You can use #formatter= for escaping all data.
+#
+#   original_formatter = Logger::Formatter.new
+#   logger.formatter = proc { |severity, datetime, progname, msg|
+#     original_formatter.call(severity, datetime, progname, msg.dump)
+#   }
+#   logger.info(input)
+#
+# === Example
+#
+# This creates a logger to the standard output stream, with a level of +WARN+
+#
+#   log = Logger.new(STDOUT)
+#   log.level = Logger::WARN
+#
+#   log.debug(&quot;Created logger&quot;)
+#   log.info(&quot;Program started&quot;)
+#   log.warn(&quot;Nothing to do!&quot;)
+#
+#   begin
+#     File.each_line(path) do |line|
+#       unless line =~ /^(\w+) = (.*)$/
+#         log.error(&quot;Line in wrong format: #{line}&quot;)
+#       end
+#     end
+#   rescue =&gt; err
+#     log.fatal(&quot;Caught exception; exiting&quot;)
+#     log.fatal(err)
+#   end
+#
+# Because the Logger's level is set to +WARN+, only the warning, error, and
+# fatal messages are recorded.  The debug and info messages are silently
+# discarded.
+#
+# === Features
+#
+# There are several interesting features that Logger provides, like
+# auto-rolling of log files, setting the format of log messages, and
+# specifying a program name in conjunction with the message.  The next section
+# shows you how to achieve these things.
+#
+#
+# == HOWTOs
+#
+# === How to create a logger
+#
+# The options below give you various choices, in more or less increasing
+# complexity.
+#
+# 1. Create a logger which logs messages to STDERR/STDOUT.
+#
+#      logger = Logger.new(STDERR)
+#      logger = Logger.new(STDOUT)
+#
+# 2. Create a logger for the file which has the specified name.
+#
+#      logger = Logger.new('logfile.log')
+#
+# 3. Create a logger for the specified file.
+#
+#      file = File.open('foo.log', File::WRONLY | File::APPEND)
+#      # To create new (and to remove old) logfile, add File::CREAT like;
+#      #   file = open('foo.log', File::WRONLY | File::APPEND | File::CREAT)
+#      logger = Logger.new(file)
+#
+# 4. Create a logger which ages logfile once it reaches a certain size.  Leave
+#    10 &quot;old log files&quot; and each file is about 1,024,000 bytes.
+#
+#      logger = Logger.new('foo.log', 10, 1024000)
+#
+# 5. Create a logger which ages logfile daily/weekly/monthly.
+#
+#      logger = Logger.new('foo.log', 'daily')
+#      logger = Logger.new('foo.log', 'weekly')
+#      logger = Logger.new('foo.log', 'monthly')
+#
+# === How to log a message
+#
+# Notice the different methods (+fatal+, +error+, +info+) being used to log
+# messages of various levels?  Other methods in this family are +warn+ and
+# +debug+.  +add+ is used below to log a message of an arbitrary (perhaps
+# dynamic) level.
+#
+# 1. Message in block.
+#
+#      logger.fatal { &quot;Argument 'foo' not given.&quot; }
+#
+# 2. Message as a string.
+#
+#      logger.error &quot;Argument #{ @foo } mismatch.&quot;
+#
+# 3. With progname.
+#
+#      logger.info('initialize') { &quot;Initializing...&quot; }
+#
+# 4. With severity.
+#
+#      logger.add(Logger::FATAL) { 'Fatal error!' }
+#
+# The block form allows you to create potentially complex log messages,
+# but to delay their evaluation until and unless the message is
+# logged.  For example, if we have the following:
+#
+#     logger.debug { &quot;This is a &quot; + potentially + &quot; expensive operation&quot; }
+#
+# If the logger's level is +INFO+ or higher, no debug messages will be logged,
+# and the entire block will not even be evaluated.  Compare to this:
+#
+#     logger.debug(&quot;This is a &quot; + potentially + &quot; expensive operation&quot;)
+#
+# Here, the string concatenation is done every time, even if the log
+# level is not set to show the debug message.
+#
+# === How to close a logger
+#
+#      logger.close
+#
+# === Setting severity threshold
+#
+# 1. Original interface.
+#
+#      logger.sev_threshold = Logger::WARN
+#
+# 2. Log4r (somewhat) compatible interface.
+#
+#      logger.level = Logger::INFO
+#
+#      DEBUG &lt; INFO &lt; WARN &lt; ERROR &lt; FATAL &lt; UNKNOWN
+#
+#
+# == Format
+#
+# Log messages are rendered in the output stream in a certain format by
+# default.  The default format and a sample are shown below:
+#
+# Log format:
+#   SeverityID, [Date Time mSec #pid] SeverityLabel -- ProgName: message
+#
+# Log sample:
+#   I, [Wed Mar 03 02:34:24 JST 1999 895701 #19074]  INFO -- Main: info.
+#
+# You may change the date and time format via #datetime_format=
+#
+#   logger.datetime_format = &quot;%Y-%m-%d %H:%M:%S&quot;
+#         # e.g. &quot;2004-01-03 00:54:26&quot;
+#
+# Or, you may change the overall format with #formatter= method.
+#
+#   logger.formatter = proc do |severity, datetime, progname, msg|
+#     &quot;#{datetime}: #{msg}\n&quot;
+#   end
+#   # e.g. &quot;Thu Sep 22 08:51:08 GMT+9:00 2005: hello world&quot;
+#
+class Logger
+VERSION = &quot;1.2.7&quot;
+_, name, rev = %w$Id: logger.rb 31641 2011-05-19 00:07:25Z nobu $
+if name
+  name = name.chomp(&quot;,v&quot;)
+else
+  name = File.basename(__FILE__)
+end
+rev ||= &quot;v#{VERSION}&quot;
+ProgName = &quot;#{name}/#{rev}&quot;
+
+class Error &lt; RuntimeError # :nodoc:
+end
+# not used after 1.2.7. just for compat.
+class ShiftingError &lt; Error # :nodoc:
+end
+
+# Logging severity.
+module Severity
+  # Low-level information, mostly for developers
+  DEBUG = 0
+  # generic, useful information about system operation
+  INFO = 1
+  # a warning
+  WARN = 2
+  # a handleable error condition
+  ERROR = 3
+  # an unhandleable error that results in a program crash
+  FATAL = 4
+  # an unknown message that should always be logged
+  UNKNOWN = 5
+end
+include Severity
+
+# Logging severity threshold (e.g. &lt;tt&gt;Logger::INFO&lt;/tt&gt;).
+attr_accessor :level
+
+# program name to include in log messages.
+attr_accessor :progname
+
+# Set date-time format.
+#
+# +datetime_format+:: A string suitable for passing to +strftime+.
+def datetime_format=(datetime_format)
+  @default_formatter.datetime_format = datetime_format
+end
+
+# Returns the date format being used.  See #datetime_format=
+def datetime_format
+  @default_formatter.datetime_format
+end
+
+# Logging formatter, as a +Proc+ that will take four arguments and
+# return the formatted message. The arguments are:
+#
+# +severity+:: The Severity of the log message
+# +time+:: A Time instance representing when the message was logged
+# +progname+:: The #progname configured, or passed to the logger method
+# +msg+:: The _Object_ the user passed to the log message; not necessarily a
+#         String.
+#
+# The block should return an Object that can be written to the logging
+# device via +write+.  The default formatter is used when no formatter is
+# set.
+attr_accessor :formatter
+
+alias sev_threshold level
+alias sev_threshold= level=
+
+# Returns +true+ iff the current severity level allows for the printing of
+# +DEBUG+ messages.
+def debug?; @level &lt;= DEBUG; end
+
+# Returns +true+ iff the current severity level allows for the printing of
+# +INFO+ messages.
+def info?; @level &lt;= INFO; end
+
+# Returns +true+ iff the current severity level allows for the printing of
+# +WARN+ messages.
+def warn?; @level &lt;= WARN; end
+
+# Returns +true+ iff the current severity level allows for the printing of
+# +ERROR+ messages.
+def error?; @level &lt;= ERROR; end
+
+# Returns +true+ iff the current severity level allows for the printing of
+# +FATAL+ messages.
+def fatal?; @level &lt;= FATAL; end
+
+#
+# === Synopsis
+#
+#   Logger.new(name, shift_age = 7, shift_size = 1048576)
+#   Logger.new(name, shift_age = 'weekly')
+#
+# === Args
+#
+# +logdev+::
+#   The log device.  This is a filename (String) or IO object (typically
+#   +STDOUT+, +STDERR+, or an open file).
+# +shift_age+::
+#   Number of old log files to keep, *or* frequency of rotation (+daily+,
+#   +weekly+ or +monthly+).
+# +shift_size+::
+#   Maximum logfile size (only applies when +shift_age+ is a number).
+#
+# === Description
+#
+# Create an instance.
+#
+def initialize(logdev, shift_age = 0, shift_size = 1048576)
+  @progname = nil
+  @level = DEBUG
+  @default_formatter = Formatter.new
+  @formatter = nil
+  @logdev = nil
+  if logdev
+    @logdev = LogDevice.new(logdev, :shift_age =&gt; shift_age,
+      :shift_size =&gt; shift_size)
+  end
+end
+
+#
+# === Synopsis
+#
+#   Logger#add(severity, message = nil, progname = nil) { ... }
+#
+# === Args
+#
+# +severity+::
+#   Severity.  Constants are defined in Logger namespace: +DEBUG+, +INFO+,
+#   +WARN+, +ERROR+, +FATAL+, or +UNKNOWN+.
+# +message+::
+#   The log message.  A String or Exception.
+# +progname+::
+#   Program name string.  Can be omitted.  Treated as a message if no
+#   +message+ and +block+ are given.
+# +block+::
+#   Can be omitted.  Called to get a message string if +message+ is nil.
+#
+# === Return
+#
+# +true+ if successful, +false+ otherwise.
+#
+# When the given severity is not high enough (for this particular logger), log
+# no message, and return +true+.
+#
+# === Description
+#
+# Log a message if the given severity is high enough.  This is the generic
+# logging method.  Users will be more inclined to use #debug, #info, #warn,
+# #error, and #fatal.
+#
+# &lt;b&gt;Message format&lt;/b&gt;: +message+ can be any object, but it has to be
+# converted to a String in order to log it.  Generally, +inspect+ is used
+# if the given object is not a String.
+# A special case is an +Exception+ object, which will be printed in detail,
+# including message, class, and backtrace.  See #msg2str for the
+# implementation if required.
+#
+# === Bugs
+#
+# * Logfile is not locked.
+# * Append open does not need to lock file.
+# * If the OS which supports multi I/O, records possibly be mixed.
+#
+def add(severity, message = nil, progname = nil, &amp;block)
+  severity ||= UNKNOWN
+  if @logdev.nil? or severity &lt; @level
+    return true
+  end
+  progname ||= @progname
+  if message.nil?
+    if block_given?
+      message = yield
+    else
+      message = progname
+      progname = @progname
+    end
+  end
+  @logdev.write(
+    format_message(format_severity(severity), Time.now, progname, message))
+  true
+end
+alias log add
+
+#
+# Dump given message to the log device without any formatting.  If no log
+# device exists, return +nil+.
+#
+def &lt;&lt;(msg)
+  unless @logdev.nil?
+    @logdev.write(msg)
+  end
+end
+
+#
+# Log a +DEBUG+ message.
+#
+# See #info for more information.
+#
+def debug(progname = nil, &amp;block)
+  add(DEBUG, nil, progname, &amp;block)
+end
+
+#
+# :call-seq:
+#   info(message)
+#   info(progname,&amp;block)
+#
+# Log an +INFO+ message.
+#
+# +message+:: the message to log; does not need to be a String
+# +progname+:: in the block form, this is the #progname to use in the
+#              the log message.  The default can be set with #progname=
+# &lt;tt&gt;&amp;block&lt;/tt&gt;:: evaluates to the message to log.  This is not evaluated
+#                   unless the logger's level is sufficient
+#                   to log the message.  This allows you to create
+#                   potentially expensive logging messages that are
+#                   only called when the logger is configured to show them.
+#
+# === Examples
+#
+#   logger.info(&quot;MainApp&quot;) { &quot;Received connection from #{ip}&quot; }
+#   # ...
+#   logger.info &quot;Waiting for input from user&quot;
+#   # ...
+#   logger.info { &quot;User typed #{input}&quot; }
+#
+# You'll probably stick to the second form above, unless you want to provide a
+# program name (which you can do with #progname= as well).
+#
+# === Return
+#
+# See #add.
+#
+def info(progname = nil, &amp;block)
+  add(INFO, nil, progname, &amp;block)
+end
+
+#
+# Log a +WARN+ message.
+#
+# See #info for more information.
+#
+def warn(progname = nil, &amp;block)
+  add(WARN, nil, progname, &amp;block)
+end
+
+#
+# Log an +ERROR+ message.
+#
+# See #info for more information.
+#
+def error(progname = nil, &amp;block)
+  add(ERROR, nil, progname, &amp;block)
+end
+
+#
+# Log a +FATAL+ message.
+#
+# See #info for more information.
+#
+def fatal(progname = nil, &amp;block)
+  add(FATAL, nil, progname, &amp;block)
+end
+
+#
+# Log an +UNKNOWN+ message.  This will be printed no matter what the logger's
+# level.
+#
+# See #info for more information.
+#
+def unknown(progname = nil, &amp;block)
+  add(UNKNOWN, nil, progname, &amp;block)
+end
+
+#
+# Close the logging device.
+#
+def close
+  @logdev.close if @logdev
+end
+
+private
+
+# Severity label for logging. (max 5 char)
+SEV_LABEL = %w(DEBUG INFO WARN ERROR FATAL ANY)</pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="Logger/Severity.html" title="Logger::Severity (module)">Severity</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Logger/Severity.html#DEBUG-constant" title="Logger::Severity::DEBUG (constant)">DEBUG</a></span>, <span class='object_link'><a href="Logger/Severity.html#ERROR-constant" title="Logger::Severity::ERROR (constant)">ERROR</a></span>, <span class='object_link'><a href="Logger/Severity.html#FATAL-constant" title="Logger::Severity::FATAL (constant)">FATAL</a></span>, <span class='object_link'><a href="Logger/Severity.html#INFO-constant" title="Logger::Severity::INFO (constant)">INFO</a></span>, <span class='object_link'><a href="Logger/Severity.html#UNKNOWN-constant" title="Logger::Severity::UNKNOWN (constant)">UNKNOWN</a></span>, <span class='object_link'><a href="Logger/Severity.html#WARN-constant" title="Logger::Severity::WARN (constant)">WARN</a></span></p>
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#formatter-instance_method" title="#formatter (instance method)">- (Object) <strong>formatter</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Logging formatter, as a <tt>Proc</tt> that will take four arguments and
+return the formatted message.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#level-instance_method" title="#level (instance method)">- (Object) <strong>level</strong> </a>
+    
+
+    
+      (also: #sev_threshold)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Logging severity threshold (e.g. <tt>Logger::INFO</tt>).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#progname-instance_method" title="#progname (instance method)">- (Object) <strong>progname</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>program name to include in log messages.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3C-instance_method" title="#&lt;&lt; (instance method)">- (Object) <strong>&lt;&lt;</strong>(msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dump given message to the log device without any formatting.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add-instance_method" title="#add (instance method)">- (Object) <strong>add</strong>(severity, message = nil, progname = nil, &amp;block) </a>
+    
+
+    
+      (also: #log)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h3>Synopsis.</h3>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close-instance_method" title="#close (instance method)">- (Object) <strong>close</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Close the logging device.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#datetime_format-instance_method" title="#datetime_format (instance method)">- (Object) <strong>datetime_format</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the date format being used.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#datetime_format%3D-instance_method" title="#datetime_format= (instance method)">- (Object) <strong>datetime_format=</strong>(datetime_format) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set date-time format.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug-instance_method" title="#debug (instance method)">- (Object) <strong>debug</strong>(progname = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Log a <tt>DEBUG</tt> message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug%3F-instance_method" title="#debug? (instance method)">- (Boolean) <strong>debug?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>DEBUG</tt> messages.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#error-instance_method" title="#error (instance method)">- (Object) <strong>error</strong>(progname = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Log an <tt>ERROR</tt> message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#error%3F-instance_method" title="#error? (instance method)">- (Boolean) <strong>error?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>ERROR</tt> messages.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fatal-instance_method" title="#fatal (instance method)">- (Object) <strong>fatal</strong>(progname = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Log a <tt>FATAL</tt> message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fatal%3F-instance_method" title="#fatal? (instance method)">- (Boolean) <strong>fatal?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>FATAL</tt> messages.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format_message-instance_method" title="#format_message (instance method)">- (Object) <strong>format_message</strong>(severity, datetime, progname, msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format_severity-instance_method" title="#format_severity (instance method)">- (Object) <strong>format_severity</strong>(severity) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(progname = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#info%3F-instance_method" title="#info? (instance method)">- (Boolean) <strong>info?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>INFO</tt> messages.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Logger) <strong>initialize</strong>(logdev, shift_age = 0, shift_size = 1048576) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h3>Synopsis.</h3>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unknown-instance_method" title="#unknown (instance method)">- (Object) <strong>unknown</strong>(progname = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Log an <tt>UNKNOWN</tt> message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#warn-instance_method" title="#warn (instance method)">- (Object) <strong>warn</strong>(progname = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Log a <tt>WARN</tt> message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#warn%3F-instance_method" title="#warn? (instance method)">- (Boolean) <strong>warn?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>WARN</tt> messages.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Logger (class)">Logger</a></span></tt>) <strong>initialize</strong>(logdev, shift_age = 0, shift_size = 1048576) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h3>Synopsis</h3>
+
+<pre class="code"><span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id shift_age'>shift_age</span> <span class='op'>=</span> <span class='int'>7</span><span class='comma'>,</span> <span class='id shift_size'>shift_size</span> <span class='op'>=</span> <span class='int'>1048576</span><span class='rparen'>)</span>
+<span class='const'>Logger</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id shift_age'>shift_age</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>weekly</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span></pre>
+
+<h3>Args</h3>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>logdev</tt></p></td>
+<td>
+<p>The log device.  This is a filename (String) or IO object (typically
+<tt>STDOUT</tt>, <tt>STDERR</tt>, or an open file).</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>shift_age</tt></p></td>
+<td>
+<p>Number of old log files to keep, <b>or</b> frequency of rotation
+(<tt>daily</tt>, <tt>weekly</tt> or <tt>monthly</tt>).</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>shift_size</tt></p></td>
+<td>
+<p>Maximum logfile size (only applies when <tt>shift_age</tt> is a number).</p>
+</td></tr></table>
+
+<h3>Description</h3>
+
+<p>Create an instance.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 307</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id logdev'>logdev</span><span class='comma'>,</span> <span class='id shift_age'>shift_age</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id shift_size'>shift_size</span> <span class='op'>=</span> <span class='int'>1048576</span><span class='rparen'>)</span>
+  <span class='ivar'>@progname</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@level</span> <span class='op'>=</span> <span class='const'>DEBUG</span>
+  <span class='ivar'>@default_formatter</span> <span class='op'>=</span> <span class='const'>Formatter</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@formatter</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@logdev</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>if</span> <span class='id logdev'>logdev</span>
+    <span class='ivar'>@logdev</span> <span class='op'>=</span> <span class='const'>LogDevice</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id logdev'>logdev</span><span class='comma'>,</span> <span class='symbol'>:shift_age</span> <span class='op'>=&gt;</span> <span class='id shift_age'>shift_age</span><span class='comma'>,</span>
+      <span class='symbol'>:shift_size</span> <span class='op'>=&gt;</span> <span class='id shift_size'>shift_size</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="formatter=-instance_method"></span>
+      <span id="formatter-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="formatter-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>formatter</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Logging formatter, as a <tt>Proc</tt> that will take four arguments and
+return the formatted message. The arguments are:</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>severity</tt></p></td>
+<td>
+<p>The Severity of the log message</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>time</tt></p></td>
+<td>
+<p>A Time instance representing when the message was logged</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>progname</tt></p></td>
+<td>
+<p>The #progname configured, or passed to the logger method</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>msg</tt></p></td>
+<td>
+<p>The <em>Object</em> the user passed to the log message; not necessarily a
+String.</p>
+</td></tr></table>
+
+<p>The block should return an Object that can be written to the logging device
+via <tt>write</tt>.  The default formatter is used when no formatter is
+set.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+261
+262
+263</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 261</span>
+
+<span class='kw'>def</span> <span class='id formatter'>formatter</span>
+  <span class='ivar'>@formatter</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="level=-instance_method"></span>
+      <span id="level-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="level-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>level</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='sev_threshold-instance_method'>sev_threshold</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Logging severity threshold (e.g. <tt>Logger::INFO</tt>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+232
+233
+234</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 232</span>
+
+<span class='kw'>def</span> <span class='id level'>level</span>
+  <span class='ivar'>@level</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="progname=-instance_method"></span>
+      <span id="progname-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="progname-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>progname</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>program name to include in log messages.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+235
+236
+237</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 235</span>
+
+<span class='kw'>def</span> <span class='id progname'>progname</span>
+  <span class='ivar'>@progname</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="<<-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>&lt;&lt;</strong>(msg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Dump given message to the log device without any formatting.  If no log
+device exists, return <tt>nil</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+387
+388
+389
+390
+391</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 387</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='ivar'>@logdev</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='ivar'>@logdev</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>add</strong>(severity, message = nil, progname = nil, &amp;block) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='log-instance_method'>log</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h3>Synopsis</h3>
+
+<pre class="code"><span class='const'>Logger</span><span class='comment'>#add(severity, message = nil, progname = nil) { ... }</span></pre>
+
+<h3>Args</h3>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>severity</tt></p></td>
+<td>
+<p>Severity.  Constants are defined in Logger namespace: <tt>DEBUG</tt>,
+<tt>INFO</tt>, <tt>WARN</tt>, <tt>ERROR</tt>, <tt>FATAL</tt>, or
+<tt>UNKNOWN</tt>.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>message</tt></p></td>
+<td>
+<p>The log message.  A String or Exception.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>progname</tt></p></td>
+<td>
+<p>Program name string.  Can be omitted.  Treated as a message if no
+<tt>message</tt> and <tt>block</tt> are given.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>block</tt></p></td>
+<td>
+<p>Can be omitted.  Called to get a message string if <tt>message</tt> is nil.</p>
+</td></tr></table>
+
+<h3>Return</h3>
+
+<p><tt>true</tt> if successful, <tt>false</tt> otherwise.</p>
+
+<p>When the given severity is not high enough (for this particular logger),
+log no message, and return <tt>true</tt>.</p>
+
+<h3>Description</h3>
+
+<p>Log a message if the given severity is high enough.  This is the generic
+logging method.  Users will be more inclined to use #debug, #info, #warn,
+#error, and #fatal.</p>
+
+<p><b>Message format</b>: <tt>message</tt> can be any object, but it has to be
+converted to a String in order to log it.  Generally, <tt>inspect</tt> is
+used if the given object is not a String. A special case is an
+<tt>Exception</tt> object, which will be printed in detail, including
+message, class, and backtrace.  See #msg2str for the implementation if
+required.</p>
+
+<h3>Bugs</h3>
+<ul><li>
+<p>Logfile is not locked.</p>
+</li><li>
+<p>Append open does not need to lock file.</p>
+</li><li>
+<p>If the OS which supports multi I/O, records possibly be mixed.</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 363</span>
+
+<span class='kw'>def</span> <span class='id add'>add</span><span class='lparen'>(</span><span class='id severity'>severity</span><span class='comma'>,</span> <span class='id message'>message</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id progname'>progname</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id severity'>severity</span> <span class='op'>||=</span> <span class='const'>UNKNOWN</span>
+  <span class='kw'>if</span> <span class='ivar'>@logdev</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id severity'>severity</span> <span class='op'>&lt;</span> <span class='ivar'>@level</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+  <span class='id progname'>progname</span> <span class='op'>||=</span> <span class='ivar'>@progname</span>
+  <span class='kw'>if</span> <span class='id message'>message</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+      <span class='id message'>message</span> <span class='op'>=</span> <span class='kw'>yield</span>
+    <span class='kw'>else</span>
+      <span class='id message'>message</span> <span class='op'>=</span> <span class='id progname'>progname</span>
+      <span class='id progname'>progname</span> <span class='op'>=</span> <span class='ivar'>@progname</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@logdev</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span>
+    <span class='id format_message'>format_message</span><span class='lparen'>(</span><span class='id format_severity'>format_severity</span><span class='lparen'>(</span><span class='id severity'>severity</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='id message'>message</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="close-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>close</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Close the logging device.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+477
+478
+479</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 477</span>
+
+<span class='kw'>def</span> <span class='id close'>close</span>
+  <span class='ivar'>@logdev</span><span class='period'>.</span><span class='id close'>close</span> <span class='kw'>if</span> <span class='ivar'>@logdev</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="datetime_format-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>datetime_format</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the date format being used.  See #datetime_format=</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+245
+246
+247</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 245</span>
+
+<span class='kw'>def</span> <span class='id datetime_format'>datetime_format</span>
+  <span class='ivar'>@default_formatter</span><span class='period'>.</span><span class='id datetime_format'>datetime_format</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="datetime_format=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>datetime_format=</strong>(datetime_format) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Set date-time format.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>datetime_format</tt></p></td>
+<td>
+<p>A string suitable for passing to <tt>strftime</tt>.</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+240
+241
+242</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 240</span>
+
+<span class='kw'>def</span> <span class='id datetime_format='>datetime_format=</span><span class='lparen'>(</span><span class='id datetime_format'>datetime_format</span><span class='rparen'>)</span>
+  <span class='ivar'>@default_formatter</span><span class='period'>.</span><span class='id datetime_format'>datetime_format</span> <span class='op'>=</span> <span class='id datetime_format'>datetime_format</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="debug-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>debug</strong>(progname = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Log a <tt>DEBUG</tt> message.</p>
+
+<p>See #info for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+398
+399
+400</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 398</span>
+
+<span class='kw'>def</span> <span class='id debug'>debug</span><span class='lparen'>(</span><span class='id progname'>progname</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id add'>add</span><span class='lparen'>(</span><span class='const'>DEBUG</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="debug?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>debug?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>DEBUG</tt> messages.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+268</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 268</span>
+
+<span class='kw'>def</span> <span class='id debug?'>debug?</span><span class='semicolon'>;</span> <span class='ivar'>@level</span> <span class='op'>&lt;=</span> <span class='const'>DEBUG</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="error-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>error</strong>(progname = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Log an <tt>ERROR</tt> message.</p>
+
+<p>See #info for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 451</span>
+
+<span class='kw'>def</span> <span class='id error'>error</span><span class='lparen'>(</span><span class='id progname'>progname</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id add'>add</span><span class='lparen'>(</span><span class='const'>ERROR</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="error?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>error?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>ERROR</tt> messages.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+280</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 280</span>
+
+<span class='kw'>def</span> <span class='id error?'>error?</span><span class='semicolon'>;</span> <span class='ivar'>@level</span> <span class='op'>&lt;=</span> <span class='const'>ERROR</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fatal-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>fatal</strong>(progname = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Log a <tt>FATAL</tt> message.</p>
+
+<p>See #info for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+460
+461
+462</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 460</span>
+
+<span class='kw'>def</span> <span class='id fatal'>fatal</span><span class='lparen'>(</span><span class='id progname'>progname</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id add'>add</span><span class='lparen'>(</span><span class='const'>FATAL</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fatal?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>fatal?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>FATAL</tt> messages.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+284</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 284</span>
+
+<span class='kw'>def</span> <span class='id fatal?'>fatal?</span><span class='semicolon'>;</span> <span class='ivar'>@level</span> <span class='op'>&lt;=</span> <span class='const'>FATAL</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="format_message-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>format_message</strong>(severity, datetime, progname, msg) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+490
+491
+492</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 490</span>
+
+<span class='kw'>def</span> <span class='id format_message'>format_message</span><span class='lparen'>(</span><span class='id severity'>severity</span><span class='comma'>,</span> <span class='id datetime'>datetime</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='id msg'>msg</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='ivar'>@formatter</span> <span class='op'>||</span> <span class='ivar'>@default_formatter</span><span class='rparen'>)</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id severity'>severity</span><span class='comma'>,</span> <span class='id datetime'>datetime</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='id msg'>msg</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="format_severity-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>format_severity</strong>(severity) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+486
+487
+488</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 486</span>
+
+<span class='kw'>def</span> <span class='id format_severity'>format_severity</span><span class='lparen'>(</span><span class='id severity'>severity</span><span class='rparen'>)</span>
+  <span class='const'>SEV_LABEL</span><span class='lbracket'>[</span><span class='id severity'>severity</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ANY</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="info-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>info</strong>(progname = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:call-seq:</p>
+
+<pre class="code"><span class='id info'>info</span><span class='lparen'>(</span><span class='id message'>message</span><span class='rparen'>)</span>
+<span class='id info'>info</span><span class='lparen'>(</span><span class='id progname'>progname</span><span class='comma'>,</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span></pre>
+
+<p>Log an <tt>INFO</tt> message.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>message</tt></p></td>
+<td>
+<p>the message to log; does not need to be a String</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>progname</tt></p></td>
+<td>
+<p>in the block form, this is the #progname to use in the the log message. 
+The default can be set with #progname=</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>&amp;block</tt></p></td>
+<td>
+<p>evaluates to the message to log.  This is not evaluated unless the logger's
+level is sufficient to log the message.  This allows you to create
+potentially expensive logging messages that are only called when the logger
+is configured to show them.</p>
+</td></tr></table>
+
+<h3>Examples</h3>
+
+<pre class="code"><span class='id logger'>logger</span><span class='period'>.</span><span class='id info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MainApp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Received connection from </span><span class='embexpr_beg'>#{</span><span class='id ip'>ip</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='comment'># ...
+</span><span class='id logger'>logger</span><span class='period'>.</span><span class='id info'>info</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Waiting for input from user</span><span class='tstring_end'>&quot;</span></span>
+<span class='comment'># ...
+</span><span class='id logger'>logger</span><span class='period'>.</span><span class='id info'>info</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>User typed </span><span class='embexpr_beg'>#{</span><span class='id input'>input</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span></pre>
+
+<p>You'll probably stick to the second form above, unless you want to provide
+a program name (which you can do with #progname= as well).</p>
+
+<h3>Return</h3>
+
+<p>See #add.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+433
+434
+435</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 433</span>
+
+<span class='kw'>def</span> <span class='id info'>info</span><span class='lparen'>(</span><span class='id progname'>progname</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id add'>add</span><span class='lparen'>(</span><span class='const'>INFO</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="info?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>info?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>INFO</tt> messages.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+272</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 272</span>
+
+<span class='kw'>def</span> <span class='id info?'>info?</span><span class='semicolon'>;</span> <span class='ivar'>@level</span> <span class='op'>&lt;=</span> <span class='const'>INFO</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="unknown-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>unknown</strong>(progname = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Log an <tt>UNKNOWN</tt> message.  This will be printed no matter what the
+logger's level.</p>
+
+<p>See #info for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+470
+471
+472</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 470</span>
+
+<span class='kw'>def</span> <span class='id unknown'>unknown</span><span class='lparen'>(</span><span class='id progname'>progname</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id add'>add</span><span class='lparen'>(</span><span class='const'>UNKNOWN</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="warn-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>warn</strong>(progname = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Log a <tt>WARN</tt> message.</p>
+
+<p>See #info for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+442
+443
+444</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 442</span>
+
+<span class='kw'>def</span> <span class='id warn'>warn</span><span class='lparen'>(</span><span class='id progname'>progname</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id add'>add</span><span class='lparen'>(</span><span class='const'>WARN</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id progname'>progname</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="warn?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>warn?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> iff the current severity level allows for the
+printing of <tt>WARN</tt> messages.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+276</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/logger.rb', line 276</span>
+
+<span class='kw'>def</span> <span class='id warn?'>warn?</span><span class='semicolon'>;</span> <span class='ivar'>@level</span> <span class='op'>&lt;=</span> <span class='const'>WARN</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:12 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

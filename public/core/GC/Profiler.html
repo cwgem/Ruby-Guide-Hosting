@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Module: GC::Profiler</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="module">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../gc_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="gc.c">gc.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-clear">::clear</a></li>
+          
+          <li><a href="#method-c-disable">::disable</a></li>
+          
+          <li><a href="#method-c-enable">::enable</a></li>
+          
+          <li><a href="#method-c-enabled-3F">::enabled?</a></li>
+          
+          <li><a href="#method-c-report">::report</a></li>
+          
+          <li><a href="#method-c-result">::result</a></li>
+          
+          <li><a href="#method-c-total_time">::total_time</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../Encoding.html">Encoding</a></li>
+        
+          <li><a href="../Encoding/CompatibilityError.html">Encoding::CompatibilityError</a></li>
+        
+          <li><a href="../Encoding/Converter.html">Encoding::Converter</a></li>
+        
+          <li><a href="../Encoding/ConverterNotFoundError.html">Encoding::ConverterNotFoundError</a></li>
+        
+          <li><a href="../Encoding/InvalidByteSequenceError.html">Encoding::InvalidByteSequenceError</a></li>
+        
+          <li><a href="../Encoding/UndefinedConversionError.html">Encoding::UndefinedConversionError</a></li>
+        
+          <li><a href="../Process.html">Process</a></li>
+        
+          <li><a href="../Process/GID.html">Process::GID</a></li>
+        
+          <li><a href="../Process/Status.html">Process::Status</a></li>
+        
+          <li><a href="../Process/Sys.html">Process::Sys</a></li>
+        
+          <li><a href="../Process/UID.html">Process::UID</a></li>
+        
+          <li><a href="../Enumerator.html">Enumerator</a></li>
+        
+          <li><a href="../Enumerator/Generator.html">Enumerator::Generator</a></li>
+        
+          <li><a href="../Enumerator/Yielder.html">Enumerator::Yielder</a></li>
+        
+          <li><a href="../File.html">File</a></li>
+        
+          <li><a href="../File/Constants.html">File::Constants</a></li>
+        
+          <li><a href="../File/Stat.html">File::Stat</a></li>
+        
+          <li><a href="../IO.html">IO</a></li>
+        
+          <li><a href="../IO/WaitReadable.html">IO::WaitReadable</a></li>
+        
+          <li><a href="../IO/WaitWritable.html">IO::WaitWritable</a></li>
+        
+          <li><a href="../RubyVM.html">RubyVM</a></li>
+        
+          <li><a href="../RubyVM/Env.html">RubyVM::Env</a></li>
+        
+          <li><a href="../RubyVM/InstructionSequence.html">RubyVM::InstructionSequence</a></li>
+        
+          <li><a href="../GC.html">GC</a></li>
+        
+          <li><a href="../GC/Profiler.html">GC::Profiler</a></li>
+        
+          <li><a href="../Math.html">Math</a></li>
+        
+          <li><a href="../Math/DomainError.html">Math::DomainError</a></li>
+        
+          <li><a href="../NameError.html">NameError</a></li>
+        
+          <li><a href="../NameError/message.html">NameError::message</a></li>
+        
+          <li><a href="../ARGF.html">ARGF</a></li>
+        
+          <li><a href="../ArgumentError.html">ArgumentError</a></li>
+        
+          <li><a href="../Array.html">Array</a></li>
+        
+          <li><a href="../BasicObject.html">BasicObject</a></li>
+        
+          <li><a href="../Bignum.html">Bignum</a></li>
+        
+          <li><a href="../Binding.html">Binding</a></li>
+        
+          <li><a href="../Class.html">Class</a></li>
+        
+          <li><a href="../Comparable.html">Comparable</a></li>
+        
+          <li><a href="../Complex.html">Complex</a></li>
+        
+          <li><a href="../Continuation.html">Continuation</a></li>
+        
+          <li><a href="../Data.html">Data</a></li>
+        
+          <li><a href="../Dir.html">Dir</a></li>
+        
+          <li><a href="../ENV.html">ENV</a></li>
+        
+          <li><a href="../EOFError.html">EOFError</a></li>
+        
+          <li><a href="../EncodingError.html">EncodingError</a></li>
+        
+          <li><a href="../Enumerable.html">Enumerable</a></li>
+        
+          <li><a href="../Errno.html">Errno</a></li>
+        
+          <li><a href="../Exception.html">Exception</a></li>
+        
+          <li><a href="../FalseClass.html">FalseClass</a></li>
+        
+          <li><a href="../Fiber.html">Fiber</a></li>
+        
+          <li><a href="../FiberError.html">FiberError</a></li>
+        
+          <li><a href="../FileTest.html">FileTest</a></li>
+        
+          <li><a href="../Fixnum.html">Fixnum</a></li>
+        
+          <li><a href="../Float.html">Float</a></li>
+        
+          <li><a href="../FloatDomainError.html">FloatDomainError</a></li>
+        
+          <li><a href="../Hash.html">Hash</a></li>
+        
+          <li><a href="../IOError.html">IOError</a></li>
+        
+          <li><a href="../IndexError.html">IndexError</a></li>
+        
+          <li><a href="../Integer.html">Integer</a></li>
+        
+          <li><a href="../Interrupt.html">Interrupt</a></li>
+        
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../KeyError.html">KeyError</a></li>
+        
+          <li><a href="../LoadError.html">LoadError</a></li>
+        
+          <li><a href="../LocalJumpError.html">LocalJumpError</a></li>
+        
+          <li><a href="../Marshal.html">Marshal</a></li>
+        
+          <li><a href="../MatchData.html">MatchData</a></li>
+        
+          <li><a href="../Method.html">Method</a></li>
+        
+          <li><a href="../Module.html">Module</a></li>
+        
+          <li><a href="../Mutex.html">Mutex</a></li>
+        
+          <li><a href="../NilClass.html">NilClass</a></li>
+        
+          <li><a href="../NoMemoryError.html">NoMemoryError</a></li>
+        
+          <li><a href="../NoMethodError.html">NoMethodError</a></li>
+        
+          <li><a href="../NotImplementedError.html">NotImplementedError</a></li>
+        
+          <li><a href="../Numeric.html">Numeric</a></li>
+        
+          <li><a href="../Object.html">Object</a></li>
+        
+          <li><a href="../ObjectSpace.html">ObjectSpace</a></li>
+        
+          <li><a href="../Proc.html">Proc</a></li>
+        
+          <li><a href="../Random.html">Random</a></li>
+        
+          <li><a href="../Range.html">Range</a></li>
+        
+          <li><a href="../RangeError.html">RangeError</a></li>
+        
+          <li><a href="../Rational.html">Rational</a></li>
+        
+          <li><a href="../Regexp.html">Regexp</a></li>
+        
+          <li><a href="../RegexpError.html">RegexpError</a></li>
+        
+          <li><a href="../Ripper.html">Ripper</a></li>
+        
+          <li><a href="../RuntimeError.html">RuntimeError</a></li>
+        
+          <li><a href="../ScriptError.html">ScriptError</a></li>
+        
+          <li><a href="../SecurityError.html">SecurityError</a></li>
+        
+          <li><a href="../Signal.html">Signal</a></li>
+        
+          <li><a href="../SignalException.html">SignalException</a></li>
+        
+          <li><a href="../StandardError.html">StandardError</a></li>
+        
+          <li><a href="../StopIteration.html">StopIteration</a></li>
+        
+          <li><a href="../String.html">String</a></li>
+        
+          <li><a href="../Struct.html">Struct</a></li>
+        
+          <li><a href="../Symbol.html">Symbol</a></li>
+        
+          <li><a href="../SyntaxError.html">SyntaxError</a></li>
+        
+          <li><a href="../SystemCallError.html">SystemCallError</a></li>
+        
+          <li><a href="../SystemExit.html">SystemExit</a></li>
+        
+          <li><a href="../SystemStackError.html">SystemStackError</a></li>
+        
+          <li><a href="../Thread.html">Thread</a></li>
+        
+          <li><a href="../ThreadError.html">ThreadError</a></li>
+        
+          <li><a href="../ThreadGroup.html">ThreadGroup</a></li>
+        
+          <li><a href="../Time.html">Time</a></li>
+        
+          <li><a href="../TrueClass.html">TrueClass</a></li>
+        
+          <li><a href="../TypeError.html">TypeError</a></li>
+        
+          <li><a href="../UnboundMethod.html">UnboundMethod</a></li>
+        
+          <li><a href="../ZeroDivisionError.html">ZeroDivisionError</a></li>
+        
+          <li><a href="../fatal.html">fatal</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="module">GC::Profiler</h1>
+
+    <div id="description" class="description">
+      
+<p>The <a href="../GC.html">GC</a> profiler provides access to information on
+<a href="../GC.html">GC</a> runs including time, length and object space
+size.</p>
+
+<p>Example:</p>
+
+<pre>GC::Profiler.enable
+
+require 'rdoc/rdoc'
+
+puts GC::Profiler.result
+
+GC::Profiler.disable</pre>
+
+<p>See also <a href="../GC.html#method-c-count">GC.count</a>, <a
+href="../GC.html#method-c-malloc_allocated_size">GC.malloc_allocated_size</a>
+and <a
+href="../GC.html#method-c-malloc_allocations">GC.malloc_allocations</a></p>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="clear-method" class="method-detail ">
+          <a name="method-c-clear"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">GC::Profiler.clear          &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Clears the <a href="../GC.html">GC</a> profiler data.</p>
+            
+
+            
+            <div class="method-source-code" id="clear-source">
+<pre>
+static VALUE
+gc_profile_clear(void)
+{
+    rb_objspace_t *objspace = &amp;rb_objspace;
+    MEMZERO(objspace-&gt;profile.record, gc_profile_record, objspace-&gt;profile.size);
+    objspace-&gt;profile.count = 0;
+    return Qnil;
+}</pre>
+            </div><!-- clear-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- clear-method -->
+
+      
+        <div id="disable-method" class="method-detail ">
+          <a name="method-c-disable"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">GC::Profiler.disable          &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Stops the <a href="../GC.html">GC</a> profiler.</p>
+            
+
+            
+            <div class="method-source-code" id="disable-source">
+<pre>
+static VALUE
+gc_profile_disable(void)
+{
+    rb_objspace_t *objspace = &amp;rb_objspace;
+
+    objspace-&gt;profile.run = FALSE;
+    return Qnil;
+}</pre>
+            </div><!-- disable-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- disable-method -->
+
+      
+        <div id="enable-method" class="method-detail ">
+          <a name="method-c-enable"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">GC::Profiler.enable          &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Starts the <a href="../GC.html">GC</a> profiler.</p>
+            
+
+            
+            <div class="method-source-code" id="enable-source">
+<pre>
+static VALUE
+gc_profile_enable(void)
+{
+    rb_objspace_t *objspace = &amp;rb_objspace;
+
+    objspace-&gt;profile.run = TRUE;
+    return Qnil;
+}</pre>
+            </div><!-- enable-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- enable-method -->
+
+      
+        <div id="enabled-3F-method" class="method-detail ">
+          <a name="method-c-enabled-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">GC::Profiler.enable?                 &rarr; true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>The current status of <a href="../GC.html">GC</a> profile mode.</p>
+            
+
+            
+            <div class="method-source-code" id="enabled-3F-source">
+<pre>
+static VALUE
+gc_profile_enable_get(VALUE self)
+{
+    rb_objspace_t *objspace = &amp;rb_objspace;
+    return objspace-&gt;profile.run;
+}</pre>
+            </div><!-- enabled-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- enabled-3F-method -->
+
+      
+        <div id="report-method" class="method-detail ">
+          <a name="method-c-report"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">GC::Profiler.report</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">GC::Profiler.report io</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Writes the GC::Profiler#result to <tt>$stdout</tt> or the given <a
+href="../IO.html">IO</a> object.</p>
+            
+
+            
+            <div class="method-source-code" id="report-source">
+<pre>
+static VALUE
+gc_profile_report(int argc, VALUE *argv, VALUE self)
+{
+    VALUE out;
+
+    if (argc == 0) {
+        out = rb_stdout;
+    }
+    else {
+        rb_scan_args(argc, argv, &quot;01&quot;, &amp;out);
+    }
+    rb_io_write(out, gc_profile_result());
+
+    return Qnil;
+}</pre>
+            </div><!-- report-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- report-method -->
+
+      
+        <div id="result-method" class="method-detail ">
+          <a name="method-c-result"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">GC::Profiler.result &rarr; String</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns a profile data report such as:</p>
+
+<pre>GC 1 invokes.
+Index    Invoke Time(sec)       Use Size(byte)     Total Size(byte)         Total Object                    GC time(ms)
+    1               0.012               159240               212940                10647         0.00000000000001530000</pre>
+            
+
+            
+            <div class="method-source-code" id="result-source">
+<pre>
+static VALUE
+gc_profile_result(void)
+{
+    rb_objspace_t *objspace = &amp;rb_objspace;
+    VALUE record;
+    VALUE result;
+    int i, index;
+
+    record = gc_profile_record_get();
+    if (objspace-&gt;profile.run &amp;&amp; objspace-&gt;profile.count) {
+        result = rb_sprintf(&quot;GC %d invokes.\n&quot;, NUM2INT(gc_count(0)));
+        index = 1;
+        rb_str_cat2(result, &quot;Index    Invoke Time(sec)       Use Size(byte)     Total Size(byte)         Total Object                    GC Time(ms)\n&quot;);
+        for (i = 0; i &lt; (int)RARRAY_LEN(record); i++) {
+            VALUE r = RARRAY_PTR(record)[i];
+#if !GC_PROFILE_MORE_DETAIL
+            if (rb_hash_aref(r, ID2SYM(rb_intern(&quot;GC_IS_MARKED&quot;)))) {
+#endif
+            rb_str_catf(result, &quot;%5d %19.3f %20&quot;PRIuSIZE&quot; %20&quot;PRIuSIZE&quot; %20&quot;PRIuSIZE&quot; %30.20f\n&quot;,
+                        index++, NUM2DBL(rb_hash_aref(r, ID2SYM(rb_intern(&quot;GC_INVOKE_TIME&quot;)))),
+                        (size_t)NUM2SIZET(rb_hash_aref(r, ID2SYM(rb_intern(&quot;HEAP_USE_SIZE&quot;)))),
+                        (size_t)NUM2SIZET(rb_hash_aref(r, ID2SYM(rb_intern(&quot;HEAP_TOTAL_SIZE&quot;)))),
+                        (size_t)NUM2SIZET(rb_hash_aref(r, ID2SYM(rb_intern(&quot;HEAP_TOTAL_OBJECTS&quot;)))),
+                        NUM2DBL(rb_hash_aref(r, ID2SYM(rb_intern(&quot;GC_TIME&quot;))))*1000);
+#if !GC_PROFILE_MORE_DETAIL
+            }
+#endif
+        }
+#if GC_PROFILE_MORE_DETAIL
+        rb_str_cat2(result, &quot;\n\n&quot;);
+        rb_str_cat2(result, &quot;More detail.\n&quot;);
+        rb_str_cat2(result, &quot;Index Allocate Increase    Allocate Limit  Use Slot  Have Finalize             Mark Time(ms)            Sweep Time(ms)\n&quot;);
+        index = 1;
+        for (i = 0; i &lt; (int)RARRAY_LEN(record); i++) {
+            VALUE r = RARRAY_PTR(record)[i];
+            rb_str_catf(result, &quot;%5d %17&quot;PRIuSIZE&quot; %17&quot;PRIuSIZE&quot; %9&quot;PRIuSIZE&quot; %14s %25.20f %25.20f\n&quot;,
+                        index++, (size_t)NUM2SIZET(rb_hash_aref(r, ID2SYM(rb_intern(&quot;ALLOCATE_INCREASE&quot;)))),
+                        (size_t)NUM2SIZET(rb_hash_aref(r, ID2SYM(rb_intern(&quot;ALLOCATE_LIMIT&quot;)))),
+                        (size_t)NUM2SIZET(rb_hash_aref(r, ID2SYM(rb_intern(&quot;HEAP_USE_SLOTS&quot;)))),
+                        rb_hash_aref(r, ID2SYM(rb_intern(&quot;HAVE_FINALIZE&quot;)))? &quot;true&quot; : &quot;false&quot;,
+                        NUM2DBL(rb_hash_aref(r, ID2SYM(rb_intern(&quot;GC_MARK_TIME&quot;))))*1000,
+                        NUM2DBL(rb_hash_aref(r, ID2SYM(rb_intern(&quot;GC_SWEEP_TIME&quot;))))*1000);
+        }
+#endif
+    }
+    else {
+        result = rb_str_new2(&quot;&quot;);
+    }
+    return result;
+}</pre>
+            </div><!-- result-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- result-method -->
+
+      
+        <div id="total_time-method" class="method-detail ">
+          <a name="method-c-total_time"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">GC::Profiler.total_time &rarr; float</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>The total time used for garbage collection in milliseconds</p>
+            
+
+            
+            <div class="method-source-code" id="total_time-source">
+<pre>
+static VALUE
+gc_profile_total_time(VALUE self)
+{
+    double time = 0;
+    rb_objspace_t *objspace = &amp;rb_objspace;
+    size_t i;
+
+    if (objspace-&gt;profile.run &amp;&amp; objspace-&gt;profile.count) {
+        for (i = 0; i &lt; objspace-&gt;profile.count; i++) {
+            time += objspace-&gt;profile.record[i].gc_time;
+        }
+    }
+    return DBL2NUM(time);
+}</pre>
+            </div><!-- total_time-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- total_time-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

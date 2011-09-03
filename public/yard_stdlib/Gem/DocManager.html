@@ -1,0 +1,1343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Gem::DocManager
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Gem.html" title="Gem (module)">Gem</a></span></span>
+     &raquo; 
+    <span class="title">DocManager</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Gem::DocManager
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Gem::DocManager</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="UserInteraction.html" title="Gem::UserInteraction (module)">UserInteraction</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rubygems/doc_manager.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>The documentation manager generates RDoc and RI for RubyGems.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configured_args-class_method" title="configured_args (class method)">+ (Object) <strong>configured_args</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configured_args%3D-class_method" title="configured_args= (class method)">+ (Object) <strong>configured_args=</strong>(args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_rdoc-class_method" title="load_rdoc (class method)">+ (Object) <strong>load_rdoc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Load RDoc from a gem if it is available, otherwise from Ruby's stdlib.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rdoc_version-class_method" title="rdoc_version (class method)">+ (Object) <strong>rdoc_version</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_ri_cache-class_method" title="update_ri_cache (class method)">+ (Object) <strong>update_ri_cache</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Updates the RI cache for RDoc 2 if it is installed.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_rdoc-instance_method" title="#generate_rdoc (instance method)">- (Object) <strong>generate_rdoc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate the RDoc documents for this gem spec.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_ri-instance_method" title="#generate_ri (instance method)">- (Object) <strong>generate_ri</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate the RI documents for this gem spec.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (DocManager) <strong>initialize</strong>(spec, rdoc_args = &quot;&quot;) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a document manager for <tt>spec</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_rdoc-instance_method" title="#install_rdoc (instance method)">- (Object) <strong>install_rdoc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate and install RDoc into the documentation directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_ri-instance_method" title="#install_ri (instance method)">- (Object) <strong>install_ri</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate and install RI into the documentation directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rdoc_installed%3F-instance_method" title="#rdoc_installed? (instance method)">- (Boolean) <strong>rdoc_installed?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Is the RDoc documentation installed?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ri_installed%3F-instance_method" title="#ri_installed? (instance method)">- (Boolean) <strong>ri_installed?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Is the RI documentation installed?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_rdoc-instance_method" title="#run_rdoc (instance method)">- (Object) <strong>run_rdoc</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Run RDoc with <tt>args</tt>, which is an ARGV style argument list.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_rdoc-instance_method" title="#setup_rdoc (instance method)">- (Object) <strong>setup_rdoc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uninstall_doc-instance_method" title="#uninstall_doc (instance method)">- (Object) <strong>uninstall_doc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Remove RDoc and RI documentation.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="UserInteraction.html" title="Gem::UserInteraction (module)">UserInteraction</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="UserInteraction.html#alert-instance_method" title="Gem::UserInteraction#alert (method)">#alert</a></span>, <span class='object_link'><a href="UserInteraction.html#alert_error-instance_method" title="Gem::UserInteraction#alert_error (method)">#alert_error</a></span>, <span class='object_link'><a href="UserInteraction.html#alert_warning-instance_method" title="Gem::UserInteraction#alert_warning (method)">#alert_warning</a></span>, <span class='object_link'><a href="UserInteraction.html#ask-instance_method" title="Gem::UserInteraction#ask (method)">#ask</a></span>, <span class='object_link'><a href="UserInteraction.html#ask_for_password-instance_method" title="Gem::UserInteraction#ask_for_password (method)">#ask_for_password</a></span>, <span class='object_link'><a href="UserInteraction.html#ask_yes_no-instance_method" title="Gem::UserInteraction#ask_yes_no (method)">#ask_yes_no</a></span>, <span class='object_link'><a href="UserInteraction.html#choose_from_list-instance_method" title="Gem::UserInteraction#choose_from_list (method)">#choose_from_list</a></span>, <span class='object_link'><a href="UserInteraction.html#say-instance_method" title="Gem::UserInteraction#say (method)">#say</a></span>, <span class='object_link'><a href="UserInteraction.html#terminate_interaction-instance_method" title="Gem::UserInteraction#terminate_interaction (method)">#terminate_interaction</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="DefaultUserInteraction.html" title="Gem::DefaultUserInteraction (module)">DefaultUserInteraction</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="DefaultUserInteraction.html#ui-class_method" title="Gem::DefaultUserInteraction.ui (method)">ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui-instance_method" title="Gem::DefaultUserInteraction#ui (method)">#ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui%3D-instance_method" title="Gem::DefaultUserInteraction#ui= (method)">#ui=</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#ui%3D-class_method" title="Gem::DefaultUserInteraction.ui= (method)">ui=</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#use_ui-class_method" title="Gem::DefaultUserInteraction.use_ui (method)">use_ui</a></span>, <span class='object_link'><a href="DefaultUserInteraction.html#use_ui-instance_method" title="Gem::DefaultUserInteraction#use_ui (method)">#use_ui</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Gem::DocManager (class)">DocManager</a></span></tt>) <strong>initialize</strong>(spec, rdoc_args = &quot;&quot;) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a document manager for <tt>spec</tt>. <tt>rdoc_args</tt> contains
+arguments for RDoc (template etc.) as a String.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id spec'>spec</span><span class='comma'>,</span> <span class='id rdoc_args'>rdoc_args</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>fileutils</span><span class='tstring_end'>'</span></span>
+  <span class='ivar'>@spec</span> <span class='op'>=</span> <span class='id spec'>spec</span>
+  <span class='ivar'>@doc_dir</span> <span class='op'>=</span> <span class='id spec'>spec</span><span class='period'>.</span><span class='id doc_dir'>doc_dir</span>
+  <span class='ivar'>@rdoc_args</span> <span class='op'>=</span> <span class='id rdoc_args'>rdoc_args</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id rdoc_args'>rdoc_args</span><span class='period'>.</span><span class='id split'>split</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="configured_args-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>configured_args</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id configured_args'>configured_args</span>
+  <span class='ivar'>@configured_args</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="configured_args=-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>configured_args=</strong>(args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25
+26
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id configured_args='>configured_args=</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id args'>args</span>
+  <span class='kw'>when</span> <span class='const'>Array</span>
+    <span class='ivar'>@configured_args</span> <span class='op'>=</span> <span class='id args'>args</span>
+  <span class='kw'>when</span> <span class='const'>String</span>
+    <span class='ivar'>@configured_args</span> <span class='op'>=</span> <span class='id args'>args</span><span class='period'>.</span><span class='id split'>split</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load_rdoc-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>load_rdoc</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Load RDoc from a gem if it is available, otherwise from Ruby's stdlib</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id load_rdoc'>load_rdoc</span>
+  <span class='kw'>begin</span>
+    <span class='id gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rdoc</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>rescue</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>LoadError</span>
+    <span class='comment'># use built-in RDoc
+</span>  <span class='kw'>end</span>
+
+  <span class='kw'>begin</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rdoc/rdoc</span><span class='tstring_end'>'</span></span>
+
+    <span class='ivar'>@rdoc_version</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>VERSION</span> <span class='kw'>then</span>
+                      <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id new'>new</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>VERSION</span>
+                    <span class='kw'>else</span>
+                      <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>1.0.1</span><span class='tstring_end'>'</span></span> <span class='comment'># HACK parsing is hard
+</span>                    <span class='kw'>end</span>
+
+  <span class='kw'>rescue</span> <span class='const'>LoadError</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+    <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>DocumentError</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ERROR: RDoc documentation generator not installed: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rdoc_version-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>rdoc_version</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id rdoc_version'>rdoc_version</span>
+  <span class='ivar'>@rdoc_version</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="update_ri_cache-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>update_ri_cache</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Updates the RI cache for RDoc 2 if it is installed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id update_ri_cache'>update_ri_cache</span>
+  <span class='id load_rdoc'>load_rdoc</span> <span class='kw'>rescue</span> <span class='kw'>return</span>
+
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='kw'>defined?</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>VERSION</span> <span class='comment'># RDoc 1 does not have VERSION
+</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rdoc/ri/driver</span><span class='tstring_end'>'</span></span>
+
+  <span class='id options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='symbol'>:use_cache</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='symbol'>:use_system</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='symbol'>:use_site</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='symbol'>:use_home</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='symbol'>:use_gems</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='symbol'>:formatter</span> <span class='op'>=&gt;</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RI</span><span class='op'>::</span><span class='const'>Formatter</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+
+  <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RI</span><span class='op'>::</span><span class='const'>Driver</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id options'>options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id class_cache'>class_cache</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="generate_rdoc-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>generate_rdoc</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate the RDoc documents for this gem spec.</p>
+
+<p>Note that if both RI and RDoc documents are generated from the same
+process, the RI docs should be done first (a likely bug in RDoc will cause
+RI docs generation to fail if run after RDoc).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 128</span>
+
+<span class='kw'>def</span> <span class='id generate_rdoc'>generate_rdoc</span>
+  <span class='id setup_rdoc'>setup_rdoc</span>
+  <span class='id install_rdoc'>install_rdoc</span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='ivar'>@doc_dir</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@doc_dir</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="generate_ri-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>generate_ri</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate the RI documents for this gem spec.</p>
+
+<p>Note that if both RI and RDoc documents are generated from the same
+process, the RI docs should be done first (a likely bug in RDoc will cause
+RI docs generation to fail if run after RDoc).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114
+115
+116
+117
+118
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 114</span>
+
+<span class='kw'>def</span> <span class='id generate_ri'>generate_ri</span>
+  <span class='id setup_rdoc'>setup_rdoc</span>
+  <span class='id install_ri'>install_ri</span> <span class='comment'># RDoc bug, ri goes first
+</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='ivar'>@doc_dir</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@doc_dir</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_rdoc-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_rdoc</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate and install RDoc into the documentation directory</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 138</span>
+
+<span class='kw'>def</span> <span class='id install_rdoc'>install_rdoc</span>
+  <span class='id rdoc_dir'>rdoc_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='ivar'>@doc_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rdoc</span><span class='tstring_end'>'</span></span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm_rf'>rm_rf</span> <span class='id rdoc_dir'>rdoc_dir</span>
+
+  <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Installing RDoc documentation for </span><span class='embexpr_beg'>#{</span><span class='ivar'>@spec</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'>...</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id run_rdoc'>run_rdoc</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--op</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id rdoc_dir'>rdoc_dir</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_ri-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_ri</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate and install RI into the documentation directory</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+150
+151
+152
+153
+154
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 150</span>
+
+<span class='kw'>def</span> <span class='id install_ri'>install_ri</span>
+  <span class='id ri_dir'>ri_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='ivar'>@doc_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ri</span><span class='tstring_end'>'</span></span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm_rf'>rm_rf</span> <span class='id ri_dir'>ri_dir</span>
+
+  <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Installing ri documentation for </span><span class='embexpr_beg'>#{</span><span class='ivar'>@spec</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'>...</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id run_rdoc'>run_rdoc</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--ri</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--op</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id ri_dir'>ri_dir</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rdoc_installed?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>rdoc_installed?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Is the RDoc documentation installed?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 96</span>
+
+<span class='kw'>def</span> <span class='id rdoc_installed?'>rdoc_installed?</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='ivar'>@doc_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rdoc</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ri_installed?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>ri_installed?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Is the RI documentation installed?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id ri_installed?'>ri_installed?</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='ivar'>@doc_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ri</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="run_rdoc-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>run_rdoc</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Run RDoc with <tt>args</tt>, which is an ARGV style argument list</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 162</span>
+
+<span class='kw'>def</span> <span class='id run_rdoc'>run_rdoc</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id args'>args</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@spec</span><span class='period'>.</span><span class='id rdoc_options'>rdoc_options</span>
+  <span class='id args'>args</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id configured_args'>configured_args</span>
+  <span class='id args'>args</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@spec</span><span class='period'>.</span><span class='id require_paths'>require_paths</span><span class='period'>.</span><span class='id clone'>clone</span>
+  <span class='id args'>args</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@spec</span><span class='period'>.</span><span class='id extra_rdoc_files'>extra_rdoc_files</span>
+  <span class='id args'>args</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--title</span><span class='tstring_end'>'</span></span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@spec</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'> Documentation</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id args'>args</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--quiet</span><span class='tstring_end'>'</span></span>
+  <span class='id args'>args</span> <span class='op'>=</span> <span class='id args'>args</span><span class='period'>.</span><span class='id flatten'>flatten</span><span class='period'>.</span><span class='id map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id arg'>arg</span><span class='op'>|</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id rdoc_version'>rdoc_version</span> <span class='op'>&gt;=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>2.4.0</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>then</span>
+    <span class='id args'>args</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--inline-source</span><span class='tstring_end'>'</span></span>
+    <span class='id args'>args</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--promiscuous</span><span class='tstring_end'>'</span></span>
+    <span class='id args'>args</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-p</span><span class='tstring_end'>'</span></span>
+    <span class='id args'>args</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--one-file</span><span class='tstring_end'>'</span></span>
+    <span class='comment'># HACK more
+</span>  <span class='kw'>end</span>
+
+  <span class='id debug_args'>debug_args</span> <span class='op'>=</span> <span class='id args'>args</span><span class='period'>.</span><span class='id dup'>dup</span>
+
+  <span class='id r'>r</span> <span class='op'>=</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>RDoc</span><span class='period'>.</span><span class='id new'>new</span>
+
+  <span class='id old_pwd'>old_pwd</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id pwd'>pwd</span>
+  <span class='const'>Dir</span><span class='period'>.</span><span class='id chdir'>chdir</span> <span class='ivar'>@spec</span><span class='period'>.</span><span class='id full_gem_path'>full_gem_path</span>
+
+  <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rdoc </span><span class='embexpr_beg'>#{</span><span class='id args'>args</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id really_verbose'>really_verbose</span>
+
+  <span class='kw'>begin</span>
+    <span class='id r'>r</span><span class='period'>.</span><span class='id document'>document</span> <span class='id args'>args</span>
+  <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>EACCES</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+    <span class='id dirname'>dirname</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span> <span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id strip'>strip</span>
+    <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>FilePermissionError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id dirname'>dirname</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>Interrupt</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+    <span class='id raise'>raise</span> <span class='id e'>e</span>
+  <span class='kw'>rescue</span> <span class='const'>Exception</span> <span class='op'>=&gt;</span> <span class='id ex'>ex</span>
+    <span class='id alert_error'>alert_error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>While generating documentation for </span><span class='embexpr_beg'>#{</span><span class='ivar'>@spec</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id ui'>ui</span><span class='period'>.</span><span class='id errs'>errs</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>... MESSAGE:   </span><span class='embexpr_beg'>#{</span><span class='id ex'>ex</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id ui'>ui</span><span class='period'>.</span><span class='id errs'>errs</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>... RDOC args: </span><span class='embexpr_beg'>#{</span><span class='id debug_args'>debug_args</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id ui'>ui</span><span class='period'>.</span><span class='id errs'>errs</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\t</span><span class='embexpr_beg'>#{</span><span class='id ex'>ex</span><span class='period'>.</span><span class='id backtrace'>backtrace</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\t</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span>
+      <span class='const'>Gem</span><span class='period'>.</span><span class='id configuration'>configuration</span><span class='period'>.</span><span class='id backtrace'>backtrace</span>
+    <span class='id terminate_interaction'>terminate_interaction</span> <span class='int'>1</span>
+  <span class='kw'>ensure</span>
+    <span class='const'>Dir</span><span class='period'>.</span><span class='id chdir'>chdir</span> <span class='id old_pwd'>old_pwd</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="setup_rdoc-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>setup_rdoc</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 207</span>
+
+<span class='kw'>def</span> <span class='id setup_rdoc'>setup_rdoc</span>
+  <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@doc_dir</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'>File</span><span class='period'>.</span><span class='id writable?'>writable?</span><span class='lparen'>(</span><span class='ivar'>@doc_dir</span><span class='rparen'>)</span> <span class='kw'>then</span>
+    <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>FilePermissionError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@doc_dir</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='ivar'>@doc_dir</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@doc_dir</span><span class='rparen'>)</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id load_rdoc'>load_rdoc</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="uninstall_doc-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>uninstall_doc</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Remove RDoc and RI documentation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/doc_manager.rb', line 220</span>
+
+<span class='kw'>def</span> <span class='id uninstall_doc'>uninstall_doc</span>
+  <span class='id base_dir'>base_dir</span> <span class='op'>=</span> <span class='ivar'>@spec</span><span class='period'>.</span><span class='id base_dir'>base_dir</span>
+  <span class='id raise'>raise</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>FilePermissionError</span><span class='period'>.</span><span class='id new'>new</span> <span class='id base_dir'>base_dir</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id writable?'>writable?</span> <span class='id base_dir'>base_dir</span>
+
+  <span class='comment'># TODO: ok... that's twice... ugh
+</span>  <span class='id old_name'>old_name</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+    <span class='ivar'>@spec</span><span class='period'>.</span><span class='id name'>name</span><span class='comma'>,</span> <span class='ivar'>@spec</span><span class='period'>.</span><span class='id version'>version</span><span class='comma'>,</span> <span class='ivar'>@spec</span><span class='period'>.</span><span class='id original_platform'>original_platform</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-</span><span class='tstring_end'>'</span></span>
+
+  <span class='id doc_dir'>doc_dir</span> <span class='op'>=</span> <span class='ivar'>@spec</span><span class='period'>.</span><span class='id doc_dir'>doc_dir</span>
+  <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id directory?'>directory?</span> <span class='id doc_dir'>doc_dir</span> <span class='kw'>then</span>
+    <span class='id doc_dir'>doc_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span><span class='lparen'>(</span><span class='id doc_dir'>doc_dir</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id old_name'>old_name</span>
+  <span class='kw'>end</span>
+
+  <span class='id ri_dir'>ri_dir</span> <span class='op'>=</span> <span class='ivar'>@spec</span><span class='period'>.</span><span class='id ri_dir'>ri_dir</span>
+  <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id directory?'>directory?</span> <span class='id ri_dir'>ri_dir</span> <span class='kw'>then</span>
+    <span class='id ri_dir'>ri_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span><span class='lparen'>(</span><span class='id ri_dir'>ri_dir</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id old_name'>old_name</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm_rf'>rm_rf</span> <span class='id doc_dir'>doc_dir</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm_rf'>rm_rf</span> <span class='id ri_dir'>ri_dir</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:30 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

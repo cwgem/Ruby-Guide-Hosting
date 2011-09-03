@@ -1,0 +1,1147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: REXML::QuickPath
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (Q)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../REXML.html" title="REXML (module)">REXML</a></span></span>
+     &raquo; 
+    <span class="title">QuickPath</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: REXML::QuickPath
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">REXML::QuickPath</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Functions.html" title="REXML::Functions (module)">Functions</a></span>, <span class='object_link'><a href="XMLTokens.html" title="REXML::XMLTokens (module)">XMLTokens</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rexml/quickpath.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="EMPTY_HASH-constant" class="">EMPTY_HASH =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A base Hash object to be used when initializing a default empty namespaces
+set.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="OPERAND_-constant" class="">OPERAND_ =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>((?=(?:(?!and|or).)*[^\s&lt;&gt;=])[^\s&lt;&gt;=]+)</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="XMLTokens.html" title="REXML::XMLTokens (module)">XMLTokens</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="XMLTokens.html#NAME-constant" title="REXML::XMLTokens::NAME (constant)">NAME</a></span>, <span class='object_link'><a href="XMLTokens.html#NAMECHAR-constant" title="REXML::XMLTokens::NAMECHAR (constant)">NAMECHAR</a></span>, <span class='object_link'><a href="XMLTokens.html#NAME_STR-constant" title="REXML::XMLTokens::NAME_STR (constant)">NAME_STR</a></span>, <span class='object_link'><a href="XMLTokens.html#NCNAME_STR-constant" title="REXML::XMLTokens::NCNAME_STR (constant)">NCNAME_STR</a></span>, <span class='object_link'><a href="XMLTokens.html#NMTOKEN-constant" title="REXML::XMLTokens::NMTOKEN (constant)">NMTOKEN</a></span>, <span class='object_link'><a href="XMLTokens.html#NMTOKENS-constant" title="REXML::XMLTokens::NMTOKENS (constant)">NMTOKENS</a></span>, <span class='object_link'><a href="XMLTokens.html#REFERENCE-constant" title="REXML::XMLTokens::REFERENCE (constant)">REFERENCE</a></span></p>
+
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#attribute-class_method" title="attribute (class method)">+ (Object) <strong>attribute</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#axe-class_method" title="axe (class method)">+ (Object) <strong>axe</strong>(elements, axe_name, rest) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-class_method" title="each (class method)">+ (Object) <strong>each</strong>(element, path, namespaces = EMPTY_HASH, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filter-class_method" title="filter (class method)">+ (Object) <strong>filter</strong>(elements, path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Given an array of nodes it filters the array based on the path.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#first-class_method" title="first (class method)">+ (Object) <strong>first</strong>(element, path, namespaces = EMPTY_HASH) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#function-class_method" title="function (class method)">+ (Object) <strong>function</strong>(elements, fname, rest) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#match-class_method" title="match (class method)">+ (Object) <strong>match</strong>(element, path, namespaces = EMPTY_HASH) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#method_missing-class_method" title="method_missing (class method)">+ (Object) <strong>method_missing</strong>(id, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-class_method" title="name (class method)">+ (Object) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_args-class_method" title="parse_args (class method)">+ (Object) <strong>parse_args</strong>(element, string) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#predicate-class_method" title="predicate (class method)">+ (Object) <strong>predicate</strong>(elements, path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A predicate filters a node-set with respect to an axis to produce a new
+node-set.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Functions.html" title="REXML::Functions (module)">Functions</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Functions.html#boolean-class_method" title="REXML::Functions.boolean (method)">boolean</a></span>, <span class='object_link'><a href="Functions.html#ceiling-class_method" title="REXML::Functions.ceiling (method)">ceiling</a></span>, <span class='object_link'><a href="Functions.html#compare_language-class_method" title="REXML::Functions.compare_language (method)">compare_language</a></span>, <span class='object_link'><a href="Functions.html#concat-class_method" title="REXML::Functions.concat (method)">concat</a></span>, <span class='object_link'><a href="Functions.html#contains-class_method" title="REXML::Functions.contains (method)">contains</a></span>, <span class='object_link'><a href="Functions.html#context%3D-class_method" title="REXML::Functions.context= (method)">context=</a></span>, <span class='object_link'><a href="Functions.html#count-class_method" title="REXML::Functions.count (method)">count</a></span>, <span class='object_link'><a href="Functions.html#false-class_method" title="REXML::Functions.false (method)">false</a></span>, <span class='object_link'><a href="Functions.html#floor-class_method" title="REXML::Functions.floor (method)">floor</a></span>, <span class='object_link'><a href="Functions.html#get_namespace-class_method" title="REXML::Functions.get_namespace (method)">get_namespace</a></span>, <span class='object_link'><a href="Functions.html#id-class_method" title="REXML::Functions.id (method)">id</a></span>, <span class='object_link'><a href="Functions.html#lang-class_method" title="REXML::Functions.lang (method)">lang</a></span>, <span class='object_link'><a href="Functions.html#last-class_method" title="REXML::Functions.last (method)">last</a></span>, <span class='object_link'><a href="Functions.html#local_name-class_method" title="REXML::Functions.local_name (method)">local_name</a></span>, <span class='object_link'><a href="Functions.html#namespace_context-class_method" title="REXML::Functions.namespace_context (method)">namespace_context</a></span>, <span class='object_link'><a href="Functions.html#namespace_context%3D-class_method" title="REXML::Functions.namespace_context= (method)">namespace_context=</a></span>, <span class='object_link'><a href="Functions.html#namespace_uri-class_method" title="REXML::Functions.namespace_uri (method)">namespace_uri</a></span>, <span class='object_link'><a href="Functions.html#normalize_space-class_method" title="REXML::Functions.normalize_space (method)">normalize_space</a></span>, <span class='object_link'><a href="Functions.html#not-class_method" title="REXML::Functions.not (method)">not</a></span>, <span class='object_link'><a href="Functions.html#number-class_method" title="REXML::Functions.number (method)">number</a></span>, <span class='object_link'><a href="Functions.html#position-class_method" title="REXML::Functions.position (method)">position</a></span>, <span class='object_link'><a href="Functions.html#processing_instruction-class_method" title="REXML::Functions.processing_instruction (method)">processing_instruction</a></span>, <span class='object_link'><a href="Functions.html#round-class_method" title="REXML::Functions.round (method)">round</a></span>, <span class='object_link'><a href="Functions.html#starts_with-class_method" title="REXML::Functions.starts_with (method)">starts_with</a></span>, <span class='object_link'><a href="Functions.html#string-class_method" title="REXML::Functions.string (method)">string</a></span>, <span class='object_link'><a href="Functions.html#string_length-class_method" title="REXML::Functions.string_length (method)">string_length</a></span>, <span class='object_link'><a href="Functions.html#string_value-class_method" title="REXML::Functions.string_value (method)">string_value</a></span>, <span class='object_link'><a href="Functions.html#substring-class_method" title="REXML::Functions.substring (method)">substring</a></span>, <span class='object_link'><a href="Functions.html#substring_after-class_method" title="REXML::Functions.substring_after (method)">substring_after</a></span>, <span class='object_link'><a href="Functions.html#substring_before-class_method" title="REXML::Functions.substring_before (method)">substring_before</a></span>, <span class='object_link'><a href="Functions.html#sum-class_method" title="REXML::Functions.sum (method)">sum</a></span>, <span class='object_link'><a href="Functions.html#text-class_method" title="REXML::Functions.text (method)">text</a></span>, <span class='object_link'><a href="Functions.html#translate-class_method" title="REXML::Functions.translate (method)">translate</a></span>, <span class='object_link'><a href="Functions.html#true-class_method" title="REXML::Functions.true (method)">true</a></span>, <span class='object_link'><a href="Functions.html#variables-class_method" title="REXML::Functions.variables (method)">variables</a></span>, <span class='object_link'><a href="Functions.html#variables%3D-class_method" title="REXML::Functions.variables= (method)">variables=</a></span></p>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="attribute-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>attribute</strong>(name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 205</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id attribute'>attribute</span><span class='lparen'>(</span> <span class='id name'>name</span> <span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>Functions</span><span class='period'>.</span><span class='id node'>node</span><span class='period'>.</span><span class='id attributes'>attributes</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='const'>Functions</span><span class='period'>.</span><span class='id node'>node</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="axe-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>axe</strong>(elements, axe_name, rest) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id axe'>axe</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='id axe_name'>axe_name</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span>
+  <span class='id matches'>matches</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id matches'>matches</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='period'>.</span><span class='id dup'>dup</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id axe_name'>axe_name</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>-or-self$</span><span class='regexp_end'>/u</span></span>
+  <span class='kw'>case</span> <span class='id axe_name'>axe_name</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^descendant</span><span class='regexp_end'>/u</span></span>
+    <span class='id elements'>elements</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+      <span class='id matches'>matches</span> <span class='op'>|=</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id element'>element</span><span class='period'>.</span><span class='id to_a'>to_a</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>descendant-or-self::</span><span class='embexpr_beg'>#{</span><span class='id rest'>rest</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^ancestor</span><span class='regexp_end'>/u</span></span>
+    <span class='id elements'>elements</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+      <span class='kw'>while</span> <span class='id element'>element</span><span class='period'>.</span><span class='id parent'>parent</span>
+        <span class='id matches'>matches</span> <span class='op'>&lt;&lt;</span> <span class='id element'>element</span><span class='period'>.</span><span class='id parent'>parent</span>
+        <span class='id element'>element</span> <span class='op'>=</span> <span class='id element'>element</span><span class='period'>.</span><span class='id parent'>parent</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='id matches'>matches</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id matches'>matches</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>self</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id matches'>matches</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>child</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id elements'>elements</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+      <span class='id matches'>matches</span> <span class='op'>|=</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id element'>element</span><span class='period'>.</span><span class='id to_a'>to_a</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attribute</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id elements'>elements</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+      <span class='id matches'>matches</span> <span class='op'>&lt;&lt;</span> <span class='id element'>element</span><span class='period'>.</span><span class='id attributes'>attributes</span><span class='lbracket'>[</span> <span class='id rest'>rest</span> <span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>parent</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id matches'>matches</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span> <span class='id element'>element</span><span class='period'>.</span><span class='id parent'>parent</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id uniq'>uniq</span><span class='comma'>,</span> <span class='id rest'>rest</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>following-sibling</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id matches'>matches</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span> <span class='id element'>element</span><span class='period'>.</span><span class='id next_sibling'>next_sibling</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id uniq'>uniq</span><span class='comma'>,</span>
+      <span class='id rest'>rest</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>previous-sibling</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id matches'>matches</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='id elements'>elements</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+      <span class='id element'>element</span><span class='period'>.</span><span class='id previous_sibling'>previous_sibling</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id uniq'>uniq</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id matches'>matches</span><span class='period'>.</span><span class='id uniq'>uniq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>each</strong>(element, path, namespaces = EMPTY_HASH, &amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id each'>each</span> <span class='id element'>element</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id namespaces'>namespaces</span><span class='op'>=</span><span class='const'>EMPTY_HASH</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span>
+  <span class='id path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id path'>path</span>
+  <span class='id match'>match</span><span class='lparen'>(</span><span class='id element'>element</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id namespaces'>namespaces</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span><span class='lparen'>(</span> <span class='op'>&amp;</span><span class='id block'>block</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="filter-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>filter</strong>(elements, path) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Given an array of nodes it filters the array based on the path. The result
+is that when this method returns, the array will contain elements which
+match the path</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id filter'>filter</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='id path'>path</span>
+  <span class='kw'>return</span> <span class='id elements'>elements</span> <span class='kw'>if</span> <span class='id path'>path</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id path'>path</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>or</span> <span class='id elements'>elements</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
+  <span class='kw'>case</span> <span class='id path'>path</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\/\/</span><span class='regexp_end'>/u</span></span>                                                                                     <span class='comment'># Descendant
+</span>    <span class='kw'>return</span> <span class='id axe'>axe</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>descendant-or-self</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='backref'>$'</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\/?\b(\w[-\w]*)\b::</span><span class='regexp_end'>/u</span></span>                                                      <span class='comment'># Axe
+</span>    <span class='kw'>return</span> <span class='id axe'>axe</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='backref'>$1</span><span class='comma'>,</span> <span class='backref'>$'</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\/(?=\b([:!\w][-\.\w]*:)?[-!\*\.\w]*\b([^:(]|$)|\*)</span><span class='regexp_end'>/u</span></span>      <span class='comment'># Child
+</span>    <span class='id rest'>rest</span> <span class='op'>=</span> <span class='backref'>$'</span>
+    <span class='id results'>results</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id elements'>elements</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+      <span class='id results'>results</span> <span class='op'>|=</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id element'>element</span><span class='period'>.</span><span class='id to_a'>to_a</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id results'>results</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\/?(\w[-\w]*)\(</span><span class='regexp_end'>/u</span></span>                                                  <span class='comment'># / Function
+</span>    <span class='kw'>return</span> <span class='id function'>function</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='backref'>$1</span><span class='comma'>,</span> <span class='backref'>$'</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Namespace</span><span class='op'>::</span><span class='const'>NAMESPLIT</span>         <span class='comment'># Element name
+</span>    <span class='id name'>name</span> <span class='op'>=</span> <span class='backref'>$2</span>
+    <span class='id ns'>ns</span> <span class='op'>=</span> <span class='backref'>$1</span>
+    <span class='id rest'>rest</span> <span class='op'>=</span> <span class='backref'>$'</span>
+    <span class='id elements'>elements</span><span class='period'>.</span><span class='id delete_if'>delete_if</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+      <span class='op'>!</span><span class='lparen'>(</span><span class='id element'>element</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span> <span class='kw'>and</span>
+        <span class='lparen'>(</span><span class='id element'>element</span><span class='period'>.</span><span class='id expanded_name'>expanded_name</span> <span class='op'>==</span> <span class='id name'>name</span> <span class='kw'>or</span>
+         <span class='lparen'>(</span><span class='id element'>element</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>==</span> <span class='id name'>name</span> <span class='kw'>and</span>
+          <span class='id element'>element</span><span class='period'>.</span><span class='id namespace'>namespace</span> <span class='op'>==</span> <span class='const'>Functions</span><span class='period'>.</span><span class='id namespace_context'>namespace_context</span><span class='lbracket'>[</span><span class='id ns'>ns</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\/\[</span><span class='regexp_end'>/u</span></span>
+    <span class='id matches'>matches</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id elements'>elements</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+      <span class='id matches'>matches</span> <span class='op'>|=</span> <span class='id predicate'>predicate</span><span class='lparen'>(</span> <span class='id element'>element</span><span class='period'>.</span><span class='id to_a'>to_a</span><span class='comma'>,</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id matches'>matches</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\[</span><span class='regexp_end'>/u</span></span>                                                                                               <span class='comment'># Predicate
+</span>    <span class='kw'>return</span> <span class='id predicate'>predicate</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='id path'>path</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\/?\.\.\.</span><span class='regexp_end'>/u</span></span>                                                                                <span class='comment'># Ancestor
+</span>    <span class='kw'>return</span> <span class='id axe'>axe</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ancestor</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='backref'>$'</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\/?\.\.</span><span class='regexp_end'>/u</span></span>                                                                                  <span class='comment'># Parent
+</span>    <span class='kw'>return</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span><span class='id e'>e</span><span class='period'>.</span><span class='id parent'>parent</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='backref'>$'</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\/?\.</span><span class='regexp_end'>/u</span></span>                                                                                            <span class='comment'># Self
+</span>    <span class='kw'>return</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='backref'>$'</span> <span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\*</span><span class='regexp_end'>/u</span></span>                                                                                                       <span class='comment'># Any
+</span>    <span class='id results'>results</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id elements'>elements</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+      <span class='id results'>results</span> <span class='op'>|=</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='lbracket'>[</span><span class='id element'>element</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='backref'>$'</span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id element'>element</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+      <span class='comment'>#if element.kind_of? Element
+</span>      <span class='comment'>#     children = element.to_a
+</span>      <span class='comment'>#     children.delete_if { |child| !child.kind_of?(Element) }
+</span>      <span class='comment'>#     results |= filter( children, $' )
+</span>      <span class='comment'>#end
+</span>    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id results'>results</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="first-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>first</strong>(element, path, namespaces = EMPTY_HASH) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 13</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id first'>first</span> <span class='id element'>element</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id namespaces'>namespaces</span><span class='op'>=</span><span class='const'>EMPTY_HASH</span>
+  <span class='id match'>match</span><span class='lparen'>(</span><span class='id element'>element</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id namespaces'>namespaces</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="function-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>function</strong>(elements, fname, rest) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 221</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id function'>function</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='id fname'>fname</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span>
+  <span class='id args'>args</span> <span class='op'>=</span> <span class='id parse_args'>parse_args</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span>
+  <span class='const'>Functions</span><span class='period'>.</span><span class='id pair'>pair</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='id elements'>elements</span><span class='period'>.</span><span class='id size'>size</span><span class='rbracket'>]</span>
+  <span class='id results'>results</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id elements'>elements</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+    <span class='const'>Functions</span><span class='period'>.</span><span class='id pair'>pair</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='const'>Functions</span><span class='period'>.</span><span class='id node'>node</span> <span class='op'>=</span> <span class='id element'>element</span>
+    <span class='id res'>res</span> <span class='op'>=</span> <span class='const'>Functions</span><span class='period'>.</span><span class='id send'>send</span><span class='lparen'>(</span> <span class='id fname'>fname</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span> <span class='rparen'>)</span>
+    <span class='kw'>case</span> <span class='id res'>res</span>
+    <span class='kw'>when</span> <span class='kw'>true</span>
+      <span class='id results'>results</span> <span class='op'>&lt;&lt;</span> <span class='id element'>element</span>
+    <span class='kw'>when</span> <span class='const'>Fixnum</span>
+      <span class='id results'>results</span> <span class='op'>&lt;&lt;</span> <span class='id element'>element</span> <span class='kw'>if</span> <span class='const'>Functions</span><span class='period'>.</span><span class='id pair'>pair</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id res'>res</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="match-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>match</strong>(element, path, namespaces = EMPTY_HASH) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id match'>match</span> <span class='id element'>element</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id namespaces'>namespaces</span><span class='op'>=</span><span class='const'>EMPTY_HASH</span>
+  <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nil is not a valid xpath</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id path'>path</span>
+  <span class='id results'>results</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='const'>Functions</span><span class='op'>::</span><span class='id namespace_context'>namespace_context</span> <span class='op'>=</span> <span class='id namespaces'>namespaces</span>
+  <span class='kw'>case</span> <span class='id path'>path</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\/([^\/]|$)</span><span class='regexp_end'>/u</span></span>
+    <span class='comment'># match on root
+</span>    <span class='id path'>path</span> <span class='op'>=</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='id element'>element</span><span class='period'>.</span><span class='id root'>root</span><span class='period'>.</span><span class='id parent'>parent</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id path'>path</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+    <span class='id results'>results</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id element'>element</span><span class='period'>.</span><span class='id root'>root</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^[-\w]*::</span><span class='regexp_end'>/u</span></span>
+    <span class='id results'>results</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id element'>element</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\*</span><span class='regexp_end'>/u</span></span>
+    <span class='id results'>results</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='id element'>element</span><span class='period'>.</span><span class='id to_a'>to_a</span><span class='comma'>,</span> <span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^[\[!\w:]</span><span class='regexp_end'>/u</span></span>
+    <span class='comment'># match on child
+</span>    <span class='id children'>children</span> <span class='op'>=</span> <span class='id element'>element</span><span class='period'>.</span><span class='id to_a'>to_a</span>
+    <span class='id results'>results</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='id children'>children</span><span class='comma'>,</span> <span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id results'>results</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id element'>element</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="method_missing-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>method_missing</strong>(id, *args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+213
+214
+215
+216
+217
+218
+219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 213</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id method_missing'>method_missing</span><span class='lparen'>(</span> <span class='id id'>id</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span> <span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='const'>Functions</span><span class='period'>.</span><span class='id send'>send</span><span class='lparen'>(</span> <span class='id id'>id</span><span class='period'>.</span><span class='id id2name'>id2name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span> <span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>Exception</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>METHOD: </span><span class='embexpr_beg'>#{</span><span class='id id'>id</span><span class='period'>.</span><span class='id id2name'>id2name</span><span class='rbrace'>}</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id args'>args</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_content'>)\n</span><span class='embexpr_beg'>#{</span><span class='gvar'>$!</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="name-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>name</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+209
+210
+211</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 209</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id name'>name</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>Functions</span><span class='period'>.</span><span class='id node'>node</span><span class='period'>.</span><span class='id name'>name</span> <span class='kw'>if</span> <span class='const'>Functions</span><span class='period'>.</span><span class='id node'>node</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Element</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parse_args-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parse_args</strong>(element, string) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 239</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id parse_args'>parse_args</span><span class='lparen'>(</span> <span class='id element'>element</span><span class='comma'>,</span> <span class='id string'>string</span> <span class='rparen'>)</span>
+  <span class='comment'># /.*?(?:\)|,)/
+</span>  <span class='id arguments'>arguments</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id buffer'>buffer</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>while</span> <span class='id string'>string</span> <span class='kw'>and</span> <span class='id string'>string</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id c'>c</span> <span class='op'>=</span> <span class='id string'>string</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id string'>string</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^.</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>case</span> <span class='id c'>c</span>
+    <span class='kw'>when</span> <span class='CHAR'>?,</span>
+      <span class='comment'># if depth = 1, then we start a new argument
+</span>      <span class='id arguments'>arguments</span> <span class='op'>&lt;&lt;</span> <span class='id evaluate'>evaluate</span><span class='lparen'>(</span> <span class='id buffer'>buffer</span> <span class='rparen'>)</span>
+      <span class='comment'>#arguments &lt;&lt; evaluate( string[0..count] )
+</span>    <span class='kw'>when</span> <span class='CHAR'>?(</span>
+      <span class='comment'># start a new method call
+</span>      <span class='id function'>function</span><span class='lparen'>(</span> <span class='id element'>element</span><span class='comma'>,</span> <span class='id buffer'>buffer</span><span class='comma'>,</span> <span class='id string'>string</span> <span class='rparen'>)</span>
+      <span class='id buffer'>buffer</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>when</span> <span class='CHAR'>?)</span>
+      <span class='comment'># close the method call and return arguments
+</span>      <span class='kw'>return</span> <span class='id arguments'>arguments</span>
+    <span class='kw'>else</span>
+      <span class='id buffer'>buffer</span> <span class='op'>&lt;&lt;</span> <span class='id c'>c</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="predicate-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>predicate</strong>(elements, path) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A predicate filters a node-set with respect to an axis to produce a new
+node-set. For each node in the node-set to be filtered, the PredicateExpr
+is evaluated with that node as the context node, with the number of nodes
+in the node-set as the context size, and with the proximity position of the
+node in the node-set with respect to the axis as the context position; if
+PredicateExpr evaluates to true for that node, the node is included in the
+new node-set; otherwise, it is not included.</p>
+
+<p>A PredicateExpr is evaluated by evaluating the Expr and converting the
+result to a boolean. If the result is a number, the result will be
+converted to true if the number is equal to the context position and will
+be converted to false otherwise; if the result is not a number, then the
+result will be converted as if by a call to the boolean function. Thus a
+location path para[3] is equivalent to para[position()=3].</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/quickpath.rb', line 160</span>
+
+<span class='kw'>def</span> <span class='const'>QuickPath</span><span class='op'>::</span><span class='id predicate'>predicate</span><span class='lparen'>(</span> <span class='id elements'>elements</span><span class='comma'>,</span> <span class='id path'>path</span> <span class='rparen'>)</span>
+  <span class='id ind'>ind</span> <span class='op'>=</span> <span class='int'>1</span>
+  <span class='id bcount'>bcount</span> <span class='op'>=</span> <span class='int'>1</span>
+  <span class='kw'>while</span> <span class='id bcount'>bcount</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id bcount'>bcount</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='id ind'>ind</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?[</span>
+    <span class='id bcount'>bcount</span> <span class='op'>-=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='id ind'>ind</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?]</span>
+    <span class='id ind'>ind</span> <span class='op'>+=</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
+  <span class='id ind'>ind</span> <span class='op'>-=</span> <span class='int'>1</span>
+  <span class='id predicate'>predicate</span> <span class='op'>=</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='id ind'>ind</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id rest'>rest</span> <span class='op'>=</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='id ind'>ind</span><span class='op'>+</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+
+  <span class='comment'># have to change 'a [=&lt;&gt;] b [=&lt;&gt;] c' into 'a [=&lt;&gt;] b and b [=&lt;&gt;] c'
+</span>  <span class='comment'>#
+</span>  <span class='id predicate'>predicate</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span>
+    <span class='tstring'><span class='regexp_beg'>/</span><span class='embexpr_beg'>#{</span><span class='const'>OPERAND_</span><span class='rbrace'>}</span><span class='tstring_content'>\s*([&lt;&gt;=])\s*</span><span class='embexpr_beg'>#{</span><span class='const'>OPERAND_</span><span class='rbrace'>}</span><span class='tstring_content'>\s*([&lt;&gt;=])\s*</span><span class='embexpr_beg'>#{</span><span class='const'>OPERAND_</span><span class='rbrace'>}</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\1 \2 \3 and \3 \4 \5</span><span class='tstring_end'>'</span></span> <span class='rparen'>)</span>
+  <span class='comment'># Let's do some Ruby trickery to avoid some work:
+</span>  <span class='id predicate'>predicate</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;&amp;</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='id predicate'>predicate</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>=</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>==</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='id predicate'>predicate</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>@(\w[-\w.]*)</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>attribute(&quot;\1&quot;)</span><span class='tstring_end'>'</span></span> <span class='rparen'>)</span>
+  <span class='id predicate'>predicate</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\bmod\b</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='id predicate'>predicate</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\b(\w[-\w.]*\()</span><span class='regexp_end'>/u</span></span> <span class='rparen'>)</span> <span class='lbrace'>{</span>
+    <span class='id fname'>fname</span> <span class='op'>=</span> <span class='backref'>$1</span>
+    <span class='id fname'>fname</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>-</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+
+  <span class='const'>Functions</span><span class='period'>.</span><span class='id pair'>pair</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id elements'>elements</span><span class='period'>.</span><span class='id size'>size</span> <span class='rbracket'>]</span>
+  <span class='id results'>results</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id elements'>elements</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+    <span class='const'>Functions</span><span class='period'>.</span><span class='id pair'>pair</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='const'>Functions</span><span class='period'>.</span><span class='id node'>node</span> <span class='op'>=</span> <span class='id element'>element</span>
+    <span class='id res'>res</span> <span class='op'>=</span> <span class='id eval'>eval</span><span class='lparen'>(</span> <span class='id predicate'>predicate</span> <span class='rparen'>)</span>
+    <span class='kw'>case</span> <span class='id res'>res</span>
+    <span class='kw'>when</span> <span class='kw'>true</span>
+      <span class='id results'>results</span> <span class='op'>&lt;&lt;</span> <span class='id element'>element</span>
+    <span class='kw'>when</span> <span class='const'>Fixnum</span>
+      <span class='id results'>results</span> <span class='op'>&lt;&lt;</span> <span class='id element'>element</span> <span class='kw'>if</span> <span class='const'>Functions</span><span class='period'>.</span><span class='id pair'>pair</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id res'>res</span>
+    <span class='kw'>when</span> <span class='const'>String</span>
+      <span class='id results'>results</span> <span class='op'>&lt;&lt;</span> <span class='id element'>element</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id filter'>filter</span><span class='lparen'>(</span> <span class='id results'>results</span><span class='comma'>,</span> <span class='id rest'>rest</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:14 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

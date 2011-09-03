@@ -1,0 +1,3271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: IPAddr
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (I)</a> &raquo; 
+    
+    
+    <span class="title">IPAddr</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: IPAddr
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">IPAddr</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">Comparable</dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/ipaddr.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>IPAddr provides a set of methods to manipulate an IP address.  Both IPv4
+and IPv6 are supported.</p>
+
+<h2>Example</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ipaddr</span><span class='tstring_end'>'</span></span>
+
+<span class='id ipaddr1'>ipaddr1</span> <span class='op'>=</span> <span class='const'>IPAddr</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3ffe:505:2::1</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id p'>p</span> <span class='id ipaddr1'>ipaddr1</span>                   <span class='comment'>#=&gt; #&lt;IPAddr: IPv6:3ffe:0505:0002:0000:0000:0000:0000:0001/ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff&gt;
+</span>
+<span class='id p'>p</span> <span class='id ipaddr1'>ipaddr1</span><span class='period'>.</span><span class='id to_s'>to_s</span>              <span class='comment'>#=&gt; &quot;3ffe:505:2::1&quot;
+</span>
+<span class='id ipaddr2'>ipaddr2</span> <span class='op'>=</span> <span class='id ipaddr1'>ipaddr1</span><span class='period'>.</span><span class='id mask'>mask</span><span class='lparen'>(</span><span class='int'>48</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; #&lt;IPAddr: IPv6:3ffe:0505:0002:0000:0000:0000:0000:0000/ffff:ffff:ffff:0000:0000:0000:0000:0000&gt;
+</span>
+<span class='id p'>p</span> <span class='id ipaddr2'>ipaddr2</span><span class='period'>.</span><span class='id to_s'>to_s</span>              <span class='comment'>#=&gt; &quot;3ffe:505:2::&quot;
+</span>
+<span class='id ipaddr3'>ipaddr3</span> <span class='op'>=</span> <span class='const'>IPAddr</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>192.168.2.0/24</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id p'>p</span> <span class='id ipaddr3'>ipaddr3</span>                   <span class='comment'>#=&gt; #&lt;IPAddr: IPv4:192.168.2.0/255.255.255.0&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="IN4MASK-constant" class="">IN4MASK =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>32 bit mask for IPv4</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>0xffffffff</span></pre></dd>
+      
+        <dt id="IN6MASK-constant" class="">IN6MASK =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>128 bit mask for IPv4</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>0xffffffffffffffffffffffffffffffff</span></pre></dd>
+      
+        <dt id="IN6FORMAT-constant" class="">IN6FORMAT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Formatstring for IPv6</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%.4x</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='int'>8</span><span class='rparen'>)</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#family-instance_method" title="#family (instance method)">- (Object) <strong>family</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the address family of this IP address.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new_ntoh-class_method" title="new_ntoh (class method)">+ (Object) <strong>new_ntoh</strong>(addr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new ipaddr containing the given network byte ordered string form
+of an IP address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ntop-class_method" title="ntop (class method)">+ (Object) <strong>ntop</strong>(addr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Convert a network byte ordered string form of an IP address into human
+readable form.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%26-instance_method" title="#&amp; (instance method)">- (Object) <strong>&amp;</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new ipaddr built by bitwise AND.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3C-instance_method" title="#&lt;&lt; (instance method)">- (Object) <strong>&lt;&lt;</strong>(num) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new ipaddr built by bitwise left shift.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3D%3E-instance_method" title="#&lt;=&gt; (instance method)">- (Object) <strong>&lt;=&gt;</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compares the ipaddr with another.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if two ipaddrs are equal.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3E%3E-instance_method" title="#&gt;&gt; (instance method)">- (Object) <strong>&gt;&gt;</strong>(num) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new ipaddr built by bitwise right-shift.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#_reverse-instance_method" title="#_reverse (instance method)">- (Object) <strong>_reverse</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#_to_string-instance_method" title="#_to_string (instance method)">- (Object) <strong>_to_string</strong>(addr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#addr_mask-instance_method" title="#addr_mask (instance method)">- (Object) <strong>addr_mask</strong>(addr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coerce_other-instance_method" title="#coerce_other (instance method)">- (Object) <strong>coerce_other</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#eql%3F-instance_method" title="#eql? (instance method)">- (Boolean) <strong>eql?</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks equality used by Hash.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash-instance_method" title="#hash (instance method)">- (Object) <strong>hash</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a hash value used by Hash, Set, and Array classes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hton-instance_method" title="#hton (instance method)">- (Object) <strong>hton</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a network byte ordered string form of the IP address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#in6_addr-instance_method" title="#in6_addr (instance method)">- (Object) <strong>in6_addr</strong>(left) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#in_addr-instance_method" title="#in_addr (instance method)">- (Object) <strong>in_addr</strong>(addr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include%3F-instance_method" title="#include? (instance method)">- (Boolean) <strong>include?</strong>(other) </a>
+    
+
+    
+      (also: #===)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the given ipaddr is in the range.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (IPAddr) <strong>initialize</strong>(addr = '::', family = Socket::AF_UNSPEC) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new ipaddr object either from a human readable IP address
+representation in string, or from a packed in_addr value followed by an
+address family.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string containing a human-readable representation of the ipaddr.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ip6_arpa-instance_method" title="#ip6_arpa (instance method)">- (Object) <strong>ip6_arpa</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string for DNS reverse lookup compatible with RFC3172.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ip6_int-instance_method" title="#ip6_int (instance method)">- (Object) <strong>ip6_int</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string for DNS reverse lookup compatible with RFC1886.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ipv4%3F-instance_method" title="#ipv4? (instance method)">- (Boolean) <strong>ipv4?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the ipaddr is an IPv4 address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ipv4_compat-instance_method" title="#ipv4_compat (instance method)">- (Object) <strong>ipv4_compat</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new ipaddr built by converting the native IPv4 address into an
+IPv4-compatible IPv6 address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ipv4_compat%3F-instance_method" title="#ipv4_compat? (instance method)">- (Boolean) <strong>ipv4_compat?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the ipaddr is an IPv4-compatible IPv6 address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ipv4_mapped-instance_method" title="#ipv4_mapped (instance method)">- (Object) <strong>ipv4_mapped</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new ipaddr built by converting the native IPv4 address into an
+IPv4-mapped IPv6 address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ipv4_mapped%3F-instance_method" title="#ipv4_mapped? (instance method)">- (Boolean) <strong>ipv4_mapped?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the ipaddr is an IPv4-mapped IPv6 address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ipv6%3F-instance_method" title="#ipv6? (instance method)">- (Boolean) <strong>ipv6?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the ipaddr is an IPv6 address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mask-instance_method" title="#mask (instance method)">- (Object) <strong>mask</strong>(prefixlen) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new ipaddr built by masking IP address with the given
+prefixlen/netmask.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mask%21-instance_method" title="#mask! (instance method)">- (Object) <strong>mask!</strong>(mask) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set current netmask to given mask.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#native-instance_method" title="#native (instance method)">- (Object) <strong>native</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new ipaddr built by converting the IPv6 address into a native
+IPv4 address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reverse-instance_method" title="#reverse (instance method)">- (Object) <strong>reverse</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string for DNS reverse lookup.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set-instance_method" title="#set (instance method)">- (Object) <strong>set</strong>(addr, *family) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set <tt>@addr</tt>, the internal stored ip address, to given <tt>addr</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#succ-instance_method" title="#succ (instance method)">- (Object) <strong>succ</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the successor to the ipaddr.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_i-instance_method" title="#to_i (instance method)">- (Object) <strong>to_i</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the integer representation of the ipaddr.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_range-instance_method" title="#to_range (instance method)">- (Object) <strong>to_range</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a Range object for the network address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string containing the IP address representation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_string-instance_method" title="#to_string (instance method)">- (Object) <strong>to_string</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string containing the IP address representation in canonical
+form.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%7C-instance_method" title="#| (instance method)">- (Object) <strong>|</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new ipaddr built by bitwise OR.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%7E-instance_method" title="#~ (instance method)">- (Object) <strong>~</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new ipaddr built by bitwise negation.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="IPAddr (class)">IPAddr</a></span></tt>) <strong>initialize</strong>(addr = '::', family = Socket::AF_UNSPEC) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new ipaddr object either from a human readable IP address
+representation in string, or from a packed in_addr value followed by an
+address family.</p>
+
+<p>In the former case, the following are the valid formats that will be
+recognized: "address", "address/prefixlen" and "address/mask", where IPv6
+address may be enclosed in square brackets (`[' and `]').  If a prefixlen
+or a mask is specified, it returns a masked IP address.  Although the
+address family is determined automatically from a specified string, you can
+specify one explicitly by the optional second argument.</p>
+
+<p>Otherwise an IP address is generated from a packed in_addr value and an
+address family.</p>
+
+<p>The IPAddr class defines many methods and operators, and some of those,
+such as &amp;, |, include? and ==, accept a string, or a packed in_addr
+value instead of an IPAddr object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 472</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id addr'>addr</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>::</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id family'>family</span> <span class='op'>=</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_UNSPEC</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id addr'>addr</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
+    <span class='kw'>case</span> <span class='id family'>family</span>
+    <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+      <span class='id set'>set</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='comma'>,</span> <span class='id family'>family</span><span class='rparen'>)</span>
+      <span class='ivar'>@mask_addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id family'>family</span> <span class='op'>==</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>IN4MASK</span> <span class='op'>:</span> <span class='const'>IN6MASK</span>
+      <span class='kw'>return</span>
+    <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_UNSPEC</span>
+      <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>address family must be specified</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+      <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family: </span><span class='embexpr_beg'>#{</span><span class='id family'>family</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id prefix'>prefix</span><span class='comma'>,</span> <span class='id prefixlen'>prefixlen</span> <span class='op'>=</span> <span class='id addr'>addr</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id prefix'>prefix</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\[(.*)\]$</span><span class='regexp_end'>/i</span></span>
+    <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='backref'>$1</span>
+    <span class='id family'>family</span> <span class='op'>=</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+  <span class='kw'>end</span>
+  <span class='comment'># It seems AI_NUMERICHOST doesn't do the job.
+</span>  <span class='comment'>#Socket.getaddrinfo(left, nil, Socket::AF_INET6, Socket::SOCK_STREAM, nil,
+</span>  <span class='comment'>#                  Socket::AI_NUMERICHOST)
+</span>  <span class='kw'>begin</span>
+    <span class='const'>IPSocket</span><span class='period'>.</span><span class='id getaddress'>getaddress</span><span class='lparen'>(</span><span class='id prefix'>prefix</span><span class='rparen'>)</span>               <span class='comment'># test if address is valid
+</span>  <span class='kw'>rescue</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid address</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@addr</span> <span class='op'>=</span> <span class='ivar'>@family</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>if</span> <span class='id family'>family</span> <span class='op'>==</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_UNSPEC</span> <span class='op'>||</span> <span class='id family'>family</span> <span class='op'>==</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='ivar'>@addr</span> <span class='op'>=</span> <span class='id in_addr'>in_addr</span><span class='lparen'>(</span><span class='id prefix'>prefix</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='ivar'>@addr</span>
+      <span class='ivar'>@family</span> <span class='op'>=</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@addr</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id family'>family</span> <span class='op'>==</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_UNSPEC</span> <span class='op'>||</span> <span class='id family'>family</span> <span class='op'>==</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span><span class='rparen'>)</span>
+    <span class='ivar'>@addr</span> <span class='op'>=</span> <span class='id in6_addr'>in6_addr</span><span class='lparen'>(</span><span class='id prefix'>prefix</span><span class='rparen'>)</span>
+    <span class='ivar'>@family</span> <span class='op'>=</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id family'>family</span> <span class='op'>!=</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_UNSPEC</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@family</span> <span class='op'>!=</span> <span class='id family'>family</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>address family mismatch</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id prefixlen'>prefixlen</span>
+    <span class='id mask!'>mask!</span><span class='lparen'>(</span><span class='id prefixlen'>prefixlen</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@mask_addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@family</span> <span class='op'>==</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>IN4MASK</span> <span class='op'>:</span> <span class='const'>IN6MASK</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="family-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="family-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>family</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the address family of this IP address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 106</span>
+
+<span class='kw'>def</span> <span class='id family'>family</span>
+  <span class='ivar'>@family</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="new_ntoh-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>new_ntoh</strong>(addr) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new ipaddr containing the given network byte ordered string form
+of an IP address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='const'>IPAddr</span><span class='op'>::</span><span class='id new_ntoh'>new_ntoh</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>IPAddr</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>IPAddr</span><span class='op'>::</span><span class='id ntop'>ntop</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ntop-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>ntop</strong>(addr) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Convert a network byte ordered string form of an IP address into human
+readable form.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 116</span>
+
+<span class='kw'>def</span> <span class='const'>IPAddr</span><span class='op'>::</span><span class='id ntop'>ntop</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id addr'>addr</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='kw'>when</span> <span class='int'>4</span>
+    <span class='id s'>s</span> <span class='op'>=</span> <span class='id addr'>addr</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>C4</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='int'>16</span>
+    <span class='id s'>s</span> <span class='op'>=</span> <span class='const'>IN6FORMAT</span> <span class='op'>%</span> <span class='id addr'>addr</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>n8</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id s'>s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="&-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>&amp;</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new ipaddr built by bitwise AND.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+129
+130
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 129</span>
+
+<span class='kw'>def</span> <span class='op'>&amp;</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&amp;</span> <span class='id coerce_other'>coerce_other</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="<<-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>&lt;&lt;</strong>(num) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new ipaddr built by bitwise left shift.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 144</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='id addr_mask'>addr_mask</span><span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&lt;&lt;</span> <span class='id num'>num</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="<=>-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>&lt;=&gt;</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Compares the ipaddr with another.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+340
+341
+342
+343
+344
+345
+346</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 340</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;=&gt;</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='id other'>other</span> <span class='op'>=</span> <span class='id coerce_other'>coerce_other</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id other'>other</span><span class='period'>.</span><span class='id family'>family</span> <span class='op'>!=</span> <span class='ivar'>@family</span>
+
+  <span class='kw'>return</span> <span class='ivar'>@addr</span> <span class='op'>&lt;=&gt;</span> <span class='id other'>other</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="==-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>==</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if two ipaddrs are equal.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+154
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 154</span>
+
+<span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='id other'>other</span> <span class='op'>=</span> <span class='id coerce_other'>coerce_other</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='ivar'>@family</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id family'>family</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@addr</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id=">>-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>&gt;&gt;</strong>(num) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new ipaddr built by bitwise right-shift.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='op'>&gt;&gt;</span><span class='lparen'>(</span><span class='id num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&gt;&gt;</span> <span class='id num'>num</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="_reverse-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>_reverse</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 574</span>
+
+<span class='kw'>def</span> <span class='id _reverse'>_reverse</span>
+  <span class='kw'>case</span> <span class='ivar'>@family</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+      <span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&gt;&gt;</span> <span class='lparen'>(</span><span class='int'>8</span> <span class='op'>*</span> <span class='id i'>i</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>&amp;</span> <span class='int'>0xff</span>
+    <span class='rbrace'>}</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%.32x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='ivar'>@addr</span><span class='rparen'>)</span><span class='period'>.</span><span class='id reverse!'>reverse!</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>.(?!$)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\&amp;.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="_to_string-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>_to_string</strong>(addr) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 587</span>
+
+<span class='kw'>def</span> <span class='id _to_string'>_to_string</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='ivar'>@family</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+      <span class='lparen'>(</span><span class='id addr'>addr</span> <span class='op'>&gt;&gt;</span> <span class='lparen'>(</span><span class='int'>24</span> <span class='op'>-</span> <span class='int'>8</span> <span class='op'>*</span> <span class='id i'>i</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>&amp;</span> <span class='int'>0xff</span>
+    <span class='rbrace'>}</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%.32x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id addr'>addr</span><span class='rparen'>)</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>.{4}(?!$)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\&amp;:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="addr_mask-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>addr_mask</strong>(addr) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 563</span>
+
+<span class='kw'>def</span> <span class='id addr_mask'>addr_mask</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='ivar'>@family</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='kw'>return</span> <span class='id addr'>addr</span> <span class='op'>&amp;</span> <span class='const'>IN4MASK</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+    <span class='kw'>return</span> <span class='id addr'>addr</span> <span class='op'>&amp;</span> <span class='const'>IN6MASK</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="coerce_other-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>coerce_other</strong>(other) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 519</span>
+
+<span class='kw'>def</span> <span class='id coerce_other'>coerce_other</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id other'>other</span>
+  <span class='kw'>when</span> <span class='const'>IPAddr</span>
+    <span class='id other'>other</span>
+  <span class='kw'>when</span> <span class='const'>String</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id other'>other</span><span class='comma'>,</span> <span class='ivar'>@family</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="eql?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>eql?</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks equality used by Hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+350
+351
+352</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 350</span>
+
+<span class='kw'>def</span> <span class='id eql?'>eql?</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id class'>class</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id hash'>hash</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id hash'>hash</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span> <span class='op'>==</span> <span class='id other'>other</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="hash-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>hash</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a hash value used by Hash, Set, and Array classes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+355
+356
+357</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 355</span>
+
+<span class='kw'>def</span> <span class='id hash'>hash</span>
+  <span class='kw'>return</span> <span class='lparen'>(</span><span class='lbracket'>[</span><span class='ivar'>@addr</span><span class='comma'>,</span> <span class='ivar'>@mask_addr</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id hash'>hash</span> <span class='op'>&lt;&lt;</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>|</span> <span class='lparen'>(</span><span class='id ipv4?'>ipv4?</span> <span class='op'>?</span> <span class='int'>0</span> <span class='op'>:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="hton-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>hton</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a network byte ordered string form of the IP address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 240</span>
+
+<span class='kw'>def</span> <span class='id hton'>hton</span>
+  <span class='kw'>case</span> <span class='ivar'>@family</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='ivar'>@addr</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>N</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='int'>7</span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+      <span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&gt;&gt;</span> <span class='lparen'>(</span><span class='int'>112</span> <span class='op'>-</span> <span class='int'>16</span> <span class='op'>*</span> <span class='id i'>i</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>&amp;</span> <span class='int'>0xffff</span>
+    <span class='rbrace'>}</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>n8</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="in6_addr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>in6_addr</strong>(left) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 539</span>
+
+<span class='kw'>def</span> <span class='id in6_addr'>in6_addr</span><span class='lparen'>(</span><span class='id left'>left</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id left'>left</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^::ffff:(\d+\.\d+\.\d+\.\d+)$</span><span class='regexp_end'>/i</span></span>
+    <span class='kw'>return</span> <span class='id in_addr'>in_addr</span><span class='lparen'>(</span><span class='backref'>$1</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>0xffff00000000</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^::(\d+\.\d+\.\d+\.\d+)$</span><span class='regexp_end'>/i</span></span>
+    <span class='kw'>return</span> <span class='id in_addr'>in_addr</span><span class='lparen'>(</span><span class='backref'>$1</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[^0-9a-f:]</span><span class='regexp_end'>/i</span></span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid address</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^(.*)::(.*)$</span><span class='regexp_end'>/</span></span>
+    <span class='id left'>left</span><span class='comma'>,</span> <span class='id right'>right</span> <span class='op'>=</span> <span class='backref'>$1</span><span class='comma'>,</span> <span class='backref'>$2</span>
+  <span class='kw'>else</span>
+    <span class='id right'>right</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+  <span class='id l'>l</span> <span class='op'>=</span> <span class='id left'>left</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id r'>r</span> <span class='op'>=</span> <span class='id right'>right</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id rest'>rest</span> <span class='op'>=</span> <span class='int'>8</span> <span class='op'>-</span> <span class='id l'>l</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>-</span> <span class='id r'>r</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='kw'>if</span> <span class='id rest'>rest</span> <span class='op'>&lt;</span> <span class='int'>0</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='lparen'>(</span><span class='id l'>l</span> <span class='op'>+</span> <span class='const'>Array</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id rest'>rest</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>0</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id r'>r</span><span class='rparen'>)</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='comma'>,</span> <span class='id s'>s</span><span class='op'>|</span>
+    <span class='id i'>i</span> <span class='op'>&lt;&lt;</span> <span class='int'>16</span> <span class='op'>|</span> <span class='id s'>s</span><span class='period'>.</span><span class='id hex'>hex</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="in_addr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>in_addr</strong>(addr) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+530
+531
+532
+533
+534
+535
+536
+537</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 530</span>
+
+<span class='kw'>def</span> <span class='id in_addr'>in_addr</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id addr'>addr</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\d+\.\d+\.\d+\.\d+$</span><span class='regexp_end'>/</span></span>
+    <span class='kw'>return</span> <span class='id addr'>addr</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='comma'>,</span> <span class='id s'>s</span><span class='op'>|</span>
+      <span class='id i'>i</span> <span class='op'>&lt;&lt;</span> <span class='int'>8</span> <span class='op'>|</span> <span class='id s'>s</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="include?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>include?</strong>(other) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='===-instance_method'>===</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if the given ipaddr is in the range.</p>
+
+<p>e.g.:</p>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ipaddr</span><span class='tstring_end'>'</span></span>
+<span class='id net1'>net1</span> <span class='op'>=</span> <span class='const'>IPAddr</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>192.168.2.0/24</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id net2'>net2</span> <span class='op'>=</span> <span class='const'>IPAddr</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>192.168.2.100</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id net3'>net3</span> <span class='op'>=</span> <span class='const'>IPAddr</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>192.168.3.0</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id p'>p</span> <span class='id net1'>net1</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id net2'>net2</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; true
+</span><span class='id p'>p</span> <span class='id net1'>net1</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id net3'>net3</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; false</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 174</span>
+
+<span class='kw'>def</span> <span class='id include?'>include?</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='id other'>other</span> <span class='op'>=</span> <span class='id coerce_other'>coerce_other</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id ipv4_mapped?'>ipv4_mapped?</span>
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='ivar'>@mask_addr</span> <span class='op'>&gt;&gt;</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='int'>0xffffffffffffffffffffffff</span>
+      <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+    <span class='id mask_addr'>mask_addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@mask_addr</span> <span class='op'>&amp;</span> <span class='const'>IN4MASK</span><span class='rparen'>)</span>
+    <span class='id addr'>addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&amp;</span> <span class='const'>IN4MASK</span><span class='rparen'>)</span>
+    <span class='id family'>family</span> <span class='op'>=</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+  <span class='kw'>else</span>
+    <span class='id mask_addr'>mask_addr</span> <span class='op'>=</span> <span class='ivar'>@mask_addr</span>
+    <span class='id addr'>addr</span> <span class='op'>=</span> <span class='ivar'>@addr</span>
+    <span class='id family'>family</span> <span class='op'>=</span> <span class='ivar'>@family</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id other'>other</span><span class='period'>.</span><span class='id ipv4_mapped?'>ipv4_mapped?</span>
+    <span class='id other_addr'>other_addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id other'>other</span><span class='period'>.</span><span class='id to_i'>to_i</span> <span class='op'>&amp;</span> <span class='const'>IN4MASK</span><span class='rparen'>)</span>
+    <span class='id other_family'>other_family</span> <span class='op'>=</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+  <span class='kw'>else</span>
+    <span class='id other_addr'>other_addr</span> <span class='op'>=</span> <span class='id other'>other</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+    <span class='id other_family'>other_family</span> <span class='op'>=</span> <span class='id other'>other</span><span class='period'>.</span><span class='id family'>family</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id family'>family</span> <span class='op'>!=</span> <span class='id other_family'>other_family</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='id addr'>addr</span> <span class='op'>&amp;</span> <span class='id mask_addr'>mask_addr</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='lparen'>(</span><span class='id other_addr'>other_addr</span> <span class='op'>&amp;</span> <span class='id mask_addr'>mask_addr</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string containing a human-readable representation of the ipaddr.
+("#&lt;IPAddr: family:address/mask&gt;")</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 377</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='kw'>case</span> <span class='ivar'>@family</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='id af'>af</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>IPv4</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+    <span class='id af'>af</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>IPv6</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;%s: %s:%s/%s&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id name'>name</span><span class='comma'>,</span>
+                 <span class='id af'>af</span><span class='comma'>,</span> <span class='id _to_string'>_to_string</span><span class='lparen'>(</span><span class='ivar'>@addr</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id _to_string'>_to_string</span><span class='lparen'>(</span><span class='ivar'>@mask_addr</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ip6_arpa-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>ip6_arpa</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string for DNS reverse lookup compatible with RFC3172.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+319
+320
+321
+322
+323
+324</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 319</span>
+
+<span class='kw'>def</span> <span class='id ip6_arpa'>ip6_arpa</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id ipv6?'>ipv6?</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>not an IPv6 address</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id _reverse'>_reverse</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.ip6.arpa</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ip6_int-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>ip6_int</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string for DNS reverse lookup compatible with RFC1886.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+327
+328
+329
+330
+331
+332</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 327</span>
+
+<span class='kw'>def</span> <span class='id ip6_int'>ip6_int</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id ipv6?'>ipv6?</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>not an IPv6 address</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id _reverse'>_reverse</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.ip6.int</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ipv4?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>ipv4?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if the ipaddr is an IPv4 address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+254
+255
+256</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 254</span>
+
+<span class='kw'>def</span> <span class='id ipv4?'>ipv4?</span>
+  <span class='kw'>return</span> <span class='ivar'>@family</span> <span class='op'>==</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ipv4_compat-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>ipv4_compat</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new ipaddr built by converting the native IPv4 address into an
+IPv4-compatible IPv6 address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+288
+289
+290
+291
+292
+293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 288</span>
+
+<span class='kw'>def</span> <span class='id ipv4_compat'>ipv4_compat</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id ipv4?'>ipv4?</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>not an IPv4 address</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='ivar'>@addr</span><span class='comma'>,</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ipv4_compat?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>ipv4_compat?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if the ipaddr is an IPv4-compatible IPv6 address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+269
+270
+271
+272
+273
+274
+275</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 269</span>
+
+<span class='kw'>def</span> <span class='id ipv4_compat?'>ipv4_compat?</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id ipv6?'>ipv6?</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&gt;&gt;</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='int'>0</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+  <span class='id a'>a</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&amp;</span> <span class='const'>IN4MASK</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id a'>a</span> <span class='op'>!=</span> <span class='int'>0</span> <span class='op'>&amp;&amp;</span> <span class='id a'>a</span> <span class='op'>!=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ipv4_mapped-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>ipv4_mapped</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new ipaddr built by converting the native IPv4 address into an
+IPv4-mapped IPv6 address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+279
+280
+281
+282
+283
+284</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 279</span>
+
+<span class='kw'>def</span> <span class='id ipv4_mapped'>ipv4_mapped</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id ipv4?'>ipv4?</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>not an IPv4 address</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>|</span> <span class='int'>0xffff00000000</span><span class='comma'>,</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ipv4_mapped?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>ipv4_mapped?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if the ipaddr is an IPv4-mapped IPv6 address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+264
+265
+266</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 264</span>
+
+<span class='kw'>def</span> <span class='id ipv4_mapped?'>ipv4_mapped?</span>
+  <span class='kw'>return</span> <span class='id ipv6?'>ipv6?</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&gt;&gt;</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='int'>0xffff</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ipv6?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>ipv6?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if the ipaddr is an IPv6 address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+259
+260
+261</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 259</span>
+
+<span class='kw'>def</span> <span class='id ipv6?'>ipv6?</span>
+  <span class='kw'>return</span> <span class='ivar'>@family</span> <span class='op'>==</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mask-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>mask</strong>(prefixlen) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new ipaddr built by masking IP address with the given
+prefixlen/netmask. (e.g. 8, 64, "255.255.255.0", etc.)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161
+162
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 161</span>
+
+<span class='kw'>def</span> <span class='id mask'>mask</span><span class='lparen'>(</span><span class='id prefixlen'>prefixlen</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id mask!'>mask!</span><span class='lparen'>(</span><span class='id prefixlen'>prefixlen</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mask!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>mask!</strong>(mask) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Set current netmask to given mask.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 416</span>
+
+<span class='kw'>def</span> <span class='id mask!'>mask!</span><span class='lparen'>(</span><span class='id mask'>mask</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id mask'>mask</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id mask'>mask</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\d+$</span><span class='regexp_end'>/</span></span>
+      <span class='id prefixlen'>prefixlen</span> <span class='op'>=</span> <span class='id mask'>mask</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+    <span class='kw'>else</span>
+      <span class='id m'>m</span> <span class='op'>=</span> <span class='const'>IPAddr</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id mask'>mask</span><span class='rparen'>)</span>
+      <span class='kw'>if</span> <span class='id m'>m</span><span class='period'>.</span><span class='id family'>family</span> <span class='op'>!=</span> <span class='ivar'>@family</span>
+        <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>address family is not same</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='ivar'>@mask_addr</span> <span class='op'>=</span> <span class='id m'>m</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+      <span class='ivar'>@addr</span> <span class='op'>&amp;=</span> <span class='ivar'>@mask_addr</span>
+      <span class='kw'>return</span> <span class='kw'>self</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id prefixlen'>prefixlen</span> <span class='op'>=</span> <span class='id mask'>mask</span>
+  <span class='kw'>end</span>
+  <span class='kw'>case</span> <span class='ivar'>@family</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='kw'>if</span> <span class='id prefixlen'>prefixlen</span> <span class='op'>&lt;</span> <span class='int'>0</span> <span class='op'>||</span> <span class='id prefixlen'>prefixlen</span> <span class='op'>&gt;</span> <span class='int'>32</span>
+      <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid length</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id masklen'>masklen</span> <span class='op'>=</span> <span class='int'>32</span> <span class='op'>-</span> <span class='id prefixlen'>prefixlen</span>
+    <span class='ivar'>@mask_addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='const'>IN4MASK</span> <span class='op'>&gt;&gt;</span> <span class='id masklen'>masklen</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='id masklen'>masklen</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+    <span class='kw'>if</span> <span class='id prefixlen'>prefixlen</span> <span class='op'>&lt;</span> <span class='int'>0</span> <span class='op'>||</span> <span class='id prefixlen'>prefixlen</span> <span class='op'>&gt;</span> <span class='int'>128</span>
+      <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid length</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id masklen'>masklen</span> <span class='op'>=</span> <span class='int'>128</span> <span class='op'>-</span> <span class='id prefixlen'>prefixlen</span>
+    <span class='ivar'>@mask_addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='const'>IN6MASK</span> <span class='op'>&gt;&gt;</span> <span class='id masklen'>masklen</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='id masklen'>masklen</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&gt;&gt;</span> <span class='id masklen'>masklen</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='id masklen'>masklen</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="native-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>native</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new ipaddr built by converting the IPv6 address into a native
+IPv4 address.  If the IP address is not an IPv4-mapped or IPv4-compatible
+IPv6 address, returns self.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+298
+299
+300
+301
+302
+303</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 298</span>
+
+<span class='kw'>def</span> <span class='id native'>native</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id ipv4_mapped?'>ipv4_mapped?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id ipv4_compat?'>ipv4_compat?</span>
+    <span class='kw'>return</span> <span class='kw'>self</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&amp;</span> <span class='const'>IN4MASK</span><span class='comma'>,</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="reverse-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>reverse</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string for DNS reverse lookup.  It returns a string in RFC3172
+form for an IPv6 address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 307</span>
+
+<span class='kw'>def</span> <span class='id reverse'>reverse</span>
+  <span class='kw'>case</span> <span class='ivar'>@family</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='kw'>return</span> <span class='id _reverse'>_reverse</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.in-addr.arpa</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+    <span class='kw'>return</span> <span class='id ip6_arpa'>ip6_arpa</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>set</strong>(addr, *family) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Set <tt>@addr</tt>, the internal stored ip address, to given <tt>addr</tt>. The
+parameter <tt>addr</tt> is validated using the first <tt>family</tt>
+member, which is <tt>Socket::AF_INET</tt> or <tt>Socket::AF_INET6</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 395</span>
+
+<span class='kw'>def</span> <span class='id set'>set</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='comma'>,</span> <span class='op'>*</span><span class='id family'>family</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id family'>family</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='id family'>family</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='ivar'>@family</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='kw'>if</span> <span class='id addr'>addr</span> <span class='op'>&lt;</span> <span class='int'>0</span> <span class='op'>||</span> <span class='id addr'>addr</span> <span class='op'>&gt;</span> <span class='const'>IN4MASK</span>
+      <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid address</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+    <span class='kw'>if</span> <span class='id addr'>addr</span> <span class='op'>&lt;</span> <span class='int'>0</span> <span class='op'>||</span> <span class='id addr'>addr</span> <span class='op'>&gt;</span> <span class='const'>IN6MASK</span>
+      <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid address</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@addr</span> <span class='op'>=</span> <span class='id addr'>addr</span>
+  <span class='kw'>if</span> <span class='id family'>family</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='ivar'>@family</span> <span class='op'>=</span> <span class='id family'>family</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="succ-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>succ</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the successor to the ipaddr.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+335
+336
+337</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 335</span>
+
+<span class='kw'>def</span> <span class='id succ'>succ</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>+</span> <span class='int'>1</span><span class='comma'>,</span> <span class='ivar'>@family</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_i-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_i</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the integer representation of the ipaddr.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+204
+205
+206</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 204</span>
+
+<span class='kw'>def</span> <span class='id to_i'>to_i</span>
+  <span class='kw'>return</span> <span class='ivar'>@addr</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_range-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_range</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a Range object for the network address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 360</span>
+
+<span class='kw'>def</span> <span class='id to_range'>to_range</span>
+  <span class='id begin_addr'>begin_addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>&amp;</span> <span class='ivar'>@mask_addr</span><span class='rparen'>)</span>
+
+  <span class='kw'>case</span> <span class='ivar'>@family</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span>
+    <span class='id end_addr'>end_addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>|</span> <span class='lparen'>(</span><span class='const'>IN4MASK</span> <span class='op'>^</span> <span class='ivar'>@mask_addr</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET6</span>
+    <span class='id end_addr'>end_addr</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>|</span> <span class='lparen'>(</span><span class='const'>IN6MASK</span> <span class='op'>^</span> <span class='ivar'>@mask_addr</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unsupported address family</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='id begin_addr'>begin_addr</span><span class='comma'>,</span> <span class='ivar'>@family</span><span class='rparen'>)</span><span class='op'>..</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='id end_addr'>end_addr</span><span class='comma'>,</span> <span class='ivar'>@family</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string containing the IP address representation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 209</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='id str'>str</span> <span class='op'>=</span> <span class='id to_string'>to_string</span>
+  <span class='kw'>return</span> <span class='id str'>str</span> <span class='kw'>if</span> <span class='id ipv4?'>ipv4?</span>
+
+  <span class='id str'>str</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\b0{1,3}([\da-f]+)\b</span><span class='regexp_end'>/i</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id loop'>loop</span> <span class='kw'>do</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id str'>str</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A0:0:0:0:0:0:0:0\Z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>::</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id str'>str</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\b0:0:0:0:0:0:0\b</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id str'>str</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\b0:0:0:0:0:0\b</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id str'>str</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\b0:0:0:0:0\b</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id str'>str</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\b0:0:0:0\b</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id str'>str</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\b0:0:0\b</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id str'>str</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\b0:0\b</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='kw'>break</span>
+  <span class='kw'>end</span>
+  <span class='id str'>str</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>:{3,}</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>::</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A::(ffff:)?([\da-f]{1,4}):([\da-f]{1,4})\Z</span><span class='regexp_end'>/i</span></span> <span class='op'>=~</span> <span class='id str'>str</span>
+    <span class='id str'>str</span> <span class='op'>=</span> <span class='id sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>::%s%d.%d.%d.%d</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='backref'>$1</span><span class='comma'>,</span> <span class='backref'>$2</span><span class='period'>.</span><span class='id hex'>hex</span> <span class='op'>/</span> <span class='int'>256</span><span class='comma'>,</span> <span class='backref'>$2</span><span class='period'>.</span><span class='id hex'>hex</span> <span class='op'>%</span> <span class='int'>256</span><span class='comma'>,</span> <span class='backref'>$3</span><span class='period'>.</span><span class='id hex'>hex</span> <span class='op'>/</span> <span class='int'>256</span><span class='comma'>,</span> <span class='backref'>$3</span><span class='period'>.</span><span class='id hex'>hex</span> <span class='op'>%</span> <span class='int'>256</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id str'>str</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_string-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_string</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string containing the IP address representation in canonical
+form.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+235
+236
+237</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 235</span>
+
+<span class='kw'>def</span> <span class='id to_string'>to_string</span>
+  <span class='kw'>return</span> <span class='id _to_string'>_to_string</span><span class='lparen'>(</span><span class='ivar'>@addr</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="|-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>|</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new ipaddr built by bitwise OR.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134
+135
+136</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 134</span>
+
+<span class='kw'>def</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='ivar'>@addr</span> <span class='op'>|</span> <span class='id coerce_other'>coerce_other</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="~-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>~</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new ipaddr built by bitwise negation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+149
+150
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ipaddr.rb', line 149</span>
+
+<span class='kw'>def</span> <span class='op'>~</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id clone'>clone</span><span class='period'>.</span><span class='id set'>set</span><span class='lparen'>(</span><span class='id addr_mask'>addr_mask</span><span class='lparen'>(</span><span class='op'>~</span><span class='ivar'>@addr</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:11 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,1866 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSS::BaseModel
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (B)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../RSS.html" title="RSS (module)">RSS</a></span></span>
+     &raquo; 
+    <span class="title">BaseModel</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: RSS::BaseModel
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="Utils.html" title="RSS::Utils (module)">Utils</a></span></dd>
+      
+    
+  
+  
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="ContentModel.html" title="RSS::ContentModel (module)">ContentModel</a></span>, <span class='object_link'><a href="DublinCoreModel.html" title="RSS::DublinCoreModel (module)">DublinCoreModel</a></span>, <span class='object_link'><a href="Element.html" title="RSS::Element (class)">Element</a></span>, <span class='object_link'><a href="ITunesChannelModel.html" title="RSS::ITunesChannelModel (module)">ITunesChannelModel</a></span>, <span class='object_link'><a href="ITunesItemModel.html" title="RSS::ITunesItemModel (module)">ITunesItemModel</a></span>, <span class='object_link'><a href="SlashModel.html" title="RSS::SlashModel (module)">SlashModel</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rss/rss.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#boolean_writer-instance_method" title="#boolean_writer (instance method)">- (Object) <strong>boolean_writer</strong>(name, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#content_writer-instance_method" title="#content_writer (instance method)">- (Object) <strong>content_writer</strong>(name, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert_attr_reader-instance_method" title="#convert_attr_reader (instance method)">- (Object) <strong>convert_attr_reader</strong>(*attrs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#csv_attr_reader-instance_method" title="#csv_attr_reader (instance method)">- (Object) <strong>csv_attr_reader</strong>(*attrs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#csv_integer_writer-instance_method" title="#csv_integer_writer (instance method)">- (Object) <strong>csv_integer_writer</strong>(name, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#csv_writer-instance_method" title="#csv_writer (instance method)">- (Object) <strong>csv_writer</strong>(name, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#date_writer-instance_method" title="#date_writer (instance method)">- (Object) <strong>date_writer</strong>(name, type, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_children_accessor-instance_method" title="#def_children_accessor (instance method)">- (Object) <strong>def_children_accessor</strong>(accessor_name, plural_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inherit_convert_attr_reader-instance_method" title="#inherit_convert_attr_reader (instance method)">- (Object) <strong>inherit_convert_attr_reader</strong>(*attrs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_date_element-instance_method" title="#install_date_element (instance method)">- (Object) <strong>install_date_element</strong>(tag_name, uri, occurs, name = nil, type = nil, disp_name = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_element-instance_method" title="#install_element (instance method)">- (Object) <strong>install_element</strong>(name, postfix = &quot;&quot;) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_have_child_element-instance_method" title="#install_have_child_element (instance method)">- (Object) <strong>install_have_child_element</strong>(tag_name, uri, occurs, name = nil, type = nil) </a>
+    
+
+    
+      (also: #install_have_attribute_element)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_have_children_element-instance_method" title="#install_have_children_element (instance method)">- (Object) <strong>install_have_children_element</strong>(tag_name, uri, occurs, name = nil, plural_name = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_text_element-instance_method" title="#install_text_element (instance method)">- (Object) <strong>install_text_element</strong>(tag_name, uri, occurs, name = nil, type = nil, disp_name = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#integer_writer-instance_method" title="#integer_writer (instance method)">- (Object) <strong>integer_writer</strong>(name, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#positive_integer_writer-instance_method" title="#positive_integer_writer (instance method)">- (Object) <strong>positive_integer_writer</strong>(name, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#text_type_writer-instance_method" title="#text_type_writer (instance method)">- (Object) <strong>text_type_writer</strong>(name, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uri_convert_attr_reader-instance_method" title="#uri_convert_attr_reader (instance method)">- (Object) <strong>uri_convert_attr_reader</strong>(*attrs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#yes_clean_other_attr_reader-instance_method" title="#yes_clean_other_attr_reader (instance method)">- (Object) <strong>yes_clean_other_attr_reader</strong>(*attrs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#yes_clean_other_writer-instance_method" title="#yes_clean_other_writer (instance method)">- (Object) <strong>yes_clean_other_writer</strong>(name, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#yes_other_attr_reader-instance_method" title="#yes_other_attr_reader (instance method)">- (Object) <strong>yes_other_attr_reader</strong>(*attrs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#yes_other_writer-instance_method" title="#yes_other_writer (instance method)">- (Object) <strong>yes_other_writer</strong>(name, disp_name = name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Utils.html" title="RSS::Utils (module)">Utils</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Utils.html#element_initialize_arguments%3F-instance_method" title="RSS::Utils#element_initialize_arguments? (method)">#element_initialize_arguments?</a></span>, <span class='object_link'><a href="Utils.html#get_file_and_line_from_caller-instance_method" title="RSS::Utils#get_file_and_line_from_caller (method)">#get_file_and_line_from_caller</a></span>, <span class='object_link'><a href="Utils.html#html_escape-instance_method" title="RSS::Utils#html_escape (method)">#html_escape</a></span>, <span class='object_link'><a href="Utils.html#new_with_value_if_need-instance_method" title="RSS::Utils#new_with_value_if_need (method)">#new_with_value_if_need</a></span>, <span class='object_link'><a href="Utils.html#to_class_name-instance_method" title="RSS::Utils#to_class_name (method)">#to_class_name</a></span></p>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="boolean_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>boolean_writer</strong>(name, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 496</span>
+
+<span class='kw'>def</span> <span class='id boolean_writer'>boolean_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>  def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(new_value)
+    if new_value.nil?
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = new_value
+    else
+      if @do_validate and
+          ![true, false, &quot;true&quot;, &quot;false&quot;].include?(new_value)
+</span><span class='embexpr_beg'>        raise NotAvailableValueError.new('#{</span><span class='id disp_name'>disp_name</span><span class='rbrace'>}</span><span class='tstring_content'>', new_value)
+      end
+      if [true, false].include?(new_value)
+</span><span class='embexpr_beg'>        @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = new_value
+      else
+</span><span class='embexpr_beg'>        @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'> = new_value == &quot;true&quot;
+      end
+    end
+  end
+</span><span class='heredoc_end'>EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="content_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>content_writer</strong>(name, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 528</span>
+
+<span class='kw'>def</span> <span class='id content_writer'>content_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id klass_name'>klass_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>self.class::</span><span class='embexpr_beg'>#{</span><span class='const'>Utils</span><span class='period'>.</span><span class='id to_class_name'>to_class_name</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>  def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(new_value)
+</span><span class='embexpr_beg'>    if new_value.is_a?(#{</span><span class='id klass_name'>klass_name</span><span class='rbrace'>}</span><span class='tstring_content'>)
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = new_value
+    else
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id klass_name'>klass_name</span><span class='rbrace'>}</span><span class='tstring_content'>.new
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'>.content = new_value
+    end
+  end
+</span><span class='heredoc_end'>EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="convert_attr_reader-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>convert_attr_reader</strong>(*attrs) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 358</span>
+
+<span class='kw'>def</span> <span class='id convert_attr_reader'>convert_attr_reader</span><span class='lparen'>(</span><span class='op'>*</span><span class='id attrs'>attrs</span><span class='rparen'>)</span>
+  <span class='id attrs'>attrs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id attr'>attr</span><span class='op'>|</span>
+    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id id2name'>id2name</span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    def </span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>      convert(@#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'>)
+    end
+</span><span class='heredoc_end'>EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="csv_attr_reader-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>csv_attr_reader</strong>(*attrs) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 393</span>
+
+<span class='kw'>def</span> <span class='id csv_attr_reader'>csv_attr_reader</span><span class='lparen'>(</span><span class='op'>*</span><span class='id attrs'>attrs</span><span class='rparen'>)</span>
+  <span class='id separator'>separator</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>if</span> <span class='id attrs'>attrs</span><span class='period'>.</span><span class='id last'>last</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+    <span class='id options'>options</span> <span class='op'>=</span> <span class='id attrs'>attrs</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='id separator'>separator</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:separator</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='id separator'>separator</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span>
+  <span class='id attrs'>attrs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id attr'>attr</span><span class='op'>|</span>
+    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id id2name'>id2name</span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>      attr_reader(:</span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>)
+</span><span class='embexpr_beg'>      def #{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>_content
+</span><span class='embexpr_beg'>        if @#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>.nil?
+</span><span class='embexpr_beg'>          @#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>
+        else
+</span><span class='embexpr_beg'>          @#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>.join(</span><span class='embexpr_beg'>#{</span><span class='id separator'>separator</span><span class='period'>.</span><span class='id dump'>dump</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'>)
+        end
+      end
+</span><span class='heredoc_end'>    EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="csv_integer_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>csv_integer_writer</strong>(name, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+570
+571
+572
+573
+574
+575
+576</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 570</span>
+
+<span class='kw'>def</span> <span class='id csv_integer_writer'>csv_integer_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(new_value)
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'> = Utils::CSV.parse(new_value) {|v| Integer(v)}
+    end
+</span><span class='heredoc_end'>  EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="csv_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>csv_writer</strong>(name, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+562
+563
+564
+565
+566
+567
+568</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 562</span>
+
+<span class='kw'>def</span> <span class='id csv_writer'>csv_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(new_value)
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'> = Utils::CSV.parse(new_value)
+    end
+</span><span class='heredoc_end'>  EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="date_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>date_writer</strong>(name, type, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 415</span>
+
+<span class='kw'>def</span> <span class='id date_writer'>date_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id type'>type</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>  def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(new_value)
+    if new_value.nil?
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = new_value
+    elsif new_value.kind_of?(Time)
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = new_value.dup
+    else
+      if @do_validate
+        begin
+</span><span class='embexpr_beg'>          @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = Time.__send__('</span><span class='embexpr_beg'>#{</span><span class='id type'>type</span><span class='rbrace'>}</span><span class='tstring_content'>', new_value)
+        rescue ArgumentError
+</span><span class='embexpr_beg'>          raise NotAvailableValueError.new('#{</span><span class='id disp_name'>disp_name</span><span class='rbrace'>}</span><span class='tstring_content'>', new_value)
+        end
+      else
+</span><span class='embexpr_beg'>        @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = nil
+        if /\\A\\s*\\z/ !~ new_value.to_s
+          begin
+            unless Date._parse(new_value, false).empty?
+</span><span class='embexpr_beg'>              @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = Time.parse(new_value)
+            end
+          rescue ArgumentError
+          end
+        end
+      end
+    end
+
+    # Is it need?
+</span><span class='embexpr_beg'>    if @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>      class &lt;&lt; @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>
+        undef_method(:to_s)
+</span><span class='embexpr_beg'>        alias_method(:to_s, :#{</span><span class='id type'>type</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'>)
+      end
+    end
+
+  end
+</span><span class='heredoc_end'>EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_children_accessor-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_children_accessor</strong>(accessor_name, plural_name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 578</span>
+
+<span class='kw'>def</span> <span class='id def_children_accessor'>def_children_accessor</span><span class='lparen'>(</span><span class='id accessor_name'>accessor_name</span><span class='comma'>,</span> <span class='id plural_name'>plural_name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>  def </span><span class='embexpr_beg'>#{</span><span class='id plural_name'>plural_name</span><span class='rbrace'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>    @#{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'>
+  end
+
+</span><span class='embexpr_beg'>  def #{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'>(*args)
+    if args.empty?
+</span><span class='embexpr_beg'>      @#{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'>.first
+    else
+</span><span class='embexpr_beg'>      @#{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'>[*args]
+    end
+  end
+
+</span><span class='embexpr_beg'>  def #{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'>=(*args)
+    receiver = self.class.name
+    warn(&quot;Warning:\#{caller.first.sub(/:in `.*'\z/, '')}: &quot; \
+</span><span class='embexpr_beg'>         &quot;Don't use `\#{receiver}\##{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'> = XXX'/&quot; \
+</span><span class='embexpr_beg'>         &quot;`\#{receiver}\#set_#{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'>(XXX)'. &quot; \
+         &quot;Those APIs are not sense of Ruby. &quot; \
+</span><span class='embexpr_beg'>         &quot;Use `\#{receiver}\##{</span><span class='id plural_name'>plural_name</span><span class='rbrace'>}</span><span class='tstring_content'> &lt;&lt; XXX' instead of them.&quot;)
+    if args.size == 1
+</span><span class='embexpr_beg'>      @#{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'>.push(args[0])
+    else
+</span><span class='embexpr_beg'>      @#{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'>.__send__(&quot;[]=&quot;, *args)
+    end
+  end
+</span><span class='embexpr_beg'>  alias_method(:set_#{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='tstring_content'>, :</span><span class='embexpr_beg'>#{</span><span class='id accessor_name'>accessor_name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'>=)
+</span><span class='heredoc_end'>EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inherit_convert_attr_reader-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inherit_convert_attr_reader</strong>(*attrs) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 316</span>
+
+<span class='kw'>def</span> <span class='id inherit_convert_attr_reader'>inherit_convert_attr_reader</span><span class='lparen'>(</span><span class='op'>*</span><span class='id attrs'>attrs</span><span class='rparen'>)</span>
+  <span class='id attrs'>attrs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id attr'>attr</span><span class='op'>|</span>
+    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id id2name'>id2name</span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    def </span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>_without_inherit
+</span><span class='embexpr_beg'>      convert(@#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>)
+    end
+
+</span><span class='embexpr_beg'>    def #{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>      if @#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>        #{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>_without_inherit
+      elsif @parent
+</span><span class='embexpr_beg'>        @parent.#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'>
+      else
+        nil
+      end
+    end
+</span><span class='heredoc_end'>EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_date_element-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_date_element</strong>(tag_name, uri, occurs, name = nil, type = nil, disp_name = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 271</span>
+
+<span class='kw'>def</span> <span class='id install_date_element'>install_date_element</span><span class='lparen'>(</span><span class='id tag_name'>tag_name</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id occurs'>occurs</span><span class='comma'>,</span> <span class='id name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id type'>type</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id name'>name</span> <span class='op'>||=</span> <span class='id tag_name'>tag_name</span>
+  <span class='id type'>type</span> <span class='op'>||=</span> <span class='symbol'>:w3cdtf</span>
+  <span class='id disp_name'>disp_name</span> <span class='op'>||=</span> <span class='id name'>name</span>
+  <span class='kw'>self</span><span class='op'>::</span><span class='const'>ELEMENTS</span> <span class='op'>&lt;&lt;</span> <span class='id name'>name</span>
+  <span class='id add_need_initialize_variable'>add_need_initialize_variable</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id install_model'>install_model</span><span class='lparen'>(</span><span class='id tag_name'>tag_name</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id occurs'>occurs</span><span class='comma'>,</span> <span class='id name'>name</span><span class='rparen'>)</span>
+
+  <span class='comment'># accessor
+</span>  <span class='id convert_attr_reader'>convert_attr_reader</span> <span class='id name'>name</span>
+  <span class='id date_writer'>date_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id type'>type</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='rparen'>)</span>
+
+  <span class='id install_element'>install_element</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='comma'>,</span> <span class='id elem_name'>elem_name</span><span class='op'>|</span>
+    <span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    if @</span><span class='embexpr_beg'>#{</span><span class='id n'>n</span><span class='rbrace'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>      rv = &quot;\#{indent}&lt;#{</span><span class='id elem_name'>elem_name</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;&quot;
+</span><span class='embexpr_beg'>      value = html_escape(@#{</span><span class='id n'>n</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id type'>type</span><span class='rbrace'>}</span><span class='tstring_content'>)
+      if need_convert
+        rv &lt;&lt; convert(value)
+      else
+        rv &lt;&lt; value
+      end
+</span><span class='embexpr_beg'>        rv &lt;&lt; &quot;&lt;/#{</span><span class='id elem_name'>elem_name</span><span class='rbrace'>}</span>
+<span class='tstring_content'>&gt;&quot;
+      rv
+    else
+      ''
+    end
+</span><span class='heredoc_end'>EOC
+</span>  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_element-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_element</strong>(name, postfix = &quot;&quot;) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 304</span>
+
+<span class='kw'>def</span> <span class='id install_element'>install_element</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id postfix'>postfix</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id elem_name'>elem_name</span> <span class='op'>=</span> <span class='id name'>name</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>_</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id method_name'>method_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>_element</span><span class='embexpr_beg'>#{</span><span class='id postfix'>postfix</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id add_to_element_method'>add_to_element_method</span><span class='lparen'>(</span><span class='id method_name'>method_name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>  def </span><span class='embexpr_beg'>#{</span><span class='id method_name'>method_name</span><span class='rbrace'>}</span><span class='tstring_content'>(need_convert=true, indent='')
+</span><span class='embexpr_beg'>    #{</span><span class='kw'>yield</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id elem_name'>elem_name</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>
+  end
+</span><span class='embexpr_beg'>  private :#{</span><span class='id method_name'>method_name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'>
+</span><span class='heredoc_end'>EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_have_child_element-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_have_child_element</strong>(tag_name, uri, occurs, name = nil, type = nil) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='install_have_attribute_element-instance_method'>install_have_attribute_element</span></span>
+    </span>
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 197</span>
+
+<span class='kw'>def</span> <span class='id install_have_child_element'>install_have_child_element</span><span class='lparen'>(</span><span class='id tag_name'>tag_name</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id occurs'>occurs</span><span class='comma'>,</span> <span class='id name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id type'>type</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id name'>name</span> <span class='op'>||=</span> <span class='id tag_name'>tag_name</span>
+  <span class='id add_need_initialize_variable'>add_need_initialize_variable</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id install_model'>install_model</span><span class='lparen'>(</span><span class='id tag_name'>tag_name</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id occurs'>occurs</span><span class='comma'>,</span> <span class='id name'>name</span><span class='rparen'>)</span>
+
+  <span class='id writer_type'>writer_type</span><span class='comma'>,</span> <span class='id reader_type'>reader_type</span> <span class='op'>=</span> <span class='id type'>type</span>
+  <span class='id def_corresponded_attr_writer'>def_corresponded_attr_writer</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id writer_type'>writer_type</span>
+  <span class='id def_corresponded_attr_reader'>def_corresponded_attr_reader</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id reader_type'>reader_type</span>
+  <span class='id install_element'>install_element</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='comma'>,</span> <span class='id elem_name'>elem_name</span><span class='op'>|</span>
+    <span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    if @</span><span class='embexpr_beg'>#{</span><span class='id n'>n</span><span class='rbrace'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>      &quot;\#{@#{</span><span class='id n'>n</span><span class='rbrace'>}</span>
+<span class='tstring_content'>.to_s(need_convert, indent)}&quot;
+    else
+      ''
+    end
+</span><span class='heredoc_end'>EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_have_children_element-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_have_children_element</strong>(tag_name, uri, occurs, name = nil, plural_name = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 217</span>
+
+<span class='kw'>def</span> <span class='id install_have_children_element'>install_have_children_element</span><span class='lparen'>(</span><span class='id tag_name'>tag_name</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id occurs'>occurs</span><span class='comma'>,</span> <span class='id name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id plural_name'>plural_name</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id name'>name</span> <span class='op'>||=</span> <span class='id tag_name'>tag_name</span>
+  <span class='id plural_name'>plural_name</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id add_have_children_element'>add_have_children_element</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id plural_name'>plural_name</span><span class='rparen'>)</span>
+  <span class='id add_plural_form'>add_plural_form</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id plural_name'>plural_name</span><span class='rparen'>)</span>
+  <span class='id install_model'>install_model</span><span class='lparen'>(</span><span class='id tag_name'>tag_name</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id occurs'>occurs</span><span class='comma'>,</span> <span class='id plural_name'>plural_name</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+
+  <span class='id def_children_accessor'>def_children_accessor</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id plural_name'>plural_name</span><span class='rparen'>)</span>
+  <span class='id install_element'>install_element</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='comma'>,</span> <span class='id elem_name'>elem_name</span><span class='op'>|</span>
+    <span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    rv = []
+</span><span class='embexpr_beg'>    @#{</span><span class='id n'>n</span><span class='rbrace'>}</span>
+<span class='tstring_content'>.each do |x|
+      value = &quot;\#{x.to_s(need_convert, indent)}&quot;
+      rv &lt;&lt; value if /\\A\\s*\\z/ !~ value
+    end
+    rv.join(&quot;\n&quot;)
+</span><span class='heredoc_end'>EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_text_element-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_text_element</strong>(tag_name, uri, occurs, name = nil, type = nil, disp_name = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 237</span>
+
+<span class='kw'>def</span> <span class='id install_text_element'>install_text_element</span><span class='lparen'>(</span><span class='id tag_name'>tag_name</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id occurs'>occurs</span><span class='comma'>,</span> <span class='id name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id type'>type</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span>
+                         <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id name'>name</span> <span class='op'>||=</span> <span class='id tag_name'>tag_name</span>
+  <span class='id disp_name'>disp_name</span> <span class='op'>||=</span> <span class='id name'>name</span>
+  <span class='kw'>self</span><span class='op'>::</span><span class='const'>ELEMENTS</span> <span class='op'>&lt;&lt;</span> <span class='id name'>name</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='op'>::</span><span class='const'>ELEMENTS</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id add_need_initialize_variable'>add_need_initialize_variable</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id install_model'>install_model</span><span class='lparen'>(</span><span class='id tag_name'>tag_name</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id occurs'>occurs</span><span class='comma'>,</span> <span class='id name'>name</span><span class='rparen'>)</span>
+
+  <span class='id def_corresponded_attr_writer'>def_corresponded_attr_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id type'>type</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='rparen'>)</span>
+  <span class='id def_corresponded_attr_reader'>def_corresponded_attr_reader</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id type'>type</span> <span class='op'>||</span> <span class='symbol'>:convert</span><span class='rparen'>)</span>
+  <span class='id install_element'>install_element</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='comma'>,</span> <span class='id elem_name'>elem_name</span><span class='op'>|</span>
+    <span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    if respond_to?(:</span><span class='embexpr_beg'>#{</span><span class='id n'>n</span><span class='rbrace'>}</span><span class='tstring_content'>_content)
+</span><span class='embexpr_beg'>      content = #{</span><span class='id n'>n</span><span class='rbrace'>}</span><span class='tstring_content'>_content
+    else
+</span><span class='embexpr_beg'>      content = @#{</span><span class='id n'>n</span><span class='rbrace'>}</span><span class='tstring_content'>
+    end
+    if content
+</span><span class='embexpr_beg'>      rv = &quot;\#{indent}&lt;#{</span><span class='id elem_name'>elem_name</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;&quot;
+      value = html_escape(content)
+      if need_convert
+        rv &lt;&lt; convert(value)
+      else
+        rv &lt;&lt; value
+      end
+</span><span class='embexpr_beg'>        rv &lt;&lt; &quot;&lt;/#{</span><span class='id elem_name'>elem_name</span><span class='rbrace'>}</span>
+<span class='tstring_content'>&gt;&quot;
+      rv
+    else
+      ''
+    end
+</span><span class='heredoc_end'>EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="integer_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>integer_writer</strong>(name, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 454</span>
+
+<span class='kw'>def</span> <span class='id integer_writer'>integer_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>  def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(new_value)
+    if new_value.nil?
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = new_value
+    else
+      if @do_validate
+        begin
+</span><span class='embexpr_beg'>          @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = Integer(new_value)
+        rescue ArgumentError
+</span><span class='embexpr_beg'>          raise NotAvailableValueError.new('#{</span><span class='id disp_name'>disp_name</span><span class='rbrace'>}</span><span class='tstring_content'>', new_value)
+        end
+      else
+</span><span class='embexpr_beg'>        @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'> = new_value.to_i
+      end
+    end
+  end
+</span><span class='heredoc_end'>EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="positive_integer_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>positive_integer_writer</strong>(name, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 474</span>
+
+<span class='kw'>def</span> <span class='id positive_integer_writer'>positive_integer_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>  def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(new_value)
+    if new_value.nil?
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = new_value
+    else
+      if @do_validate
+        begin
+          tmp = Integer(new_value)
+          raise ArgumentError if tmp &lt;= 0
+</span><span class='embexpr_beg'>          @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> = tmp
+        rescue ArgumentError
+</span><span class='embexpr_beg'>          raise NotAvailableValueError.new('#{</span><span class='id disp_name'>disp_name</span><span class='rbrace'>}</span><span class='tstring_content'>', new_value)
+        end
+      else
+</span><span class='embexpr_beg'>        @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'> = new_value.to_i
+      end
+    end
+  end
+</span><span class='heredoc_end'>EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="text_type_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>text_type_writer</strong>(name, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 516</span>
+
+<span class='kw'>def</span> <span class='id text_type_writer'>text_type_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>  def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(new_value)
+    if @do_validate and
+        ![&quot;text&quot;, &quot;html&quot;, &quot;xhtml&quot;, nil].include?(new_value)
+</span><span class='embexpr_beg'>      raise NotAvailableValueError.new('#{</span><span class='id disp_name'>disp_name</span><span class='rbrace'>}</span><span class='tstring_content'>', new_value)
+    end
+</span><span class='embexpr_beg'>    @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'> = new_value
+  end
+</span><span class='heredoc_end'>EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="uri_convert_attr_reader-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>uri_convert_attr_reader</strong>(*attrs) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 337</span>
+
+<span class='kw'>def</span> <span class='id uri_convert_attr_reader'>uri_convert_attr_reader</span><span class='lparen'>(</span><span class='op'>*</span><span class='id attrs'>attrs</span><span class='rparen'>)</span>
+  <span class='id attrs'>attrs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id attr'>attr</span><span class='op'>|</span>
+    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id id2name'>id2name</span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    def </span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>_without_base
+</span><span class='embexpr_beg'>      convert(@#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>)
+    end
+
+</span><span class='embexpr_beg'>    def #{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>      value = #{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'>_without_base
+      return nil if value.nil?
+      if /\\A[a-z][a-z0-9+.\\-]*:/i =~ value
+        value
+      else
+        &quot;\#{base}\#{value}&quot;
+      end
+    end
+</span><span class='heredoc_end'>EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="yes_clean_other_attr_reader-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>yes_clean_other_attr_reader</strong>(*attrs) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 369</span>
+
+<span class='kw'>def</span> <span class='id yes_clean_other_attr_reader'>yes_clean_other_attr_reader</span><span class='lparen'>(</span><span class='op'>*</span><span class='id attrs'>attrs</span><span class='rparen'>)</span>
+  <span class='id attrs'>attrs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id attr'>attr</span><span class='op'>|</span>
+    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id id2name'>id2name</span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>      attr_reader(:</span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>)
+</span><span class='embexpr_beg'>      def #{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>?
+</span><span class='embexpr_beg'>        YesCleanOther.parse(@#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'>)
+      end
+</span><span class='heredoc_end'>    EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="yes_clean_other_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>yes_clean_other_writer</strong>(name, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+542
+543
+544
+545
+546
+547
+548
+549</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 542</span>
+
+<span class='kw'>def</span> <span class='id yes_clean_other_writer'>yes_clean_other_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(value)
+      value = (value ? &quot;yes&quot; : &quot;no&quot;) if [true, false].include?(value)
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'> = value
+    end
+</span><span class='heredoc_end'>  EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="yes_other_attr_reader-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>yes_other_attr_reader</strong>(*attrs) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 381</span>
+
+<span class='kw'>def</span> <span class='id yes_other_attr_reader'>yes_other_attr_reader</span><span class='lparen'>(</span><span class='op'>*</span><span class='id attrs'>attrs</span><span class='rparen'>)</span>
+  <span class='id attrs'>attrs</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id attr'>attr</span><span class='op'>|</span>
+    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id id2name'>id2name</span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>      attr_reader(:</span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>)
+</span><span class='embexpr_beg'>      def #{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>?
+</span><span class='embexpr_beg'>        Utils::YesOther.parse(@#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'>)
+      end
+</span><span class='heredoc_end'>    EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="yes_other_writer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>yes_other_writer</strong>(name, disp_name = name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/rss.rb', line 551</span>
+
+<span class='kw'>def</span> <span class='id yes_other_writer'>yes_other_writer</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id disp_name'>disp_name</span><span class='op'>=</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    def </span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=(new_value)
+      if [true, false].include?(new_value)
+        new_value = new_value ? &quot;yes&quot; : &quot;no&quot;
+      end
+</span><span class='embexpr_beg'>      @#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'> = new_value
+    end
+</span><span class='heredoc_end'>  EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:13 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

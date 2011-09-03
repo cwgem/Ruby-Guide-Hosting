@@ -1,0 +1,3167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Net::POP3
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (P)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Net.html" title="Net (module)">Net</a></span></span>
+     &raquo; 
+    <span class="title">POP3</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Net::POP3
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Protocol.html" title="Net::Protocol (class)">Protocol</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="Protocol.html" title="Net::Protocol (class)">Protocol</a></span></li>
+          
+            <li class="next">Net::POP3</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/net/pop.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h1>Net::POP3</h1>
+
+<h2>What is This Library?</h2>
+
+<p>This library provides functionality for retrieving email via POP3, the Post
+Office Protocol version 3. For details of POP3, see [RFC1939] (<a
+href="http://www.ietf.org/rfc/rfc1939.txt">www.ietf.org/rfc/rfc1939.txt</a>).</p>
+
+<h2>Examples</h2>
+
+<h3>Retrieving Messages</h3>
+
+<p>This example retrieves messages from the server and deletes them on the
+server.</p>
+
+<p>Messages are written to files named 'inbox/1', 'inbox/2', .... Replace
+'pop.example.com' with your POP3 server address, and 'YourAccount' and
+'YourPassword' with the appropriate account details.</p>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>net/pop</span><span class='tstring_end'>'</span></span>
+
+<span class='id pop'>pop</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id pop'>pop</span><span class='period'>.</span><span class='id start'>start</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourAccount</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourPassword</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>             <span class='comment'># (1)
+</span><span class='kw'>if</span> <span class='id pop'>pop</span><span class='period'>.</span><span class='id mails'>mails</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>No mail.</span><span class='tstring_end'>'</span></span>
+<span class='kw'>else</span>
+  <span class='id i'>i</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id pop'>pop</span><span class='period'>.</span><span class='id each_mail'>each_mail</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>   <span class='comment'># or &quot;pop.mails.each ...&quot;   # (2)
+</span>    <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>inbox/</span><span class='embexpr_beg'>#{</span><span class='id i'>i</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>w</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+      <span class='id f'>f</span><span class='period'>.</span><span class='id write'>write</span> <span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='kw'>end</span>
+    <span class='id m'>m</span><span class='period'>.</span><span class='id delete'>delete</span>
+    <span class='id i'>i</span> <span class='op'>+=</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
+  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id pop'>pop</span><span class='period'>.</span><span class='id mails'>mails</span><span class='period'>.</span><span class='id size'>size</span><span class='rbrace'>}</span><span class='tstring_content'> mails popped.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+<span class='id pop'>pop</span><span class='period'>.</span><span class='id finish'>finish</span>                                           <span class='comment'># (3)</span></pre>
+<ol><li>
+<p>Call Net::POP3#start and start POP session.</p>
+</li><li>
+<p>Access messages by using POP3#each_mail and/or POP3#mails.</p>
+</li><li>
+<p>Close POP session by calling POP3#finish or use the block form of #start.</p>
+</li></ol>
+
+<h3>Shortened Code</h3>
+
+<p>The example above is very verbose. You can shorten the code by using some
+utility methods. First, the block form of Net::POP3.start can be used
+instead of POP3.new, POP3#start and POP3#finish.</p>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>net/pop</span><span class='tstring_end'>'</span></span>
+
+<span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id start'>start</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>110</span><span class='comma'>,</span>
+                <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourAccount</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourPassword</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id pop'>pop</span><span class='op'>|</span>
+  <span class='kw'>if</span> <span class='id pop'>pop</span><span class='period'>.</span><span class='id mails'>mails</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>No mail.</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>else</span>
+    <span class='id i'>i</span> <span class='op'>=</span> <span class='int'>0</span>
+    <span class='id pop'>pop</span><span class='period'>.</span><span class='id each_mail'>each_mail</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>   <span class='comment'># or &quot;pop.mails.each ...&quot;
+</span>      <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>inbox/</span><span class='embexpr_beg'>#{</span><span class='id i'>i</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>w</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+        <span class='id f'>f</span><span class='period'>.</span><span class='id write'>write</span> <span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span>
+      <span class='kw'>end</span>
+      <span class='id m'>m</span><span class='period'>.</span><span class='id delete'>delete</span>
+      <span class='id i'>i</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+    <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id pop'>pop</span><span class='period'>.</span><span class='id mails'>mails</span><span class='period'>.</span><span class='id size'>size</span><span class='rbrace'>}</span><span class='tstring_content'> mails popped.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+<p>POP3#delete_all is an alternative for #each_mail and #delete.</p>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>net/pop</span><span class='tstring_end'>'</span></span>
+
+<span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id start'>start</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>110</span><span class='comma'>,</span>
+                <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourAccount</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourPassword</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id pop'>pop</span><span class='op'>|</span>
+  <span class='kw'>if</span> <span class='id pop'>pop</span><span class='period'>.</span><span class='id mails'>mails</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>No mail.</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>else</span>
+    <span class='id i'>i</span> <span class='op'>=</span> <span class='int'>1</span>
+    <span class='id pop'>pop</span><span class='period'>.</span><span class='id delete_all'>delete_all</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+      <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>inbox/</span><span class='embexpr_beg'>#{</span><span class='id i'>i</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>w</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+        <span class='id f'>f</span><span class='period'>.</span><span class='id write'>write</span> <span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span>
+      <span class='kw'>end</span>
+      <span class='id i'>i</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+<p>And here is an even shorter example.</p>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>net/pop</span><span class='tstring_end'>'</span></span>
+
+<span class='id i'>i</span> <span class='op'>=</span> <span class='int'>0</span>
+<span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id delete_all'>delete_all</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>110</span><span class='comma'>,</span>
+                     <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourAccount</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourPassword</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>inbox/</span><span class='embexpr_beg'>#{</span><span class='id i'>i</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>w</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+    <span class='id f'>f</span><span class='period'>.</span><span class='id write'>write</span> <span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span>
+  <span class='kw'>end</span>
+  <span class='id i'>i</span> <span class='op'>+=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+
+<h3>Memory Space Issues</h3>
+
+<p>All the examples above get each message as one big string. This example
+avoids this.</p>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>net/pop</span><span class='tstring_end'>'</span></span>
+
+<span class='id i'>i</span> <span class='op'>=</span> <span class='int'>1</span>
+<span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id delete_all'>delete_all</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>110</span><span class='comma'>,</span>
+                     <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourAccount</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourPassword</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>inbox/</span><span class='embexpr_beg'>#{</span><span class='id i'>i</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>w</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+    <span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id chunk'>chunk</span><span class='op'>|</span>    <span class='comment'># get a message little by little.
+</span>      <span class='id f'>f</span><span class='period'>.</span><span class='id write'>write</span> <span class='id chunk'>chunk</span>
+    <span class='kw'>end</span>
+    <span class='id i'>i</span> <span class='op'>+=</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+<h3>Using APOP</h3>
+
+<p>The net/pop library supports APOP authentication. To use APOP, use the
+Net::APOP class instead of the Net::POP3 class. You can use the utility
+method, Net::POP3.APOP(). For example:</p>
+
+<pre class="code">require 'net/pop'
+
+# Use APOP authentication if $isapop == true
+pop = Net::POP3.APOP($is_apop).new('apop.example.com', 110)
+pop.start(YourAccount', 'YourPassword') do |pop|
+  # Rest of the code is the same.
+end</pre>
+
+<h3>Fetch Only Selected Mail Using 'UIDL' POP Command</h3>
+
+<p>If your POP server provides UIDL functionality, you can grab only selected
+mails from the POP server. e.g.</p>
+
+<pre class="code"><span class='kw'>def</span> <span class='id need_pop?'>need_pop?</span><span class='lparen'>(</span> <span class='id id'>id</span> <span class='rparen'>)</span>
+  <span class='comment'># determine if we need pop this mail...
+</span><span class='kw'>end</span>
+
+<span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id start'>start</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>110</span><span class='comma'>,</span>
+                <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Your account</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Your password</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id pop'>pop</span><span class='op'>|</span>
+  <span class='id pop'>pop</span><span class='period'>.</span><span class='id mails'>mails</span><span class='period'>.</span><span class='id select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span> <span class='id need_pop?'>need_pop?</span><span class='lparen'>(</span><span class='id m'>m</span><span class='period'>.</span><span class='id unique_id'>unique_id</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+    <span class='id do_something'>do_something</span><span class='lparen'>(</span><span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+<p>The POPMail#unique_id() method returns the unique-id of the message as a
+String. Normally the unique-id is a hash of the message.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="APOP.html" title="Net::APOP (class)">APOP</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="Revision-constant" class="">Revision =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>svn revision of this library</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>%q$</span><span class='tstring_content'>Revision: 31728 </span><span class='tstring_end'>$</span></span><span class='period'>.</span><span class='id split'>split</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#address-instance_method" title="#address (instance method)">- (Object) <strong>address</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The address to connect to.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open_timeout-instance_method" title="#open_timeout (instance method)">- (Object) <strong>open_timeout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Seconds to wait until a connection is opened.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_timeout-instance_method" title="#read_timeout (instance method)">- (Object) <strong>read_timeout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Seconds to wait until reading one block (by one read(1) call).</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#APOP-class_method" title="APOP (class method)">+ (Object) <strong>APOP</strong>(isapop) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the APOP class if <tt>isapop</tt> is true; otherwise, returns the
+POP class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#auth_only-class_method" title="auth_only (class method)">+ (Object) <strong>auth_only</strong>(address, port = nil, account = nil, password = nil, isapop = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Opens a POP3 session, attempts authentication, and quits.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#certs-class_method" title="certs (class method)">+ (Object) <strong>certs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the :ca_file or :ca_path from POP3.ssh_params.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_ssl_params-class_method" title="create_ssl_params (class method)">+ (Object) <strong>create_ssl_params</strong>(verify_or_params = {}, certs = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs proper parameters from arguments.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_pop3_port-class_method" title="default_pop3_port (class method)">+ (Object) <strong>default_pop3_port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The default port for POP3 connections, port 110.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_pop3s_port-class_method" title="default_pop3s_port (class method)">+ (Object) <strong>default_pop3s_port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The default port for POP3S connections, port 995.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_port-class_method" title="default_port (class method)">+ (Object) <strong>default_port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the port for POP3.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_all-class_method" title="delete_all (class method)">+ (Object) <strong>delete_all</strong>(address, port = nil, account = nil, password = nil, isapop = false, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Starts a POP3 session and deletes all messages on the server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#disable_ssl-class_method" title="disable_ssl (class method)">+ (Object) <strong>disable_ssl</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Disable SSL for all new instances.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enable_ssl-class_method" title="enable_ssl (class method)">+ (Object) <strong>enable_ssl</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#foreach-class_method" title="foreach (class method)">+ (Object) <strong>foreach</strong>(address, port = nil, account = nil, password = nil, isapop = false, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Starts a POP3 session and iterates over each POPMail object, yielding it to
+the <tt>block</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#socket_type-class_method" title="socket_type (class method)">+ (Object) <strong>socket_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc: obsolete.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ssl_params-class_method" title="ssl_params (class method)">+ (Object) <strong>ssl_params</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the SSL Parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start-class_method" title="start (class method)">+ (Object) <strong>start</strong>(address, port = nil, account = nil, password = nil, isapop = false, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new POP3 object and open the connection.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#use_ssl%3F-class_method" title="use_ssl? (class method)">+ (Boolean) <strong>use_ssl?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns <tt>true</tt> if POP3.ssl_params is set.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify-class_method" title="verify (class method)">+ (Object) <strong>verify</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns whether verify_mode is enable from POP3.ssl_params.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apop%3F-instance_method" title="#apop? (instance method)">- (Boolean) <strong>apop?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Does this instance use APOP authentication?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#auth_only-instance_method" title="#auth_only (instance method)">- (Object) <strong>auth_only</strong>(account, password) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Starts a pop3 session, attempts authentication, and quits.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_all-instance_method" title="#delete_all (instance method)">- (Object) <strong>delete_all</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes all messages on the server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#disable_ssl-instance_method" title="#disable_ssl (instance method)">- (Object) <strong>disable_ssl</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Disable SSL for all new instances.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_mail-instance_method" title="#each_mail (instance method)">- (Object) <strong>each_mail</strong>(&amp;block) </a>
+    
+
+    
+      (also: #each)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Yields each message to the passed-in block in turn.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enable_ssl-instance_method" title="#enable_ssl (instance method)">- (Object) <strong>enable_ssl</strong>(verify_or_params = {}, certs = nil, port = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>call-seq:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#finish-instance_method" title="#finish (instance method)">- (Object) <strong>finish</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Finishes a POP3 session and closes TCP connection.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (POP3) <strong>initialize</strong>(addr, port = nil, isapop = false) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new POP3 object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Provide human-readable stringification of class state.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#logging-instance_method" title="#logging (instance method)">- (Object) <strong>logging</strong>(msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>deguging output for <tt>msg</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mails-instance_method" title="#mails (instance method)">- (Object) <strong>mails</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of Net::POPMail objects, representing all the messages on
+the server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_bytes-instance_method" title="#n_bytes (instance method)">- (Object) <strong>n_bytes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the total size in bytes of all the messages on the POP server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_mails-instance_method" title="#n_mails (instance method)">- (Object) <strong>n_mails</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of messages on the POP server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#port-instance_method" title="#port (instance method)">- (Object) <strong>port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The port number to connect to.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reset-instance_method" title="#reset (instance method)">- (Object) <strong>reset</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Resets the session.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_all_uids-instance_method" title="#set_all_uids (instance method)">- (Object) <strong>set_all_uids</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc: internal use only (called from POPMail#uidl).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_debug_output-instance_method" title="#set_debug_output (instance method)">- (Object) <strong>set_debug_output</strong>(arg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p><b>WARNING</b>: This method causes a serious security hole.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start-instance_method" title="#start (instance method)">- (Object) <strong>start</strong>(account, password) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Starts a POP3 session.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#started%3F-instance_method" title="#started? (instance method)">- (Boolean) <strong>started?</strong> </a>
+    
+
+    
+      (also: #active?)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p><tt>true</tt> if the POP3 session has started.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#use_ssl%3F-instance_method" title="#use_ssl? (instance method)">- (Boolean) <strong>use_ssl?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>does this instance use SSL?.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Protocol.html" title="Net::Protocol (class)">Protocol</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Protocol.html#protocol_param-class_method" title="Net::Protocol.protocol_param (method)">protocol_param</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Net::POP3 (class)">POP3</a></span></tt>) <strong>initialize</strong>(addr, port = nil, isapop = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new POP3 object.</p>
+
+<p><tt>address</tt> is the hostname or ip address of your POP3 server.</p>
+
+<p>The optional <tt>port</tt> is the port to connect to.</p>
+
+<p>The optional <tt>isapop</tt> specifies whether this connection is going to
+use APOP authentication; it defaults to <tt>false</tt>.</p>
+
+<p>This method does <b>not</b> open the TCP connection.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 419</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id isapop'>isapop</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@address</span> <span class='op'>=</span> <span class='id addr'>addr</span>
+  <span class='ivar'>@ssl_params</span> <span class='op'>=</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id ssl_params'>ssl_params</span>
+  <span class='ivar'>@port</span> <span class='op'>=</span> <span class='id port'>port</span>
+  <span class='ivar'>@apop</span> <span class='op'>=</span> <span class='id isapop'>isapop</span>
+
+  <span class='ivar'>@command</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@socket</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@started</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@open_timeout</span> <span class='op'>=</span> <span class='int'>30</span>
+  <span class='ivar'>@read_timeout</span> <span class='op'>=</span> <span class='int'>60</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@mails</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@n_mails</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@n_bytes</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="address-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="address-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>address</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The address to connect to.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+492
+493
+494</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 492</span>
+
+<span class='kw'>def</span> <span class='id address'>address</span>
+  <span class='ivar'>@address</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="open_timeout=-instance_method"></span>
+      <span id="open_timeout-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="open_timeout-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>open_timeout</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Seconds to wait until a connection is opened. If the POP3 object cannot
+open a connection within this time, it raises a TimeoutError exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+502
+503
+504</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 502</span>
+
+<span class='kw'>def</span> <span class='id open_timeout'>open_timeout</span>
+  <span class='ivar'>@open_timeout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="read_timeout=-instance_method"></span>
+      <span id="read_timeout-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="read_timeout-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_timeout</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Seconds to wait until reading one block (by one read(1) call). If the POP3
+object cannot complete a read() within this time, it raises a TimeoutError
+exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+507
+508
+509</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 507</span>
+
+<span class='kw'>def</span> <span class='id read_timeout'>read_timeout</span>
+  <span class='ivar'>@read_timeout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="APOP-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>APOP</strong>(isapop) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the APOP class if <tt>isapop</tt> is true; otherwise, returns the
+POP class.  For example:</p>
+
+<pre class="code"># Example 1
+pop = Net::POP3::APOP($is_apop).new(addr, port)
+
+# Example 2
+Net::POP3::APOP($is_apop).start(addr, port) do |pop|
+  ....
+end</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+240
+241
+242</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 240</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='const'>APOP</span><span class='lparen'>(</span><span class='id isapop'>isapop</span><span class='rparen'>)</span>
+  <span class='id isapop'>isapop</span> <span class='op'>?</span> <span class='const'>APOP</span> <span class='op'>:</span> <span class='const'>POP3</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="auth_only-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>auth_only</strong>(address, port = nil, account = nil, password = nil, isapop = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Opens a POP3 session, attempts authentication, and quits.</p>
+
+<p>This method raises POPAuthenticationError if authentication fails.</p>
+
+<h3>Example: normal POP3</h3>
+
+<pre class="code"><span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id auth_only'>auth_only</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>110</span><span class='comma'>,</span>
+                    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourAccount</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourPassword</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span></pre>
+
+<h3>Example: APOP</h3>
+
+<pre class="code"><span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id auth_only'>auth_only</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>110</span><span class='comma'>,</span>
+                    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourAccount</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourPassword</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+307
+308
+309
+310
+311</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 307</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id auth_only'>auth_only</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span>
+                   <span class='id account'>account</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id password'>password</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span>
+                   <span class='id isapop'>isapop</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id new'>new</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id isapop'>isapop</span><span class='rparen'>)</span><span class='period'>.</span><span class='id auth_only'>auth_only</span> <span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="certs-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>certs</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the :ca_file or :ca_path from POP3.ssh_params</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+379
+380
+381</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 379</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id certs'>certs</span>
+  <span class='kw'>return</span> <span class='ivar'>@ssl_params</span><span class='lbracket'>[</span><span class='symbol'>:ca_file</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@ssl_params</span><span class='lbracket'>[</span><span class='symbol'>:ca_path</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="create_ssl_params-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>create_ssl_params</strong>(verify_or_params = {}, certs = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs proper parameters from arguments</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 339</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id create_ssl_params'>create_ssl_params</span><span class='lparen'>(</span><span class='id verify_or_params'>verify_or_params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id certs'>certs</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id params'>params</span> <span class='op'>=</span> <span class='id verify_or_params'>verify_or_params</span><span class='period'>.</span><span class='id to_hash'>to_hash</span>
+  <span class='kw'>rescue</span> <span class='const'>NoMethodError</span>
+    <span class='id params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:verify_mode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id verify_or_params'>verify_or_params</span>
+    <span class='kw'>if</span> <span class='id certs'>certs</span>
+      <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id file?'>file?</span><span class='lparen'>(</span><span class='id certs'>certs</span><span class='rparen'>)</span>
+        <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:ca_file</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id certs'>certs</span>
+      <span class='kw'>elsif</span> <span class='const'>File</span><span class='period'>.</span><span class='id directory?'>directory?</span><span class='lparen'>(</span><span class='id certs'>certs</span><span class='rparen'>)</span>
+        <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:ca_path</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id certs'>certs</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id params'>params</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_pop3_port-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>default_pop3_port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The default port for POP3 connections, port 110</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id default_pop3_port'>default_pop3_port</span>
+  <span class='int'>110</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_pop3s_port-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>default_pop3s_port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The default port for POP3S connections, port 995</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+217
+218
+219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 217</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id default_pop3s_port'>default_pop3s_port</span>
+  <span class='int'>995</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_port-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>default_port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the port for POP3</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 207</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id default_port'>default_port</span>
+  <span class='id default_pop3_port'>default_pop3_port</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete_all-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete_all</strong>(address, port = nil, account = nil, password = nil, isapop = false, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Starts a POP3 session and deletes all messages on the server. If a block is
+given, each POPMail object is yielded to it before being deleted.</p>
+
+<p>This method raises a POPAuthenticationError if authentication fails.</p>
+
+<h3>Example</h3>
+
+<pre class="code"><span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id delete_all'>delete_all</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>110</span><span class='comma'>,</span>
+                     <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourAccount</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourPassword</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+  <span class='id file'>file</span><span class='period'>.</span><span class='id write'>write</span> <span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+285
+286
+287
+288
+289
+290
+291</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 285</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id delete_all'>delete_all</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span>
+                    <span class='id account'>account</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id password'>password</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span>
+                    <span class='id isapop'>isapop</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id start'>start</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span><span class='comma'>,</span> <span class='id isapop'>isapop</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id pop'>pop</span><span class='op'>|</span>
+    <span class='id pop'>pop</span><span class='period'>.</span><span class='id delete_all'>delete_all</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="disable_ssl-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>disable_ssl</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Disable SSL for all new instances.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+357
+358
+359</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 357</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id disable_ssl'>disable_ssl</span>
+  <span class='ivar'>@ssl_params</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="enable_ssl-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>enable_ssl</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>call-seq:</p>
+
+<pre class="code"><span class='const'>Net</span><span class='op'>::</span><span class='const'>POP</span><span class='period'>.</span><span class='id enable_ssl'>enable_ssl</span><span class='lparen'>(</span><span class='id params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span></pre>
+
+<p>Enable SSL for all new instances. <tt>params</tt> is passed to
+OpenSSL::SSLContext#set_params.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+334
+335
+336</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 334</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id enable_ssl'>enable_ssl</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='ivar'>@ssl_params</span> <span class='op'>=</span> <span class='id create_ssl_params'>create_ssl_params</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="foreach-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>foreach</strong>(address, port = nil, account = nil, password = nil, isapop = false, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Starts a POP3 session and iterates over each POPMail object, yielding it to
+the <tt>block</tt>. This method is equivalent to:</p>
+
+<pre class="code"><span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id start'>start</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id pop'>pop</span><span class='op'>|</span>
+  <span class='id pop'>pop</span><span class='period'>.</span><span class='id each_mail'>each_mail</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+    <span class='kw'>yield</span> <span class='id m'>m</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+<p>This method raises a POPAuthenticationError if authentication fails.</p>
+
+<h3>Example</h3>
+
+<pre class="code"><span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id foreach'>foreach</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pop.example.com</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>110</span><span class='comma'>,</span>
+                  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourAccount</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>YourPassword</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+  <span class='id file'>file</span><span class='period'>.</span><span class='id write'>write</span> <span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span>
+  <span class='id m'>m</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='kw'>if</span> <span class='gvar'>$DELETE</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+264
+265
+266
+267
+268
+269
+270</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 264</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id foreach'>foreach</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span>
+                 <span class='id account'>account</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id password'>password</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span>
+                 <span class='id isapop'>isapop</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>  <span class='comment'># :yields: message
+</span>  <span class='id start'>start</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span><span class='comma'>,</span> <span class='id isapop'>isapop</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id pop'>pop</span><span class='op'>|</span>
+    <span class='id pop'>pop</span><span class='period'>.</span><span class='id each_mail'>each_mail</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="socket_type-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>socket_type</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc: obsolete</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+221
+222
+223</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 221</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id socket_type'>socket_type</span>   <span class='comment'>#:nodoc: obsolete
+</span>  <span class='const'>Net</span><span class='op'>::</span><span class='const'>InternetMessageIO</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ssl_params-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>ssl_params</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the SSL Parameters</p>
+
+<p>see also POP3.enable_ssl</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+364
+365
+366</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 364</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id ssl_params'>ssl_params</span>
+  <span class='kw'>return</span> <span class='ivar'>@ssl_params</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="start-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>start</strong>(address, port = nil, account = nil, password = nil, isapop = false, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new POP3 object and open the connection.  Equivalent to</p>
+
+<pre class="code"><span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id isapop'>isapop</span><span class='rparen'>)</span><span class='period'>.</span><span class='id start'>start</span><span class='lparen'>(</span><span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span><span class='rparen'>)</span></pre>
+
+<p>If <tt>block</tt> is provided, yields the newly-opened POP3 object to it,
+and automatically closes it at the end of the session.</p>
+
+<h3>Example</h3>
+
+<pre class="code"><span class='const'>Net</span><span class='op'>::</span><span class='const'>POP3</span><span class='period'>.</span><span class='id start'>start</span><span class='lparen'>(</span><span class='id addr'>addr</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id pop'>pop</span><span class='op'>|</span>
+  <span class='id pop'>pop</span><span class='period'>.</span><span class='id each_mail'>each_mail</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+    <span class='id file'>file</span><span class='period'>.</span><span class='id write'>write</span> <span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='id m'>m</span><span class='period'>.</span><span class='id delete'>delete</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+403
+404
+405
+406
+407</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 403</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id start'>start</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span>
+               <span class='id account'>account</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id password'>password</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span>
+               <span class='id isapop'>isapop</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>   <span class='comment'># :yield: pop
+</span>  <span class='id new'>new</span><span class='lparen'>(</span><span class='id address'>address</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id isapop'>isapop</span><span class='rparen'>)</span><span class='period'>.</span><span class='id start'>start</span><span class='lparen'>(</span><span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="use_ssl?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>use_ssl?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns <tt>true</tt> if POP3.ssl_params is set</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+369
+370
+371</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 369</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id use_ssl?'>use_ssl?</span>
+  <span class='kw'>return</span> <span class='op'>!</span><span class='ivar'>@ssl_params</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="verify-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>verify</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns whether verify_mode is enable from POP3.ssl_params</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+374
+375
+376</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 374</span>
+
+<span class='kw'>def</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id verify'>verify</span>
+  <span class='kw'>return</span> <span class='ivar'>@ssl_params</span><span class='lbracket'>[</span><span class='symbol'>:verify_mode</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="apop?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>apop?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Does this instance use APOP authentication?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+438
+439
+440</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 438</span>
+
+<span class='kw'>def</span> <span class='id apop?'>apop?</span>
+  <span class='ivar'>@apop</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="auth_only-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>auth_only</strong>(account, password) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Starts a pop3 session, attempts authentication, and quits. This method must
+not be called while POP3 session is opened. This method raises
+POPAuthenticationError if authentication fails.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>IOError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+316
+317
+318
+319
+320
+321</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 316</span>
+
+<span class='kw'>def</span> <span class='id auth_only'>auth_only</span><span class='lparen'>(</span><span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span><span class='rparen'>)</span>
+  <span class='id raise'>raise</span> <span class='const'>IOError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>opening previously opened POP session</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='id started?'>started?</span>
+  <span class='id start'>start</span><span class='lparen'>(</span><span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+    <span class='semicolon'>;</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete_all-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete_all</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes all messages on the server.</p>
+
+<p>If called with a block, yields each message in turn before deleting it.</p>
+
+<h3>Example</h3>
+
+<pre class="code"><span class='id n'>n</span> <span class='op'>=</span> <span class='int'>1</span>
+<span class='id pop'>pop</span><span class='period'>.</span><span class='id delete_all'>delete_all</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>inbox/</span><span class='embexpr_beg'>#{</span><span class='id n'>n</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+    <span class='id f'>f</span><span class='period'>.</span><span class='id write'>write</span> <span class='id m'>m</span><span class='period'>.</span><span class='id pop'>pop</span>
+  <span class='kw'>end</span>
+  <span class='id n'>n</span> <span class='op'>+=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+
+<p>This method raises a POPError if an error occurs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+686
+687
+688
+689
+690
+691</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 686</span>
+
+<span class='kw'>def</span> <span class='id delete_all'>delete_all</span> <span class='comment'># :yield: message
+</span>  <span class='id mails'>mails</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+    <span class='kw'>yield</span> <span class='id m'>m</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+    <span class='id m'>m</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='kw'>unless</span> <span class='id m'>m</span><span class='period'>.</span><span class='id deleted?'>deleted?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="disable_ssl-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>disable_ssl</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Disable SSL for all new instances.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+465
+466
+467</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 465</span>
+
+<span class='kw'>def</span> <span class='id disable_ssl'>disable_ssl</span>
+  <span class='ivar'>@ssl_params</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each_mail-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>each_mail</strong>(&amp;block) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='each-instance_method'>each</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Yields each message to the passed-in block in turn. Equivalent to:</p>
+
+<pre class="code">pop3.mails.each do |popmail|
+  ....
+end</pre>
+
+<p>This method raises a POPError if an error occurs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+664
+665
+666</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 664</span>
+
+<span class='kw'>def</span> <span class='id each_mail'>each_mail</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>  <span class='comment'># :yield: message
+</span>  <span class='id mails'>mails</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="enable_ssl-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>enable_ssl</strong>(verify_or_params = {}, certs = nil, port = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>call-seq:</p>
+
+<pre class="code"><span class='const'>Net</span><span class='op'>::</span><span class='const'>POP</span><span class='comment'>#enable_ssl(params = {})</span></pre>
+
+<p>Enables SSL for this instance.  Must be called before the connection is
+established to have any effect. <tt>params[:port]</tt> is port to establish the
+SSL connection on; Defaults to 995. <tt>params</tt> (except :port) is
+passed to OpenSSL::SSLContext#set_params.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+454
+455
+456
+457
+458
+459
+460
+461
+462</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 454</span>
+
+<span class='kw'>def</span> <span class='id enable_ssl'>enable_ssl</span><span class='lparen'>(</span><span class='id verify_or_params'>verify_or_params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id certs'>certs</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='ivar'>@ssl_params</span> <span class='op'>=</span> <span class='id verify_or_params'>verify_or_params</span><span class='period'>.</span><span class='id to_hash'>to_hash</span><span class='period'>.</span><span class='id dup'>dup</span>
+    <span class='ivar'>@port</span> <span class='op'>=</span> <span class='ivar'>@ssl_params</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:port</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='ivar'>@port</span>
+  <span class='kw'>rescue</span> <span class='const'>NoMethodError</span>
+    <span class='ivar'>@ssl_params</span> <span class='op'>=</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id create_ssl_params'>create_ssl_params</span><span class='lparen'>(</span><span class='id verify_or_params'>verify_or_params</span><span class='comma'>,</span> <span class='id certs'>certs</span><span class='rparen'>)</span>
+    <span class='ivar'>@port</span> <span class='op'>=</span> <span class='id port'>port</span> <span class='op'>||</span> <span class='ivar'>@port</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="finish-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>finish</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Finishes a POP3 session and closes TCP connection.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>IOError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+585
+586
+587
+588</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 585</span>
+
+<span class='kw'>def</span> <span class='id finish'>finish</span>
+  <span class='id raise'>raise</span> <span class='const'>IOError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POP session not yet started</span><span class='tstring_end'>'</span></span> <span class='kw'>unless</span> <span class='id started?'>started?</span>
+  <span class='id do_finish'>do_finish</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Provide human-readable stringification of class state.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+470
+471
+472</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 470</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@address</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@port</span><span class='rbrace'>}</span><span class='tstring_content'> open=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@started</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="logging-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>logging</strong>(msg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>deguging output for <tt>msg</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+711
+712
+713</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 711</span>
+
+<span class='kw'>def</span> <span class='id logging'>logging</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>&lt;&lt;</span> <span class='id msg'>msg</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@debug_output</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mails-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>mails</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array of Net::POPMail objects, representing all the messages on
+the server.  This array is renewed when the session restarts; otherwise, it
+is fetched from the server the first time this method is called (directly
+or indirectly) and cached.</p>
+
+<p>This method raises a POPError if an error occurs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 642</span>
+
+<span class='kw'>def</span> <span class='id mails'>mails</span>
+  <span class='kw'>return</span> <span class='ivar'>@mails</span><span class='period'>.</span><span class='id dup'>dup</span> <span class='kw'>if</span> <span class='ivar'>@mails</span>
+  <span class='kw'>if</span> <span class='id n_mails'>n_mails</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='comment'># some popd raises error for LIST on the empty mailbox.
+</span>    <span class='ivar'>@mails</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@mails</span> <span class='op'>=</span> <span class='id command'>command</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id list'>list</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id num'>num</span><span class='comma'>,</span> <span class='id size'>size</span><span class='op'>|</span>
+    <span class='const'>POPMail</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id num'>num</span><span class='comma'>,</span> <span class='id size'>size</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='id command'>command</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+  <span class='ivar'>@mails</span><span class='period'>.</span><span class='id dup'>dup</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="n_bytes-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>n_bytes</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the total size in bytes of all the messages on the POP server.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+630
+631
+632
+633
+634</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 630</span>
+
+<span class='kw'>def</span> <span class='id n_bytes'>n_bytes</span>
+  <span class='kw'>return</span> <span class='ivar'>@n_bytes</span> <span class='kw'>if</span> <span class='ivar'>@n_bytes</span>
+  <span class='ivar'>@n_mails</span><span class='comma'>,</span> <span class='ivar'>@n_bytes</span> <span class='op'>=</span> <span class='id command'>command</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id stat'>stat</span>
+  <span class='ivar'>@n_bytes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="n_mails-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>n_mails</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of messages on the POP server.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+623
+624
+625
+626
+627</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 623</span>
+
+<span class='kw'>def</span> <span class='id n_mails'>n_mails</span>
+  <span class='kw'>return</span> <span class='ivar'>@n_mails</span> <span class='kw'>if</span> <span class='ivar'>@n_mails</span>
+  <span class='ivar'>@n_mails</span><span class='comma'>,</span> <span class='ivar'>@n_bytes</span> <span class='op'>=</span> <span class='id command'>command</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id stat'>stat</span>
+  <span class='ivar'>@n_mails</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="port-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The port number to connect to.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+495
+496
+497</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 495</span>
+
+<span class='kw'>def</span> <span class='id port'>port</span>
+  <span class='kw'>return</span> <span class='ivar'>@port</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id use_ssl?'>use_ssl?</span> <span class='op'>?</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id default_pop3s_port'>default_pop3s_port</span> <span class='op'>:</span> <span class='const'>POP3</span><span class='period'>.</span><span class='id default_pop3_port'>default_pop3_port</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="reset-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>reset</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Resets the session.  This clears all "deleted" marks from messages.</p>
+
+<p>This method raises a POPError if an error occurs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+696
+697
+698
+699
+700
+701
+702
+703</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 696</span>
+
+<span class='kw'>def</span> <span class='id reset'>reset</span>
+  <span class='id command'>command</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id rset'>rset</span>
+  <span class='id mails'>mails</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+    <span class='id m'>m</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span>
+      <span class='ivar'>@deleted</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_all_uids-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>set_all_uids</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc: internal use only (called from POPMail#uidl)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+705
+706
+707
+708</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 705</span>
+
+<span class='kw'>def</span> <span class='id set_all_uids'>set_all_uids</span>   <span class='comment'>#:nodoc: internal use only (called from POPMail#uidl)
+</span>  <span class='id uidl'>uidl</span> <span class='op'>=</span> <span class='id command'>command</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id uidl'>uidl</span>
+  <span class='ivar'>@mails</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span> <span class='id m'>m</span><span class='period'>.</span><span class='id uid'>uid</span> <span class='op'>=</span> <span class='id uidl'>uidl</span><span class='lbracket'>[</span><span class='id m'>m</span><span class='period'>.</span><span class='id number'>number</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_debug_output-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>set_debug_output</strong>(arg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p><b>WARNING</b>: This method causes a serious security hole. Use this method
+only for debugging.</p>
+
+<p>Set an output stream for debugging.</p>
+
+<h3>Example</h3>
+
+<pre class="code">pop = Net::POP.new(addr, port)
+pop.set_debug_output $stderr
+pop.start(account, passwd) do |pop|
+  ....
+end</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+487
+488
+489</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 487</span>
+
+<span class='kw'>def</span> <span class='id set_debug_output'>set_debug_output</span><span class='lparen'>(</span><span class='id arg'>arg</span><span class='rparen'>)</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>=</span> <span class='id arg'>arg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="start-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>start</strong>(account, password) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Starts a POP3 session.</p>
+
+<p>When called with block, gives a POP3 object to the block and closes the
+session after block call finishes.</p>
+
+<p>This method raises a POPAuthenticationError if authentication fails.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>IOError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 528</span>
+
+<span class='kw'>def</span> <span class='id start'>start</span><span class='lparen'>(</span><span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span><span class='rparen'>)</span> <span class='comment'># :yield: pop
+</span>  <span class='id raise'>raise</span> <span class='const'>IOError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POP session already started</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='ivar'>@started</span>
+  <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+    <span class='kw'>begin</span>
+      <span class='id do_start'>do_start</span> <span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span>
+      <span class='kw'>return</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+    <span class='kw'>ensure</span>
+      <span class='id do_finish'>do_finish</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id do_start'>do_start</span> <span class='id account'>account</span><span class='comma'>,</span> <span class='id password'>password</span>
+    <span class='kw'>return</span> <span class='kw'>self</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="started?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>started?</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='active?-instance_method'>active?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p><tt>true</tt> if the POP3 session has started.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+516
+517
+518</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 516</span>
+
+<span class='kw'>def</span> <span class='id started?'>started?</span>
+  <span class='ivar'>@started</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="use_ssl?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>use_ssl?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>does this instance use SSL?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+443
+444
+445</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/pop.rb', line 443</span>
+
+<span class='kw'>def</span> <span class='id use_ssl?'>use_ssl?</span>
+  <span class='kw'>return</span> <span class='op'>!</span><span class='ivar'>@ssl_params</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:17 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,1393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: DRb::DRbTCPSocket
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../DRb.html" title="DRb (module)">DRb</a></span></span>
+     &raquo; 
+    <span class="title">DRbTCPSocket</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: DRb::DRbTCPSocket
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">DRb::DRbTCPSocket</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/drb/drb.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>The default drb protocol.</p>
+
+<p>Communicates over a TCP socket.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="DRbSSLSocket.html" title="DRb::DRbSSLSocket (class)">DRbSSLSocket</a></span>, <span class='object_link'><a href="DRbUNIXSocket.html" title="DRb::DRbUNIXSocket (class)">DRbUNIXSocket</a></span></p>
+</div>
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uri-instance_method" title="#uri (instance method)">- (Object) <strong>uri</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get the URI that we are connected to.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getservername-class_method" title="getservername (class method)">+ (Object) <strong>getservername</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open-class_method" title="open (class method)">+ (Object) <strong>open</strong>(uri, config) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Open a client connection to <tt>uri</tt> using configuration
+<tt>config</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open_server-class_method" title="open_server (class method)">+ (Object) <strong>open_server</strong>(uri, config) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Open a server listening for connections at <tt>uri</tt> using configuration
+<tt>config</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open_server_inaddr_any-class_method" title="open_server_inaddr_any (class method)">+ (Object) <strong>open_server_inaddr_any</strong>(host, port) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_uri-class_method" title="parse_uri (class method)">+ (Object) <strong>parse_uri</strong>(uri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uri_option-class_method" title="uri_option (class method)">+ (Object) <strong>uri_option</strong>(uri, config) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Parse <tt>uri</tt> into a [uri, option] pair.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept-instance_method" title="#accept (instance method)">- (Object) <strong>accept</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>On the server side, for an instance returned by #open_server, accept a
+client connection and return a new instance to handle the server's side of
+this client-server session.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#alive%3F-instance_method" title="#alive? (instance method)">- (Boolean) <strong>alive?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check to see if this connection is alive.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close-instance_method" title="#close (instance method)">- (Object) <strong>close</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Close the connection.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (DRbTCPSocket) <strong>initialize</strong>(uri, soc, config = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new DRbTCPSocket instance.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#peeraddr-instance_method" title="#peeraddr (instance method)">- (Object) <strong>peeraddr</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get the address of our TCP peer (the other end of the socket we are bound
+to..</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#recv_reply-instance_method" title="#recv_reply (instance method)">- (Object) <strong>recv_reply</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>On the client side, receive a reply from the server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#recv_request-instance_method" title="#recv_request (instance method)">- (Object) <strong>recv_request</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>On the server side, receive a request from the client.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#send_reply-instance_method" title="#send_reply (instance method)">- (Object) <strong>send_reply</strong>(succ, result) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>On the server side, send a reply to the client.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#send_request-instance_method" title="#send_request (instance method)">- (Object) <strong>send_request</strong>(ref, msg_id, arg, b) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>On the client side, send a request to the server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_sockopt-instance_method" title="#set_sockopt (instance method)">- (Object) <strong>set_sockopt</strong>(soc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stream-instance_method" title="#stream (instance method)">- (Object) <strong>stream</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get the socket.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="DRb::DRbTCPSocket (class)">DRbTCPSocket</a></span></tt>) <strong>initialize</strong>(uri, soc, config = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new DRbTCPSocket instance.</p>
+
+<p><tt>uri</tt> is the URI we are connected to. <tt>soc</tt> is the tcp socket
+we are bound to.  <tt>config</tt> is our configuration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+880
+881
+882
+883
+884
+885
+886
+887</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 880</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id soc'>soc</span><span class='comma'>,</span> <span class='id config'>config</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='id uri'>uri</span>
+  <span class='ivar'>@socket</span> <span class='op'>=</span> <span class='id soc'>soc</span>
+  <span class='ivar'>@config</span> <span class='op'>=</span> <span class='id config'>config</span>
+  <span class='ivar'>@acl</span> <span class='op'>=</span> <span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:tcp_acl</span><span class='rbracket'>]</span>
+  <span class='ivar'>@msg</span> <span class='op'>=</span> <span class='const'>DRbMessage</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id config'>config</span><span class='rparen'>)</span>
+  <span class='id set_sockopt'>set_sockopt</span><span class='lparen'>(</span><span class='ivar'>@socket</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="uri-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="uri-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>uri</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get the URI that we are connected to.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+890
+891
+892</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 890</span>
+
+<span class='kw'>def</span> <span class='id uri'>uri</span>
+  <span class='ivar'>@uri</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="getservername-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>getservername</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+830
+831
+832
+833
+834
+835
+836
+837</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 830</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id getservername'>getservername</span>
+  <span class='id host'>host</span> <span class='op'>=</span> <span class='const'>Socket</span><span class='op'>::</span><span class='id gethostname'>gethostname</span>
+  <span class='kw'>begin</span>
+    <span class='const'>Socket</span><span class='op'>::</span><span class='id gethostbyname'>gethostbyname</span><span class='lparen'>(</span><span class='id host'>host</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>rescue</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>localhost</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="open-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>open</strong>(uri, config) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Open a client connection to <tt>uri</tt> using configuration
+<tt>config</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+822
+823
+824
+825
+826
+827
+828</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 822</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+  <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id parse_uri'>parse_uri</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='id host'>host</span><span class='period'>.</span><span class='id untaint'>untaint</span>
+  <span class='id port'>port</span><span class='period'>.</span><span class='id untaint'>untaint</span>
+  <span class='id soc'>soc</span> <span class='op'>=</span> <span class='const'>TCPSocket</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id soc'>soc</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="open_server-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>open_server</strong>(uri, config) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Open a server listening for connections at <tt>uri</tt> using configuration
+<tt>config</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 853</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id open_server'>open_server</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+  <span class='id uri'>uri</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>druby://:0</span><span class='tstring_end'>'</span></span> <span class='kw'>unless</span> <span class='id uri'>uri</span>
+  <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id _'>_</span> <span class='op'>=</span> <span class='id parse_uri'>parse_uri</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='id config'>config</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='symbol'>:tcp_original_host</span> <span class='op'>=&gt;</span> <span class='id host'>host</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id update'>update</span><span class='lparen'>(</span><span class='id config'>config</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id host'>host</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='id host'>host</span> <span class='op'>=</span> <span class='id getservername'>getservername</span>
+    <span class='id soc'>soc</span> <span class='op'>=</span> <span class='id open_server_inaddr_any'>open_server_inaddr_any</span><span class='lparen'>(</span><span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id soc'>soc</span> <span class='op'>=</span> <span class='const'>TCPServer</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id port'>port</span> <span class='op'>=</span> <span class='id soc'>soc</span><span class='period'>.</span><span class='id addr'>addr</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id port'>port</span> <span class='op'>==</span> <span class='int'>0</span>
+  <span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:tcp_port</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id port'>port</span>
+  <span class='id uri'>uri</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>druby://</span><span class='embexpr_beg'>#{</span><span class='id host'>host</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id port'>port</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id soc'>soc</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="open_server_inaddr_any-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>open_server_inaddr_any</strong>(host, port) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 839</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id open_server_inaddr_any'>open_server_inaddr_any</span><span class='lparen'>(</span><span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='rparen'>)</span>
+  <span class='id infos'>infos</span> <span class='op'>=</span> <span class='const'>Socket</span><span class='op'>::</span><span class='id getaddrinfo'>getaddrinfo</span><span class='lparen'>(</span><span class='id host'>host</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span>
+                              <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_UNSPEC</span><span class='comma'>,</span>
+                              <span class='const'>Socket</span><span class='op'>::</span><span class='const'>SOCK_STREAM</span><span class='comma'>,</span>
+                              <span class='int'>0</span><span class='comma'>,</span>
+                              <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AI_PASSIVE</span><span class='rparen'>)</span>
+  <span class='id families'>families</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id infos'>infos</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id af'>af</span><span class='comma'>,</span> <span class='op'>*</span><span class='id _'>_</span><span class='op'>|</span> <span class='id af'>af</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id uniq'>uniq</span><span class='period'>.</span><span class='id zip'>zip</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id flatten'>flatten</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='const'>TCPServer</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>0.0.0.0</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id port'>port</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id families'>families</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>AF_INET</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>TCPServer</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>::</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id port'>port</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id families'>families</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>AF_INET6</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>TCPServer</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id port'>port</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parse_uri-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parse_uri</strong>(uri) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 807</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id parse_uri'>parse_uri</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id uri'>uri</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^druby:\/\/(.*?):(\d+)(\?(.*))?$</span><span class='regexp_end'>/</span></span>
+    <span class='id host'>host</span> <span class='op'>=</span> <span class='backref'>$1</span>
+    <span class='id port'>port</span> <span class='op'>=</span> <span class='backref'>$2</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+    <span class='id option'>option</span> <span class='op'>=</span> <span class='backref'>$4</span>
+    <span class='lbracket'>[</span><span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id option'>option</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span><span class='lparen'>(</span><span class='const'>DRbBadScheme</span><span class='comma'>,</span> <span class='id uri'>uri</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id uri'>uri</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^druby:</span><span class='regexp_end'>/</span></span>
+    <span class='id raise'>raise</span><span class='lparen'>(</span><span class='const'>DRbBadURI</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>can\'t parse uri:</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="uri_option-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>uri_option</strong>(uri, config) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Parse <tt>uri</tt> into a [uri, option] pair.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+870
+871
+872
+873</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 870</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id uri_option'>uri_option</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+  <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id option'>option</span> <span class='op'>=</span> <span class='id parse_uri'>parse_uri</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>druby://</span><span class='embexpr_beg'>#{</span><span class='id host'>host</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id port'>port</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id option'>option</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="accept-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>On the server side, for an instance returned by #open_server, accept a
+client connection and return a new instance to handle the server's side of
+this client-server session.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 939</span>
+
+<span class='kw'>def</span> <span class='id accept'>accept</span>
+  <span class='kw'>while</span> <span class='kw'>true</span>
+    <span class='id s'>s</span> <span class='op'>=</span> <span class='ivar'>@socket</span><span class='period'>.</span><span class='id accept'>accept</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='ivar'>@acl</span> <span class='op'>?</span> <span class='ivar'>@acl</span><span class='period'>.</span><span class='id allow_socket?'>allow_socket?</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='id s'>s</span><span class='period'>.</span><span class='id close'>close</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:tcp_original_host</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='id uri'>uri</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>druby://</span><span class='embexpr_beg'>#{</span><span class='id s'>s</span><span class='period'>.</span><span class='id addr'>addr</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:tcp_port</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id uri'>uri</span> <span class='op'>=</span> <span class='ivar'>@uri</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id s'>s</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="alive?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>alive?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Check to see if this connection is alive.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+954
+955
+956
+957
+958
+959
+960
+961</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 954</span>
+
+<span class='kw'>def</span> <span class='id alive?'>alive?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='ivar'>@socket</span>
+  <span class='kw'>if</span> <span class='const'>IO</span><span class='period'>.</span><span class='id select'>select</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='ivar'>@socket</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+    <span class='id close'>close</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="close-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>close</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Close the connection.</p>
+
+<p>If this is an instance returned by #open_server, then this stops listening
+for new connections altogether.  If this is an instance returned by #open
+or by #accept, then it closes this particular client-server session.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+929
+930
+931
+932
+933
+934</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 929</span>
+
+<span class='kw'>def</span> <span class='id close'>close</span>
+  <span class='kw'>if</span> <span class='ivar'>@socket</span>
+    <span class='ivar'>@socket</span><span class='period'>.</span><span class='id close'>close</span>
+    <span class='ivar'>@socket</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="peeraddr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>peeraddr</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get the address of our TCP peer (the other end of the socket we are bound
+to.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+894
+895
+896</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 894</span>
+
+<span class='kw'>def</span> <span class='id peeraddr'>peeraddr</span>
+  <span class='ivar'>@socket</span><span class='period'>.</span><span class='id peeraddr'>peeraddr</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="recv_reply-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>recv_reply</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>On the client side, receive a reply from the server.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+917
+918
+919</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 917</span>
+
+<span class='kw'>def</span> <span class='id recv_reply'>recv_reply</span>
+  <span class='ivar'>@msg</span><span class='period'>.</span><span class='id recv_reply'>recv_reply</span><span class='lparen'>(</span><span class='id stream'>stream</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="recv_request-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>recv_request</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>On the server side, receive a request from the client.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+907
+908
+909</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 907</span>
+
+<span class='kw'>def</span> <span class='id recv_request'>recv_request</span>
+  <span class='ivar'>@msg</span><span class='period'>.</span><span class='id recv_request'>recv_request</span><span class='lparen'>(</span><span class='id stream'>stream</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="send_reply-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>send_reply</strong>(succ, result) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>On the server side, send a reply to the client.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+912
+913
+914</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 912</span>
+
+<span class='kw'>def</span> <span class='id send_reply'>send_reply</span><span class='lparen'>(</span><span class='id succ'>succ</span><span class='comma'>,</span> <span class='id result'>result</span><span class='rparen'>)</span>
+  <span class='ivar'>@msg</span><span class='period'>.</span><span class='id send_reply'>send_reply</span><span class='lparen'>(</span><span class='id stream'>stream</span><span class='comma'>,</span> <span class='id succ'>succ</span><span class='comma'>,</span> <span class='id result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="send_request-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>send_request</strong>(ref, msg_id, arg, b) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>On the client side, send a request to the server.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+902
+903
+904</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 902</span>
+
+<span class='kw'>def</span> <span class='id send_request'>send_request</span><span class='lparen'>(</span><span class='id ref'>ref</span><span class='comma'>,</span> <span class='id msg_id'>msg_id</span><span class='comma'>,</span> <span class='id arg'>arg</span><span class='comma'>,</span> <span class='id b'>b</span><span class='rparen'>)</span>
+  <span class='ivar'>@msg</span><span class='period'>.</span><span class='id send_request'>send_request</span><span class='lparen'>(</span><span class='id stream'>stream</span><span class='comma'>,</span> <span class='id ref'>ref</span><span class='comma'>,</span> <span class='id msg_id'>msg_id</span><span class='comma'>,</span> <span class='id arg'>arg</span><span class='comma'>,</span> <span class='id b'>b</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_sockopt-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>set_sockopt</strong>(soc) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+963
+964
+965
+966</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 963</span>
+
+<span class='kw'>def</span> <span class='id set_sockopt'>set_sockopt</span><span class='lparen'>(</span><span class='id soc'>soc</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='id soc'>soc</span><span class='period'>.</span><span class='id setsockopt'>setsockopt</span><span class='lparen'>(</span><span class='const'>Socket</span><span class='op'>::</span><span class='const'>IPPROTO_TCP</span><span class='comma'>,</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>TCP_NODELAY</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id soc'>soc</span><span class='period'>.</span><span class='id fcntl'>fcntl</span><span class='lparen'>(</span><span class='const'>Fcntl</span><span class='op'>::</span><span class='const'>F_SETFD</span><span class='comma'>,</span> <span class='const'>Fcntl</span><span class='op'>::</span><span class='const'>FD_CLOEXEC</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='const'>Fcntl</span><span class='op'>::</span><span class='const'>FD_CLOEXEC</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stream-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>stream</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get the socket.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+899</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 899</span>
+
+<span class='kw'>def</span> <span class='id stream'>stream</span><span class='semicolon'>;</span> <span class='ivar'>@socket</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:15 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

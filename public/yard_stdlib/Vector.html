@@ -1,0 +1,2294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Vector
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (V)</a> &raquo; 
+    
+    
+    <span class="title">Vector</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Vector
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Vector</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2"><span class='object_link'><a href="Matrix/ConversionHelper.html" title="Matrix::ConversionHelper (module)">Matrix::ConversionHelper</a></span></dd>
+      
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="Enumerable.html" title="Enumerable (module)">Enumerable</a></span>, <span class='object_link'><a href="ExceptionForMatrix.html" title="ExceptionForMatrix (module)">ExceptionForMatrix</a></span>, <span class='object_link'><a href="Matrix/CoercionHelper.html" title="Matrix::CoercionHelper (module)">Matrix::CoercionHelper</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/matrix.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>The <tt>Vector</tt> class represents a mathematical vector, which is useful
+in its own right, and also constitutes a row or column of a Matrix.</p>
+
+<h2>Method Catalogue</h2>
+
+<p>To create a Vector:</p>
+<ul><li>
+<p><tt>  Vector.[](*array)                   </tt></p>
+</li><li>
+<p><tt>  Vector.elements(array, copy = true) </tt></p>
+</li></ul>
+
+<p>To access elements:</p>
+<ul><li>
+<p><tt>  [](i)                               </tt></p>
+</li></ul>
+
+<p>To enumerate the elements:</p>
+<ul><li>
+<p><tt> #each2(v)                            </tt></p>
+</li><li>
+<p><tt> #collect2(v)                         </tt></p>
+</li></ul>
+
+<p>Vector arithmetic:</p>
+<ul><li>
+<p><tt>  *(x) &quot;is matrix or number&quot;          </tt></p>
+</li><li>
+<p><tt>  +(v)                                </tt></p>
+</li><li>
+<p><tt>  -(v)                                </tt></p>
+</li></ul>
+
+<p>Vector functions:</p>
+<ul><li>
+<p><tt> #inner_product(v)                    </tt></p>
+</li><li>
+<p><tt> #collect                             </tt></p>
+</li><li>
+<p><tt> #magnitude                           </tt></p>
+</li><li>
+<p><tt> #map                                 </tt></p>
+</li><li>
+<p><tt> #map2(v)                             </tt></p>
+</li><li>
+<p><tt> #norm                                </tt></p>
+</li><li>
+<p><tt> #normalize                           </tt></p>
+</li><li>
+<p><tt> #r                                   </tt></p>
+</li><li>
+<p><tt> #size                                </tt></p>
+</li></ul>
+
+<p>Conversion to other data types:</p>
+<ul><li>
+<p><tt> #covector                            </tt></p>
+</li><li>
+<p><tt> #to_a                                </tt></p>
+</li><li>
+<p><tt> #coerce(other)                       </tt></p>
+</li></ul>
+
+<p>String representations:</p>
+<ul><li>
+<p><tt> #to_s                                </tt></p>
+</li><li>
+<p><tt> #inspect                             </tt></p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Vector/ZeroVectorError.html" title="Vector::ZeroVectorError (class)">ZeroVectorError</a></span>
+    
+  
+</p>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="Exception2MessageMapper.html" title="Exception2MessageMapper (module)">Exception2MessageMapper</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Exception2MessageMapper.html#E2MM-constant" title="Exception2MessageMapper::E2MM (constant)">E2MM</a></span></p>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-class_method" title="[] (class method)">+ (Object) <strong>[]</strong>(*array) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a Vector from a list of elements.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#elements-class_method" title="elements (class method)">+ (Object) <strong>elements</strong>(array, copy = true) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a vector from an Array.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2A-instance_method" title="#* (instance method)">- (Object) <strong>*</strong>(x) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Multiplies the vector by <tt>x</tt>, where <tt>x</tt> is a number or
+another vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2B-instance_method" title="#+ (instance method)">- (Object) <strong>+</strong>(v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Vector addition.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#--instance_method" title="#- (instance method)">- (Object) <strong>-</strong>(v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Vector subtraction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2F-instance_method" title="#/ (instance method)">- (Object) <strong>/</strong>(x) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Vector division.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> iff the two vectors have the same elements in the
+same order.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- (Object) <strong>[]</strong>(i) </a>
+    
+
+    
+      (also: #element, #component)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns element number <tt>i</tt> (starting at zero) of the vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clone-instance_method" title="#clone (instance method)">- (Object) <strong>clone</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a copy of the vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coerce-instance_method" title="#coerce (instance method)">- (Object) <strong>coerce</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The coerce method provides support for Ruby type coercion.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#collect-instance_method" title="#collect (instance method)">- (Object) <strong>collect</strong>(&amp;block) </a>
+    
+
+    
+      (also: #map)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Like Array#collect.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#collect2-instance_method" title="#collect2 (instance method)">- (Object) <strong>collect2</strong>(v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Collects (as in Enumerable#collect) over the elements of this vector and
+<tt>v</tt> in conjunction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#covector-instance_method" title="#covector (instance method)">- (Object) <strong>covector</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a single-row matrix from this vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterate over the elements of this vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each2-instance_method" title="#each2 (instance method)">- (Object) <strong>each2</strong>(v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterate over the elements of this vector and <tt>v</tt> in conjunction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#elements_to_f-instance_method" title="#elements_to_f (instance method)">- (Object) <strong>elements_to_f</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#elements_to_i-instance_method" title="#elements_to_i (instance method)">- (Object) <strong>elements_to_i</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#elements_to_r-instance_method" title="#elements_to_r (instance method)">- (Object) <strong>elements_to_r</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#eql%3F-instance_method" title="#eql? (instance method)">- (Boolean) <strong>eql?</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash-instance_method" title="#hash (instance method)">- (Object) <strong>hash</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a hash-code for the vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Vector) <strong>initialize</strong>(array) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Vector.new is private; use Vector[] or Vector.elements to create.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inner_product-instance_method" title="#inner_product (instance method)">- (Object) <strong>inner_product</strong>(v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the inner product of this vector with the other.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Overrides Object#inspect.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#magnitude-instance_method" title="#magnitude (instance method)">- (Object) <strong>magnitude</strong> </a>
+    
+
+    
+      (also: #r, #norm)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the modulus (Pythagorean distance) of the vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#map2-instance_method" title="#map2 (instance method)">- (Object) <strong>map2</strong>(v, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Like Vector#collect2, but returns a Vector instead of an Array.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#normalize-instance_method" title="#normalize (instance method)">- (Object) <strong>normalize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new vector with the same direction but with norm 1.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#size-instance_method" title="#size (instance method)">- (Object) <strong>size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of elements in the vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_a-instance_method" title="#to_a (instance method)">- (Object) <strong>to_a</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the elements of the vector in an array.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Overrides Object#to_s.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Matrix/CoercionHelper.html" title="Matrix::CoercionHelper (module)">Matrix::CoercionHelper</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Matrix/CoercionHelper.html#coerce_to-class_method" title="Matrix::CoercionHelper.coerce_to (method)">coerce_to</a></span>, <span class='object_link'><a href="Matrix/CoercionHelper.html#coerce_to_int-class_method" title="Matrix::CoercionHelper.coerce_to_int (method)">coerce_to_int</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Enumerable.html" title="Enumerable (module)">Enumerable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Enumerable.html#to_set-instance_method" title="Enumerable#to_set (method)">#to_set</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Exception2MessageMapper.html" title="Exception2MessageMapper (module)">Exception2MessageMapper</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Exception2MessageMapper.html#Fail-instance_method" title="Exception2MessageMapper#Fail (method)">#Fail</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#Raise-instance_method" title="Exception2MessageMapper#Raise (method)">#Raise</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#Raise-class_method" title="Exception2MessageMapper.Raise (method)">Raise</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#bind-instance_method" title="Exception2MessageMapper#bind (method)">#bind</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#def_e2message-instance_method" title="Exception2MessageMapper#def_e2message (method)">#def_e2message</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#def_e2message-class_method" title="Exception2MessageMapper.def_e2message (method)">def_e2message</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#def_exception-instance_method" title="Exception2MessageMapper#def_exception (method)">#def_exception</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#def_exception-class_method" title="Exception2MessageMapper.def_exception (method)">def_exception</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#e2mm_message-class_method" title="Exception2MessageMapper.e2mm_message (method)">e2mm_message</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#extend_object-class_method" title="Exception2MessageMapper.extend_object (method)">extend_object</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#fail-instance_method" title="Exception2MessageMapper#fail (method)">#fail</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Vector (class)">Vector</a></span></tt>) <strong>initialize</strong>(array) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Vector.new is private; use Vector[] or Vector.elements to create.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1567
+1568
+1569
+1570</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1567</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id array'>array</span><span class='rparen'>)</span>
+  <span class='comment'># No checking is done at this point.
+</span>  <span class='ivar'>@elements</span> <span class='op'>=</span> <span class='id array'>array</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="[]-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]</strong>(*array) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a Vector from a list of elements.</p>
+
+<pre class="code">Vector[7, 4, ...]</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1552
+1553
+1554</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1552</span>
+
+<span class='kw'>def</span> <span class='const'>Vector</span><span class='period'>.</span><span class='op'>[]</span><span class='lparen'>(</span><span class='op'>*</span><span class='id array'>array</span><span class='rparen'>)</span>
+  <span class='id new'>new</span> <span class='id convert_to_array'>convert_to_array</span><span class='lparen'>(</span><span class='id array'>array</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="elements-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>elements</strong>(array, copy = true) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a vector from an Array.  The optional second argument specifies
+whether the array itself or a copy is used internally.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1560
+1561
+1562</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1560</span>
+
+<span class='kw'>def</span> <span class='const'>Vector</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lparen'>(</span><span class='id array'>array</span><span class='comma'>,</span> <span class='id copy'>copy</span> <span class='op'>=</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id new'>new</span> <span class='id convert_to_array'>convert_to_array</span><span class='lparen'>(</span><span class='id array'>array</span><span class='comma'>,</span> <span class='id copy'>copy</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="*-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>*</strong>(x) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Multiplies the vector by <tt>x</tt>, where <tt>x</tt> is a number or
+another vector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1674
+1675
+1676
+1677
+1678
+1679
+1680
+1681
+1682
+1683
+1684
+1685
+1686</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1674</span>
+
+<span class='kw'>def</span> <span class='op'>*</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id x'>x</span>
+  <span class='kw'>when</span> <span class='const'>Numeric</span>
+    <span class='id els'>els</span> <span class='op'>=</span> <span class='ivar'>@elements</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span> <span class='op'>*</span> <span class='id x'>x</span><span class='rbrace'>}</span>
+    <span class='const'>Vector</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lparen'>(</span><span class='id els'>els</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Matrix</span>
+    <span class='const'>Matrix</span><span class='period'>.</span><span class='id column_vector'>column_vector</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id x'>x</span>
+  <span class='kw'>when</span> <span class='const'>Vector</span>
+    <span class='const'>Vector</span><span class='period'>.</span><span class='const'>Raise</span> <span class='const'>ErrOperationNotDefined</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='id x'>x</span><span class='period'>.</span><span class='id class'>class</span>
+  <span class='kw'>else</span>
+    <span class='id apply_through_coercion'>apply_through_coercion</span><span class='lparen'>(</span><span class='id x'>x</span><span class='comma'>,</span> <span class='id __method__'>__method__</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="+-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>+</strong>(v) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Vector addition.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1691
+1692
+1693
+1694
+1695
+1696
+1697
+1698
+1699
+1700
+1701
+1702
+1703
+1704</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1691</span>
+
+<span class='kw'>def</span> <span class='op'>+</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id v'>v</span>
+  <span class='kw'>when</span> <span class='const'>Vector</span>
+    <span class='const'>Vector</span><span class='period'>.</span><span class='const'>Raise</span> <span class='const'>ErrDimensionMismatch</span> <span class='kw'>if</span> <span class='id size'>size</span> <span class='op'>!=</span> <span class='id v'>v</span><span class='period'>.</span><span class='id size'>size</span>
+    <span class='id els'>els</span> <span class='op'>=</span> <span class='id collect2'>collect2</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id v1'>v1</span><span class='comma'>,</span> <span class='id v2'>v2</span><span class='op'>|</span>
+      <span class='id v1'>v1</span> <span class='op'>+</span> <span class='id v2'>v2</span>
+    <span class='rbrace'>}</span>
+    <span class='const'>Vector</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lparen'>(</span><span class='id els'>els</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Matrix</span>
+    <span class='const'>Matrix</span><span class='period'>.</span><span class='id column_vector'>column_vector</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id v'>v</span>
+  <span class='kw'>else</span>
+    <span class='id apply_through_coercion'>apply_through_coercion</span><span class='lparen'>(</span><span class='id v'>v</span><span class='comma'>,</span> <span class='id __method__'>__method__</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="--instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>-</strong>(v) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Vector subtraction.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1709
+1710
+1711
+1712
+1713
+1714
+1715
+1716
+1717
+1718
+1719
+1720
+1721
+1722</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1709</span>
+
+<span class='kw'>def</span> <span class='op'>-</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id v'>v</span>
+  <span class='kw'>when</span> <span class='const'>Vector</span>
+    <span class='const'>Vector</span><span class='period'>.</span><span class='const'>Raise</span> <span class='const'>ErrDimensionMismatch</span> <span class='kw'>if</span> <span class='id size'>size</span> <span class='op'>!=</span> <span class='id v'>v</span><span class='period'>.</span><span class='id size'>size</span>
+    <span class='id els'>els</span> <span class='op'>=</span> <span class='id collect2'>collect2</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id v1'>v1</span><span class='comma'>,</span> <span class='id v2'>v2</span><span class='op'>|</span>
+      <span class='id v1'>v1</span> <span class='op'>-</span> <span class='id v2'>v2</span>
+    <span class='rbrace'>}</span>
+    <span class='const'>Vector</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lparen'>(</span><span class='id els'>els</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Matrix</span>
+    <span class='const'>Matrix</span><span class='period'>.</span><span class='id column_vector'>column_vector</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='id v'>v</span>
+  <span class='kw'>else</span>
+    <span class='id apply_through_coercion'>apply_through_coercion</span><span class='lparen'>(</span><span class='id v'>v</span><span class='comma'>,</span> <span class='id __method__'>__method__</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="/-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>/</strong>(x) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Vector division.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1727
+1728
+1729
+1730
+1731
+1732
+1733
+1734
+1735
+1736
+1737</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1727</span>
+
+<span class='kw'>def</span> <span class='op'>/</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id x'>x</span>
+  <span class='kw'>when</span> <span class='const'>Numeric</span>
+    <span class='id els'>els</span> <span class='op'>=</span> <span class='ivar'>@elements</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span> <span class='op'>/</span> <span class='id x'>x</span><span class='rbrace'>}</span>
+    <span class='const'>Vector</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lparen'>(</span><span class='id els'>els</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Matrix</span><span class='comma'>,</span> <span class='const'>Vector</span>
+    <span class='const'>Vector</span><span class='period'>.</span><span class='const'>Raise</span> <span class='const'>ErrOperationNotDefined</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='id x'>x</span><span class='period'>.</span><span class='id class'>class</span>
+  <span class='kw'>else</span>
+    <span class='id apply_through_coercion'>apply_through_coercion</span><span class='lparen'>(</span><span class='id x'>x</span><span class='comma'>,</span> <span class='id __method__'>__method__</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="==-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>==</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> iff the two vectors have the same elements in the
+same order.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1643
+1644
+1645
+1646</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1643</span>
+
+<span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='const'>Vector</span> <span class='op'>===</span> <span class='id other'>other</span>
+  <span class='ivar'>@elements</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id elements'>elements</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="[]-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]</strong>(i) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='element-instance_method'>element</span>, <span id='component-instance_method'>component</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns element number <tt>i</tt> (starting at zero) of the vector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1577
+1578
+1579</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1577</span>
+
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id i'>i</span><span class='rparen'>)</span>
+  <span class='ivar'>@elements</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="clone-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>clone</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a copy of the vector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1656
+1657
+1658</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1656</span>
+
+<span class='kw'>def</span> <span class='id clone'>clone</span>
+  <span class='const'>Vector</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lparen'>(</span><span class='ivar'>@elements</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="coerce-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>coerce</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The coerce method provides support for Ruby type coercion. This coercion
+mechanism is used by Ruby to handle mixed-type numeric operations: it is
+intended to find a compatible common type between the two operands of the
+operator. See also Numeric#coerce.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1840
+1841
+1842
+1843
+1844
+1845
+1846
+1847</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1840</span>
+
+<span class='kw'>def</span> <span class='id coerce'>coerce</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id other'>other</span>
+  <span class='kw'>when</span> <span class='const'>Numeric</span>
+    <span class='kw'>return</span> <span class='const'>Matrix</span><span class='op'>::</span><span class='const'>Scalar</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>TypeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> can't be coerced into </span><span class='embexpr_beg'>#{</span><span class='id other'>other</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="collect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>collect</strong>(&amp;block) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='map-instance_method'>map</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Like Array#collect.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1760
+1761
+1762
+1763
+1764</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1760</span>
+
+<span class='kw'>def</span> <span class='id collect'>collect</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span> <span class='comment'># :yield: e
+</span>  <span class='kw'>return</span> <span class='id to_enum'>to_enum</span><span class='lparen'>(</span><span class='symbol'>:collect</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id block_given?'>block_given?</span>
+  <span class='id els'>els</span> <span class='op'>=</span> <span class='ivar'>@elements</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='const'>Vector</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lparen'>(</span><span class='id els'>els</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="collect2-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>collect2</strong>(v) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Collects (as in Enumerable#collect) over the elements of this vector and
+<tt>v</tt> in conjunction.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>TypeError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1627
+1628
+1629
+1630
+1631
+1632
+1633
+1634</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1627</span>
+
+<span class='kw'>def</span> <span class='id collect2'>collect2</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span> <span class='comment'># :yield: e1, e2
+</span>  <span class='id raise'>raise</span> <span class='const'>TypeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Integer is not like Vector</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id v'>v</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+  <span class='const'>Vector</span><span class='period'>.</span><span class='const'>Raise</span> <span class='const'>ErrDimensionMismatch</span> <span class='kw'>if</span> <span class='id size'>size</span> <span class='op'>!=</span> <span class='id v'>v</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='kw'>return</span> <span class='id to_enum'>to_enum</span><span class='lparen'>(</span><span class='symbol'>:collect2</span><span class='comma'>,</span> <span class='id v'>v</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id block_given?'>block_given?</span>
+  <span class='const'>Array</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id size'>size</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+    <span class='kw'>yield</span> <span class='ivar'>@elements</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id v'>v</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="covector-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>covector</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a single-row matrix from this vector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1807
+1808
+1809</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1807</span>
+
+<span class='kw'>def</span> <span class='id covector'>covector</span>
+  <span class='const'>Matrix</span><span class='period'>.</span><span class='id row_vector'>row_vector</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>each</strong>(&amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterate over the elements of this vector</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1604
+1605
+1606
+1607
+1608</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1604</span>
+
+<span class='kw'>def</span> <span class='id each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id to_enum'>to_enum</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id block_given?'>block_given?</span>
+  <span class='ivar'>@elements</span><span class='period'>.</span><span class='id each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each2-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>each2</strong>(v) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterate over the elements of this vector and <tt>v</tt> in conjunction.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>TypeError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1613
+1614
+1615
+1616
+1617
+1618
+1619
+1620
+1621</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1613</span>
+
+<span class='kw'>def</span> <span class='id each2'>each2</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span> <span class='comment'># :yield: e1, e2
+</span>  <span class='id raise'>raise</span> <span class='const'>TypeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Integer is not like Vector</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id v'>v</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+  <span class='const'>Vector</span><span class='period'>.</span><span class='const'>Raise</span> <span class='const'>ErrDimensionMismatch</span> <span class='kw'>if</span> <span class='id size'>size</span> <span class='op'>!=</span> <span class='id v'>v</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='kw'>return</span> <span class='id to_enum'>to_enum</span><span class='lparen'>(</span><span class='symbol'>:each2</span><span class='comma'>,</span> <span class='id v'>v</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id block_given?'>block_given?</span>
+  <span class='id size'>size</span><span class='period'>.</span><span class='id times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+    <span class='kw'>yield</span> <span class='ivar'>@elements</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id v'>v</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="elements_to_f-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>elements_to_f</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1818
+1819
+1820
+1821</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1818</span>
+
+<span class='kw'>def</span> <span class='id elements_to_f'>elements_to_f</span>
+  <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id caller'>caller</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>: warning: Vector#elements_to_f is deprecated</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_f</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="elements_to_i-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>elements_to_i</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1823
+1824
+1825
+1826</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1823</span>
+
+<span class='kw'>def</span> <span class='id elements_to_i'>elements_to_i</span>
+  <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id caller'>caller</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>: warning: Vector#elements_to_i is deprecated</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_i</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="elements_to_r-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>elements_to_r</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1828
+1829
+1830
+1831</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1828</span>
+
+<span class='kw'>def</span> <span class='id elements_to_r'>elements_to_r</span>
+  <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id caller'>caller</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>: warning: Vector#elements_to_r is deprecated</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_r</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="eql?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>eql?</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1648
+1649
+1650
+1651</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1648</span>
+
+<span class='kw'>def</span> <span class='id eql?'>eql?</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='const'>Vector</span> <span class='op'>===</span> <span class='id other'>other</span>
+  <span class='ivar'>@elements</span><span class='period'>.</span><span class='id eql?'>eql?</span> <span class='id other'>other</span><span class='period'>.</span><span class='id elements'>elements</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="hash-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>hash</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a hash-code for the vector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1663
+1664
+1665</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1663</span>
+
+<span class='kw'>def</span> <span class='id hash'>hash</span>
+  <span class='ivar'>@elements</span><span class='period'>.</span><span class='id hash'>hash</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inner_product-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>inner_product</strong>(v) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the inner product of this vector with the other.</p>
+
+<pre class="code"><span class='const'>Vector</span><span class='lbracket'>[</span><span class='int'>4</span><span class='comma'>,</span><span class='int'>7</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id inner_product'>inner_product</span> <span class='const'>Vector</span><span class='lbracket'>[</span><span class='int'>10</span><span class='comma'>,</span><span class='int'>1</span><span class='rbracket'>]</span>  <span class='op'>=&gt;</span> <span class='int'>47</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1747
+1748
+1749
+1750
+1751
+1752
+1753
+1754
+1755</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1747</span>
+
+<span class='kw'>def</span> <span class='id inner_product'>inner_product</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span>
+  <span class='const'>Vector</span><span class='period'>.</span><span class='const'>Raise</span> <span class='const'>ErrDimensionMismatch</span> <span class='kw'>if</span> <span class='id size'>size</span> <span class='op'>!=</span> <span class='id v'>v</span><span class='period'>.</span><span class='id size'>size</span>
+
+  <span class='id p'>p</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id each2'>each2</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id v1'>v1</span><span class='comma'>,</span> <span class='id v2'>v2</span><span class='op'>|</span>
+    <span class='id p'>p</span> <span class='op'>+=</span> <span class='id v1'>v1</span> <span class='op'>*</span> <span class='id v2'>v2</span>
+  <span class='rbrace'>}</span>
+  <span class='id p'>p</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Overrides Object#inspect</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1863
+1864
+1865</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1863</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Vector</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='ivar'>@elements</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="magnitude-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>magnitude</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='r-instance_method'>r</span>, <span id='norm-instance_method'>norm</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the modulus (Pythagorean distance) of the vector.</p>
+
+<pre class="code">Vector[5,8,2].r =&gt; 9.643650761</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1771
+1772
+1773</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1771</span>
+
+<span class='kw'>def</span> <span class='id magnitude'>magnitude</span>
+  <span class='const'>Math</span><span class='period'>.</span><span class='id sqrt'>sqrt</span><span class='lparen'>(</span><span class='ivar'>@elements</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id v'>v</span><span class='comma'>,</span> <span class='id e'>e</span><span class='op'>|</span> <span class='id v'>v</span> <span class='op'>+</span> <span class='id e'>e</span><span class='op'>*</span><span class='id e'>e</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="map2-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>map2</strong>(v, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Like Vector#collect2, but returns a Vector instead of an Array.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1780
+1781
+1782
+1783
+1784</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1780</span>
+
+<span class='kw'>def</span> <span class='id map2'>map2</span><span class='lparen'>(</span><span class='id v'>v</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span> <span class='comment'># :yield: e1, e2
+</span>  <span class='kw'>return</span> <span class='id to_enum'>to_enum</span><span class='lparen'>(</span><span class='symbol'>:map2</span><span class='comma'>,</span> <span class='id v'>v</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id block_given?'>block_given?</span>
+  <span class='id els'>els</span> <span class='op'>=</span> <span class='id collect2'>collect2</span><span class='lparen'>(</span><span class='id v'>v</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='const'>Vector</span><span class='period'>.</span><span class='id elements'>elements</span><span class='lparen'>(</span><span class='id els'>els</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="normalize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>normalize</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new vector with the same direction but with norm 1.</p>
+
+<pre class="code">v = Vector[5,8,2].normalize
+# =&gt; Vector[0.5184758473652127, 0.8295613557843402, 0.20739033894608505]
+v.norm =&gt; 1.0</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Vector/ZeroVectorError.html" title="Vector::ZeroVectorError (class)">ZeroVectorError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1794
+1795
+1796
+1797
+1798</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1794</span>
+
+<span class='kw'>def</span> <span class='id normalize'>normalize</span>
+  <span class='id n'>n</span> <span class='op'>=</span> <span class='id magnitude'>magnitude</span>
+  <span class='id raise'>raise</span> <span class='const'>ZeroVectorError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Zero vectors can not be normalized</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id n'>n</span> <span class='op'>==</span> <span class='int'>0</span>
+  <span class='kw'>self</span> <span class='op'>/</span> <span class='id n'>n</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="size-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>size</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of elements in the vector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1593
+1594
+1595</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1593</span>
+
+<span class='kw'>def</span> <span class='id size'>size</span>
+  <span class='ivar'>@elements</span><span class='period'>.</span><span class='id size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_a-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_a</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the elements of the vector in an array.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1814
+1815
+1816</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1814</span>
+
+<span class='kw'>def</span> <span class='id to_a'>to_a</span>
+  <span class='ivar'>@elements</span><span class='period'>.</span><span class='id dup'>dup</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Overrides Object#to_s</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1856
+1857
+1858</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/matrix.rb', line 1856</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Vector[</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='ivar'>@elements</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:11 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

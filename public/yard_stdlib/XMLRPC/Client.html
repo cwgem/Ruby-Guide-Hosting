@@ -1,0 +1,1938 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: XMLRPC::Client
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../XMLRPC.html" title="XMLRPC (module)">XMLRPC</a></span></span>
+     &raquo; 
+    <span class="title">Client</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: XMLRPC::Client
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">XMLRPC::Client</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="ParseContentType.html" title="XMLRPC::ParseContentType (module)">ParseContentType</a></span>, <span class='object_link'><a href="ParserWriterChooseMixin.html" title="XMLRPC::ParserWriterChooseMixin (module)">ParserWriterChooseMixin</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/xmlrpc/client.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Client/Proxy.html" title="XMLRPC::Client::Proxy (class)">Proxy</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="USER_AGENT-constant" class="">USER_AGENT =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>XMLRPC::Client (Ruby </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_VERSION</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cookie-instance_method" title="#cookie (instance method)">- (Object) <strong>cookie</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Cookie support.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#http_header_extra-instance_method" title="#http_header_extra (instance method)">- (Object) <strong>http_header_extra</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>add additional HTTP headers to the request.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#http_last_response-instance_method" title="#http_last_response (instance method)">- (Object) <strong>http_last_response</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>makes last HTTP response accessible.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#password-instance_method" title="#password (instance method)">- (Object) <strong>password</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute password.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#timeout-instance_method" title="#timeout (instance method)">- (Object) <strong>timeout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute timeout.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user-instance_method" title="#user (instance method)">- (Object) <strong>user</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute user.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new2-class_method" title="new2 (class method)">+ (Object) <strong>new2</strong>(uri, proxy = nil, timeout = nil) </a>
+    
+
+    
+      (also: new_from_uri)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new3-class_method" title="new3 (class method)">+ (Object) <strong>new3</strong>(hash = {}) </a>
+    
+
+    
+      (also: new_from_hash)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call-instance_method" title="#call (instance method)">- (Object) <strong>call</strong>(method, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call methods
+--------------------------------------------------------------.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call2-instance_method" title="#call2 (instance method)">- (Object) <strong>call2</strong>(method, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call2_async-instance_method" title="#call2_async (instance method)">- (Object) <strong>call2_async</strong>(method, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call_async-instance_method" title="#call_async (instance method)">- (Object) <strong>call_async</strong>(method, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#do_rpc-instance_method" title="#do_rpc (instance method)">- (Object) <strong>do_rpc</strong>(request, async = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gen_multicall-instance_method" title="#gen_multicall (instance method)">- (Object) <strong>gen_multicall</strong>(methods = [], async = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Client) <strong>initialize</strong>(host = nil, path = nil, port = nil, proxy_host = nil, proxy_port = nil, user = nil, password = nil, use_ssl = nil, timeout = nil) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructors
+-------------------------------------------------------------------.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#multicall-instance_method" title="#multicall (instance method)">- (Object) <strong>multicall</strong>(*methods) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Multicall methods
+--------------------------------------------------------------.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#multicall2-instance_method" title="#multicall2 (instance method)">- (Object) <strong>multicall2</strong>(*methods) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#multicall2_async-instance_method" title="#multicall2_async (instance method)">- (Object) <strong>multicall2_async</strong>(*methods) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#multicall_async-instance_method" title="#multicall_async (instance method)">- (Object) <strong>multicall_async</strong>(*methods) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#proxy-instance_method" title="#proxy (instance method)">- (Object) <strong>proxy</strong>(prefix = nil, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Proxy generating methods ------------------------------------------.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#proxy2-instance_method" title="#proxy2 (instance method)">- (Object) <strong>proxy2</strong>(prefix = nil, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#proxy2_async-instance_method" title="#proxy2_async (instance method)">- (Object) <strong>proxy2_async</strong>(prefix = nil, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#proxy_async-instance_method" title="#proxy_async (instance method)">- (Object) <strong>proxy_async</strong>(prefix = nil, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_auth-instance_method" title="#set_auth (instance method)">- (Object) <strong>set_auth</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="ParseContentType.html" title="XMLRPC::ParseContentType (module)">ParseContentType</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ParseContentType.html#parse_content_type-instance_method" title="XMLRPC::ParseContentType#parse_content_type (method)">#parse_content_type</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="ParserWriterChooseMixin.html" title="XMLRPC::ParserWriterChooseMixin (module)">ParserWriterChooseMixin</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ParserWriterChooseMixin.html#create-instance_method" title="XMLRPC::ParserWriterChooseMixin#create (method)">#create</a></span>, <span class='object_link'><a href="ParserWriterChooseMixin.html#parser-instance_method" title="XMLRPC::ParserWriterChooseMixin#parser (method)">#parser</a></span>, <span class='object_link'><a href="ParserWriterChooseMixin.html#set_parser-instance_method" title="XMLRPC::ParserWriterChooseMixin#set_parser (method)">#set_parser</a></span>, <span class='object_link'><a href="ParserWriterChooseMixin.html#set_writer-instance_method" title="XMLRPC::ParserWriterChooseMixin#set_writer (method)">#set_writer</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="XMLRPC::Client (class)">Client</a></span></tt>) <strong>initialize</strong>(host = nil, path = nil, port = nil, proxy_host = nil, proxy_port = nil, user = nil, password = nil, use_ssl = nil, timeout = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructors
+-------------------------------------------------------------------</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 295</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id host'>host</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id path'>path</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id port'>port</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id proxy_host'>proxy_host</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id proxy_port'>proxy_port</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span>
+               <span class='id user'>user</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id password'>password</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id use_ssl'>use_ssl</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id timeout'>timeout</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@http_header_extra</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@http_last_response</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@cookie</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@host</span>       <span class='op'>=</span> <span class='id host'>host</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@path</span>       <span class='op'>=</span> <span class='id path'>path</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/RPC2</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@proxy_host</span> <span class='op'>=</span> <span class='id proxy_host'>proxy_host</span>
+  <span class='ivar'>@proxy_port</span> <span class='op'>=</span> <span class='id proxy_port'>proxy_port</span>
+  <span class='ivar'>@proxy_host</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>localhost</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='ivar'>@proxy_port</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@proxy_port</span> <span class='op'>||=</span> <span class='int'>8080</span> <span class='kw'>if</span> <span class='ivar'>@proxy_host</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@use_ssl</span>    <span class='op'>=</span> <span class='id use_ssl'>use_ssl</span> <span class='op'>||</span> <span class='kw'>false</span>
+  <span class='ivar'>@timeout</span>    <span class='op'>=</span> <span class='id timeout'>timeout</span> <span class='op'>||</span> <span class='int'>30</span>
+
+  <span class='kw'>if</span> <span class='id use_ssl'>use_ssl</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>net/https</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@port</span> <span class='op'>=</span> <span class='id port'>port</span> <span class='op'>||</span> <span class='int'>443</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@port</span> <span class='op'>=</span> <span class='id port'>port</span> <span class='op'>||</span> <span class='int'>80</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@user</span><span class='comma'>,</span> <span class='ivar'>@password</span> <span class='op'>=</span> <span class='id user'>user</span><span class='comma'>,</span> <span class='id password'>password</span>
+
+  <span class='id set_auth'>set_auth</span>
+
+  <span class='comment'># convert ports to integers
+</span>  <span class='ivar'>@port</span> <span class='op'>=</span> <span class='ivar'>@port</span><span class='period'>.</span><span class='id to_i'>to_i</span> <span class='kw'>if</span> <span class='ivar'>@port</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@proxy_port</span> <span class='op'>=</span> <span class='ivar'>@proxy_port</span><span class='period'>.</span><span class='id to_i'>to_i</span> <span class='kw'>if</span> <span class='ivar'>@proxy_port</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+
+  <span class='comment'># HTTP object for synchronous calls
+</span>  <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id version_1_2'>version_1_2</span>
+  <span class='ivar'>@http</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@host</span><span class='comma'>,</span> <span class='ivar'>@port</span><span class='comma'>,</span> <span class='ivar'>@proxy_host</span><span class='comma'>,</span> <span class='ivar'>@proxy_port</span><span class='rparen'>)</span>
+  <span class='ivar'>@http</span><span class='period'>.</span><span class='id use_ssl'>use_ssl</span> <span class='op'>=</span> <span class='ivar'>@use_ssl</span> <span class='kw'>if</span> <span class='ivar'>@use_ssl</span>
+  <span class='ivar'>@http</span><span class='period'>.</span><span class='id read_timeout'>read_timeout</span> <span class='op'>=</span> <span class='ivar'>@timeout</span>
+  <span class='ivar'>@http</span><span class='period'>.</span><span class='id open_timeout'>open_timeout</span> <span class='op'>=</span> <span class='ivar'>@timeout</span>
+
+  <span class='ivar'>@parser</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@create</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="cookie=-instance_method"></span>
+      <span id="cookie-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="cookie-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>cookie</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Cookie support</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+386
+387
+388</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 386</span>
+
+<span class='kw'>def</span> <span class='id cookie'>cookie</span>
+  <span class='ivar'>@cookie</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="http_header_extra=-instance_method"></span>
+      <span id="http_header_extra-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="http_header_extra-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>http_header_extra</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>add additional HTTP headers to the request</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+380
+381
+382</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 380</span>
+
+<span class='kw'>def</span> <span class='id http_header_extra'>http_header_extra</span>
+  <span class='ivar'>@http_header_extra</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="http_last_response-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="http_last_response-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>http_last_response</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>makes last HTTP response accessible</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+383
+384
+385</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 383</span>
+
+<span class='kw'>def</span> <span class='id http_last_response'>http_last_response</span>
+  <span class='ivar'>@http_last_response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="password=-instance_method"></span>
+      <span id="password-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="password-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>password</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute password</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+389
+390
+391</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 389</span>
+
+<span class='kw'>def</span> <span class='id password'>password</span>
+  <span class='ivar'>@password</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="timeout=-instance_method"></span>
+      <span id="timeout-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="timeout-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>timeout</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute timeout</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+389
+390
+391</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 389</span>
+
+<span class='kw'>def</span> <span class='id timeout'>timeout</span>
+  <span class='ivar'>@timeout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="user=-instance_method"></span>
+      <span id="user-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="user-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>user</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute user</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+389
+390
+391</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 389</span>
+
+<span class='kw'>def</span> <span class='id user'>user</span>
+  <span class='ivar'>@user</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="new2-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>new2</strong>(uri, proxy = nil, timeout = nil) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='new_from_uri-class_method'>new_from_uri</span></span>
+    </span>
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 340</span>
+
+<span class='kw'>def</span> <span class='id new2'>new2</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id proxy'>proxy</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id timeout'>timeout</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id match'>match</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^([^:]+):\/\/(([^@]+)@)?([^\/]+)(\/.*)?$</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='rparen'>)</span>
+    <span class='id proto'>proto</span> <span class='op'>=</span> <span class='id match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id user'>user</span><span class='comma'>,</span> <span class='id passwd'>passwd</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id match'>match</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='id match'>match</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id path'>path</span> <span class='op'>=</span> <span class='id match'>match</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>
+
+    <span class='kw'>if</span> <span class='id proto'>proto</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>and</span> <span class='id proto'>proto</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wrong protocol specified. Only http or https allowed!</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wrong URI as parameter!</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id proxy_host'>proxy_host</span><span class='comma'>,</span> <span class='id proxy_port'>proxy_port</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id proxy'>proxy</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id host'>host</span><span class='comma'>,</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id proxy_host'>proxy_host</span><span class='comma'>,</span> <span class='id proxy_port'>proxy_port</span><span class='comma'>,</span> <span class='id user'>user</span><span class='comma'>,</span> <span class='id passwd'>passwd</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id proto'>proto</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id timeout'>timeout</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="new3-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>new3</strong>(hash = {}) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='new_from_hash-class_method'>new_from_hash</span></span>
+    </span>
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+362
+363
+364
+365
+366
+367
+368
+369
+370</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 362</span>
+
+<span class='kw'>def</span> <span class='id new3'>new3</span><span class='lparen'>(</span><span class='id hash'>hash</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+
+  <span class='comment'># convert all keys into lowercase strings
+</span>  <span class='id h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id hash'>hash</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span><span class='id v'>v</span><span class='op'>|</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id v'>v</span> <span class='rbrace'>}</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>host</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>path</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>port</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>proxy_host</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>proxy_port</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>user</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>password</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+           <span class='id h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>use_ssl</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>timeout</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="call-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>call</strong>(method, *args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Call methods --------------------------------------------------------------</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+409
+410
+411
+412
+413
+414
+415
+416</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 409</span>
+
+<span class='kw'>def</span> <span class='id call'>call</span><span class='lparen'>(</span><span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id ok'>ok</span><span class='comma'>,</span> <span class='id param'>param</span> <span class='op'>=</span> <span class='id call2'>call2</span><span class='lparen'>(</span><span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id ok'>ok</span>
+    <span class='id param'>param</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='id param'>param</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="call2-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>call2</strong>(method, *args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+418
+419
+420
+421
+422</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 418</span>
+
+<span class='kw'>def</span> <span class='id call2'>call2</span><span class='lparen'>(</span><span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id request'>request</span> <span class='op'>=</span> <span class='id create'>create</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id methodCall'>methodCall</span><span class='lparen'>(</span><span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id data'>data</span> <span class='op'>=</span> <span class='id do_rpc'>do_rpc</span><span class='lparen'>(</span><span class='id request'>request</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id parser'>parser</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id parseMethodResponse'>parseMethodResponse</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="call2_async-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>call2_async</strong>(method, *args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+433
+434
+435
+436
+437</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 433</span>
+
+<span class='kw'>def</span> <span class='id call2_async'>call2_async</span><span class='lparen'>(</span><span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id request'>request</span> <span class='op'>=</span> <span class='id create'>create</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id methodCall'>methodCall</span><span class='lparen'>(</span><span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id data'>data</span> <span class='op'>=</span> <span class='id do_rpc'>do_rpc</span><span class='lparen'>(</span><span class='id request'>request</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id parser'>parser</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id parseMethodResponse'>parseMethodResponse</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="call_async-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>call_async</strong>(method, *args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+424
+425
+426
+427
+428
+429
+430
+431</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 424</span>
+
+<span class='kw'>def</span> <span class='id call_async'>call_async</span><span class='lparen'>(</span><span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id ok'>ok</span><span class='comma'>,</span> <span class='id param'>param</span> <span class='op'>=</span> <span class='id call2_async'>call2_async</span><span class='lparen'>(</span><span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id ok'>ok</span>
+    <span class='id param'>param</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='id param'>param</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="do_rpc-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>do_rpc</strong>(request, async = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 500</span>
+
+<span class='kw'>def</span> <span class='id do_rpc'>do_rpc</span><span class='lparen'>(</span><span class='id request'>request</span><span class='comma'>,</span> <span class='id async'>async</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id header'>header</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>User-Agent</span><span class='tstring_end'>&quot;</span></span>     <span class='op'>=&gt;</span>  <span class='const'>USER_AGENT</span><span class='comma'>,</span>
+   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content-Type</span><span class='tstring_end'>&quot;</span></span>   <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/xml; charset=utf-8</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content-Length</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id request'>request</span><span class='period'>.</span><span class='id size'>size</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span>
+   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Connection</span><span class='tstring_end'>&quot;</span></span>     <span class='op'>=&gt;</span> <span class='lparen'>(</span><span class='id async'>async</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>close</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>keep-alive</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id header'>header</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cookie</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@cookie</span>        <span class='kw'>if</span> <span class='ivar'>@cookie</span>
+  <span class='id header'>header</span><span class='period'>.</span><span class='id update'>update</span><span class='lparen'>(</span><span class='ivar'>@http_header_extra</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@http_header_extra</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@auth</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+    <span class='comment'># add authorization header
+</span>    <span class='id header'>header</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Authorization</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@auth</span>
+  <span class='kw'>end</span>
+
+  <span class='id resp'>resp</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@http_last_response</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>if</span> <span class='id async'>async</span>
+    <span class='comment'># use a new HTTP object for each call
+</span>    <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id version_1_2'>version_1_2</span>
+    <span class='id http'>http</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@host</span><span class='comma'>,</span> <span class='ivar'>@port</span><span class='comma'>,</span> <span class='ivar'>@proxy_host</span><span class='comma'>,</span> <span class='ivar'>@proxy_port</span><span class='rparen'>)</span>
+    <span class='id http'>http</span><span class='period'>.</span><span class='id use_ssl'>use_ssl</span> <span class='op'>=</span> <span class='ivar'>@use_ssl</span> <span class='kw'>if</span> <span class='ivar'>@use_ssl</span>
+    <span class='id http'>http</span><span class='period'>.</span><span class='id read_timeout'>read_timeout</span> <span class='op'>=</span> <span class='ivar'>@timeout</span>
+    <span class='id http'>http</span><span class='period'>.</span><span class='id open_timeout'>open_timeout</span> <span class='op'>=</span> <span class='ivar'>@timeout</span>
+
+    <span class='comment'># post request
+</span>    <span class='id http'>http</span><span class='period'>.</span><span class='id start'>start</span> <span class='lbrace'>{</span>
+      <span class='id resp'>resp</span> <span class='op'>=</span> <span class='id http'>http</span><span class='period'>.</span><span class='id post2'>post2</span><span class='lparen'>(</span><span class='ivar'>@path</span><span class='comma'>,</span> <span class='id request'>request</span><span class='comma'>,</span> <span class='id header'>header</span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='comment'># reuse the HTTP object for each call =&gt; connection alive is possible
+</span>    <span class='comment'># we must start connection explicitely first time so that http.request
+</span>    <span class='comment'># does not assume that we don't want keepalive
+</span>    <span class='ivar'>@http</span><span class='period'>.</span><span class='id start'>start</span> <span class='kw'>if</span> <span class='kw'>not</span> <span class='ivar'>@http</span><span class='period'>.</span><span class='id started?'>started?</span>
+
+    <span class='comment'># post request
+</span>    <span class='id resp'>resp</span> <span class='op'>=</span> <span class='ivar'>@http</span><span class='period'>.</span><span class='id post2'>post2</span><span class='lparen'>(</span><span class='ivar'>@path</span><span class='comma'>,</span> <span class='id request'>request</span><span class='comma'>,</span> <span class='id header'>header</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@http_last_response</span> <span class='op'>=</span> <span class='id resp'>resp</span>
+
+  <span class='id data'>data</span> <span class='op'>=</span> <span class='id resp'>resp</span><span class='period'>.</span><span class='id body'>body</span>
+
+  <span class='kw'>if</span> <span class='id resp'>resp</span><span class='period'>.</span><span class='id code'>code</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>401</span><span class='tstring_end'>&quot;</span></span>
+    <span class='comment'># Authorization Required
+</span>    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Authorization failed.\nHTTP-Error: </span><span class='embexpr_beg'>#{</span><span class='id resp'>resp</span><span class='period'>.</span><span class='id code'>code</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id resp'>resp</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>elsif</span> <span class='id resp'>resp</span><span class='period'>.</span><span class='id code'>code</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HTTP-Error: </span><span class='embexpr_beg'>#{</span><span class='id resp'>resp</span><span class='period'>.</span><span class='id code'>code</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id resp'>resp</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id ct'>ct</span> <span class='op'>=</span> <span class='id parse_content_type'>parse_content_type</span><span class='lparen'>(</span><span class='id resp'>resp</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content-Type</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id first'>first</span>
+  <span class='kw'>if</span> <span class='id ct'>ct</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/xml</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>if</span> <span class='id ct'>ct</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/html</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wrong content-type (received '</span><span class='embexpr_beg'>#{</span><span class='id ct'>ct</span><span class='rbrace'>}</span><span class='tstring_content'>' but expected 'text/xml'): \n</span><span class='embexpr_beg'>#{</span><span class='id data'>data</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+      <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wrong content-type (received '</span><span class='embexpr_beg'>#{</span><span class='id ct'>ct</span><span class='rbrace'>}</span><span class='tstring_content'>' but expected 'text/xml')</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id expected'>expected</span> <span class='op'>=</span> <span class='id resp'>resp</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content-Length</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;unknown&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>if</span> <span class='id data'>data</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id data'>data</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wrong size. Was </span><span class='embexpr_beg'>#{</span><span class='id data'>data</span><span class='period'>.</span><span class='id size'>size</span><span class='rbrace'>}</span><span class='tstring_content'>, should be </span><span class='embexpr_beg'>#{</span><span class='id expected'>expected</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>elsif</span> <span class='id expected'>expected</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;unknown&gt;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>and</span> <span class='id expected'>expected</span><span class='period'>.</span><span class='id to_i'>to_i</span> <span class='op'>!=</span> <span class='id data'>data</span><span class='period'>.</span><span class='id size'>size</span> <span class='kw'>and</span> <span class='id resp'>resp</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Transfer-Encoding</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wrong size. Was </span><span class='embexpr_beg'>#{</span><span class='id data'>data</span><span class='period'>.</span><span class='id size'>size</span><span class='rbrace'>}</span><span class='tstring_content'>, should be </span><span class='embexpr_beg'>#{</span><span class='id expected'>expected</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id set_cookies'>set_cookies</span> <span class='op'>=</span> <span class='id resp'>resp</span><span class='period'>.</span><span class='id get_fields'>get_fields</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Set-Cookie</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id set_cookies'>set_cookies</span> <span class='kw'>and</span> <span class='op'>!</span><span class='id set_cookies'>set_cookies</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>webrick/cookie</span><span class='tstring_end'>'</span></span>
+    <span class='ivar'>@cookie</span> <span class='op'>=</span> <span class='id set_cookies'>set_cookies</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id set_cookie'>set_cookie</span><span class='op'>|</span>
+      <span class='id cookie'>cookie</span> <span class='op'>=</span> <span class='const'>WEBrick</span><span class='op'>::</span><span class='const'>Cookie</span><span class='period'>.</span><span class='id parse_set_cookie'>parse_set_cookie</span><span class='lparen'>(</span><span class='id set_cookie'>set_cookie</span><span class='rparen'>)</span>
+      <span class='const'>WEBrick</span><span class='op'>::</span><span class='const'>Cookie</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id cookie'>cookie</span><span class='period'>.</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id cookie'>cookie</span><span class='period'>.</span><span class='id value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+    <span class='kw'>end</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id data'>data</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="gen_multicall-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>gen_multicall</strong>(methods = [], async = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 580</span>
+
+<span class='kw'>def</span> <span class='id gen_multicall'>gen_multicall</span><span class='lparen'>(</span><span class='id methods'>methods</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id async'>async</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id meth'>meth</span> <span class='op'>=</span> <span class='symbol'>:call2</span>
+  <span class='id meth'>meth</span> <span class='op'>=</span> <span class='symbol'>:call2_async</span> <span class='kw'>if</span> <span class='id async'>async</span>
+
+  <span class='id ok'>ok</span><span class='comma'>,</span> <span class='id params'>params</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id send'>send</span><span class='lparen'>(</span><span class='id meth'>meth</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>system.multicall</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='id methods'>methods</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>methodName</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>params</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbrace'>}</span> <span class='rbrace'>}</span>
+  <span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id ok'>ok</span>
+    <span class='id params'>params</span> <span class='op'>=</span> <span class='id params'>params</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id param'>param</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='id param'>param</span><span class='period'>.</span><span class='id is_a?'>is_a?</span> <span class='const'>Array</span>
+        <span class='id param'>param</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='kw'>elsif</span> <span class='id param'>param</span><span class='period'>.</span><span class='id is_a?'>is_a?</span> <span class='const'>Hash</span>
+        <span class='const'>XMLRPC</span><span class='op'>::</span><span class='const'>FaultException</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id param'>param</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>faultCode</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id param'>param</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>faultString</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wrong multicall return value</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id ok'>ok</span><span class='comma'>,</span> <span class='id params'>params</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="multicall-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>multicall</strong>(*methods) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Multicall methods
+--------------------------------------------------------------</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+442
+443
+444
+445
+446
+447
+448
+449</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 442</span>
+
+<span class='kw'>def</span> <span class='id multicall'>multicall</span><span class='lparen'>(</span><span class='op'>*</span><span class='id methods'>methods</span><span class='rparen'>)</span>
+  <span class='id ok'>ok</span><span class='comma'>,</span> <span class='id params'>params</span> <span class='op'>=</span> <span class='id multicall2'>multicall2</span><span class='lparen'>(</span><span class='op'>*</span><span class='id methods'>methods</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id ok'>ok</span>
+    <span class='id params'>params</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='id params'>params</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="multicall2-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>multicall2</strong>(*methods) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 451</span>
+
+<span class='kw'>def</span> <span class='id multicall2'>multicall2</span><span class='lparen'>(</span><span class='op'>*</span><span class='id methods'>methods</span><span class='rparen'>)</span>
+  <span class='id gen_multicall'>gen_multicall</span><span class='lparen'>(</span><span class='id methods'>methods</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="multicall2_async-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>multicall2_async</strong>(*methods) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+464
+465
+466</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 464</span>
+
+<span class='kw'>def</span> <span class='id multicall2_async'>multicall2_async</span><span class='lparen'>(</span><span class='op'>*</span><span class='id methods'>methods</span><span class='rparen'>)</span>
+  <span class='id gen_multicall'>gen_multicall</span><span class='lparen'>(</span><span class='id methods'>methods</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="multicall_async-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>multicall_async</strong>(*methods) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+455
+456
+457
+458
+459
+460
+461
+462</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 455</span>
+
+<span class='kw'>def</span> <span class='id multicall_async'>multicall_async</span><span class='lparen'>(</span><span class='op'>*</span><span class='id methods'>methods</span><span class='rparen'>)</span>
+  <span class='id ok'>ok</span><span class='comma'>,</span> <span class='id params'>params</span> <span class='op'>=</span> <span class='id multicall2_async'>multicall2_async</span><span class='lparen'>(</span><span class='op'>*</span><span class='id methods'>methods</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id ok'>ok</span>
+    <span class='id params'>params</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='id params'>params</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="proxy-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>proxy</strong>(prefix = nil, *args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Proxy generating methods ------------------------------------------</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+471
+472
+473</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 471</span>
+
+<span class='kw'>def</span> <span class='id proxy'>proxy</span><span class='lparen'>(</span><span class='id prefix'>prefix</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='const'>Proxy</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id prefix'>prefix</span><span class='comma'>,</span> <span class='id args'>args</span><span class='comma'>,</span> <span class='symbol'>:call</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="proxy2-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>proxy2</strong>(prefix = nil, *args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+475
+476
+477</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 475</span>
+
+<span class='kw'>def</span> <span class='id proxy2'>proxy2</span><span class='lparen'>(</span><span class='id prefix'>prefix</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='const'>Proxy</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id prefix'>prefix</span><span class='comma'>,</span> <span class='id args'>args</span><span class='comma'>,</span> <span class='symbol'>:call2</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="proxy2_async-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>proxy2_async</strong>(prefix = nil, *args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+483
+484
+485</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 483</span>
+
+<span class='kw'>def</span> <span class='id proxy2_async'>proxy2_async</span><span class='lparen'>(</span><span class='id prefix'>prefix</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='const'>Proxy</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id prefix'>prefix</span><span class='comma'>,</span> <span class='id args'>args</span><span class='comma'>,</span> <span class='symbol'>:call2_async</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="proxy_async-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>proxy_async</strong>(prefix = nil, *args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+479
+480
+481</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 479</span>
+
+<span class='kw'>def</span> <span class='id proxy_async'>proxy_async</span><span class='lparen'>(</span><span class='id prefix'>prefix</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='const'>Proxy</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id prefix'>prefix</span><span class='comma'>,</span> <span class='id args'>args</span><span class='comma'>,</span> <span class='symbol'>:call_async</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_auth-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>set_auth</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+490
+491
+492
+493
+494
+495
+496
+497
+498</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xmlrpc/client.rb', line 490</span>
+
+<span class='kw'>def</span> <span class='id set_auth'>set_auth</span>
+  <span class='kw'>if</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='ivar'>@auth</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>else</span>
+    <span class='id a'>a</span> <span class='op'>=</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embvar'>#</span><span class='ivar'>@user</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id a'>a</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='embvar'>#</span><span class='ivar'>@password</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@password</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+    <span class='ivar'>@auth</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Basic </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id a'>a</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>m0</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:08 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

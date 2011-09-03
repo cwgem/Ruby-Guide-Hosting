@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: OpenSSL::ASN1::Primitive</title>
+
+  <link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../../ext/openssl/ossl_asn1_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/openssl/ossl_asn1.c">ext/openssl/ossl_asn1.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-to_der">#to_der</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../../OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="../../OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="../../OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="../../OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="../../OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="../../OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="../../OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="../../OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="../../OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="../../OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="../../OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="../../OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="../../OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="../../OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="../../OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="../../OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="../../OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="../../OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="../../OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="../../OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="../../OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="../../OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="../../OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="../../OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="../../OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="../../OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="../../OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="../../OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="../../OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="../../OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="../../OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="../../OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="../../OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="../../OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="../../OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="../../OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="../../OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="../../OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="../../OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="../../OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="../../OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="../../OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="../../OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="../../OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="../../OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="../../OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="../../OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="../../OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="../../OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="../../OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="../../OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="../../OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="../../OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="../../OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="../../OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="../../OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="../../OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="../../OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="../../OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="../../OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="../../OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="../../OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="../../OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="../../OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="../../OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="../../OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="../../OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="../../OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="../../OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="../../OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="../../OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="../../OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="../../Psych.html">Psych</a></li>
+        
+          <li><a href="../../Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="../../Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="../../Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="../../Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="../../Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="../../Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="../../Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="../../Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="../../Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="../../Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="../../Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="../../Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="../../Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="../../Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="../../Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="../../Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="../../Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="../../Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="../../Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="../../Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="../../Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="../../Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="../../Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="../../Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="../../Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="../../Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="../../Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="../../Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="../../Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="../../Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="../../Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="../../DL.html">DL</a></li>
+        
+          <li><a href="../../DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="../../DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="../../DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="../../DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="../../DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="../../DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="../../DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="../../DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="../../DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="../../DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="../../DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="../../DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="../../DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="../../DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="../../DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="../../DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="../../DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="../../DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="../../DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="../../DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="../../DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="../../DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="../../Zlib.html">Zlib</a></li>
+        
+          <li><a href="../../Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="../../Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="../../Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="../../Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="../../Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="../../Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="../../Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="../../Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="../../Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="../../Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="../../Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="../../Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="../../Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="../../Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="../../Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="../../Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="../../Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="../../Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="../../Win32.html">Win32</a></li>
+        
+          <li><a href="../../Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="../../Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="../../Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="../../Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="../../Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="../../Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="../../Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="../../Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="../../Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="../../Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="../../Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="../../Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="../../Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="../../Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="../../Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="../../Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="../../JSON.html">JSON</a></li>
+        
+          <li><a href="../../JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="../../JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="../../JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="../../JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="../../JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="../../JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="../../JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="../../Iconv.html">Iconv</a></li>
+        
+          <li><a href="../../Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="../../Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="../../Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="../../Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="../../Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="../../Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="../../Ripper.html">Ripper</a></li>
+        
+          <li><a href="../../Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="../../Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="../../Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="../../Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="../../Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="../../Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="../../Digest.html">Digest</a></li>
+        
+          <li><a href="../../Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="../../Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="../../Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="../../Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="../../Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="../../Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="../../Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="../../Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="../../DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="../../Socket.html">Socket</a></li>
+        
+          <li><a href="../../Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="../../Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="../../Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="../../Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="../../Curses.html">Curses</a></li>
+        
+          <li><a href="../../Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="../../Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="../../Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="../../PTY.html">PTY</a></li>
+        
+          <li><a href="../../PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="../../StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="../../StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="../../Syslog.html">Syslog</a></li>
+        
+          <li><a href="../../Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="../../WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="../../WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="../../Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="../../BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="../../BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="../../BigMath.html">BigMath</a></li>
+        
+          <li><a href="../../Class.html">Class</a></li>
+        
+          <li><a href="../../Coverage.html">Coverage</a></li>
+        
+          <li><a href="../../DBM.html">DBM</a></li>
+        
+          <li><a href="../../DBMError.html">DBMError</a></li>
+        
+          <li><a href="../../Date.html">Date</a></li>
+        
+          <li><a href="../../DateTime.html">DateTime</a></li>
+        
+          <li><a href="../../Etc.html">Etc</a></li>
+        
+          <li><a href="../../Exception.html">Exception</a></li>
+        
+          <li><a href="../../Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="../../Float.html">Float</a></li>
+        
+          <li><a href="../../GDBM.html">GDBM</a></li>
+        
+          <li><a href="../../GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="../../GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="../../IO.html">IO</a></li>
+        
+          <li><a href="../../IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="../../Integer.html">Integer</a></li>
+        
+          <li><a href="../../Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="../../Kconv.html">Kconv</a></li>
+        
+          <li><a href="../../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../../LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="../../Module.html">Module</a></li>
+        
+          <li><a href="../../NKF.html">NKF</a></li>
+        
+          <li><a href="../../Newton.html">Newton</a></li>
+        
+          <li><a href="../../OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="../../Object.html">Object</a></li>
+        
+          <li><a href="../../Pathname.html">Pathname</a></li>
+        
+          <li><a href="../../Range.html">Range</a></li>
+        
+          <li><a href="../../Rational.html">Rational</a></li>
+        
+          <li><a href="../../Readline.html">Readline</a></li>
+        
+          <li><a href="../../Regexp.html">Regexp</a></li>
+        
+          <li><a href="../../SDBM.html">SDBM</a></li>
+        
+          <li><a href="../../SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="../../SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="../../SocketError.html">SocketError</a></li>
+        
+          <li><a href="../../String.html">String</a></li>
+        
+          <li><a href="../../StringIO.html">StringIO</a></li>
+        
+          <li><a href="../../Struct.html">Struct</a></li>
+        
+          <li><a href="../../Symbol.html">Symbol</a></li>
+        
+          <li><a href="../../TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="../../TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="../../Thread.html">Thread</a></li>
+        
+          <li><a href="../../Time.html">Time</a></li>
+        
+          <li><a href="../../UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="../../UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="../../UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="../../WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="../../WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="../../WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="../../WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="../../WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="../../WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="../../WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="../../WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="../../Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">OpenSSL::ASN1::Primitive</h1>
+
+    <div id="description" class="description">
+      
+<p>The parent class for all primitive encodings. Attributes are the same as
+for <a href="ASN1Data.html">ASN1Data</a>, with the addition of
+<tt>tagging</tt>. <a href="Primitive.html">Primitive</a> values can never
+be infinite length encodings, thus it is not possible to set the
+<tt>infinite_length</tt> attribute for <a
+href="Primitive.html">Primitive</a> and its sub-classes.</p>
+
+<h2><a href="Primitive.html">Primitive</a> sub-classes and their mapping to Ruby classes</h2>
+<ul><li>
+<p>OpenSSL::ASN1::EndOfContent    &lt;=&gt; <tt>value</tt> is always
+<tt>nil</tt></p>
+</li><li>
+<p>OpenSSL::ASN1::Boolean         &lt;=&gt; <tt>value</tt> is a
+<tt>Boolean</tt></p>
+</li><li>
+<p>OpenSSL::ASN1::Integer         &lt;=&gt; <tt>value</tt> is a
+<tt>Number</tt></p>
+</li><li>
+<p>OpenSSL::ASN1::BitString       &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::OctetString     &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::Null            &lt;=&gt; <tt>value</tt> is always
+<tt>nil</tt></p>
+</li><li>
+<p>OpenSSL::ASN1::Object          &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::Enumerated      &lt;=&gt; <tt>value</tt> is a
+<tt>Number</tt></p>
+</li><li>
+<p>OpenSSL::ASN1::UTF8String      &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::NumericString   &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::PrintableString &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::T61String       &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::VideotexString  &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::IA5String       &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::UTCTime         &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../Time.html">Time</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::GeneralizedTime &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../Time.html">Time</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::GraphicString   &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::ISO64String     &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::GeneralString   &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::UniversalString &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li><li>
+<p>OpenSSL::ASN1::BMPString       &lt;=&gt; <tt>value</tt> is a <tt><a
+href="../../String.html">String</a></tt></p>
+</li></ul>
+
+<h2>OpenSSL::ASN1::BitString</h2>
+
+<h3>Additional attributes</h3>
+
+<p><tt>unused_bits</tt>: if the underlying BIT STRING's length is a multiple
+of 8 then <tt>unused_bits</tt> is 0. Otherwise <tt>unused_bits</tt>
+indicates the number of bits that are to be ignored in the final octet of
+the <tt>BitString</tt>'s <tt>value</tt>.</p>
+
+<h2>OpenSSL::ASN1::ObjectId</h2>
+
+<h3>Additional attributes</h3>
+<ul><li>
+<p><tt>sn</tt>: the short name as defined in &lt;openssl/objects.h&gt;.</p>
+</li><li>
+<p><tt>ln</tt>: the long name as defined in &lt;openssl/objects.h&gt;.</p>
+</li><li>
+<p><tt>oid</tt>: the object identifier as a <tt><a
+href="../../String.html">String</a></tt>, e.g. "1.2.3.4.5"</p>
+</li><li>
+<p><tt>short_name</tt>: alias for <tt>sn</tt>.</p>
+</li><li>
+<p><tt>long_name</tt>: alias for <tt>ln</tt>.</p>
+</li></ul>
+
+<h2>Examples</h2>
+
+<p>With the <a href="../../Exception.html">Exception</a> of
+OpenSSL::ASN1::EndOfContent, each <a href="Primitive.html">Primitive</a>
+class constructor takes at least one parameter, the <tt>value</tt>.</p>
+
+<h3>Creating EndOfContent</h3>
+
+<pre>eoc = OpenSSL::ASN1::EndOfContent.new</pre>
+
+<h3>Creating any other <a href="Primitive.html">Primitive</a></h3>
+
+<pre>prim = &lt;class&gt;.new(value) # &lt;class&gt; being one of the sub-classes except EndOfContent
+prim_zero_tagged_implicit = &lt;class&gt;.new(value, 0, :IMPLICIT)
+prim_zero_tagged_explicit = &lt;class&gt;.new(value, 0, :EXPLICIT)</pre>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+      <!-- Attributes -->
+      <div id="attribute-method-details" class="method-section section">
+        <h3 class="section-header">Attributes</h3>
+
+        
+        <div id="tagging-attribute-method" class="method-detail">
+          <a name="tagging"></a>
+          
+          <a name="tagging="></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">tagging</span><span
+              class="attribute-access-type">[RW]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>May be used as a hint for encoding a value either implicitly or explicitly
+by setting it either to <tt>:IMPLICIT</tt> or to <tt>:EXPLICIT</tt>.
+<tt>tagging</tt> is not set when a ASN.1 structure is parsed using <a
+href="../ASN1.html#method-c-decode">OpenSSL::ASN1.decode</a>.</p>
+          
+          </div>
+        </div>
+        
+      </div><!-- attribute-method-details -->
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">OpenSSL::ASN1::Primitive.new( value [, tag, tagging, tag_class ]) => Primitive</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p><tt>value</tt>: is mandatory.</p>
+
+<p><tt>tag</tt>: optional, may be specified for tagged values. If no
+<tt>tag</tt> is specified, the UNIVERSAL tag corresponding to the <a
+href="Primitive.html">Primitive</a> sub-class is used by default.</p>
+
+<p><tt>tagging</tt>: may be used as an encoding hint to encode a value either
+explicitly or implicitly, see <a href="../ASN1.html">ASN1</a> for possible
+values.</p>
+
+<p><tt>tag_class</tt>: if <tt>tag</tt> and <tt>tagging</tt> are <tt>nil</tt>
+then this is set to <tt>:UNIVERSAL</tt> by default. If either <tt>tag</tt>
+or <tt>tagging</tt> are set then <tt>:CONTEXT_SPECIFIC</tt> is used as the
+default. For possible values please cf. <a href="../ASN1.html">ASN1</a>.</p>
+
+<h2>Example</h2>
+
+<pre>int = OpenSSL::ASN1::Integer.new(42)
+zero_tagged_int = OpenSSL::ASN1::Integer.new(42, 0, :IMPLICIT)
+private_explicit_zero_tagged_int = OpenSSL::ASN1::Integer.new(42, 0, :EXPLICIT, :PRIVATE)</pre>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+static VALUE
+ossl_asn1_initialize(int argc, VALUE *argv, VALUE self)
+{
+    VALUE value, tag, tagging, tag_class;
+
+    rb_scan_args(argc, argv, &quot;13&quot;, &amp;value, &amp;tag, &amp;tagging, &amp;tag_class);
+    if(argc &gt; 1){
+        if(NIL_P(tag))
+            ossl_raise(eASN1Error, &quot;must specify tag number&quot;);
+        if(!NIL_P(tagging) &amp;&amp; !SYMBOL_P(tagging))
+            ossl_raise(eASN1Error, &quot;invalid tagging method&quot;);
+        if(NIL_P(tag_class)) {
+            if (NIL_P(tagging))
+                tag_class = ID2SYM(sUNIVERSAL);
+            else
+                tag_class = ID2SYM(sCONTEXT_SPECIFIC);
+        }
+        if(!SYMBOL_P(tag_class))
+            ossl_raise(eASN1Error, &quot;invalid tag class&quot;);
+        if(SYM2ID(tagging) == sIMPLICIT &amp;&amp; NUM2INT(tag) &gt; 31)
+            ossl_raise(eASN1Error, &quot;tag number for Universal too large&quot;);
+    }
+    else{
+        tag = INT2NUM(ossl_asn1_default_tag(self));
+        tagging = Qnil;
+        tag_class = ID2SYM(sUNIVERSAL);
+    }
+    ossl_asn1_set_tag(self, tag);
+    ossl_asn1_set_value(self, value);
+    ossl_asn1_set_tagging(self, tagging);
+    ossl_asn1_set_tag_class(self, tag_class);
+    ossl_asn1_set_infinite_length(self, Qfalse);
+
+    return self;
+}</pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="to_der-method" class="method-detail ">
+          <a name="method-i-to_der"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_der => DER-encoded String</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See <a href="ASN1Data.html#method-i-to_der">ASN1Data#to_der</a> for
+details. *</p>
+            
+
+            
+            <div class="method-source-code" id="to_der-source">
+<pre>
+static VALUE
+ossl_asn1prim_to_der(VALUE self)
+{
+    ASN1_TYPE *asn1;
+    int tn, tc, explicit;
+    long len, reallen;
+    unsigned char *buf, *p;
+    VALUE str;
+
+    tn = NUM2INT(ossl_asn1_get_tag(self));
+    tc = ossl_asn1_tag_class(self);
+    explicit = ossl_asn1_is_explicit(self);
+    asn1 = ossl_asn1_get_asn1type(self);
+
+    len = ossl_asn1_object_size(1, ossl_i2d_ASN1_TYPE(asn1, NULL), tn);
+    if(!(buf = OPENSSL_malloc(len))){
+        ossl_ASN1_TYPE_free(asn1);
+        ossl_raise(eASN1Error, &quot;cannot alloc buffer&quot;);
+    }
+    p = buf;
+    if (tc == V_ASN1_UNIVERSAL) {
+        ossl_i2d_ASN1_TYPE(asn1, &amp;p);
+    } else if (explicit) {
+        ossl_asn1_put_object(&amp;p, 1, ossl_i2d_ASN1_TYPE(asn1, NULL), tn, tc);
+        ossl_i2d_ASN1_TYPE(asn1, &amp;p);
+    } else {
+        ossl_i2d_ASN1_TYPE(asn1, &amp;p);
+        *buf = tc | tn | (*buf &amp; V_ASN1_CONSTRUCTED);
+    }
+    ossl_ASN1_TYPE_free(asn1);
+    reallen = p - buf;
+    assert(reallen &lt;= len);
+    str = ossl_buf2str((char *)buf, rb_long2int(reallen)); /* buf will be free in ossl_buf2str */
+
+    return str;
+}</pre>
+            </div><!-- to_der-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_der-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

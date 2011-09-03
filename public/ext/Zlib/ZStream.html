@@ -1,0 +1,1434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: Zlib::ZStream</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../ext/zlib/zlib_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/zlib/zlib.c">ext/zlib/zlib.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="../Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-adler">#adler</a></li>
+          
+          <li><a href="#method-i-avail_in">#avail_in</a></li>
+          
+          <li><a href="#method-i-avail_out">#avail_out</a></li>
+          
+          <li><a href="#method-i-avail_out-3D">#avail_out=</a></li>
+          
+          <li><a href="#method-i-close">#close</a></li>
+          
+          <li><a href="#method-i-closed-3F">#closed?</a></li>
+          
+          <li><a href="#method-i-data_type">#data_type</a></li>
+          
+          <li><a href="#method-i-end">#end</a></li>
+          
+          <li><a href="#method-i-ended-3F">#ended?</a></li>
+          
+          <li><a href="#method-i-finish">#finish</a></li>
+          
+          <li><a href="#method-i-finished-3F">#finished?</a></li>
+          
+          <li><a href="#method-i-flush_next_in">#flush_next_in</a></li>
+          
+          <li><a href="#method-i-flush_next_out">#flush_next_out</a></li>
+          
+          <li><a href="#method-i-reset">#reset</a></li>
+          
+          <li><a href="#method-i-stream_end-3F">#stream_end?</a></li>
+          
+          <li><a href="#method-i-total_in">#total_in</a></li>
+          
+          <li><a href="#method-i-total_out">#total_out</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="../OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="../OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="../OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="../OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="../OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="../OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="../OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="../OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="../OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="../OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="../OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="../OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="../OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="../OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="../OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="../OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="../OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="../OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="../OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="../OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="../OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="../OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="../OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="../OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="../Psych.html">Psych</a></li>
+        
+          <li><a href="../Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="../Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="../Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="../Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="../Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="../Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="../Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="../Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="../Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="../Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="../Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="../Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="../Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="../Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="../Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="../Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="../Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="../Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="../Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="../Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="../Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="../Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="../Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="../Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="../Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="../Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="../Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="../Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="../Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="../DL.html">DL</a></li>
+        
+          <li><a href="../DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="../DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="../DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="../DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="../DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="../DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="../DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="../DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="../DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="../DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="../DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="../DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="../DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="../DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="../DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="../DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="../DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="../DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="../DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="../DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="../DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="../DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="../Zlib.html">Zlib</a></li>
+        
+          <li><a href="../Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="../Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="../Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="../Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="../Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="../Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="../Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="../Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="../Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="../Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="../Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="../Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="../Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="../Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="../Win32.html">Win32</a></li>
+        
+          <li><a href="../Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="../Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="../Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="../Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="../Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="../Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="../Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="../Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="../Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="../Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="../Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="../Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="../Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="../Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="../JSON.html">JSON</a></li>
+        
+          <li><a href="../JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="../JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="../JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="../JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="../JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="../Iconv.html">Iconv</a></li>
+        
+          <li><a href="../Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="../Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="../Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="../Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="../Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="../Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="../Ripper.html">Ripper</a></li>
+        
+          <li><a href="../Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="../Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="../Digest.html">Digest</a></li>
+        
+          <li><a href="../Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="../Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="../Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="../Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="../Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="../Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="../Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="../Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="../DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="../Socket.html">Socket</a></li>
+        
+          <li><a href="../Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="../Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="../Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="../Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="../Curses.html">Curses</a></li>
+        
+          <li><a href="../Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="../Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="../Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="../PTY.html">PTY</a></li>
+        
+          <li><a href="../PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="../StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="../StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="../Syslog.html">Syslog</a></li>
+        
+          <li><a href="../Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="../WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="../WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="../Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="../BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="../BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="../BigMath.html">BigMath</a></li>
+        
+          <li><a href="../Class.html">Class</a></li>
+        
+          <li><a href="../Coverage.html">Coverage</a></li>
+        
+          <li><a href="../DBM.html">DBM</a></li>
+        
+          <li><a href="../DBMError.html">DBMError</a></li>
+        
+          <li><a href="../Date.html">Date</a></li>
+        
+          <li><a href="../DateTime.html">DateTime</a></li>
+        
+          <li><a href="../Etc.html">Etc</a></li>
+        
+          <li><a href="../Exception.html">Exception</a></li>
+        
+          <li><a href="../Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="../Float.html">Float</a></li>
+        
+          <li><a href="../GDBM.html">GDBM</a></li>
+        
+          <li><a href="../GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="../GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="../IO.html">IO</a></li>
+        
+          <li><a href="../IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="../Integer.html">Integer</a></li>
+        
+          <li><a href="../Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="../Kconv.html">Kconv</a></li>
+        
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="../Module.html">Module</a></li>
+        
+          <li><a href="../NKF.html">NKF</a></li>
+        
+          <li><a href="../Newton.html">Newton</a></li>
+        
+          <li><a href="../OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="../Object.html">Object</a></li>
+        
+          <li><a href="../Pathname.html">Pathname</a></li>
+        
+          <li><a href="../Range.html">Range</a></li>
+        
+          <li><a href="../Rational.html">Rational</a></li>
+        
+          <li><a href="../Readline.html">Readline</a></li>
+        
+          <li><a href="../Regexp.html">Regexp</a></li>
+        
+          <li><a href="../SDBM.html">SDBM</a></li>
+        
+          <li><a href="../SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="../SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="../SocketError.html">SocketError</a></li>
+        
+          <li><a href="../String.html">String</a></li>
+        
+          <li><a href="../StringIO.html">StringIO</a></li>
+        
+          <li><a href="../Struct.html">Struct</a></li>
+        
+          <li><a href="../Symbol.html">Symbol</a></li>
+        
+          <li><a href="../TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="../TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="../Thread.html">Thread</a></li>
+        
+          <li><a href="../Time.html">Time</a></li>
+        
+          <li><a href="../UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="../UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="../UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="../WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="../WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="../WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="../WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="../WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="../WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="../WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="../WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="../Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Zlib::ZStream</h1>
+
+    <div id="description" class="description">
+      
+<p><a href="ZStream.html">Zlib::ZStream</a> is the abstract class for the
+stream which handles the compressed data. The operations are defined in the
+subclasses: <a href="Deflate.html">Zlib::Deflate</a> for compression, and
+<a href="Inflate.html">Zlib::Inflate</a> for decompression.</p>
+
+<p>An instance of <a href="ZStream.html">Zlib::ZStream</a> has one stream
+(struct zstream in the source) and two variable-length buffers which
+associated to the input (next_in) of the stream and the output (next_out)
+of the stream. In this document, “input buffer” means the buffer for input,
+and “output buffer” means the buffer for output.</p>
+
+<p>Data input into an instance of <a href="ZStream.html">Zlib::ZStream</a> are
+temporally stored into the end of input buffer, and then data in input
+buffer are processed from the beginning of the buffer until no more output
+from the stream is produced (i.e. until <a
+href="ZStream.html#method-i-avail_out">avail_out</a> &gt; 0 after
+processing).  During processing, output buffer is allocated and expanded
+automatically to hold all output data.</p>
+
+<p>Some particular instance methods consume the data in output buffer and
+return them as a <a href="../String.html">String</a>.</p>
+
+<p>Here is an ascii art for describing above:</p>
+
+<pre>+================ an instance of Zlib::ZStream ================+
+||                                                            ||
+||     +--------+          +-------+          +--------+      ||
+||  +--| output |&lt;---------|zstream|&lt;---------| input  |&lt;--+  ||
+||  |  | buffer |  next_out+-------+next_in   | buffer |   |  ||
+||  |  +--------+                             +--------+   |  ||
+||  |                                                      |  ||
++===|======================================================|===+
+    |                                                      |
+    v                                                      |
+&quot;output data&quot;                                         &quot;input data&quot;</pre>
+
+<p>If an error occurs during processing input buffer, an exception which is a
+subclass of <a href="Error.html">Zlib::Error</a> is raised.  At that time,
+both input and output buffer keep their conditions at the time when the
+error occurs.</p>
+
+<h2>Method Catalogue</h2>
+
+<p>Many of the methods in this class are fairly low-level and unlikely to be
+of interest to users.  In fact, users are unlikely to use this class
+directly; rather they will be interested in <a
+href="Inflate.html">Zlib::Inflate</a> and <a
+href="Deflate.html">Zlib::Deflate</a>.</p>
+
+<p>The higher level methods are listed below.</p>
+<ul><li>
+<p><a href="ZStream.html#method-i-total_in">total_in</a></p>
+</li><li>
+<p><a href="ZStream.html#method-i-total_out">total_out</a></p>
+</li><li>
+<p><a href="ZStream.html#method-i-data_type">data_type</a></p>
+</li><li>
+<p><a href="ZStream.html#method-i-adler">adler</a></p>
+</li><li>
+<p><a href="ZStream.html#method-i-reset">reset</a></p>
+</li><li>
+<p><a href="ZStream.html#method-i-finish">finish</a></p>
+</li><li>
+<p><a href="ZStream.html#method-i-finished-3F">finished?</a></p>
+</li><li>
+<p><a href="ZStream.html#method-i-close">close</a></p>
+</li><li>
+<p><a href="ZStream.html#method-i-closed-3F">closed?</a></p>
+</li></ul>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="adler-method" class="method-detail ">
+          <a name="method-i-adler"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">adler</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns the adler-32 checksum.</p>
+            
+
+            
+            <div class="method-source-code" id="adler-source">
+<pre>
+static VALUE
+rb_zstream_adler(VALUE obj)
+{
+        return rb_uint2inum(get_zstream(obj)-&gt;stream.adler);
+}</pre>
+            </div><!-- adler-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- adler-method -->
+
+      
+        <div id="avail_in-method" class="method-detail ">
+          <a name="method-i-avail_in"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">avail_in</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns bytes of data in the input buffer. Normally, returns 0.</p>
+            
+
+            
+            <div class="method-source-code" id="avail_in-source">
+<pre>
+static VALUE
+rb_zstream_avail_in(VALUE obj)
+{
+    struct zstream *z;
+    Data_Get_Struct(obj, struct zstream, z);
+    return INT2FIX(NIL_P(z-&gt;input) ? 0 : (int)(RSTRING_LEN(z-&gt;input)));
+}</pre>
+            </div><!-- avail_in-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- avail_in-method -->
+
+      
+        <div id="avail_out-method" class="method-detail ">
+          <a name="method-i-avail_out"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">avail_out</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns number of bytes of free spaces in output buffer.  Because the free
+space is allocated automatically, this method returns 0 normally.</p>
+            
+
+            
+            <div class="method-source-code" id="avail_out-source">
+<pre>
+static VALUE
+rb_zstream_avail_out(VALUE obj)
+{
+    struct zstream *z;
+    Data_Get_Struct(obj, struct zstream, z);
+    return rb_uint2inum(z-&gt;stream.avail_out);
+}</pre>
+            </div><!-- avail_out-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- avail_out-method -->
+
+      
+        <div id="avail_out-3D-method" class="method-detail ">
+          <a name="method-i-avail_out-3D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">avail_out=</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Allocates <tt>size</tt> bytes of free space in the output buffer. If there
+are more than <tt>size</tt> bytes already in the buffer, the buffer is
+truncated. Because free space is allocated automatically, you usually don’t
+need to use this method.</p>
+            
+
+            
+            <div class="method-source-code" id="avail_out-3D-source">
+<pre>
+static VALUE
+rb_zstream_set_avail_out(VALUE obj, VALUE size)
+{
+    struct zstream *z = get_zstream(obj);
+
+    Check_Type(size, T_FIXNUM);
+    zstream_expand_buffer_into(z, FIX2INT(size));
+    return size;
+}</pre>
+            </div><!-- avail_out-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- avail_out-3D-method -->
+
+      
+        <div id="close-method" class="method-detail ">
+          <a name="method-i-close"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">close</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Closes the stream. All operations on the closed stream will raise an
+exception.</p>
+            
+
+            
+            <div class="method-source-code" id="close-source">
+<pre>
+static VALUE
+rb_zstream_end(VALUE obj)
+{
+    zstream_end(get_zstream(obj));
+    return Qnil;
+}</pre>
+            </div><!-- close-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close-method -->
+
+      
+        <div id="closed-3F-method" class="method-detail ">
+          <a name="method-i-closed-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">closed?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if the stream is closed.</p>
+            
+
+            
+            <div class="method-source-code" id="closed-3F-source">
+<pre>
+static VALUE
+rb_zstream_closed_p(VALUE obj)
+{
+    struct zstream *z;
+    Data_Get_Struct(obj, struct zstream, z);
+    return ZSTREAM_IS_READY(z) ? Qfalse : Qtrue;
+}</pre>
+            </div><!-- closed-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- closed-3F-method -->
+
+      
+        <div id="data_type-method" class="method-detail ">
+          <a name="method-i-data_type"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">data_type</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Guesses the type of the data which have been inputed into the stream. The
+returned value is either <tt>BINARY</tt>, <tt>ASCII</tt>, or
+<tt>UNKNOWN</tt>.</p>
+            
+
+            
+            <div class="method-source-code" id="data_type-source">
+<pre>
+static VALUE
+rb_zstream_data_type(VALUE obj)
+{
+    return INT2FIX(get_zstream(obj)-&gt;stream.data_type);
+}</pre>
+            </div><!-- data_type-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- data_type-method -->
+
+      
+        <div id="end-method" class="method-detail ">
+          <a name="method-i-end"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">end</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Closes the stream. All operations on the closed stream will raise an
+exception.</p>
+            
+
+            
+            <div class="method-source-code" id="end-source">
+<pre>
+static VALUE
+rb_zstream_end(VALUE obj)
+{
+    zstream_end(get_zstream(obj));
+    return Qnil;
+}</pre>
+            </div><!-- end-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- end-method -->
+
+      
+        <div id="ended-3F-method" class="method-detail ">
+          <a name="method-i-ended-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">ended?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if the stream is closed.</p>
+            
+
+            
+            <div class="method-source-code" id="ended-3F-source">
+<pre>
+static VALUE
+rb_zstream_closed_p(VALUE obj)
+{
+    struct zstream *z;
+    Data_Get_Struct(obj, struct zstream, z);
+    return ZSTREAM_IS_READY(z) ? Qfalse : Qtrue;
+}</pre>
+            </div><!-- ended-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ended-3F-method -->
+
+      
+        <div id="finish-method" class="method-detail ">
+          <a name="method-i-finish"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">finish</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Finishes the stream and flushes output buffer. See <a
+href="ZStream.html#method-i-finish">Zlib::Deflate#finish</a> and <a
+href="ZStream.html#method-i-finish">Zlib::Inflate#finish</a> for details of
+this behavior.</p>
+            
+
+            
+            <div class="method-source-code" id="finish-source">
+<pre>
+static VALUE
+rb_zstream_finish(VALUE obj)
+{
+    struct zstream *z = get_zstream(obj);
+    VALUE dst;
+
+    zstream_run(z, (Bytef*)&quot;&quot;, 0, Z_FINISH);
+    dst = zstream_detach_buffer(z);
+
+    OBJ_INFECT(dst, obj);
+    return dst;
+}</pre>
+            </div><!-- finish-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- finish-method -->
+
+      
+        <div id="finished-3F-method" class="method-detail ">
+          <a name="method-i-finished-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">finished?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if the stream is finished.</p>
+            
+
+            
+            <div class="method-source-code" id="finished-3F-source">
+<pre>
+static VALUE
+rb_zstream_finished_p(VALUE obj)
+{
+    return ZSTREAM_IS_FINISHED(get_zstream(obj)) ? Qtrue : Qfalse;
+}</pre>
+            </div><!-- finished-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- finished-3F-method -->
+
+      
+        <div id="flush_next_in-method" class="method-detail ">
+          <a name="method-i-flush_next_in"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">flush_next_in</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Flushes input buffer and returns all data in that buffer.</p>
+            
+
+            
+            <div class="method-source-code" id="flush_next_in-source">
+<pre>
+static VALUE
+rb_zstream_flush_next_in(VALUE obj)
+{
+    struct zstream *z;
+    VALUE dst;
+
+    Data_Get_Struct(obj, struct zstream, z);
+    dst = zstream_detach_input(z);
+    OBJ_INFECT(dst, obj);
+    return dst;
+}</pre>
+            </div><!-- flush_next_in-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- flush_next_in-method -->
+
+      
+        <div id="flush_next_out-method" class="method-detail ">
+          <a name="method-i-flush_next_out"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">flush_next_out</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Flushes output buffer and returns all data in that buffer.</p>
+            
+
+            
+            <div class="method-source-code" id="flush_next_out-source">
+<pre>
+static VALUE
+rb_zstream_flush_next_out(VALUE obj)
+{
+    struct zstream *z;
+    VALUE dst;
+
+    Data_Get_Struct(obj, struct zstream, z);
+    dst = zstream_detach_buffer(z);
+    OBJ_INFECT(dst, obj);
+    return dst;
+}</pre>
+            </div><!-- flush_next_out-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- flush_next_out-method -->
+
+      
+        <div id="reset-method" class="method-detail ">
+          <a name="method-i-reset"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">reset</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Resets and initializes the stream. All data in both input and output buffer
+are discarded.</p>
+            
+
+            
+            <div class="method-source-code" id="reset-source">
+<pre>
+static VALUE
+rb_zstream_reset(VALUE obj)
+{
+    zstream_reset(get_zstream(obj));
+    return Qnil;
+}</pre>
+            </div><!-- reset-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- reset-method -->
+
+      
+        <div id="stream_end-3F-method" class="method-detail ">
+          <a name="method-i-stream_end-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">stream_end?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if the stream is finished.</p>
+            
+
+            
+            <div class="method-source-code" id="stream_end-3F-source">
+<pre>
+static VALUE
+rb_zstream_finished_p(VALUE obj)
+{
+    return ZSTREAM_IS_FINISHED(get_zstream(obj)) ? Qtrue : Qfalse;
+}</pre>
+            </div><!-- stream_end-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- stream_end-3F-method -->
+
+      
+        <div id="total_in-method" class="method-detail ">
+          <a name="method-i-total_in"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">total_in</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns the total bytes of the input data to the stream.  FIXME</p>
+            
+
+            
+            <div class="method-source-code" id="total_in-source">
+<pre>
+static VALUE
+rb_zstream_total_in(VALUE obj)
+{
+    return rb_uint2inum(get_zstream(obj)-&gt;stream.total_in);
+}</pre>
+            </div><!-- total_in-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- total_in-method -->
+
+      
+        <div id="total_out-method" class="method-detail ">
+          <a name="method-i-total_out"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">total_out</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns the total bytes of the output data from the stream.  FIXME</p>
+            
+
+            
+            <div class="method-source-code" id="total_out-source">
+<pre>
+static VALUE
+rb_zstream_total_out(VALUE obj)
+{
+    return rb_uint2inum(get_zstream(obj)-&gt;stream.total_out);
+}</pre>
+            </div><!-- total_out-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- total_out-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

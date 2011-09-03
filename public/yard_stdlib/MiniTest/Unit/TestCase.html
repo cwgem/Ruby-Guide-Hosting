@@ -1,0 +1,2346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: MiniTest::Unit::TestCase
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../MiniTest.html" title="MiniTest (module)">MiniTest</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Unit.html" title="MiniTest::Unit (class)">Unit</a></span></span>
+     &raquo; 
+    <span class="title">TestCase</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: MiniTest::Unit::TestCase
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">MiniTest::Unit::TestCase</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="../Assertions.html" title="MiniTest::Assertions (module)">Assertions</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/minitest/unit.rb<span class="defines">,<br />
+  lib/minitest/benchmark.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Subclass TestCase to create your own tests. Typically you'll want a
+TestCase subclass per implementation class.</p>
+
+<p>See MiniTest::Assertions</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="../../Gem/TestCase.html" title="Gem::TestCase (class)">Gem::TestCase</a></span>, <span class='object_link'><a href="../../RDoc/Markup/FormatterTestCase.html" title="RDoc::Markup::FormatterTestCase (class)">RDoc::Markup::FormatterTestCase</a></span>, <span class='object_link'><a href="../../Test/Unit/TestCase.html" title="Test::Unit::TestCase (class)">Test::Unit::TestCase</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="PASSTHROUGH_EXCEPTIONS-constant" class="">PASSTHROUGH_EXCEPTIONS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='const'>NoMemoryError</span><span class='comma'>,</span> <span class='const'>SignalException</span><span class='comma'>,</span>
+<span class='const'>Interrupt</span><span class='comma'>,</span> <span class='const'>SystemExit</span><span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="SUPPORTS_INFO_SIGNAL-constant" class="">SUPPORTS_INFO_SIGNAL =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Signal</span><span class='period'>.</span><span class='id list'>list</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>INFO</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="../Assertions.html" title="MiniTest::Assertions (module)">Assertions</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Assertions.html#WINDOZE-constant" title="MiniTest::Assertions::WINDOZE (constant)">WINDOZE</a></span></p>
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#__name__-instance_method" title="#__name__ (instance method)">- (Object) <strong>__name__</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bench_exp-class_method" title="bench_exp (class method)">+ (Object) <strong>bench_exp</strong>(min, max, base = 10) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a set of ranges stepped exponentially from <tt>min</tt> to
+<tt>max</tt> by powers of <tt>base</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bench_linear-class_method" title="bench_linear (class method)">+ (Object) <strong>bench_linear</strong>(min, max, step = 10) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a set of ranges stepped linearly from <tt>min</tt> to <tt>max</tt>
+by <tt>step</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bench_range-class_method" title="bench_range (class method)">+ (Object) <strong>bench_range</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies the ranges used for benchmarking for that class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#benchmark_methods-class_method" title="benchmark_methods (class method)">+ (Object) <strong>benchmark_methods</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the benchmark methods (methods that start with bench_) for that
+class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#benchmark_suites-class_method" title="benchmark_suites (class method)">+ (Object) <strong>benchmark_suites</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns all test suites that have benchmark methods.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inherited-class_method" title="inherited (class method)">+ (Object) <strong>inherited</strong>(klass) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reset-class_method" title="reset (class method)">+ (Object) <strong>reset</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#test_methods-class_method" title="test_methods (class method)">+ (Object) <strong>test_methods</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#test_order-class_method" title="test_order (class method)">+ (Object) <strong>test_order</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines test order and is subclassable.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#test_suites-class_method" title="test_suites (class method)">+ (Object) <strong>test_suites</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assert_performance-instance_method" title="#assert_performance (instance method)">- (Object) <strong>assert_performance</strong>(validation, &amp;work) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the given <tt>work</tt>, gathering the times of each run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assert_performance_constant-instance_method" title="#assert_performance_constant (instance method)">- (Object) <strong>assert_performance_constant</strong>(threshold = 0.99, &amp;work) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the given <tt>work</tt> and asserts that the times gathered fit to
+match a constant rate (eg, linear slope == 0) within a given
+<tt>threshold</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assert_performance_exponential-instance_method" title="#assert_performance_exponential (instance method)">- (Object) <strong>assert_performance_exponential</strong>(threshold = 0.99, &amp;work) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the given <tt>work</tt> and asserts that the times gathered fit to
+match a exponential curve within a given error <tt>threshold</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assert_performance_linear-instance_method" title="#assert_performance_linear (instance method)">- (Object) <strong>assert_performance_linear</strong>(threshold = 0.99, &amp;work) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the given <tt>work</tt> and asserts that the times gathered fit to
+match a straight line within a given error <tt>threshold</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assert_performance_power-instance_method" title="#assert_performance_power (instance method)">- (Object) <strong>assert_performance_power</strong>(threshold = 0.99, &amp;work) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the given <tt>work</tt> and asserts that the times gathered curve fit
+to match a power curve within a given error <tt>threshold</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fit_error-instance_method" title="#fit_error (instance method)">- (Object) <strong>fit_error</strong>(xys) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Takes an array of x/y pairs and calculates the general R^2 value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fit_exponential-instance_method" title="#fit_exponential (instance method)">- (Object) <strong>fit_exponential</strong>(xs, ys) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>To fit a functional form: y = ae^(bx).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fit_linear-instance_method" title="#fit_linear (instance method)">- (Object) <strong>fit_linear</strong>(xs, ys) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fits the functional form: a + bx.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fit_power-instance_method" title="#fit_power (instance method)">- (Object) <strong>fit_power</strong>(xs, ys) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>To fit a functional form: y = ax^b.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (TestCase) <strong>initialize</strong>(name) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#io-instance_method" title="#io (instance method)">- (Object) <strong>io</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#io%3F-instance_method" title="#io? (instance method)">- (Boolean) <strong>io?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#passed%3F-instance_method" title="#passed? (instance method)">- (Boolean) <strong>passed?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the test passed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-instance_method" title="#run (instance method)">- (Object) <strong>run</strong>(runner) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the tests reporting the status to <tt>runner</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup-instance_method" title="#setup (instance method)">- (Object) <strong>setup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs before every test.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sigma-instance_method" title="#sigma (instance method)">- (Object) <strong>sigma</strong>(enum, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Enumerates over <tt>enum</tt> mapping <tt>block</tt> if given, returning
+the sum of the result.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#teardown-instance_method" title="#teardown (instance method)">- (Object) <strong>teardown</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs after every test.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validation_for_fit-instance_method" title="#validation_for_fit (instance method)">- (Object) <strong>validation_for_fit</strong>(msg, threshold) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a proc that calls the specified fit method and asserts that the
+error is within a tolerable threshold.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Assertions.html" title="MiniTest::Assertions (module)">Assertions</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Assertions.html#_assertions-instance_method" title="MiniTest::Assertions#_assertions (method)">#_assertions</a></span>, <span class='object_link'><a href="../Assertions.html#_assertions%3D-instance_method" title="MiniTest::Assertions#_assertions= (method)">#_assertions=</a></span>, <span class='object_link'><a href="../Assertions.html#assert-instance_method" title="MiniTest::Assertions#assert (method)">#assert</a></span>, <span class='object_link'><a href="../Assertions.html#assert_block-instance_method" title="MiniTest::Assertions#assert_block (method)">#assert_block</a></span>, <span class='object_link'><a href="../Assertions.html#assert_empty-instance_method" title="MiniTest::Assertions#assert_empty (method)">#assert_empty</a></span>, <span class='object_link'><a href="../Assertions.html#assert_equal-instance_method" title="MiniTest::Assertions#assert_equal (method)">#assert_equal</a></span>, <span class='object_link'><a href="../Assertions.html#assert_in_delta-instance_method" title="MiniTest::Assertions#assert_in_delta (method)">#assert_in_delta</a></span>, <span class='object_link'><a href="../Assertions.html#assert_in_epsilon-instance_method" title="MiniTest::Assertions#assert_in_epsilon (method)">#assert_in_epsilon</a></span>, <span class='object_link'><a href="../Assertions.html#assert_includes-instance_method" title="MiniTest::Assertions#assert_includes (method)">#assert_includes</a></span>, <span class='object_link'><a href="../Assertions.html#assert_instance_of-instance_method" title="MiniTest::Assertions#assert_instance_of (method)">#assert_instance_of</a></span>, <span class='object_link'><a href="../Assertions.html#assert_kind_of-instance_method" title="MiniTest::Assertions#assert_kind_of (method)">#assert_kind_of</a></span>, <span class='object_link'><a href="../Assertions.html#assert_match-instance_method" title="MiniTest::Assertions#assert_match (method)">#assert_match</a></span>, <span class='object_link'><a href="../Assertions.html#assert_nil-instance_method" title="MiniTest::Assertions#assert_nil (method)">#assert_nil</a></span>, <span class='object_link'><a href="../Assertions.html#assert_operator-instance_method" title="MiniTest::Assertions#assert_operator (method)">#assert_operator</a></span>, <span class='object_link'><a href="../Assertions.html#assert_output-instance_method" title="MiniTest::Assertions#assert_output (method)">#assert_output</a></span>, <span class='object_link'><a href="../Assertions.html#assert_raises-instance_method" title="MiniTest::Assertions#assert_raises (method)">#assert_raises</a></span>, <span class='object_link'><a href="../Assertions.html#assert_respond_to-instance_method" title="MiniTest::Assertions#assert_respond_to (method)">#assert_respond_to</a></span>, <span class='object_link'><a href="../Assertions.html#assert_same-instance_method" title="MiniTest::Assertions#assert_same (method)">#assert_same</a></span>, <span class='object_link'><a href="../Assertions.html#assert_send-instance_method" title="MiniTest::Assertions#assert_send (method)">#assert_send</a></span>, <span class='object_link'><a href="../Assertions.html#assert_silent-instance_method" title="MiniTest::Assertions#assert_silent (method)">#assert_silent</a></span>, <span class='object_link'><a href="../Assertions.html#assert_throws-instance_method" title="MiniTest::Assertions#assert_throws (method)">#assert_throws</a></span>, <span class='object_link'><a href="../Assertions.html#capture_io-instance_method" title="MiniTest::Assertions#capture_io (method)">#capture_io</a></span>, <span class='object_link'><a href="../Assertions.html#diff-class_method" title="MiniTest::Assertions.diff (method)">diff</a></span>, <span class='object_link'><a href="../Assertions.html#diff-instance_method" title="MiniTest::Assertions#diff (method)">#diff</a></span>, <span class='object_link'><a href="../Assertions.html#diff%3D-class_method" title="MiniTest::Assertions.diff= (method)">diff=</a></span>, <span class='object_link'><a href="../Assertions.html#exception_details-instance_method" title="MiniTest::Assertions#exception_details (method)">#exception_details</a></span>, <span class='object_link'><a href="../Assertions.html#flunk-instance_method" title="MiniTest::Assertions#flunk (method)">#flunk</a></span>, <span class='object_link'><a href="../Assertions.html#message-instance_method" title="MiniTest::Assertions#message (method)">#message</a></span>, <span class='object_link'><a href="../Assertions.html#mu_pp-instance_method" title="MiniTest::Assertions#mu_pp (method)">#mu_pp</a></span>, <span class='object_link'><a href="../Assertions.html#mu_pp_for_diff-instance_method" title="MiniTest::Assertions#mu_pp_for_diff (method)">#mu_pp_for_diff</a></span>, <span class='object_link'><a href="../Assertions.html#pass-instance_method" title="MiniTest::Assertions#pass (method)">#pass</a></span>, <span class='object_link'><a href="../Assertions.html#refute-instance_method" title="MiniTest::Assertions#refute (method)">#refute</a></span>, <span class='object_link'><a href="../Assertions.html#refute_empty-instance_method" title="MiniTest::Assertions#refute_empty (method)">#refute_empty</a></span>, <span class='object_link'><a href="../Assertions.html#refute_equal-instance_method" title="MiniTest::Assertions#refute_equal (method)">#refute_equal</a></span>, <span class='object_link'><a href="../Assertions.html#refute_in_delta-instance_method" title="MiniTest::Assertions#refute_in_delta (method)">#refute_in_delta</a></span>, <span class='object_link'><a href="../Assertions.html#refute_in_epsilon-instance_method" title="MiniTest::Assertions#refute_in_epsilon (method)">#refute_in_epsilon</a></span>, <span class='object_link'><a href="../Assertions.html#refute_includes-instance_method" title="MiniTest::Assertions#refute_includes (method)">#refute_includes</a></span>, <span class='object_link'><a href="../Assertions.html#refute_instance_of-instance_method" title="MiniTest::Assertions#refute_instance_of (method)">#refute_instance_of</a></span>, <span class='object_link'><a href="../Assertions.html#refute_kind_of-instance_method" title="MiniTest::Assertions#refute_kind_of (method)">#refute_kind_of</a></span>, <span class='object_link'><a href="../Assertions.html#refute_match-instance_method" title="MiniTest::Assertions#refute_match (method)">#refute_match</a></span>, <span class='object_link'><a href="../Assertions.html#refute_nil-instance_method" title="MiniTest::Assertions#refute_nil (method)">#refute_nil</a></span>, <span class='object_link'><a href="../Assertions.html#refute_operator-instance_method" title="MiniTest::Assertions#refute_operator (method)">#refute_operator</a></span>, <span class='object_link'><a href="../Assertions.html#refute_respond_to-instance_method" title="MiniTest::Assertions#refute_respond_to (method)">#refute_respond_to</a></span>, <span class='object_link'><a href="../Assertions.html#refute_same-instance_method" title="MiniTest::Assertions#refute_same (method)">#refute_same</a></span>, <span class='object_link'><a href="../Assertions.html#skip-instance_method" title="MiniTest::Assertions#skip (method)">#skip</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="MiniTest::Unit::TestCase (class)">TestCase</a></span></tt>) <strong>initialize</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+969
+970
+971
+972
+973</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 969</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span> <span class='id name'>name</span> <span class='comment'># :nodoc:
+</span>  <span class='ivar'>@__name__</span> <span class='op'>=</span> <span class='id name'>name</span>
+  <span class='ivar'>@__io__</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@passed</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="__name__-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="__name__-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>__name__</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+927
+928
+929</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 927</span>
+
+<span class='kw'>def</span> <span class='id __name__'>__name__</span>
+  <span class='ivar'>@__name__</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="bench_exp-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>bench_exp</strong>(min, max, base = 10) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a set of ranges stepped exponentially from <tt>min</tt> to
+<tt>max</tt> by powers of <tt>base</tt>. Eg:</p>
+
+<pre class="code"><span class='id bench_exp'>bench_exp</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>16</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span> <span class='comment'># =&gt; [2, 4, 8, 16]</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id bench_exp'>bench_exp</span> <span class='id min'>min</span><span class='comma'>,</span> <span class='id max'>max</span><span class='comma'>,</span> <span class='id base'>base</span> <span class='op'>=</span> <span class='int'>10</span>
+  <span class='id min'>min</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id log10'>log10</span><span class='lparen'>(</span><span class='id min'>min</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log10'>log10</span><span class='lparen'>(</span><span class='id base'>base</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+  <span class='id max'>max</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id log10'>log10</span><span class='lparen'>(</span><span class='id max'>max</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log10'>log10</span><span class='lparen'>(</span><span class='id base'>base</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+
+  <span class='lparen'>(</span><span class='id min'>min</span><span class='op'>..</span><span class='id max'>max</span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span> <span class='id base'>base</span> <span class='op'>**</span> <span class='id m'>m</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id to_a'>to_a</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="bench_linear-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>bench_linear</strong>(min, max, step = 10) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a set of ranges stepped linearly from <tt>min</tt> to <tt>max</tt>
+by <tt>step</tt>. Eg:</p>
+
+<pre class="code"><span class='id bench_linear'>bench_linear</span><span class='lparen'>(</span><span class='int'>20</span><span class='comma'>,</span> <span class='int'>40</span><span class='comma'>,</span> <span class='int'>10</span><span class='rparen'>)</span> <span class='comment'># =&gt; [20, 30, 40]</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id bench_linear'>bench_linear</span> <span class='id min'>min</span><span class='comma'>,</span> <span class='id max'>max</span><span class='comma'>,</span> <span class='id step'>step</span> <span class='op'>=</span> <span class='int'>10</span>
+  <span class='lparen'>(</span><span class='id min'>min</span><span class='op'>..</span><span class='id max'>max</span><span class='rparen'>)</span><span class='period'>.</span><span class='id step'>step</span><span class='lparen'>(</span><span class='id step'>step</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_a'>to_a</span>
+<span class='kw'>rescue</span> <span class='const'>LocalJumpError</span> <span class='comment'># 1.8.6
+</span>  <span class='id r'>r</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='semicolon'>;</span> <span class='lparen'>(</span><span class='id min'>min</span><span class='op'>..</span><span class='id max'>max</span><span class='rparen'>)</span><span class='period'>.</span><span class='id step'>step</span><span class='lparen'>(</span><span class='id step'>step</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id r'>r</span> <span class='op'>&lt;&lt;</span> <span class='id n'>n</span> <span class='rbrace'>}</span><span class='semicolon'>;</span> <span class='id r'>r</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="bench_range-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>bench_range</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies the ranges used for benchmarking for that class. Defaults to
+exponential growth from 1 to 10k by powers of 10. Override if you need
+different ranges for your benchmarks.</p>
+
+<p>See also: ::bench_exp and ::bench_linear.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id bench_range'>bench_range</span>
+  <span class='id bench_exp'>bench_exp</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>10_000</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="benchmark_methods-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>benchmark_methods</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the benchmark methods (methods that start with bench_) for that
+class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id benchmark_methods'>benchmark_methods</span> <span class='comment'># :nodoc:
+</span>  <span class='id public_instance_methods'>public_instance_methods</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='period'>.</span><span class='id grep'>grep</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^bench_</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span> <span class='id m'>m</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id sort'>sort</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="benchmark_suites-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>benchmark_suites</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns all test suites that have benchmark methods.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id benchmark_suites'>benchmark_suites</span>
+  <span class='const'>TestCase</span><span class='period'>.</span><span class='id test_suites'>test_suites</span><span class='period'>.</span><span class='id reject'>reject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='id s'>s</span><span class='period'>.</span><span class='id benchmark_methods'>benchmark_methods</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inherited-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inherited</strong>(klass) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+990
+991
+992</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 990</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id inherited'>inherited</span> <span class='id klass'>klass</span> <span class='comment'># :nodoc:
+</span>  <span class='cvar'>@@test_suites</span><span class='lbracket'>[</span><span class='id klass'>klass</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="reset-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>reset</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+984
+985
+986</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 984</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id reset'>reset</span> <span class='comment'># :nodoc:
+</span>  <span class='cvar'>@@test_suites</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="test_methods-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>test_methods</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1007
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1016
+1017
+1018
+1019</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 1007</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id test_methods'>test_methods</span> <span class='comment'># :nodoc:
+</span>  <span class='id methods'>methods</span> <span class='op'>=</span> <span class='id public_instance_methods'>public_instance_methods</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='period'>.</span><span class='id grep'>grep</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^test</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span> <span class='id m'>m</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span>
+
+  <span class='kw'>case</span> <span class='kw'>self</span><span class='period'>.</span><span class='id test_order'>test_order</span>
+  <span class='kw'>when</span> <span class='symbol'>:random</span> <span class='kw'>then</span>
+    <span class='id max'>max</span> <span class='op'>=</span> <span class='id methods'>methods</span><span class='period'>.</span><span class='id size'>size</span>
+    <span class='id methods'>methods</span><span class='period'>.</span><span class='id sort'>sort</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='id rand'>rand</span> <span class='id max'>max</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='symbol'>:alpha</span><span class='comma'>,</span> <span class='symbol'>:sorted</span> <span class='kw'>then</span>
+    <span class='id methods'>methods</span><span class='period'>.</span><span class='id sort'>sort</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unknown test_order: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id test_order'>test_order</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="test_order-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>test_order</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines test order and is subclassable. Defaults to :random but can be
+overridden to return :alpha if your tests are order dependent (read: weak).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+999
+1000
+1001</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 999</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id test_order'>test_order</span>
+  <span class='symbol'>:random</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="test_suites-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>test_suites</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1003
+1004
+1005</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 1003</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id test_suites'>test_suites</span> <span class='comment'># :nodoc:
+</span>  <span class='cvar'>@@test_suites</span><span class='period'>.</span><span class='id keys'>keys</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id ts'>ts</span><span class='op'>|</span> <span class='id ts'>ts</span><span class='period'>.</span><span class='id name'>name</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="assert_performance-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>assert_performance</strong>(validation, &amp;work) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the given <tt>work</tt>, gathering the times of each run. Range and
+times are then passed to a given <tt>validation</tt> proc. Outputs the
+benchmark name and times in tab-separated format, making it easy to paste
+into a spreadsheet for graphing or further analysis.</p>
+
+<p>Ranges are specified by ::bench_range.</p>
+
+<p>Eg:</p>
+
+<pre class="code">def bench_algorithm
+  validation = proc { |x, y| ... }
+  assert_performance validation do |x|
+    @obj.algorithm
+  end
+end</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id assert_performance'>assert_performance</span> <span class='id validation'>validation</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span>
+  <span class='id range'>range</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id bench_range'>bench_range</span>
+
+  <span class='id io'>io</span><span class='period'>.</span><span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id __name__'>__name__</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id times'>times</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id range'>range</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span>
+    <span class='const'>GC</span><span class='period'>.</span><span class='id start'>start</span>
+    <span class='id t0'>t0</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span>
+    <span class='id instance_exec'>instance_exec</span><span class='lparen'>(</span><span class='id x'>x</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span><span class='rparen'>)</span>
+    <span class='id t'>t</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span> <span class='op'>-</span> <span class='id t0'>t0</span>
+
+    <span class='id io'>io</span><span class='period'>.</span><span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\t%9.6f</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id t'>t</span>
+    <span class='id times'>times</span> <span class='op'>&lt;&lt;</span> <span class='id t'>t</span>
+  <span class='kw'>end</span>
+  <span class='id io'>io</span><span class='period'>.</span><span class='id puts'>puts</span>
+
+  <span class='id validation'>validation</span><span class='lbracket'>[</span><span class='id range'>range</span><span class='comma'>,</span> <span class='id times'>times</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="assert_performance_constant-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>assert_performance_constant</strong>(threshold = 0.99, &amp;work) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the given <tt>work</tt> and asserts that the times gathered fit to
+match a constant rate (eg, linear slope == 0) within a given
+<tt>threshold</tt>. Note: because we're testing for a slope of 0, R^2 is
+not a good determining factor for the fit, so the threshold is applied
+against the slope itself. As such, you probably want to tighten it from the
+default.</p>
+
+<p>See <a
+href="http://www.graphpad.com/curvefit/goodness_of_fit.htm">www.graphpad.com/curvefit/goodness_of_fit.htm</a>
+for more details.</p>
+
+<p>Fit is calculated by #fit_linear.</p>
+
+<p>Ranges are specified by ::bench_range.</p>
+
+<p>Eg:</p>
+
+<pre class="code"><span class='kw'>def</span> <span class='id bench_algorithm'>bench_algorithm</span>
+  <span class='id assert_performance_constant'>assert_performance_constant</span> <span class='float'>0.9999</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span>
+    <span class='ivar'>@obj</span><span class='period'>.</span><span class='id algorithm'>algorithm</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137
+138
+139
+140
+141
+142
+143</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 135</span>
+
+<span class='kw'>def</span> <span class='id assert_performance_constant'>assert_performance_constant</span> <span class='id threshold'>threshold</span> <span class='op'>=</span> <span class='float'>0.99</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span>
+  <span class='id validation'>validation</span> <span class='op'>=</span> <span class='id proc'>proc</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id range'>range</span><span class='comma'>,</span> <span class='id times'>times</span><span class='op'>|</span>
+    <span class='id a'>a</span><span class='comma'>,</span> <span class='id b'>b</span><span class='comma'>,</span> <span class='id rr'>rr</span> <span class='op'>=</span> <span class='id fit_linear'>fit_linear</span> <span class='id range'>range</span><span class='comma'>,</span> <span class='id times'>times</span>
+    <span class='id assert_in_delta'>assert_in_delta</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id b'>b</span><span class='comma'>,</span> <span class='int'>1</span> <span class='op'>-</span> <span class='id threshold'>threshold</span>
+    <span class='lbracket'>[</span><span class='id a'>a</span><span class='comma'>,</span> <span class='id b'>b</span><span class='comma'>,</span> <span class='id rr'>rr</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='id assert_performance'>assert_performance</span> <span class='id validation'>validation</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="assert_performance_exponential-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>assert_performance_exponential</strong>(threshold = 0.99, &amp;work) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the given <tt>work</tt> and asserts that the times gathered fit to
+match a exponential curve within a given error <tt>threshold</tt>.</p>
+
+<p>Fit is calculated by #fit_exponential.</p>
+
+<p>Ranges are specified by ::bench_range.</p>
+
+<p>Eg:</p>
+
+<pre class="code"><span class='kw'>def</span> <span class='id bench_algorithm'>bench_algorithm</span>
+  <span class='id assert_performance_exponential'>assert_performance_exponential</span> <span class='float'>0.9999</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span>
+    <span class='ivar'>@obj</span><span class='period'>.</span><span class='id algorithm'>algorithm</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161
+162
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 161</span>
+
+<span class='kw'>def</span> <span class='id assert_performance_exponential'>assert_performance_exponential</span> <span class='id threshold'>threshold</span> <span class='op'>=</span> <span class='float'>0.99</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span>
+  <span class='id assert_performance'>assert_performance</span> <span class='id validation_for_fit'>validation_for_fit</span><span class='lparen'>(</span><span class='symbol'>:exponential</span><span class='comma'>,</span> <span class='id threshold'>threshold</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="assert_performance_linear-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>assert_performance_linear</strong>(threshold = 0.99, &amp;work) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the given <tt>work</tt> and asserts that the times gathered fit to
+match a straight line within a given error <tt>threshold</tt>.</p>
+
+<p>Fit is calculated by #fit_linear.</p>
+
+<p>Ranges are specified by ::bench_range.</p>
+
+<p>Eg:</p>
+
+<pre class="code"><span class='kw'>def</span> <span class='id bench_algorithm'>bench_algorithm</span>
+  <span class='id assert_performance_linear'>assert_performance_linear</span> <span class='float'>0.9999</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span>
+    <span class='ivar'>@obj</span><span class='period'>.</span><span class='id algorithm'>algorithm</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 181</span>
+
+<span class='kw'>def</span> <span class='id assert_performance_linear'>assert_performance_linear</span> <span class='id threshold'>threshold</span> <span class='op'>=</span> <span class='float'>0.99</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span>
+  <span class='id assert_performance'>assert_performance</span> <span class='id validation_for_fit'>validation_for_fit</span><span class='lparen'>(</span><span class='symbol'>:linear</span><span class='comma'>,</span> <span class='id threshold'>threshold</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="assert_performance_power-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>assert_performance_power</strong>(threshold = 0.99, &amp;work) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the given <tt>work</tt> and asserts that the times gathered curve fit
+to match a power curve within a given error <tt>threshold</tt>.</p>
+
+<p>Fit is calculated by #fit_power.</p>
+
+<p>Ranges are specified by ::bench_range.</p>
+
+<p>Eg:</p>
+
+<pre class="code"><span class='kw'>def</span> <span class='id bench_algorithm'>bench_algorithm</span>
+  <span class='id assert_performance_power'>assert_performance_power</span> <span class='float'>0.9999</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span>
+    <span class='ivar'>@obj</span><span class='period'>.</span><span class='id algorithm'>algorithm</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 201</span>
+
+<span class='kw'>def</span> <span class='id assert_performance_power'>assert_performance_power</span> <span class='id threshold'>threshold</span> <span class='op'>=</span> <span class='float'>0.99</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span>
+  <span class='id assert_performance'>assert_performance</span> <span class='id validation_for_fit'>validation_for_fit</span><span class='lparen'>(</span><span class='symbol'>:power</span><span class='comma'>,</span> <span class='id threshold'>threshold</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id work'>work</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fit_error-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fit_error</strong>(xys) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Takes an array of x/y pairs and calculates the general R^2 value.</p>
+
+<p>See: <a
+href="http://en.wikipedia.org/wiki/Coefficient_of_determination">en.wikipedia.org/wiki/Coefficient_of_determination</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212
+213
+214
+215
+216</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 210</span>
+
+<span class='kw'>def</span> <span class='id fit_error'>fit_error</span> <span class='id xys'>xys</span>
+  <span class='id y_bar'>y_bar</span>  <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='comma'>,</span> <span class='id y'>y</span><span class='op'>|</span> <span class='id y'>y</span> <span class='rbrace'>}</span> <span class='op'>/</span> <span class='id xys'>xys</span><span class='period'>.</span><span class='id size'>size</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+  <span class='id ss_tot'>ss_tot</span> <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='comma'>,</span> <span class='id y'>y</span><span class='op'>|</span> <span class='lparen'>(</span><span class='id y'>y</span>    <span class='op'>-</span> <span class='id y_bar'>y_bar</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span> <span class='rbrace'>}</span>
+  <span class='id ss_err'>ss_err</span> <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='comma'>,</span> <span class='id y'>y</span><span class='op'>|</span> <span class='lparen'>(</span><span class='kw'>yield</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='id y'>y</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span> <span class='rbrace'>}</span>
+
+  <span class='int'>1</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='id ss_err'>ss_err</span> <span class='op'>/</span> <span class='id ss_tot'>ss_tot</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fit_exponential-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fit_exponential</strong>(xs, ys) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>To fit a functional form: y = ae^(bx).</p>
+
+<p>Takes x and y values and returns [a, b, r^2].</p>
+
+<p>See: <a
+href="http://mathworld.wolfram.com/LeastSquaresFittingExponential.html">mathworld.wolfram.com/LeastSquaresFittingExponential.html</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 225</span>
+
+<span class='kw'>def</span> <span class='id fit_exponential'>fit_exponential</span> <span class='id xs'>xs</span><span class='comma'>,</span> <span class='id ys'>ys</span>
+  <span class='id n'>n</span>     <span class='op'>=</span> <span class='id xs'>xs</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='id xys'>xys</span>   <span class='op'>=</span> <span class='id xs'>xs</span><span class='period'>.</span><span class='id zip'>zip</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span>
+  <span class='id sxlny'>sxlny</span> <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='comma'>,</span><span class='id y'>y</span><span class='op'>|</span> <span class='id x'>x</span> <span class='op'>*</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log'>log</span><span class='lparen'>(</span><span class='id y'>y</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id slny'>slny</span>  <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='comma'>,</span><span class='id y'>y</span><span class='op'>|</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log'>log</span><span class='lparen'>(</span><span class='id y'>y</span><span class='rparen'>)</span>     <span class='rbrace'>}</span>
+  <span class='id sx2'>sx2</span>   <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='comma'>,</span><span class='id y'>y</span><span class='op'>|</span> <span class='id x'>x</span> <span class='op'>*</span> <span class='id x'>x</span>           <span class='rbrace'>}</span>
+  <span class='id sx'>sx</span>    <span class='op'>=</span> <span class='id sigma'>sigma</span> <span class='id xs'>xs</span>
+
+  <span class='id c'>c</span> <span class='op'>=</span> <span class='id n'>n</span> <span class='op'>*</span> <span class='id sx2'>sx2</span> <span class='op'>-</span> <span class='id sx'>sx</span> <span class='op'>**</span> <span class='int'>2</span>
+  <span class='id a'>a</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id slny'>slny</span> <span class='op'>*</span> <span class='id sx2'>sx2</span> <span class='op'>-</span> <span class='id sx'>sx</span> <span class='op'>*</span> <span class='id sxlny'>sxlny</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id c'>c</span>
+  <span class='id b'>b</span> <span class='op'>=</span> <span class='lparen'>(</span> <span class='id n'>n</span> <span class='op'>*</span> <span class='id sxlny'>sxlny</span> <span class='op'>-</span> <span class='id sx'>sx</span> <span class='op'>*</span> <span class='id slny'>slny</span> <span class='rparen'>)</span> <span class='op'>/</span> <span class='id c'>c</span>
+
+  <span class='kw'>return</span> <span class='const'>Math</span><span class='period'>.</span><span class='id exp'>exp</span><span class='lparen'>(</span><span class='id a'>a</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id b'>b</span><span class='comma'>,</span> <span class='id fit_error'>fit_error</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='const'>Math</span><span class='period'>.</span><span class='id exp'>exp</span><span class='lparen'>(</span><span class='id a'>a</span> <span class='op'>+</span> <span class='id b'>b</span> <span class='op'>*</span> <span class='id x'>x</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fit_linear-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fit_linear</strong>(xs, ys) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Fits the functional form: a + bx.</p>
+
+<p>Takes x and y values and returns [a, b, r^2].</p>
+
+<p>See: <a
+href="http://mathworld.wolfram.com/LeastSquaresFitting.html">mathworld.wolfram.com/LeastSquaresFitting.html</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 247</span>
+
+<span class='kw'>def</span> <span class='id fit_linear'>fit_linear</span> <span class='id xs'>xs</span><span class='comma'>,</span> <span class='id ys'>ys</span>
+  <span class='id n'>n</span>   <span class='op'>=</span> <span class='id xs'>xs</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='id xys'>xys</span> <span class='op'>=</span> <span class='id xs'>xs</span><span class='period'>.</span><span class='id zip'>zip</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span>
+  <span class='id sx'>sx</span>  <span class='op'>=</span> <span class='id sigma'>sigma</span> <span class='id xs'>xs</span>
+  <span class='id sy'>sy</span>  <span class='op'>=</span> <span class='id sigma'>sigma</span> <span class='id ys'>ys</span>
+  <span class='id sx2'>sx2</span> <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span>  <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span>   <span class='id x'>x</span> <span class='op'>**</span> <span class='int'>2</span> <span class='rbrace'>}</span>
+  <span class='id sxy'>sxy</span> <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='comma'>,</span><span class='id y'>y</span><span class='op'>|</span> <span class='id x'>x</span> <span class='op'>*</span> <span class='id y'>y</span>  <span class='rbrace'>}</span>
+
+  <span class='id c'>c</span> <span class='op'>=</span> <span class='id n'>n</span> <span class='op'>*</span> <span class='id sx2'>sx2</span> <span class='op'>-</span> <span class='id sx'>sx</span><span class='op'>**</span><span class='int'>2</span>
+  <span class='id a'>a</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id sy'>sy</span> <span class='op'>*</span> <span class='id sx2'>sx2</span> <span class='op'>-</span> <span class='id sx'>sx</span> <span class='op'>*</span> <span class='id sxy'>sxy</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id c'>c</span>
+  <span class='id b'>b</span> <span class='op'>=</span> <span class='lparen'>(</span> <span class='id n'>n</span> <span class='op'>*</span> <span class='id sxy'>sxy</span> <span class='op'>-</span> <span class='id sx'>sx</span> <span class='op'>*</span> <span class='id sy'>sy</span> <span class='rparen'>)</span> <span class='op'>/</span> <span class='id c'>c</span>
+
+  <span class='kw'>return</span> <span class='id a'>a</span><span class='comma'>,</span> <span class='id b'>b</span><span class='comma'>,</span> <span class='id fit_error'>fit_error</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id a'>a</span> <span class='op'>+</span> <span class='id b'>b</span> <span class='op'>*</span> <span class='id x'>x</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fit_power-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fit_power</strong>(xs, ys) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>To fit a functional form: y = ax^b.</p>
+
+<p>Takes x and y values and returns [a, b, r^2].</p>
+
+<p>See: <a
+href="http://mathworld.wolfram.com/LeastSquaresFittingPowerLaw.html">mathworld.wolfram.com/LeastSquaresFittingPowerLaw.html</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 269</span>
+
+<span class='kw'>def</span> <span class='id fit_power'>fit_power</span> <span class='id xs'>xs</span><span class='comma'>,</span> <span class='id ys'>ys</span>
+  <span class='id n'>n</span>       <span class='op'>=</span> <span class='id xs'>xs</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='id xys'>xys</span>     <span class='op'>=</span> <span class='id xs'>xs</span><span class='period'>.</span><span class='id zip'>zip</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span>
+  <span class='id slnxlny'>slnxlny</span> <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='comma'>,</span> <span class='id y'>y</span><span class='op'>|</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log'>log</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log'>log</span><span class='lparen'>(</span><span class='id y'>y</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id slnx'>slnx</span>    <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span>  <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span>   <span class='op'>|</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log'>log</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span>               <span class='rbrace'>}</span>
+  <span class='id slny'>slny</span>    <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span>  <span class='lbrace'>{</span> <span class='op'>|</span>   <span class='id y'>y</span><span class='op'>|</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log'>log</span><span class='lparen'>(</span><span class='id y'>y</span><span class='rparen'>)</span>               <span class='rbrace'>}</span>
+  <span class='id slnx2'>slnx2</span>   <span class='op'>=</span> <span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span>  <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span>   <span class='op'>|</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log'>log</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span>          <span class='rbrace'>}</span>
+
+  <span class='id b'>b</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id n'>n</span> <span class='op'>*</span> <span class='id slnxlny'>slnxlny</span> <span class='op'>-</span> <span class='id slnx'>slnx</span> <span class='op'>*</span> <span class='id slny'>slny</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id n'>n</span> <span class='op'>*</span> <span class='id slnx2'>slnx2</span> <span class='op'>-</span> <span class='id slnx'>slnx</span> <span class='op'>**</span> <span class='int'>2</span><span class='rparen'>)</span><span class='semicolon'>;</span>
+  <span class='id a'>a</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id slny'>slny</span> <span class='op'>-</span> <span class='id b'>b</span> <span class='op'>*</span> <span class='id slnx'>slnx</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id n'>n</span>
+
+  <span class='kw'>return</span> <span class='const'>Math</span><span class='period'>.</span><span class='id exp'>exp</span><span class='lparen'>(</span><span class='id a'>a</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id b'>b</span><span class='comma'>,</span> <span class='id fit_error'>fit_error</span><span class='lparen'>(</span><span class='id xys'>xys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id exp'>exp</span><span class='lparen'>(</span><span class='id a'>a</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id x'>x</span> <span class='op'>**</span> <span class='id b'>b</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="io-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>io</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+975
+976
+977
+978</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 975</span>
+
+<span class='kw'>def</span> <span class='id io'>io</span>
+  <span class='ivar'>@__io__</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='const'>MiniTest</span><span class='op'>::</span><span class='const'>Unit</span><span class='period'>.</span><span class='id output'>output</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="io?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>io?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+980
+981
+982</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 980</span>
+
+<span class='kw'>def</span> <span class='id io?'>io?</span>
+  <span class='ivar'>@__io__</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="passed?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>passed?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if the test passed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1024
+1025
+1026</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 1024</span>
+
+<span class='kw'>def</span> <span class='id passed?'>passed?</span>
+  <span class='ivar'>@passed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="run-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>run</strong>(runner) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the tests reporting the status to <tt>runner</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 937</span>
+
+<span class='kw'>def</span> <span class='id run'>run</span> <span class='id runner'>runner</span>
+  <span class='id trap'>trap</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INFO</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id time'>time</span> <span class='op'>=</span> <span class='id runner'>runner</span><span class='period'>.</span><span class='id start_time'>start_time</span> <span class='op'>?</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span> <span class='op'>-</span> <span class='id runner'>runner</span><span class='period'>.</span><span class='id start_time'>start_time</span> <span class='op'>:</span> <span class='int'>0</span>
+    <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s#%s %.2fs</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id __name__'>__name__</span><span class='comma'>,</span> <span class='id time'>time</span><span class='rbracket'>]</span>
+    <span class='id runner'>runner</span><span class='period'>.</span><span class='id status'>status</span> <span class='gvar'>$stderr</span>
+  <span class='kw'>end</span> <span class='kw'>if</span> <span class='const'>SUPPORTS_INFO_SIGNAL</span>
+
+  <span class='id result'>result</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>begin</span>
+    <span class='ivar'>@passed</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id setup'>setup</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id __send__'>__send__</span> <span class='kw'>self</span><span class='period'>.</span><span class='id __name__'>__name__</span>
+    <span class='id result'>result</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id io?'>io?</span>
+    <span class='ivar'>@passed</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>rescue</span> <span class='op'>*</span><span class='const'>PASSTHROUGH_EXCEPTIONS</span>
+    <span class='id raise'>raise</span>
+  <span class='kw'>rescue</span> <span class='const'>Exception</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+    <span class='ivar'>@passed</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id result'>result</span> <span class='op'>=</span> <span class='id runner'>runner</span><span class='period'>.</span><span class='id puke'>puke</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id __name__'>__name__</span><span class='comma'>,</span> <span class='id e'>e</span>
+  <span class='kw'>ensure</span>
+    <span class='kw'>begin</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id teardown'>teardown</span>
+    <span class='kw'>rescue</span> <span class='op'>*</span><span class='const'>PASSTHROUGH_EXCEPTIONS</span>
+      <span class='id raise'>raise</span>
+    <span class='kw'>rescue</span> <span class='const'>Exception</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+      <span class='id result'>result</span> <span class='op'>=</span> <span class='id runner'>runner</span><span class='period'>.</span><span class='id puke'>puke</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id __name__'>__name__</span><span class='comma'>,</span> <span class='id e'>e</span>
+    <span class='kw'>end</span>
+    <span class='id trap'>trap</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>INFO</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>DEFAULT</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='const'>SUPPORTS_INFO_SIGNAL</span>
+  <span class='kw'>end</span>
+  <span class='id result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="setup-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>setup</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs before every test. Use this to refactor test initialization.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1031</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 1031</span>
+
+<span class='kw'>def</span> <span class='id setup'>setup</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="sigma-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>sigma</strong>(enum, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Enumerates over <tt>enum</tt> mapping <tt>block</tt> if given, returning
+the sum of the result. Eg:</p>
+
+<pre class="code"><span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span>                <span class='comment'># =&gt; 1 + 2 + 3 =&gt; 7
+</span><span class='id sigma'>sigma</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id n'>n</span> <span class='op'>**</span> <span class='int'>2</span> <span class='rbrace'>}</span> <span class='comment'># =&gt; 1 + 4 + 9 =&gt; 14</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+290
+291
+292
+293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 290</span>
+
+<span class='kw'>def</span> <span class='id sigma'>sigma</span> <span class='id enum'>enum</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span>
+  <span class='id enum'>enum</span> <span class='op'>=</span> <span class='id enum'>enum</span><span class='period'>.</span><span class='id map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id block'>block</span>
+  <span class='id enum'>enum</span><span class='period'>.</span><span class='id inject'>inject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id sum'>sum</span><span class='comma'>,</span> <span class='id n'>n</span><span class='op'>|</span> <span class='id sum'>sum</span> <span class='op'>+</span> <span class='id n'>n</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="teardown-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>teardown</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs after every test. Use this to refactor test cleanup.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1036</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/unit.rb', line 1036</span>
+
+<span class='kw'>def</span> <span class='id teardown'>teardown</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="validation_for_fit-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>validation_for_fit</strong>(msg, threshold) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a proc that calls the specified fit method and asserts that the
+error is within a tolerable threshold.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+299
+300
+301
+302
+303
+304
+305</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/minitest/benchmark.rb', line 299</span>
+
+<span class='kw'>def</span> <span class='id validation_for_fit'>validation_for_fit</span> <span class='id msg'>msg</span><span class='comma'>,</span> <span class='id threshold'>threshold</span>
+  <span class='id proc'>proc</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id range'>range</span><span class='comma'>,</span> <span class='id times'>times</span><span class='op'>|</span>
+    <span class='id a'>a</span><span class='comma'>,</span> <span class='id b'>b</span><span class='comma'>,</span> <span class='id rr'>rr</span> <span class='op'>=</span> <span class='id send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fit_</span><span class='embexpr_beg'>#{</span><span class='id msg'>msg</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id range'>range</span><span class='comma'>,</span> <span class='id times'>times</span>
+    <span class='id assert_operator'>assert_operator</span> <span class='id rr'>rr</span><span class='comma'>,</span> <span class='symbol'>:&gt;=</span><span class='comma'>,</span> <span class='id threshold'>threshold</span>
+    <span class='lbracket'>[</span><span class='id a'>a</span><span class='comma'>,</span> <span class='id b'>b</span><span class='comma'>,</span> <span class='id rr'>rr</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:03 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

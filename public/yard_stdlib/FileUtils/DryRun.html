@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: FileUtils::DryRun
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../FileUtils.html" title="FileUtils (module)">FileUtils</a></span></span>
+     &raquo; 
+    <span class="title">DryRun</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: FileUtils::DryRun
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1"><span class='object_link'><a href="" title="FileUtils::DryRun (module)">DryRun</a></span></dd>
+      
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="../FileUtils.html" title="FileUtils (module)">FileUtils</a></span>, <span class='object_link'><a href="LowMethods.html" title="FileUtils::LowMethods (module)">LowMethods</a></span></dd>
+      
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="" title="FileUtils::DryRun (module)">DryRun</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/fileutils.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This module has all methods of FileUtils module, but never changes
+files/directories, with printing message before acting. This equates to
+passing the <tt>:noop</tt> and <tt>:verbose</tt> flag to methods in
+FileUtils.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="../FileUtils.html" title="FileUtils (module)">FileUtils</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../FileUtils.html#LN_SUPPORTED-constant" title="FileUtils::LN_SUPPORTED (constant)">LN_SUPPORTED</a></span>, <span class='object_link'><a href="../FileUtils.html#LOW_METHODS-constant" title="FileUtils::LOW_METHODS (constant)">LOW_METHODS</a></span>, <span class='object_link'><a href="../FileUtils.html#METHODS-constant" title="FileUtils::METHODS (constant)">METHODS</a></span>, <span class='object_link'><a href="../FileUtils.html#OPT_TABLE-constant" title="FileUtils::OPT_TABLE (constant)">OPT_TABLE</a></span>, <span class='object_link'><a href="../FileUtils.html#RUBY-constant" title="FileUtils::RUBY (constant)">RUBY</a></span></p>
+
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Method Summary</h2>
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../FileUtils.html" title="FileUtils (module)">FileUtils</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../FileUtils.html#cd-instance_method" title="FileUtils#cd (method)">#cd</a></span>, <span class='object_link'><a href="../FileUtils.html#chmod-instance_method" title="FileUtils#chmod (method)">#chmod</a></span>, <span class='object_link'><a href="../FileUtils.html#chmod_R-instance_method" title="FileUtils#chmod_R (method)">#chmod_R</a></span>, <span class='object_link'><a href="../FileUtils.html#chown-instance_method" title="FileUtils#chown (method)">#chown</a></span>, <span class='object_link'><a href="../FileUtils.html#chown_R-instance_method" title="FileUtils#chown_R (method)">#chown_R</a></span>, <span class='object_link'><a href="../FileUtils.html#collect_method-class_method" title="FileUtils.collect_method (method)">collect_method</a></span>, <span class='object_link'><a href="../FileUtils.html#commands-class_method" title="FileUtils.commands (method)">commands</a></span>, <span class='object_link'><a href="../FileUtils.html#compare_file-instance_method" title="FileUtils#compare_file (method)">#compare_file</a></span>, <span class='object_link'><a href="../FileUtils.html#compare_stream-instance_method" title="FileUtils#compare_stream (method)">#compare_stream</a></span>, <span class='object_link'><a href="../FileUtils.html#copy_entry-instance_method" title="FileUtils#copy_entry (method)">#copy_entry</a></span>, <span class='object_link'><a href="../FileUtils.html#copy_file-instance_method" title="FileUtils#copy_file (method)">#copy_file</a></span>, <span class='object_link'><a href="../FileUtils.html#copy_stream-instance_method" title="FileUtils#copy_stream (method)">#copy_stream</a></span>, <span class='object_link'><a href="../FileUtils.html#cp-instance_method" title="FileUtils#cp (method)">#cp</a></span>, <span class='object_link'><a href="../FileUtils.html#cp_r-instance_method" title="FileUtils#cp_r (method)">#cp_r</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_check_options-instance_method" title="FileUtils#fu_check_options (method)">#fu_check_options</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_each_src_dest-instance_method" title="FileUtils#fu_each_src_dest (method)">#fu_each_src_dest</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_each_src_dest0-instance_method" title="FileUtils#fu_each_src_dest0 (method)">#fu_each_src_dest0</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_have_symlink%3F-instance_method" title="FileUtils#fu_have_symlink? (method)">#fu_have_symlink?</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_list-instance_method" title="FileUtils#fu_list (method)">#fu_list</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_mkdir-instance_method" title="FileUtils#fu_mkdir (method)">#fu_mkdir</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_mode-instance_method" title="FileUtils#fu_mode (method)">#fu_mode</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_output_message-instance_method" title="FileUtils#fu_output_message (method)">#fu_output_message</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_same%3F-instance_method" title="FileUtils#fu_same? (method)">#fu_same?</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_stat_identical_entry%3F-instance_method" title="FileUtils#fu_stat_identical_entry? (method)">#fu_stat_identical_entry?</a></span>, <span class='object_link'><a href="../FileUtils.html#fu_update_option-instance_method" title="FileUtils#fu_update_option (method)">#fu_update_option</a></span>, <span class='object_link'><a href="../FileUtils.html#have_option%3F-class_method" title="FileUtils.have_option? (method)">have_option?</a></span>, <span class='object_link'><a href="../FileUtils.html#install-instance_method" title="FileUtils#install (method)">#install</a></span>, <span class='object_link'><a href="../FileUtils.html#ln-instance_method" title="FileUtils#ln (method)">#ln</a></span>, <span class='object_link'><a href="../FileUtils.html#ln_s-instance_method" title="FileUtils#ln_s (method)">#ln_s</a></span>, <span class='object_link'><a href="../FileUtils.html#ln_sf-instance_method" title="FileUtils#ln_sf (method)">#ln_sf</a></span>, <span class='object_link'><a href="../FileUtils.html#mkdir-instance_method" title="FileUtils#mkdir (method)">#mkdir</a></span>, <span class='object_link'><a href="../FileUtils.html#mkdir_p-instance_method" title="FileUtils#mkdir_p (method)">#mkdir_p</a></span>, <span class='object_link'><a href="../FileUtils.html#mode_mask-instance_method" title="FileUtils#mode_mask (method)">#mode_mask</a></span>, <span class='object_link'><a href="../FileUtils.html#mv-instance_method" title="FileUtils#mv (method)">#mv</a></span>, <span class='object_link'><a href="../FileUtils.html#options-class_method" title="FileUtils.options (method)">options</a></span>, <span class='object_link'><a href="../FileUtils.html#options_of-class_method" title="FileUtils.options_of (method)">options_of</a></span>, <span class='object_link'><a href="../FileUtils.html#private_module_function-class_method" title="FileUtils.private_module_function (method)">private_module_function</a></span>, <span class='object_link'><a href="../FileUtils.html#pwd-instance_method" title="FileUtils#pwd (method)">#pwd</a></span>, <span class='object_link'><a href="../FileUtils.html#remove_dir-instance_method" title="FileUtils#remove_dir (method)">#remove_dir</a></span>, <span class='object_link'><a href="../FileUtils.html#remove_entry-instance_method" title="FileUtils#remove_entry (method)">#remove_entry</a></span>, <span class='object_link'><a href="../FileUtils.html#remove_entry_secure-instance_method" title="FileUtils#remove_entry_secure (method)">#remove_entry_secure</a></span>, <span class='object_link'><a href="../FileUtils.html#remove_file-instance_method" title="FileUtils#remove_file (method)">#remove_file</a></span>, <span class='object_link'><a href="../FileUtils.html#rename_cannot_overwrite_file%3F-instance_method" title="FileUtils#rename_cannot_overwrite_file? (method)">#rename_cannot_overwrite_file?</a></span>, <span class='object_link'><a href="../FileUtils.html#rm-instance_method" title="FileUtils#rm (method)">#rm</a></span>, <span class='object_link'><a href="../FileUtils.html#rm_f-instance_method" title="FileUtils#rm_f (method)">#rm_f</a></span>, <span class='object_link'><a href="../FileUtils.html#rm_r-instance_method" title="FileUtils#rm_r (method)">#rm_r</a></span>, <span class='object_link'><a href="../FileUtils.html#rm_rf-instance_method" title="FileUtils#rm_rf (method)">#rm_rf</a></span>, <span class='object_link'><a href="../FileUtils.html#rmdir-instance_method" title="FileUtils#rmdir (method)">#rmdir</a></span>, <span class='object_link'><a href="../FileUtils.html#ruby-instance_method" title="FileUtils#ruby (method)">#ruby</a></span>, <span class='object_link'><a href="../FileUtils.html#safe_ln-instance_method" title="FileUtils#safe_ln (method)">#safe_ln</a></span>, <span class='object_link'><a href="../FileUtils.html#sh-instance_method" title="FileUtils#sh (method)">#sh</a></span>, <span class='object_link'><a href="../FileUtils.html#split_all-instance_method" title="FileUtils#split_all (method)">#split_all</a></span>, <span class='object_link'><a href="../FileUtils.html#symbolic_modes_to_i-instance_method" title="FileUtils#symbolic_modes_to_i (method)">#symbolic_modes_to_i</a></span>, <span class='object_link'><a href="../FileUtils.html#touch-instance_method" title="FileUtils#touch (method)">#touch</a></span>, <span class='object_link'><a href="../FileUtils.html#uptodate%3F-instance_method" title="FileUtils#uptodate? (method)">#uptodate?</a></span>, <span class='object_link'><a href="../FileUtils.html#user_mask-instance_method" title="FileUtils#user_mask (method)">#user_mask</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="StreamUtils_.html" title="FileUtils::StreamUtils_ (module)">StreamUtils_</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="StreamUtils_.html#fu_blksize-instance_method" title="FileUtils::StreamUtils_#fu_blksize (method)">#fu_blksize</a></span>, <span class='object_link'><a href="StreamUtils_.html#fu_copy_stream0-instance_method" title="FileUtils::StreamUtils_#fu_copy_stream0 (method)">#fu_copy_stream0</a></span>, <span class='object_link'><a href="StreamUtils_.html#fu_default_blksize-instance_method" title="FileUtils::StreamUtils_#fu_default_blksize (method)">#fu_default_blksize</a></span>, <span class='object_link'><a href="StreamUtils_.html#fu_stream_blksize-instance_method" title="FileUtils::StreamUtils_#fu_stream_blksize (method)">#fu_stream_blksize</a></span>, <span class='object_link'><a href="StreamUtils_.html#fu_windows%3F-instance_method" title="FileUtils::StreamUtils_#fu_windows? (method)">#fu_windows?</a></span></p>
+
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:51 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

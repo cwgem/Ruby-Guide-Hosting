@@ -1,0 +1,1522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Net::BufferedIO
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (B)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Net.html" title="Net (module)">Net</a></span></span>
+     &raquo; 
+    <span class="title">BufferedIO</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Net::BufferedIO
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Net::BufferedIO</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/net/protocol.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc: internal use only</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="InternetMessageIO.html" title="Net::InternetMessageIO (class)">InternetMessageIO</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="BUFSIZE-constant" class="">BUFSIZE =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1024</span> <span class='op'>*</span> <span class='int'>16</span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#continue_timeout-instance_method" title="#continue_timeout (instance method)">- (Object) <strong>continue_timeout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute continue_timeout.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug_output-instance_method" title="#debug_output (instance method)">- (Object) <strong>debug_output</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute debug_output.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#io-instance_method" title="#io (instance method)">- (Object) <strong>io</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute io.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_timeout-instance_method" title="#read_timeout (instance method)">- (Object) <strong>read_timeout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute read_timeout.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close-instance_method" title="#close (instance method)">- (Object) <strong>close</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#closed%3F-instance_method" title="#closed? (instance method)">- (Boolean) <strong>closed?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#eof%3F-instance_method" title="#eof? (instance method)">- (Boolean) <strong>eof?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (BufferedIO) <strong>initialize</strong>(io) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of BufferedIO.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#LOG-instance_method" title="#LOG (instance method)">- (Object) <strong>LOG</strong>(msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#LOG_off-instance_method" title="#LOG_off (instance method)">- (Object) <strong>LOG_off</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#LOG_on-instance_method" title="#LOG_on (instance method)">- (Object) <strong>LOG_on</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rbuf_consume-instance_method" title="#rbuf_consume (instance method)">- (Object) <strong>rbuf_consume</strong>(len) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rbuf_fill-instance_method" title="#rbuf_fill (instance method)">- (Object) <strong>rbuf_fill</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read-instance_method" title="#read (instance method)">- (Object) <strong>read</strong>(len, dest = '', ignore_eof = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_all-instance_method" title="#read_all (instance method)">- (Object) <strong>read_all</strong>(dest = '') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#readline-instance_method" title="#readline (instance method)">- (Object) <strong>readline</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#readuntil-instance_method" title="#readuntil (instance method)">- (Object) <strong>readuntil</strong>(terminator, ignore_eof = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write-instance_method" title="#write (instance method)">- (Object) <strong>write</strong>(str) </a>
+    
+
+    
+      (also: #&lt;&lt;)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write0-instance_method" title="#write0 (instance method)">- (Object) <strong>write0</strong>(str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writeline-instance_method" title="#writeline (instance method)">- (Object) <strong>writeline</strong>(str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writing-instance_method" title="#writing (instance method)">- (Object) <strong>writing</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Net::BufferedIO (class)">BufferedIO</a></span></tt>) <strong>initialize</strong>(io) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of BufferedIO</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id io'>io</span><span class='rparen'>)</span>
+  <span class='ivar'>@io</span> <span class='op'>=</span> <span class='id io'>io</span>
+  <span class='ivar'>@read_timeout</span> <span class='op'>=</span> <span class='int'>60</span>
+  <span class='ivar'>@continue_timeout</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@rbuf</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="continue_timeout=-instance_method"></span>
+      <span id="continue_timeout-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="continue_timeout-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>continue_timeout</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute continue_timeout</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id continue_timeout'>continue_timeout</span>
+  <span class='ivar'>@continue_timeout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="debug_output=-instance_method"></span>
+      <span id="debug_output-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="debug_output-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>debug_output</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute debug_output</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id debug_output'>debug_output</span>
+  <span class='ivar'>@debug_output</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="io-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="io-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>io</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute io</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id io'>io</span>
+  <span class='ivar'>@io</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="read_timeout=-instance_method"></span>
+      <span id="read_timeout-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="read_timeout-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_timeout</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute read_timeout</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id read_timeout'>read_timeout</span>
+  <span class='ivar'>@read_timeout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="close-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>close</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id close'>close</span>
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id close'>close</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="closed?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>closed?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 71</span>
+
+<span class='kw'>def</span> <span class='id closed?'>closed?</span>
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id closed?'>closed?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="eof?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>eof?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id eof?'>eof?</span>
+  <span class='ivar'>@io</span><span class='period'>.</span><span class='id eof?'>eof?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> io=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@io</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="LOG-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>LOG</strong>(msg) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+219
+220
+221
+222</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 219</span>
+
+<span class='kw'>def</span> <span class='const'>LOG</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@debug_output</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>&lt;&lt;</span> <span class='id msg'>msg</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="LOG_off-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>LOG_off</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212
+213</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 210</span>
+
+<span class='kw'>def</span> <span class='const'>LOG_off</span>
+  <span class='ivar'>@save_debug_out</span> <span class='op'>=</span> <span class='ivar'>@debug_output</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="LOG_on-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>LOG_on</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+215
+216
+217</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 215</span>
+
+<span class='kw'>def</span> <span class='const'>LOG_on</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>=</span> <span class='ivar'>@save_debug_out</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rbuf_consume-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>rbuf_consume</strong>(len) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+159
+160
+161
+162
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 159</span>
+
+<span class='kw'>def</span> <span class='id rbuf_consume'>rbuf_consume</span><span class='lparen'>(</span><span class='id len'>len</span><span class='rparen'>)</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='ivar'>@rbuf</span><span class='period'>.</span><span class='id slice!'>slice!</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='id len'>len</span><span class='rparen'>)</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>%Q[</span><span class='tstring_content'>-&gt; </span><span class='embexpr_beg'>#{</span><span class='id s'>s</span><span class='period'>.</span><span class='id dump'>dump</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>]</span></span> <span class='kw'>if</span> <span class='ivar'>@debug_output</span>
+  <span class='id s'>s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rbuf_fill-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>rbuf_fill</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id rbuf_fill'>rbuf_fill</span>
+  <span class='kw'>begin</span>
+    <span class='ivar'>@rbuf</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@io</span><span class='period'>.</span><span class='id read_nonblock'>read_nonblock</span><span class='lparen'>(</span><span class='const'>BUFSIZE</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>IO</span><span class='op'>::</span><span class='const'>WaitReadable</span>
+    <span class='kw'>if</span> <span class='const'>IO</span><span class='period'>.</span><span class='id select'>select</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='ivar'>@io</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@read_timeout</span><span class='rparen'>)</span>
+      <span class='kw'>retry</span>
+    <span class='kw'>else</span>
+      <span class='id raise'>raise</span> <span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span>
+    <span class='kw'>end</span>
+  <span class='kw'>rescue</span> <span class='const'>IO</span><span class='op'>::</span><span class='const'>WaitWritable</span>
+    <span class='comment'># OpenSSL::Buffering#read_nonblock may fail with IO::WaitWritable.
+</span>    <span class='comment'># http://www.openssl.org/support/faq.html#PROG10
+</span>    <span class='kw'>if</span> <span class='const'>IO</span><span class='period'>.</span><span class='id select'>select</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='ivar'>@io</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@read_timeout</span><span class='rparen'>)</span>
+      <span class='kw'>retry</span>
+    <span class='kw'>else</span>
+      <span class='id raise'>raise</span> <span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read</strong>(len, dest = '', ignore_eof = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id read'>read</span><span class='lparen'>(</span><span class='id len'>len</span><span class='comma'>,</span> <span class='id dest'>dest</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id ignore_eof'>ignore_eof</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='const'>LOG</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>reading </span><span class='embexpr_beg'>#{</span><span class='id len'>len</span><span class='rbrace'>}</span><span class='tstring_content'> bytes...</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id read_bytes'>read_bytes</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='kw'>begin</span>
+    <span class='kw'>while</span> <span class='id read_bytes'>read_bytes</span> <span class='op'>+</span> <span class='ivar'>@rbuf</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&lt;</span> <span class='id len'>len</span>
+      <span class='id dest'>dest</span> <span class='op'>&lt;&lt;</span> <span class='lparen'>(</span><span class='id s'>s</span> <span class='op'>=</span> <span class='id rbuf_consume'>rbuf_consume</span><span class='lparen'>(</span><span class='ivar'>@rbuf</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='id read_bytes'>read_bytes</span> <span class='op'>+=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id size'>size</span>
+      <span class='id rbuf_fill'>rbuf_fill</span>
+    <span class='kw'>end</span>
+    <span class='id dest'>dest</span> <span class='op'>&lt;&lt;</span> <span class='lparen'>(</span><span class='id s'>s</span> <span class='op'>=</span> <span class='id rbuf_consume'>rbuf_consume</span><span class='lparen'>(</span><span class='id len'>len</span> <span class='op'>-</span> <span class='id read_bytes'>read_bytes</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id read_bytes'>read_bytes</span> <span class='op'>+=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='kw'>rescue</span> <span class='const'>EOFError</span>
+    <span class='id raise'>raise</span> <span class='kw'>unless</span> <span class='id ignore_eof'>ignore_eof</span>
+  <span class='kw'>end</span>
+  <span class='const'>LOG</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>read </span><span class='embexpr_beg'>#{</span><span class='id read_bytes'>read_bytes</span><span class='rbrace'>}</span><span class='tstring_content'> bytes</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id dest'>dest</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_all-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_all</strong>(dest = '') 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id read_all'>read_all</span><span class='lparen'>(</span><span class='id dest'>dest</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='const'>LOG</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>reading all...</span><span class='tstring_end'>'</span></span>
+  <span class='id read_bytes'>read_bytes</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='kw'>begin</span>
+    <span class='kw'>while</span> <span class='kw'>true</span>
+      <span class='id dest'>dest</span> <span class='op'>&lt;&lt;</span> <span class='lparen'>(</span><span class='id s'>s</span> <span class='op'>=</span> <span class='id rbuf_consume'>rbuf_consume</span><span class='lparen'>(</span><span class='ivar'>@rbuf</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='id read_bytes'>read_bytes</span> <span class='op'>+=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id size'>size</span>
+      <span class='id rbuf_fill'>rbuf_fill</span>
+    <span class='kw'>end</span>
+  <span class='kw'>rescue</span> <span class='const'>EOFError</span>
+    <span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='const'>LOG</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>read </span><span class='embexpr_beg'>#{</span><span class='id read_bytes'>read_bytes</span><span class='rbrace'>}</span><span class='tstring_content'> bytes</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id dest'>dest</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="readline-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>readline</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id readline'>readline</span>
+  <span class='id readuntil'>readuntil</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id chop'>chop</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="readuntil-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>readuntil</strong>(terminator, ignore_eof = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='id readuntil'>readuntil</span><span class='lparen'>(</span><span class='id terminator'>terminator</span><span class='comma'>,</span> <span class='id ignore_eof'>ignore_eof</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='kw'>until</span> <span class='id idx'>idx</span> <span class='op'>=</span> <span class='ivar'>@rbuf</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span><span class='id terminator'>terminator</span><span class='rparen'>)</span>
+      <span class='id rbuf_fill'>rbuf_fill</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id rbuf_consume'>rbuf_consume</span><span class='lparen'>(</span><span class='id idx'>idx</span> <span class='op'>+</span> <span class='id terminator'>terminator</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>EOFError</span>
+    <span class='id raise'>raise</span> <span class='kw'>unless</span> <span class='id ignore_eof'>ignore_eof</span>
+    <span class='kw'>return</span> <span class='id rbuf_consume'>rbuf_consume</span><span class='lparen'>(</span><span class='ivar'>@rbuf</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="write-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>write</strong>(str) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='<<-instance_method'>&lt;&lt;</span></span>
+    </span>
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+171
+172
+173
+174
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 171</span>
+
+<span class='kw'>def</span> <span class='id write'>write</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='id writing'>writing</span> <span class='lbrace'>{</span>
+    <span class='id write0'>write0</span> <span class='id str'>str</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="write0-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>write0</strong>(str) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+197
+198
+199
+200
+201
+202</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 197</span>
+
+<span class='kw'>def</span> <span class='id write0'>write0</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>&lt;&lt;</span> <span class='id str'>str</span><span class='period'>.</span><span class='id dump'>dump</span> <span class='kw'>if</span> <span class='ivar'>@debug_output</span>
+  <span class='id len'>len</span> <span class='op'>=</span> <span class='ivar'>@io</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='ivar'>@written_bytes</span> <span class='op'>+=</span> <span class='id len'>len</span>
+  <span class='id len'>len</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="writeline-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>writeline</strong>(str) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179
+180
+181
+182
+183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 179</span>
+
+<span class='kw'>def</span> <span class='id writeline'>writeline</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='id writing'>writing</span> <span class='lbrace'>{</span>
+    <span class='id write0'>write0</span> <span class='id str'>str</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\r\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="writing-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>writing</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187
+188
+189
+190
+191
+192
+193
+194
+195</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/net/protocol.rb', line 187</span>
+
+<span class='kw'>def</span> <span class='id writing'>writing</span>
+  <span class='ivar'>@written_bytes</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;- </span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='ivar'>@debug_output</span>
+  <span class='kw'>yield</span>
+  <span class='ivar'>@debug_output</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@debug_output</span>
+  <span class='id bytes'>bytes</span> <span class='op'>=</span> <span class='ivar'>@written_bytes</span>
+  <span class='ivar'>@written_bytes</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id bytes'>bytes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:01 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

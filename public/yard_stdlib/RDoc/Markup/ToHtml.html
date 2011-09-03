@@ -1,0 +1,2144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RDoc::Markup::ToHtml
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../RDoc.html" title="RDoc (module)">RDoc</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Markup.html" title="RDoc::Markup (class)">Markup</a></span></span>
+     &raquo; 
+    <span class="title">ToHtml</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: RDoc::Markup::ToHtml
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Formatter.html" title="RDoc::Markup::Formatter (class)">Formatter</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="Formatter.html" title="RDoc::Markup::Formatter (class)">Formatter</a></span></li>
+          
+            <li class="next">RDoc::Markup::ToHtml</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="../Text.html" title="RDoc::Text (module)">Text</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rdoc/markup/to_html.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Outputs RDoc markup as HTML</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="ToHtmlCrossref.html" title="RDoc::Markup::ToHtmlCrossref (class)">ToHtmlCrossref</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="LIST_TYPE_TO_HTML-constant" class="">LIST_TYPE_TO_HTML =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Maps RDoc::Markup::Parser::LIST_TOKENS types to HTML tags</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='symbol'>:BULLET</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;ul&gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;/ul&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='symbol'>:LABEL</span>  <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;dl class=&quot;rdoc-list&quot;&gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;/dl&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='symbol'>:LALPHA</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;ol style=&quot;display: lower-alpha&quot;&gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;/ol&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='symbol'>:NOTE</span>   <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;table class=&quot;rdoc-list&quot;&gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;/table&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='symbol'>:NUMBER</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;ol&gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;/ol&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='symbol'>:UALPHA</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;ol style=&quot;display: upper-alpha&quot;&gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;/ol&gt;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#from_path-instance_method" title="#from_path (instance method)">- (Object) <strong>from_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Path to this document for relative links.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#in_list_entry-instance_method" title="#in_list_entry (instance method)">- (Object) <strong>in_list_entry</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list-instance_method" title="#list (instance method)">- (Object) <strong>list</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#res-instance_method" title="#res (instance method)">- (Object) <strong>res</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gen_relative_url-class_method" title="gen_relative_url (class method)">+ (Object) <strong>gen_relative_url</strong>(path, target) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts a target url to one that is relative to a given path.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_blank_line-instance_method" title="#accept_blank_line (instance method)">- (Object) <strong>accept_blank_line</strong>(blank_line) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds <tt>blank_line</tt> to the output.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_heading-instance_method" title="#accept_heading (instance method)">- (Object) <strong>accept_heading</strong>(heading) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds <tt>heading</tt> to the output.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_list_end-instance_method" title="#accept_list_end (instance method)">- (Object) <strong>accept_list_end</strong>(list) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Finishes consumption of <tt>list</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_list_item_end-instance_method" title="#accept_list_item_end (instance method)">- (Object) <strong>accept_list_item_end</strong>(list_item) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Finishes consumption of <tt>list_item</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_list_item_start-instance_method" title="#accept_list_item_start (instance method)">- (Object) <strong>accept_list_item_start</strong>(list_item) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Prepares the visitor for consuming <tt>list_item</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_list_start-instance_method" title="#accept_list_start (instance method)">- (Object) <strong>accept_list_start</strong>(list) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Prepares the visitor for consuming <tt>list</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_paragraph-instance_method" title="#accept_paragraph (instance method)">- (Object) <strong>accept_paragraph</strong>(paragraph) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds <tt>paragraph</tt> to the output.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_raw-instance_method" title="#accept_raw (instance method)">- (Object) <strong>accept_raw</strong>(raw) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds <tt>raw</tt> to the output.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_rule-instance_method" title="#accept_rule (instance method)">- (Object) <strong>accept_rule</strong>(rule) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds <tt>rule</tt> to the output.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_verbatim-instance_method" title="#accept_verbatim (instance method)">- (Object) <strong>accept_verbatim</strong>(verbatim) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds <tt>verbatim</tt> to the output.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert_string-instance_method" title="#convert_string (instance method)">- (Object) <strong>convert_string</strong>(text) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>CGI escapes <tt>text</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#end_accepting-instance_method" title="#end_accepting (instance method)">- (Object) <strong>end_accepting</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the generated output.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gen_url-instance_method" title="#gen_url (instance method)">- (Object) <strong>gen_url</strong>(url, text) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate a hyperlink for <tt>url</tt>, labeled with <tt>text</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#handle_special_HYPERLINK-instance_method" title="#handle_special_HYPERLINK (instance method)">- (Object) <strong>handle_special_HYPERLINK</strong>(special) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p><tt>special</tt> is a potential hyperlink.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#handle_special_TIDYLINK-instance_method" title="#handle_special_TIDYLINK (instance method)">- (Object) <strong>handle_special_TIDYLINK</strong>(special) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This <tt>special</tt> is a hyperlink where the label is different from the
+URL label[url] or label[url].</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#html_list_name-instance_method" title="#html_list_name (instance method)">- (Object) <strong>html_list_name</strong>(list_type, open_tag) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Determines the HTML list element for <tt>list_type</tt> and
+<tt>open_tag</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#init_tags-instance_method" title="#init_tags (instance method)">- (Object) <strong>init_tags</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Maps attributes to HTML tags.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ToHtml) <strong>initialize</strong>(markup = nil) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new formatter that will output HTML.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_end_for-instance_method" title="#list_end_for (instance method)">- (Object) <strong>list_end_for</strong>(list_type) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the HTML end-tag for <tt>list_type</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_item_start-instance_method" title="#list_item_start (instance method)">- (Object) <strong>list_item_start</strong>(list_item, list_type) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the HTML tag for <tt>list_type</tt>, possible using a label from
+<tt>list_item</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start_accepting-instance_method" title="#start_accepting (instance method)">- (Object) <strong>start_accepting</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Prepares the visitor for HTML generation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_html-instance_method" title="#to_html (instance method)">- (Object) <strong>to_html</strong>(item) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts <tt>item</tt> to HTML using RDoc::Text#to_html.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Formatter.html" title="RDoc::Markup::Formatter (class)">Formatter</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Formatter.html#accept_document-instance_method" title="RDoc::Markup::Formatter#accept_document (method)">#accept_document</a></span>, <span class='object_link'><a href="Formatter.html#add_tag-instance_method" title="RDoc::Markup::Formatter#add_tag (method)">#add_tag</a></span>, <span class='object_link'><a href="Formatter.html#annotate-instance_method" title="RDoc::Markup::Formatter#annotate (method)">#annotate</a></span>, <span class='object_link'><a href="Formatter.html#convert-instance_method" title="RDoc::Markup::Formatter#convert (method)">#convert</a></span>, <span class='object_link'><a href="Formatter.html#convert_flow-instance_method" title="RDoc::Markup::Formatter#convert_flow (method)">#convert_flow</a></span>, <span class='object_link'><a href="Formatter.html#convert_special-instance_method" title="RDoc::Markup::Formatter#convert_special (method)">#convert_special</a></span>, <span class='object_link'><a href="Formatter.html#in_tt%3F-instance_method" title="RDoc::Markup::Formatter#in_tt? (method)">#in_tt?</a></span>, <span class='object_link'><a href="Formatter.html#off_tags-instance_method" title="RDoc::Markup::Formatter#off_tags (method)">#off_tags</a></span>, <span class='object_link'><a href="Formatter.html#on_tags-instance_method" title="RDoc::Markup::Formatter#on_tags (method)">#on_tags</a></span>, <span class='object_link'><a href="Formatter.html#tt%3F-instance_method" title="RDoc::Markup::Formatter#tt? (method)">#tt?</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RDoc::Markup::ToHtml (class)">ToHtml</a></span></tt>) <strong>initialize</strong>(markup = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new formatter that will output HTML</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span> <span class='id markup'>markup</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>super</span>
+
+  <span class='ivar'>@th</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@in_list_entry</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@list</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@from_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+
+  <span class='comment'># external hyperlinks
+</span>  <span class='ivar'>@markup</span><span class='period'>.</span><span class='id add_special'>add_special</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>((link:|https?:|mailto:|ftp:|www\.)\S+\w)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='symbol'>:HYPERLINK</span><span class='rparen'>)</span>
+
+  <span class='comment'># and links of the form  &lt;text&gt;[&lt;url&gt;]
+</span>  <span class='ivar'>@markup</span><span class='period'>.</span><span class='id add_special'>add_special</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(((\{.*?\})|\b\S+?)\[\S+?\.\S+?\])</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='symbol'>:TIDYLINK</span><span class='rparen'>)</span>
+
+  <span class='id init_tags'>init_tags</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="from_path=-instance_method"></span>
+      <span id="from_path-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="from_path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>from_path</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Path to this document for relative links</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id from_path'>from_path</span>
+  <span class='ivar'>@from_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="in_list_entry-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="in_list_entry-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>in_list_entry</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id in_list_entry'>in_list_entry</span>
+  <span class='ivar'>@in_list_entry</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="list-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="list-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>list</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id list'>list</span>
+  <span class='ivar'>@list</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="res-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="res-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>res</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id res'>res</span>
+  <span class='ivar'>@res</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="gen_relative_url-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>gen_relative_url</strong>(path, target) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Converts a target url to one that is relative to a given path</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id gen_relative_url'>gen_relative_url</span><span class='lparen'>(</span><span class='id path'>path</span><span class='comma'>,</span> <span class='id target'>target</span><span class='rparen'>)</span>
+  <span class='id from'>from</span>        <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span> <span class='id path'>path</span>
+  <span class='id to'>to</span><span class='comma'>,</span> <span class='id to_file'>to_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id split'>split</span> <span class='id target'>target</span>
+
+  <span class='id from'>from</span> <span class='op'>=</span> <span class='id from'>from</span><span class='period'>.</span><span class='id split'>split</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id to'>to</span>   <span class='op'>=</span> <span class='id to'>to</span><span class='period'>.</span><span class='id split'>split</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id from'>from</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span>
+  <span class='id to'>to</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span>
+
+  <span class='kw'>while</span> <span class='id from'>from</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='kw'>and</span> <span class='id to'>to</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='kw'>and</span> <span class='id from'>from</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id to'>to</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='kw'>do</span>
+    <span class='id from'>from</span><span class='period'>.</span><span class='id shift'>shift</span>
+    <span class='id to'>to</span><span class='period'>.</span><span class='id shift'>shift</span>
+  <span class='kw'>end</span>
+
+  <span class='id from'>from</span><span class='period'>.</span><span class='id fill'>fill</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>..</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id from'>from</span><span class='period'>.</span><span class='id concat'>concat</span> <span class='id to'>to</span>
+  <span class='id from'>from</span> <span class='op'>&lt;&lt;</span> <span class='id to_file'>to_file</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='op'>*</span><span class='id from'>from</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="accept_blank_line-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_blank_line</strong>(blank_line) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds <tt>blank_line</tt> to the output</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 205</span>
+
+<span class='kw'>def</span> <span class='id accept_blank_line'>accept_blank_line</span><span class='lparen'>(</span><span class='id blank_line'>blank_line</span><span class='rparen'>)</span>
+  <span class='comment'># @res &lt;&lt; annotate(&quot;&lt;p /&gt;&quot;) &lt;&lt; &quot;\n&quot;
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept_heading-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_heading</strong>(heading) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds <tt>heading</tt> to the output</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214
+215
+216</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='id accept_heading'>accept_heading</span><span class='lparen'>(</span><span class='id heading'>heading</span><span class='rparen'>)</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n&lt;h</span><span class='embexpr_beg'>#{</span><span class='id heading'>heading</span><span class='period'>.</span><span class='id level'>level</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='id to_html'>to_html</span><span class='lparen'>(</span><span class='id heading'>heading</span><span class='period'>.</span><span class='id text'>text</span><span class='rparen'>)</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/h</span><span class='embexpr_beg'>#{</span><span class='id heading'>heading</span><span class='period'>.</span><span class='id level'>level</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept_list_end-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_list_end</strong>(list) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Finishes consumption of <tt>list</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+176
+177
+178
+179
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 176</span>
+
+<span class='kw'>def</span> <span class='id accept_list_end'>accept_list_end</span><span class='lparen'>(</span><span class='id list'>list</span><span class='rparen'>)</span>
+  <span class='ivar'>@list</span><span class='period'>.</span><span class='id pop'>pop</span>
+  <span class='kw'>if</span> <span class='id tag'>tag</span> <span class='op'>=</span> <span class='ivar'>@in_list_entry</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='id tag'>tag</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='id html_list_name'>html_list_name</span><span class='lparen'>(</span><span class='id list'>list</span><span class='period'>.</span><span class='id type'>type</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept_list_item_end-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_list_item_end</strong>(list_item) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Finishes consumption of <tt>list_item</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 198</span>
+
+<span class='kw'>def</span> <span class='id accept_list_item_end'>accept_list_item_end</span><span class='lparen'>(</span><span class='id list_item'>list_item</span><span class='rparen'>)</span>
+  <span class='ivar'>@in_list_entry</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id list_end_for'>list_end_for</span><span class='lparen'>(</span><span class='ivar'>@list</span><span class='period'>.</span><span class='id last'>last</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept_list_item_start-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_list_item_start</strong>(list_item) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Prepares the visitor for consuming <tt>list_item</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187
+188
+189
+190
+191
+192
+193</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 187</span>
+
+<span class='kw'>def</span> <span class='id accept_list_item_start'>accept_list_item_start</span><span class='lparen'>(</span><span class='id list_item'>list_item</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id tag'>tag</span> <span class='op'>=</span> <span class='ivar'>@in_list_entry</span><span class='period'>.</span><span class='id last'>last</span>
+    <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='id tag'>tag</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='id list_item_start'>list_item_start</span><span class='lparen'>(</span><span class='id list_item'>list_item</span><span class='comma'>,</span> <span class='ivar'>@list</span><span class='period'>.</span><span class='id last'>last</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept_list_start-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_list_start</strong>(list) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Prepares the visitor for consuming <tt>list</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 167</span>
+
+<span class='kw'>def</span> <span class='id accept_list_start'>accept_list_start</span><span class='lparen'>(</span><span class='id list'>list</span><span class='rparen'>)</span>
+  <span class='ivar'>@list</span> <span class='op'>&lt;&lt;</span> <span class='id list'>list</span><span class='period'>.</span><span class='id type'>type</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='id html_list_name'>html_list_name</span><span class='lparen'>(</span><span class='id list'>list</span><span class='period'>.</span><span class='id type'>type</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='ivar'>@in_list_entry</span><span class='period'>.</span><span class='id push'>push</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept_paragraph-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_paragraph</strong>(paragraph) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds <tt>paragraph</tt> to the output</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+140
+141
+142
+143
+144</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 140</span>
+
+<span class='kw'>def</span> <span class='id accept_paragraph'>accept_paragraph</span><span class='lparen'>(</span><span class='id paragraph'>paragraph</span><span class='rparen'>)</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n&lt;p&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='id wrap'>wrap</span><span class='lparen'>(</span><span class='id to_html'>to_html</span><span class='lparen'>(</span><span class='id paragraph'>paragraph</span><span class='period'>.</span><span class='id text'>text</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/p&gt;\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept_raw-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_raw</strong>(raw) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds <tt>raw</tt> to the output</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+221
+222
+223</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 221</span>
+
+<span class='kw'>def</span> <span class='id accept_raw'>accept_raw</span> <span class='id raw'>raw</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='id raw'>raw</span><span class='period'>.</span><span class='id parts'>parts</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept_rule-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_rule</strong>(rule) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds <tt>rule</tt> to the output</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+158
+159
+160
+161
+162</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 158</span>
+
+<span class='kw'>def</span> <span class='id accept_rule'>accept_rule</span><span class='lparen'>(</span><span class='id rule'>rule</span><span class='rparen'>)</span>
+  <span class='id size'>size</span> <span class='op'>=</span> <span class='id rule'>rule</span><span class='period'>.</span><span class='id weight'>weight</span>
+  <span class='id size'>size</span> <span class='op'>=</span> <span class='int'>10</span> <span class='kw'>if</span> <span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>10</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;hr style=\&quot;height: </span><span class='embexpr_beg'>#{</span><span class='id size'>size</span><span class='rbrace'>}</span><span class='tstring_content'>px\&quot;&gt;\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept_verbatim-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_verbatim</strong>(verbatim) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds <tt>verbatim</tt> to the output</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+149
+150
+151
+152
+153</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 149</span>
+
+<span class='kw'>def</span> <span class='id accept_verbatim'>accept_verbatim</span><span class='lparen'>(</span><span class='id verbatim'>verbatim</span><span class='rparen'>)</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n&lt;pre&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='const'>CGI</span><span class='period'>.</span><span class='id escapeHTML'>escapeHTML</span><span class='lparen'>(</span><span class='id verbatim'>verbatim</span><span class='period'>.</span><span class='id text'>text</span><span class='period'>.</span><span class='id rstrip'>rstrip</span><span class='rparen'>)</span>
+  <span class='ivar'>@res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/pre&gt;\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="convert_string-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>convert_string</strong>(text) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>CGI escapes <tt>text</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+230
+231
+232</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 230</span>
+
+<span class='kw'>def</span> <span class='id convert_string'>convert_string</span><span class='lparen'>(</span><span class='id text'>text</span><span class='rparen'>)</span>
+  <span class='const'>CGI</span><span class='period'>.</span><span class='id escapeHTML'>escapeHTML</span> <span class='id text'>text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="end_accepting-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>end_accepting</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the generated output</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='id end_accepting'>end_accepting</span>
+  <span class='ivar'>@res</span><span class='period'>.</span><span class='id join'>join</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="gen_url-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>gen_url</strong>(url, text) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate a hyperlink for <tt>url</tt>, labeled with <tt>text</tt>.  Handles
+the special cases for img: and link: described under
+handle_special_HYPERLINK</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 238</span>
+
+<span class='kw'>def</span> <span class='id gen_url'>gen_url</span><span class='lparen'>(</span><span class='id url'>url</span><span class='comma'>,</span> <span class='id text'>text</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id url'>url</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>([A-Za-z]+):(.*)</span><span class='regexp_end'>/</span></span> <span class='kw'>then</span>
+    <span class='id type'>type</span> <span class='op'>=</span> <span class='backref'>$1</span>
+    <span class='id path'>path</span> <span class='op'>=</span> <span class='backref'>$2</span>
+  <span class='kw'>else</span>
+    <span class='id type'>type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id path'>path</span> <span class='op'>=</span> <span class='id url'>url</span>
+    <span class='id url'>url</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://</span><span class='embexpr_beg'>#{</span><span class='id url'>url</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>link</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>then</span>
+    <span class='id url'>url</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id path'>path</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>#</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='comment'># is this meaningful?
+</span>            <span class='id path'>path</span>
+          <span class='kw'>else</span>
+            <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id gen_relative_url'>gen_relative_url</span> <span class='ivar'>@from_path</span><span class='comma'>,</span> <span class='id path'>path</span>
+          <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>or</span> <span class='id type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>link</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>and</span>
+     <span class='id url'>url</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.(gif|png|jpg|jpeg|bmp)$</span><span class='regexp_end'>/</span></span> <span class='kw'>then</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;img src=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id url'>url</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot; /&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;a href=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id url'>url</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id text'>text</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id type'>type</span><span class='rbrace'>}</span><span class='tstring_content'>:/*</span><span class='regexp_end'>}</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/a&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="handle_special_HYPERLINK-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>handle_special_HYPERLINK</strong>(special) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p><tt>special</tt> is a potential hyperlink.  The following schemes are
+handled:</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>mailto:</tt></p></td>
+<td>
+<p>Inserted as-is.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>http:</tt></p></td>
+<td>
+<p>Links are checked to see if they reference an image. If so, that image gets
+inserted using an <tt>&lt;img&gt;</tt> tag. Otherwise a conventional
+<tt>&lt;a href&gt;</tt> is used.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>link:</tt></p></td>
+<td>
+<p>Reference to a local file relative to the output directory.</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 98</span>
+
+<span class='kw'>def</span> <span class='id handle_special_HYPERLINK'>handle_special_HYPERLINK</span><span class='lparen'>(</span><span class='id special'>special</span><span class='rparen'>)</span>
+  <span class='id url'>url</span> <span class='op'>=</span> <span class='id special'>special</span><span class='period'>.</span><span class='id text'>text</span>
+  <span class='id gen_url'>gen_url</span> <span class='id url'>url</span><span class='comma'>,</span> <span class='id url'>url</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="handle_special_TIDYLINK-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>handle_special_TIDYLINK</strong>(special) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>This <tt>special</tt> is a hyperlink where the label is different from the
+URL label[url] or label[url]</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109
+110
+111
+112
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 107</span>
+
+<span class='kw'>def</span> <span class='id handle_special_TIDYLINK'>handle_special_TIDYLINK</span><span class='lparen'>(</span><span class='id special'>special</span><span class='rparen'>)</span>
+  <span class='id text'>text</span> <span class='op'>=</span> <span class='id special'>special</span><span class='period'>.</span><span class='id text'>text</span>
+
+  <span class='kw'>return</span> <span class='id text'>text</span> <span class='kw'>unless</span> <span class='id text'>text</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\{(.*?)\}\[(.*?)\]</span><span class='regexp_end'>/</span></span> <span class='kw'>or</span> <span class='id text'>text</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\S+)\[(.*?)\]</span><span class='regexp_end'>/</span></span>
+
+  <span class='id label'>label</span> <span class='op'>=</span> <span class='backref'>$1</span>
+  <span class='id url'>url</span>   <span class='op'>=</span> <span class='backref'>$2</span>
+  <span class='id gen_url'>gen_url</span> <span class='id url'>url</span><span class='comma'>,</span> <span class='id label'>label</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="html_list_name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>html_list_name</strong>(list_type, open_tag) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Determines the HTML list element for <tt>list_type</tt> and
+<tt>open_tag</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>RDoc::Error</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+267
+268
+269
+270
+271</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 267</span>
+
+<span class='kw'>def</span> <span class='id html_list_name'>html_list_name</span><span class='lparen'>(</span><span class='id list_type'>list_type</span><span class='comma'>,</span> <span class='id open_tag'>open_tag</span><span class='rparen'>)</span>
+  <span class='id tags'>tags</span> <span class='op'>=</span> <span class='const'>LIST_TYPE_TO_HTML</span><span class='lbracket'>[</span><span class='id list_type'>list_type</span><span class='rbracket'>]</span>
+  <span class='id raise'>raise</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid list type: </span><span class='embexpr_beg'>#{</span><span class='id list_type'>list_type</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id tags'>tags</span>
+  <span class='id tags'>tags</span><span class='lbracket'>[</span><span class='id open_tag'>open_tag</span> <span class='op'>?</span> <span class='int'>0</span> <span class='op'>:</span> <span class='int'>1</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="init_tags-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>init_tags</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Maps attributes to HTML tags</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+276
+277
+278
+279
+280</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 276</span>
+
+<span class='kw'>def</span> <span class='id init_tags'>init_tags</span>
+  <span class='id add_tag'>add_tag</span> <span class='symbol'>:BOLD</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;b&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/b&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id add_tag'>add_tag</span> <span class='symbol'>:TT</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;tt&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/tt&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id add_tag'>add_tag</span> <span class='symbol'>:EM</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;em&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/em&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="list_end_for-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>list_end_for</strong>(list_type) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the HTML end-tag for <tt>list_type</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 302</span>
+
+<span class='kw'>def</span> <span class='id list_end_for'>list_end_for</span><span class='lparen'>(</span><span class='id list_type'>list_type</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id list_type'>list_type</span>
+  <span class='kw'>when</span> <span class='symbol'>:BULLET</span><span class='comma'>,</span> <span class='symbol'>:LALPHA</span><span class='comma'>,</span> <span class='symbol'>:NUMBER</span><span class='comma'>,</span> <span class='symbol'>:UALPHA</span> <span class='kw'>then</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/li&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='symbol'>:LABEL</span> <span class='kw'>then</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/dd&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='symbol'>:NOTE</span> <span class='kw'>then</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/td&gt;&lt;/tr&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid list type: </span><span class='embexpr_beg'>#{</span><span class='id list_type'>list_type</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="list_item_start-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>list_item_start</strong>(list_item, list_type) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the HTML tag for <tt>list_type</tt>, possible using a label from
+<tt>list_item</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 286</span>
+
+<span class='kw'>def</span> <span class='id list_item_start'>list_item_start</span><span class='lparen'>(</span><span class='id list_item'>list_item</span><span class='comma'>,</span> <span class='id list_type'>list_type</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id list_type'>list_type</span>
+  <span class='kw'>when</span> <span class='symbol'>:BULLET</span><span class='comma'>,</span> <span class='symbol'>:LALPHA</span><span class='comma'>,</span> <span class='symbol'>:NUMBER</span><span class='comma'>,</span> <span class='symbol'>:UALPHA</span> <span class='kw'>then</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;li&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='symbol'>:LABEL</span> <span class='kw'>then</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;dt&gt;</span><span class='embexpr_beg'>#{</span><span class='id to_html'>to_html</span> <span class='id list_item'>list_item</span><span class='period'>.</span><span class='id label'>label</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/dt&gt;\n&lt;dd&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='symbol'>:NOTE</span> <span class='kw'>then</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;tr&gt;&lt;td class=\&quot;rdoc-term\&quot;&gt;&lt;p&gt;</span><span class='embexpr_beg'>#{</span><span class='id to_html'>to_html</span> <span class='id list_item'>list_item</span><span class='period'>.</span><span class='id label'>label</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/p&gt;&lt;/td&gt;\n&lt;td&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid list type: </span><span class='embexpr_beg'>#{</span><span class='id list_type'>list_type</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="start_accepting-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>start_accepting</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Prepares the visitor for HTML generation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126
+127
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 124</span>
+
+<span class='kw'>def</span> <span class='id start_accepting'>start_accepting</span>
+  <span class='ivar'>@res</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@in_list_entry</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@list</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_html-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_html</strong>(item) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Converts <tt>item</tt> to HTML using RDoc::Text#to_html</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+318
+319
+320</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/to_html.rb', line 318</span>
+
+<span class='kw'>def</span> <span class='id to_html'>to_html</span> <span class='id item'>item</span>
+  <span class='kw'>super</span> <span class='id convert_flow'>convert_flow</span> <span class='ivar'>@am</span><span class='period'>.</span><span class='id flow'>flow</span> <span class='id item'>item</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:26 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

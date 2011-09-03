@@ -1,0 +1,1182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSS::Converter
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../RSS.html" title="RSS (module)">RSS</a></span></span>
+     &raquo; 
+    <span class="title">Converter</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: RSS::Converter
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">RSS::Converter</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Utils.html" title="RSS::Utils (module)">Utils</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rss/converter.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert-instance_method" title="#convert (instance method)">- (Object) <strong>convert</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_convert-instance_method" title="#def_convert (instance method)">- (Object) <strong>def_convert</strong>(depth = 0) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_else_enc-instance_method" title="#def_else_enc (instance method)">- (Object) <strong>def_else_enc</strong>(to_enc, from_enc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_iconv_convert-instance_method" title="#def_iconv_convert (instance method)">- (Object) <strong>def_iconv_convert</strong>(to_enc, from_enc, depth = 0) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_same_enc-instance_method" title="#def_same_enc (instance method)">- (Object) <strong>def_same_enc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_euc_jp_from_iso_2022_jp-instance_method" title="#def_to_euc_jp_from_iso_2022_jp (instance method)">- (Object) <strong>def_to_euc_jp_from_iso_2022_jp</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_euc_jp_from_shift_jis-instance_method" title="#def_to_euc_jp_from_shift_jis (instance method)">- (Object) <strong>def_to_euc_jp_from_shift_jis</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_euc_jp_from_utf_8-instance_method" title="#def_to_euc_jp_from_utf_8 (instance method)">- (Object) <strong>def_to_euc_jp_from_utf_8</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_iso_2022_jp_from_euc_jp-instance_method" title="#def_to_iso_2022_jp_from_euc_jp (instance method)">- (Object) <strong>def_to_iso_2022_jp_from_euc_jp</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_iso_8859_1_from_utf_8-instance_method" title="#def_to_iso_8859_1_from_utf_8 (instance method)">- (Object) <strong>def_to_iso_8859_1_from_utf_8</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_shift_jis_from_euc_jp-instance_method" title="#def_to_shift_jis_from_euc_jp (instance method)">- (Object) <strong>def_to_shift_jis_from_euc_jp</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_shift_jis_from_utf_8-instance_method" title="#def_to_shift_jis_from_utf_8 (instance method)">- (Object) <strong>def_to_shift_jis_from_utf_8</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_utf_8_from_euc_jp-instance_method" title="#def_to_utf_8_from_euc_jp (instance method)">- (Object) <strong>def_to_utf_8_from_euc_jp</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_utf_8_from_iso_8859_1-instance_method" title="#def_to_utf_8_from_iso_8859_1 (instance method)">- (Object) <strong>def_to_utf_8_from_iso_8859_1</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_to_utf_8_from_shift_jis-instance_method" title="#def_to_utf_8_from_shift_jis (instance method)">- (Object) <strong>def_to_utf_8_from_shift_jis</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_uconv_convert_if_can-instance_method" title="#def_uconv_convert_if_can (instance method)">- (Object) <strong>def_uconv_convert_if_can</strong>(meth, to_enc, from_enc, nkf_arg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Converter) <strong>initialize</strong>(to_enc, from_enc = nil) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Converter.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Utils.html" title="RSS::Utils (module)">Utils</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Utils.html#element_initialize_arguments%3F-instance_method" title="RSS::Utils#element_initialize_arguments? (method)">#element_initialize_arguments?</a></span>, <span class='object_link'><a href="Utils.html#get_file_and_line_from_caller-instance_method" title="RSS::Utils#get_file_and_line_from_caller (method)">#get_file_and_line_from_caller</a></span>, <span class='object_link'><a href="Utils.html#html_escape-instance_method" title="RSS::Utils#html_escape (method)">#html_escape</a></span>, <span class='object_link'><a href="Utils.html#new_with_value_if_need-instance_method" title="RSS::Utils#new_with_value_if_need (method)">#new_with_value_if_need</a></span>, <span class='object_link'><a href="Utils.html#to_class_name-instance_method" title="RSS::Utils#to_class_name (method)">#to_class_name</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSS::Converter (class)">Converter</a></span></tt>) <strong>initialize</strong>(to_enc, from_enc = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of Converter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id to_enc'>to_enc</span><span class='comma'>,</span> <span class='id from_enc'>from_enc</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:encode</span><span class='rparen'>)</span>
+    <span class='ivar'>@to_encoding</span> <span class='op'>=</span> <span class='id to_enc'>to_enc</span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
+  <span class='id normalized_to_enc'>normalized_to_enc</span> <span class='op'>=</span> <span class='id to_enc'>to_enc</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>-</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>_</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id from_enc'>from_enc</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>utf-8</span><span class='tstring_end'>'</span></span>
+  <span class='id normalized_from_enc'>normalized_from_enc</span> <span class='op'>=</span> <span class='id from_enc'>from_enc</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>-</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>_</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id normalized_to_enc'>normalized_to_enc</span> <span class='op'>==</span> <span class='id normalized_from_enc'>normalized_from_enc</span>
+    <span class='id def_same_enc'>def_same_enc</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id def_diff_enc'>def_diff_enc</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>def_to_</span><span class='embexpr_beg'>#{</span><span class='id normalized_to_enc'>normalized_to_enc</span><span class='rbrace'>}</span><span class='tstring_content'>_from_</span><span class='embexpr_beg'>#{</span><span class='id normalized_from_enc'>normalized_from_enc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>if</span> <span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id def_diff_enc'>def_diff_enc</span><span class='rparen'>)</span>
+      <span class='id __send__'>__send__</span><span class='lparen'>(</span><span class='id def_diff_enc'>def_diff_enc</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id def_else_enc'>def_else_enc</span><span class='lparen'>(</span><span class='id to_enc'>to_enc</span><span class='comma'>,</span> <span class='id from_enc'>from_enc</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="convert-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>convert</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id convert'>convert</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id value'>value</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id value'>value</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:encode</span><span class='rparen'>)</span>
+    <span class='id value'>value</span><span class='period'>.</span><span class='id encode'>encode</span><span class='lparen'>(</span><span class='ivar'>@to_encoding</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id value'>value</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_convert-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_convert</strong>(depth = 0) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id def_convert'>def_convert</span><span class='lparen'>(</span><span class='id depth'>depth</span><span class='op'>=</span><span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>  def convert(value)
+    if value.kind_of?(String)
+</span><span class='embexpr_beg'>      #{</span><span class='kw'>yield</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>value</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>*</span><span class='id get_file_and_line_from_caller'>get_file_and_line_from_caller</span><span class='lparen'>(</span><span class='id depth'>depth</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='tstring_content'>
+    else
+      value
+    end
+  end
+</span><span class='heredoc_end'>  EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_else_enc-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_else_enc</strong>(to_enc, from_enc) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id def_else_enc'>def_else_enc</span><span class='lparen'>(</span><span class='id to_enc'>to_enc</span><span class='comma'>,</span> <span class='id from_enc'>from_enc</span><span class='rparen'>)</span>
+  <span class='id def_iconv_convert'>def_iconv_convert</span><span class='lparen'>(</span><span class='id to_enc'>to_enc</span><span class='comma'>,</span> <span class='id from_enc'>from_enc</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_iconv_convert-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_iconv_convert</strong>(to_enc, from_enc, depth = 0) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id def_iconv_convert'>def_iconv_convert</span><span class='lparen'>(</span><span class='id to_enc'>to_enc</span><span class='comma'>,</span> <span class='id from_enc'>from_enc</span><span class='comma'>,</span> <span class='id depth'>depth</span><span class='op'>=</span><span class='int'>0</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>iconv</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@iconv</span> <span class='op'>=</span> <span class='const'>Iconv</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id to_enc'>to_enc</span><span class='comma'>,</span> <span class='id from_enc'>from_enc</span><span class='rparen'>)</span>
+    <span class='id def_convert'>def_convert</span><span class='lparen'>(</span><span class='id depth'>depth</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+      <span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>      begin
+</span><span class='embexpr_beg'>        @iconv.iconv(#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>)
+      rescue Iconv::Failure
+</span><span class='embexpr_beg'>        raise ConversionError.new(#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>, &quot;</span><span class='embexpr_beg'>#{</span><span class='id to_enc'>to_enc</span><span class='rbrace'>}</span><span class='tstring_content'>&quot;, &quot;</span><span class='embexpr_beg'>#{</span><span class='id from_enc'>from_enc</span><span class='rbrace'>}</span>
+<span class='tstring_content'>&quot;)
+      end
+</span><span class='heredoc_end'>      EOC
+</span>    <span class='kw'>end</span>
+  <span class='kw'>rescue</span> <span class='const'>LoadError</span><span class='comma'>,</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='const'>SystemCallError</span>
+    <span class='id raise'>raise</span> <span class='const'>UnknownConversionMethodError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id to_enc'>to_enc</span><span class='comma'>,</span> <span class='id from_enc'>from_enc</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_same_enc-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_same_enc</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 71</span>
+
+<span class='kw'>def</span> <span class='id def_same_enc'>def_same_enc</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='id def_convert'>def_convert</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+    <span class='id value'>value</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_euc_jp_from_iso_2022_jp-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_euc_jp_from_iso_2022_jp</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133
+134
+135
+136</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id def_to_euc_jp_from_iso_2022_jp'>def_to_euc_jp_from_iso_2022_jp</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nkf</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id def_convert'>def_convert</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NKF.nkf('-Je', </span><span class='embexpr_beg'>#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_euc_jp_from_shift_jis-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_euc_jp_from_shift_jis</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 117</span>
+
+<span class='kw'>def</span> <span class='id def_to_euc_jp_from_shift_jis'>def_to_euc_jp_from_shift_jis</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nkf</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id def_convert'>def_convert</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NKF.nkf('-Se', </span><span class='embexpr_beg'>#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_euc_jp_from_utf_8-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_euc_jp_from_utf_8</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id def_to_euc_jp_from_utf_8'>def_to_euc_jp_from_utf_8</span>
+  <span class='id def_uconv_convert_if_can'>def_uconv_convert_if_can</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>u8toeuc</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>EUC-JP</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>UTF-8</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-We</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_iso_2022_jp_from_euc_jp-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_iso_2022_jp_from_euc_jp</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 138</span>
+
+<span class='kw'>def</span> <span class='id def_to_iso_2022_jp_from_euc_jp'>def_to_iso_2022_jp_from_euc_jp</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nkf</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id def_convert'>def_convert</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NKF.nkf('-Ej', </span><span class='embexpr_beg'>#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_iso_8859_1_from_utf_8-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_iso_8859_1_from_utf_8</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id def_to_iso_8859_1_from_utf_8'>def_to_iso_8859_1_from_utf_8</span>
+  <span class='id def_convert'>def_convert</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+    <span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    array_utf8 = </span><span class='embexpr_beg'>#{</span><span class='id value'>value</span><span class='rbrace'>}</span>
+<span class='tstring_content'>.unpack('U*')
+    array_enc = []
+    array_utf8.each do |num|
+      if num &lt;= 0xFF
+        array_enc &lt;&lt; num
+      else
+        array_enc.concat &quot;&amp;\#\#{num};&quot;.unpack('C*')
+      end
+    end
+    array_enc.pack('C*')
+</span><span class='heredoc_end'>    EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_shift_jis_from_euc_jp-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_shift_jis_from_euc_jp</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 124</span>
+
+<span class='kw'>def</span> <span class='id def_to_shift_jis_from_euc_jp'>def_to_shift_jis_from_euc_jp</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nkf</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id def_convert'>def_convert</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NKF.nkf('-Es', </span><span class='embexpr_beg'>#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_shift_jis_from_utf_8-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_shift_jis_from_utf_8</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='id def_to_shift_jis_from_utf_8'>def_to_shift_jis_from_utf_8</span>
+  <span class='id def_uconv_convert_if_can'>def_uconv_convert_if_can</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>u8tosjis</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Shift_JIS</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>UTF-8</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-Ws</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_utf_8_from_euc_jp-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_utf_8_from_euc_jp</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='id def_to_utf_8_from_euc_jp'>def_to_utf_8_from_euc_jp</span>
+  <span class='id def_uconv_convert_if_can'>def_uconv_convert_if_can</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>euctou8</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>UTF-8</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>EUC-JP</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-Ew</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_utf_8_from_iso_8859_1-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_utf_8_from_iso_8859_1</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 145</span>
+
+<span class='kw'>def</span> <span class='id def_to_utf_8_from_iso_8859_1'>def_to_utf_8_from_iso_8859_1</span>
+  <span class='id def_convert'>def_convert</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>.unpack('C*').pack('U*')</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_to_utf_8_from_shift_jis-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_to_utf_8_from_shift_jis</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id def_to_utf_8_from_shift_jis'>def_to_utf_8_from_shift_jis</span>
+  <span class='id def_uconv_convert_if_can'>def_uconv_convert_if_can</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>sjistou8</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>UTF-8</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Shift_JIS</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-Sw</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_uconv_convert_if_can-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_uconv_convert_if_can</strong>(meth, to_enc, from_enc, nkf_arg) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/converter.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id def_uconv_convert_if_can'>def_uconv_convert_if_can</span><span class='lparen'>(</span><span class='id meth'>meth</span><span class='comma'>,</span> <span class='id to_enc'>to_enc</span><span class='comma'>,</span> <span class='id from_enc'>from_enc</span><span class='comma'>,</span> <span class='id nkf_arg'>nkf_arg</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uconv</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id def_convert'>def_convert</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+      <span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>      begin
+</span><span class='embexpr_beg'>        Uconv.#{</span><span class='id meth'>meth</span><span class='rbrace'>}</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>)
+      rescue Uconv::Error
+</span><span class='embexpr_beg'>        raise ConversionError.new(#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>, &quot;</span><span class='embexpr_beg'>#{</span><span class='id to_enc'>to_enc</span><span class='rbrace'>}</span><span class='tstring_content'>&quot;, &quot;</span><span class='embexpr_beg'>#{</span><span class='id from_enc'>from_enc</span><span class='rbrace'>}</span>
+<span class='tstring_content'>&quot;)
+      end
+</span><span class='heredoc_end'>      EOC
+</span>    <span class='kw'>end</span>
+  <span class='kw'>rescue</span> <span class='const'>LoadError</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nkf</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>if</span> <span class='const'>NKF</span><span class='period'>.</span><span class='id const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='symbol'>:UTF8</span><span class='rparen'>)</span>
+      <span class='id def_convert'>def_convert</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='op'>|</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NKF.nkf(</span><span class='embexpr_beg'>#{</span><span class='id nkf_arg'>nkf_arg</span><span class='period'>.</span><span class='id dump'>dump</span><span class='rbrace'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>else</span>
+      <span class='id def_iconv_convert'>def_iconv_convert</span><span class='lparen'>(</span><span class='id to_enc'>to_enc</span><span class='comma'>,</span> <span class='id from_enc'>from_enc</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:04 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

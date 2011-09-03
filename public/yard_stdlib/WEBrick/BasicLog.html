@@ -1,0 +1,1222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: WEBrick::BasicLog
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (B)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../WEBrick.html" title="WEBrick (module)">WEBrick</a></span></span>
+     &raquo; 
+    <span class="title">BasicLog</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: WEBrick::BasicLog
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">WEBrick::BasicLog</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/webrick/log.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A generic logging class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="Log.html" title="WEBrick::Log (class)">Log</a></span></p>
+</div>
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#level-instance_method" title="#level (instance method)">- (Object) <strong>level</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>log-level, messages above this level will be logged.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3C-instance_method" title="#&lt;&lt; (instance method)">- (Object) <strong>&lt;&lt;</strong>(obj) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Synonym for log(INFO, obj.to_s).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close-instance_method" title="#close (instance method)">- (Object) <strong>close</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Closes the logger (also closes the log device associated to the logger).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug-instance_method" title="#debug (instance method)">- (Object) <strong>debug</strong>(msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut for logging a DEBUG message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug%3F-instance_method" title="#debug? (instance method)">- (Boolean) <strong>debug?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Will the logger output DEBUG messages?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#error-instance_method" title="#error (instance method)">- (Object) <strong>error</strong>(msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut for logging an ERROR message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#error%3F-instance_method" title="#error? (instance method)">- (Boolean) <strong>error?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Will the logger output ERROR messages?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fatal-instance_method" title="#fatal (instance method)">- (Object) <strong>fatal</strong>(msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut for logging a FATAL message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fatal%3F-instance_method" title="#fatal? (instance method)">- (Boolean) <strong>fatal?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Will the logger output FATAL messages?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format-instance_method" title="#format (instance method)">- (Object) <strong>format</strong>(arg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Formats <tt>arg</tt> for the logger.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut for logging an INFO message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#info%3F-instance_method" title="#info? (instance method)">- (Boolean) <strong>info?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Will the logger output INFO messages?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (BasicLog) <strong>initialize</strong>(log_file = nil, level = nil) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initializes a new logger for <tt>log_file</tt> that outputs messages at
+<tt>level</tt> or higher.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#log-instance_method" title="#log (instance method)">- (Object) <strong>log</strong>(level, data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Logs <tt>data</tt> at <tt>level</tt> if the given level is above the
+current log level.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#warn-instance_method" title="#warn (instance method)">- (Object) <strong>warn</strong>(msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut for logging a WARN message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#warn%3F-instance_method" title="#warn? (instance method)">- (Boolean) <strong>warn?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Will the logger output WARN messages?.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="WEBrick::BasicLog (class)">BasicLog</a></span></tt>) <strong>initialize</strong>(log_file = nil, level = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Initializes a new logger for <tt>log_file</tt> that outputs messages at
+<tt>level</tt> or higher.  <tt>log_file</tt> can be a filename, an IO-like
+object that responds to #&lt;&lt; or nil which outputs to $stderr.</p>
+
+<p>If no level is given INFO is chosen by default</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id log_file'>log_file</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id level'>level</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@level</span> <span class='op'>=</span> <span class='id level'>level</span> <span class='op'>||</span> <span class='const'>INFO</span>
+  <span class='kw'>case</span> <span class='id log_file'>log_file</span>
+  <span class='kw'>when</span> <span class='const'>String</span>
+    <span class='ivar'>@log</span> <span class='op'>=</span> <span class='id open'>open</span><span class='lparen'>(</span><span class='id log_file'>log_file</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a+</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='ivar'>@log</span><span class='period'>.</span><span class='id sync'>sync</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='ivar'>@opened</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>when</span> <span class='const'>NilClass</span>
+    <span class='ivar'>@log</span> <span class='op'>=</span> <span class='gvar'>$stderr</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@log</span> <span class='op'>=</span> <span class='id log_file'>log_file</span>  <span class='comment'># requires &quot;&lt;&lt;&quot;. (see BasicLog#log)
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="level=-instance_method"></span>
+      <span id="level-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="level-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>level</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>log-level, messages above this level will be logged</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id level'>level</span>
+  <span class='ivar'>@level</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="<<-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>&lt;&lt;</strong>(obj) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Synonym for log(INFO, obj.to_s)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id obj'>obj</span><span class='rparen'>)</span>
+  <span class='id log'>log</span><span class='lparen'>(</span><span class='const'>INFO</span><span class='comma'>,</span> <span class='id obj'>obj</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="close-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>close</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Closes the logger (also closes the log device associated to the logger)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id close'>close</span>
+  <span class='ivar'>@log</span><span class='period'>.</span><span class='id close'>close</span> <span class='kw'>if</span> <span class='ivar'>@opened</span>
+  <span class='ivar'>@log</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="debug-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>debug</strong>(msg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut for logging a DEBUG message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id debug'>debug</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span> <span class='id log'>log</span><span class='lparen'>(</span><span class='const'>DEBUG</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DEBUG </span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="debug?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>debug?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Will the logger output DEBUG messages?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id debug?'>debug?</span><span class='semicolon'>;</span> <span class='ivar'>@level</span> <span class='op'>&gt;=</span> <span class='const'>DEBUG</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="error-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>error</strong>(msg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut for logging an ERROR message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 71</span>
+
+<span class='kw'>def</span> <span class='id error'>error</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span> <span class='id log'>log</span><span class='lparen'>(</span><span class='const'>ERROR</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ERROR </span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="error?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>error?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Will the logger output ERROR messages?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id error?'>error?</span><span class='semicolon'>;</span> <span class='ivar'>@level</span> <span class='op'>&gt;=</span> <span class='const'>ERROR</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fatal-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fatal</strong>(msg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut for logging a FATAL message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id fatal'>fatal</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span> <span class='id log'>log</span><span class='lparen'>(</span><span class='const'>FATAL</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FATAL </span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fatal?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>fatal?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Will the logger output FATAL messages?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id fatal?'>fatal?</span><span class='semicolon'>;</span> <span class='ivar'>@level</span> <span class='op'>&gt;=</span> <span class='const'>FATAL</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="format-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>format</strong>(arg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Formats <tt>arg</tt> for the logger</p>
+<ul><li>
+<p>If <tt>arg</tt> is an Exception, it will format the error message and the
+back trace.</p>
+</li><li>
+<p>If <tt>arg</tt> responds to #to_str, it will return it.</p>
+</li><li>
+<p>Otherwise it will return <tt>arg</tt>.inspect.</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 99</span>
+
+<span class='kw'>def</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='id arg'>arg</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Exception</span><span class='rparen'>)</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id arg'>arg</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id arg'>arg</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'>\n\t</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span>
+    <span class='id arg'>arg</span><span class='period'>.</span><span class='id backtrace'>backtrace</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\t</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>elsif</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_str</span><span class='rparen'>)</span>
+    <span class='id arg'>arg</span><span class='period'>.</span><span class='id to_str'>to_str</span>
+  <span class='kw'>else</span>
+    <span class='id arg'>arg</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="info-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>info</strong>(msg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut for logging an INFO message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id info'>info</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span>  <span class='id log'>log</span><span class='lparen'>(</span><span class='const'>INFO</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INFO  </span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="info?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>info?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Will the logger output INFO messages?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='id info?'>info?</span><span class='semicolon'>;</span>  <span class='ivar'>@level</span> <span class='op'>&gt;=</span> <span class='const'>INFO</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="log-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>log</strong>(level, data) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Logs <tt>data</tt> at <tt>level</tt> if the given level is above the
+current log level.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id log'>log</span><span class='lparen'>(</span><span class='id level'>level</span><span class='comma'>,</span> <span class='id data'>data</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@log</span> <span class='op'>&amp;&amp;</span> <span class='id level'>level</span> <span class='op'>&lt;=</span> <span class='ivar'>@level</span>
+    <span class='id data'>data</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n\Z</span><span class='regexp_end'>/</span></span> <span class='op'>!~</span> <span class='id data'>data</span>
+    <span class='ivar'>@log</span> <span class='op'>&lt;&lt;</span> <span class='id data'>data</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="warn-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>warn</strong>(msg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut for logging a WARN message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id warn'>warn</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span>  <span class='id log'>log</span><span class='lparen'>(</span><span class='const'>WARN</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>WARN  </span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='id msg'>msg</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="warn?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>warn?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Will the logger output WARN messages?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/log.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id warn?'>warn?</span><span class='semicolon'>;</span>  <span class='ivar'>@level</span> <span class='op'>&gt;=</span> <span class='const'>WARN</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:58 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

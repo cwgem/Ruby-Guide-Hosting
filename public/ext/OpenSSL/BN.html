@@ -1,0 +1,1567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: OpenSSL::BN</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../ext/openssl/lib/openssl/bn_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/openssl/lib/openssl/bn.rb">ext/openssl/lib/openssl/bn.rb</a></li>
+          
+            <li><a href="../ext/openssl/ossl_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/openssl/ossl.c">ext/openssl/ossl.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="../Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-generate_prime">::generate_prime</a></li>
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-2F">#/</a></li>
+          
+          <li><a href="#method-i-3D-3D">#==</a></li>
+          
+          <li><a href="#method-i-3D-3D-3D">#===</a></li>
+          
+          <li><a href="#method-i-bit_set-3F">#bit_set?</a></li>
+          
+          <li><a href="#method-i-coerce">#coerce</a></li>
+          
+          <li><a href="#method-i-copy">#copy</a></li>
+          
+          <li><a href="#method-i-eql-3F">#eql?</a></li>
+          
+          <li><a href="#method-i-prime-3F">#prime?</a></li>
+          
+          <li><a href="#method-i-prime_fasttest-3F">#prime_fasttest?</a></li>
+          
+          <li><a href="#method-i-to_bn">#to_bn</a></li>
+          
+          <li><a href="#method-i-to_i">#to_i</a></li>
+          
+          <li><a href="#method-i-to_int">#to_int</a></li>
+          
+          <li><a href="#method-i-to_s">#to_s</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Included Modules -->
+      <div id="includes-section" class="section">
+        <h3 class="section-header">Included Modules</h3>
+        <ul class="link-list">
+        
+        
+          <li><span class="include">Comparable</span></li>
+        
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="../OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="../OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="../OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="../OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="../OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="../OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="../OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="../OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="../OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="../OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="../OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="../OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="../OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="../OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="../OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="../OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="../OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="../OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="../OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="../OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="../OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="../OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="../OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="../OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="../Psych.html">Psych</a></li>
+        
+          <li><a href="../Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="../Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="../Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="../Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="../Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="../Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="../Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="../Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="../Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="../Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="../Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="../Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="../Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="../Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="../Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="../Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="../Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="../Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="../Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="../Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="../Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="../Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="../Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="../Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="../Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="../Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="../Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="../Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="../Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="../DL.html">DL</a></li>
+        
+          <li><a href="../DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="../DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="../DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="../DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="../DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="../DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="../DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="../DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="../DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="../DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="../DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="../DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="../DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="../DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="../DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="../DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="../DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="../DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="../DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="../DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="../DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="../DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="../Zlib.html">Zlib</a></li>
+        
+          <li><a href="../Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="../Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="../Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="../Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="../Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="../Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="../Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="../Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="../Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="../Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="../Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="../Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="../Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="../Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="../Win32.html">Win32</a></li>
+        
+          <li><a href="../Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="../Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="../Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="../Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="../Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="../Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="../Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="../Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="../Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="../Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="../Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="../Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="../Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="../Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="../JSON.html">JSON</a></li>
+        
+          <li><a href="../JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="../JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="../JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="../JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="../JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="../Iconv.html">Iconv</a></li>
+        
+          <li><a href="../Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="../Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="../Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="../Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="../Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="../Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="../Ripper.html">Ripper</a></li>
+        
+          <li><a href="../Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="../Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="../Digest.html">Digest</a></li>
+        
+          <li><a href="../Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="../Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="../Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="../Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="../Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="../Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="../Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="../Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="../DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="../Socket.html">Socket</a></li>
+        
+          <li><a href="../Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="../Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="../Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="../Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="../Curses.html">Curses</a></li>
+        
+          <li><a href="../Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="../Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="../Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="../PTY.html">PTY</a></li>
+        
+          <li><a href="../PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="../StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="../StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="../Syslog.html">Syslog</a></li>
+        
+          <li><a href="../Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="../WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="../WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="../Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="../BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="../BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="../BigMath.html">BigMath</a></li>
+        
+          <li><a href="../Class.html">Class</a></li>
+        
+          <li><a href="../Coverage.html">Coverage</a></li>
+        
+          <li><a href="../DBM.html">DBM</a></li>
+        
+          <li><a href="../DBMError.html">DBMError</a></li>
+        
+          <li><a href="../Date.html">Date</a></li>
+        
+          <li><a href="../DateTime.html">DateTime</a></li>
+        
+          <li><a href="../Etc.html">Etc</a></li>
+        
+          <li><a href="../Exception.html">Exception</a></li>
+        
+          <li><a href="../Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="../Float.html">Float</a></li>
+        
+          <li><a href="../GDBM.html">GDBM</a></li>
+        
+          <li><a href="../GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="../GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="../IO.html">IO</a></li>
+        
+          <li><a href="../IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="../Integer.html">Integer</a></li>
+        
+          <li><a href="../Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="../Kconv.html">Kconv</a></li>
+        
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="../Module.html">Module</a></li>
+        
+          <li><a href="../NKF.html">NKF</a></li>
+        
+          <li><a href="../Newton.html">Newton</a></li>
+        
+          <li><a href="../OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="../Object.html">Object</a></li>
+        
+          <li><a href="../Pathname.html">Pathname</a></li>
+        
+          <li><a href="../Range.html">Range</a></li>
+        
+          <li><a href="../Rational.html">Rational</a></li>
+        
+          <li><a href="../Readline.html">Readline</a></li>
+        
+          <li><a href="../Regexp.html">Regexp</a></li>
+        
+          <li><a href="../SDBM.html">SDBM</a></li>
+        
+          <li><a href="../SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="../SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="../SocketError.html">SocketError</a></li>
+        
+          <li><a href="../String.html">String</a></li>
+        
+          <li><a href="../StringIO.html">StringIO</a></li>
+        
+          <li><a href="../Struct.html">Struct</a></li>
+        
+          <li><a href="../Symbol.html">Symbol</a></li>
+        
+          <li><a href="../TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="../TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="../Thread.html">Thread</a></li>
+        
+          <li><a href="../Time.html">Time</a></li>
+        
+          <li><a href="../UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="../UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="../UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="../WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="../WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="../WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="../WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="../WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="../WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="../WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="../WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="../Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">OpenSSL::BN</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="generate_prime-method" class="method-detail ">
+          <a name="method-c-generate_prime"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">generate_prime(bits, [, safe [, add [, rem]]]) => bn</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <h3>Parameters</h3>
+<ul><li>
+<p><tt>bits</tt> - integer</p>
+</li><li>
+<p><tt>safe</tt> - boolean</p>
+</li><li>
+<p><tt>add</tt> - <a href="BN.html">BN</a></p>
+</li><li>
+<p><tt>rem</tt> - <a href="BN.html">BN</a></p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="generate_prime-source">
+<pre>
+static VALUE
+ossl_bn_s_generate_prime(int argc, VALUE *argv, VALUE klass)
+{
+    BIGNUM *add = NULL, *rem = NULL, *result;
+    int safe = 1, num;
+    VALUE vnum, vsafe, vadd, vrem, obj;
+
+    rb_scan_args(argc, argv, &quot;13&quot;, &amp;vnum, &amp;vsafe, &amp;vadd, &amp;vrem);
+
+    num = NUM2INT(vnum);
+
+    if (vsafe == Qfalse) {
+        safe = 0;
+    }
+    if (!NIL_P(vadd)) {
+        add = GetBNPtr(vadd);
+        rem = NIL_P(vrem) ? NULL : GetBNPtr(vrem);
+    }
+    if (!(result = BN_new())) {
+        ossl_raise(eBNError, NULL);
+    }
+    if (!BN_generate_prime(result, num, safe, add, rem, NULL, NULL)) {
+        BN_free(result);
+        ossl_raise(eBNError, NULL);
+    }
+    WrapBN(klass, obj, result);
+
+    return obj;
+}</pre>
+            </div><!-- generate_prime-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- generate_prime-method -->
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">new => aBN</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">new(bn) => aBN</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">new(string) => aBN</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">new(string, 0 | 2 | 10 | 16) => aBN</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+static VALUE
+ossl_bn_initialize(int argc, VALUE *argv, VALUE self)
+{
+    BIGNUM *bn;
+    VALUE str, bs;
+    int base = 10;
+
+    if (rb_scan_args(argc, argv, &quot;11&quot;, &amp;str, &amp;bs) == 2) {
+        base = NUM2INT(bs);
+    }
+    StringValue(str);
+    GetBN(self, bn);
+    if (RTEST(rb_obj_is_kind_of(str, cBN))) {
+        BIGNUM *other;
+
+        GetBN(str, other); /* Safe - we checked kind_of? above */
+        if (!BN_copy(bn, other)) {
+            ossl_raise(eBNError, NULL);
+        }
+        return self;
+    }
+
+    switch (base) {
+    case 0:
+        if (!BN_mpi2bn((unsigned char *)RSTRING_PTR(str), RSTRING_LENINT(str), bn)) {
+            ossl_raise(eBNError, NULL);
+        }
+        break;
+    case 2:
+        if (!BN_bin2bn((unsigned char *)RSTRING_PTR(str), RSTRING_LENINT(str), bn)) {
+            ossl_raise(eBNError, NULL);
+        }
+        break;
+    case 10:
+        if (!BN_dec2bn(&amp;bn, RSTRING_PTR(str))) {
+            ossl_raise(eBNError, NULL);
+        }
+        break;
+    case 16:
+        if (!BN_hex2bn(&amp;bn, RSTRING_PTR(str))) {
+            ossl_raise(eBNError, NULL);
+        }
+        break;
+    default:
+        ossl_raise(rb_eArgError, &quot;invalid radix %d&quot;, base);
+    }
+    return self;
+}</pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="2F-method" class="method-detail ">
+          <a name="method-i-2F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">bn1 / bn2 => [result, remainder]</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="2F-source">
+<pre>
+static VALUE
+ossl_bn_div(VALUE self, VALUE other)
+{
+    BIGNUM *bn1, *bn2 = GetBNPtr(other), *r1, *r2;
+    VALUE obj1, obj2;
+
+    GetBN(self, bn1);
+
+    if (!(r1 = BN_new())) {
+        ossl_raise(eBNError, NULL);
+    }
+    if (!(r2 = BN_new())) {
+        BN_free(r1);
+        ossl_raise(eBNError, NULL);
+    }
+    if (!BN_div(r1, r2, bn1, bn2, ossl_bn_ctx)) {
+        BN_free(r1);
+        BN_free(r2);
+        ossl_raise(eBNError, NULL);
+    }
+    WrapBN(CLASS_OF(self), obj1, r1);
+    WrapBN(CLASS_OF(self), obj2, r2);
+
+    return rb_ary_new3(2, obj1, obj2);
+}</pre>
+            </div><!-- 2F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 2F-method -->
+
+      
+        <div id="3D-3D-method" class="method-detail method-alias">
+          <a name="method-i-3D-3D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">==</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="BN.html#method-i-eql-3F">eql?</a>
+          </div>
+          
+        </div><!-- 3D-3D-method -->
+
+      
+        <div id="3D-3D-3D-method" class="method-detail method-alias">
+          <a name="method-i-3D-3D-3D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">===</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="BN.html#method-i-eql-3F">eql?</a>
+          </div>
+          
+        </div><!-- 3D-3D-3D-method -->
+
+      
+        <div id="bit_set-3F-method" class="method-detail ">
+          <a name="method-i-bit_set-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">bit_set?(bit) => true | false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="bit_set-3F-source">
+<pre>
+static VALUE
+ossl_bn_is_bit_set(VALUE self, VALUE bit)
+{
+    int b;
+    BIGNUM *bn;
+
+    b = NUM2INT(bit);
+    GetBN(self, bn);
+    if (BN_is_bit_set(bn, b)) {
+        return Qtrue;
+    }
+    return Qfalse;
+}</pre>
+            </div><!-- bit_set-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- bit_set-3F-method -->
+
+      
+        <div id="coerce-method" class="method-detail ">
+          <a name="method-i-coerce"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">coerce</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="coerce-source">
+<pre>
+static VALUE
+ossl_bn_coerce(VALUE self, VALUE other)
+{
+    switch(TYPE(other)) {
+    case T_STRING:
+        self = ossl_bn_to_s(0, NULL, self);
+        break;
+    case T_FIXNUM:
+    case T_BIGNUM:
+        self = ossl_bn_to_i(self);
+        break;
+    default:
+        if (!RTEST(rb_obj_is_kind_of(other, cBN))) {
+            ossl_raise(rb_eTypeError, &quot;Don't know how to coerce&quot;);
+        }
+    }
+    return rb_assoc_new(other, self);
+}</pre>
+            </div><!-- coerce-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- coerce-method -->
+
+      
+        <div id="copy-method" class="method-detail ">
+          <a name="method-i-copy"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">copy</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="copy-source">
+<pre>
+static VALUE
+ossl_bn_copy(VALUE self, VALUE other)
+{
+    BIGNUM *bn1, *bn2;
+
+    rb_check_frozen(self);
+
+    if (self == other) return self;
+
+    GetBN(self, bn1);
+    bn2 = GetBNPtr(other);
+
+    if (!BN_copy(bn1, bn2)) {
+        ossl_raise(eBNError, NULL);
+    }
+    return self;
+}</pre>
+            </div><!-- copy-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- copy-method -->
+
+      
+        <div id="eql-3F-method" class="method-detail ">
+          <a name="method-i-eql-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">eql?</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="eql-3F-source">
+<pre>
+static VALUE
+ossl_bn_eql(VALUE self, VALUE other)
+{
+    if (ossl_bn_cmp(self, other) == INT2FIX(0)) {
+        return Qtrue;
+    }
+    return Qfalse;
+}</pre>
+            </div><!-- eql-3F-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="BN.html#method-i-3D-3D">==</a>, <a href="BN.html#method-i-3D-3D-3D">===</a>
+          </div>
+          
+
+          
+        </div><!-- eql-3F-method -->
+
+      
+        <div id="prime-3F-method" class="method-detail ">
+          <a name="method-i-prime-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">prime? => true | false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">prime?(checks) => true | false</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <h3>Parameters</h3>
+<ul><li>
+<p><tt>checks</tt> - integer</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="prime-3F-source">
+<pre>
+static VALUE
+ossl_bn_is_prime(int argc, VALUE *argv, VALUE self)
+{
+    BIGNUM *bn;
+    VALUE vchecks;
+    int checks = BN_prime_checks;
+
+    if (rb_scan_args(argc, argv, &quot;01&quot;, &amp;vchecks) == 1) {
+        checks = NUM2INT(vchecks);
+    }
+    GetBN(self, bn);
+    switch (BN_is_prime(bn, checks, NULL, ossl_bn_ctx, NULL)) {
+    case 1:
+        return Qtrue;
+    case 0:
+        return Qfalse;
+    default:
+        ossl_raise(eBNError, NULL);
+    }
+    /* not reachable */
+    return Qnil;
+}</pre>
+            </div><!-- prime-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- prime-3F-method -->
+
+      
+        <div id="prime_fasttest-3F-method" class="method-detail ">
+          <a name="method-i-prime_fasttest-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">prime_fasttest? => true | false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">prime_fasttest?(checks) => true | false</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">prime_fasttest?(checks, trial_div) => true | false</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <h3>Parameters</h3>
+<ul><li>
+<p><tt>checks</tt> - integer</p>
+</li><li>
+<p><tt>trial_div</tt> - boolean</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="prime_fasttest-3F-source">
+<pre>
+static VALUE
+ossl_bn_is_prime_fasttest(int argc, VALUE *argv, VALUE self)
+{
+    BIGNUM *bn;
+    VALUE vchecks, vtrivdiv;
+    int checks = BN_prime_checks, do_trial_division = 1;
+
+    rb_scan_args(argc, argv, &quot;02&quot;, &amp;vchecks, &amp;vtrivdiv);
+
+    if (!NIL_P(vchecks)) {
+        checks = NUM2INT(vchecks);
+    }
+    GetBN(self, bn);
+    /* handle true/false */
+    if (vtrivdiv == Qfalse) {
+        do_trial_division = 0;
+    }
+    switch (BN_is_prime_fasttest(bn, checks, NULL, ossl_bn_ctx, NULL, do_trial_division)) {
+    case 1:
+        return Qtrue;
+    case 0:
+        return Qfalse;
+    default:
+        ossl_raise(eBNError, NULL);
+    }
+    /* not reachable */
+    return Qnil;
+}</pre>
+            </div><!-- prime_fasttest-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- prime_fasttest-3F-method -->
+
+      
+        <div id="to_bn-method" class="method-detail ">
+          <a name="method-i-to_bn"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_bn</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="to_bn-source">
+<pre>
+static VALUE
+ossl_bn_to_bn(VALUE self)
+{
+    return self;
+}</pre>
+            </div><!-- to_bn-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_bn-method -->
+
+      
+        <div id="to_i-method" class="method-detail ">
+          <a name="method-i-to_i"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_i => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="to_i-source">
+<pre>
+static VALUE
+ossl_bn_to_i(VALUE self)
+{
+    BIGNUM *bn;
+    char *txt;
+    VALUE num;
+
+    GetBN(self, bn);
+
+    if (!(txt = BN_bn2dec(bn))) {
+        ossl_raise(eBNError, NULL);
+    }
+    num = rb_cstr_to_inum(txt, 10, Qtrue);
+    OPENSSL_free(txt);
+
+    return num;
+}</pre>
+            </div><!-- to_i-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="BN.html#method-i-to_int">to_int</a>
+          </div>
+          
+
+          
+        </div><!-- to_i-method -->
+
+      
+        <div id="to_int-method" class="method-detail method-alias">
+          <a name="method-i-to_int"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_int</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="BN.html#method-i-to_i">to_i</a>
+          </div>
+          
+        </div><!-- to_int-method -->
+
+      
+        <div id="to_s-method" class="method-detail ">
+          <a name="method-i-to_s"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_s => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_s(base) => string</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <h3>Parameters</h3>
+<ul><li>
+<p><tt>base</tt> - integer</p>
+</li><li><ul><li>
+<p>Valid values:</p>
+</li></ul>
+</li><li><ul><li><ul><li>
+<p>0 - MPI</p>
+</li></ul>
+</li></ul>
+</li><li><ul><li><ul><li>
+<p>2 - binary</p>
+</li></ul>
+</li></ul>
+</li><li><ul><li><ul><li>
+<p>10 - the default</p>
+</li></ul>
+</li></ul>
+</li><li><ul><li><ul><li>
+<p>16 - hex</p>
+</li></ul>
+</li></ul>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="to_s-source">
+<pre>
+static VALUE
+ossl_bn_to_s(int argc, VALUE *argv, VALUE self)
+{
+    BIGNUM *bn;
+    VALUE str, bs;
+    int base = 10, len;
+    char *buf;
+
+    if (rb_scan_args(argc, argv, &quot;01&quot;, &amp;bs) == 1) {
+        base = NUM2INT(bs);
+    }
+    GetBN(self, bn);
+    switch (base) {
+    case 0:
+        len = BN_bn2mpi(bn, NULL);
+        str = rb_str_new(0, len);
+        if (BN_bn2mpi(bn, (unsigned char *)RSTRING_PTR(str)) != len)
+            ossl_raise(eBNError, NULL);
+        break;
+    case 2:
+        len = BN_num_bytes(bn);
+        str = rb_str_new(0, len);
+        if (BN_bn2bin(bn, (unsigned char *)RSTRING_PTR(str)) != len)
+            ossl_raise(eBNError, NULL);
+        break;
+    case 10:
+        if (!(buf = BN_bn2dec(bn))) ossl_raise(eBNError, NULL);
+        str = ossl_buf2str(buf, rb_long2int(strlen(buf)));
+        break;
+    case 16:
+        if (!(buf = BN_bn2hex(bn))) ossl_raise(eBNError, NULL);
+        str = ossl_buf2str(buf, rb_long2int(strlen(buf)));
+        break;
+    default:
+        ossl_raise(rb_eArgError, &quot;invalid radix %d&quot;, base);
+    }
+
+    return str;
+}</pre>
+            </div><!-- to_s-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_s-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,2315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Shell
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (S)</a> &raquo; 
+    
+    
+    <span class="title">Shell</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Shell
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Shell</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2"><span class='object_link'><a href="Exception2MessageMapper.html" title="Exception2MessageMapper (module)">Exception2MessageMapper</a></span>, <span class='object_link'><a href="Forwardable.html" title="Forwardable (module)">Forwardable</a></span></dd>
+      
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="Shell/Error.html" title="Shell::Error (module)">Error</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/shell/filter.rb<span class="defines">,<br />
+  lib/shell.rb,<br /> lib/shell/error.rb,<br /> lib/shell/version.rb,<br /> lib/shell/system-command.rb,<br /> lib/shell/builtin-command.rb,<br /> lib/shell/command-processor.rb,<br /> lib/shell/process-controller.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>version.rb - shell version definition file</p>
+
+<pre class="code">$Release Version: 0.7$
+$Revision: 31641 $
+by Keiju ISHITSUKA(keiju@ruby-lang.org)</pre>
+
+<p>--</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Shell/Error.html" title="Shell::Error (module)">Error</a></span>
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Shell/AppendFile.html" title="Shell::AppendFile (class)">AppendFile</a></span>, <span class='object_link'><a href="Shell/AppendIO.html" title="Shell::AppendIO (class)">AppendIO</a></span>, <span class='object_link'><a href="Shell/BuiltInCommand.html" title="Shell::BuiltInCommand (class)">BuiltInCommand</a></span>, <span class='object_link'><a href="Shell/Cat.html" title="Shell::Cat (class)">Cat</a></span>, <span class='object_link'><a href="Shell/CommandProcessor.html" title="Shell::CommandProcessor (class)">CommandProcessor</a></span>, <span class='object_link'><a href="Shell/Concat.html" title="Shell::Concat (class)">Concat</a></span>, <span class='object_link'><a href="Shell/Echo.html" title="Shell::Echo (class)">Echo</a></span>, <span class='object_link'><a href="Shell/Filter.html" title="Shell::Filter (class)">Filter</a></span>, <span class='object_link'><a href="Shell/Glob.html" title="Shell::Glob (class)">Glob</a></span>, <span class='object_link'><a href="Shell/ProcessController.html" title="Shell::ProcessController (class)">ProcessController</a></span>, <span class='object_link'><a href="Shell/SystemCommand.html" title="Shell::SystemCommand (class)">SystemCommand</a></span>, <span class='object_link'><a href="Shell/Tee.html" title="Shell::Tee (class)">Tee</a></span>, <span class='object_link'><a href="Shell/Void.html" title="Shell::Void (class)">Void</a></span>
+    
+  
+</p>
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="Forwardable.html" title="Forwardable (module)">Forwardable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Forwardable.html#FORWARDABLE_VERSION-constant" title="Forwardable::FORWARDABLE_VERSION (constant)">FORWARDABLE_VERSION</a></span></p>
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="Exception2MessageMapper.html" title="Exception2MessageMapper (module)">Exception2MessageMapper</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Exception2MessageMapper.html#E2MM-constant" title="Exception2MessageMapper::E2MM (constant)">E2MM</a></span></p>
+
+  
+  
+  
+  
+  <h2>Class Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cascade-class_method" title="cascade (class method)">+ (Object) <strong>cascade</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute cascade.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug-class_method" title="debug (class method)">+ (Object) <strong>debug</strong> </a>
+    
+
+    
+      (also: debug?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute debug.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verbose-class_method" title="verbose (class method)">+ (Object) <strong>verbose</strong> </a>
+    
+
+    
+      (also: verbose?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute verbose.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#command_processor-instance_method" title="#command_processor (instance method)">- (Object) <strong>command_processor</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute command_processor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cwd-instance_method" title="#cwd (instance method)">- (Object) <strong>cwd</strong> </a>
+    
+
+    
+      (also: #dir, #getwd, #pwd)
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dir related methods.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug-instance_method" title="#debug (instance method)">- (Object) <strong>debug</strong> </a>
+    
+
+    
+      (also: #debug?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute debug.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dir_stack-instance_method" title="#dir_stack (instance method)">- (Object) <strong>dir_stack</strong> </a>
+    
+
+    
+      (also: #dirs)
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute dir_stack.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#process_controller-instance_method" title="#process_controller (instance method)">- (Object) <strong>process_controller</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute process_controller.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#record_separator-instance_method" title="#record_separator (instance method)">- (Object) <strong>record_separator</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute record_separator.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#system_path-instance_method" title="#system_path (instance method)">- (Object) <strong>system_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute system_path.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#umask-instance_method" title="#umask (instance method)">- (Object) <strong>umask</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute umask.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verbose-instance_method" title="#verbose (instance method)">- (Object) <strong>verbose</strong> </a>
+    
+
+    
+      (also: #verbose?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute verbose.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#alias_command-class_method" title="alias_command (class method)">+ (Object) <strong>alias_command</strong>(ali, command, *opts, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cd-class_method" title="cd (class method)">+ (Object) <strong>cd</strong>(path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_system_command-class_method" title="def_system_command (class method)">+ (Object) <strong>def_system_command</strong>(command, path = command) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>command definitions.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_record_separator-class_method" title="default_record_separator (class method)">+ (Object) <strong>default_record_separator</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_record_separator%3D-class_method" title="default_record_separator= (class method)">+ (Object) <strong>default_record_separator=</strong>(rs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_system_path-class_method" title="default_system_path (class method)">+ (Object) <strong>default_system_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_system_path%3D-class_method" title="default_system_path= (class method)">+ (Object) <strong>default_system_path=</strong>(path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_system_commands-class_method" title="install_system_commands (class method)">+ (Object) <strong>install_system_commands</strong>(pre = &quot;sys_&quot;) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify-class_method" title="notify (class method)">+ (Object) <strong>notify</strong>(*opts, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unalias_command-class_method" title="unalias_command (class method)">+ (Object) <strong>unalias_command</strong>(ali) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#undef_system_command-class_method" title="undef_system_command (class method)">+ (Object) <strong>undef_system_command</strong>(command) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chdir-instance_method" title="#chdir (instance method)">- (Object) <strong>chdir</strong>(path = nil, verbose = @verbose) </a>
+    
+
+    
+      (also: #cd)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>If called as iterator, it restores the current directory when the block
+ends.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expand_path-instance_method" title="#expand_path (instance method)">- (Object) <strong>expand_path</strong>(path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Shell) <strong>initialize</strong>(pwd = Dir.pwd, umask = nil) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Shell.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#jobs-instance_method" title="#jobs (instance method)">- (Object) <strong>jobs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>process management.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#kill-instance_method" title="#kill (instance method)">- (Object) <strong>kill</strong>(sig, command) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#popdir-instance_method" title="#popdir (instance method)">- (Object) <strong>popdir</strong> </a>
+    
+
+    
+      (also: #popd)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pushdir-instance_method" title="#pushdir (instance method)">- (Object) <strong>pushdir</strong>(path = nil, verbose = @verbose) </a>
+    
+
+    
+      (also: #pushd)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Forwardable.html" title="Forwardable (module)">Forwardable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Forwardable.html#def_instance_delegator-instance_method" title="Forwardable#def_instance_delegator (method)">def_instance_delegator</a></span>, <span class='object_link'><a href="Forwardable.html#def_instance_delegators-instance_method" title="Forwardable#def_instance_delegators (method)">def_instance_delegators</a></span>, <span class='object_link'><a href="Forwardable.html#instance_delegate-instance_method" title="Forwardable#instance_delegate (method)">instance_delegate</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Exception2MessageMapper.html" title="Exception2MessageMapper (module)">Exception2MessageMapper</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Exception2MessageMapper.html#Fail-instance_method" title="Exception2MessageMapper#Fail (method)">Fail</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#Raise-instance_method" title="Exception2MessageMapper#Raise (method)">Raise</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#Raise-class_method" title="Exception2MessageMapper.Raise (method)">Raise</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#bind-instance_method" title="Exception2MessageMapper#bind (method)">bind</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#def_e2message-instance_method" title="Exception2MessageMapper#def_e2message (method)">def_e2message</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#def_e2message-class_method" title="Exception2MessageMapper.def_e2message (method)">def_e2message</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#def_exception-instance_method" title="Exception2MessageMapper#def_exception (method)">def_exception</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#def_exception-class_method" title="Exception2MessageMapper.def_exception (method)">def_exception</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#e2mm_message-class_method" title="Exception2MessageMapper.e2mm_message (method)">e2mm_message</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#extend_object-class_method" title="Exception2MessageMapper.extend_object (method)">extend_object</a></span>, <span class='object_link'><a href="Exception2MessageMapper.html#fail-instance_method" title="Exception2MessageMapper#fail (method)">fail</a></span></p>
+
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Shell (class)">Shell</a></span></tt>) <strong>initialize</strong>(pwd = Dir.pwd, umask = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of Shell</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id pwd'>pwd</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id pwd'>pwd</span><span class='comma'>,</span> <span class='id umask'>umask</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@cwd</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id expand_path'>expand_path</span><span class='lparen'>(</span><span class='id pwd'>pwd</span><span class='rparen'>)</span>
+  <span class='ivar'>@dir_stack</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@umask</span> <span class='op'>=</span> <span class='id umask'>umask</span>
+
+  <span class='ivar'>@system_path</span> <span class='op'>=</span> <span class='const'>Shell</span><span class='period'>.</span><span class='id default_system_path'>default_system_path</span>
+  <span class='ivar'>@record_separator</span> <span class='op'>=</span> <span class='const'>Shell</span><span class='period'>.</span><span class='id default_record_separator'>default_record_separator</span>
+
+  <span class='ivar'>@command_processor</span> <span class='op'>=</span> <span class='const'>CommandProcessor</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='ivar'>@process_controller</span> <span class='op'>=</span> <span class='const'>ProcessController</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@verbose</span> <span class='op'>=</span> <span class='const'>Shell</span><span class='period'>.</span><span class='id verbose'>verbose</span>
+  <span class='ivar'>@debug</span> <span class='op'>=</span> <span class='const'>Shell</span><span class='period'>.</span><span class='id debug'>debug</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="class_attr_details" class="attr_details">
+    <h2>Class Attribute Details</h2>
+    
+      
+      <span id="cascade=-class_method"></span>
+      <span id="cascade-class_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="cascade-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>cascade</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute cascade</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id cascade'>cascade</span>
+  <span class='ivar'>@cascade</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="debug=-class_method"></span>
+      <span id="debug-class_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="debug-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>debug</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='debug?-class_method'>debug?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute debug</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id debug'>debug</span>
+  <span class='ivar'>@debug</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="verbose=-class_method"></span>
+      <span id="verbose-class_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="verbose-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>verbose</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='verbose?-class_method'>verbose?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute verbose</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id verbose'>verbose</span>
+  <span class='ivar'>@verbose</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="command_processor-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="command_processor-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>command_processor</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute command_processor</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 123</span>
+
+<span class='kw'>def</span> <span class='id command_processor'>command_processor</span>
+  <span class='ivar'>@command_processor</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="cwd-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="cwd-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>cwd</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='dir-instance_method'>dir</span>, <span id='getwd-instance_method'>getwd</span>, <span id='pwd-instance_method'>pwd</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Dir related methods</p>
+
+<p>Shell#cwd/dir/getwd/pwd Shell#chdir/cd Shell#pushdir/pushd
+Shell#popdir/popd Shell#mkdir Shell#rmdir</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+142
+143
+144</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 142</span>
+
+<span class='kw'>def</span> <span class='id cwd'>cwd</span>
+  <span class='ivar'>@cwd</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="debug=-instance_method"></span>
+      <span id="debug-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="debug-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>debug</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='debug?-instance_method'>debug?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute debug</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id debug'>debug</span>
+  <span class='ivar'>@debug</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="dir_stack-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="dir_stack-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>dir_stack</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='dirs-instance_method'>dirs</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute dir_stack</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id dir_stack'>dir_stack</span>
+  <span class='ivar'>@dir_stack</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="process_controller-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="process_controller-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>process_controller</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute process_controller</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 124</span>
+
+<span class='kw'>def</span> <span class='id process_controller'>process_controller</span>
+  <span class='ivar'>@process_controller</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="record_separator=-instance_method"></span>
+      <span id="record_separator-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="record_separator-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>record_separator</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute record_separator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id record_separator'>record_separator</span>
+  <span class='ivar'>@record_separator</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="system_path=-instance_method"></span>
+      <span id="system_path-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="system_path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>system_path</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute system_path</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='id system_path'>system_path</span>
+  <span class='ivar'>@system_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="umask=-instance_method"></span>
+      <span id="umask-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="umask-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>umask</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute umask</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id umask'>umask</span>
+  <span class='ivar'>@umask</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="verbose=-instance_method"></span>
+      <span id="verbose-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="verbose-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>verbose</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='verbose?-instance_method'>verbose?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute verbose</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id verbose'>verbose</span>
+  <span class='ivar'>@verbose</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="alias_command-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>alias_command</strong>(ali, command, *opts, &amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+244
+245
+246</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 244</span>
+
+<span class='kw'>def</span> <span class='const'>Shell</span><span class='period'>.</span><span class='id alias_command'>alias_command</span><span class='lparen'>(</span><span class='id ali'>ali</span><span class='comma'>,</span> <span class='id command'>command</span><span class='comma'>,</span> <span class='op'>*</span><span class='id opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='const'>CommandProcessor</span><span class='period'>.</span><span class='id alias_command'>alias_command</span><span class='lparen'>(</span><span class='id ali'>ali</span><span class='comma'>,</span> <span class='id command'>command</span><span class='comma'>,</span> <span class='op'>*</span><span class='id opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="cd-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>cd</strong>(path) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id cd'>cd</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='id new'>new</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="def_system_command-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_system_command</strong>(command, path = command) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>command definitions</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+236
+237
+238</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 236</span>
+
+<span class='kw'>def</span> <span class='const'>Shell</span><span class='period'>.</span><span class='id def_system_command'>def_system_command</span><span class='lparen'>(</span><span class='id command'>command</span><span class='comma'>,</span> <span class='id path'>path</span> <span class='op'>=</span> <span class='id command'>command</span><span class='rparen'>)</span>
+  <span class='const'>CommandProcessor</span><span class='period'>.</span><span class='id def_system_command'>def_system_command</span><span class='lparen'>(</span><span class='id command'>command</span><span class='comma'>,</span> <span class='id path'>path</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_record_separator-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>default_record_separator</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id default_record_separator'>default_record_separator</span>
+  <span class='kw'>if</span> <span class='ivar'>@default_record_separator</span>
+    <span class='ivar'>@default_record_separator</span>
+  <span class='kw'>else</span>
+    <span class='gvar'>$/</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_record_separator=-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>default_record_separator=</strong>(rs) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 78</span>
+
+<span class='kw'>def</span> <span class='id default_record_separator='>default_record_separator=</span><span class='lparen'>(</span><span class='id rs'>rs</span><span class='rparen'>)</span>
+  <span class='ivar'>@default_record_separator</span> <span class='op'>=</span> <span class='id rs'>rs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_system_path-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>default_system_path</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id default_system_path'>default_system_path</span>
+  <span class='kw'>if</span> <span class='ivar'>@default_system_path</span>
+    <span class='ivar'>@default_system_path</span>
+  <span class='kw'>else</span>
+    <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PATH</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_system_path=-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>default_system_path=</strong>(path) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id default_system_path='>default_system_path=</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='ivar'>@default_system_path</span> <span class='op'>=</span> <span class='id path'>path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_system_commands-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_system_commands</strong>(pre = &quot;sys_&quot;) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+252
+253
+254</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 252</span>
+
+<span class='kw'>def</span> <span class='const'>Shell</span><span class='period'>.</span><span class='id install_system_commands'>install_system_commands</span><span class='lparen'>(</span><span class='id pre'>pre</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sys_</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='const'>CommandProcessor</span><span class='period'>.</span><span class='id install_system_commands'>install_system_commands</span><span class='lparen'>(</span><span class='id pre'>pre</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="notify-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>notify</strong>(*opts, &amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 265</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id notify'>notify</span><span class='lparen'>(</span><span class='op'>*</span><span class='id opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='const'>Shell</span><span class='op'>::</span><span class='id debug_output_synchronize'>debug_output_synchronize</span> <span class='kw'>do</span>
+    <span class='kw'>if</span> <span class='id opts'>opts</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
+      <span class='id yorn'>yorn</span> <span class='op'>=</span> <span class='id verbose?'>verbose?</span>
+    <span class='kw'>else</span>
+      <span class='id yorn'>yorn</span> <span class='op'>=</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id yorn'>yorn</span>
+
+    <span class='kw'>if</span> <span class='ivar'>@debug_display_thread_id</span>
+      <span class='kw'>if</span> <span class='ivar'>@debug_display_process_id</span>
+        <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shell(#</span><span class='embexpr_beg'>#{</span><span class='const'>Process</span><span class='period'>.</span><span class='id pid'>pid</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='const'>Thread</span><span class='period'>.</span><span class='id current'>current</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Thread</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Th</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>): </span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>else</span>
+        <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shell(</span><span class='embexpr_beg'>#{</span><span class='const'>Thread</span><span class='period'>.</span><span class='id current'>current</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Thread</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Th</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>): </span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>else</span>
+      <span class='id prefix'>prefix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shell: </span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id _head'>_head</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='const'>STDERR</span><span class='period'>.</span><span class='id print'>print</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id mes'>mes</span><span class='op'>|</span>
+      <span class='id mes'>mes</span> <span class='op'>=</span> <span class='id mes'>mes</span><span class='period'>.</span><span class='id dup'>dup</span>
+      <span class='kw'>yield</span> <span class='id mes'>mes</span> <span class='kw'>if</span> <span class='id iterator?'>iterator?</span>
+      <span class='kw'>if</span> <span class='id _head'>_head</span>
+        <span class='id _head'>_head</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='comment'>#         &quot;shell&quot; &quot; + mes
+</span>        <span class='id prefix'>prefix</span> <span class='op'>+</span> <span class='id mes'>mes</span>
+      <span class='kw'>else</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='op'>*</span> <span class='id prefix'>prefix</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>+</span> <span class='id mes'>mes</span>
+      <span class='kw'>end</span>
+    <span class='rbrace'>}</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="unalias_command-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>unalias_command</strong>(ali) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+248
+249
+250</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 248</span>
+
+<span class='kw'>def</span> <span class='const'>Shell</span><span class='period'>.</span><span class='id unalias_command'>unalias_command</span><span class='lparen'>(</span><span class='id ali'>ali</span><span class='rparen'>)</span>
+  <span class='const'>CommandProcessor</span><span class='period'>.</span><span class='id unalias_command'>unalias_command</span><span class='lparen'>(</span><span class='id ali'>ali</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="undef_system_command-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>undef_system_command</strong>(command) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+240
+241
+242</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 240</span>
+
+<span class='kw'>def</span> <span class='const'>Shell</span><span class='period'>.</span><span class='id undef_system_command'>undef_system_command</span><span class='lparen'>(</span><span class='id command'>command</span><span class='rparen'>)</span>
+  <span class='const'>CommandProcessor</span><span class='period'>.</span><span class='id undef_system_command'>undef_system_command</span><span class='lparen'>(</span><span class='id command'>command</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="chdir-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>chdir</strong>(path = nil, verbose = @verbose) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='cd-instance_method'>cd</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>If called as iterator, it restores the current directory when the block
+ends.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id chdir'>chdir</span><span class='lparen'>(</span><span class='id path'>path</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id verbose'>verbose</span> <span class='op'>=</span> <span class='ivar'>@verbose</span><span class='rparen'>)</span>
+  <span class='id check_point'>check_point</span>
+
+  <span class='kw'>if</span> <span class='id iterator?'>iterator?</span>
+    <span class='id notify'>notify</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>chdir(with block) </span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id verbose'>verbose</span>
+    <span class='id cwd_old'>cwd_old</span> <span class='op'>=</span> <span class='ivar'>@cwd</span>
+    <span class='kw'>begin</span>
+      <span class='id chdir'>chdir</span><span class='lparen'>(</span><span class='id path'>path</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+      <span class='kw'>yield</span>
+    <span class='kw'>ensure</span>
+      <span class='id chdir'>chdir</span><span class='lparen'>(</span><span class='id cwd_old'>cwd_old</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id notify'>notify</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>chdir </span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id verbose'>verbose</span>
+    <span class='id path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>~</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id path'>path</span>
+    <span class='ivar'>@cwd</span> <span class='op'>=</span> <span class='id expand_path'>expand_path</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+    <span class='id notify'>notify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>current dir: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@cwd</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id rehash'>rehash</span>
+    <span class='const'>Void</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="expand_path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>expand_path</strong>(path) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 126</span>
+
+<span class='kw'>def</span> <span class='id expand_path'>expand_path</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id expand_path'>expand_path</span><span class='lparen'>(</span><span class='id path'>path</span><span class='comma'>,</span> <span class='ivar'>@cwd</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+257
+258
+259
+260
+261
+262
+263</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 257</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='kw'>if</span> <span class='id debug'>debug</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id debug'>debug</span> <span class='op'>&gt;</span> <span class='int'>2</span>
+    <span class='kw'>super</span>
+  <span class='kw'>else</span>
+    <span class='id to_s'>to_s</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="jobs-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>jobs</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>process management</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+225
+226
+227</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 225</span>
+
+<span class='kw'>def</span> <span class='id jobs'>jobs</span>
+  <span class='ivar'>@process_controller</span><span class='period'>.</span><span class='id jobs'>jobs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="kill-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>kill</strong>(sig, command) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+229
+230
+231</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 229</span>
+
+<span class='kw'>def</span> <span class='id kill'>kill</span><span class='lparen'>(</span><span class='id sig'>sig</span><span class='comma'>,</span> <span class='id command'>command</span><span class='rparen'>)</span>
+  <span class='ivar'>@process_controller</span><span class='period'>.</span><span class='id kill_job'>kill_job</span><span class='lparen'>(</span><span class='id sig'>sig</span><span class='comma'>,</span> <span class='id command'>command</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="popdir-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>popdir</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='popd-instance_method'>popd</span></span>
+    </span>
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 207</span>
+
+<span class='kw'>def</span> <span class='id popdir'>popdir</span>
+  <span class='id check_point'>check_point</span>
+
+  <span class='id notify'>notify</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>popdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id pop'>pop</span> <span class='op'>=</span> <span class='ivar'>@dir_stack</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='id chdir'>chdir</span> <span class='id pop'>pop</span>
+    <span class='id notify'>notify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>dir stack: [</span><span class='embexpr_beg'>#{</span><span class='ivar'>@dir_stack</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>self</span>
+  <span class='kw'>else</span>
+    <span class='const'>Shell</span><span class='period'>.</span><span class='const'>Fail</span> <span class='const'>DirStackEmpty</span>
+  <span class='kw'>end</span>
+  <span class='const'>Void</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pushdir-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>pushdir</strong>(path = nil, verbose = @verbose) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='pushd-instance_method'>pushd</span></span>
+    </span>
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shell.rb', line 175</span>
+
+<span class='kw'>def</span> <span class='id pushdir'>pushdir</span><span class='lparen'>(</span><span class='id path'>path</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id verbose'>verbose</span> <span class='op'>=</span> <span class='ivar'>@verbose</span><span class='rparen'>)</span>
+  <span class='id check_point'>check_point</span>
+
+  <span class='kw'>if</span> <span class='id iterator?'>iterator?</span>
+    <span class='id notify'>notify</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pushdir(with block) </span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id verbose'>verbose</span>
+    <span class='id pushdir'>pushdir</span><span class='lparen'>(</span><span class='id path'>path</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+    <span class='kw'>begin</span>
+      <span class='kw'>yield</span>
+    <span class='kw'>ensure</span>
+      <span class='id popdir'>popdir</span>
+    <span class='kw'>end</span>
+  <span class='kw'>elsif</span> <span class='id path'>path</span>
+    <span class='id notify'>notify</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pushdir </span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id verbose'>verbose</span>
+    <span class='ivar'>@dir_stack</span><span class='period'>.</span><span class='id push'>push</span> <span class='ivar'>@cwd</span>
+    <span class='id chdir'>chdir</span><span class='lparen'>(</span><span class='id path'>path</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+    <span class='id notify'>notify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>dir stack: [</span><span class='embexpr_beg'>#{</span><span class='ivar'>@dir_stack</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>self</span>
+  <span class='kw'>else</span>
+    <span class='id notify'>notify</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pushdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id verbose'>verbose</span>
+    <span class='kw'>if</span> <span class='id pop'>pop</span> <span class='op'>=</span> <span class='ivar'>@dir_stack</span><span class='period'>.</span><span class='id pop'>pop</span>
+      <span class='ivar'>@dir_stack</span><span class='period'>.</span><span class='id push'>push</span> <span class='ivar'>@cwd</span>
+      <span class='id chdir'>chdir</span> <span class='id pop'>pop</span>
+      <span class='id notify'>notify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>dir stack: [</span><span class='embexpr_beg'>#{</span><span class='ivar'>@dir_stack</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>self</span>
+    <span class='kw'>else</span>
+      <span class='const'>Shell</span><span class='period'>.</span><span class='const'>Fail</span> <span class='const'>DirStackEmpty</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='const'>Void</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:01 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

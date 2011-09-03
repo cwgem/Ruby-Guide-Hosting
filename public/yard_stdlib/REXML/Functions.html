@@ -1,0 +1,2653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: REXML::Functions
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (F)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../REXML.html" title="REXML (module)">REXML</a></span></span>
+     &raquo; 
+    <span class="title">Functions</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: REXML::Functions
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="QuickPath.html" title="REXML::QuickPath (class)">QuickPath</a></span>, <span class='object_link'><a href="XPath.html" title="REXML::XPath (class)">XPath</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rexml/functions.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>If you add a method, keep in mind two things: (1) the first argument will
+always be a list of nodes from which to filter.  In the case of context
+methods (such as position), the function should return an array with a
+value for each child in the array. (2) all method calls from XML will have
+"-" replaced with "_". Therefore, in XML, "local-name()" is identical (and
+actually becomes) "local_name()"</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="context-classvariable" class="">@@context =
+          
+        </dt>
+        <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
+      
+        <dt id="namespace_context-classvariable" class="">@@namespace_context =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="variables-classvariable" class="">@@variables =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#boolean-class_method" title="boolean (class method)">+ (Object) <strong>boolean</strong>(object = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UNTESTED.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ceiling-class_method" title="ceiling (class method)">+ (Object) <strong>ceiling</strong>(number) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compare_language-class_method" title="compare_language (class method)">+ (Object) <strong>compare_language</strong>(lang1, lang2) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#concat-class_method" title="concat (class method)">+ (Object) <strong>concat</strong>(*objects) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UNTESTED.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#contains-class_method" title="contains (class method)">+ (Object) <strong>contains</strong>(string, test) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fixed by Mike Stok.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#context%3D-class_method" title="context= (class method)">+ (Object) <strong>context=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#count-class_method" title="count (class method)">+ (Object) <strong>count</strong>(node_set) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the size of the given list of nodes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#false-class_method" title="false (class method)">+ (Object) <strong>false</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UNTESTED.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#floor-class_method" title="floor (class method)">+ (Object) <strong>floor</strong>(number) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_namespace-class_method" title="get_namespace (class method)">+ (Object) <strong>get_namespace</strong>(node_set = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Helper method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#id-class_method" title="id (class method)">+ (Object) <strong>id</strong>(object) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Since REXML is non-validating, this method is not implemented as it
+requires a DTD.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#lang-class_method" title="lang (class method)">+ (Object) <strong>lang</strong>(language) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UNTESTED.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#last-class_method" title="last (class method)">+ (Object) <strong>last</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the last node of the given list of nodes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#local_name-class_method" title="local_name (class method)">+ (Object) <strong>local_name</strong>(node_set = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UNTESTED.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#method_missing-class_method" title="method_missing (class method)">+ (Object) <strong>method_missing</strong>(id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-class_method" title="name (class method)">+ (Object) <strong>name</strong>(node_set = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#namespace_context-class_method" title="namespace_context (class method)">+ (Object) <strong>namespace_context</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#namespace_context%3D-class_method" title="namespace_context= (class method)">+ (Object) <strong>namespace_context=</strong>(x) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#namespace_uri-class_method" title="namespace_uri (class method)">+ (Object) <strong>namespace_uri</strong>(node_set = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#normalize_space-class_method" title="normalize_space (class method)">+ (Object) <strong>normalize_space</strong>(string = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UNTESTED.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#not-class_method" title="not (class method)">+ (Object) <strong>not</strong>(object) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UNTESTED.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#number-class_method" title="number (class method)">+ (Object) <strong>number</strong>(object = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>a string that consists of optional whitespace followed by an optional minus
+sign followed by a Number followed by whitespace is converted to the IEEE
+754 number that is nearest (according to the IEEE 754 round-to-nearest
+rule) to the mathematical value represented by the string; any other string
+is converted to NaN.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#position-class_method" title="position (class method)">+ (Object) <strong>position</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#processing_instruction-class_method" title="processing_instruction (class method)">+ (Object) <strong>processing_instruction</strong>(node) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#round-class_method" title="round (class method)">+ (Object) <strong>round</strong>(number) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#starts_with-class_method" title="starts_with (class method)">+ (Object) <strong>starts_with</strong>(string, test) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fixed by Mike Stok.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#string-class_method" title="string (class method)">+ (Object) <strong>string</strong>(object = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A node-set is converted to a string by returning the string-value of the
+node in the node-set that is first in document order.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#string_length-class_method" title="string_length (class method)">+ (Object) <strong>string_length</strong>(string) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UNTESTED.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#string_value-class_method" title="string_value (class method)">+ (Object) <strong>string_value</strong>(o) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A node-set is converted to a string by returning the concatenation of the
+string-value of each of the children of the node in the node-set that is
+first in document order.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#substring-class_method" title="substring (class method)">+ (Object) <strong>substring</strong>(string, start, length = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Take equal portions of Mike Stok and Sean Russell; mix vigorously, and pour
+into a tall, chilled glass.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#substring_after-class_method" title="substring_after (class method)">+ (Object) <strong>substring_after</strong>(string, test) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Kouhei fixed this too.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#substring_before-class_method" title="substring_before (class method)">+ (Object) <strong>substring_before</strong>(string, test) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Kouhei fixed this.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sum-class_method" title="sum (class method)">+ (Object) <strong>sum</strong>(nodes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#text-class_method" title="text (class method)">+ (Object) <strong>text</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#translate-class_method" title="translate (class method)">+ (Object) <strong>translate</strong>(string, tr1, tr2) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This is entirely Mike Stok's beast.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#true-class_method" title="true (class method)">+ (Object) <strong>true</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>UNTESTED.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#variables-class_method" title="variables (class method)">+ (Object) <strong>variables</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#variables%3D-class_method" title="variables= (class method)">+ (Object) <strong>variables=</strong>(x) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="boolean-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>boolean</strong>(object = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>UNTESTED</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 277</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id boolean'>boolean</span><span class='lparen'>(</span> <span class='id object'>object</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id object'>object</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>String</span>
+    <span class='kw'>if</span> <span class='id object'>object</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\d+</span><span class='regexp_end'>/u</span></span>
+      <span class='kw'>return</span> <span class='id object'>object</span><span class='period'>.</span><span class='id to_f'>to_f</span> <span class='op'>!=</span> <span class='int'>0</span>
+    <span class='kw'>else</span>
+      <span class='kw'>return</span> <span class='id object'>object</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='kw'>end</span>
+  <span class='kw'>elsif</span> <span class='id object'>object</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Array</span>
+    <span class='id object'>object</span> <span class='op'>=</span> <span class='id object'>object</span><span class='period'>.</span><span class='id find'>find</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id x'>x</span> <span class='kw'>and</span> <span class='kw'>true</span><span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id object'>object</span> <span class='op'>?</span> <span class='kw'>true</span> <span class='op'>:</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ceiling-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>ceiling</strong>(number) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+373
+374
+375</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 373</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id ceiling'>ceiling</span><span class='lparen'>(</span> <span class='id number'>number</span> <span class='rparen'>)</span>
+  <span class='id number'>number</span><span class='lparen'>(</span><span class='id number'>number</span><span class='rparen'>)</span><span class='period'>.</span><span class='id ceil'>ceil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="compare_language-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>compare_language</strong>(lang1, lang2) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+324
+325
+326</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 324</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id compare_language'>compare_language</span> <span class='id lang1'>lang1</span><span class='comma'>,</span> <span class='id lang2'>lang2</span>
+  <span class='id lang2'>lang2</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span><span class='id lang1'>lang1</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='int'>0</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="concat-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>concat</strong>(*objects) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>UNTESTED</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id concat'>concat</span><span class='lparen'>(</span> <span class='op'>*</span><span class='id objects'>objects</span> <span class='rparen'>)</span>
+  <span class='id objects'>objects</span><span class='period'>.</span><span class='id join'>join</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="contains-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>contains</strong>(string, test) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Fixed by Mike Stok</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+162
+163
+164</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 162</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id contains'>contains</span><span class='lparen'>(</span> <span class='id string'>string</span><span class='comma'>,</span> <span class='id test'>test</span> <span class='rparen'>)</span>
+  <span class='id string'>string</span><span class='lparen'>(</span><span class='id string'>string</span><span class='rparen'>)</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id string'>string</span><span class='lparen'>(</span><span class='id test'>test</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="context=-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>context=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id context='>context=</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='cvar'>@@context</span> <span class='op'>=</span> <span class='id value'>value</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="count-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>count</strong>(node_set) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the size of the given list of nodes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id count'>count</span><span class='lparen'>(</span> <span class='id node_set'>node_set</span> <span class='rparen'>)</span>
+  <span class='id node_set'>node_set</span><span class='period'>.</span><span class='id size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="false-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>false</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>UNTESTED</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+301
+302
+303</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 301</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='kw'>false</span><span class='lparen'>(</span>  <span class='rparen'>)</span>
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="floor-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>floor</strong>(number) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+369
+370
+371</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 369</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id floor'>floor</span><span class='lparen'>(</span> <span class='id number'>number</span> <span class='rparen'>)</span>
+  <span class='id number'>number</span><span class='lparen'>(</span><span class='id number'>number</span><span class='rparen'>)</span><span class='period'>.</span><span class='id floor'>floor</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_namespace-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_namespace</strong>(node_set = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Helper method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 68</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id get_namespace'>get_namespace</span><span class='lparen'>(</span> <span class='id node_set'>node_set</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id node_set'>node_set</span> <span class='op'>==</span> <span class='kw'>nil</span>
+    <span class='kw'>yield</span> <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id namespace'>namespace</span>
+  <span class='kw'>else</span>
+    <span class='kw'>if</span> <span class='id node_set'>node_set</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span> <span class='symbol'>:each</span>
+      <span class='id node_set'>node_set</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id node'>node</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='id node'>node</span><span class='period'>.</span><span class='id namespace'>namespace</span> <span class='rbrace'>}</span>
+    <span class='kw'>elsif</span> <span class='id node_set'>node_set</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span> <span class='symbol'>:namespace</span>
+      <span class='kw'>yield</span> <span class='id node_set'>node_set</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="id-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>id</strong>(object) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Since REXML is non-validating, this method is not implemented as it
+requires a DTD</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id id'>id</span><span class='lparen'>(</span> <span class='id object'>object</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="lang-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>lang</strong>(language) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>UNTESTED</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 306</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id lang'>lang</span><span class='lparen'>(</span> <span class='id language'>language</span> <span class='rparen'>)</span>
+  <span class='id lang'>lang</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='id node'>node</span> <span class='op'>=</span> <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span>
+  <span class='id attr'>attr</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>until</span> <span class='id node'>node</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>if</span> <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+      <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id attributes'>attributes</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>xml:lang</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+      <span class='kw'>unless</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+        <span class='id lang'>lang</span> <span class='op'>=</span> <span class='id compare_language'>compare_language</span><span class='lparen'>(</span><span class='id string'>string</span><span class='lparen'>(</span><span class='id language'>language</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id attr'>attr</span><span class='rparen'>)</span>
+        <span class='kw'>break</span>
+      <span class='kw'>else</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='id node'>node</span> <span class='op'>=</span> <span class='id node'>node</span><span class='period'>.</span><span class='id parent'>parent</span>
+  <span class='kw'>end</span>
+  <span class='id lang'>lang</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="last-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>last</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the last node of the given list of nodes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id last'>last</span><span class='lparen'>(</span> <span class='rparen'>)</span>
+  <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="local_name-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>local_name</strong>(node_set = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>UNTESTED</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id local_name'>local_name</span><span class='lparen'>(</span> <span class='id node_set'>node_set</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id get_namespace'>get_namespace</span><span class='lparen'>(</span> <span class='id node_set'>node_set</span> <span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+    <span class='kw'>return</span> <span class='id node'>node</span><span class='period'>.</span><span class='id local_name'>local_name</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="method_missing-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>method_missing</strong>(id) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+389
+390
+391
+392</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 389</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id method_missing'>method_missing</span><span class='lparen'>(</span> <span class='id id'>id</span> <span class='rparen'>)</span>
+  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>METHOD MISSING </span><span class='embexpr_beg'>#{</span><span class='id id'>id</span><span class='period'>.</span><span class='id id2name'>id2name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='const'>XPath</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span> <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id id'>id</span><span class='period'>.</span><span class='id id2name'>id2name</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="name-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>name</strong>(node_set = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id name'>name</span><span class='lparen'>(</span> <span class='id node_set'>node_set</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id get_namespace'>get_namespace</span><span class='lparen'>(</span> <span class='id node_set'>node_set</span> <span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span>
+    <span class='id node'>node</span><span class='period'>.</span><span class='id expanded_name'>expanded_name</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="namespace_context-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>namespace_context</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id namespace_context'>namespace_context</span> <span class='semicolon'>;</span> <span class='cvar'>@@namespace_context</span> <span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="namespace_context=-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>namespace_context=</strong>(x) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id namespace_context='>namespace_context=</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span> <span class='semicolon'>;</span> <span class='cvar'>@@namespace_context</span><span class='op'>=</span><span class='id x'>x</span> <span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="namespace_uri-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>namespace_uri</strong>(node_set = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id namespace_uri'>namespace_uri</span><span class='lparen'>(</span> <span class='id node_set'>node_set</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id get_namespace'>get_namespace</span><span class='lparen'>(</span> <span class='id node_set'>node_set</span> <span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id node'>node</span><span class='op'>|</span> <span class='id node'>node</span><span class='period'>.</span><span class='id namespace'>namespace</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="normalize_space-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>normalize_space</strong>(string = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>UNTESTED</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+224
+225
+226
+227
+228
+229
+230
+231</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 224</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id normalize_space'>normalize_space</span><span class='lparen'>(</span> <span class='id string'>string</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id string'>string</span> <span class='op'>=</span> <span class='id string'>string</span><span class='lparen'>(</span><span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id string'>string</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+  <span class='kw'>if</span> <span class='id string'>string</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Array</span>
+    <span class='id string'>string</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id string'>string</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id strip'>strip</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\s+</span><span class='regexp_end'>/um</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id string'>string</span><span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='id string'>string</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id strip'>strip</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\s+</span><span class='regexp_end'>/um</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="not-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>not</strong>(object) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>UNTESTED</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+291
+292
+293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 291</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='kw'>not</span><span class='lparen'>(</span> <span class='id object'>object</span> <span class='rparen'>)</span>
+  <span class='kw'>not</span> <span class='id boolean'>boolean</span><span class='lparen'>(</span> <span class='id object'>object</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="number-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>number</strong>(object = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>a string that consists of optional whitespace followed by an optional minus
+sign followed by a Number followed by whitespace is converted to the IEEE
+754 number that is nearest (according to the IEEE 754 round-to-nearest
+rule) to the mathematical value represented by the string; any other string
+is converted to NaN</p>
+
+<p>boolean true is converted to 1; boolean false is converted to 0</p>
+
+<p>a node-set is first converted to a string as if by a call to the string
+function and then converted in the same way as a string argument</p>
+
+<p>an object of a type other than the four basic types is converted to a
+number in a way that is dependent on that type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 341</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id number'>number</span><span class='lparen'>(</span> <span class='id object'>object</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id object'>object</span> <span class='op'>=</span> <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id object'>object</span>
+  <span class='kw'>case</span> <span class='id object'>object</span>
+  <span class='kw'>when</span> <span class='kw'>true</span>
+    <span class='const'>Float</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='kw'>false</span>
+    <span class='const'>Float</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Array</span>
+    <span class='id number'>number</span><span class='lparen'>(</span><span class='id string'>string</span><span class='lparen'>(</span> <span class='id object'>object</span> <span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Numeric</span>
+    <span class='id object'>object</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+  <span class='kw'>else</span>
+    <span class='id str'>str</span> <span class='op'>=</span> <span class='id string'>string</span><span class='lparen'>(</span> <span class='id object'>object</span> <span class='rparen'>)</span>
+    <span class='comment'># If XPath ever gets scientific notation...
+</span>    <span class='comment'>#if str =~ /^\s*-?(\d*\.?\d+|\d+\.)([Ee]\d*)?\s*$/
+</span>    <span class='kw'>if</span> <span class='id str'>str</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\s*-?(\d*\.?\d+|\d+\.)\s*$</span><span class='regexp_end'>/</span></span>
+      <span class='id str'>str</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+    <span class='kw'>else</span>
+      <span class='lparen'>(</span><span class='float'>0.0</span> <span class='op'>/</span> <span class='float'>0.0</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="position-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>position</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id position'>position</span><span class='lparen'>(</span> <span class='rparen'>)</span>
+  <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="processing_instruction-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>processing_instruction</strong>(node) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+385
+386
+387</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 385</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id processing_instruction'>processing_instruction</span><span class='lparen'>(</span> <span class='id node'>node</span> <span class='rparen'>)</span>
+  <span class='id node'>node</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:processing_instruction</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="round-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>round</strong>(number) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+377
+378
+379
+380
+381
+382
+383</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 377</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id round'>round</span><span class='lparen'>(</span> <span class='id number'>number</span> <span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id number'>number</span><span class='lparen'>(</span><span class='id number'>number</span><span class='rparen'>)</span><span class='period'>.</span><span class='id round'>round</span>
+  <span class='kw'>rescue</span> <span class='const'>FloatDomainError</span>
+    <span class='id number'>number</span><span class='lparen'>(</span><span class='id number'>number</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="starts_with-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>starts_with</strong>(string, test) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Fixed by Mike Stok</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 157</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id starts_with'>starts_with</span><span class='lparen'>(</span> <span class='id string'>string</span><span class='comma'>,</span> <span class='id test'>test</span> <span class='rparen'>)</span>
+  <span class='id string'>string</span><span class='lparen'>(</span><span class='id string'>string</span><span class='rparen'>)</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span><span class='id string'>string</span><span class='lparen'>(</span><span class='id test'>test</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='int'>0</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="string-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>string</strong>(object = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A node-set is converted to a string by returning the string-value of the
+node in the node-set that is first in document order. If the node-set is
+empty, an empty string is returned.</p>
+
+<p>A number is converted to a string as follows</p>
+
+<p>NaN is converted to the string NaN</p>
+
+<p>positive zero is converted to the string 0</p>
+
+<p>negative zero is converted to the string 0</p>
+
+<p>positive infinity is converted to the string Infinity</p>
+
+<p>negative infinity is converted to the string -Infinity</p>
+
+<p>if the number is an integer, the number is represented in decimal form as a
+Number with no decimal point and no leading zeros, preceded by a minus sign
+(-) if the number is negative</p>
+
+<p>otherwise, the number is represented in decimal form as a Number including
+a decimal point with at least one digit before the decimal point and at
+least one digit after the decimal point, preceded by a minus sign (-) if
+the number is negative; there must be no leading zeros before the decimal
+point apart possibly from the one required digit immediately before the
+decimal point; beyond the one required digit after the decimal point there
+must be as many, but only as many, more digits as are needed to uniquely
+distinguish the number from all other IEEE 754 numeric values.</p>
+
+<p>The boolean false value is converted to the string false. The boolean true
+value is converted to the string true.</p>
+
+<p>An object of a type other than the four basic types is converted to a
+string in a way that is dependent on that type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id string'>string</span><span class='lparen'>(</span> <span class='id object'>object</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='comment'>#object = @context unless object
+</span>  <span class='kw'>if</span> <span class='id object'>object</span><span class='period'>.</span><span class='id instance_of?'>instance_of?</span> <span class='const'>Array</span>
+    <span class='id string'>string</span><span class='lparen'>(</span> <span class='id object'>object</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='kw'>defined?</span> <span class='id object'>object</span><span class='period'>.</span><span class='id node_type'>node_type</span>
+    <span class='kw'>if</span> <span class='id object'>object</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:attribute</span>
+      <span class='id object'>object</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='kw'>elsif</span> <span class='id object'>object</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span> <span class='op'>||</span> <span class='id object'>object</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:document</span>
+      <span class='id string_value'>string_value</span><span class='lparen'>(</span><span class='id object'>object</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id object'>object</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+    <span class='kw'>end</span>
+  <span class='kw'>elsif</span> <span class='id object'>object</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id object'>object</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="string_length-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>string_length</strong>(string) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>UNTESTED</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+219
+220
+221</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 219</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id string_length'>string_length</span><span class='lparen'>(</span> <span class='id string'>string</span> <span class='rparen'>)</span>
+  <span class='id string'>string</span><span class='lparen'>(</span><span class='id string'>string</span><span class='rparen'>)</span><span class='period'>.</span><span class='id length'>length</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="string_value-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>string_value</strong>(o) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A node-set is converted to a string by returning the concatenation of the
+string-value of each of the children of the node in the node-set that is
+first in document order. If the node-set is empty, an empty string is
+returned.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id string_value'>string_value</span><span class='lparen'>(</span> <span class='id o'>o</span> <span class='rparen'>)</span>
+  <span class='id rv'>rv</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id o'>o</span><span class='period'>.</span><span class='id children'>children</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id e'>e</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:text</span>
+      <span class='id rv'>rv</span> <span class='op'>&lt;&lt;</span> <span class='id e'>e</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+    <span class='kw'>elsif</span> <span class='id e'>e</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+      <span class='id rv'>rv</span> <span class='op'>&lt;&lt;</span> <span class='id string_value'>string_value</span><span class='lparen'>(</span> <span class='id e'>e</span> <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+  <span class='id rv'>rv</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="substring-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>substring</strong>(string, start, length = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Take equal portions of Mike Stok and Sean Russell; mix vigorously, and pour
+into a tall, chilled glass.  Serves 10,000.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id substring'>substring</span><span class='lparen'>(</span> <span class='id string'>string</span><span class='comma'>,</span> <span class='id start'>start</span><span class='comma'>,</span> <span class='id length'>length</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id ruby_string'>ruby_string</span> <span class='op'>=</span> <span class='id string'>string</span><span class='lparen'>(</span><span class='id string'>string</span><span class='rparen'>)</span>
+  <span class='id ruby_length'>ruby_length</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id length'>length</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+                  <span class='id ruby_string'>ruby_string</span><span class='period'>.</span><span class='id length'>length</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+                <span class='kw'>else</span>
+                  <span class='id number'>number</span><span class='lparen'>(</span><span class='id length'>length</span><span class='rparen'>)</span>
+                <span class='kw'>end</span>
+  <span class='id ruby_start'>ruby_start</span> <span class='op'>=</span> <span class='id number'>number</span><span class='lparen'>(</span><span class='id start'>start</span><span class='rparen'>)</span>
+
+  <span class='comment'># Handle the special cases
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='lparen'>(</span>
+    <span class='id ruby_length'>ruby_length</span><span class='period'>.</span><span class='id nan?'>nan?</span> <span class='kw'>or</span>
+    <span class='id ruby_start'>ruby_start</span><span class='period'>.</span><span class='id nan?'>nan?</span> <span class='kw'>or</span>
+    <span class='id ruby_start'>ruby_start</span><span class='period'>.</span><span class='id infinite?'>infinite?</span>
+  <span class='rparen'>)</span>
+
+  <span class='id infinite_length'>infinite_length</span> <span class='op'>=</span> <span class='id ruby_length'>ruby_length</span><span class='period'>.</span><span class='id infinite?'>infinite?</span> <span class='op'>==</span> <span class='int'>1</span>
+  <span class='id ruby_length'>ruby_length</span> <span class='op'>=</span> <span class='id ruby_string'>ruby_string</span><span class='period'>.</span><span class='id length'>length</span> <span class='kw'>if</span> <span class='id infinite_length'>infinite_length</span>
+
+  <span class='comment'># Now, get the bounds.  The XPath bounds are 1..length; the ruby bounds
+</span>  <span class='comment'># are 0..length.  Therefore, we have to offset the bounds by one.
+</span>  <span class='id ruby_start'>ruby_start</span> <span class='op'>=</span> <span class='id ruby_start'>ruby_start</span><span class='period'>.</span><span class='id round'>round</span> <span class='op'>-</span> <span class='int'>1</span>
+  <span class='id ruby_length'>ruby_length</span> <span class='op'>=</span> <span class='id ruby_length'>ruby_length</span><span class='period'>.</span><span class='id round'>round</span>
+
+  <span class='kw'>if</span> <span class='id ruby_start'>ruby_start</span> <span class='op'>&lt;</span> <span class='int'>0</span>
+   <span class='id ruby_length'>ruby_length</span> <span class='op'>+=</span> <span class='id ruby_start'>ruby_start</span> <span class='kw'>unless</span> <span class='id infinite_length'>infinite_length</span>
+   <span class='id ruby_start'>ruby_start</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='id ruby_length'>ruby_length</span> <span class='op'>&lt;=</span> <span class='int'>0</span>
+  <span class='id ruby_string'>ruby_string</span><span class='lbracket'>[</span><span class='id ruby_start'>ruby_start</span><span class='comma'>,</span><span class='id ruby_length'>ruby_length</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="substring_after-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>substring_after</strong>(string, test) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Kouhei fixed this too</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id substring_after'>substring_after</span><span class='lparen'>(</span> <span class='id string'>string</span><span class='comma'>,</span> <span class='id test'>test</span> <span class='rparen'>)</span>
+  <span class='id ruby_string'>ruby_string</span> <span class='op'>=</span> <span class='id string'>string</span><span class='lparen'>(</span><span class='id string'>string</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='backref'>$1</span> <span class='kw'>if</span> <span class='id ruby_string'>ruby_string</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='embexpr_beg'>#{</span><span class='id test'>test</span><span class='rbrace'>}</span><span class='tstring_content'>(.*)</span><span class='regexp_end'>/</span></span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="substring_before-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>substring_before</strong>(string, test) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Kouhei fixed this</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169
+170
+171
+172
+173
+174
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 167</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id substring_before'>substring_before</span><span class='lparen'>(</span> <span class='id string'>string</span><span class='comma'>,</span> <span class='id test'>test</span> <span class='rparen'>)</span>
+  <span class='id ruby_string'>ruby_string</span> <span class='op'>=</span> <span class='id string'>string</span><span class='lparen'>(</span><span class='id string'>string</span><span class='rparen'>)</span>
+  <span class='id ruby_index'>ruby_index</span> <span class='op'>=</span> <span class='id ruby_string'>ruby_string</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span><span class='id string'>string</span><span class='lparen'>(</span><span class='id test'>test</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id ruby_index'>ruby_index</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id ruby_string'>ruby_string</span><span class='lbracket'>[</span> <span class='int'>0</span><span class='op'>...</span><span class='id ruby_index'>ruby_index</span> <span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="sum-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>sum</strong>(nodes) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+364
+365
+366
+367</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 364</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id sum'>sum</span><span class='lparen'>(</span> <span class='id nodes'>nodes</span> <span class='rparen'>)</span>
+  <span class='id nodes'>nodes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id nodes'>nodes</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id nodes'>nodes</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Array</span>
+  <span class='id nodes'>nodes</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id r'>r</span><span class='comma'>,</span><span class='id n'>n</span><span class='op'>|</span> <span class='id r'>r</span> <span class='op'>+=</span> <span class='id number'>number</span><span class='lparen'>(</span><span class='id string'>string</span><span class='lparen'>(</span><span class='id n'>n</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="text-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>text</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id text'>text</span><span class='lparen'>(</span> <span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:element</span>
+    <span class='kw'>return</span> <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id find_all'>find_all</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id n'>n</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:text</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id n'>n</span><span class='period'>.</span><span class='id value'>value</span><span class='rbrace'>}</span>
+  <span class='kw'>elsif</span> <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id node_type'>node_type</span> <span class='op'>==</span> <span class='symbol'>:text</span>
+    <span class='kw'>return</span> <span class='cvar'>@@context</span><span class='lbracket'>[</span><span class='symbol'>:node</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="translate-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>translate</strong>(string, tr1, tr2) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>This is entirely Mike Stok's beast</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 234</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id translate'>translate</span><span class='lparen'>(</span> <span class='id string'>string</span><span class='comma'>,</span> <span class='id tr1'>tr1</span><span class='comma'>,</span> <span class='id tr2'>tr2</span> <span class='rparen'>)</span>
+  <span class='id from'>from</span> <span class='op'>=</span> <span class='id string'>string</span><span class='lparen'>(</span><span class='id tr1'>tr1</span><span class='rparen'>)</span>
+  <span class='id to'>to</span> <span class='op'>=</span> <span class='id string'>string</span><span class='lparen'>(</span><span class='id tr2'>tr2</span><span class='rparen'>)</span>
+
+  <span class='comment'># the map is our translation table.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># if a character occurs more than once in the
+</span>  <span class='comment'># from string then we ignore the second &amp;
+</span>  <span class='comment'># subsequent mappings
+</span>  <span class='comment'>#
+</span>  <span class='comment'># if a character maps to nil then we delete it
+</span>  <span class='comment'># in the output.  This happens if the from
+</span>  <span class='comment'># string is longer than the to string
+</span>  <span class='comment'>#
+</span>  <span class='comment'># there's nothing about - or ^ being special in
+</span>  <span class='comment'># http://www.w3.org/TR/xpath#function-translate
+</span>  <span class='comment'># so we don't build ranges or negated classes
+</span>
+  <span class='id map'>map</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='int'>0</span><span class='period'>.</span><span class='id upto'>upto</span><span class='lparen'>(</span><span class='id from'>from</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id pos'>pos</span><span class='op'>|</span>
+    <span class='id from_char'>from_char</span> <span class='op'>=</span> <span class='id from'>from</span><span class='lbracket'>[</span><span class='id pos'>pos</span><span class='rbracket'>]</span>
+    <span class='kw'>unless</span> <span class='id map'>map</span><span class='period'>.</span><span class='id has_key?'>has_key?</span> <span class='id from_char'>from_char</span>
+      <span class='id map'>map</span><span class='lbracket'>[</span><span class='id from_char'>from_char</span><span class='rbracket'>]</span> <span class='op'>=</span>
+      <span class='kw'>if</span> <span class='id pos'>pos</span> <span class='op'>&lt;</span> <span class='id to'>to</span><span class='period'>.</span><span class='id length'>length</span>
+        <span class='id to'>to</span><span class='lbracket'>[</span><span class='id pos'>pos</span><span class='rbracket'>]</span>
+      <span class='kw'>else</span>
+        <span class='kw'>nil</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+
+  <span class='kw'>if</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span> <span class='symbol'>:chars</span>
+    <span class='id string'>string</span><span class='lparen'>(</span><span class='id string'>string</span><span class='rparen'>)</span><span class='period'>.</span><span class='id chars'>chars</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id c'>c</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='id map'>map</span><span class='period'>.</span><span class='id has_key?'>has_key?</span> <span class='id c'>c</span> <span class='kw'>then</span> <span class='id map'>map</span><span class='lbracket'>[</span><span class='id c'>c</span><span class='rbracket'>]</span> <span class='kw'>else</span> <span class='id c'>c</span> <span class='kw'>end</span>
+    <span class='rbrace'>}</span><span class='period'>.</span><span class='id compact'>compact</span><span class='period'>.</span><span class='id join'>join</span>
+  <span class='kw'>else</span>
+    <span class='id string'>string</span><span class='lparen'>(</span><span class='id string'>string</span><span class='rparen'>)</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>U*</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id c'>c</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='id map'>map</span><span class='period'>.</span><span class='id has_key?'>has_key?</span> <span class='id c'>c</span> <span class='kw'>then</span> <span class='id map'>map</span><span class='lbracket'>[</span><span class='id c'>c</span><span class='rbracket'>]</span> <span class='kw'>else</span> <span class='id c'>c</span> <span class='kw'>end</span>
+    <span class='rbrace'>}</span><span class='period'>.</span><span class='id compact'>compact</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>U*</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="true-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>true</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>UNTESTED</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+296
+297
+298</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 296</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='kw'>true</span><span class='lparen'>(</span> <span class='rparen'>)</span>
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="variables-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>variables</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id variables'>variables</span> <span class='semicolon'>;</span> <span class='cvar'>@@variables</span> <span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="variables=-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>variables=</strong>(x) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/functions.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='const'>Functions</span><span class='op'>::</span><span class='id variables='>variables=</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span> <span class='semicolon'>;</span> <span class='cvar'>@@variables</span><span class='op'>=</span><span class='id x'>x</span> <span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:14 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

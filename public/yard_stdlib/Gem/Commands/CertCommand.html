@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Gem::Commands::CertCommand
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Gem.html" title="Gem (module)">Gem</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Commands.html" title="Gem::Commands (module)">Commands</a></span></span>
+     &raquo; 
+    <span class="title">CertCommand</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Gem::Commands::CertCommand
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Command.html" title="Gem::Command (class)">Gem::Command</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="../Command.html" title="Gem::Command (class)">Gem::Command</a></span></li>
+          
+            <li class="next">Gem::Commands::CertCommand</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rubygems/commands/cert_command.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants inherited from <span class='object_link'><a href="../Command.html" title="Gem::Command (class)">Gem::Command</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Command.html#HELP-constant" title="Gem::Command::HELP (constant)">HELP</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Command.html" title="Gem::Command (class)">Gem::Command</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Command.html#command-instance_method" title="Gem::Command#command (method)">command</a></span>, <span class='object_link'><a href="../Command.html#defaults-instance_method" title="Gem::Command#defaults (method)">defaults</a></span>, <span class='object_link'><a href="../Command.html#options-instance_method" title="Gem::Command#options (method)">options</a></span>, <span class='object_link'><a href="../Command.html#program_name-instance_method" title="Gem::Command#program_name (method)">program_name</a></span>, <span class='object_link'><a href="../Command.html#summary-instance_method" title="Gem::Command#summary (method)">summary</a></span></p>
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute-instance_method" title="#execute (instance method)">- (Object) <strong>execute</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (CertCommand) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of CertCommand.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../Command.html" title="Gem::Command (class)">Gem::Command</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Command.html#add_common_option-class_method" title="Gem::Command.add_common_option (method)">add_common_option</a></span>, <span class='object_link'><a href="../Command.html#add_extra_args-instance_method" title="Gem::Command#add_extra_args (method)">#add_extra_args</a></span>, <span class='object_link'><a href="../Command.html#add_option-instance_method" title="Gem::Command#add_option (method)">#add_option</a></span>, <span class='object_link'><a href="../Command.html#add_specific_extra_args-class_method" title="Gem::Command.add_specific_extra_args (method)">add_specific_extra_args</a></span>, <span class='object_link'><a href="../Command.html#arguments-instance_method" title="Gem::Command#arguments (method)">#arguments</a></span>, <span class='object_link'><a href="../Command.html#begins%3F-instance_method" title="Gem::Command#begins? (method)">#begins?</a></span>, <span class='object_link'><a href="../Command.html#build_args-class_method" title="Gem::Command.build_args (method)">build_args</a></span>, <span class='object_link'><a href="../Command.html#build_args%3D-class_method" title="Gem::Command.build_args= (method)">build_args=</a></span>, <span class='object_link'><a href="../Command.html#common_options-class_method" title="Gem::Command.common_options (method)">common_options</a></span>, <span class='object_link'><a href="../Command.html#configure_options-instance_method" title="Gem::Command#configure_options (method)">#configure_options</a></span>, <span class='object_link'><a href="../Command.html#create_option_parser-instance_method" title="Gem::Command#create_option_parser (method)">#create_option_parser</a></span>, <span class='object_link'><a href="../Command.html#defaults_str-instance_method" title="Gem::Command#defaults_str (method)">#defaults_str</a></span>, <span class='object_link'><a href="../Command.html#description-instance_method" title="Gem::Command#description (method)">#description</a></span>, <span class='object_link'><a href="../Command.html#extra_args-class_method" title="Gem::Command.extra_args (method)">extra_args</a></span>, <span class='object_link'><a href="../Command.html#extra_args%3D-class_method" title="Gem::Command.extra_args= (method)">extra_args=</a></span>, <span class='object_link'><a href="../Command.html#get_all_gem_names-instance_method" title="Gem::Command#get_all_gem_names (method)">#get_all_gem_names</a></span>, <span class='object_link'><a href="../Command.html#get_one_gem_name-instance_method" title="Gem::Command#get_one_gem_name (method)">#get_one_gem_name</a></span>, <span class='object_link'><a href="../Command.html#get_one_optional_argument-instance_method" title="Gem::Command#get_one_optional_argument (method)">#get_one_optional_argument</a></span>, <span class='object_link'><a href="../Command.html#handle_options-instance_method" title="Gem::Command#handle_options (method)">#handle_options</a></span>, <span class='object_link'><a href="../Command.html#handles%3F-instance_method" title="Gem::Command#handles? (method)">#handles?</a></span>, <span class='object_link'><a href="../Command.html#invoke-instance_method" title="Gem::Command#invoke (method)">#invoke</a></span>, <span class='object_link'><a href="../Command.html#merge_options-instance_method" title="Gem::Command#merge_options (method)">#merge_options</a></span>, <span class='object_link'><a href="../Command.html#parser-instance_method" title="Gem::Command#parser (method)">#parser</a></span>, <span class='object_link'><a href="../Command.html#remove_option-instance_method" title="Gem::Command#remove_option (method)">#remove_option</a></span>, <span class='object_link'><a href="../Command.html#show_help-instance_method" title="Gem::Command#show_help (method)">#show_help</a></span>, <span class='object_link'><a href="../Command.html#show_lookup_failure-instance_method" title="Gem::Command#show_lookup_failure (method)">#show_lookup_failure</a></span>, <span class='object_link'><a href="../Command.html#specific_extra_args-class_method" title="Gem::Command.specific_extra_args (method)">specific_extra_args</a></span>, <span class='object_link'><a href="../Command.html#specific_extra_args_hash-class_method" title="Gem::Command.specific_extra_args_hash (method)">specific_extra_args_hash</a></span>, <span class='object_link'><a href="../Command.html#usage-instance_method" title="Gem::Command#usage (method)">#usage</a></span>, <span class='object_link'><a href="../Command.html#when_invoked-instance_method" title="Gem::Command#when_invoked (method)">#when_invoked</a></span>, <span class='object_link'><a href="../Command.html#wrap-instance_method" title="Gem::Command#wrap (method)">#wrap</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../UserInteraction.html" title="Gem::UserInteraction (module)">UserInteraction</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../UserInteraction.html#alert-instance_method" title="Gem::UserInteraction#alert (method)">#alert</a></span>, <span class='object_link'><a href="../UserInteraction.html#alert_error-instance_method" title="Gem::UserInteraction#alert_error (method)">#alert_error</a></span>, <span class='object_link'><a href="../UserInteraction.html#alert_warning-instance_method" title="Gem::UserInteraction#alert_warning (method)">#alert_warning</a></span>, <span class='object_link'><a href="../UserInteraction.html#ask-instance_method" title="Gem::UserInteraction#ask (method)">#ask</a></span>, <span class='object_link'><a href="../UserInteraction.html#ask_for_password-instance_method" title="Gem::UserInteraction#ask_for_password (method)">#ask_for_password</a></span>, <span class='object_link'><a href="../UserInteraction.html#ask_yes_no-instance_method" title="Gem::UserInteraction#ask_yes_no (method)">#ask_yes_no</a></span>, <span class='object_link'><a href="../UserInteraction.html#choose_from_list-instance_method" title="Gem::UserInteraction#choose_from_list (method)">#choose_from_list</a></span>, <span class='object_link'><a href="../UserInteraction.html#say-instance_method" title="Gem::UserInteraction#say (method)">#say</a></span>, <span class='object_link'><a href="../UserInteraction.html#terminate_interaction-instance_method" title="Gem::UserInteraction#terminate_interaction (method)">#terminate_interaction</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DefaultUserInteraction.html" title="Gem::DefaultUserInteraction (module)">DefaultUserInteraction</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DefaultUserInteraction.html#ui-class_method" title="Gem::DefaultUserInteraction.ui (method)">ui</a></span>, <span class='object_link'><a href="../DefaultUserInteraction.html#ui-instance_method" title="Gem::DefaultUserInteraction#ui (method)">#ui</a></span>, <span class='object_link'><a href="../DefaultUserInteraction.html#ui%3D-instance_method" title="Gem::DefaultUserInteraction#ui= (method)">#ui=</a></span>, <span class='object_link'><a href="../DefaultUserInteraction.html#ui%3D-class_method" title="Gem::DefaultUserInteraction.ui= (method)">ui=</a></span>, <span class='object_link'><a href="../DefaultUserInteraction.html#use_ui-class_method" title="Gem::DefaultUserInteraction.use_ui (method)">use_ui</a></span>, <span class='object_link'><a href="../DefaultUserInteraction.html#use_ui-instance_method" title="Gem::DefaultUserInteraction#use_ui (method)">#use_ui</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Gem::Commands::CertCommand (class)">CertCommand</a></span></tt>) <strong>initialize</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of CertCommand</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/commands/cert_command.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span>
+  <span class='kw'>super</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>cert</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Manage RubyGems certificates and signing settings</span><span class='tstring_end'>'</span></span>
+
+  <span class='id add_option'>add_option</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--add CERT</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Add a trusted certificate.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>|</span>
+    <span class='id cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id read'>read</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Security</span><span class='period'>.</span><span class='id add_trusted_cert'>add_trusted_cert</span><span class='lparen'>(</span><span class='id cert'>cert</span><span class='rparen'>)</span>
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Added '</span><span class='embexpr_beg'>#{</span><span class='id cert'>cert</span><span class='period'>.</span><span class='id subject'>subject</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id add_option'>add_option</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-l</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--list</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>List trusted certificates.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>|</span>
+    <span class='id glob_str'>glob_str</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id join'>join</span><span class='lparen'>(</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>Security</span><span class='op'>::</span><span class='const'>OPT</span><span class='lbracket'>[</span><span class='symbol'>:trust_dir</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>*.pem</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='const'>Dir</span><span class='op'>::</span><span class='id glob'>glob</span><span class='lparen'>(</span><span class='id glob_str'>glob_str</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id path'>path</span><span class='op'>|</span>
+      <span class='kw'>begin</span>
+        <span class='id cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id read'>read</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+        <span class='comment'># this could probably be formatted more gracefully
+</span>        <span class='id say'>say</span> <span class='id cert'>cert</span><span class='period'>.</span><span class='id subject'>subject</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+      <span class='kw'>rescue</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>CertificateError</span>
+        <span class='kw'>next</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id add_option'>add_option</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-r</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--remove STRING</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Remove trusted certificates containing</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>STRING.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>|</span>
+    <span class='id trust_dir'>trust_dir</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Security</span><span class='op'>::</span><span class='const'>OPT</span><span class='lbracket'>[</span><span class='symbol'>:trust_dir</span><span class='rbracket'>]</span>
+    <span class='id glob_str'>glob_str</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id join'>join</span><span class='lparen'>(</span><span class='id trust_dir'>trust_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>*.pem</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+    <span class='const'>Dir</span><span class='op'>::</span><span class='id glob'>glob</span><span class='lparen'>(</span><span class='id glob_str'>glob_str</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id path'>path</span><span class='op'>|</span>
+      <span class='kw'>begin</span>
+        <span class='id cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id read'>read</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id cert'>cert</span><span class='period'>.</span><span class='id subject'>subject</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
+          <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Removed '</span><span class='embexpr_beg'>#{</span><span class='id cert'>cert</span><span class='period'>.</span><span class='id subject'>subject</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
+          <span class='const'>File</span><span class='period'>.</span><span class='id unlink'>unlink</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+      <span class='kw'>rescue</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>CertificateError</span>
+        <span class='kw'>next</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id add_option'>add_option</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-b</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--build EMAIL_ADDR</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Build private key and self-signed</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>certificate for EMAIL_ADDR.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>|</span>
+    <span class='id vals'>vals</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Security</span><span class='period'>.</span><span class='id build_self_signed_cert'>build_self_signed_cert</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
+    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id chmod'>chmod</span> <span class='int'>0600</span><span class='comma'>,</span> <span class='id vals'>vals</span><span class='lbracket'>[</span><span class='symbol'>:key_path</span><span class='rbracket'>]</span>
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Public Cert: </span><span class='embexpr_beg'>#{</span><span class='id vals'>vals</span><span class='lbracket'>[</span><span class='symbol'>:cert_path</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Private Key: </span><span class='embexpr_beg'>#{</span><span class='id vals'>vals</span><span class='lbracket'>[</span><span class='symbol'>:key_path</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Don't forget to move the key file to somewhere private...</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id add_option'>add_option</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-C</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--certificate CERT</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Certificate for --sign command.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>|</span>
+    <span class='id cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id read'>read</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:issuer_cert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id cert'>cert</span>
+  <span class='kw'>end</span>
+
+  <span class='id add_option'>add_option</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-K</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--private-key KEY</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Private key for --sign command.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>|</span>
+    <span class='id key'>key</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>PKey</span><span class='op'>::</span><span class='const'>RSA</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id read'>read</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:issuer_key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id key'>key</span>
+  <span class='kw'>end</span>
+
+  <span class='id add_option'>add_option</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-s</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--sign NEWCERT</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Sign a certificate with my key and</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>certificate.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id value'>value</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>|</span>
+    <span class='id cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id read'>read</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id my_cert'>my_cert</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:issuer_cert</span><span class='rbracket'>]</span>
+    <span class='id my_key'>my_key</span> <span class='op'>=</span> <span class='id options'>options</span><span class='lbracket'>[</span><span class='symbol'>:issuer_key</span><span class='rbracket'>]</span>
+    <span class='id cert'>cert</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Security</span><span class='period'>.</span><span class='id sign_cert'>sign_cert</span><span class='lparen'>(</span><span class='id cert'>cert</span><span class='comma'>,</span> <span class='id my_key'>my_key</span><span class='comma'>,</span> <span class='id my_cert'>my_cert</span><span class='rparen'>)</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id value'>value</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>wb</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id file'>file</span><span class='op'>|</span> <span class='id file'>file</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span><span class='id cert'>cert</span><span class='period'>.</span><span class='id to_pem'>to_pem</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="execute-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>execute</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/commands/cert_command.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id execute'>execute</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:47 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

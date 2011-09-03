@@ -1,0 +1,980 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Gem::Security::Policy
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (P)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Gem.html" title="Gem (module)">Gem</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Security.html" title="Gem::Security (module)">Security</a></span></span>
+     &raquo; 
+    <span class="title">Policy</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Gem::Security::Policy
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Gem::Security::Policy</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rubygems/security.rb<span class="defines">,<br />
+  lib/rubygems/install_update_options.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#only_signed-instance_method" title="#only_signed (instance method)">- (Object) <strong>only_signed</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute only_signed.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#only_trusted-instance_method" title="#only_trusted (instance method)">- (Object) <strong>only_trusted</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute only_trusted.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_chain-instance_method" title="#verify_chain (instance method)">- (Object) <strong>verify_chain</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute verify_chain.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_data-instance_method" title="#verify_data (instance method)">- (Object) <strong>verify_data</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute verify_data.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_root-instance_method" title="#verify_root (instance method)">- (Object) <strong>verify_root</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute verify_root.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_signer-instance_method" title="#verify_signer (instance method)">- (Object) <strong>verify_signer</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute verify_signer.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trusted_cert_path-class_method" title="trusted_cert_path (class method)">+ (Object) <strong>trusted_cert_path</strong>(cert, opt = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get the path to the file for this cert.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Policy) <strong>initialize</strong>(policy = {}, opt = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new Gem::Security::Policy object with the given mode and options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_gem-instance_method" title="#verify_gem (instance method)">- (Object) <strong>verify_gem</strong>(signature, data, chain, time = Time.now) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Verify that the gem data with the given signature and signing chain matched
+this security policy at the specified time.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Gem::Security::Policy (class)">Policy</a></span></tt>) <strong>initialize</strong>(policy = {}, opt = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new Gem::Security::Policy object with the given mode and options.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/security.rb', line 414</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id policy'>policy</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id opt'>opt</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># set options
+</span>  <span class='ivar'>@opt</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Security</span><span class='op'>::</span><span class='const'>OPT</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='rparen'>)</span>
+
+  <span class='comment'># build policy
+</span>  <span class='id policy'>policy</span><span class='period'>.</span><span class='id each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id key'>key</span><span class='comma'>,</span> <span class='id val'>val</span><span class='op'>|</span>
+    <span class='kw'>case</span> <span class='id key'>key</span>
+    <span class='kw'>when</span> <span class='symbol'>:verify_data</span>   <span class='kw'>then</span> <span class='ivar'>@verify_data</span>   <span class='op'>=</span> <span class='id val'>val</span>
+    <span class='kw'>when</span> <span class='symbol'>:verify_signer</span> <span class='kw'>then</span> <span class='ivar'>@verify_signer</span> <span class='op'>=</span> <span class='id val'>val</span>
+    <span class='kw'>when</span> <span class='symbol'>:verify_chain</span>  <span class='kw'>then</span> <span class='ivar'>@verify_chain</span>  <span class='op'>=</span> <span class='id val'>val</span>
+    <span class='kw'>when</span> <span class='symbol'>:verify_root</span>   <span class='kw'>then</span> <span class='ivar'>@verify_root</span>   <span class='op'>=</span> <span class='id val'>val</span>
+    <span class='kw'>when</span> <span class='symbol'>:only_trusted</span>  <span class='kw'>then</span> <span class='ivar'>@only_trusted</span>  <span class='op'>=</span> <span class='id val'>val</span>
+    <span class='kw'>when</span> <span class='symbol'>:only_signed</span>   <span class='kw'>then</span> <span class='ivar'>@only_signed</span>   <span class='op'>=</span> <span class='id val'>val</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="only_signed=-instance_method"></span>
+      <span id="only_signed-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="only_signed-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>only_signed</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute only_signed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407
+408
+409</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/security.rb', line 407</span>
+
+<span class='kw'>def</span> <span class='id only_signed'>only_signed</span>
+  <span class='ivar'>@only_signed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="only_trusted=-instance_method"></span>
+      <span id="only_trusted-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="only_trusted-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>only_trusted</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute only_trusted</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407
+408
+409</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/security.rb', line 407</span>
+
+<span class='kw'>def</span> <span class='id only_trusted'>only_trusted</span>
+  <span class='ivar'>@only_trusted</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="verify_chain=-instance_method"></span>
+      <span id="verify_chain-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="verify_chain-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>verify_chain</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute verify_chain</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407
+408
+409</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/security.rb', line 407</span>
+
+<span class='kw'>def</span> <span class='id verify_chain'>verify_chain</span>
+  <span class='ivar'>@verify_chain</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="verify_data=-instance_method"></span>
+      <span id="verify_data-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="verify_data-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>verify_data</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute verify_data</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407
+408
+409</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/security.rb', line 407</span>
+
+<span class='kw'>def</span> <span class='id verify_data'>verify_data</span>
+  <span class='ivar'>@verify_data</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="verify_root=-instance_method"></span>
+      <span id="verify_root-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="verify_root-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>verify_root</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute verify_root</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407
+408
+409</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/security.rb', line 407</span>
+
+<span class='kw'>def</span> <span class='id verify_root'>verify_root</span>
+  <span class='ivar'>@verify_root</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="verify_signer=-instance_method"></span>
+      <span id="verify_signer-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="verify_signer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>verify_signer</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute verify_signer</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407
+408
+409</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/security.rb', line 407</span>
+
+<span class='kw'>def</span> <span class='id verify_signer'>verify_signer</span>
+  <span class='ivar'>@verify_signer</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="trusted_cert_path-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>trusted_cert_path</strong>(cert, opt = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get the path to the file for this cert.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/security.rb', line 434</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id trusted_cert_path'>trusted_cert_path</span><span class='lparen'>(</span><span class='id cert'>cert</span><span class='comma'>,</span> <span class='id opt'>opt</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id opt'>opt</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Security</span><span class='op'>::</span><span class='const'>OPT</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='rparen'>)</span>
+
+  <span class='comment'># get digest algorithm, calculate checksum of root.subject
+</span>  <span class='id algo'>algo</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:dgst_algo</span><span class='rbracket'>]</span>
+  <span class='id dgst'>dgst</span> <span class='op'>=</span> <span class='id algo'>algo</span><span class='period'>.</span><span class='id hexdigest'>hexdigest</span><span class='lparen'>(</span><span class='id cert'>cert</span><span class='period'>.</span><span class='id subject'>subject</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+
+  <span class='comment'># build path to trusted cert file
+</span>  <span class='id name'>name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cert-</span><span class='embexpr_beg'>#{</span><span class='id dgst'>dgst</span><span class='rbrace'>}</span><span class='tstring_content'>.pem</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'># join and return path components
+</span>  <span class='const'>File</span><span class='op'>::</span><span class='id join'>join</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:trust_dir</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="verify_gem-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>verify_gem</strong>(signature, data, chain, time = Time.now) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Verify that the gem data with the given signature and signing chain matched
+this security policy at the specified time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubygems/security.rb', line 452</span>
+
+<span class='kw'>def</span> <span class='id verify_gem'>verify_gem</span><span class='lparen'>(</span><span class='id signature'>signature</span><span class='comma'>,</span> <span class='id data'>data</span><span class='comma'>,</span> <span class='id chain'>chain</span><span class='comma'>,</span> <span class='id time'>time</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span><span class='rparen'>)</span>
+  <span class='const'>Gem</span><span class='period'>.</span><span class='id ensure_ssl_available'>ensure_ssl_available</span>
+  <span class='id cert_class'>cert_class</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span>
+  <span class='id exc'>exc</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Security</span><span class='op'>::</span><span class='const'>Exception</span>
+  <span class='id chain'>chain</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id chain'>chain</span> <span class='op'>=</span> <span class='id chain'>chain</span><span class='period'>.</span><span class='id map'>map</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id str'>str</span><span class='op'>|</span> <span class='id cert_class'>cert_class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id signer'>signer</span><span class='comma'>,</span> <span class='id ch_len'>ch_len</span> <span class='op'>=</span> <span class='id chain'>chain</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id chain'>chain</span><span class='period'>.</span><span class='id size'>size</span>
+
+  <span class='comment'># make sure signature is valid
+</span>  <span class='kw'>if</span> <span class='ivar'>@verify_data</span>
+    <span class='comment'># get digest algorithm (TODO: this should be configurable)
+</span>    <span class='id dgst'>dgst</span> <span class='op'>=</span> <span class='ivar'>@opt</span><span class='lbracket'>[</span><span class='symbol'>:dgst_algo</span><span class='rbracket'>]</span>
+
+    <span class='comment'># verify the data signature (this is the most important part, so don't
+</span>    <span class='comment'># screw it up :D)
+</span>    <span class='id v'>v</span> <span class='op'>=</span> <span class='id signer'>signer</span><span class='period'>.</span><span class='id public_key'>public_key</span><span class='period'>.</span><span class='id verify'>verify</span><span class='lparen'>(</span><span class='id dgst'>dgst</span><span class='period'>.</span><span class='id new'>new</span><span class='comma'>,</span> <span class='id signature'>signature</span><span class='comma'>,</span> <span class='id data'>data</span><span class='rparen'>)</span>
+    <span class='id raise'>raise</span> <span class='id exc'>exc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid Gem Signature</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id v'>v</span>
+
+    <span class='comment'># make sure the signer is valid
+</span>    <span class='kw'>if</span> <span class='ivar'>@verify_signer</span>
+      <span class='comment'># make sure the signing cert is valid right now
+</span>      <span class='id v'>v</span> <span class='op'>=</span> <span class='id signer'>signer</span><span class='period'>.</span><span class='id check_validity'>check_validity</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id time'>time</span><span class='rparen'>)</span>
+      <span class='id raise'>raise</span> <span class='id exc'>exc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid Signature: </span><span class='embexpr_beg'>#{</span><span class='id v'>v</span><span class='lbracket'>[</span><span class='symbol'>:desc</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id v'>v</span><span class='lbracket'>[</span><span class='symbol'>:is_valid</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># make sure the certificate chain is valid
+</span>  <span class='kw'>if</span> <span class='ivar'>@verify_chain</span>
+    <span class='comment'># iterate down over the chain and verify each certificate against it's
+</span>    <span class='comment'># issuer
+</span>    <span class='lparen'>(</span><span class='id ch_len'>ch_len</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id downto'>downto</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+      <span class='id issuer'>issuer</span><span class='comma'>,</span> <span class='id cert'>cert</span> <span class='op'>=</span> <span class='id chain'>chain</span><span class='lbracket'>[</span><span class='id i'>i</span> <span class='op'>-</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span>
+      <span class='id v'>v</span> <span class='op'>=</span> <span class='id cert'>cert</span><span class='period'>.</span><span class='id check_validity'>check_validity</span><span class='lparen'>(</span><span class='id issuer'>issuer</span><span class='comma'>,</span> <span class='id time'>time</span><span class='rparen'>)</span>
+      <span class='id raise'>raise</span> <span class='id exc'>exc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s: cert = '%s', error = '%s'</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+          <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Invalid Signing Chain</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id cert'>cert</span><span class='period'>.</span><span class='id subject'>subject</span><span class='comma'>,</span> <span class='id v'>v</span><span class='lbracket'>[</span><span class='symbol'>:desc</span><span class='rbracket'>]</span>
+      <span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id v'>v</span><span class='lbracket'>[</span><span class='symbol'>:is_valid</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># verify root of chain
+</span>    <span class='kw'>if</span> <span class='ivar'>@verify_root</span>
+      <span class='comment'># make sure root is self-signed
+</span>      <span class='id root'>root</span> <span class='op'>=</span> <span class='id chain'>chain</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='id raise'>raise</span> <span class='id exc'>exc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s: %s (subject = '%s', issuer = '%s')</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+          <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Invalid Signing Chain Root</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Subject does not match Issuer for Gem Signing Chain</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+          <span class='id root'>root</span><span class='period'>.</span><span class='id subject'>subject</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span>
+          <span class='id root'>root</span><span class='period'>.</span><span class='id issuer'>issuer</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span>
+      <span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id root'>root</span><span class='period'>.</span><span class='id issuer'>issuer</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='op'>==</span> <span class='id root'>root</span><span class='period'>.</span><span class='id subject'>subject</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+
+      <span class='comment'># make sure root is valid
+</span>      <span class='id v'>v</span> <span class='op'>=</span> <span class='id root'>root</span><span class='period'>.</span><span class='id check_validity'>check_validity</span><span class='lparen'>(</span><span class='id root'>root</span><span class='comma'>,</span> <span class='id time'>time</span><span class='rparen'>)</span>
+      <span class='id raise'>raise</span> <span class='id exc'>exc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s: cert = '%s', error = '%s'</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+          <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Invalid Signing Chain Root</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id root'>root</span><span class='period'>.</span><span class='id subject'>subject</span><span class='comma'>,</span> <span class='id v'>v</span><span class='lbracket'>[</span><span class='symbol'>:desc</span><span class='rbracket'>]</span>
+      <span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id v'>v</span><span class='lbracket'>[</span><span class='symbol'>:is_valid</span><span class='rbracket'>]</span>
+
+      <span class='comment'># verify that the chain root is trusted
+</span>      <span class='kw'>if</span> <span class='ivar'>@only_trusted</span>
+        <span class='comment'># get digest algorithm, calculate checksum of root.subject
+</span>        <span class='id algo'>algo</span> <span class='op'>=</span> <span class='ivar'>@opt</span><span class='lbracket'>[</span><span class='symbol'>:dgst_algo</span><span class='rbracket'>]</span>
+        <span class='id path'>path</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Security</span><span class='op'>::</span><span class='const'>Policy</span><span class='period'>.</span><span class='id trusted_cert_path'>trusted_cert_path</span><span class='lparen'>(</span><span class='id root'>root</span><span class='comma'>,</span> <span class='ivar'>@opt</span><span class='rparen'>)</span>
+
+        <span class='comment'># check to make sure trusted path exists
+</span>        <span class='id raise'>raise</span> <span class='id exc'>exc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s: cert = '%s', error = '%s'</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+            <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Untrusted Signing Chain Root</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+            <span class='id root'>root</span><span class='period'>.</span><span class='id subject'>subject</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span>
+            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>path \&quot;</span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot; does not exist</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+
+        <span class='comment'># load calculate digest from saved cert file
+</span>        <span class='id save_cert'>save_cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id read'>read</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+        <span class='id save_dgst'>save_dgst</span> <span class='op'>=</span> <span class='id algo'>algo</span><span class='period'>.</span><span class='id digest'>digest</span><span class='lparen'>(</span><span class='id save_cert'>save_cert</span><span class='period'>.</span><span class='id public_key'>public_key</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+
+        <span class='comment'># create digest of public key
+</span>        <span class='id pkey_str'>pkey_str</span> <span class='op'>=</span> <span class='id root'>root</span><span class='period'>.</span><span class='id public_key'>public_key</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+        <span class='id cert_dgst'>cert_dgst</span> <span class='op'>=</span> <span class='id algo'>algo</span><span class='period'>.</span><span class='id digest'>digest</span><span class='lparen'>(</span><span class='id pkey_str'>pkey_str</span><span class='rparen'>)</span>
+
+        <span class='comment'># now compare the two digests, raise exception
+</span>        <span class='comment'># if they don't match
+</span>        <span class='id raise'>raise</span> <span class='id exc'>exc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s: %s (saved = '%s', root = '%s')</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+            <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Invalid Signing Chain Root</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Saved checksum doesn't match root checksum</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+            <span class='id save_dgst'>save_dgst</span><span class='comma'>,</span> <span class='id cert_dgst'>cert_dgst</span><span class='comma'>,</span>
+        <span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id save_dgst'>save_dgst</span> <span class='op'>==</span> <span class='id cert_dgst'>cert_dgst</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># return the signing chain
+</span>    <span class='id chain'>chain</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id cert'>cert</span><span class='op'>|</span> <span class='id cert'>cert</span><span class='period'>.</span><span class='id subject'>subject</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:22 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

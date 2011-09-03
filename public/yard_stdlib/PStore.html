@@ -1,0 +1,2107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: PStore
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (P)</a> &raquo; 
+    
+    
+    <span class="title">PStore</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: PStore
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">PStore</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/pstore.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>PStore implements a file based persistence mechanism based on a Hash.  User
+code can store hierarchies of Ruby objects (values) into the data store
+file by name (keys).  An object hierarchy may be just a single object. 
+User code may later read values back from the data store or even update
+data, as needed.</p>
+
+<p>The transactional behavior ensures that any changes succeed or fail
+together. This can be used to ensure that the data store is not left in a
+transitory state, where some values were updated but others were not.</p>
+
+<p>Behind the scenes, Ruby objects are stored to the data store file with
+Marshal.  That carries the usual limitations.  Proc objects cannot be
+marshalled, for example.</p>
+
+<h2>Usage example:</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pstore</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='comment'># a mock wiki object...
+</span><span class='kw'>class</span> <span class='const'>WikiPage</span>
+  <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span> <span class='id page_name'>page_name</span><span class='comma'>,</span> <span class='id author'>author</span><span class='comma'>,</span> <span class='id contents'>contents</span> <span class='rparen'>)</span>
+    <span class='ivar'>@page_name</span> <span class='op'>=</span> <span class='id page_name'>page_name</span>
+    <span class='ivar'>@revisions</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id new'>new</span>
+
+    <span class='id add_revision'>add_revision</span><span class='lparen'>(</span><span class='id author'>author</span><span class='comma'>,</span> <span class='id contents'>contents</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id attr_reader'>attr_reader</span> <span class='symbol'>:page_name</span>
+
+  <span class='kw'>def</span> <span class='id add_revision'>add_revision</span><span class='lparen'>(</span> <span class='id author'>author</span><span class='comma'>,</span> <span class='id contents'>contents</span> <span class='rparen'>)</span>
+    <span class='ivar'>@revisions</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span> <span class='symbol'>:created</span>  <span class='op'>=&gt;</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span><span class='comma'>,</span>
+                    <span class='symbol'>:author</span>   <span class='op'>=&gt;</span> <span class='id author'>author</span><span class='comma'>,</span>
+                    <span class='symbol'>:contents</span> <span class='op'>=&gt;</span> <span class='id contents'>contents</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id wiki_page_references'>wiki_page_references</span>
+    <span class='lbracket'>[</span><span class='ivar'>@page_name</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='ivar'>@revisions</span><span class='period'>.</span><span class='id last'>last</span><span class='lbracket'>[</span><span class='symbol'>:contents</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\b(?:[A-Z]+[a-z]+){2,}</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># ...
+</span><span class='kw'>end</span>
+
+<span class='comment'># create a new page...
+</span><span class='id home_page'>home_page</span> <span class='op'>=</span> <span class='const'>WikiPage</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HomePage</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>James Edward Gray II</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A page about the JoysOfDocumentation...</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+
+<span class='comment'># then we want to update page data and the index together, or not at all...
+</span><span class='id wiki'>wiki</span> <span class='op'>=</span> <span class='const'>PStore</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wiki_pages.pstore</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id wiki'>wiki</span><span class='period'>.</span><span class='id transaction'>transaction</span> <span class='kw'>do</span>  <span class='comment'># begin transaction; do all of this or none of it
+</span>  <span class='comment'># store page...
+</span>  <span class='id wiki'>wiki</span><span class='lbracket'>[</span><span class='id home_page'>home_page</span><span class='period'>.</span><span class='id page_name'>page_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id home_page'>home_page</span>
+  <span class='comment'># ensure that an index has been created...
+</span>  <span class='id wiki'>wiki</span><span class='lbracket'>[</span><span class='symbol'>:wiki_index</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='comment'># update wiki index...
+</span>  <span class='id wiki'>wiki</span><span class='lbracket'>[</span><span class='symbol'>:wiki_index</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id home_page'>home_page</span><span class='period'>.</span><span class='id wiki_page_references'>wiki_page_references</span><span class='rparen'>)</span>
+<span class='kw'>end</span>                   <span class='comment'># commit changes to wiki data store file
+</span>
+<span class='comment'>### Some time later... ###
+</span>
+<span class='comment'># read wiki data...
+</span><span class='id wiki'>wiki</span><span class='period'>.</span><span class='id transaction'>transaction</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span> <span class='kw'>do</span>  <span class='comment'># begin read-only transaction, no changes allowed
+</span>  <span class='id wiki'>wiki</span><span class='period'>.</span><span class='id roots'>roots</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id data_root_name'>data_root_name</span><span class='op'>|</span>
+    <span class='id p'>p</span> <span class='id data_root_name'>data_root_name</span>
+    <span class='id p'>p</span> <span class='id wiki'>wiki</span><span class='lbracket'>[</span><span class='id data_root_name'>data_root_name</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+<h2>Transaction modes</h2>
+
+<p>By default, file integrity is only ensured as long as the operating system
+(and the underlying hardware) doesn't raise any unexpected I/O errors. If
+an I/O error occurs while PStore is writing to its file, then the file will
+become corrupted.</p>
+
+<p>You can prevent this by setting <em>pstore.ultra_safe = true</em>. However,
+this results in a minor performance loss, and only works on platforms that
+support atomic file renames. Please consult the documentation for
+<tt>ultra_safe</tt> for details.</p>
+
+<p>Needless to say, if you're storing valuable data with PStore, then you
+should backup the PStore files from time to time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="YAML/Store.html" title="YAML::Store (class)">YAML::Store</a></span></p>
+</div>
+<h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="PStore/Error.html" title="PStore::Error (class)">Error</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="RDWR_ACCESS-constant" class="">RDWR_ACCESS =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>File</span><span class='op'>::</span><span class='const'>RDWR</span> <span class='op'>|</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>CREAT</span> <span class='op'>|</span> <span class='id binmode'>binmode</span></pre></dd>
+      
+        <dt id="RD_ACCESS-constant" class="">RD_ACCESS =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>File</span><span class='op'>::</span><span class='const'>RDONLY</span> <span class='op'>|</span> <span class='id binmode'>binmode</span></pre></dd>
+      
+        <dt id="WR_ACCESS-constant" class="">WR_ACCESS =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>File</span><span class='op'>::</span><span class='const'>WRONLY</span> <span class='op'>|</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>CREAT</span> <span class='op'>|</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>TRUNC</span> <span class='op'>|</span> <span class='id binmode'>binmode</span></pre></dd>
+      
+        <dt id="EMPTY_STRING-constant" class="">EMPTY_STRING =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Constant for relieving Ruby's garbage collector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="EMPTY_MARSHAL_DATA-constant" class="">EMPTY_MARSHAL_DATA =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Marshal</span><span class='period'>.</span><span class='id dump'>dump</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="EMPTY_MARSHAL_CHECKSUM-constant" class="">EMPTY_MARSHAL_CHECKSUM =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Digest</span><span class='op'>::</span><span class='const'>MD5</span><span class='period'>.</span><span class='id digest'>digest</span><span class='lparen'>(</span><span class='const'>EMPTY_MARSHAL_DATA</span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ultra_safe-instance_method" title="#ultra_safe (instance method)">- (Object) <strong>ultra_safe</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether PStore should do its best to prevent file corruptions, even when
+under unlikely-to-occur error conditions such as out-of-space conditions
+and other unusual OS filesystem errors.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- (Object) <strong>[]</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves a value from the PStore file data, by <em>name</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D%3D-instance_method" title="#[]= (instance method)">- (Object) <strong>[]=</strong>(name, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stores an individual Ruby object or a hierarchy of Ruby objects in the data
+store file under the root <em>name</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#abort-instance_method" title="#abort (instance method)">- (Object) <strong>abort</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Ends the current PStore#transaction, discarding any changes to the data
+store.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#commit-instance_method" title="#commit (instance method)">- (Object) <strong>commit</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Ends the current PStore#transaction, committing any changes to the data
+store immediately.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Removes an object hierarchy from the data store, by <em>name</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump-instance_method" title="#dump (instance method)">- (Object) <strong>dump</strong>(table) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method is just a wrapped around Marshal.dump to allow subclass
+overriding used in YAML::Store.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#empty_marshal_checksum-instance_method" title="#empty_marshal_checksum (instance method)">- (Object) <strong>empty_marshal_checksum</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#empty_marshal_data-instance_method" title="#empty_marshal_data (instance method)">- (Object) <strong>empty_marshal_data</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch-instance_method" title="#fetch (instance method)">- (Object) <strong>fetch</strong>(name, default = PStore::Error) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method is just like PStore#[], save that you may also provide a
+<em>default</em> value for the object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (PStore) <strong>initialize</strong>(file, thread_safe = false) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>To construct a PStore object, pass in the <em>file</em> path where you
+would like the data to be stored.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load-instance_method" title="#load (instance method)">- (Object) <strong>load</strong>(content) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method is just a wrapped around Marshal.load.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_data-instance_method" title="#load_data (instance method)">- (Object) <strong>load_data</strong>(file, read_only) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Load the given PStore file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#marshal_dump_supports_canonical_option%3F-instance_method" title="#marshal_dump_supports_canonical_option? (instance method)">- (Boolean) <strong>marshal_dump_supports_canonical_option?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check whether Marshal.dump supports the 'canonical' option.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_windows%3F-instance_method" title="#on_windows? (instance method)">- (Boolean) <strong>on_windows?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open_and_lock_file-instance_method" title="#open_and_lock_file (instance method)">- (Object) <strong>open_and_lock_file</strong>(filename, read_only) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Open the specified filename (either in read-only mode or in read-write
+mode) and lock it for reading or writing.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path-instance_method" title="#path (instance method)">- (Object) <strong>path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the path to the data store file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#root%3F-instance_method" title="#root? (instance method)">- (Boolean) <strong>root?</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the supplied <em>name</em> is currently in the data store.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#roots-instance_method" title="#roots (instance method)">- (Object) <strong>roots</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the names of all object hierarchies currently in the store.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#save_data-instance_method" title="#save_data (instance method)">- (Object) <strong>save_data</strong>(original_checksum, original_file_size, file) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#save_data_with_atomic_file_rename_strategy-instance_method" title="#save_data_with_atomic_file_rename_strategy (instance method)">- (Object) <strong>save_data_with_atomic_file_rename_strategy</strong>(data, file) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#save_data_with_fast_strategy-instance_method" title="#save_data_with_fast_strategy (instance method)">- (Object) <strong>save_data_with_fast_strategy</strong>(data, file) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#transaction-instance_method" title="#transaction (instance method)">- (Object) <strong>transaction</strong>(read_only = false, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Opens a new transaction for the data store.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="PStore (class)">PStore</a></span></tt>) <strong>initialize</strong>(file, thread_safe = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>To construct a PStore object, pass in the <em>file</em> path where you
+would like the data to be stored.</p>
+
+<p>PStore objects are always reentrant. But if <em>thread_safe</em> is set to
+true, then it will become thread-safe at the cost of a minor performance
+hit.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 122</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id file'>file</span><span class='comma'>,</span> <span class='id thread_safe'>thread_safe</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id dir'>dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id dirname'>dirname</span><span class='lparen'>(</span><span class='id file'>file</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='const'>File</span><span class='op'>::</span><span class='id directory?'>directory?</span> <span class='id dir'>dir</span>
+    <span class='id raise'>raise</span> <span class='const'>PStore</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>directory %s does not exist</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id dir'>dir</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='const'>File</span><span class='op'>::</span><span class='id exist?'>exist?</span> <span class='id file'>file</span> <span class='kw'>and</span> <span class='kw'>not</span> <span class='const'>File</span><span class='op'>::</span><span class='id readable?'>readable?</span> <span class='id file'>file</span>
+    <span class='id raise'>raise</span> <span class='const'>PStore</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>file %s not readable</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id file'>file</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@filename</span> <span class='op'>=</span> <span class='id file'>file</span>
+  <span class='ivar'>@abort</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@ultra_safe</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@thread_safe</span> <span class='op'>=</span> <span class='id thread_safe'>thread_safe</span>
+  <span class='ivar'>@lock</span> <span class='op'>=</span> <span class='const'>Mutex</span><span class='period'>.</span><span class='id new'>new</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="ultra_safe=-instance_method"></span>
+      <span id="ultra_safe-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="ultra_safe-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>ultra_safe</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Whether PStore should do its best to prevent file corruptions, even when
+under unlikely-to-occur error conditions such as out-of-space conditions
+and other unusual OS filesystem errors. Setting this flag comes at the
+price in the form of a performance loss.</p>
+
+<p>This flag only has effect on platforms on which file renames are atomic
+(e.g. all POSIX platforms: Linux, MacOS X, FreeBSD, etc). The default value
+is false.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id ultra_safe'>ultra_safe</span>
+  <span class='ivar'>@ultra_safe</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="[]-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves a value from the PStore file data, by <em>name</em>.  The
+hierarchy of Ruby objects stored under that root <em>name</em> will be
+returned.</p>
+
+<p><b>WARNING</b>:  This method is only valid in a PStore#transaction.  It
+will raise PStore::Error if called at any other time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+158
+159
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 158</span>
+
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id in_transaction'>in_transaction</span>
+  <span class='ivar'>@table</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="[]=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]=</strong>(name, value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Stores an individual Ruby object or a hierarchy of Ruby objects in the data
+store file under the root <em>name</em>.  Assigning to a <em>name</em>
+already in the data store clobbers the old data.</p>
+
+<h2>Example:</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pstore</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id store'>store</span> <span class='op'>=</span> <span class='const'>PStore</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data_file.pstore</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id store'>store</span><span class='period'>.</span><span class='id transaction'>transaction</span> <span class='kw'>do</span>  <span class='comment'># begin transaction
+</span>  <span class='comment'># load some data into the store...
+</span>  <span class='id store'>store</span><span class='lbracket'>[</span><span class='symbol'>:single_object</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>My data...</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id store'>store</span><span class='lbracket'>[</span><span class='symbol'>:obj_heirarchy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Kev Jackson</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rational.rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pstore.rb</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+                            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>James Gray</span><span class='tstring_end'>&quot;</span></span>  <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>erb.rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pstore.rb</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span>                   <span class='comment'># commit changes to data store file</span></pre>
+
+<p><b>WARNING</b>:  This method is only valid in a PStore#transaction and it
+cannot be read-only.  It will raise PStore::Error if called at any other
+time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+203
+204
+205
+206</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 203</span>
+
+<span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='id in_transaction_wr'>in_transaction_wr</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='ivar'>@table</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="abort-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>abort</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Ends the current PStore#transaction, discarding any changes to the data
+store.</p>
+
+<h2>Example:</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pstore</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id store'>store</span> <span class='op'>=</span> <span class='const'>PStore</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data_file.pstore</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id store'>store</span><span class='period'>.</span><span class='id transaction'>transaction</span> <span class='kw'>do</span>  <span class='comment'># begin transaction
+</span>  <span class='id store'>store</span><span class='lbracket'>[</span><span class='symbol'>:one</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>1</span>     <span class='comment'># this change is not applied, see below...
+</span>  <span class='id store'>store</span><span class='lbracket'>[</span><span class='symbol'>:two</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>2</span>     <span class='comment'># this change is not applied, see below...
+</span>
+  <span class='id store'>store</span><span class='period'>.</span><span class='id abort'>abort</span>         <span class='comment'># end transaction here, discard all changes
+</span>
+  <span class='id store'>store</span><span class='lbracket'>[</span><span class='symbol'>:three</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>3</span>   <span class='comment'># this change is never reached
+</span><span class='kw'>end</span></pre>
+
+<p><b>WARNING</b>:  This method is only valid in a PStore#transaction.  It
+will raise PStore::Error if called at any other time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+291
+292
+293
+294
+295</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 291</span>
+
+<span class='kw'>def</span> <span class='id abort'>abort</span>
+  <span class='id in_transaction'>in_transaction</span>
+  <span class='ivar'>@abort</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='id throw'>throw</span> <span class='symbol'>:pstore_abort_transaction</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="commit-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>commit</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Ends the current PStore#transaction, committing any changes to the data
+store immediately.</p>
+
+<h2>Example:</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pstore</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id store'>store</span> <span class='op'>=</span> <span class='const'>PStore</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data_file.pstore</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id store'>store</span><span class='period'>.</span><span class='id transaction'>transaction</span> <span class='kw'>do</span>  <span class='comment'># begin transaction
+</span>  <span class='comment'># load some data into the store...
+</span>  <span class='id store'>store</span><span class='lbracket'>[</span><span class='symbol'>:one</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>1</span>
+  <span class='id store'>store</span><span class='lbracket'>[</span><span class='symbol'>:two</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>2</span>
+
+  <span class='id store'>store</span><span class='period'>.</span><span class='id commit'>commit</span>        <span class='comment'># end transaction here, committing changes
+</span>
+  <span class='id store'>store</span><span class='lbracket'>[</span><span class='symbol'>:three</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>3</span>   <span class='comment'># this change is never reached
+</span><span class='kw'>end</span></pre>
+
+<p><b>WARNING</b>:  This method is only valid in a PStore#transaction.  It
+will raise PStore::Error if called at any other time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+265
+266
+267
+268
+269</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 265</span>
+
+<span class='kw'>def</span> <span class='id commit'>commit</span>
+  <span class='id in_transaction'>in_transaction</span>
+  <span class='ivar'>@abort</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='id throw'>throw</span> <span class='symbol'>:pstore_abort_transaction</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Removes an object hierarchy from the data store, by <em>name</em>.</p>
+
+<p><b>WARNING</b>:  This method is only valid in a PStore#transaction and it
+cannot be read-only.  It will raise PStore::Error if called at any other
+time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+213
+214
+215
+216</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 213</span>
+
+<span class='kw'>def</span> <span class='id delete'>delete</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id in_transaction_wr'>in_transaction_wr</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='ivar'>@table</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='id name'>name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="dump-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>dump</strong>(table) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>This method is just a wrapped around Marshal.dump to allow subclass
+overriding used in YAML::Store.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+494
+495
+496</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 494</span>
+
+<span class='kw'>def</span> <span class='id dump'>dump</span><span class='lparen'>(</span><span class='id table'>table</span><span class='rparen'>)</span>  <span class='comment'># :nodoc:
+</span>  <span class='const'>Marshal</span><span class='op'>::</span><span class='id dump'>dump</span><span class='lparen'>(</span><span class='id table'>table</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="empty_marshal_checksum-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>empty_marshal_checksum</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+507
+508
+509</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 507</span>
+
+<span class='kw'>def</span> <span class='id empty_marshal_checksum'>empty_marshal_checksum</span>
+  <span class='const'>EMPTY_MARSHAL_CHECKSUM</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="empty_marshal_data-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>empty_marshal_data</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+504
+505
+506</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 504</span>
+
+<span class='kw'>def</span> <span class='id empty_marshal_data'>empty_marshal_data</span>
+  <span class='const'>EMPTY_MARSHAL_DATA</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fetch-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>fetch</strong>(name, default = PStore::Error) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>This method is just like PStore#[], save that you may also provide a
+<em>default</em> value for the object.  In the event the specified
+<em>name</em> is not found in the data store, your <em>default</em> will be
+returned instead.  If you do not specify a default, PStore::Error will be
+raised if the object is not found.</p>
+
+<p><b>WARNING</b>:  This method is only valid in a PStore#transaction.  It
+will raise PStore::Error if called at any other time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 172</span>
+
+<span class='kw'>def</span> <span class='id fetch'>fetch</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id default'>default</span><span class='op'>=</span><span class='const'>PStore</span><span class='op'>::</span><span class='const'>Error</span><span class='rparen'>)</span>
+  <span class='id in_transaction'>in_transaction</span>
+  <span class='kw'>unless</span> <span class='ivar'>@table</span><span class='period'>.</span><span class='id key?'>key?</span> <span class='id name'>name</span>
+    <span class='kw'>if</span> <span class='id default'>default</span> <span class='op'>==</span> <span class='const'>PStore</span><span class='op'>::</span><span class='const'>Error</span>
+      <span class='id raise'>raise</span> <span class='const'>PStore</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>undefined root name `%s'</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id name'>name</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='kw'>return</span> <span class='id default'>default</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@table</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>load</strong>(content) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>This method is just a wrapped around Marshal.load. to allow subclass
+overriding used in YAML::Store.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+500
+501
+502</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 500</span>
+
+<span class='kw'>def</span> <span class='id load'>load</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span>  <span class='comment'># :nodoc:
+</span>  <span class='const'>Marshal</span><span class='op'>::</span><span class='id load'>load</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load_data-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>load_data</strong>(file, read_only) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Load the given PStore file. If <tt>read_only</tt> is true, the unmarshalled
+Hash will be returned. If <tt>read_only</tt> is false, a 3-tuple will be
+returned: the unmarshalled Hash, an MD5 checksum of the data, and the size
+of the data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 388</span>
+
+<span class='kw'>def</span> <span class='id load_data'>load_data</span><span class='lparen'>(</span><span class='id file'>file</span><span class='comma'>,</span> <span class='id read_only'>read_only</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id read_only'>read_only</span>
+    <span class='kw'>begin</span>
+      <span class='id table'>table</span> <span class='op'>=</span> <span class='id load'>load</span><span class='lparen'>(</span><span class='id file'>file</span><span class='rparen'>)</span>
+      <span class='kw'>if</span> <span class='op'>!</span><span class='id table'>table</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+        <span class='id raise'>raise</span> <span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PStore file seems to be corrupted.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>rescue</span> <span class='const'>EOFError</span>
+      <span class='comment'># This seems to be a newly-created file.
+</span>      <span class='id table'>table</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='id table'>table</span>
+  <span class='kw'>else</span>
+    <span class='id data'>data</span> <span class='op'>=</span> <span class='id file'>file</span><span class='period'>.</span><span class='id read'>read</span>
+    <span class='kw'>if</span> <span class='id data'>data</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+      <span class='comment'># This seems to be a newly-created file.
+</span>      <span class='id table'>table</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+      <span class='id checksum'>checksum</span> <span class='op'>=</span> <span class='id empty_marshal_checksum'>empty_marshal_checksum</span>
+      <span class='id size'>size</span> <span class='op'>=</span> <span class='id empty_marshal_data'>empty_marshal_data</span><span class='period'>.</span><span class='id size'>size</span>
+    <span class='kw'>else</span>
+      <span class='id table'>table</span> <span class='op'>=</span> <span class='id load'>load</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+      <span class='id checksum'>checksum</span> <span class='op'>=</span> <span class='const'>Digest</span><span class='op'>::</span><span class='const'>MD5</span><span class='period'>.</span><span class='id digest'>digest</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+      <span class='id size'>size</span> <span class='op'>=</span> <span class='id data'>data</span><span class='period'>.</span><span class='id size'>size</span>
+      <span class='kw'>if</span> <span class='op'>!</span><span class='id table'>table</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+        <span class='id raise'>raise</span> <span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PStore file seems to be corrupted.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='id data'>data</span><span class='period'>.</span><span class='id replace'>replace</span><span class='lparen'>(</span><span class='const'>EMPTY_STRING</span><span class='rparen'>)</span>
+    <span class='lbracket'>[</span><span class='id table'>table</span><span class='comma'>,</span> <span class='id checksum'>checksum</span><span class='comma'>,</span> <span class='id size'>size</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="marshal_dump_supports_canonical_option?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>marshal_dump_supports_canonical_option?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Check whether Marshal.dump supports the 'canonical' option. This option
+makes sure that Marshal.dump always dumps data structures in the same
+order. This is important because otherwise, the checksums that we generate
+may differ.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 434</span>
+
+<span class='kw'>def</span> <span class='id marshal_dump_supports_canonical_option?'>marshal_dump_supports_canonical_option?</span>
+  <span class='kw'>begin</span>
+    <span class='const'>Marshal</span><span class='period'>.</span><span class='id dump'>dump</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='id result'>result</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>rescue</span>
+    <span class='id result'>result</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id __send__'>__send__</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='symbol'>:marshal_dump_supports_canonical_option?</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id result'>result</span>
+  <span class='kw'>end</span>
+  <span class='id result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="on_windows?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>on_windows?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 420</span>
+
+<span class='kw'>def</span> <span class='id on_windows?'>on_windows?</span>
+  <span class='id is_windows'>is_windows</span> <span class='op'>=</span> <span class='const'>RUBY_PLATFORM</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>mswin</span><span class='regexp_end'>/</span></span>  <span class='op'>||</span>
+               <span class='const'>RUBY_PLATFORM</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>mingw</span><span class='regexp_end'>/</span></span>  <span class='op'>||</span>
+               <span class='const'>RUBY_PLATFORM</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>bccwin</span><span class='regexp_end'>/</span></span> <span class='op'>||</span>
+               <span class='const'>RUBY_PLATFORM</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>wince</span><span class='regexp_end'>/</span></span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id __send__'>__send__</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='symbol'>:on_windows?</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id is_windows'>is_windows</span>
+  <span class='kw'>end</span>
+  <span class='id is_windows'>is_windows</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="open_and_lock_file-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>open_and_lock_file</strong>(filename, read_only) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Open the specified filename (either in read-only mode or in read-write
+mode) and lock it for reading or writing.</p>
+
+<p>The opened File object will be returned. If <em>read_only</em> is true, and
+the file does not exist, then nil will be returned.</p>
+
+<p>All exceptions are propagated.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 363</span>
+
+<span class='kw'>def</span> <span class='id open_and_lock_file'>open_and_lock_file</span><span class='lparen'>(</span><span class='id filename'>filename</span><span class='comma'>,</span> <span class='id read_only'>read_only</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id read_only'>read_only</span>
+    <span class='kw'>begin</span>
+      <span class='id file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id filename'>filename</span><span class='comma'>,</span> <span class='const'>RD_ACCESS</span><span class='rparen'>)</span>
+      <span class='kw'>begin</span>
+        <span class='id file'>file</span><span class='period'>.</span><span class='id flock'>flock</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='const'>LOCK_SH</span><span class='rparen'>)</span>
+        <span class='kw'>return</span> <span class='id file'>file</span>
+      <span class='kw'>rescue</span>
+        <span class='id file'>file</span><span class='period'>.</span><span class='id close'>close</span>
+        <span class='id raise'>raise</span>
+      <span class='kw'>end</span>
+    <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOENT</span>
+      <span class='kw'>return</span> <span class='kw'>nil</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id filename'>filename</span><span class='comma'>,</span> <span class='const'>RDWR_ACCESS</span><span class='rparen'>)</span>
+    <span class='id file'>file</span><span class='period'>.</span><span class='id flock'>flock</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='const'>LOCK_EX</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id file'>file</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>path</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the path to the data store file.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+239
+240
+241</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 239</span>
+
+<span class='kw'>def</span> <span class='id path'>path</span>
+  <span class='ivar'>@filename</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="root?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>root?</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if the supplied <em>name</em> is currently in the data store.</p>
+
+<p><b>WARNING</b>:  This method is only valid in a PStore#transaction.  It
+will raise PStore::Error if called at any other time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+234
+235
+236
+237</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 234</span>
+
+<span class='kw'>def</span> <span class='id root?'>root?</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='id in_transaction'>in_transaction</span>
+  <span class='ivar'>@table</span><span class='period'>.</span><span class='id key?'>key?</span> <span class='id name'>name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="roots-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>roots</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the names of all object hierarchies currently in the store.</p>
+
+<p><b>WARNING</b>:  This method is only valid in a PStore#transaction.  It
+will raise PStore::Error if called at any other time.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+224
+225
+226
+227</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 224</span>
+
+<span class='kw'>def</span> <span class='id roots'>roots</span>
+  <span class='id in_transaction'>in_transaction</span>
+  <span class='ivar'>@table</span><span class='period'>.</span><span class='id keys'>keys</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="save_data-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>save_data</strong>(original_checksum, original_file_size, file) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 447</span>
+
+<span class='kw'>def</span> <span class='id save_data'>save_data</span><span class='lparen'>(</span><span class='id original_checksum'>original_checksum</span><span class='comma'>,</span> <span class='id original_file_size'>original_file_size</span><span class='comma'>,</span> <span class='id file'>file</span><span class='rparen'>)</span>
+  <span class='comment'># We only want to save the new data if the size or checksum has changed.
+</span>  <span class='comment'># This results in less filesystem calls, which is good for performance.
+</span>  <span class='kw'>if</span> <span class='id marshal_dump_supports_canonical_option?'>marshal_dump_supports_canonical_option?</span>
+    <span class='id new_data'>new_data</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id dump'>dump</span><span class='lparen'>(</span><span class='ivar'>@table</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id new_data'>new_data</span> <span class='op'>=</span> <span class='id dump'>dump</span><span class='lparen'>(</span><span class='ivar'>@table</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id new_checksum'>new_checksum</span> <span class='op'>=</span> <span class='const'>Digest</span><span class='op'>::</span><span class='const'>MD5</span><span class='period'>.</span><span class='id digest'>digest</span><span class='lparen'>(</span><span class='id new_data'>new_data</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id new_data'>new_data</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>!=</span> <span class='id original_file_size'>original_file_size</span> <span class='op'>||</span> <span class='id new_checksum'>new_checksum</span> <span class='op'>!=</span> <span class='id original_checksum'>original_checksum</span>
+    <span class='kw'>if</span> <span class='ivar'>@ultra_safe</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id on_windows?'>on_windows?</span>
+      <span class='comment'># Windows doesn't support atomic file renames.
+</span>      <span class='id save_data_with_atomic_file_rename_strategy'>save_data_with_atomic_file_rename_strategy</span><span class='lparen'>(</span><span class='id new_data'>new_data</span><span class='comma'>,</span> <span class='id file'>file</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id save_data_with_fast_strategy'>save_data_with_fast_strategy</span><span class='lparen'>(</span><span class='id new_data'>new_data</span><span class='comma'>,</span> <span class='id file'>file</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id new_data'>new_data</span><span class='period'>.</span><span class='id replace'>replace</span><span class='lparen'>(</span><span class='const'>EMPTY_STRING</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="save_data_with_atomic_file_rename_strategy-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>save_data_with_atomic_file_rename_strategy</strong>(data, file) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 469</span>
+
+<span class='kw'>def</span> <span class='id save_data_with_atomic_file_rename_strategy'>save_data_with_atomic_file_rename_strategy</span><span class='lparen'>(</span><span class='id data'>data</span><span class='comma'>,</span> <span class='id file'>file</span><span class='rparen'>)</span>
+  <span class='id temp_filename'>temp_filename</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@filename</span><span class='rbrace'>}</span><span class='tstring_content'>.tmp.</span><span class='embexpr_beg'>#{</span><span class='const'>Process</span><span class='period'>.</span><span class='id pid'>pid</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id rand'>rand</span> <span class='int'>1000000</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id temp_file'>temp_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id temp_filename'>temp_filename</span><span class='comma'>,</span> <span class='const'>WR_ACCESS</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id temp_file'>temp_file</span><span class='period'>.</span><span class='id flock'>flock</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='const'>LOCK_EX</span><span class='rparen'>)</span>
+    <span class='id temp_file'>temp_file</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+    <span class='id temp_file'>temp_file</span><span class='period'>.</span><span class='id flush'>flush</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id rename'>rename</span><span class='lparen'>(</span><span class='id temp_filename'>temp_filename</span><span class='comma'>,</span> <span class='ivar'>@filename</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id unlink'>unlink</span><span class='lparen'>(</span><span class='id temp_file'>temp_file</span><span class='rparen'>)</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+    <span class='id raise'>raise</span>
+  <span class='kw'>ensure</span>
+    <span class='id temp_file'>temp_file</span><span class='period'>.</span><span class='id close'>close</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="save_data_with_fast_strategy-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>save_data_with_fast_strategy</strong>(data, file) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+485
+486
+487
+488
+489</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 485</span>
+
+<span class='kw'>def</span> <span class='id save_data_with_fast_strategy'>save_data_with_fast_strategy</span><span class='lparen'>(</span><span class='id data'>data</span><span class='comma'>,</span> <span class='id file'>file</span><span class='rparen'>)</span>
+  <span class='id file'>file</span><span class='period'>.</span><span class='id rewind'>rewind</span>
+  <span class='id file'>file</span><span class='period'>.</span><span class='id truncate'>truncate</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id file'>file</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="transaction-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>transaction</strong>(read_only = false, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Opens a new transaction for the data store.  Code executed inside a block
+passed to this method may read and write data to and from the data store
+file.</p>
+
+<p>At the end of the block, changes are committed to the data store
+automatically.  You may exit the transaction early with a call to either
+PStore#commit or PStore#abort.  See those methods for details about how
+changes are handled.  Raising an uncaught Exception in the block is
+equivalent to calling PStore#abort.</p>
+
+<p>If <em>read_only</em> is set to <tt>true</tt>, you will only be allowed to
+read from the data store during the transaction and any attempts to change
+the data will raise a PStore::Error.</p>
+
+<p>Note that PStore does not support nested transactions.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pstore.rb', line 314</span>
+
+<span class='kw'>def</span> <span class='id transaction'>transaction</span><span class='lparen'>(</span><span class='id read_only'>read_only</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>  <span class='comment'># :yields:  pstore
+</span>  <span class='id value'>value</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id raise'>raise</span> <span class='const'>PStore</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nested transaction</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@thread_safe</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@lock</span><span class='period'>.</span><span class='id locked?'>locked?</span>
+  <span class='ivar'>@lock</span><span class='period'>.</span><span class='id synchronize'>synchronize</span> <span class='kw'>do</span>
+    <span class='ivar'>@rdonly</span> <span class='op'>=</span> <span class='id read_only'>read_only</span>
+    <span class='ivar'>@abort</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id file'>file</span> <span class='op'>=</span> <span class='id open_and_lock_file'>open_and_lock_file</span><span class='lparen'>(</span><span class='ivar'>@filename</span><span class='comma'>,</span> <span class='id read_only'>read_only</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id file'>file</span>
+      <span class='kw'>begin</span>
+        <span class='ivar'>@table</span><span class='comma'>,</span> <span class='id checksum'>checksum</span><span class='comma'>,</span> <span class='id original_data_size'>original_data_size</span> <span class='op'>=</span> <span class='id load_data'>load_data</span><span class='lparen'>(</span><span class='id file'>file</span><span class='comma'>,</span> <span class='id read_only'>read_only</span><span class='rparen'>)</span>
+
+        <span class='id catch'>catch</span><span class='lparen'>(</span><span class='symbol'>:pstore_abort_transaction</span><span class='rparen'>)</span> <span class='kw'>do</span>
+          <span class='id value'>value</span> <span class='op'>=</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+
+        <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@abort</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id read_only'>read_only</span>
+          <span class='id save_data'>save_data</span><span class='lparen'>(</span><span class='id checksum'>checksum</span><span class='comma'>,</span> <span class='id original_data_size'>original_data_size</span><span class='comma'>,</span> <span class='id file'>file</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+      <span class='kw'>ensure</span>
+        <span class='id file'>file</span><span class='period'>.</span><span class='id close'>close</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id file'>file</span><span class='period'>.</span><span class='id closed?'>closed?</span>
+      <span class='kw'>end</span>
+    <span class='kw'>else</span>
+      <span class='comment'># This can only occur if read_only == true.
+</span>      <span class='ivar'>@table</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+      <span class='id catch'>catch</span><span class='lparen'>(</span><span class='symbol'>:pstore_abort_transaction</span><span class='rparen'>)</span> <span class='kw'>do</span>
+        <span class='id value'>value</span> <span class='op'>=</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id value'>value</span>
+<span class='kw'>rescue</span> <span class='const'>ThreadError</span>
+  <span class='id raise'>raise</span> <span class='const'>PStore</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nested transaction</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:04 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

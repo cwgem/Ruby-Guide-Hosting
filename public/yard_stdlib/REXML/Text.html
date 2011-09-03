@@ -1,0 +1,2000 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: REXML::Text
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../REXML.html" title="REXML (module)">REXML</a></span></span>
+     &raquo; 
+    <span class="title">Text</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: REXML::Text
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Child.html" title="REXML::Child (class)">Child</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="Child.html" title="REXML::Child (class)">Child</a></span></li>
+          
+            <li class="next">REXML::Text</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">Comparable</dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rexml/text.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Represents text nodes in an XML document</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="CData.html" title="REXML::CData (class)">CData</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="SPECIALS-constant" class="">SPECIALS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The order in which the substitutions occur</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;(?!#?[\w-]+;)</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&lt;</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&gt;</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&quot;</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>'</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\r</span><span class='regexp_end'>/u</span></span> <span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="SUBSTITUTES-constant" class="">SUBSTITUTES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;amp;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;lt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;quot;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;apos;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;#13;</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="SLAICEPS-constant" class="">SLAICEPS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Characters which are substituted in written strings</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>'</span></span> <span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="SETUTITSBUS-constant" class="">SETUTITSBUS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;lt;</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;gt;</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;quot;</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;apos;</span><span class='regexp_end'>/u</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;amp;</span><span class='regexp_end'>/u</span></span> <span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="NEEDS_A_SECOND_CHECK-constant" class="">NEEDS_A_SECOND_CHECK =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(&lt;|&amp;((</span><span class='embexpr_beg'>#{</span><span class='const'>Entity</span><span class='op'>::</span><span class='const'>NAME</span><span class='rbrace'>}</span><span class='tstring_content'>);|(#0*((?:\d+)|(?:x[a-fA-F0-9]+)));)?)</span><span class='regexp_end'>/um</span></span></pre></dd>
+      
+        <dt id="NUMERICENTITY-constant" class="">NUMERICENTITY =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;#0*((?:\d+)|(?:x[a-fA-F0-9]+));</span><span class='regexp_end'>/</span></span></pre></dd>
+      
+        <dt id="VALID_CHAR-constant" class="">VALID_CHAR =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+  <span class='int'>0x9</span><span class='comma'>,</span> <span class='int'>0xA</span><span class='comma'>,</span> <span class='int'>0xD</span><span class='comma'>,</span>
+  <span class='lparen'>(</span><span class='int'>0x20</span><span class='op'>..</span><span class='int'>0xD7FF</span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='lparen'>(</span><span class='int'>0xE000</span><span class='op'>..</span><span class='int'>0xFFFD</span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='lparen'>(</span><span class='int'>0x10000</span><span class='op'>..</span><span class='int'>0x10FFFF</span><span class='rparen'>)</span>
+<span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="VALID_XML_CHARS-constant" class="">VALID_XML_CHARS =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^(
+    [\x09\x0A\x0D\x20-\x7E]            # ASCII
+  | [\xC2-\xDF][\x80-\xBF]             # non-overlong 2-byte
+  |  \xE0[\xA0-\xBF][\x80-\xBF]        # excluding overlongs
+  | [\xE1-\xEC\xEE][\x80-\xBF]{2}      # straight 3-byte
+  |  \xEF[\x80-\xBE]{2}                #
+  |  \xEF\xBF[\x80-\xBD]               # excluding U+fffe and U+ffff
+  |  \xED[\x80-\x9F][\x80-\xBF]        # excluding surrogates
+  |  \xF0[\x90-\xBF][\x80-\xBF]{2}     # planes 1-3
+  | [\xF1-\xF3][\x80-\xBF]{3}          # planes 4-15
+  |  \xF4[\x80-\x8F][\x80-\xBF]{2}     # plane 16
+)*$</span><span class='regexp_end'>/nx</span></span></pre></dd>
+      
+        <dt id="REFERENCE-constant" class="">REFERENCE =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='embexpr_beg'>#{</span><span class='const'>Entity</span><span class='op'>::</span><span class='const'>REFERENCE</span><span class='rbrace'>}</span><span class='regexp_end'>/</span></span></pre></dd>
+      
+        <dt id="EREFERENCE-constant" class="">EREFERENCE =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;(?!</span><span class='embexpr_beg'>#{</span><span class='const'>Entity</span><span class='op'>::</span><span class='const'>NAME</span><span class='rbrace'>}</span><span class='tstring_content'>;)</span><span class='regexp_end'>/</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#raw-instance_method" title="#raw (instance method)">- (Object) <strong>raw</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>If <tt>raw</tt> is true, then REXML leaves the value alone.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Child.html" title="REXML::Child (class)">Child</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Child.html#parent-instance_method" title="REXML::Child#parent (method)">parent</a></span></p>
+
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check-class_method" title="check (class method)">+ (Object) <strong>check</strong>(string, pattern, doctype) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>check for illegal characters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#normalize-class_method" title="normalize (class method)">+ (Object) <strong>normalize</strong>(input, doctype = nil, entity_filter = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Escapes all possible entities.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_with_substitution-class_method" title="read_with_substitution (class method)">+ (Object) <strong>read_with_substitution</strong>(input, illegal = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reads text, substituting entities.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unnormalize-class_method" title="unnormalize (class method)">+ (Object) <strong>unnormalize</strong>(string, doctype = nil, filter = nil, illegal = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Unescapes all possible entities.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3C-instance_method" title="#&lt;&lt; (instance method)">- (Object) <strong>&lt;&lt;</strong>(to_append) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Appends text to this text node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3D%3E-instance_method" title="#&lt;=&gt; (instance method)">- (Object) <strong>&lt;=&gt;</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p><tt>other</tt> a String or a Text <tt>returns</tt> the result of (to_s
+&lt;=&gt; arg.to_s).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clone-instance_method" title="#clone (instance method)">- (Object) <strong>clone</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#doctype-instance_method" title="#doctype (instance method)">- (Object) <strong>doctype</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#empty%3F-instance_method" title="#empty? (instance method)">- (Boolean) <strong>empty?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#indent_text-instance_method" title="#indent_text (instance method)">- (Object) <strong>indent_text</strong>(string, level = 1, style = &quot;\t&quot;, indentfirstline = true) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Text) <strong>initialize</strong>(arg, respect_whitespace = false, parent = nil, raw = nil, entity_filter = nil, illegal = NEEDS_A_SECOND_CHECK) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructor <tt>arg</tt> if a String, the content is set to the String.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#node_type-instance_method" title="#node_type (instance method)">- (Object) <strong>node_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parent%3D-instance_method" title="#parent= (instance method)">- (Object) <strong>parent=</strong>(parent) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the string value of this text node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value-instance_method" title="#value (instance method)">- (Object) <strong>value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the string value of this text.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value%3D-instance_method" title="#value= (instance method)">- (Object) <strong>value=</strong>(val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the contents of this text node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wrap-instance_method" title="#wrap (instance method)">- (Object) <strong>wrap</strong>(string, width, addnewline = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write-instance_method" title="#write (instance method)">- (Object) <strong>write</strong>(writer, indent = 1, transitive = false, ie_hack = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>DEPRECATED</h2>
+
+<p>See REXML::Formatters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_with_substitution-instance_method" title="#write_with_substitution (instance method)">- (Object) <strong>write_with_substitution</strong>(out, input) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes out text, substituting special characters beforehand.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#xpath-instance_method" title="#xpath (instance method)">- (Object) <strong>xpath</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>FIXME This probably won't work properly.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Child.html" title="REXML::Child (class)">Child</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Child.html#bytes-instance_method" title="REXML::Child#bytes (method)">#bytes</a></span>, <span class='object_link'><a href="Child.html#document-instance_method" title="REXML::Child#document (method)">#document</a></span>, <span class='object_link'><a href="Child.html#next_sibling%3D-instance_method" title="REXML::Child#next_sibling= (method)">#next_sibling=</a></span>, <span class='object_link'><a href="Child.html#previous_sibling%3D-instance_method" title="REXML::Child#previous_sibling= (method)">#previous_sibling=</a></span>, <span class='object_link'><a href="Child.html#remove-instance_method" title="REXML::Child#remove (method)">#remove</a></span>, <span class='object_link'><a href="Child.html#replace_with-instance_method" title="REXML::Child#replace_with (method)">#replace_with</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Node.html" title="REXML::Node (module)">Node</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Node.html#each_recursive-instance_method" title="REXML::Node#each_recursive (method)">#each_recursive</a></span>, <span class='object_link'><a href="Node.html#find_first_recursive-instance_method" title="REXML::Node#find_first_recursive (method)">#find_first_recursive</a></span>, <span class='object_link'><a href="Node.html#indent-instance_method" title="REXML::Node#indent (method)">#indent</a></span>, <span class='object_link'><a href="Node.html#index_in_parent-instance_method" title="REXML::Node#index_in_parent (method)">#index_in_parent</a></span>, <span class='object_link'><a href="Node.html#next_sibling_node-instance_method" title="REXML::Node#next_sibling_node (method)">#next_sibling_node</a></span>, <span class='object_link'><a href="Node.html#parent%3F-instance_method" title="REXML::Node#parent? (method)">#parent?</a></span>, <span class='object_link'><a href="Node.html#previous_sibling_node-instance_method" title="REXML::Node#previous_sibling_node (method)">#previous_sibling_node</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="REXML::Text (class)">Text</a></span></tt>) <strong>initialize</strong>(arg, respect_whitespace = false, parent = nil, raw = nil, entity_filter = nil, illegal = NEEDS_A_SECOND_CHECK) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructor <tt>arg</tt> if a String, the content is set to the String.  If
+a Text, the object is shallowly cloned.</p>
+
+<p><tt>respect_whitespace</tt> (boolean, false) if true, whitespace is
+respected</p>
+
+<p><tt>parent</tt> (nil) if this is a Parent object, the parent will be set to
+this.</p>
+
+<p><tt>raw</tt> (nil) This argument can be given three values. If true, then
+the value of used to construct this object is expected to contain no
+unescaped XML markup, and REXML will not change the text. If this value is
+false, the string may contain any characters, and REXML will escape any and
+all defined entities whose values are contained in the text.  If this value
+is nil (the default), then the raw value of the parent will be used as the
+raw value for this node.  If there is no raw value for the parent, and no
+value is supplied, the default is false. Use this field if you have
+entities defined for some text, and you don't want REXML to escape that
+text in output.</p>
+
+<pre class="code"><span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;&amp;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span> <span class='rparen'>)</span> <span class='comment'>#-&gt; &quot;&amp;lt;&amp;amp;&quot;
+</span><span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;lt;&amp;amp;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span> <span class='rparen'>)</span> <span class='comment'>#-&gt; &quot;&amp;amp;lt;&amp;amp;amp;&quot;
+</span><span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;&amp;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>true</span> <span class='rparen'>)</span>  <span class='comment'>#-&gt; Parse exception
+</span><span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;lt;&amp;amp;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>true</span> <span class='rparen'>)</span>  <span class='comment'>#-&gt; &quot;&amp;lt;&amp;amp;&quot;
+</span><span class='comment'># Assume that the entity &quot;s&quot; is defined to be &quot;sean&quot;
+</span><span class='comment'># and that the entity    &quot;r&quot; is defined to be &quot;russell&quot;
+</span><span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sean russell</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>          <span class='comment'>#-&gt; &quot;&amp;s; &amp;r;&quot;
+</span><span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sean russell</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>true</span> <span class='rparen'>)</span> <span class='comment'>#-&gt; &quot;sean russell&quot;</span></pre>
+
+<p><tt>entity_filter</tt> (nil) This can be an array of entities to match in
+the supplied text.  This argument is only useful if <tt>raw</tt> is set to
+false.</p>
+
+<pre class="code"><span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sean russell</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='rparen'>)</span> <span class='comment'>#-&gt; &quot;&amp;s; russell&quot;
+</span><span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sean russell</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='rparen'>)</span> <span class='comment'>#-&gt; &quot;sean russell&quot;</span></pre>
+
+<p>In the last example, the <tt>entity_filter</tt> argument is ignored.</p>
+
+<p><tt>illegal</tt> INTERNAL USE ONLY</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 92</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id arg'>arg</span><span class='comma'>,</span> <span class='id respect_whitespace'>respect_whitespace</span><span class='op'>=</span><span class='kw'>false</span><span class='comma'>,</span> <span class='id parent'>parent</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id raw'>raw</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='id entity_filter'>entity_filter</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id illegal'>illegal</span><span class='op'>=</span><span class='const'>NEEDS_A_SECOND_CHECK</span> <span class='rparen'>)</span>
+
+  <span class='ivar'>@raw</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@parent</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>if</span> <span class='id parent'>parent</span>
+    <span class='kw'>super</span><span class='lparen'>(</span> <span class='id parent'>parent</span> <span class='rparen'>)</span>
+    <span class='ivar'>@raw</span> <span class='op'>=</span> <span class='id parent'>parent</span><span class='period'>.</span><span class='id raw'>raw</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@raw</span> <span class='op'>=</span> <span class='id raw'>raw</span> <span class='kw'>unless</span> <span class='id raw'>raw</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+  <span class='ivar'>@entity_filter</span> <span class='op'>=</span> <span class='id entity_filter'>entity_filter</span>
+  <span class='ivar'>@normalized</span> <span class='op'>=</span> <span class='ivar'>@unnormalized</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='kw'>if</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>String</span>
+    <span class='ivar'>@string</span> <span class='op'>=</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id dup'>dup</span>
+    <span class='ivar'>@string</span><span class='period'>.</span><span class='id squeeze!'>squeeze!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> \n\t</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id respect_whitespace'>respect_whitespace</span>
+  <span class='kw'>elsif</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span> <span class='const'>Text</span>
+    <span class='ivar'>@string</span> <span class='op'>=</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+    <span class='ivar'>@raw</span> <span class='op'>=</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id raw'>raw</span>
+  <span class='kw'>elsif</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Illegal argument of type </span><span class='embexpr_beg'>#{</span><span class='id arg'>arg</span><span class='period'>.</span><span class='id type'>type</span><span class='rbrace'>}</span><span class='tstring_content'> for Text constructor (</span><span class='embexpr_beg'>#{</span><span class='id arg'>arg</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@string</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\r\n?</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+
+  <span class='const'>Text</span><span class='period'>.</span><span class='id check'>check</span><span class='lparen'>(</span><span class='ivar'>@string</span><span class='comma'>,</span> <span class='id illegal'>illegal</span><span class='comma'>,</span> <span class='id doctype'>doctype</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@raw</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="raw=-instance_method"></span>
+      <span id="raw-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="raw-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>raw</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>If <tt>raw</tt> is true, then REXML leaves the value alone</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='id raw'>raw</span>
+  <span class='ivar'>@raw</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="check-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>check</strong>(string, pattern, doctype) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>check for illegal characters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 128</span>
+
+<span class='kw'>def</span> <span class='const'>Text</span><span class='period'>.</span><span class='id check'>check</span> <span class='id string'>string</span><span class='comma'>,</span> <span class='id pattern'>pattern</span><span class='comma'>,</span> <span class='id doctype'>doctype</span>
+
+  <span class='comment'># illegal anywhere
+</span>  <span class='kw'>if</span> <span class='id string'>string</span> <span class='op'>!~</span> <span class='const'>VALID_XML_CHARS</span>
+    <span class='kw'>if</span> <span class='const'>String</span><span class='period'>.</span><span class='id method_defined?'>method_defined?</span> <span class='symbol'>:encode</span>
+      <span class='id string'>string</span><span class='period'>.</span><span class='id chars'>chars</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id c'>c</span><span class='op'>|</span>
+        <span class='kw'>case</span> <span class='id c'>c</span><span class='period'>.</span><span class='id ord'>ord</span>
+        <span class='kw'>when</span> <span class='op'>*</span><span class='const'>VALID_CHAR</span>
+        <span class='kw'>else</span>
+          <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Illegal character </span><span class='embexpr_beg'>#{</span><span class='id c'>c</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> in raw string \&quot;</span><span class='embexpr_beg'>#{</span><span class='id string'>string</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>else</span>
+      <span class='id string'>string</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[\x00-\x7F]|[\x80-\xBF][\xC0-\xF0]*|[\xC0-\xF0]</span><span class='regexp_end'>/n</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id c'>c</span><span class='op'>|</span>
+        <span class='kw'>case</span> <span class='id c'>c</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>U</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+        <span class='kw'>when</span> <span class='op'>*</span><span class='const'>VALID_CHAR</span>
+        <span class='kw'>else</span>
+          <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Illegal character </span><span class='embexpr_beg'>#{</span><span class='id c'>c</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> in raw string \&quot;</span><span class='embexpr_beg'>#{</span><span class='id string'>string</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># context sensitive
+</span>  <span class='id string'>string</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='kw'>if</span> <span class='backref'>$1</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='CHAR'>?;</span>
+      <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Illegal character '</span><span class='embexpr_beg'>#{</span><span class='backref'>$1</span><span class='rbrace'>}</span><span class='tstring_content'>' in raw string \&quot;</span><span class='embexpr_beg'>#{</span><span class='id string'>string</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>elsif</span> <span class='backref'>$1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?&amp;</span>
+      <span class='kw'>if</span> <span class='backref'>$5</span> <span class='kw'>and</span> <span class='backref'>$5</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?#</span>
+        <span class='kw'>case</span> <span class='lparen'>(</span><span class='backref'>$5</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?x</span> <span class='op'>?</span> <span class='backref'>$5</span><span class='lbracket'>[</span><span class='int'>2</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='backref'>$5</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='rparen'>)</span>
+        <span class='kw'>when</span> <span class='op'>*</span><span class='const'>VALID_CHAR</span>
+        <span class='kw'>else</span>
+          <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Illegal character '</span><span class='embexpr_beg'>#{</span><span class='backref'>$1</span><span class='rbrace'>}</span><span class='tstring_content'>' in raw string \&quot;</span><span class='embexpr_beg'>#{</span><span class='id string'>string</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>end</span>
+      <span class='comment'># FIXME: below can't work but this needs API change.
+</span>      <span class='comment'># elsif @parent and $3 and !SUBSTITUTES.include?($1)
+</span>      <span class='comment'>#   if !doctype or !doctype.entities.has_key?($3)
+</span>      <span class='comment'>#     raise &quot;Undeclared entity '#{$1}' in raw string \&quot;#{string}\&quot;&quot;
+</span>      <span class='comment'>#   end
+</span>      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="normalize-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>normalize</strong>(input, doctype = nil, entity_filter = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Escapes all possible entities</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 360</span>
+
+<span class='kw'>def</span> <span class='const'>Text</span><span class='op'>::</span><span class='id normalize'>normalize</span><span class='lparen'>(</span> <span class='id input'>input</span><span class='comma'>,</span> <span class='id doctype'>doctype</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id entity_filter'>entity_filter</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id copy'>copy</span> <span class='op'>=</span> <span class='id input'>input</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='comment'># Doing it like this rather than in a loop improves the speed
+</span>  <span class='comment'>#copy = copy.gsub( EREFERENCE, '&amp;amp;' )
+</span>  <span class='id copy'>copy</span> <span class='op'>=</span> <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;amp;</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id doctype'>doctype</span>
+    <span class='comment'># Replace all ampersands that aren't part of an entity
+</span>    <span class='id doctype'>doctype</span><span class='period'>.</span><span class='id entities'>entities</span><span class='period'>.</span><span class='id each_value'>each_value</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id entity'>entity</span><span class='op'>|</span>
+      <span class='id copy'>copy</span> <span class='op'>=</span> <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span> <span class='id entity'>entity</span><span class='period'>.</span><span class='id value'>value</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;</span><span class='embexpr_beg'>#{</span><span class='id entity'>entity</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>;</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span> <span class='kw'>if</span> <span class='id entity'>entity</span><span class='period'>.</span><span class='id value'>value</span> <span class='kw'>and</span>
+          <span class='kw'>not</span><span class='lparen'>(</span> <span class='id entity_filter'>entity_filter</span> <span class='kw'>and</span> <span class='id entity_filter'>entity_filter</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id entity'>entity</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='comment'># Replace all ampersands that aren't part of an entity
+</span>    <span class='const'>DocType</span><span class='op'>::</span><span class='const'>DEFAULT_ENTITIES</span><span class='period'>.</span><span class='id each_value'>each_value</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id entity'>entity</span><span class='op'>|</span>
+      <span class='id copy'>copy</span> <span class='op'>=</span> <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='id entity'>entity</span><span class='period'>.</span><span class='id value'>value</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;</span><span class='embexpr_beg'>#{</span><span class='id entity'>entity</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>;</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id copy'>copy</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_with_substitution-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_with_substitution</strong>(input, illegal = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Reads text, substituting entities</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 334</span>
+
+<span class='kw'>def</span> <span class='const'>Text</span><span class='op'>::</span><span class='id read_with_substitution'>read_with_substitution</span><span class='lparen'>(</span> <span class='id input'>input</span><span class='comma'>,</span> <span class='id illegal'>illegal</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id copy'>copy</span> <span class='op'>=</span> <span class='id input'>input</span><span class='period'>.</span><span class='id clone'>clone</span>
+
+  <span class='kw'>if</span> <span class='id copy'>copy</span> <span class='op'>=~</span> <span class='id illegal'>illegal</span>
+    <span class='id raise'>raise</span> <span class='const'>ParseException</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>malformed text: Illegal character </span><span class='embvar'>#</span><span class='backref'>$&amp;</span><span class='tstring_content'> in \&quot;</span><span class='embexpr_beg'>#{</span><span class='id copy'>copy</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='kw'>end</span> <span class='kw'>if</span> <span class='id illegal'>illegal</span>
+
+  <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\r\n?</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id copy'>copy</span><span class='period'>.</span><span class='id include?'>include?</span> <span class='CHAR'>?&amp;</span>
+    <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SETUTITSBUS</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SLAICEPS</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+    <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SETUTITSBUS</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SLAICEPS</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+    <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SETUTITSBUS</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SLAICEPS</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+    <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SETUTITSBUS</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SLAICEPS</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+    <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SETUTITSBUS</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SLAICEPS</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+    <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&amp;#0*((?:\d+)|(?:x[a-f0-9]+));</span><span class='regexp_end'>/</span></span> <span class='rparen'>)</span> <span class='lbrace'>{</span>
+      <span class='id m'>m</span><span class='op'>=</span><span class='backref'>$1</span>
+      <span class='comment'>#m='0' if m==''
+</span>      <span class='id m'>m</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0</span><span class='embexpr_beg'>#{</span><span class='id m'>m</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?x</span>
+      <span class='lbracket'>[</span><span class='const'>Integer</span><span class='lparen'>(</span><span class='id m'>m</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>U*</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+  <span class='id copy'>copy</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="unnormalize-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>unnormalize</strong>(string, doctype = nil, filter = nil, illegal = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Unescapes all possible entities</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 382</span>
+
+<span class='kw'>def</span> <span class='const'>Text</span><span class='op'>::</span><span class='id unnormalize'>unnormalize</span><span class='lparen'>(</span> <span class='id string'>string</span><span class='comma'>,</span> <span class='id doctype'>doctype</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id filter'>filter</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id illegal'>illegal</span><span class='op'>=</span><span class='kw'>nil</span> <span class='rparen'>)</span>
+  <span class='id string'>string</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\r\n?</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span> <span class='const'>REFERENCE</span> <span class='rparen'>)</span> <span class='lbrace'>{</span>
+    <span class='id ref'>ref</span> <span class='op'>=</span> <span class='backref'>$&amp;</span>
+    <span class='kw'>if</span> <span class='id ref'>ref</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?#</span>
+      <span class='kw'>if</span> <span class='id ref'>ref</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='CHAR'>?x</span>
+        <span class='lbracket'>[</span><span class='id ref'>ref</span><span class='lbracket'>[</span><span class='int'>3</span><span class='op'>...</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>U*</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='lbracket'>[</span><span class='id ref'>ref</span><span class='lbracket'>[</span><span class='int'>2</span><span class='op'>...</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>U*</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>elsif</span> <span class='id ref'>ref</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;amp;</span><span class='tstring_end'>'</span></span>
+      <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>elsif</span> <span class='id filter'>filter</span> <span class='kw'>and</span> <span class='id filter'>filter</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span> <span class='id ref'>ref</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>...</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+      <span class='id ref'>ref</span>
+    <span class='kw'>elsif</span> <span class='id doctype'>doctype</span>
+      <span class='id doctype'>doctype</span><span class='period'>.</span><span class='id entity'>entity</span><span class='lparen'>(</span> <span class='id ref'>ref</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>...</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rparen'>)</span> <span class='kw'>or</span> <span class='id ref'>ref</span>
+    <span class='kw'>else</span>
+      <span class='id entity_value'>entity_value</span> <span class='op'>=</span> <span class='const'>DocType</span><span class='op'>::</span><span class='const'>DEFAULT_ENTITIES</span><span class='lbracket'>[</span> <span class='id ref'>ref</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>...</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rbracket'>]</span>
+      <span class='id entity_value'>entity_value</span> <span class='op'>?</span> <span class='id entity_value'>entity_value</span><span class='period'>.</span><span class='id value'>value</span> <span class='op'>:</span> <span class='id ref'>ref</span>
+    <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="<<-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>&lt;&lt;</strong>(to_append) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Appends text to this text node.  The text is appended in the <tt>raw</tt>
+mode of this text node.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+188
+189
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 188</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span> <span class='id to_append'>to_append</span> <span class='rparen'>)</span>
+  <span class='ivar'>@string</span> <span class='op'>&lt;&lt;</span> <span class='id to_append'>to_append</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\r\n?</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="<=>-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>&lt;=&gt;</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p><tt>other</tt> a String or a Text <tt>returns</tt> the result of (to_s
+&lt;=&gt; arg.to_s)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 195</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;=&gt;</span><span class='lparen'>(</span> <span class='id other'>other</span> <span class='rparen'>)</span>
+  <span class='id to_s'>to_s</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='op'>&lt;=&gt;</span> <span class='id other'>other</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="clone-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>clone</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 181</span>
+
+<span class='kw'>def</span> <span class='id clone'>clone</span>
+  <span class='kw'>return</span> <span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="doctype-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>doctype</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+199
+200
+201
+202
+203
+204</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 199</span>
+
+<span class='kw'>def</span> <span class='id doctype'>doctype</span>
+  <span class='kw'>if</span> <span class='ivar'>@parent</span>
+    <span class='id doc'>doc</span> <span class='op'>=</span> <span class='ivar'>@parent</span><span class='period'>.</span><span class='id document'>document</span>
+    <span class='id doc'>doc</span><span class='period'>.</span><span class='id doctype'>doctype</span> <span class='kw'>if</span> <span class='id doc'>doc</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="empty?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>empty?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+176
+177
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 176</span>
+
+<span class='kw'>def</span> <span class='id empty?'>empty?</span>
+  <span class='ivar'>@string</span><span class='period'>.</span><span class='id size'>size</span><span class='op'>==</span><span class='int'>0</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="indent_text-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>indent_text</strong>(string, level = 1, style = &quot;\t&quot;, indentfirstline = true) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 274</span>
+
+<span class='kw'>def</span> <span class='id indent_text'>indent_text</span><span class='lparen'>(</span><span class='id string'>string</span><span class='comma'>,</span> <span class='id level'>level</span><span class='op'>=</span><span class='int'>1</span><span class='comma'>,</span> <span class='id style'>style</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\t</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id indentfirstline'>indentfirstline</span><span class='op'>=</span><span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id string'>string</span> <span class='kw'>if</span> <span class='id level'>level</span> <span class='op'>&lt;</span> <span class='int'>0</span>
+  <span class='id new_string'>new_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='id string'>string</span><span class='period'>.</span><span class='id each_line'>each_line</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+    <span class='id indent_string'>indent_string</span> <span class='op'>=</span> <span class='id style'>style</span> <span class='op'>*</span> <span class='id level'>level</span>
+    <span class='id new_line'>new_line</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id indent_string'>indent_string</span> <span class='op'>+</span> <span class='id line'>line</span><span class='rparen'>)</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[\s]+$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='id new_string'>new_string</span> <span class='op'>&lt;&lt;</span> <span class='id new_line'>new_line</span>
+  <span class='rbrace'>}</span>
+  <span class='id new_string'>new_string</span><span class='period'>.</span><span class='id strip!'>strip!</span> <span class='kw'>unless</span> <span class='id indentfirstline'>indentfirstline</span>
+  <span class='kw'>return</span> <span class='id new_string'>new_string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+227
+228
+229</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 227</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='ivar'>@string</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="node_type-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>node_type</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172
+173
+174</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 172</span>
+
+<span class='kw'>def</span> <span class='id node_type'>node_type</span>
+  <span class='symbol'>:text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parent=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parent=</strong>(parent) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 122</span>
+
+<span class='kw'>def</span> <span class='id parent='>parent=</span> <span class='id parent'>parent</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id parent'>parent</span><span class='rparen'>)</span>
+  <span class='const'>Text</span><span class='period'>.</span><span class='id check'>check</span><span class='lparen'>(</span><span class='ivar'>@string</span><span class='comma'>,</span> <span class='const'>NEEDS_A_SECOND_CHECK</span><span class='comma'>,</span> <span class='id doctype'>doctype</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@raw</span> <span class='kw'>and</span> <span class='ivar'>@parent</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the string value of this text node.  This string is always escaped,
+meaning that it is a valid XML text node string, and all entities that can
+be escaped, have been inserted.  This method respects the entity filter set
+in the constructor.</p>
+
+<pre class="code"><span class='comment'># Assume that the entity &quot;s&quot; is defined to be &quot;sean&quot;, and that the
+</span><span class='comment'># entity &quot;r&quot; is defined to be &quot;russell&quot;
+</span><span class='id t'>t</span> <span class='op'>=</span> <span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt; &amp; sean russell</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>s</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+<span class='id t'>t</span><span class='period'>.</span><span class='id to_s'>to_s</span>   <span class='comment'>#-&gt; &quot;&amp;lt; &amp;amp; &amp;s; russell&quot;
+</span><span class='id t'>t</span> <span class='op'>=</span> <span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt; &amp; &amp;s; russell</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span> <span class='rparen'>)</span>
+<span class='id t'>t</span><span class='period'>.</span><span class='id to_s'>to_s</span>   <span class='comment'>#-&gt; &quot;&amp;lt; &amp;amp; &amp;s; russell&quot;
+</span><span class='id u'>u</span> <span class='op'>=</span> <span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sean russell</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>true</span> <span class='rparen'>)</span>
+<span class='id u'>u</span><span class='period'>.</span><span class='id to_s'>to_s</span>   <span class='comment'>#-&gt; &quot;sean russell&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+220
+221
+222
+223
+224
+225</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 220</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='kw'>return</span> <span class='ivar'>@string</span> <span class='kw'>if</span> <span class='ivar'>@raw</span>
+  <span class='kw'>return</span> <span class='ivar'>@normalized</span> <span class='kw'>if</span> <span class='ivar'>@normalized</span>
+
+  <span class='ivar'>@normalized</span> <span class='op'>=</span> <span class='const'>Text</span><span class='op'>::</span><span class='id normalize'>normalize</span><span class='lparen'>(</span> <span class='ivar'>@string</span><span class='comma'>,</span> <span class='id doctype'>doctype</span><span class='comma'>,</span> <span class='ivar'>@entity_filter</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="value-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>value</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the string value of this text.  This is the text without entities,
+as it might be used programmatically, or printed to the console.  This
+ignores the 'raw' attribute setting, and any entity_filter.</p>
+
+<pre class="code"><span class='comment'># Assume that the entity &quot;s&quot; is defined to be &quot;sean&quot;, and that the
+</span><span class='comment'># entity &quot;r&quot; is defined to be &quot;russell&quot;
+</span><span class='id t'>t</span> <span class='op'>=</span> <span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt; &amp; sean russell</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>s</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+<span class='id t'>t</span><span class='period'>.</span><span class='id value'>value</span>   <span class='comment'>#-&gt; &quot;&lt; &amp; sean russell&quot;
+</span><span class='id t'>t</span> <span class='op'>=</span> <span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt; &amp; &amp;s; russell</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>false</span> <span class='rparen'>)</span>
+<span class='id t'>t</span><span class='period'>.</span><span class='id value'>value</span>   <span class='comment'>#-&gt; &quot;&lt; &amp; sean russell&quot;
+</span><span class='id u'>u</span> <span class='op'>=</span> <span class='const'>Text</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sean russell</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>true</span> <span class='rparen'>)</span>
+<span class='id u'>u</span><span class='period'>.</span><span class='id value'>value</span>   <span class='comment'>#-&gt; &quot;sean russell&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+244
+245
+246
+247</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 244</span>
+
+<span class='kw'>def</span> <span class='id value'>value</span>
+  <span class='kw'>return</span> <span class='ivar'>@unnormalized</span> <span class='kw'>if</span> <span class='ivar'>@unnormalized</span>
+  <span class='ivar'>@unnormalized</span> <span class='op'>=</span> <span class='const'>Text</span><span class='op'>::</span><span class='id unnormalize'>unnormalize</span><span class='lparen'>(</span> <span class='ivar'>@string</span><span class='comma'>,</span> <span class='id doctype'>doctype</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="value=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>value=</strong>(val) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the contents of this text node.  This expects the text to be
+unnormalized.  It returns self.</p>
+
+<pre class="code"><span class='id e'>e</span> <span class='op'>=</span> <span class='const'>Element</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+<span class='id e'>e</span><span class='period'>.</span><span class='id add_text'>add_text</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>   <span class='comment'># &lt;a&gt;foo&lt;/a&gt;
+</span><span class='id e'>e</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&quot;</span></span>    <span class='comment'># &lt;a&gt;bar&lt;/a&gt;
+</span><span class='id e'>e</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;a&gt;</span><span class='tstring_end'>&quot;</span></span>    <span class='comment'># &lt;a&gt;&amp;lt;a&amp;gt;&lt;/a&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+256
+257
+258
+259
+260
+261</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 256</span>
+
+<span class='kw'>def</span> <span class='id value='>value=</span><span class='lparen'>(</span> <span class='id val'>val</span> <span class='rparen'>)</span>
+  <span class='ivar'>@string</span> <span class='op'>=</span> <span class='id val'>val</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\r\n?</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='ivar'>@unnormalized</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@normalized</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@raw</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="wrap-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>wrap</strong>(string, width, addnewline = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 263</span>
+
+<span class='kw'>def</span> <span class='id wrap'>wrap</span><span class='lparen'>(</span><span class='id string'>string</span><span class='comma'>,</span> <span class='id width'>width</span><span class='comma'>,</span> <span class='id addnewline'>addnewline</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='comment'># Recursively wrap string at width.
+</span>  <span class='kw'>return</span> <span class='id string'>string</span> <span class='kw'>if</span> <span class='id string'>string</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>&lt;=</span> <span class='id width'>width</span>
+  <span class='id place'>place</span> <span class='op'>=</span> <span class='id string'>string</span><span class='period'>.</span><span class='id rindex'>rindex</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id width'>width</span><span class='rparen'>)</span> <span class='comment'># Position in string with last ' ' before cutoff
+</span>  <span class='kw'>if</span> <span class='id addnewline'>addnewline</span> <span class='kw'>then</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id string'>string</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='id place'>place</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id wrap'>wrap</span><span class='lparen'>(</span><span class='id string'>string</span><span class='lbracket'>[</span><span class='id place'>place</span><span class='op'>+</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id width'>width</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='id string'>string</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='id place'>place</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id wrap'>wrap</span><span class='lparen'>(</span><span class='id string'>string</span><span class='lbracket'>[</span><span class='id place'>place</span><span class='op'>+</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id width'>width</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="write-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>write</strong>(writer, indent = 1, transitive = false, ie_hack = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>DEPRECATED</h2>
+
+<p>See REXML::Formatters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+289
+290
+291
+292
+293
+294
+295
+296
+297</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 289</span>
+
+<span class='kw'>def</span> <span class='id write'>write</span><span class='lparen'>(</span> <span class='id writer'>writer</span><span class='comma'>,</span> <span class='id indent'>indent</span><span class='op'>=</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='id transitive'>transitive</span><span class='op'>=</span><span class='kw'>false</span><span class='comma'>,</span> <span class='id ie_hack'>ie_hack</span><span class='op'>=</span><span class='kw'>false</span> <span class='rparen'>)</span>
+  <span class='const'>Kernel</span><span class='period'>.</span><span class='id warn'>warn</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>.write is deprecated.  See REXML::Formatters</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id formatter'>formatter</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id indent'>indent</span> <span class='op'>&gt;</span> <span class='op'>-</span><span class='int'>1</span>
+      <span class='const'>REXML</span><span class='op'>::</span><span class='const'>Formatters</span><span class='op'>::</span><span class='const'>Pretty</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='id indent'>indent</span> <span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='const'>REXML</span><span class='op'>::</span><span class='const'>Formatters</span><span class='op'>::</span><span class='const'>Default</span><span class='period'>.</span><span class='id new'>new</span>
+    <span class='kw'>end</span>
+  <span class='id formatter'>formatter</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='id writer'>writer</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="write_with_substitution-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>write_with_substitution</strong>(out, input) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes out text, substituting special characters beforehand. <tt>out</tt> A
+String, IO, or any other object supporting &lt;&lt;( String )
+<tt>input</tt> the text to substitute and the write out</p>
+
+<pre class="code"><span class='id z'>z</span><span class='op'>=</span><span class='id utf8'>utf8</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>U*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id ascOut'>ascOut</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+<span class='id z'>z</span><span class='period'>.</span><span class='id each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span>
+  <span class='kw'>if</span> <span class='id r'>r</span> <span class='op'>&lt;</span>  <span class='int'>0x100</span>
+    <span class='id ascOut'>ascOut</span><span class='period'>.</span><span class='id concat'>concat</span><span class='lparen'>(</span><span class='id r'>r</span><span class='period'>.</span><span class='id chr'>chr</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id ascOut'>ascOut</span><span class='period'>.</span><span class='id concat'>concat</span><span class='lparen'>(</span><span class='id sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;#x%x;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id r'>r</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='rbrace'>}</span>
+<span class='id puts'>puts</span> <span class='id ascOut'>ascOut</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 321</span>
+
+<span class='kw'>def</span> <span class='id write_with_substitution'>write_with_substitution</span> <span class='id out'>out</span><span class='comma'>,</span> <span class='id input'>input</span>
+  <span class='id copy'>copy</span> <span class='op'>=</span> <span class='id input'>input</span><span class='period'>.</span><span class='id clone'>clone</span>
+  <span class='comment'># Doing it like this rather than in a loop improves the speed
+</span>  <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SPECIALS</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SUBSTITUTES</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+  <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SPECIALS</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SUBSTITUTES</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+  <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SPECIALS</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SUBSTITUTES</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+  <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SPECIALS</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SUBSTITUTES</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+  <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SPECIALS</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SUBSTITUTES</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+  <span class='id copy'>copy</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span> <span class='const'>SPECIALS</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>SUBSTITUTES</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+  <span class='id out'>out</span> <span class='op'>&lt;&lt;</span> <span class='id copy'>copy</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="xpath-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>xpath</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>FIXME This probably won't work properly</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+301
+302
+303
+304
+305</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/text.rb', line 301</span>
+
+<span class='kw'>def</span> <span class='id xpath'>xpath</span>
+  <span class='id path'>path</span> <span class='op'>=</span> <span class='ivar'>@parent</span><span class='period'>.</span><span class='id xpath'>xpath</span>
+  <span class='id path'>path</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/text()</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>return</span> <span class='id path'>path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:55 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,1251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Test::Unit::Runner
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Test.html" title="Test (module)">Test</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Unit.html" title="Test::Unit (module)">Unit</a></span></span>
+     &raquo; 
+    <span class="title">Runner</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Test::Unit::Runner
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../../MiniTest/Unit.html" title="MiniTest::Unit (class)">MiniTest::Unit</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="../../MiniTest/Unit.html" title="MiniTest::Unit (class)">MiniTest::Unit</a></span></li>
+          
+            <li class="next">Test::Unit::Runner</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="GCStressOption.html" title="Test::Unit::GCStressOption (module)">GCStressOption</a></span>, <span class='object_link'><a href="GlobOption.html" title="Test::Unit::GlobOption (module)">GlobOption</a></span>, <span class='object_link'><a href="LoadPathOption.html" title="Test::Unit::LoadPathOption (module)">LoadPathOption</a></span>, <span class='object_link'><a href="Options.html" title="Test::Unit::Options (module)">Options</a></span>, <span class='object_link'><a href="RunCount.html" title="Test::Unit::RunCount (module)">RunCount</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/test/unit.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="AutoRunner/Runner.html" title="Test::Unit::AutoRunner::Runner (class)">AutoRunner::Runner</a></span>, <span class='object_link'><a href="Worker.html" title="Test::Unit::Worker (class)">Worker</a></span></p>
+</div>
+<h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Runner/Worker.html" title="Test::Unit::Runner::Worker (class)">Worker</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="stop_auto_run-classvariable" class="">@@stop_auto_run =
+          
+        </dt>
+        <dd><pre class="code"><span class='kw'>false</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Constants inherited from <span class='object_link'><a href="../../MiniTest/Unit.html" title="MiniTest::Unit (class)">MiniTest::Unit</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Unit.html#VERSION-constant" title="MiniTest::Unit::VERSION (constant)">VERSION</a></span></p>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../../MiniTest/Unit.html" title="MiniTest::Unit (class)">MiniTest::Unit</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Unit.html#assertion_count-instance_method" title="MiniTest::Unit#assertion_count (method)">assertion_count</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#errors-instance_method" title="MiniTest::Unit#errors (method)">errors</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#failures-instance_method" title="MiniTest::Unit#failures (method)">failures</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#help-instance_method" title="MiniTest::Unit#help (method)">help</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#options-instance_method" title="MiniTest::Unit#options (method)">options</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#report-instance_method" title="MiniTest::Unit#report (method)">report</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#runner-instance_method" title="MiniTest::Unit#runner (method)">runner</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#skips-instance_method" title="MiniTest::Unit#skips (method)">skips</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#start_time-instance_method" title="MiniTest::Unit#start_time (method)">start_time</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#test_count-instance_method" title="MiniTest::Unit#test_count (method)">test_count</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#verbose-instance_method" title="MiniTest::Unit#verbose (method)">verbose</a></span></p>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#autorun-class_method" title="autorun (class method)">+ (Object) <strong>autorun</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#_run_parallel-instance_method" title="#_run_parallel (instance method)">- (Object) <strong>_run_parallel</strong>(suites, type, result) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#_run_suites-instance_method" title="#_run_suites (instance method)">- (Object) <strong>_run_suites</strong>(suites, type) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#after_worker_down-instance_method" title="#after_worker_down (instance method)">- (Object) <strong>after_worker_down</strong>(worker, e = nil, c = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#after_worker_quit-instance_method" title="#after_worker_quit (instance method)">- (Object) <strong>after_worker_quit</strong>(worker) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#del_jobs_status-instance_method" title="#del_jobs_status (instance method)">- (Object) <strong>del_jobs_status</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#jobs_status-instance_method" title="#jobs_status (instance method)">- (Object) <strong>jobs_status</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#puke-instance_method" title="#puke (instance method)">- (Object) <strong>puke</strong>(klass, meth, e) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Overriding of MiniTest::Unit#puke.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status-instance_method" title="#status (instance method)">- (Object) <strong>status</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="RunCount.html" title="Test::Unit::RunCount (module)">RunCount</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="RunCount.html#have_run%3F-class_method" title="Test::Unit::RunCount.have_run? (method)">have_run?</a></span>, <span class='object_link'><a href="RunCount.html#run-instance_method" title="Test::Unit::RunCount#run (method)">#run</a></span>, <span class='object_link'><a href="RunCount.html#run_once-instance_method" title="Test::Unit::RunCount#run_once (method)">#run_once</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="GCStressOption.html" title="Test::Unit::GCStressOption (module)">GCStressOption</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="GCStressOption.html#non_options-instance_method" title="Test::Unit::GCStressOption#non_options (method)">#non_options</a></span>, <span class='object_link'><a href="GCStressOption.html#setup_options-instance_method" title="Test::Unit::GCStressOption#setup_options (method)">#setup_options</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="LoadPathOption.html" title="Test::Unit::LoadPathOption (module)">LoadPathOption</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="LoadPathOption.html#setup_options-instance_method" title="Test::Unit::LoadPathOption#setup_options (method)">#setup_options</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Options.html" title="Test::Unit::Options (module)">Options</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Options.html#initialize-instance_method" title="Test::Unit::Options#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="Options.html#non_options-instance_method" title="Test::Unit::Options#non_options (method)">#non_options</a></span>, <span class='object_link'><a href="Options.html#option_parser-instance_method" title="Test::Unit::Options#option_parser (method)">#option_parser</a></span>, <span class='object_link'><a href="Options.html#process_args-instance_method" title="Test::Unit::Options#process_args (method)">#process_args</a></span>, <span class='object_link'><a href="Options.html#setup_options-instance_method" title="Test::Unit::Options#setup_options (method)">#setup_options</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="GlobOption.html" title="Test::Unit::GlobOption (module)">GlobOption</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="GlobOption.html#non_options-instance_method" title="Test::Unit::GlobOption#non_options (method)">#non_options</a></span>, <span class='object_link'><a href="GlobOption.html#setup_options-instance_method" title="Test::Unit::GlobOption#setup_options (method)">#setup_options</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../../MiniTest/Unit.html" title="MiniTest::Unit (class)">MiniTest::Unit</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Unit.html#_run-instance_method" title="MiniTest::Unit#_run (method)">#_run</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#_run_anything-instance_method" title="MiniTest::Unit#_run_anything (method)">#_run_anything</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#_run_suite-instance_method" title="MiniTest::Unit#_run_suite (method)">#_run_suite</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#after_tests-class_method" title="MiniTest::Unit.after_tests (method)">after_tests</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#benchmark_suite_header-instance_method" title="MiniTest::Unit#benchmark_suite_header (method)">#benchmark_suite_header</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#initialize-instance_method" title="MiniTest::Unit#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#location-instance_method" title="MiniTest::Unit#location (method)">#location</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#out-class_method" title="MiniTest::Unit.out (method)">out</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#output-instance_method" title="MiniTest::Unit#output (method)">#output</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#output-class_method" title="MiniTest::Unit.output (method)">output</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#output%3D-class_method" title="MiniTest::Unit.output= (method)">output=</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#plugins-class_method" title="MiniTest::Unit.plugins (method)">plugins</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#print-instance_method" title="MiniTest::Unit#print (method)">#print</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#process_args-instance_method" title="MiniTest::Unit#process_args (method)">#process_args</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#puts-instance_method" title="MiniTest::Unit#puts (method)">#puts</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#run-instance_method" title="MiniTest::Unit#run (method)">#run</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#run_benchmarks-instance_method" title="MiniTest::Unit#run_benchmarks (method)">#run_benchmarks</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#run_tests-instance_method" title="MiniTest::Unit#run_tests (method)">#run_tests</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#runner-class_method" title="MiniTest::Unit.runner (method)">runner</a></span>, <span class='object_link'><a href="../../MiniTest/Unit.html#runner%3D-class_method" title="MiniTest::Unit.runner= (method)">runner=</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="Options.html#initialize-instance_method" title="Test::Unit::Options#initialize (method)">Test::Unit::Options</a></span></p>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="autorun-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>autorun</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+323
+324
+325
+326
+327
+328
+329
+330</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/test/unit.rb', line 323</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id autorun'>autorun</span>
+  <span class='id at_exit'>at_exit</span> <span class='lbrace'>{</span>
+    <span class='const'>Test</span><span class='op'>::</span><span class='const'>Unit</span><span class='op'>::</span><span class='const'>RunCount</span><span class='period'>.</span><span class='id run_once'>run_once</span> <span class='lbrace'>{</span>
+      <span class='id exit'>exit</span><span class='lparen'>(</span><span class='const'>Test</span><span class='op'>::</span><span class='const'>Unit</span><span class='op'>::</span><span class='const'>Runner</span><span class='period'>.</span><span class='id new'>new</span><span class='period'>.</span><span class='id run'>run</span><span class='lparen'>(</span><span class='const'>ARGV</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span> <span class='kw'>unless</span> <span class='cvar'>@@stop_auto_run</span>
+  <span class='rbrace'>}</span> <span class='kw'>unless</span> <span class='cvar'>@@installed_at_exit</span>
+  <span class='cvar'>@@installed_at_exit</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="_run_parallel-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>_run_parallel</strong>(suites, type, result) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/test/unit.rb', line 386</span>
+
+<span class='kw'>def</span> <span class='id _run_parallel'>_run_parallel</span> <span class='id suites'>suites</span><span class='comma'>,</span> <span class='id type'>type</span><span class='comma'>,</span> <span class='id result'>result</span>
+  <span class='kw'>if</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:parallel</span><span class='rbracket'>]</span> <span class='op'>&lt;</span> <span class='int'>1</span>
+    <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error: parameter of -j option should be greater than 0.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>begin</span>
+    <span class='comment'># Require needed things for parallel running
+</span>    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>thread</span><span class='tstring_end'>'</span></span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>timeout</span><span class='tstring_end'>'</span></span>
+    <span class='ivar'>@tasks</span> <span class='op'>=</span> <span class='ivar'>@files</span><span class='period'>.</span><span class='id dup'>dup</span> <span class='comment'># Array of filenames.
+</span>    <span class='ivar'>@need_quit</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='ivar'>@dead_workers</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>  <span class='comment'># Array of dead workers.
+</span>    <span class='ivar'>@warnings</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id shutting_down'>shutting_down</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id rep'>rep</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='comment'># FIXME: more good naming
+</span>
+    <span class='comment'># Array of workers.
+</span>    <span class='ivar'>@workers</span> <span class='op'>=</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:parallel</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id times'>times</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span>
+      <span class='id worker'>worker</span> <span class='op'>=</span> <span class='const'>Worker</span><span class='period'>.</span><span class='id launch'>launch</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:ruby</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='ivar'>@args</span><span class='rparen'>)</span>
+      <span class='id worker'>worker</span><span class='period'>.</span><span class='id hook'>hook</span><span class='lparen'>(</span><span class='symbol'>:dead</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id w'>w</span><span class='comma'>,</span><span class='id info'>info</span><span class='op'>|</span>
+        <span class='id after_worker_quit'>after_worker_quit</span> <span class='id w'>w</span>
+        <span class='id after_worker_down'>after_worker_down</span> <span class='id w'>w</span><span class='comma'>,</span> <span class='op'>*</span><span class='id info'>info</span> <span class='kw'>unless</span> <span class='id info'>info</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+      <span class='kw'>end</span>
+      <span class='id worker'>worker</span>
+    <span class='rbrace'>}</span>
+
+    <span class='comment'># Thread: watchdog
+</span>    <span class='id watchdog'>watchdog</span> <span class='op'>=</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id new'>new</span> <span class='kw'>do</span>
+      <span class='kw'>while</span> <span class='id stat'>stat</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id wait2'>wait2</span>
+        <span class='kw'>break</span> <span class='kw'>if</span> <span class='ivar'>@interrupt</span> <span class='comment'># Break when interrupt
+</span>        <span class='id pid'>pid</span><span class='comma'>,</span> <span class='id stat'>stat</span> <span class='op'>=</span> <span class='id stat'>stat</span>
+        <span class='id w'>w</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@workers</span> <span class='op'>+</span> <span class='ivar'>@dead_workers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id find'>find</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id pid'>pid</span> <span class='op'>==</span> <span class='id x'>x</span><span class='period'>.</span><span class='id pid'>pid</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id dup'>dup</span>
+        <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id w'>w</span>
+        <span class='kw'>unless</span> <span class='id w'>w</span><span class='period'>.</span><span class='id status'>status</span> <span class='op'>==</span> <span class='symbol'>:quit</span>
+          <span class='comment'># Worker down
+</span>          <span class='id w'>w</span><span class='period'>.</span><span class='id died'>died</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>!</span><span class='id stat'>stat</span><span class='period'>.</span><span class='id signaled?'>signaled?</span> <span class='op'>&amp;&amp;</span> <span class='id stat'>stat</span><span class='period'>.</span><span class='id exitstatus'>exitstatus</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='ivar'>@workers_hash</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='lbracket'>[</span><span class='ivar'>@workers</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id w'>w</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id w'>w</span><span class='period'>.</span><span class='id io'>io</span><span class='comma'>,</span><span class='id w'>w</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='rbracket'>]</span> <span class='comment'># out-IO =&gt; worker
+</span>    <span class='ivar'>@ios</span> <span class='op'>=</span> <span class='ivar'>@workers</span><span class='period'>.</span><span class='id map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id w'>w</span><span class='op'>|</span> <span class='id w'>w</span><span class='period'>.</span><span class='id io'>io</span> <span class='rbrace'>}</span> <span class='comment'># Array of worker IOs
+</span>
+    <span class='kw'>while</span> <span class='id _io'>_io</span> <span class='op'>=</span> <span class='const'>IO</span><span class='period'>.</span><span class='id select'>select</span><span class='lparen'>(</span><span class='ivar'>@ios</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='kw'>break</span> <span class='kw'>unless</span> <span class='id _io'>_io</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span>
+        <span class='kw'>break</span> <span class='kw'>if</span> <span class='ivar'>@need_quit</span>
+        <span class='id worker'>worker</span> <span class='op'>=</span> <span class='ivar'>@workers_hash</span><span class='lbracket'>[</span><span class='id io'>io</span><span class='rbracket'>]</span>
+        <span class='kw'>case</span> <span class='id worker'>worker</span><span class='period'>.</span><span class='id read'>read</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^okay$</span><span class='regexp_end'>/</span></span>
+          <span class='id worker'>worker</span><span class='period'>.</span><span class='id status'>status</span> <span class='op'>=</span> <span class='symbol'>:running</span>
+          <span class='id jobs_status'>jobs_status</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^ready$</span><span class='regexp_end'>/</span></span>
+          <span class='id worker'>worker</span><span class='period'>.</span><span class='id status'>status</span> <span class='op'>=</span> <span class='symbol'>:ready</span>
+          <span class='kw'>if</span> <span class='ivar'>@tasks</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+            <span class='kw'>break</span> <span class='kw'>unless</span> <span class='ivar'>@workers</span><span class='period'>.</span><span class='id find'>find</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id x'>x</span><span class='period'>.</span><span class='id status'>status</span> <span class='op'>==</span> <span class='symbol'>:running</span> <span class='rbrace'>}</span>
+          <span class='kw'>else</span>
+            <span class='id worker'>worker</span><span class='period'>.</span><span class='id run'>run</span><span class='lparen'>(</span><span class='ivar'>@tasks</span><span class='period'>.</span><span class='id shift'>shift</span><span class='comma'>,</span> <span class='id type'>type</span><span class='rparen'>)</span>
+          <span class='kw'>end</span>
+
+          <span class='id jobs_status'>jobs_status</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^done (.+?)$</span><span class='regexp_end'>/</span></span>
+          <span class='id r'>r</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id load'>load</span><span class='lparen'>(</span><span class='backref'>$1</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>m</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+          <span class='id result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='lbracket'>[</span><span class='kw'>nil</span><span class='comma'>,</span><span class='kw'>nil</span><span class='rbracket'>]</span>
+          <span class='id rep'>rep</span>    <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span><span class='label'>file:</span> <span class='id worker'>worker</span><span class='period'>.</span><span class='id real_file'>real_file</span><span class='comma'>,</span>
+                     <span class='label'>report:</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>testcase:</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
+          <span class='gvar'>$:</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id uniq!'>uniq!</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^p (.+?)$</span><span class='regexp_end'>/</span></span>
+          <span class='id del_jobs_status'>del_jobs_status</span>
+          <span class='id print'>print</span> <span class='backref'>$1</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>m</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+          <span class='id jobs_status'>jobs_status</span> <span class='kw'>if</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:job_status</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='symbol'>:replace</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^after (.+?)$</span><span class='regexp_end'>/</span></span>
+          <span class='ivar'>@warnings</span> <span class='op'>&lt;&lt;</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id load'>load</span><span class='lparen'>(</span><span class='backref'>$1</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>m</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^bye (.+?)$</span><span class='regexp_end'>/</span></span>
+          <span class='id after_worker_down'>after_worker_down</span> <span class='id worker'>worker</span><span class='comma'>,</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id load'>load</span><span class='lparen'>(</span><span class='backref'>$1</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>m</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^bye$</span><span class='regexp_end'>/</span></span>
+          <span class='kw'>if</span> <span class='id shutting_down'>shutting_down</span>
+            <span class='id after_worker_quit'>after_worker_quit</span> <span class='id worker'>worker</span>
+          <span class='kw'>else</span>
+            <span class='id after_worker_down'>after_worker_down</span> <span class='id worker'>worker</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+        <span class='kw'>break</span> <span class='kw'>if</span> <span class='ivar'>@need_quit</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>rescue</span> <span class='const'>Interrupt</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+    <span class='ivar'>@interrupt</span> <span class='op'>=</span> <span class='id e'>e</span>
+    <span class='kw'>return</span> <span class='id result'>result</span>
+  <span class='kw'>ensure</span>
+    <span class='id shutting_down'>shutting_down</span> <span class='op'>=</span> <span class='kw'>true</span>
+
+    <span class='id watchdog'>watchdog</span><span class='period'>.</span><span class='id kill'>kill</span> <span class='kw'>if</span> <span class='id watchdog'>watchdog</span>
+    <span class='kw'>if</span> <span class='ivar'>@interrupt</span>
+      <span class='ivar'>@ios</span><span class='period'>.</span><span class='id select!'>select!</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='ivar'>@workers_hash</span><span class='lbracket'>[</span><span class='id x'>x</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id status'>status</span> <span class='op'>==</span> <span class='symbol'>:running</span> <span class='rbrace'>}</span>
+      <span class='kw'>while</span> <span class='op'>!</span><span class='ivar'>@ios</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id __io'>__io</span> <span class='op'>=</span> <span class='const'>IO</span><span class='period'>.</span><span class='id select'>select</span><span class='lparen'>(</span><span class='ivar'>@ios</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='int'>10</span><span class='rparen'>)</span><span class='rparen'>)</span>
+          <span class='id _io'>_io</span> <span class='op'>=</span> <span class='id __io'>__io</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+          <span class='id _io'>_io</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span>
+            <span class='id worker'>worker</span> <span class='op'>=</span> <span class='ivar'>@workers_hash</span><span class='lbracket'>[</span><span class='id io'>io</span><span class='rbracket'>]</span>
+            <span class='kw'>case</span> <span class='id worker'>worker</span><span class='period'>.</span><span class='id read'>read</span>
+            <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^done (.+?)$</span><span class='regexp_end'>/</span></span>
+              <span class='id r'>r</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id load'>load</span><span class='lparen'>(</span><span class='backref'>$1</span><span class='period'>.</span><span class='id unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>m</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+              <span class='id result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='lbracket'>[</span><span class='kw'>nil</span><span class='comma'>,</span><span class='kw'>nil</span><span class='rbracket'>]</span>
+              <span class='id rep'>rep</span>    <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span><span class='label'>file:</span> <span class='id worker'>worker</span><span class='period'>.</span><span class='id real_file'>real_file</span><span class='comma'>,</span>
+                         <span class='label'>report:</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>testcase:</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
+              <span class='gvar'>$:</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id r'>r</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id uniq!'>uniq!</span>
+              <span class='ivar'>@ios</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id io'>io</span><span class='rparen'>)</span>
+            <span class='kw'>end</span>
+          <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='ivar'>@workers</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id worker'>worker</span><span class='op'>|</span>
+      <span class='kw'>begin</span>
+        <span class='id timeout'>timeout</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>do</span>
+          <span class='id worker'>worker</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>quit</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>end</span>
+      <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>EPIPE</span>
+      <span class='kw'>rescue</span> <span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span>
+      <span class='kw'>end</span>
+      <span class='id worker'>worker</span><span class='period'>.</span><span class='id close'>close</span>
+    <span class='kw'>end</span>
+    <span class='kw'>begin</span>
+      <span class='id timeout'>timeout</span><span class='lparen'>(</span><span class='float'>0.2</span><span class='op'>*</span><span class='ivar'>@workers</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span> <span class='kw'>do</span>
+        <span class='const'>Process</span><span class='period'>.</span><span class='id waitall'>waitall</span>
+      <span class='kw'>end</span>
+    <span class='kw'>rescue</span> <span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span>
+      <span class='ivar'>@workers</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id worker'>worker</span><span class='op'>|</span>
+        <span class='kw'>begin</span>
+          <span class='const'>Process</span><span class='period'>.</span><span class='id kill'>kill</span><span class='lparen'>(</span><span class='symbol'>:KILL</span><span class='comma'>,</span><span class='id worker'>worker</span><span class='period'>.</span><span class='id pid'>pid</span><span class='rparen'>)</span>
+        <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ESRCH</span><span class='semicolon'>;</span> <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='ivar'>@interrupt</span> <span class='op'>||</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:no_retry</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@need_quit</span>
+      <span class='id rep'>rep</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span>
+        <span class='id report'>report</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:report</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='ivar'>@errors</span>   <span class='op'>+=</span> <span class='id rep'>rep</span><span class='period'>.</span><span class='id map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id x'>x</span><span class='lbracket'>[</span><span class='symbol'>:result</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='symbol'>:+</span><span class='rparen'>)</span>
+      <span class='ivar'>@failures</span> <span class='op'>+=</span> <span class='id rep'>rep</span><span class='period'>.</span><span class='id map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id x'>x</span><span class='lbracket'>[</span><span class='symbol'>:result</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='symbol'>:+</span><span class='rparen'>)</span>
+      <span class='ivar'>@skips</span>    <span class='op'>+=</span> <span class='id rep'>rep</span><span class='period'>.</span><span class='id map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id x'>x</span><span class='lbracket'>[</span><span class='symbol'>:result</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='symbol'>:+</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Retrying...</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id rep'>rep</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:testcase</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:file</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:report</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+          <span class='id require'>require</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:file</span><span class='rbracket'>]</span>
+          <span class='id _run_suite'>_run_suite</span><span class='lparen'>(</span><span class='id eval'>eval</span><span class='lparen'>(</span><span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:testcase</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span><span class='id type'>type</span><span class='rparen'>)</span>
+        <span class='kw'>else</span>
+          <span class='id report'>report</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:report</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+          <span class='ivar'>@errors</span> <span class='op'>+=</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:result</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+          <span class='ivar'>@failures</span> <span class='op'>+=</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:result</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+          <span class='ivar'>@skips</span> <span class='op'>+=</span> <span class='id r'>r</span><span class='lbracket'>[</span><span class='symbol'>:result</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='ivar'>@warnings</span>
+      <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='ivar'>@warnings</span><span class='period'>.</span><span class='id reject!'>reject!</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id w'>w</span><span class='op'>|</span>
+        <span class='id r'>r</span> <span class='op'>=</span> <span class='id ary'>ary</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id w'>w</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id message'>message</span><span class='rparen'>)</span>
+        <span class='id ary'>ary</span> <span class='op'>&lt;&lt;</span> <span class='id w'>w</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id message'>message</span>
+        <span class='id r'>r</span>
+      <span class='kw'>end</span>
+      <span class='ivar'>@warnings</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id w'>w</span><span class='op'>|</span>
+        <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id w'>w</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id w'>w</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id w'>w</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="_run_suites-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>_run_suites</strong>(suites, type) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/test/unit.rb', line 557</span>
+
+<span class='kw'>def</span> <span class='id _run_suites'>_run_suites</span> <span class='id suites'>suites</span><span class='comma'>,</span> <span class='id type'>type</span>
+  <span class='ivar'>@interrupt</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id result'>result</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:parallel</span><span class='rbracket'>]</span>
+    <span class='id _run_parallel'>_run_parallel</span> <span class='id suites'>suites</span><span class='comma'>,</span> <span class='id type'>type</span><span class='comma'>,</span> <span class='id result'>result</span>
+  <span class='kw'>else</span>
+    <span class='id suites'>suites</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id suite'>suite</span><span class='op'>|</span>
+      <span class='kw'>begin</span>
+        <span class='id result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id _run_suite'>_run_suite</span><span class='lparen'>(</span><span class='id suite'>suite</span><span class='comma'>,</span> <span class='id type'>type</span><span class='rparen'>)</span>
+      <span class='kw'>rescue</span> <span class='const'>Interrupt</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+        <span class='ivar'>@interrupt</span> <span class='op'>=</span> <span class='id e'>e</span>
+        <span class='kw'>break</span>
+      <span class='kw'>end</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+  <span class='id report'>report</span><span class='period'>.</span><span class='id reject!'>reject!</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span> <span class='id r'>r</span><span class='period'>.</span><span class='id start_with?'>start_with?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Skipped:</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='kw'>if</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:hide_skip</span><span class='rbracket'>]</span>
+  <span class='id result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="after_worker_down-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>after_worker_down</strong>(worker, e = nil, c = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/test/unit.rb', line 332</span>
+
+<span class='kw'>def</span> <span class='id after_worker_down'>after_worker_down</span><span class='lparen'>(</span><span class='id worker'>worker</span><span class='comma'>,</span> <span class='id e'>e</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id c'>c</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:parallel</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@interrupt</span>
+  <span class='kw'>if</span> <span class='id e'>e</span>
+    <span class='id b'>b</span> <span class='op'>=</span> <span class='id e'>e</span><span class='period'>.</span><span class='id backtrace'>backtrace</span>
+    <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id b'>b</span><span class='period'>.</span><span class='id shift'>shift</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+    <span class='const'>STDERR</span><span class='period'>.</span><span class='id print'>print</span> <span class='id b'>b</span><span class='period'>.</span><span class='id map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\tfrom </span><span class='embexpr_beg'>#{</span><span class='id s'>s</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@need_quit</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Some worker was crashed. It seems ruby interpreter's bug</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>or, a bug of test/unit/parallel.rb. try again without -j</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>option.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='const'>STDERR</span><span class='period'>.</span><span class='id flush'>flush</span>
+  <span class='id exit'>exit</span> <span class='id c'>c</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="after_worker_quit-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>after_worker_quit</strong>(worker) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+378
+379
+380
+381
+382
+383
+384</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/test/unit.rb', line 378</span>
+
+<span class='kw'>def</span> <span class='id after_worker_quit'>after_worker_quit</span><span class='lparen'>(</span><span class='id worker'>worker</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:parallel</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@interrupt</span>
+  <span class='ivar'>@workers</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id worker'>worker</span><span class='rparen'>)</span>
+  <span class='ivar'>@dead_workers</span> <span class='op'>&lt;&lt;</span> <span class='id worker'>worker</span>
+  <span class='ivar'>@ios</span> <span class='op'>=</span> <span class='ivar'>@workers</span><span class='period'>.</span><span class='id map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:io</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="del_jobs_status-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>del_jobs_status</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+373
+374
+375
+376</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/test/unit.rb', line 373</span>
+
+<span class='kw'>def</span> <span class='id del_jobs_status'>del_jobs_status</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:job_status</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='symbol'>:replace</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@jstr_size</span><span class='period'>.</span><span class='id nonzero?'>nonzero?</span>
+  <span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\r</span><span class='tstring_end'>&quot;</span></span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='op'>*</span><span class='ivar'>@jstr_size</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\r</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="jobs_status-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>jobs_status</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/test/unit.rb', line 350</span>
+
+<span class='kw'>def</span> <span class='id jobs_status'>jobs_status</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:job_status</span><span class='rbracket'>]</span>
+  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:verbose</span><span class='rbracket'>]</span>
+  <span class='id status_line'>status_line</span> <span class='op'>=</span> <span class='ivar'>@workers</span><span class='period'>.</span><span class='id map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_s</span><span class='rparen'>)</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:job_status</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='symbol'>:replace</span> <span class='kw'>and</span> <span class='gvar'>$stdout</span><span class='period'>.</span><span class='id tty?'>tty?</span>
+    <span class='ivar'>@terminal_width</span> <span class='op'>||=</span>
+      <span class='kw'>begin</span>
+        <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>io/console</span><span class='tstring_end'>'</span></span>
+        <span class='gvar'>$stdout</span><span class='period'>.</span><span class='id winsize'>winsize</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+      <span class='kw'>rescue</span> <span class='const'>LoadError</span><span class='comma'>,</span> <span class='const'>NoMethodError</span>
+        <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>COLUMNS</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='period'>.</span><span class='id nonzero?'>nonzero?</span> <span class='op'>||</span> <span class='int'>80</span>
+      <span class='kw'>end</span>
+    <span class='ivar'>@jstr_size</span> <span class='op'>||=</span> <span class='int'>0</span>
+    <span class='id del_jobs_status'>del_jobs_status</span>
+    <span class='gvar'>$stdout</span><span class='period'>.</span><span class='id flush'>flush</span>
+    <span class='id print'>print</span> <span class='id status_line'>status_line</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>...</span><span class='ivar'>@terminal_width</span><span class='rbracket'>]</span>
+    <span class='gvar'>$stdout</span><span class='period'>.</span><span class='id flush'>flush</span>
+    <span class='ivar'>@jstr_size</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id status_line'>status_line</span><span class='period'>.</span><span class='id size'>size</span><span class='comma'>,</span> <span class='ivar'>@terminal_width</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id min'>min</span>
+  <span class='kw'>else</span>
+    <span class='id puts'>puts</span> <span class='id status_line'>status_line</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="puke-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>puke</strong>(klass, meth, e) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Overriding of MiniTest::Unit#puke</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/test/unit.rb', line 577</span>
+
+<span class='kw'>def</span> <span class='id puke'>puke</span> <span class='id klass'>klass</span><span class='comma'>,</span> <span class='id meth'>meth</span><span class='comma'>,</span> <span class='id e'>e</span>
+  <span class='comment'># TODO:
+</span>  <span class='comment'>#   this overriding is for minitest feature that skip messages are
+</span>  <span class='comment'>#   hidden when not verbose (-v), note this is temporally.
+</span>  <span class='id e'>e</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='id e'>e</span>
+      <span class='kw'>when</span> <span class='const'>MiniTest</span><span class='op'>::</span><span class='const'>Skip</span> <span class='kw'>then</span>
+        <span class='ivar'>@skips</span> <span class='op'>+=</span> <span class='int'>1</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Skipped:\n</span><span class='embexpr_beg'>#{</span><span class='id meth'>meth</span><span class='rbrace'>}</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id klass'>klass</span><span class='rbrace'>}</span><span class='tstring_content'>) [</span><span class='embexpr_beg'>#{</span><span class='id location'>location</span> <span class='id e'>e</span><span class='rbrace'>}</span><span class='tstring_content'>]:\n</span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>when</span> <span class='const'>MiniTest</span><span class='op'>::</span><span class='const'>Assertion</span> <span class='kw'>then</span>
+        <span class='ivar'>@failures</span> <span class='op'>+=</span> <span class='int'>1</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Failure:\n</span><span class='embexpr_beg'>#{</span><span class='id meth'>meth</span><span class='rbrace'>}</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id klass'>klass</span><span class='rbrace'>}</span><span class='tstring_content'>) [</span><span class='embexpr_beg'>#{</span><span class='id location'>location</span> <span class='id e'>e</span><span class='rbrace'>}</span><span class='tstring_content'>]:\n</span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>else</span>
+        <span class='ivar'>@errors</span> <span class='op'>+=</span> <span class='int'>1</span>
+        <span class='id bt'>bt</span> <span class='op'>=</span> <span class='const'>MiniTest</span><span class='op'>::</span><span class='id filter_backtrace'>filter_backtrace</span><span class='lparen'>(</span><span class='id e'>e</span><span class='period'>.</span><span class='id backtrace'>backtrace</span><span class='rparen'>)</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n    </span><span class='tstring_end'>&quot;</span></span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error:\n</span><span class='embexpr_beg'>#{</span><span class='id meth'>meth</span><span class='rbrace'>}</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id klass'>klass</span><span class='rbrace'>}</span><span class='tstring_content'>):\n</span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'>\n    </span><span class='embexpr_beg'>#{</span><span class='id bt'>bt</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+  <span class='ivar'>@report</span> <span class='op'>&lt;&lt;</span> <span class='id e'>e</span>
+  <span class='id e'>e</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="status-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>status</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>@interrupt</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+597
+598
+599
+600
+601</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/test/unit.rb', line 597</span>
+
+<span class='kw'>def</span> <span class='id status'>status</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id result'>result</span> <span class='op'>=</span> <span class='kw'>super</span>
+  <span class='id raise'>raise</span> <span class='ivar'>@interrupt</span> <span class='kw'>if</span> <span class='ivar'>@interrupt</span>
+  <span class='id result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:47 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

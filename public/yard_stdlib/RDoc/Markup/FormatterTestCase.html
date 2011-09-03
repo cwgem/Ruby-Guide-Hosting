@@ -1,0 +1,1659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RDoc::Markup::FormatterTestCase
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (F)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../RDoc.html" title="RDoc (module)">RDoc</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Markup.html" title="RDoc::Markup (class)">Markup</a></span></span>
+     &raquo; 
+    <span class="title">FormatterTestCase</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: RDoc::Markup::FormatterTestCase
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="../../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></li>
+          
+            <li class="next">RDoc::Markup::FormatterTestCase</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rdoc/markup/formatter_test_case.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Test case for creating new RDoc::Markup formatters.  See
+test/test_rdoc_markup_to_*.rb for examples.</p>
+
+<p>This test case adds a variety of tests to your subclass when
+#add_visitor_tests is called.  Most tests set up a scenario then call a
+method you will provide to perform the assertion on the output.</p>
+
+<p>Your subclass must instantiate a visitor and assign it to <tt>@to</tt>.</p>
+
+<p>For example, test_accept_blank_line sets up a RDoc::Markup::BlockLine then
+calls accept_blank_line on your visitor.  You are responsible for asserting
+that the output is correct.</p>
+
+<p>Example:</p>
+
+<pre class="code"><span class='kw'>class</span> <span class='const'>TestRDocMarkupToNewFormat</span> <span class='op'>&lt;</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span><span class='op'>::</span><span class='const'>FormatterTestCase</span>
+
+  <span class='id add_visitor_tests'>add_visitor_tests</span>
+
+  <span class='kw'>def</span> <span class='id setup'>setup</span>
+    <span class='kw'>super</span>
+
+    <span class='ivar'>@to</span> <span class='op'>=</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span><span class='op'>::</span><span class='const'>ToNewFormat</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id accept_blank_line'>accept_blank_line</span>
+    <span class='id assert_equal'>assert_equal</span> <span class='symbol'>:junk</span><span class='comma'>,</span> <span class='ivar'>@to</span><span class='period'>.</span><span class='id res'>res</span><span class='period'>.</span><span class='id join'>join</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># ...
+</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="TextFormatterTestCase.html" title="RDoc::Markup::TextFormatterTestCase (class)">TextFormatterTestCase</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants inherited from <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#PASSTHROUGH_EXCEPTIONS-constant" title="MiniTest::Unit::TestCase::PASSTHROUGH_EXCEPTIONS (constant)">PASSTHROUGH_EXCEPTIONS</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#SUPPORTS_INFO_SIGNAL-constant" title="MiniTest::Unit::TestCase::SUPPORTS_INFO_SIGNAL (constant)">SUPPORTS_INFO_SIGNAL</a></span></p>
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="../../MiniTest/Assertions.html" title="MiniTest::Assertions (module)">MiniTest::Assertions</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Assertions.html#WINDOZE-constant" title="MiniTest::Assertions::WINDOZE (constant)">WINDOZE</a></span></p>
+
+
+
+  
+  
+  
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#__name__-instance_method" title="MiniTest::Unit::TestCase#__name__ (method)">__name__</a></span></p>
+
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_visitor_tests-class_method" title="add_visitor_tests (class method)">+ (Object) <strong>add_visitor_tests</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call to add the visitor tests to your test case.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup-instance_method" title="#setup (instance method)">- (Object) <strong>setup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call #setup when inheriting from this test case.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html" title="MiniTest::Unit::TestCase (class)">MiniTest::Unit::TestCase</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance-instance_method" title="MiniTest::Unit::TestCase#assert_performance (method)">#assert_performance</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance_constant-instance_method" title="MiniTest::Unit::TestCase#assert_performance_constant (method)">#assert_performance_constant</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance_exponential-instance_method" title="MiniTest::Unit::TestCase#assert_performance_exponential (method)">#assert_performance_exponential</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance_linear-instance_method" title="MiniTest::Unit::TestCase#assert_performance_linear (method)">#assert_performance_linear</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#assert_performance_power-instance_method" title="MiniTest::Unit::TestCase#assert_performance_power (method)">#assert_performance_power</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#bench_exp-class_method" title="MiniTest::Unit::TestCase.bench_exp (method)">bench_exp</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#bench_linear-class_method" title="MiniTest::Unit::TestCase.bench_linear (method)">bench_linear</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#bench_range-class_method" title="MiniTest::Unit::TestCase.bench_range (method)">bench_range</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#benchmark_methods-class_method" title="MiniTest::Unit::TestCase.benchmark_methods (method)">benchmark_methods</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#benchmark_suites-class_method" title="MiniTest::Unit::TestCase.benchmark_suites (method)">benchmark_suites</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#fit_error-instance_method" title="MiniTest::Unit::TestCase#fit_error (method)">#fit_error</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#fit_exponential-instance_method" title="MiniTest::Unit::TestCase#fit_exponential (method)">#fit_exponential</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#fit_linear-instance_method" title="MiniTest::Unit::TestCase#fit_linear (method)">#fit_linear</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#fit_power-instance_method" title="MiniTest::Unit::TestCase#fit_power (method)">#fit_power</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#inherited-class_method" title="MiniTest::Unit::TestCase.inherited (method)">inherited</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#initialize-instance_method" title="MiniTest::Unit::TestCase#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#io-instance_method" title="MiniTest::Unit::TestCase#io (method)">#io</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#io%3F-instance_method" title="MiniTest::Unit::TestCase#io? (method)">#io?</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#passed%3F-instance_method" title="MiniTest::Unit::TestCase#passed? (method)">#passed?</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#reset-class_method" title="MiniTest::Unit::TestCase.reset (method)">reset</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#run-instance_method" title="MiniTest::Unit::TestCase#run (method)">#run</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#sigma-instance_method" title="MiniTest::Unit::TestCase#sigma (method)">#sigma</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#teardown-instance_method" title="MiniTest::Unit::TestCase#teardown (method)">#teardown</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#test_methods-class_method" title="MiniTest::Unit::TestCase.test_methods (method)">test_methods</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#test_order-class_method" title="MiniTest::Unit::TestCase.test_order (method)">test_order</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#test_suites-class_method" title="MiniTest::Unit::TestCase.test_suites (method)">test_suites</a></span>, <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#validation_for_fit-instance_method" title="MiniTest::Unit::TestCase#validation_for_fit (method)">#validation_for_fit</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../MiniTest/Assertions.html" title="MiniTest::Assertions (module)">MiniTest::Assertions</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../MiniTest/Assertions.html#_assertions-instance_method" title="MiniTest::Assertions#_assertions (method)">#_assertions</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#_assertions%3D-instance_method" title="MiniTest::Assertions#_assertions= (method)">#_assertions=</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert-instance_method" title="MiniTest::Assertions#assert (method)">#assert</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_block-instance_method" title="MiniTest::Assertions#assert_block (method)">#assert_block</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_empty-instance_method" title="MiniTest::Assertions#assert_empty (method)">#assert_empty</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_equal-instance_method" title="MiniTest::Assertions#assert_equal (method)">#assert_equal</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_in_delta-instance_method" title="MiniTest::Assertions#assert_in_delta (method)">#assert_in_delta</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_in_epsilon-instance_method" title="MiniTest::Assertions#assert_in_epsilon (method)">#assert_in_epsilon</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_includes-instance_method" title="MiniTest::Assertions#assert_includes (method)">#assert_includes</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_instance_of-instance_method" title="MiniTest::Assertions#assert_instance_of (method)">#assert_instance_of</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_kind_of-instance_method" title="MiniTest::Assertions#assert_kind_of (method)">#assert_kind_of</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_match-instance_method" title="MiniTest::Assertions#assert_match (method)">#assert_match</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_nil-instance_method" title="MiniTest::Assertions#assert_nil (method)">#assert_nil</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_operator-instance_method" title="MiniTest::Assertions#assert_operator (method)">#assert_operator</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_output-instance_method" title="MiniTest::Assertions#assert_output (method)">#assert_output</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_raises-instance_method" title="MiniTest::Assertions#assert_raises (method)">#assert_raises</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_respond_to-instance_method" title="MiniTest::Assertions#assert_respond_to (method)">#assert_respond_to</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_same-instance_method" title="MiniTest::Assertions#assert_same (method)">#assert_same</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_send-instance_method" title="MiniTest::Assertions#assert_send (method)">#assert_send</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_silent-instance_method" title="MiniTest::Assertions#assert_silent (method)">#assert_silent</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#assert_throws-instance_method" title="MiniTest::Assertions#assert_throws (method)">#assert_throws</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#capture_io-instance_method" title="MiniTest::Assertions#capture_io (method)">#capture_io</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#diff-class_method" title="MiniTest::Assertions.diff (method)">diff</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#diff-instance_method" title="MiniTest::Assertions#diff (method)">#diff</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#diff%3D-class_method" title="MiniTest::Assertions.diff= (method)">diff=</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#exception_details-instance_method" title="MiniTest::Assertions#exception_details (method)">#exception_details</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#flunk-instance_method" title="MiniTest::Assertions#flunk (method)">#flunk</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#message-instance_method" title="MiniTest::Assertions#message (method)">#message</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#mu_pp-instance_method" title="MiniTest::Assertions#mu_pp (method)">#mu_pp</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#mu_pp_for_diff-instance_method" title="MiniTest::Assertions#mu_pp_for_diff (method)">#mu_pp_for_diff</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#pass-instance_method" title="MiniTest::Assertions#pass (method)">#pass</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute-instance_method" title="MiniTest::Assertions#refute (method)">#refute</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_empty-instance_method" title="MiniTest::Assertions#refute_empty (method)">#refute_empty</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_equal-instance_method" title="MiniTest::Assertions#refute_equal (method)">#refute_equal</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_in_delta-instance_method" title="MiniTest::Assertions#refute_in_delta (method)">#refute_in_delta</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_in_epsilon-instance_method" title="MiniTest::Assertions#refute_in_epsilon (method)">#refute_in_epsilon</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_includes-instance_method" title="MiniTest::Assertions#refute_includes (method)">#refute_includes</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_instance_of-instance_method" title="MiniTest::Assertions#refute_instance_of (method)">#refute_instance_of</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_kind_of-instance_method" title="MiniTest::Assertions#refute_kind_of (method)">#refute_kind_of</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_match-instance_method" title="MiniTest::Assertions#refute_match (method)">#refute_match</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_nil-instance_method" title="MiniTest::Assertions#refute_nil (method)">#refute_nil</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_operator-instance_method" title="MiniTest::Assertions#refute_operator (method)">#refute_operator</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_respond_to-instance_method" title="MiniTest::Assertions#refute_respond_to (method)">#refute_respond_to</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#refute_same-instance_method" title="MiniTest::Assertions#refute_same (method)">#refute_same</a></span>, <span class='object_link'><a href="../../MiniTest/Assertions.html#skip-instance_method" title="MiniTest::Assertions#skip (method)">#skip</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="../../MiniTest/Unit/TestCase.html#initialize-instance_method" title="MiniTest::Unit::TestCase#initialize (method)">MiniTest::Unit::TestCase</a></span></p>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_visitor_tests-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_visitor_tests</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Call to add the visitor tests to your test case</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/formatter_test_case.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id add_visitor_tests'>add_visitor_tests</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class_eval'>class_eval</span> <span class='kw'>do</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls start_accepting which needs to verify startup state
+</span>
+    <span class='kw'>def</span> <span class='id test_start_accepting'>test_start_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='id start_accepting'>start_accepting</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls end_accepting on your test case which needs to call
+</span>    <span class='comment'># &lt;tt&gt;@to.end_accepting&lt;/tt&gt; and verify document generation
+</span>
+    <span class='kw'>def</span> <span class='id test_end_accepting'>test_end_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>hi</span><span class='tstring_end'>'</span></span>
+
+      <span class='id end_accepting'>end_accepting</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_blank_line
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_blank_line'>test_accept_blank_line</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_blank_line'>accept_blank_line</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>BlankLine</span><span class='period'>.</span><span class='id new'>new</span>
+
+      <span class='id accept_blank_line'>accept_blank_line</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Test case that calls &lt;tt&gt;@to.accept_document&lt;/tt&gt;
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_document'>test_accept_document</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_document'>accept_document</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>hello</span><span class='tstring_end'>'</span></span>
+
+      <span class='id accept_document'>accept_document</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_heading with a level 5 RDoc::Markup::Heading
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_heading'>test_accept_heading</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_heading'>accept_heading</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Heading</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>5</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Hello</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_heading'>accept_heading</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_heading_1 with a level 1 RDoc::Markup::Heading
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_heading_1'>test_accept_heading_1</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_heading'>accept_heading</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Heading</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Hello</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_heading_1'>accept_heading_1</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_heading_2 with a level 2 RDoc::Markup::Heading
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_heading_2'>test_accept_heading_2</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_heading'>accept_heading</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Heading</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Hello</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_heading_2'>accept_heading_2</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_heading_3 with a level 3 RDoc::Markup::Heading
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_heading_3'>test_accept_heading_3</span>
+      <span class='comment'># HACK this doesn't belong here
+</span>      <span class='id skip'>skip</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No String#chars, upgrade your ruby</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span> <span class='symbol'>:chars</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_heading'>accept_heading</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Heading</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Hello</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_heading_3'>accept_heading_3</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_heading_4 with a level 4 RDoc::Markup::Heading
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_heading_4'>test_accept_heading_4</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_heading'>accept_heading</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Heading</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Hello</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_heading_4'>accept_heading_4</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_heading_b with a bold level 1 RDoc::Markup::Heading
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_heading_b'>test_accept_heading_b</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_heading'>accept_heading</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Heading</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>*Hello*</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_heading_b'>accept_heading_b</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_heading_suppressed_crossref with a level 1
+</span>    <span class='comment'># RDoc::Markup::Heading containing a suppressed crossref
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_heading_suppressed_crossref'>test_accept_heading_suppressed_crossref</span> <span class='comment'># HACK to_html_crossref test
+</span>      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_heading'>accept_heading</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Heading</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\\Hello</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_heading_suppressed_crossref'>accept_heading_suppressed_crossref</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_paragraph
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_paragraph'>test_accept_paragraph</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_paragraph'>accept_paragraph</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>hi</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_paragraph'>accept_paragraph</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_paragraph_b with a RDoc::Markup::Paragraph containing
+</span>    <span class='comment'># bold words
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_paragraph_b'>test_accept_paragraph_b</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_paragraph'>accept_paragraph</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>reg &lt;b&gt;bold words&lt;/b&gt; reg</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_paragraph_b'>accept_paragraph_b</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_paragraph_i with a RDoc::Markup::Paragraph containing
+</span>    <span class='comment'># emphasized words
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_paragraph_i'>test_accept_paragraph_i</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_paragraph'>accept_paragraph</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>reg &lt;em&gt;italic words&lt;/em&gt; reg</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_paragraph_i'>accept_paragraph_i</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_paragraph_plus with a RDoc::Markup::Paragraph containing
+</span>    <span class='comment'># teletype words
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_paragraph_plus'>test_accept_paragraph_plus</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_paragraph'>accept_paragraph</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>reg +teletype+ reg</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_paragraph_plus'>accept_paragraph_plus</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_paragraph_star with a RDoc::Markup::Paragraph containing
+</span>    <span class='comment'># bold words
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_paragraph_star'>test_accept_paragraph_star</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_paragraph'>accept_paragraph</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>reg *bold* reg</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_paragraph_star'>accept_paragraph_star</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_paragraph_underscore with a RDoc::Markup::Paragraph
+</span>    <span class='comment'># containing emphasized words
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_paragraph_underscore'>test_accept_paragraph_underscore</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_paragraph'>accept_paragraph</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>reg _italic_ reg</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_paragraph_underscore'>accept_paragraph_underscore</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_verbatim with a RDoc::Markup::Verbatim
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_verbatim'>test_accept_verbatim</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_verbatim'>accept_verbatim</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Verbatim</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hi\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  world\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_verbatim'>accept_verbatim</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_raw with a RDoc::Markup::Raw
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_raw'>test_accept_raw</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_raw'>accept_raw</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Raw</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;table&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;tr&gt;&lt;th&gt;Name&lt;th&gt;Count</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;tr&gt;&lt;td&gt;a&lt;td&gt;1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;tr&gt;&lt;td&gt;b&lt;td&gt;2</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/table&gt;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+      <span class='id accept_raw'>accept_raw</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_rule with a RDoc::Markup::Rule
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_rule'>test_accept_rule</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_rule'>accept_rule</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Rule</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>4</span><span class='rparen'>)</span>
+
+      <span class='id accept_rule'>accept_rule</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_start_bullet
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_start_bullet'>test_accept_list_item_start_bullet</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@bullet_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@bullet_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_start_bullet'>accept_list_item_start_bullet</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_start_label
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_start_label'>test_accept_list_item_start_label</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@label_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@label_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_start_label'>accept_list_item_start_label</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_start_lalpha
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_start_lalpha'>test_accept_list_item_start_lalpha</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@lalpha_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@lalpha_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_start_lalpha'>accept_list_item_start_lalpha</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_start_note
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_start_note'>test_accept_list_item_start_note</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@note_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@note_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_start_note'>accept_list_item_start_note</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_start_note_2
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_start_note_2'>test_accept_list_item_start_note_2</span>
+      <span class='id list'>list</span> <span class='op'>=</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:NOTE</span><span class='comma'>,</span>
+               <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;tt&gt;teletype&lt;/tt&gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+                 <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>teletype description</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='id list'>list</span><span class='period'>.</span><span class='id accept'>accept</span> <span class='ivar'>@to</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id end_accepting'>end_accepting</span>
+
+      <span class='id accept_list_item_start_note_2'>accept_list_item_start_note_2</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_start_number
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_start_number'>test_accept_list_item_start_number</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@number_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@number_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_start_number'>accept_list_item_start_number</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_start_ualpha
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_start_ualpha'>test_accept_list_item_start_ualpha</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@ualpha_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@ualpha_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_start_ualpha'>accept_list_item_start_ualpha</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_end_bullet
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_end_bullet'>test_accept_list_item_end_bullet</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@bullet_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@bullet_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_end'>accept_list_item_end</span> <span class='ivar'>@bullet_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_end_bullet'>accept_list_item_end_bullet</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_end_label
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_end_label'>test_accept_list_item_end_label</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@label_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@label_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_end'>accept_list_item_end</span> <span class='ivar'>@label_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_end_label'>accept_list_item_end_label</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_end_lalpha
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_end_lalpha'>test_accept_list_item_end_lalpha</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@lalpha_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@lalpha_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_end'>accept_list_item_end</span> <span class='ivar'>@lalpha_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_end_lalpha'>accept_list_item_end_lalpha</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_end_note
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_end_note'>test_accept_list_item_end_note</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@note_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@note_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_end'>accept_list_item_end</span> <span class='ivar'>@note_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_end_note'>accept_list_item_end_note</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_end_number
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_end_number'>test_accept_list_item_end_number</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@number_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@number_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_end'>accept_list_item_end</span> <span class='ivar'>@number_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_end_number'>accept_list_item_end_number</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_item_end_ualpha
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_item_end_ualpha'>test_accept_list_item_end_ualpha</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@ualpha_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_start'>accept_list_item_start</span> <span class='ivar'>@ualpha_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_item_end'>accept_list_item_end</span> <span class='ivar'>@ualpha_list</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id first'>first</span>
+
+      <span class='id accept_list_item_end_ualpha'>accept_list_item_end_ualpha</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_start_bullet
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_start_bullet'>test_accept_list_start_bullet</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@bullet_list</span>
+
+      <span class='id accept_list_start_bullet'>accept_list_start_bullet</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_start_label
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_start_label'>test_accept_list_start_label</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@label_list</span>
+
+      <span class='id accept_list_start_label'>accept_list_start_label</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_start_lalpha
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_start_lalpha'>test_accept_list_start_lalpha</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@lalpha_list</span>
+
+      <span class='id accept_list_start_lalpha'>accept_list_start_lalpha</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_start_note
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_start_note'>test_accept_list_start_note</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@note_list</span>
+
+      <span class='id accept_list_start_note'>accept_list_start_note</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_start_number
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_start_number'>test_accept_list_start_number</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@number_list</span>
+
+      <span class='id accept_list_start_number'>accept_list_start_number</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_start_ualpha
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_start_ualpha'>test_accept_list_start_ualpha</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@ualpha_list</span>
+
+      <span class='id accept_list_start_ualpha'>accept_list_start_ualpha</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_end_bullet
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_end_bullet'>test_accept_list_end_bullet</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@bullet_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_end'>accept_list_end</span> <span class='ivar'>@bullet_list</span>
+
+      <span class='id accept_list_end_bullet'>accept_list_end_bullet</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_end_label
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_end_label'>test_accept_list_end_label</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@label_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_end'>accept_list_end</span> <span class='ivar'>@label_list</span>
+
+      <span class='id accept_list_end_label'>accept_list_end_label</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_end_lalpha
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_end_lalpha'>test_accept_list_end_lalpha</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@lalpha_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_end'>accept_list_end</span> <span class='ivar'>@lalpha_list</span>
+
+      <span class='id accept_list_end_lalpha'>accept_list_end_lalpha</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_end_number
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_end_number'>test_accept_list_end_number</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@number_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_end'>accept_list_end</span> <span class='ivar'>@number_list</span>
+
+      <span class='id accept_list_end_number'>accept_list_end_number</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_end_note
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_end_note'>test_accept_list_end_note</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@note_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_end'>accept_list_end</span> <span class='ivar'>@note_list</span>
+
+      <span class='id accept_list_end_note'>accept_list_end_note</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls accept_list_end_ulpha
+</span>
+    <span class='kw'>def</span> <span class='id test_accept_list_end_ualpha'>test_accept_list_end_ualpha</span>
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_start'>accept_list_start</span> <span class='ivar'>@ualpha_list</span>
+
+      <span class='ivar'>@to</span><span class='period'>.</span><span class='id accept_list_end'>accept_list_end</span> <span class='ivar'>@ualpha_list</span>
+
+      <span class='id accept_list_end_ualpha'>accept_list_end_ualpha</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls list_nested with a two-level list
+</span>
+    <span class='kw'>def</span> <span class='id test_list_nested'>test_list_nested</span>
+      <span class='id doc'>doc</span> <span class='op'>=</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span>
+              <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:BULLET</span><span class='comma'>,</span>
+                <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span>
+                  <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+                  <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:BULLET</span><span class='comma'>,</span>
+                    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span>
+                      <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l1.1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span>
+                <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span>
+                  <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l2</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+      <span class='id doc'>doc</span><span class='period'>.</span><span class='id accept'>accept</span> <span class='ivar'>@to</span>
+
+      <span class='id list_nested'>list_nested</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'>##
+</span>    <span class='comment'># Calls list_verbatim with a list containing a verbatim block
+</span>
+    <span class='kw'>def</span> <span class='id test_list_verbatim'>test_list_verbatim</span> <span class='comment'># HACK overblown
+</span>      <span class='id doc'>doc</span> <span class='op'>=</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Document</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span>
+              <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:BULLET</span><span class='comma'>,</span>
+                <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span>
+                  <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>list</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>stuff</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+                  <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>BlankLine</span><span class='period'>.</span><span class='id new'>new</span><span class='comma'>,</span>
+                  <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Verbatim</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>* list\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  with\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  second\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  1. indented\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  2. numbered\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  third\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>* second\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+      <span class='id doc'>doc</span><span class='period'>.</span><span class='id accept'>accept</span> <span class='ivar'>@to</span>
+
+      <span class='id list_verbatim'>list_verbatim</span>
+    <span class='kw'>end</span>
+
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="setup-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>setup</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Call #setup when inheriting from this test case.</p>
+
+<p>Provides the following instance variables:</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>@m</tt></p></td>
+<td>
+<p>RDoc::Markup.new</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@RM</tt></p></td>
+<td>
+<p>RDoc::Markup # to reduce typing</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@bullet_list</tt></p></td>
+<td>
+<p>@RM::List.new :BULLET, # ...</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@label_list</tt></p></td>
+<td>
+<p>@RM::List.new :LABEL, # ...</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@lalpha_list</tt></p></td>
+<td>
+<p>@RM::List.new :LALPHA, # ...</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@note_list</tt></p></td>
+<td>
+<p>@RM::List.new :NOTE, # ...</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@number_list</tt></p></td>
+<td>
+<p>@RM::List.new :NUMBER, # ...</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>@ualpha_list</tt></p></td>
+<td>
+<p>@RM::List.new :UALPHA, # ...</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/formatter_test_case.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id setup'>setup</span>
+  <span class='kw'>super</span>
+
+  <span class='ivar'>@m</span> <span class='op'>=</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@RM</span> <span class='op'>=</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span>
+
+  <span class='ivar'>@bullet_list</span> <span class='op'>=</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:BULLET</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l2</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@label_list</span> <span class='op'>=</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:LABEL</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>cat</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>cats are cool</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>dog</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>dogs are cool too</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@lalpha_list</span> <span class='op'>=</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:LALPHA</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l2</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@note_list</span> <span class='op'>=</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:NOTE</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>cat</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>cats are cool</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>dog</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>dogs are cool too</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@number_list</span> <span class='op'>=</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:NUMBER</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l2</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@ualpha_list</span> <span class='op'>=</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>List</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='symbol'>:UALPHA</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>ListItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@RM</span><span class='op'>::</span><span class='const'>Paragraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>l2</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:49 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

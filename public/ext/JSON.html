@@ -1,0 +1,1498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Module: JSON</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="module">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./ext/json/lib/json/common_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/json/lib/json/common.rb">ext/json/lib/json/common.rb</a></li>
+          
+            <li><a href="./ext/json/lib/json/ext_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/json/lib/json/ext.rb">ext/json/lib/json/ext.rb</a></li>
+          
+            <li><a href="./ext/json/lib/json/version_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/json/lib/json/version.rb">ext/json/lib/json/version.rb</a></li>
+          
+            <li><a href="./ext/json/lib/json_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/json/lib/json.rb">ext/json/lib/json.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">MODULE</span> <a href="JSON/Ext.html">JSON::Ext</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="JSON/JSONError.html">JSON::JSONError</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="JSON/NestingError.html">JSON::NestingError</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="JSON/ParserError.html">JSON::ParserError</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="JSON/GeneratorError.html">JSON::UnparserError</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-5B-5D">::[]</a></li>
+          
+          <li><a href="#method-c-const_defined_in-3F">::const_defined_in?</a></li>
+          
+          <li><a href="#method-c-iconv">::iconv</a></li>
+          
+          <li><a href="#method-c-restore">::restore</a></li>
+          
+          <li><a href="#method-i-dump">#dump</a></li>
+          
+          <li><a href="#method-i-fast_generate">#fast_generate</a></li>
+          
+          <li><a href="#method-i-generate">#generate</a></li>
+          
+          <li><a href="#method-i-load">#load</a></li>
+          
+          <li><a href="#method-i-parse">#parse</a></li>
+          
+          <li><a href="#method-i-parse-21">#parse!</a></li>
+          
+          <li><a href="#method-i-pretty_generate">#pretty_generate</a></li>
+          
+          <li><a href="#method-i-recurse_proc">#recurse_proc</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="./OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="./OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="./OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="./OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="./OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="./OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="./OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="./OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="./OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="./OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="./OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="./OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="./OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="./OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="./OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="./OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="./OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="./OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="./OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="./OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="./OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="./OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="./OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="./OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="./Psych.html">Psych</a></li>
+        
+          <li><a href="./Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="./Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="./Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="./Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="./Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="./Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="./Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="./Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="./Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="./Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="./Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="./Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="./Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="./Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="./Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="./Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="./Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="./Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="./Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="./Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="./Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="./Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="./Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="./Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="./Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="./Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="./Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="./Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="./Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="./DL.html">DL</a></li>
+        
+          <li><a href="./DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="./DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="./DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="./DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="./DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="./DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="./DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="./DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="./DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="./DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="./DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="./DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="./DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="./DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="./DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="./DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="./DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="./DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="./DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="./DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="./DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="./DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="./Zlib.html">Zlib</a></li>
+        
+          <li><a href="./Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="./Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="./Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="./Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="./Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="./Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="./Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="./Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="./Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="./Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="./Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="./Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="./Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="./Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="./Win32.html">Win32</a></li>
+        
+          <li><a href="./Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="./Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="./Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="./Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="./Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="./Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="./Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="./Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="./Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="./Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="./Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="./Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="./Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="./Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="./JSON.html">JSON</a></li>
+        
+          <li><a href="./JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="./JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="./JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="./JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="./JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="./Iconv.html">Iconv</a></li>
+        
+          <li><a href="./Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="./Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="./Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="./Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="./Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="./Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="./Ripper.html">Ripper</a></li>
+        
+          <li><a href="./Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="./Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="./Digest.html">Digest</a></li>
+        
+          <li><a href="./Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="./Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="./Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="./Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="./Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="./Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="./Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="./Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="./DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="./Socket.html">Socket</a></li>
+        
+          <li><a href="./Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="./Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="./Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="./Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="./Curses.html">Curses</a></li>
+        
+          <li><a href="./Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="./Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="./Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="./PTY.html">PTY</a></li>
+        
+          <li><a href="./PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="./StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="./StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="./Syslog.html">Syslog</a></li>
+        
+          <li><a href="./Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="./WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="./WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="./Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="./BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="./BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="./BigMath.html">BigMath</a></li>
+        
+          <li><a href="./Class.html">Class</a></li>
+        
+          <li><a href="./Coverage.html">Coverage</a></li>
+        
+          <li><a href="./DBM.html">DBM</a></li>
+        
+          <li><a href="./DBMError.html">DBMError</a></li>
+        
+          <li><a href="./Date.html">Date</a></li>
+        
+          <li><a href="./DateTime.html">DateTime</a></li>
+        
+          <li><a href="./Etc.html">Etc</a></li>
+        
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          <li><a href="./Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="./Float.html">Float</a></li>
+        
+          <li><a href="./GDBM.html">GDBM</a></li>
+        
+          <li><a href="./GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="./GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="./IO.html">IO</a></li>
+        
+          <li><a href="./IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          <li><a href="./Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="./Kconv.html">Kconv</a></li>
+        
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          <li><a href="./LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="./Module.html">Module</a></li>
+        
+          <li><a href="./NKF.html">NKF</a></li>
+        
+          <li><a href="./Newton.html">Newton</a></li>
+        
+          <li><a href="./OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Pathname.html">Pathname</a></li>
+        
+          <li><a href="./Range.html">Range</a></li>
+        
+          <li><a href="./Rational.html">Rational</a></li>
+        
+          <li><a href="./Readline.html">Readline</a></li>
+        
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          <li><a href="./SDBM.html">SDBM</a></li>
+        
+          <li><a href="./SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="./SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="./SocketError.html">SocketError</a></li>
+        
+          <li><a href="./String.html">String</a></li>
+        
+          <li><a href="./StringIO.html">StringIO</a></li>
+        
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          <li><a href="./TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="./TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          <li><a href="./Time.html">Time</a></li>
+        
+          <li><a href="./UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="./UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="./UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="./WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="./WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="./WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="./WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="./WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="./WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="./WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="./WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="./Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="module">JSON</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+      <!-- Constants -->
+      <div id="constants-list" class="section">
+        <h3 class="section-header">Constants</h3>
+        <dl>
+        
+          <dt><a name="Infinity">Infinity</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="JSON_LOADED">JSON_LOADED</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="MinusInfinity">MinusInfinity</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="NaN">NaN</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="UnparserError">UnparserError</a></dt>
+          
+          <dd class="description"><p>For backwards compatibility</p></dd>
+          
+        
+          <dt><a name="VERSION">VERSION</a></dt>
+          
+          <dd class="description"><p><a href="JSON.html">JSON</a> version</p></dd>
+          
+        
+          <dt><a name="VERSION_ARRAY">VERSION_ARRAY</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="VERSION_BUILD">VERSION_BUILD</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="VERSION_MAJOR">VERSION_MAJOR</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="VERSION_MINOR">VERSION_MINOR</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+        </dl>
+      </div>
+      
+
+      
+      <!-- Attributes -->
+      <div id="attribute-method-details" class="method-section section">
+        <h3 class="section-header">Attributes</h3>
+
+        
+        <div id="create_id-attribute-method" class="method-detail">
+          <a name="create_id"></a>
+          
+          <a name="create_id="></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">create_id</span><span
+              class="attribute-access-type">[RW]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>This is create identifier, that is used to decide, if the
+<em>json_create</em> hook of a class should be called. It defaults to
+‘json_class’.</p>
+          
+          </div>
+        </div>
+        
+        <div id="generator-attribute-method" class="method-detail">
+          <a name="generator"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">generator</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>Returns the <a href="JSON.html">JSON</a> generator modul, that is used by
+<a href="JSON.html">JSON</a>. This might be either JSON::Ext::Generator or
+JSON::Pure::Generator.</p>
+          
+          </div>
+        </div>
+        
+        <div id="parser-attribute-method" class="method-detail">
+          <a name="parser"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">parser</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>Returns the <a href="JSON.html">JSON</a> parser class, that is used by <a
+href="JSON.html">JSON</a>. This might be either JSON::Ext::Parser or
+JSON::Pure::Parser.</p>
+          
+          </div>
+        </div>
+        
+        <div id="state-attribute-method" class="method-detail">
+          <a name="state"></a>
+          
+          <a name="state="></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">state</span><span
+              class="attribute-access-type">[RW]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>Returns the <a href="JSON.html">JSON</a> generator state class, that is
+used by <a href="JSON.html">JSON</a>. This might be either
+JSON::Ext::Generator::State or JSON::Pure::Generator::State.</p>
+          
+          </div>
+        </div>
+        
+      </div><!-- attribute-method-details -->
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="5B-5D-method" class="method-detail ">
+          <a name="method-c-5B-5D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">[]</span><span
+              class="method-args">(object, opts = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>If <em>object</em> is string-like parse the string and return the parsed
+result as a Ruby data structure. Otherwise generate a <a
+href="JSON.html">JSON</a> text from the Ruby data structure object and
+return it.</p>
+
+<p>The <em>opts</em> argument is passed through to generate/parse
+respectively, see generate and parse for their documentation.</p>
+            
+
+            
+            <div class="method-source-code" id="5B-5D-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_str</span>
+    <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_str</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- 5B-5D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 5B-5D-method -->
+
+      
+        <div id="const_defined_in-3F-method" class="method-detail ">
+          <a name="method-c-const_defined_in-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">const_defined_in?</span><span
+              class="method-args">(modul, constant)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="const_defined_in-3F-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 368</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">const_defined_in?</span>(<span class="ruby-identifier">modul</span>, <span class="ruby-identifier">constant</span>)
+  <span class="ruby-identifier">modul</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">constant</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- const_defined_in-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- const_defined_in-3F-method -->
+
+      
+        <div id="iconv-method" class="method-detail ">
+          <a name="method-c-iconv"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">iconv</span><span
+              class="method-args">(to, from, string)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Encodes string using Ruby’s <em>String.encode</em></p>
+            
+
+            
+            <div class="method-source-code" id="iconv-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 356</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">iconv</span>(<span class="ruby-identifier">to</span>, <span class="ruby-identifier">from</span>, <span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">to</span>, <span class="ruby-identifier">from</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- iconv-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- iconv-method -->
+
+      
+        <div id="restore-method" class="method-detail method-alias">
+          <a name="method-c-restore"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">restore</span><span
+              class="method-args">(source, proc = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="JSON.html#method-i-load">load</a>
+          </div>
+          
+        </div><!-- restore-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="dump-method" class="method-detail ">
+          <a name="method-i-dump"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">dump</span><span
+              class="method-args">(obj, anIO = nil, limit = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Dumps <em>obj</em> as a <a href="JSON.html">JSON</a> string, i.e. calls
+generate on the object and returns the result.</p>
+
+<p>If an<a href="IO.html">IO</a> (an <a href="IO.html">IO</a> like object or
+an object that responds to the write method) was given, the resulting <a
+href="JSON.html">JSON</a> is written to it.</p>
+
+<p>If the number of nested arrays or objects exceeds <em>limit</em> an
+ArgumentError exception is raised. This argument is similar (but not
+exactly the same!) to the <em>limit</em> argument in Marshal.dump.</p>
+
+<p>This method is part of the implementation of the load/dump interface of
+Marshal and YAML.</p>
+            
+
+            
+            <div class="method-source-code" id="dump-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">anIO</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">limit</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">anIO</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">limit</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">anIO</span> = <span class="ruby-identifier">anIO</span>.<span class="ruby-identifier">to_io</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">anIO</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_io</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">anIO</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:write</span>)
+      <span class="ruby-identifier">limit</span> = <span class="ruby-identifier">anIO</span>
+      <span class="ruby-identifier">anIO</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">limit</span> <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">generate</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:allow_nan</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:max_nesting</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">limit</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">anIO</span>
+    <span class="ruby-identifier">anIO</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-identifier">anIO</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">NestingError</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;exceed depth limit&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- dump-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- dump-method -->
+
+      
+        <div id="fast_generate-method" class="method-detail ">
+          <a name="method-i-fast_generate"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">fast_generate</span><span
+              class="method-args">(obj, opts = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Generate a <a href="JSON.html">JSON</a> document from the Ruby data
+structure <em>obj</em> and return it. This method disables the checks for
+circles in Ruby objects.</p>
+
+<p><b>WARNING</b>: Be careful not to pass any Ruby data structures with
+circles as <em>obj</em> argument, because this will cause <a
+href="JSON.html">JSON</a> to go into an infinite loop.</p>
+            
+
+            
+            <div class="method-source-code" id="fast_generate-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 227</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fast_generate</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">opts</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">state</span> = <span class="ruby-constant">FAST_STATE_PROTOTYPE</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_hash</span>
+      <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">to_hash</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_h</span>
+      <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">to_h</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;can't convert #{opts.class} into Hash&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">state</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">state</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- fast_generate-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fast_generate-method -->
+
+      
+        <div id="generate-method" class="method-detail ">
+          <a name="method-i-generate"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">generate</span><span
+              class="method-args">(obj, opts = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Generate a <a href="JSON.html">JSON</a> document from the Ruby data
+structure <em>obj</em> and return it. <em>state</em> is * a JSON::State
+object,</p>
+<ul><li>
+<p>or a Hash like object (responding to to_hash),</p>
+</li><li>
+<p>an object convertible into a hash by a to_h method,</p>
+</li></ul>
+
+<p>that is used as or to configure a State object.</p>
+
+<p>It defaults to a state object, that creates the shortest possible <a
+href="JSON.html">JSON</a> text in one line, checks for circular data
+structures and doesn’t allow <a href="JSON.html#NaN">NaN</a>, <a
+href="JSON.html#Infinity">Infinity</a>, and -<a
+href="JSON.html#Infinity">Infinity</a>.</p>
+
+<p>A <em>state</em> hash can have the following keys:</p>
+<ul><li>
+<p><b>indent</b>: a string used to indent levels (default: "),</p>
+</li><li>
+<p><b>space</b>: a string that is put after, a : or , delimiter (default: "),</p>
+</li><li>
+<p><b>space_before</b>: a string that is put before a : pair delimiter
+(default: "),</p>
+</li><li>
+<p><b>object_nl</b>: a string that is put at the end of a <a
+href="JSON.html">JSON</a> object (default: "),</p>
+</li><li>
+<p><b>array_nl</b>: a string that is put at the end of a <a
+href="JSON.html">JSON</a> array (default: "),</p>
+</li><li>
+<p><b>allow_nan</b>: true if <a href="JSON.html#NaN">NaN</a>, <a
+href="JSON.html#Infinity">Infinity</a>, and -<a
+href="JSON.html#Infinity">Infinity</a> should be generated, otherwise an
+exception is thrown, if these values are encountered. This options defaults
+to false.</p>
+</li><li>
+<p><b>max_nesting</b>: The maximum depth of nesting allowed in the data
+structures from which <a href="JSON.html">JSON</a> is to be generated.
+Disable depth checking with :max_nesting =&gt; false, it defaults to 19.</p>
+</li></ul>
+
+<p>See also the <a href="JSON.html#method-i-fast_generate">fast_generate</a>
+for the fastest creation method with the least amount of sanity checks, and
+the <a href="JSON.html#method-i-pretty_generate">pretty_generate</a> method
+for some defaults for a pretty output.</p>
+            
+
+            
+            <div class="method-source-code" id="generate-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">opts</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">state</span> = <span class="ruby-constant">SAFE_STATE_PROTOTYPE</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_hash</span>
+      <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">to_hash</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_h</span>
+      <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">to_h</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;can't convert #{opts.class} into Hash&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">state</span> = <span class="ruby-identifier">state</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">state</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- generate-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- generate-method -->
+
+      
+        <div id="load-method" class="method-detail ">
+          <a name="method-i-load"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">load</span><span
+              class="method-args">(source, proc = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Load a ruby data structure from a <a href="JSON.html">JSON</a>
+<em>source</em> and return it. A source can either be a string-like object,
+an <a href="IO.html">IO</a> like object, or an object responding to the
+read method. If <em>proc</em> was given, it will be called with any nested
+Ruby object as an argument recursively in depth first order.</p>
+
+<p>This method is part of the implementation of the load/dump interface of
+Marshal and YAML.</p>
+            
+
+            
+            <div class="method-source-code" id="load-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 282</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">proc</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_str</span>
+    <span class="ruby-identifier">source</span> = <span class="ruby-identifier">source</span>.<span class="ruby-identifier">to_str</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_io</span>
+    <span class="ruby-identifier">source</span> = <span class="ruby-identifier">source</span>.<span class="ruby-identifier">to_io</span>.<span class="ruby-identifier">read</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">source</span> = <span class="ruby-identifier">source</span>.<span class="ruby-identifier">read</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">source</span>, <span class="ruby-value">:max_nesting</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:allow_nan</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">recurse_proc</span>(<span class="ruby-identifier">result</span>, &amp;<span class="ruby-identifier">proc</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">proc</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- load-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="JSON.html#method-i-restore">restore</a>
+          </div>
+          
+
+          
+        </div><!-- load-method -->
+
+      
+        <div id="parse-method" class="method-detail ">
+          <a name="method-i-parse"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">parse</span><span
+              class="method-args">(source, opts = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Parse the <a href="JSON.html">JSON</a> document <em>source</em> into a Ruby
+data structure and return it.</p>
+
+<p><em>opts</em> can have the following keys:</p>
+<ul><li>
+<p><b>max_nesting</b>: The maximum depth of nesting allowed in the parsed data
+structures. Disable depth checking with :max_nesting =&gt; false, it
+defaults to 19.</p>
+</li><li>
+<p><b>allow_nan</b>: If set to true, allow <a href="JSON.html#NaN">NaN</a>, <a
+href="JSON.html#Infinity">Infinity</a> and -<a
+href="JSON.html#Infinity">Infinity</a> in defiance of RFC 4627 to be parsed
+by the Parser. This option defaults to false.</p>
+</li><li>
+<p><b>symbolize_names</b>: If set to true, returns symbols for the names
+(keys) in a <a href="JSON.html">JSON</a> object. Otherwise strings are
+returned, which is also the default.</p>
+</li><li>
+<p><b>create_additions</b>: If set to false, the Parser doesn't create
+additions even if a matchin class and <a
+href="JSON.html#attribute-c-create_id">create_id</a> was found. This option
+defaults to true.</p>
+</li><li>
+<p><b>object_class</b>: Defaults to Hash</p>
+</li><li>
+<p><b>array_class</b>: Defaults to Array</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="parse-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">opts</span>).<span class="ruby-identifier">parse</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- parse-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- parse-method -->
+
+      
+        <div id="parse-21-method" class="method-detail ">
+          <a name="method-i-parse-21"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">parse!</span><span
+              class="method-args">(source, opts = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Parse the <a href="JSON.html">JSON</a> document <em>source</em> into a Ruby
+data structure and return it. The bang version of the parse method,
+defaults to the more dangerous values for the <em>opts</em> hash, so be
+sure only to parse trusted <em>source</em> documents.</p>
+
+<p><em>opts</em> can have the following keys:</p>
+<ul><li>
+<p><b>max_nesting</b>: The maximum depth of nesting allowed in the parsed data
+structures. Enable depth checking with :max_nesting =&gt; an<a
+href="Integer.html">Integer</a>. The parse! methods defaults to not doing
+max depth checking: This can be dangerous, if someone wants to fill up your
+stack.</p>
+</li><li>
+<p><b>allow_nan</b>: If set to true, allow <a href="JSON.html#NaN">NaN</a>, <a
+href="JSON.html#Infinity">Infinity</a>, and -<a
+href="JSON.html#Infinity">Infinity</a> in defiance of RFC 4627 to be parsed
+by the Parser. This option defaults to true.</p>
+</li><li>
+<p><b>create_additions</b>: If set to false, the Parser doesn't create
+additions even if a matchin class and <a
+href="JSON.html#attribute-c-create_id">create_id</a> was found. This option
+defaults to true.</p>
+</li></ul>
+            
+
+            
+            <div class="method-source-code" id="parse-21-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">opts</span> = {
+    <span class="ruby-value">:max_nesting</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-value">:allow_nan</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  }.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">opts</span>).<span class="ruby-identifier">parse</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- parse-21-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- parse-21-method -->
+
+      
+        <div id="pretty_generate-method" class="method-detail ">
+          <a name="method-i-pretty_generate"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">pretty_generate</span><span
+              class="method-args">(obj, opts = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Generate a <a href="JSON.html">JSON</a> document from the Ruby data
+structure <em>obj</em> and return it. The returned document is a prettier
+form of the document returned by #unparse.</p>
+
+<p>The <em>opts</em> argument can be used to configure the generator, see the
+generate method for a more detailed explanation.</p>
+            
+
+            
+            <div class="method-source-code" id="pretty_generate-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pretty_generate</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">opts</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">state</span> = <span class="ruby-constant">PRETTY_STATE_PROTOTYPE</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_hash</span>
+      <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">to_hash</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_h</span>
+      <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">to_h</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;can't convert #{opts.class} into Hash&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">state</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">state</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- pretty_generate-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pretty_generate-method -->
+
+      
+        <div id="recurse_proc-method" class="method-detail ">
+          <a name="method-i-recurse_proc"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">recurse_proc</span><span
+              class="method-args">(result, &proc)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Recursively calls passed <em>Proc</em> if the parsed data structure is an
+<em>Array</em> or <em>Hash</em></p>
+            
+
+            
+            <div class="method-source-code" id="recurse_proc-source">
+<pre>
+<span class="ruby-comment"># File ext/json/lib/json/common.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">recurse_proc</span>(<span class="ruby-identifier">result</span>, &amp;<span class="ruby-identifier">proc</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">recurse_proc</span> <span class="ruby-identifier">x</span>, &amp;<span class="ruby-identifier">proc</span> }
+    <span class="ruby-identifier">proc</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-identifier">recurse_proc</span> <span class="ruby-identifier">x</span>, &amp;<span class="ruby-identifier">proc</span>; <span class="ruby-identifier">recurse_proc</span> <span class="ruby-identifier">y</span>, &amp;<span class="ruby-identifier">proc</span> }
+    <span class="ruby-identifier">proc</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">proc</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- recurse_proc-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- recurse_proc-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

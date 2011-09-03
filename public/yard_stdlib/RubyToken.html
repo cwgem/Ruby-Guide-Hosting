@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RubyToken
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (R)</a> &raquo; 
+    
+    
+    <span class="title">RubyToken</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: RubyToken
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="RubyLex.html" title="RubyLex (class)">RubyLex</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/irb/ruby-token.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>irb/ruby-token.rb - ruby tokens</p>
+
+<pre class="code">	$Release Version: 0.9.6$
+	$Revision: 28158 $
+	by Keiju ISHITSUKA(keiju@ruby-lang.org)</pre>
+
+<p>--</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RubyToken/TkError.html" title="RubyToken::TkError (class)">TkError</a></span>, <span class='object_link'><a href="RubyToken/TkId.html" title="RubyToken::TkId (class)">TkId</a></span>, <span class='object_link'><a href="RubyToken/TkNode.html" title="RubyToken::TkNode (class)">TkNode</a></span>, <span class='object_link'><a href="RubyToken/TkOPASGN.html" title="RubyToken::TkOPASGN (class)">TkOPASGN</a></span>, <span class='object_link'><a href="RubyToken/TkOp.html" title="RubyToken::TkOp (class)">TkOp</a></span>, <span class='object_link'><a href="RubyToken/TkUnknownChar.html" title="RubyToken::TkUnknownChar (class)">TkUnknownChar</a></span>, <span class='object_link'><a href="RubyToken/TkVal.html" title="RubyToken::TkVal (class)">TkVal</a></span>, <span class='object_link'><a href="RubyToken/Token.html" title="RubyToken::Token (class)">Token</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="EXPR_BEG-constant" class="">EXPR_BEG =
+          
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:EXPR_BEG</span></pre></dd>
+      
+        <dt id="EXPR_MID-constant" class="">EXPR_MID =
+          
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:EXPR_MID</span></pre></dd>
+      
+        <dt id="EXPR_END-constant" class="">EXPR_END =
+          
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:EXPR_END</span></pre></dd>
+      
+        <dt id="EXPR_ARG-constant" class="">EXPR_ARG =
+          
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:EXPR_ARG</span></pre></dd>
+      
+        <dt id="EXPR_FNAME-constant" class="">EXPR_FNAME =
+          
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:EXPR_FNAME</span></pre></dd>
+      
+        <dt id="EXPR_DOT-constant" class="">EXPR_DOT =
+          
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:EXPR_DOT</span></pre></dd>
+      
+        <dt id="EXPR_CLASS-constant" class="">EXPR_CLASS =
+          
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:EXPR_CLASS</span></pre></dd>
+      
+        <dt id="TokenDefinitions-constant" class="">TokenDefinitions =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkCLASS</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>class</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_CLASS</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkMODULE</span><span class='comma'>,</span>     <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>module</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDEF</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>def</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='const'>EXPR_FNAME</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkUNDEF</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>undef</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_FNAME</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkBEGIN</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>begin</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkRESCUE</span><span class='comma'>,</span>     <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rescue</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>EXPR_MID</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkENSURE</span><span class='comma'>,</span>     <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ensure</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkEND</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>end</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkIF</span><span class='comma'>,</span>         <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>if</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>     <span class='const'>EXPR_BEG</span><span class='comma'>,</span> <span class='symbol'>:TkIF_MOD</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkUNLESS</span><span class='comma'>,</span>     <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unless</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>EXPR_BEG</span><span class='comma'>,</span> <span class='symbol'>:TkUNLESS_MOD</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkTHEN</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>then</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>   <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkELSIF</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>elsif</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkELSE</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>else</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>   <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkCASE</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>case</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>   <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkWHEN</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>when</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>   <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkWHILE</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>while</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_BEG</span><span class='comma'>,</span> <span class='symbol'>:TkWHILE_MOD</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkUNTIL</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>until</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_BEG</span><span class='comma'>,</span> <span class='symbol'>:TkUNTIL_MOD</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkFOR</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>for</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkBREAK</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>break</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkNEXT</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>next</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>   <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkREDO</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>redo</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>   <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkRETRY</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>retry</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkIN</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>     <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDO</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>do</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>     <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkRETURN</span><span class='comma'>,</span>     <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>return</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>EXPR_MID</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkYIELD</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>yield</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkSUPER</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>super</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkSELF</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>self</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>   <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkNIL</span><span class='comma'>,</span> 	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nil</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkTRUE</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>true</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>   <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkFALSE</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>false</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkAND</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>and</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkOR</span><span class='comma'>,</span> 	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>or</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>     <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkNOT</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>not</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='const'>EXPR_BEG</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkIF_MOD</span><span class='comma'>,</span>     <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkUNLESS_MOD</span><span class='comma'>,</span> <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkWHILE_MOD</span><span class='comma'>,</span>  <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkUNTIL_MOD</span><span class='comma'>,</span>  <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkALIAS</span><span class='comma'>,</span>      <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>alias</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='const'>EXPR_FNAME</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDEFINED</span><span class='comma'>,</span>    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>defined?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TklBEGIN</span><span class='comma'>,</span>     <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>BEGIN</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TklEND</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>END</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>      <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:Tk__LINE__</span><span class='comma'>,</span>   <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>__LINE__</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:Tk__FILE__</span><span class='comma'>,</span>   <span class='const'>TkId</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>__FILE__</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>EXPR_END</span><span class='rbracket'>]</span><span class='comma'>,</span>
+
+  <span class='lbracket'>[</span><span class='symbol'>:TkIDENTIFIER</span><span class='comma'>,</span> <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkFID</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkGVAR</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkCVAR</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkIVAR</span><span class='comma'>,</span>	    <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkCONSTANT</span><span class='comma'>,</span>   <span class='const'>TkId</span><span class='rbracket'>]</span><span class='comma'>,</span>
+
+  <span class='lbracket'>[</span><span class='symbol'>:TkINTEGER</span><span class='comma'>,</span>    <span class='const'>TkVal</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkFLOAT</span><span class='comma'>,</span>      <span class='const'>TkVal</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkSTRING</span><span class='comma'>,</span>     <span class='const'>TkVal</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkXSTRING</span><span class='comma'>,</span>    <span class='const'>TkVal</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkREGEXP</span><span class='comma'>,</span>     <span class='const'>TkVal</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkSYMBOL</span><span class='comma'>,</span>     <span class='const'>TkVal</span><span class='rbracket'>]</span><span class='comma'>,</span>
+
+  <span class='lbracket'>[</span><span class='symbol'>:TkDSTRING</span><span class='comma'>,</span>    <span class='const'>TkNode</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDXSTRING</span><span class='comma'>,</span>   <span class='const'>TkNode</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDREGEXP</span><span class='comma'>,</span>    <span class='const'>TkNode</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkNTH_REF</span><span class='comma'>,</span>    <span class='const'>TkNode</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkBACK_REF</span><span class='comma'>,</span>   <span class='const'>TkNode</span><span class='rbracket'>]</span><span class='comma'>,</span>
+
+  <span class='lbracket'>[</span><span class='symbol'>:TkUPLUS</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>+@</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkUMINUS</span><span class='comma'>,</span>     <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-@</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkPOW</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>**</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkCMP</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;=&gt;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkEQ</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>==</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkEQQ</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>===</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkNEQ</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>!=</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkGEQ</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;=</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkLEQ</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;=</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkANDOP</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;&amp;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkOROP</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>||</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkMATCH</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=~</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkNMATCH</span><span class='comma'>,</span>     <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>!~</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDOT2</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>..</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDOT3</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>...</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkAREF</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[]</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkASET</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[]=</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkLSHFT</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;&lt;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkRSHFT</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;&gt;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkCOLON2</span><span class='comma'>,</span>     <span class='const'>TkOp</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkCOLON3</span><span class='comma'>,</span>     <span class='const'>TkOp</span><span class='rbracket'>]</span><span class='comma'>,</span>
+<span class='comment'>#   [:OPASGN,	    TkOp],               # +=, -=  etc. #
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkASSOC</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=&gt;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkQUESTION</span><span class='comma'>,</span>   <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>?</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>	 <span class='comment'>#?
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkCOLON</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>        <span class='comment'>#:
+</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkfLPAREN</span><span class='rbracket'>]</span><span class='comma'>,</span>         <span class='comment'># func( #
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkfLBRACK</span><span class='rbracket'>]</span><span class='comma'>,</span>         <span class='comment'># func[ #
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkfLBRACE</span><span class='rbracket'>]</span><span class='comma'>,</span>         <span class='comment'># func{ #
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkSTAR</span><span class='rbracket'>]</span><span class='comma'>,</span>            <span class='comment'># *arg
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkAMPER</span><span class='rbracket'>]</span><span class='comma'>,</span>           <span class='comment'># &amp;arg #
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkSYMBEG</span><span class='rbracket'>]</span><span class='comma'>,</span>          <span class='comment'># :SYMBOL
+</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkGT</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkLT</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkPLUS</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>+</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkMINUS</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkMULT</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDIV</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkMOD</span><span class='comma'>,</span>	    <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkBITOR</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>|</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkBITXOR</span><span class='comma'>,</span>     <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkBITAND</span><span class='comma'>,</span>     <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkBITNOT</span><span class='comma'>,</span>     <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>~</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkNOTOP</span><span class='comma'>,</span>      <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>!</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+
+  <span class='lbracket'>[</span><span class='symbol'>:TkBACKQUOTE</span><span class='comma'>,</span>  <span class='const'>TkOp</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+
+  <span class='lbracket'>[</span><span class='symbol'>:TkASSIGN</span><span class='comma'>,</span>     <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDOT</span><span class='comma'>,</span>	    <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkLPAREN</span><span class='comma'>,</span>     <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>  <span class='comment'>#(exp)
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkLBRACK</span><span class='comma'>,</span>     <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>  <span class='comment'>#[arry]
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkLBRACE</span><span class='comma'>,</span>     <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>  <span class='comment'>#{hash}
+</span>  <span class='lbracket'>[</span><span class='symbol'>:TkRPAREN</span><span class='comma'>,</span>     <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkRBRACK</span><span class='comma'>,</span>     <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkRBRACE</span><span class='comma'>,</span>     <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkCOMMA</span><span class='comma'>,</span>      <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkSEMICOLON</span><span class='comma'>,</span>  <span class='const'>Token</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+
+  <span class='lbracket'>[</span><span class='symbol'>:TkCOMMENT</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkRD_COMMENT</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkSPACE</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkNL</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkEND_OF_SCRIPT</span><span class='rbracket'>]</span><span class='comma'>,</span>
+
+  <span class='lbracket'>[</span><span class='symbol'>:TkBACKSLASH</span><span class='comma'>,</span>  <span class='const'>TkUnknownChar</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkAT</span><span class='comma'>,</span>	    <span class='const'>TkUnknownChar</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='symbol'>:TkDOLLAR</span><span class='comma'>,</span>     <span class='const'>TkUnknownChar</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+<span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="TkReading2Token-constant" class="">TkReading2Token =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>=&gt; token_class =&gt; [token_class, *opt]</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="TkSymbol2Token-constant" class="">TkSymbol2Token =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_token-class_method" title="def_token (class method)">+ (Object) <strong>def_token</strong>(token_n, super_token = Token, reading = nil, *opts) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#Token-instance_method" title="#Token (instance method)">- (Object) <strong>Token</strong>(token, value = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="def_token-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>def_token</strong>(token_n, super_token = Token, reading = nil, *opts) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/irb/ruby-token.rb', line 242</span>
+
+<span class='kw'>def</span> <span class='const'>RubyToken</span><span class='period'>.</span><span class='id def_token'>def_token</span><span class='lparen'>(</span><span class='id token_n'>token_n</span><span class='comma'>,</span> <span class='id super_token'>super_token</span> <span class='op'>=</span> <span class='const'>Token</span><span class='comma'>,</span> <span class='id reading'>reading</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id opts'>opts</span><span class='rparen'>)</span>
+  <span class='id token_n'>token_n</span> <span class='op'>=</span> <span class='id token_n'>token_n</span><span class='period'>.</span><span class='id id2name'>id2name</span> <span class='kw'>if</span> <span class='id token_n'>token_n</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Symbol</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='const'>RubyToken</span><span class='period'>.</span><span class='id const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='id token_n'>token_n</span><span class='rparen'>)</span>
+    <span class='const'>IRB</span><span class='period'>.</span><span class='id fail'>fail</span> <span class='const'>AlreadyDefinedToken</span><span class='comma'>,</span> <span class='id token_n'>token_n</span>
+  <span class='kw'>end</span>
+  <span class='id token_c'>token_c</span> <span class='op'>=</span> <span class='id eval'>eval</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>class </span><span class='embexpr_beg'>#{</span><span class='id token_n'>token_n</span><span class='rbrace'>}</span><span class='tstring_content'> &lt; </span><span class='embexpr_beg'>#{</span><span class='id super_token'>super_token</span><span class='rbrace'>}</span><span class='tstring_content'>; end; </span><span class='embexpr_beg'>#{</span><span class='id token_n'>token_n</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id reading'>reading</span>
+    <span class='kw'>if</span> <span class='const'>TkReading2Token</span><span class='lbracket'>[</span><span class='id reading'>reading</span><span class='rbracket'>]</span>
+	<span class='const'>IRB</span><span class='period'>.</span><span class='id fail'>fail</span> <span class='const'>TkReading2TokenDuplicateError</span><span class='comma'>,</span> <span class='id token_n'>token_n</span><span class='comma'>,</span> <span class='id reading'>reading</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id opts'>opts</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+	<span class='const'>TkReading2Token</span><span class='lbracket'>[</span><span class='id reading'>reading</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id token_c'>token_c</span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+	<span class='const'>TkReading2Token</span><span class='lbracket'>[</span><span class='id reading'>reading</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id token_c'>token_c</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id concat'>concat</span><span class='lparen'>(</span><span class='id opts'>opts</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='const'>TkSymbol2Token</span><span class='lbracket'>[</span><span class='id token_n'>token_n</span><span class='period'>.</span><span class='id intern'>intern</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id token_c'>token_c</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="Token-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>Token</strong>(token, value = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/irb/ruby-token.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='const'>Token</span><span class='lparen'>(</span><span class='id token'>token</span><span class='comma'>,</span> <span class='id value'>value</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id token'>token</span>
+  <span class='kw'>when</span> <span class='const'>String</span>
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id tk'>tk</span> <span class='op'>=</span> <span class='const'>TkReading2Token</span><span class='lbracket'>[</span><span class='id token'>token</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+	<span class='const'>IRB</span><span class='period'>.</span><span class='id fail'>fail</span> <span class='const'>TkReading2TokenNoKey</span><span class='comma'>,</span> <span class='id token'>token</span>
+    <span class='kw'>end</span>
+    <span class='id tk'>tk</span> <span class='op'>=</span> <span class='const'>Token</span><span class='lparen'>(</span><span class='id tk'>tk</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id value'>value</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id tk'>tk</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>TkOp</span><span class='rparen'>)</span>
+	<span class='id tk'>tk</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>=</span> <span class='id token'>token</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id tk'>tk</span>
+  <span class='kw'>when</span> <span class='const'>Symbol</span>
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id tk'>tk</span> <span class='op'>=</span> <span class='const'>TkSymbol2Token</span><span class='lbracket'>[</span><span class='id token'>token</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+	<span class='const'>IRB</span><span class='period'>.</span><span class='id fail'>fail</span> <span class='const'>TkSymbol2TokenNoKey</span><span class='comma'>,</span> <span class='id token'>token</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='const'>Token</span><span class='lparen'>(</span><span class='id tk'>tk</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id token'>token</span><span class='period'>.</span><span class='id ancestors'>ancestors</span> <span class='op'>&amp;</span> <span class='lbracket'>[</span><span class='const'>TkId</span><span class='comma'>,</span> <span class='const'>TkVal</span><span class='comma'>,</span> <span class='const'>TkOPASGN</span><span class='comma'>,</span> <span class='const'>TkUnknownChar</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+	<span class='id token'>token</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@prev_seek</span><span class='comma'>,</span> <span class='ivar'>@prev_line_no</span><span class='comma'>,</span> <span class='ivar'>@prev_char_no</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+	<span class='id token'>token</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@prev_seek</span><span class='comma'>,</span> <span class='ivar'>@prev_line_no</span><span class='comma'>,</span> <span class='ivar'>@prev_char_no</span><span class='comma'>,</span> <span class='id value'>value</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:11 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

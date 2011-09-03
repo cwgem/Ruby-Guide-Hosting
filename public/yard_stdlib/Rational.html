@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Rational
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (R)</a> &raquo; 
+    
+    
+    <span class="title">Rational</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Rational
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Rational</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/mathn.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>When mathn is required Rational changes to simplfy the usage of Rational
+operations.</p>
+
+<p>Normal behaviour:</p>
+
+<pre class="code"><span class='const'>Rational</span><span class='period'>.</span><span class='id new!'>new!</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span> <span class='comment'># =&gt; Rational(1, 9)
+</span><span class='lparen'>(</span><span class='int'>1</span> <span class='op'>/</span> <span class='int'>3</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span>            <span class='comment'># =&gt; 0</span></pre>
+
+<p>require 'mathn' behaviour:</p>
+
+<pre class="code"><span class='lparen'>(</span><span class='int'>1</span> <span class='op'>/</span> <span class='int'>3</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span>            <span class='comment'># =&gt; 1/9</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2A%2A-instance_method" title="#** (instance method)">- (Object) <strong>**</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Exponentiate by <tt>other</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="**-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>**</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Exponentiate by <tt>other</tt></p>
+
+<pre class="code"><span class='lparen'>(</span><span class='int'>1</span><span class='op'>/</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span> <span class='comment'># =&gt; 1/9</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mathn.rb', line 138</span>
+
+<span class='kw'>def</span> <span class='op'>**</span> <span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id other'>other</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Rational</span><span class='rparen'>)</span>
+    <span class='id other2'>other2</span> <span class='op'>=</span> <span class='id other'>other</span>
+    <span class='kw'>if</span> <span class='kw'>self</span> <span class='op'>&lt;</span> <span class='int'>0</span>
+      <span class='kw'>return</span> <span class='const'>Complex</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='id other'>other</span>
+    <span class='kw'>elsif</span> <span class='id other'>other</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='kw'>return</span> <span class='const'>Rational</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='kw'>self</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='kw'>return</span> <span class='const'>Rational</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='kw'>self</span> <span class='op'>==</span> <span class='int'>1</span>
+      <span class='kw'>return</span> <span class='const'>Rational</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id npd'>npd</span> <span class='op'>=</span> <span class='id numerator'>numerator</span><span class='period'>.</span><span class='id prime_division'>prime_division</span>
+    <span class='id dpd'>dpd</span> <span class='op'>=</span> <span class='id denominator'>denominator</span><span class='period'>.</span><span class='id prime_division'>prime_division</span>
+    <span class='kw'>if</span> <span class='id other'>other</span> <span class='op'>&lt;</span> <span class='int'>0</span>
+      <span class='id other'>other</span> <span class='op'>=</span> <span class='op'>-</span><span class='id other'>other</span>
+      <span class='id npd'>npd</span><span class='comma'>,</span> <span class='id dpd'>dpd</span> <span class='op'>=</span> <span class='id dpd'>dpd</span><span class='comma'>,</span> <span class='id npd'>npd</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>for</span> <span class='id elm'>elm</span> <span class='kw'>in</span> <span class='id npd'>npd</span>
+      <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id other'>other</span>
+      <span class='kw'>if</span> <span class='op'>!</span><span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id denominator'>denominator</span> <span class='op'>!=</span> <span class='int'>1</span>
+        <span class='kw'>return</span> <span class='const'>Float</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='id other2'>other2</span>
+      <span class='kw'>end</span>
+      <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>for</span> <span class='id elm'>elm</span> <span class='kw'>in</span> <span class='id dpd'>dpd</span>
+      <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id other'>other</span>
+      <span class='kw'>if</span> <span class='op'>!</span><span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id denominator'>denominator</span> <span class='op'>!=</span> <span class='int'>1</span>
+        <span class='kw'>return</span> <span class='const'>Float</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='id other2'>other2</span>
+      <span class='kw'>end</span>
+      <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id elm'>elm</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+    <span class='kw'>end</span>
+
+    <span class='id num'>num</span> <span class='op'>=</span> <span class='const'>Integer</span><span class='period'>.</span><span class='id from_prime_division'>from_prime_division</span><span class='lparen'>(</span><span class='id npd'>npd</span><span class='rparen'>)</span>
+    <span class='id den'>den</span> <span class='op'>=</span> <span class='const'>Integer</span><span class='period'>.</span><span class='id from_prime_division'>from_prime_division</span><span class='lparen'>(</span><span class='id dpd'>dpd</span><span class='rparen'>)</span>
+
+    <span class='const'>Rational</span><span class='lparen'>(</span><span class='id num'>num</span><span class='comma'>,</span><span class='id den'>den</span><span class='rparen'>)</span>
+
+  <span class='kw'>elsif</span> <span class='id other'>other</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id other'>other</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+      <span class='id num'>num</span> <span class='op'>=</span> <span class='id numerator'>numerator</span> <span class='op'>**</span> <span class='id other'>other</span>
+      <span class='id den'>den</span> <span class='op'>=</span> <span class='id denominator'>denominator</span> <span class='op'>**</span> <span class='id other'>other</span>
+    <span class='kw'>elsif</span> <span class='id other'>other</span> <span class='op'>&lt;</span> <span class='int'>0</span>
+      <span class='id num'>num</span> <span class='op'>=</span> <span class='id denominator'>denominator</span> <span class='op'>**</span> <span class='op'>-</span><span class='id other'>other</span>
+      <span class='id den'>den</span> <span class='op'>=</span> <span class='id numerator'>numerator</span> <span class='op'>**</span> <span class='op'>-</span><span class='id other'>other</span>
+    <span class='kw'>elsif</span> <span class='id other'>other</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='id num'>num</span> <span class='op'>=</span> <span class='int'>1</span>
+      <span class='id den'>den</span> <span class='op'>=</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+    <span class='const'>Rational</span><span class='lparen'>(</span><span class='id num'>num</span><span class='comma'>,</span> <span class='id den'>den</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='id other'>other</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Float</span><span class='rparen'>)</span>
+    <span class='const'>Float</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='id other'>other</span>
+  <span class='kw'>else</span>
+    <span class='id x'>x</span> <span class='comma'>,</span> <span class='id y'>y</span> <span class='op'>=</span> <span class='id other'>other</span><span class='period'>.</span><span class='id coerce'>coerce</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+    <span class='id x'>x</span> <span class='op'>**</span> <span class='id y'>y</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:03 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

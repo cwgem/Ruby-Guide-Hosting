@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: PP::ObjectMixin
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (O)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../PP.html" title="PP (class)">PP</a></span></span>
+     &raquo; 
+    <span class="title">ObjectMixin</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: PP::ObjectMixin
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/pp.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pretty_print-instance_method" title="#pretty_print (instance method)">- (Object) <strong>pretty_print</strong>(q) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A default pretty printing method for general objects.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pretty_print_cycle-instance_method" title="#pretty_print_cycle (instance method)">- (Object) <strong>pretty_print_cycle</strong>(q) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A default pretty printing method for general objects that are detected as
+part of a cycle.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pretty_print_inspect-instance_method" title="#pretty_print_inspect (instance method)">- (Object) <strong>pretty_print_inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Is #inspect implementation using #pretty_print.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pretty_print_instance_variables-instance_method" title="#pretty_print_instance_variables (instance method)">- (Object) <strong>pretty_print_instance_variables</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a sorted array of instance variable names.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="pretty_print-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>pretty_print</strong>(q) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A default pretty printing method for general objects. It calls
+#pretty_print_instance_variables to list instance variables.</p>
+
+<p>If <tt>self</tt> has a customized (redefined) #inspect method, the result
+of self.inspect is used but it obviously has no line break hints.</p>
+
+<p>This module provides predefined #pretty_print methods for some of the most
+commonly used built-in classes for convenience.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pp.rb', line 279</span>
+
+<span class='kw'>def</span> <span class='id pretty_print'>pretty_print</span><span class='lparen'>(</span><span class='id q'>q</span><span class='rparen'>)</span>
+  <span class='id method_method'>method_method</span> <span class='op'>=</span> <span class='const'>Object</span><span class='period'>.</span><span class='id instance_method'>instance_method</span><span class='lparen'>(</span><span class='symbol'>:method</span><span class='rparen'>)</span><span class='period'>.</span><span class='id bind'>bind</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id inspect_method'>inspect_method</span> <span class='op'>=</span> <span class='id method_method'>method_method</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='symbol'>:inspect</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>NameError</span>
+  <span class='kw'>end</span>
+  <span class='kw'>begin</span>
+    <span class='id to_s_method'>to_s_method</span> <span class='op'>=</span> <span class='id method_method'>method_method</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='symbol'>:to_s</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>NameError</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id inspect_method'>inspect_method</span> <span class='op'>&amp;&amp;</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\(Kernel\)#</span><span class='regexp_end'>/</span></span> <span class='op'>!~</span> <span class='id inspect_method'>inspect_method</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+    <span class='id q'>q</span><span class='period'>.</span><span class='id text'>text</span> <span class='kw'>self</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+  <span class='kw'>elsif</span> <span class='op'>!</span><span class='id inspect_method'>inspect_method</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:inspect</span><span class='rparen'>)</span>
+    <span class='id q'>q</span><span class='period'>.</span><span class='id text'>text</span> <span class='kw'>self</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+  <span class='kw'>elsif</span> <span class='id to_s_method'>to_s_method</span> <span class='op'>&amp;&amp;</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\(Kernel\)#</span><span class='regexp_end'>/</span></span> <span class='op'>!~</span> <span class='id to_s_method'>to_s_method</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+    <span class='id q'>q</span><span class='period'>.</span><span class='id text'>text</span> <span class='kw'>self</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='kw'>elsif</span> <span class='op'>!</span><span class='id to_s_method'>to_s_method</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_s</span><span class='rparen'>)</span>
+    <span class='id q'>q</span><span class='period'>.</span><span class='id text'>text</span> <span class='kw'>self</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='kw'>else</span>
+    <span class='id q'>q</span><span class='period'>.</span><span class='id pp_object'>pp_object</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pretty_print_cycle-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>pretty_print_cycle</strong>(q) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A default pretty printing method for general objects that are detected as
+part of a cycle.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+304
+305
+306
+307
+308
+309</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pp.rb', line 304</span>
+
+<span class='kw'>def</span> <span class='id pretty_print_cycle'>pretty_print_cycle</span><span class='lparen'>(</span><span class='id q'>q</span><span class='rparen'>)</span>
+  <span class='id q'>q</span><span class='period'>.</span><span class='id object_address_group'>object_address_group</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+    <span class='id q'>q</span><span class='period'>.</span><span class='id breakable'>breakable</span>
+    <span class='id q'>q</span><span class='period'>.</span><span class='id text'>text</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>...</span><span class='tstring_end'>'</span></span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pretty_print_inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>pretty_print_inspect</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Is #inspect implementation using #pretty_print. If you implement
+#pretty_print, it can be used as follows.</p>
+
+<pre class="code"><span class='kw'>alias</span> <span class='id inspect'>inspect</span> <span class='id pretty_print_inspect'>pretty_print_inspect</span></pre>
+
+<p>However, doing this requires that every class that #inspect is called on
+implement #pretty_print, or a RuntimeError will be raised.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+326
+327
+328
+329
+330
+331</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pp.rb', line 326</span>
+
+<span class='kw'>def</span> <span class='id pretty_print_inspect'>pretty_print_inspect</span>
+  <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\(PP::ObjectMixin\)#</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='const'>Object</span><span class='period'>.</span><span class='id instance_method'>instance_method</span><span class='lparen'>(</span><span class='symbol'>:method</span><span class='rparen'>)</span><span class='period'>.</span><span class='id bind'>bind</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='symbol'>:pretty_print</span><span class='rparen'>)</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pretty_print is not overridden for </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='const'>PP</span><span class='period'>.</span><span class='id singleline_pp'>singleline_pp</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pretty_print_instance_variables-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>pretty_print_instance_variables</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a sorted array of instance variable names.</p>
+
+<p>This method should return an array of names of instance variables as
+symbols or strings as: <tt>[:@a, :@b]</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+315
+316
+317</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pp.rb', line 315</span>
+
+<span class='kw'>def</span> <span class='id pretty_print_instance_variables'>pretty_print_instance_variables</span>
+  <span class='id instance_variables'>instance_variables</span><span class='period'>.</span><span class='id sort'>sort</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:09:54 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

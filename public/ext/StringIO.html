@@ -1,0 +1,4197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: StringIO</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./ext/stringio/stringio_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/stringio/stringio.c">ext/stringio/stringio.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Data</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-c-open">::open</a></li>
+          
+          <li><a href="#method-i-3C-3C">#<<</a></li>
+          
+          <li><a href="#method-i-binmode">#binmode</a></li>
+          
+          <li><a href="#method-i-bytes">#bytes</a></li>
+          
+          <li><a href="#method-i-chars">#chars</a></li>
+          
+          <li><a href="#method-i-close">#close</a></li>
+          
+          <li><a href="#method-i-close_read">#close_read</a></li>
+          
+          <li><a href="#method-i-close_write">#close_write</a></li>
+          
+          <li><a href="#method-i-closed-3F">#closed?</a></li>
+          
+          <li><a href="#method-i-closed_read-3F">#closed_read?</a></li>
+          
+          <li><a href="#method-i-closed_write-3F">#closed_write?</a></li>
+          
+          <li><a href="#method-i-codepoints">#codepoints</a></li>
+          
+          <li><a href="#method-i-each">#each</a></li>
+          
+          <li><a href="#method-i-each_byte">#each_byte</a></li>
+          
+          <li><a href="#method-i-each_char">#each_char</a></li>
+          
+          <li><a href="#method-i-each_codepoint">#each_codepoint</a></li>
+          
+          <li><a href="#method-i-each_line">#each_line</a></li>
+          
+          <li><a href="#method-i-eof">#eof</a></li>
+          
+          <li><a href="#method-i-eof-3F">#eof?</a></li>
+          
+          <li><a href="#method-i-external_encoding">#external_encoding</a></li>
+          
+          <li><a href="#method-i-fcntl">#fcntl</a></li>
+          
+          <li><a href="#method-i-fileno">#fileno</a></li>
+          
+          <li><a href="#method-i-flush">#flush</a></li>
+          
+          <li><a href="#method-i-fsync">#fsync</a></li>
+          
+          <li><a href="#method-i-getbyte">#getbyte</a></li>
+          
+          <li><a href="#method-i-getc">#getc</a></li>
+          
+          <li><a href="#method-i-gets">#gets</a></li>
+          
+          <li><a href="#method-i-internal_encoding">#internal_encoding</a></li>
+          
+          <li><a href="#method-i-isatty">#isatty</a></li>
+          
+          <li><a href="#method-i-length">#length</a></li>
+          
+          <li><a href="#method-i-lineno">#lineno</a></li>
+          
+          <li><a href="#method-i-lineno-3D">#lineno=</a></li>
+          
+          <li><a href="#method-i-lines">#lines</a></li>
+          
+          <li><a href="#method-i-pid">#pid</a></li>
+          
+          <li><a href="#method-i-pos">#pos</a></li>
+          
+          <li><a href="#method-i-pos-3D">#pos=</a></li>
+          
+          <li><a href="#method-i-print">#print</a></li>
+          
+          <li><a href="#method-i-printf">#printf</a></li>
+          
+          <li><a href="#method-i-putc">#putc</a></li>
+          
+          <li><a href="#method-i-puts">#puts</a></li>
+          
+          <li><a href="#method-i-read">#read</a></li>
+          
+          <li><a href="#method-i-read_nonblock">#read_nonblock</a></li>
+          
+          <li><a href="#method-i-readbyte">#readbyte</a></li>
+          
+          <li><a href="#method-i-readchar">#readchar</a></li>
+          
+          <li><a href="#method-i-readline">#readline</a></li>
+          
+          <li><a href="#method-i-readlines">#readlines</a></li>
+          
+          <li><a href="#method-i-readpartial">#readpartial</a></li>
+          
+          <li><a href="#method-i-reopen">#reopen</a></li>
+          
+          <li><a href="#method-i-rewind">#rewind</a></li>
+          
+          <li><a href="#method-i-seek">#seek</a></li>
+          
+          <li><a href="#method-i-set_encoding">#set_encoding</a></li>
+          
+          <li><a href="#method-i-size">#size</a></li>
+          
+          <li><a href="#method-i-string">#string</a></li>
+          
+          <li><a href="#method-i-string-3D">#string=</a></li>
+          
+          <li><a href="#method-i-sync">#sync</a></li>
+          
+          <li><a href="#method-i-sync-3D">#sync=</a></li>
+          
+          <li><a href="#method-i-sysread">#sysread</a></li>
+          
+          <li><a href="#method-i-syswrite">#syswrite</a></li>
+          
+          <li><a href="#method-i-tell">#tell</a></li>
+          
+          <li><a href="#method-i-truncate">#truncate</a></li>
+          
+          <li><a href="#method-i-tty-3F">#tty?</a></li>
+          
+          <li><a href="#method-i-ungetbyte">#ungetbyte</a></li>
+          
+          <li><a href="#method-i-ungetc">#ungetc</a></li>
+          
+          <li><a href="#method-i-write">#write</a></li>
+          
+          <li><a href="#method-i-write_nonblock">#write_nonblock</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Included Modules -->
+      <div id="includes-section" class="section">
+        <h3 class="section-header">Included Modules</h3>
+        <ul class="link-list">
+        
+        
+          <li><span class="include">Enumerable</span></li>
+        
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="./OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="./OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="./OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="./OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="./OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="./OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="./OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="./OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="./OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="./OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="./OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="./OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="./OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="./OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="./OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="./OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="./OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="./OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="./OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="./OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="./OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="./OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="./OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="./OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="./Psych.html">Psych</a></li>
+        
+          <li><a href="./Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="./Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="./Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="./Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="./Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="./Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="./Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="./Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="./Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="./Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="./Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="./Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="./Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="./Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="./Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="./Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="./Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="./Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="./Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="./Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="./Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="./Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="./Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="./Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="./Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="./Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="./Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="./Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="./Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="./DL.html">DL</a></li>
+        
+          <li><a href="./DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="./DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="./DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="./DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="./DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="./DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="./DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="./DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="./DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="./DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="./DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="./DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="./DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="./DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="./DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="./DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="./DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="./DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="./DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="./DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="./DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="./DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="./Zlib.html">Zlib</a></li>
+        
+          <li><a href="./Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="./Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="./Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="./Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="./Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="./Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="./Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="./Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="./Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="./Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="./Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="./Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="./Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="./Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="./Win32.html">Win32</a></li>
+        
+          <li><a href="./Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="./Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="./Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="./Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="./Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="./Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="./Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="./Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="./Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="./Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="./Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="./Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="./Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="./Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="./JSON.html">JSON</a></li>
+        
+          <li><a href="./JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="./JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="./JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="./JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="./JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="./Iconv.html">Iconv</a></li>
+        
+          <li><a href="./Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="./Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="./Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="./Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="./Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="./Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="./Ripper.html">Ripper</a></li>
+        
+          <li><a href="./Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="./Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="./Digest.html">Digest</a></li>
+        
+          <li><a href="./Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="./Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="./Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="./Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="./Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="./Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="./Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="./Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="./DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="./Socket.html">Socket</a></li>
+        
+          <li><a href="./Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="./Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="./Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="./Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="./Curses.html">Curses</a></li>
+        
+          <li><a href="./Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="./Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="./Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="./PTY.html">PTY</a></li>
+        
+          <li><a href="./PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="./StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="./StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="./Syslog.html">Syslog</a></li>
+        
+          <li><a href="./Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="./WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="./WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="./Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="./BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="./BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="./BigMath.html">BigMath</a></li>
+        
+          <li><a href="./Class.html">Class</a></li>
+        
+          <li><a href="./Coverage.html">Coverage</a></li>
+        
+          <li><a href="./DBM.html">DBM</a></li>
+        
+          <li><a href="./DBMError.html">DBMError</a></li>
+        
+          <li><a href="./Date.html">Date</a></li>
+        
+          <li><a href="./DateTime.html">DateTime</a></li>
+        
+          <li><a href="./Etc.html">Etc</a></li>
+        
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          <li><a href="./Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="./Float.html">Float</a></li>
+        
+          <li><a href="./GDBM.html">GDBM</a></li>
+        
+          <li><a href="./GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="./GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="./IO.html">IO</a></li>
+        
+          <li><a href="./IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          <li><a href="./Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="./Kconv.html">Kconv</a></li>
+        
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          <li><a href="./LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="./Module.html">Module</a></li>
+        
+          <li><a href="./NKF.html">NKF</a></li>
+        
+          <li><a href="./Newton.html">Newton</a></li>
+        
+          <li><a href="./OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Pathname.html">Pathname</a></li>
+        
+          <li><a href="./Range.html">Range</a></li>
+        
+          <li><a href="./Rational.html">Rational</a></li>
+        
+          <li><a href="./Readline.html">Readline</a></li>
+        
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          <li><a href="./SDBM.html">SDBM</a></li>
+        
+          <li><a href="./SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="./SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="./SocketError.html">SocketError</a></li>
+        
+          <li><a href="./String.html">String</a></li>
+        
+          <li><a href="./StringIO.html">StringIO</a></li>
+        
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          <li><a href="./TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="./TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          <li><a href="./Time.html">Time</a></li>
+        
+          <li><a href="./UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="./UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="./UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="./WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="./WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="./WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="./WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="./WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="./WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="./WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="./WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="./Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">StringIO</h1>
+
+    <div id="description" class="description">
+      
+<p>Pseudo I/O on <a href="String.html">String</a> object.</p>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">new(string=""[, mode])</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Creates new <a href="StringIO.html">StringIO</a> instance from with
+<em>string</em> and <em>mode</em>.</p>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+static VALUE
+strio_initialize(int argc, VALUE *argv, VALUE self)
+{
+    struct StringIO *ptr = check_strio(self);
+
+    if (!ptr) {
+        DATA_PTR(self) = ptr = strio_alloc();
+    }
+    rb_call_super(0, 0);
+    strio_init(argc, argv, ptr);
+    return self;
+}</pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+        <div id="open-method" class="method-detail ">
+          <a name="method-c-open"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">open(string=""[, mode]) {|strio| ...}</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Equivalent to <a href="StringIO.html#method-c-new">StringIO.new</a> except
+that when it is called with a block, it yields with the new instance and
+closes it, and returns the result which returned from the block.</p>
+            
+
+            
+            <div class="method-source-code" id="open-source">
+<pre>
+static VALUE
+strio_s_open(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE obj = rb_class_new_instance(argc, argv, klass);
+    if (!rb_block_given_p()) return obj;
+    return rb_ensure(rb_yield, obj, strio_finalize, obj);
+}</pre>
+            </div><!-- open-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- open-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="3C-3C-method" class="method-detail ">
+          <a name="method-i-3C-3C"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">strio << obj     &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#&lt;&lt;.</p>
+            
+
+            
+            <div class="method-source-code" id="3C-3C-source">
+<pre>
+#define strio_addstr rb_io_addstr</pre>
+            </div><!-- 3C-3C-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 3C-3C-method -->
+
+      
+        <div id="binmode-method" class="method-detail ">
+          <a name="method-i-binmode"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">binmode &rarr; true</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <b>strio</b> itself.  Just for compatibility to <a
+href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="binmode-source">
+<pre>
+#define strio_binmode strio_self</pre>
+            </div><!-- binmode-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- binmode-method -->
+
+      
+        <div id="bytes-method" class="method-detail ">
+          <a name="method-i-bytes"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">bytes {|byte| block }      &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">bytes                      &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_byte {|byte| block }  &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_byte                  &rarr; anEnumerator</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#each_byte.</p>
+            
+
+            
+            <div class="method-source-code" id="bytes-source">
+<pre>
+static VALUE
+strio_each_byte(VALUE self)
+{
+    struct StringIO *ptr = readable(StringIO(self));
+
+    RETURN_ENUMERATOR(self, 0, 0);
+
+    while (ptr-&gt;pos &lt; RSTRING_LEN(ptr-&gt;string)) {
+        char c = RSTRING_PTR(ptr-&gt;string)[ptr-&gt;pos++];
+        rb_yield(CHR2FIX(c));
+    }
+    return self;
+}</pre>
+            </div><!-- bytes-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- bytes-method -->
+
+      
+        <div id="chars-method" class="method-detail ">
+          <a name="method-i-chars"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">chars {|char| block }      &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">chars                      &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_char {|char| block }  &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_char                  &rarr; anEnumerator</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#each_char.</p>
+            
+
+            
+            <div class="method-source-code" id="chars-source">
+<pre>
+static VALUE
+strio_each_char(VALUE self)
+{
+    VALUE c;
+
+    RETURN_ENUMERATOR(self, 0, 0);
+
+    while (!NIL_P(c = strio_getc(self))) {
+        rb_yield(c);
+    }
+    return self;
+}</pre>
+            </div><!-- chars-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- chars-method -->
+
+      
+        <div id="close-method" class="method-detail ">
+          <a name="method-i-close"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">close  &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Closes strio.  The <b>strio</b> is unavailable for any further data
+operations; an <tt>IOError</tt> is raised if such an attempt is made.</p>
+            
+
+            
+            <div class="method-source-code" id="close-source">
+<pre>
+static VALUE
+strio_close(VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    if (CLOSED(ptr)) {
+        rb_raise(rb_eIOError, &quot;closed stream&quot;);
+    }
+    ptr-&gt;flags &amp;= ~FMODE_READWRITE;
+    return Qnil;
+}</pre>
+            </div><!-- close-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close-method -->
+
+      
+        <div id="close_read-method" class="method-detail ">
+          <a name="method-i-close_read"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">close_read    &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Closes the read end of a <a href="StringIO.html">StringIO</a>.  Will raise
+an <tt>IOError</tt> if the <b>strio</b> is not readable.</p>
+            
+
+            
+            <div class="method-source-code" id="close_read-source">
+<pre>
+static VALUE
+strio_close_read(VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    if (!READABLE(ptr)) {
+        rb_raise(rb_eIOError, &quot;closing non-duplex IO for reading&quot;);
+    }
+    ptr-&gt;flags &amp;= ~FMODE_READABLE;
+    return Qnil;
+}</pre>
+            </div><!-- close_read-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close_read-method -->
+
+      
+        <div id="close_write-method" class="method-detail ">
+          <a name="method-i-close_write"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">close_write    &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Closes the write end of a <a href="StringIO.html">StringIO</a>.  Will raise
+an  <tt>IOError</tt> if the <b>strio</b> is not writeable.</p>
+            
+
+            
+            <div class="method-source-code" id="close_write-source">
+<pre>
+static VALUE
+strio_close_write(VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    if (!WRITABLE(ptr)) {
+        rb_raise(rb_eIOError, &quot;closing non-duplex IO for writing&quot;);
+    }
+    ptr-&gt;flags &amp;= ~FMODE_WRITABLE;
+    return Qnil;
+}</pre>
+            </div><!-- close_write-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close_write-method -->
+
+      
+        <div id="closed-3F-method" class="method-detail ">
+          <a name="method-i-closed-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">closed?    &rarr; true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <tt>true</tt> if <b>strio</b> is completely closed, <tt>false</tt>
+otherwise.</p>
+            
+
+            
+            <div class="method-source-code" id="closed-3F-source">
+<pre>
+static VALUE
+strio_closed(VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    if (!CLOSED(ptr)) return Qfalse;
+    return Qtrue;
+}</pre>
+            </div><!-- closed-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- closed-3F-method -->
+
+      
+        <div id="closed_read-3F-method" class="method-detail ">
+          <a name="method-i-closed_read-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">closed_read?    &rarr; true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <tt>true</tt> if <b>strio</b> is not readable, <tt>false</tt>
+otherwise.</p>
+            
+
+            
+            <div class="method-source-code" id="closed_read-3F-source">
+<pre>
+static VALUE
+strio_closed_read(VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    if (READABLE(ptr)) return Qfalse;
+    return Qtrue;
+}</pre>
+            </div><!-- closed_read-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- closed_read-3F-method -->
+
+      
+        <div id="closed_write-3F-method" class="method-detail ">
+          <a name="method-i-closed_write-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">closed_write?    &rarr; true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <tt>true</tt> if <b>strio</b> is not writable, <tt>false</tt>
+otherwise.</p>
+            
+
+            
+            <div class="method-source-code" id="closed_write-3F-source">
+<pre>
+static VALUE
+strio_closed_write(VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    if (WRITABLE(ptr)) return Qfalse;
+    return Qtrue;
+}</pre>
+            </div><!-- closed_write-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- closed_write-3F-method -->
+
+      
+        <div id="codepoints-method" class="method-detail ">
+          <a name="method-i-codepoints"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">codepoints {|c| block }      &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">codepoints                   &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_codepoint {|c| block }  &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_codepoint               &rarr; anEnumerator</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#each_codepoint.</p>
+            
+
+            
+            <div class="method-source-code" id="codepoints-source">
+<pre>
+static VALUE
+strio_each_codepoint(VALUE self)
+{
+    struct StringIO *ptr;
+    rb_encoding *enc;
+    unsigned int c;
+    int n;
+
+    RETURN_ENUMERATOR(self, 0, 0);
+
+    ptr = readable(StringIO(self));
+    enc = rb_enc_get(ptr-&gt;string);
+    for (;;) {
+        if (ptr-&gt;pos &gt;= RSTRING_LEN(ptr-&gt;string)) {
+            return self;
+        }
+
+        c = rb_enc_codepoint_len(RSTRING_PTR(ptr-&gt;string)+ptr-&gt;pos,
+                                 RSTRING_END(ptr-&gt;string), &amp;n, enc);
+        rb_yield(UINT2NUM(c));
+        ptr-&gt;pos += n;
+    }
+    return self;
+}</pre>
+            </div><!-- codepoints-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- codepoints-method -->
+
+      
+        <div id="each-method" class="method-detail ">
+          <a name="method-i-each"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(sep=$/) {|line| block }         &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(limit) {|line| block }          &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(sep, limit) {|line| block }     &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(...)                            &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(sep=$/) {|line| block }    &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(limit) {|line| block }     &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(sep,limit) {|line| block } &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(...)                       &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(sep=$/) {|line| block }        &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(limit) {|line| block }         &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(sep,limit) {|line| block }     &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(...)                           &rarr; anEnumerator</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#each.</p>
+            
+
+            
+            <div class="method-source-code" id="each-source">
+<pre>
+static VALUE
+strio_each(int argc, VALUE *argv, VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    VALUE line;
+
+    RETURN_ENUMERATOR(self, argc, argv);
+
+    if (argc &gt; 0 &amp;&amp; !NIL_P(argv[argc-1]) &amp;&amp; NIL_P(rb_check_string_type(argv[argc-1])) &amp;&amp;
+        NUM2LONG(argv[argc-1]) == 0) {
+        rb_raise(rb_eArgError, &quot;invalid limit: 0 for each_line&quot;);
+    }
+
+    while (!NIL_P(line = strio_getline(argc, argv, readable(ptr)))) {
+        rb_yield(line);
+    }
+    return self;
+}</pre>
+            </div><!-- each-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each-method -->
+
+      
+        <div id="each_byte-method" class="method-detail ">
+          <a name="method-i-each_byte"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">bytes {|byte| block }      &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">bytes                      &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_byte {|byte| block }  &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_byte                  &rarr; anEnumerator</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#each_byte.</p>
+            
+
+            
+            <div class="method-source-code" id="each_byte-source">
+<pre>
+static VALUE
+strio_each_byte(VALUE self)
+{
+    struct StringIO *ptr = readable(StringIO(self));
+
+    RETURN_ENUMERATOR(self, 0, 0);
+
+    while (ptr-&gt;pos &lt; RSTRING_LEN(ptr-&gt;string)) {
+        char c = RSTRING_PTR(ptr-&gt;string)[ptr-&gt;pos++];
+        rb_yield(CHR2FIX(c));
+    }
+    return self;
+}</pre>
+            </div><!-- each_byte-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_byte-method -->
+
+      
+        <div id="each_char-method" class="method-detail ">
+          <a name="method-i-each_char"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">chars {|char| block }      &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">chars                      &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_char {|char| block }  &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_char                  &rarr; anEnumerator</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#each_char.</p>
+            
+
+            
+            <div class="method-source-code" id="each_char-source">
+<pre>
+static VALUE
+strio_each_char(VALUE self)
+{
+    VALUE c;
+
+    RETURN_ENUMERATOR(self, 0, 0);
+
+    while (!NIL_P(c = strio_getc(self))) {
+        rb_yield(c);
+    }
+    return self;
+}</pre>
+            </div><!-- each_char-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_char-method -->
+
+      
+        <div id="each_codepoint-method" class="method-detail ">
+          <a name="method-i-each_codepoint"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">codepoints {|c| block }      &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">codepoints                   &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_codepoint {|c| block }  &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_codepoint               &rarr; anEnumerator</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#each_codepoint.</p>
+            
+
+            
+            <div class="method-source-code" id="each_codepoint-source">
+<pre>
+static VALUE
+strio_each_codepoint(VALUE self)
+{
+    struct StringIO *ptr;
+    rb_encoding *enc;
+    unsigned int c;
+    int n;
+
+    RETURN_ENUMERATOR(self, 0, 0);
+
+    ptr = readable(StringIO(self));
+    enc = rb_enc_get(ptr-&gt;string);
+    for (;;) {
+        if (ptr-&gt;pos &gt;= RSTRING_LEN(ptr-&gt;string)) {
+            return self;
+        }
+
+        c = rb_enc_codepoint_len(RSTRING_PTR(ptr-&gt;string)+ptr-&gt;pos,
+                                 RSTRING_END(ptr-&gt;string), &amp;n, enc);
+        rb_yield(UINT2NUM(c));
+        ptr-&gt;pos += n;
+    }
+    return self;
+}</pre>
+            </div><!-- each_codepoint-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_codepoint-method -->
+
+      
+        <div id="each_line-method" class="method-detail ">
+          <a name="method-i-each_line"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(sep=$/) {|line| block }         &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(limit) {|line| block }          &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(sep, limit) {|line| block }     &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(...)                            &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(sep=$/) {|line| block }    &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(limit) {|line| block }     &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(sep,limit) {|line| block } &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(...)                       &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(sep=$/) {|line| block }        &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(limit) {|line| block }         &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(sep,limit) {|line| block }     &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(...)                           &rarr; anEnumerator</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#each.</p>
+            
+
+            
+            <div class="method-source-code" id="each_line-source">
+<pre>
+static VALUE
+strio_each(int argc, VALUE *argv, VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    VALUE line;
+
+    RETURN_ENUMERATOR(self, argc, argv);
+
+    if (argc &gt; 0 &amp;&amp; !NIL_P(argv[argc-1]) &amp;&amp; NIL_P(rb_check_string_type(argv[argc-1])) &amp;&amp;
+        NUM2LONG(argv[argc-1]) == 0) {
+        rb_raise(rb_eArgError, &quot;invalid limit: 0 for each_line&quot;);
+    }
+
+    while (!NIL_P(line = strio_getline(argc, argv, readable(ptr)))) {
+        rb_yield(line);
+    }
+    return self;
+}</pre>
+            </div><!-- each_line-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_line-method -->
+
+      
+        <div id="eof-method" class="method-detail ">
+          <a name="method-i-eof"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">eof     &rarr; true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">eof?    &rarr; true or false</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if <b>strio</b> is at end of file. The stringio must be opened
+for reading or an <tt>IOError</tt> will be raised.</p>
+            
+
+            
+            <div class="method-source-code" id="eof-source">
+<pre>
+static VALUE
+strio_eof(VALUE self)
+{
+    struct StringIO *ptr = readable(StringIO(self));
+    if (ptr-&gt;pos &lt; RSTRING_LEN(ptr-&gt;string)) return Qfalse;
+    return Qtrue;
+}</pre>
+            </div><!-- eof-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- eof-method -->
+
+      
+        <div id="eof-3F-method" class="method-detail ">
+          <a name="method-i-eof-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">eof     &rarr; true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">eof?    &rarr; true or false</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if <b>strio</b> is at end of file. The stringio must be opened
+for reading or an <tt>IOError</tt> will be raised.</p>
+            
+
+            
+            <div class="method-source-code" id="eof-3F-source">
+<pre>
+static VALUE
+strio_eof(VALUE self)
+{
+    struct StringIO *ptr = readable(StringIO(self));
+    if (ptr-&gt;pos &lt; RSTRING_LEN(ptr-&gt;string)) return Qfalse;
+    return Qtrue;
+}</pre>
+            </div><!-- eof-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- eof-3F-method -->
+
+      
+        <div id="external_encoding-method" class="method-detail ">
+          <a name="method-i-external_encoding"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">external_encoding   => encoding</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the Encoding object that represents the encoding of the file. If
+strio is write mode and no encoding is specified, returns <tt>nil</tt>.</p>
+            
+
+            
+            <div class="method-source-code" id="external_encoding-source">
+<pre>
+static VALUE
+strio_external_encoding(VALUE self)
+{
+    return rb_enc_from_encoding(rb_enc_get(StringIO(self)-&gt;string));
+}</pre>
+            </div><!-- external_encoding-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- external_encoding-method -->
+
+      
+        <div id="fcntl-method" class="method-detail ">
+          <a name="method-i-fcntl"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">fcntl</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Raises NotImplementedError.</p>
+            
+
+            
+            <div class="method-source-code" id="fcntl-source">
+<pre>
+#define strio_fcntl strio_unimpl</pre>
+            </div><!-- fcntl-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fcntl-method -->
+
+      
+        <div id="fileno-method" class="method-detail ">
+          <a name="method-i-fileno"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">fileno &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <tt>nil</tt>.  Just for compatibility to <a href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="fileno-source">
+<pre>
+#define strio_fileno strio_nil</pre>
+            </div><!-- fileno-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fileno-method -->
+
+      
+        <div id="flush-method" class="method-detail ">
+          <a name="method-i-flush"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">flush &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <b>strio</b> itself.  Just for compatibility to <a
+href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="flush-source">
+<pre>
+#define strio_flush strio_self</pre>
+            </div><!-- flush-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- flush-method -->
+
+      
+        <div id="fsync-method" class="method-detail ">
+          <a name="method-i-fsync"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">fsync &rarr; 0</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns 0.  Just for compatibility to <a href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="fsync-source">
+<pre>
+#define strio_fsync strio_0</pre>
+            </div><!-- fsync-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fsync-method -->
+
+      
+        <div id="getbyte-method" class="method-detail ">
+          <a name="method-i-getbyte"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">getbyte   &rarr; fixnum or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#getbyte.</p>
+            
+
+            
+            <div class="method-source-code" id="getbyte-source">
+<pre>
+static VALUE
+strio_getbyte(VALUE self)
+{
+    struct StringIO *ptr = readable(StringIO(self));
+    int c;
+    if (ptr-&gt;pos &gt;= RSTRING_LEN(ptr-&gt;string)) {
+        return Qnil;
+    }
+    c = RSTRING_PTR(ptr-&gt;string)[ptr-&gt;pos++];
+    return CHR2FIX(c);
+}</pre>
+            </div><!-- getbyte-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- getbyte-method -->
+
+      
+        <div id="getc-method" class="method-detail ">
+          <a name="method-i-getc"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">getc   &rarr; string or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#getc.</p>
+            
+
+            
+            <div class="method-source-code" id="getc-source">
+<pre>
+static VALUE
+strio_getc(VALUE self)
+{
+    struct StringIO *ptr = readable(StringIO(self));
+    rb_encoding *enc = rb_enc_get(ptr-&gt;string);
+    int len;
+    char *p;
+
+    if (ptr-&gt;pos &gt;= RSTRING_LEN(ptr-&gt;string)) {
+        return Qnil;
+    }
+    p = RSTRING_PTR(ptr-&gt;string)+ptr-&gt;pos;
+    len = rb_enc_mbclen(p, RSTRING_END(ptr-&gt;string), enc);
+    ptr-&gt;pos += len;
+    return rb_enc_str_new(p, len, rb_enc_get(ptr-&gt;string));
+}</pre>
+            </div><!-- getc-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- getc-method -->
+
+      
+        <div id="gets-method" class="method-detail ">
+          <a name="method-i-gets"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">gets(sep=$/)     &rarr; string or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">gets(limit)      &rarr; string or nil</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">gets(sep, limit) &rarr; string or nil</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#gets.</p>
+            
+
+            
+            <div class="method-source-code" id="gets-source">
+<pre>
+static VALUE
+strio_gets(int argc, VALUE *argv, VALUE self)
+{
+    VALUE str = strio_getline(argc, argv, readable(StringIO(self)));
+
+    rb_lastline_set(str);
+    return str;
+}</pre>
+            </div><!-- gets-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- gets-method -->
+
+      
+        <div id="internal_encoding-method" class="method-detail ">
+          <a name="method-i-internal_encoding"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">internal_encoding   => encoding</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the Encoding of the internal string if conversion is specified. 
+Otherwise returns nil.</p>
+            
+
+            
+            <div class="method-source-code" id="internal_encoding-source">
+<pre>
+static VALUE
+strio_internal_encoding(VALUE self)
+{
+     return Qnil;
+}</pre>
+            </div><!-- internal_encoding-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- internal_encoding-method -->
+
+      
+        <div id="isatty-method" class="method-detail ">
+          <a name="method-i-isatty"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">isatty &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">tty? &rarr; nil</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <tt>false</tt>.  Just for compatibility to <a
+href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="isatty-source">
+<pre>
+#define strio_isatty strio_false</pre>
+            </div><!-- isatty-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- isatty-method -->
+
+      
+        <div id="length-method" class="method-detail ">
+          <a name="method-i-length"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">size   &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the size of the buffer string.</p>
+            
+
+            
+            <div class="method-source-code" id="length-source">
+<pre>
+static VALUE
+strio_size(VALUE self)
+{
+    VALUE string = StringIO(self)-&gt;string;
+    if (NIL_P(string)) {
+        rb_raise(rb_eIOError, &quot;not opened&quot;);
+    }
+    return ULONG2NUM(RSTRING_LEN(string));
+}</pre>
+            </div><!-- length-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- length-method -->
+
+      
+        <div id="lineno-method" class="method-detail ">
+          <a name="method-i-lineno"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">lineno    &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the current line number in <b>strio</b>. The stringio must be
+opened for reading. <tt>lineno</tt> counts the number of times 
+<tt>gets</tt> is called, rather than the number of newlines  encountered.
+The two values will differ if <tt>gets</tt> is  called with a separator
+other than newline.  See also the  <tt>$.</tt> variable.</p>
+            
+
+            
+            <div class="method-source-code" id="lineno-source">
+<pre>
+static VALUE
+strio_get_lineno(VALUE self)
+{
+    return LONG2NUM(StringIO(self)-&gt;lineno);
+}</pre>
+            </div><!-- lineno-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- lineno-method -->
+
+      
+        <div id="lineno-3D-method" class="method-detail ">
+          <a name="method-i-lineno-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">lineno = integer    &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Manually sets the current line number to the given value. <tt>$.</tt> is
+updated only on the next read.</p>
+            
+
+            
+            <div class="method-source-code" id="lineno-3D-source">
+<pre>
+static VALUE
+strio_set_lineno(VALUE self, VALUE lineno)
+{
+    StringIO(self)-&gt;lineno = NUM2LONG(lineno);
+    return lineno;
+}</pre>
+            </div><!-- lineno-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- lineno-3D-method -->
+
+      
+        <div id="lines-method" class="method-detail ">
+          <a name="method-i-lines"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(sep=$/) {|line| block }         &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(limit) {|line| block }          &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(sep, limit) {|line| block }     &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(...)                            &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(sep=$/) {|line| block }    &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(limit) {|line| block }     &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(sep,limit) {|line| block } &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(...)                       &rarr; anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq"></span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(sep=$/) {|line| block }        &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(limit) {|line| block }         &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(sep,limit) {|line| block }     &rarr; strio</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(...)                           &rarr; anEnumerator</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#each.</p>
+            
+
+            
+            <div class="method-source-code" id="lines-source">
+<pre>
+static VALUE
+strio_each(int argc, VALUE *argv, VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    VALUE line;
+
+    RETURN_ENUMERATOR(self, argc, argv);
+
+    if (argc &gt; 0 &amp;&amp; !NIL_P(argv[argc-1]) &amp;&amp; NIL_P(rb_check_string_type(argv[argc-1])) &amp;&amp;
+        NUM2LONG(argv[argc-1]) == 0) {
+        rb_raise(rb_eArgError, &quot;invalid limit: 0 for each_line&quot;);
+    }
+
+    while (!NIL_P(line = strio_getline(argc, argv, readable(ptr)))) {
+        rb_yield(line);
+    }
+    return self;
+}</pre>
+            </div><!-- lines-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- lines-method -->
+
+      
+        <div id="pid-method" class="method-detail ">
+          <a name="method-i-pid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pid &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <tt>nil</tt>.  Just for compatibility to <a href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="pid-source">
+<pre>
+#define strio_pid strio_nil</pre>
+            </div><!-- pid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pid-method -->
+
+      
+        <div id="pos-method" class="method-detail ">
+          <a name="method-i-pos"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pos     &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">tell    &rarr; integer</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the current offset (in bytes) of <b>strio</b>.</p>
+            
+
+            
+            <div class="method-source-code" id="pos-source">
+<pre>
+static VALUE
+strio_get_pos(VALUE self)
+{
+    return LONG2NUM(StringIO(self)-&gt;pos);
+}</pre>
+            </div><!-- pos-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pos-method -->
+
+      
+        <div id="pos-3D-method" class="method-detail ">
+          <a name="method-i-pos-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pos = integer    &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Seeks to the given position (in bytes) in <b>strio</b>.</p>
+            
+
+            
+            <div class="method-source-code" id="pos-3D-source">
+<pre>
+static VALUE
+strio_set_pos(VALUE self, VALUE pos)
+{
+    struct StringIO *ptr = StringIO(self);
+    long p = NUM2LONG(pos);
+    if (p &lt; 0) {
+        error_inval(0);
+    }
+    ptr-&gt;pos = p;
+    return pos;
+}</pre>
+            </div><!-- pos-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pos-3D-method -->
+
+      
+        <div id="print-method" class="method-detail ">
+          <a name="method-i-print"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">print()             &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">print(obj, ...)     &rarr; nil</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#print.</p>
+            
+
+            
+            <div class="method-source-code" id="print-source">
+<pre>
+#define strio_print rb_io_print</pre>
+            </div><!-- print-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- print-method -->
+
+      
+        <div id="printf-method" class="method-detail ">
+          <a name="method-i-printf"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">printf(format_string [, obj, ...] )   &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#printf.</p>
+            
+
+            
+            <div class="method-source-code" id="printf-source">
+<pre>
+#define strio_printf rb_io_printf</pre>
+            </div><!-- printf-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- printf-method -->
+
+      
+        <div id="putc-method" class="method-detail ">
+          <a name="method-i-putc"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">putc(obj)    &rarr; obj</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#putc.</p>
+            
+
+            
+            <div class="method-source-code" id="putc-source">
+<pre>
+static VALUE
+strio_putc(VALUE self, VALUE ch)
+{
+    struct StringIO *ptr = writable(StringIO(self));
+    int c = NUM2CHR(ch);
+    long olen;
+
+    check_modifiable(ptr);
+    olen = RSTRING_LEN(ptr-&gt;string);
+    if (ptr-&gt;flags &amp; FMODE_APPEND) {
+        ptr-&gt;pos = olen;
+    }
+    strio_extend(ptr, ptr-&gt;pos, 1);
+    RSTRING_PTR(ptr-&gt;string)[ptr-&gt;pos++] = c;
+    OBJ_INFECT(ptr-&gt;string, self);
+    return ch;
+}</pre>
+            </div><!-- putc-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- putc-method -->
+
+      
+        <div id="puts-method" class="method-detail ">
+          <a name="method-i-puts"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">puts(obj, ...)    &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#puts.</p>
+            
+
+            
+            <div class="method-source-code" id="puts-source">
+<pre>
+#define strio_puts rb_io_puts</pre>
+            </div><!-- puts-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- puts-method -->
+
+      
+        <div id="read-method" class="method-detail ">
+          <a name="method-i-read"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">read([length [, buffer]])    &rarr; string, buffer, or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#read.</p>
+            
+
+            
+            <div class="method-source-code" id="read-source">
+<pre>
+static VALUE
+strio_read(int argc, VALUE *argv, VALUE self)
+{
+    struct StringIO *ptr = readable(StringIO(self));
+    VALUE str = Qnil;
+    long len;
+
+    switch (argc) {
+      case 2:
+        str = argv[1];
+        StringValue(str);
+        rb_str_modify(str);
+      case 1:
+        if (!NIL_P(argv[0])) {
+            len = NUM2LONG(argv[0]);
+            if (len &lt; 0) {
+                rb_raise(rb_eArgError, &quot;negative length %ld given&quot;, len);
+            }
+            if (len &gt; 0 &amp;&amp; ptr-&gt;pos &gt;= RSTRING_LEN(ptr-&gt;string)) {
+                if (!NIL_P(str)) rb_str_resize(str, 0);
+                return Qnil;
+            }
+            break;
+        }
+        /* fall through */
+      case 0:
+        len = RSTRING_LEN(ptr-&gt;string);
+        if (len &lt;= ptr-&gt;pos) {
+            if (NIL_P(str)) {
+                str = rb_str_new(0, 0);
+            }
+            else {
+                rb_str_resize(str, 0);
+            }
+            return str;
+        }
+        else {
+            len -= ptr-&gt;pos;
+        }
+        break;
+      default:
+        rb_raise(rb_eArgError, &quot;wrong number of arguments (%d for 0)&quot;, argc);
+    }
+    if (NIL_P(str)) {
+        str = strio_substr(ptr, ptr-&gt;pos, len);
+        if (argc &gt; 0) rb_enc_associate(str, rb_ascii8bit_encoding());
+    }
+    else {
+        long rest = RSTRING_LEN(ptr-&gt;string) - ptr-&gt;pos;
+        if (len &gt; rest) len = rest;
+        rb_str_resize(str, len);
+        MEMCPY(RSTRING_PTR(str), RSTRING_PTR(ptr-&gt;string) + ptr-&gt;pos, char, len);
+    }
+    if (NIL_P(str)) {
+        str = rb_str_new(0, 0);
+        len = 0;
+    }
+    else {
+        ptr-&gt;pos += len = RSTRING_LEN(str);
+    }
+    return str;
+}</pre>
+            </div><!-- read-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- read-method -->
+
+      
+        <div id="read_nonblock-method" class="method-detail ">
+          <a name="method-i-read_nonblock"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sysread(integer[, outbuf])    &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Similar to <a href="StringIO.html#method-i-read">read</a>, but raises
+<tt>EOFError</tt> at end of string instead of returning <tt>nil</tt>, as
+well as IO#sysread does.</p>
+            
+
+            
+            <div class="method-source-code" id="read_nonblock-source">
+<pre>
+static VALUE
+strio_sysread(int argc, VALUE *argv, VALUE self)
+{
+    VALUE val = strio_read(argc, argv, self);
+    if (NIL_P(val)) {
+        rb_eof_error();
+    }
+    return val;
+}</pre>
+            </div><!-- read_nonblock-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- read_nonblock-method -->
+
+      
+        <div id="readbyte-method" class="method-detail ">
+          <a name="method-i-readbyte"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readbyte   &rarr; fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#readbyte.</p>
+            
+
+            
+            <div class="method-source-code" id="readbyte-source">
+<pre>
+static VALUE
+strio_readbyte(VALUE self)
+{
+    VALUE c = strio_getbyte(self);
+    if (NIL_P(c)) rb_eof_error();
+    return c;
+}</pre>
+            </div><!-- readbyte-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readbyte-method -->
+
+      
+        <div id="readchar-method" class="method-detail ">
+          <a name="method-i-readchar"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readchar   &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#readchar.</p>
+            
+
+            
+            <div class="method-source-code" id="readchar-source">
+<pre>
+static VALUE
+strio_readchar(VALUE self)
+{
+    VALUE c = strio_getc(self);
+    if (NIL_P(c)) rb_eof_error();
+    return c;
+}</pre>
+            </div><!-- readchar-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readchar-method -->
+
+      
+        <div id="readline-method" class="method-detail ">
+          <a name="method-i-readline"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readline(sep=$/)     &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">readline(limit)      &rarr; string or nil</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">readline(sep, limit) &rarr; string or nil</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#readline.</p>
+            
+
+            
+            <div class="method-source-code" id="readline-source">
+<pre>
+static VALUE
+strio_readline(int argc, VALUE *argv, VALUE self)
+{
+    VALUE line = strio_gets(argc, argv, self);
+    if (NIL_P(line)) rb_eof_error();
+    return line;
+}</pre>
+            </div><!-- readline-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readline-method -->
+
+      
+        <div id="readlines-method" class="method-detail ">
+          <a name="method-i-readlines"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readlines(sep=$/)    &rarr;   array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">readlines(limit)     &rarr;   array</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">readlines(sep,limit) &rarr;   array</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#readlines.</p>
+            
+
+            
+            <div class="method-source-code" id="readlines-source">
+<pre>
+static VALUE
+strio_readlines(int argc, VALUE *argv, VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    VALUE ary = rb_ary_new(), line;
+
+    if (argc &gt; 0 &amp;&amp; !NIL_P(argv[argc-1]) &amp;&amp; NIL_P(rb_check_string_type(argv[argc-1])) &amp;&amp;
+        NUM2LONG(argv[argc-1]) == 0) {
+        rb_raise(rb_eArgError, &quot;invalid limit: 0 for readlines&quot;);
+    }
+
+    while (!NIL_P(line = strio_getline(argc, argv, readable(ptr)))) {
+        rb_ary_push(ary, line);
+    }
+    return ary;
+}</pre>
+            </div><!-- readlines-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readlines-method -->
+
+      
+        <div id="readpartial-method" class="method-detail ">
+          <a name="method-i-readpartial"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sysread(integer[, outbuf])    &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Similar to <a href="StringIO.html#method-i-read">read</a>, but raises
+<tt>EOFError</tt> at end of string instead of returning <tt>nil</tt>, as
+well as IO#sysread does.</p>
+            
+
+            
+            <div class="method-source-code" id="readpartial-source">
+<pre>
+static VALUE
+strio_sysread(int argc, VALUE *argv, VALUE self)
+{
+    VALUE val = strio_read(argc, argv, self);
+    if (NIL_P(val)) {
+        rb_eof_error();
+    }
+    return val;
+}</pre>
+            </div><!-- readpartial-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readpartial-method -->
+
+      
+        <div id="reopen-method" class="method-detail ">
+          <a name="method-i-reopen"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">reopen(other_StrIO)     &rarr; strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">reopen(string, mode)    &rarr; strio</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Reinitializes <b>strio</b> with the given <em>other_StrIO</em> or
+<em>string</em> and <em>mode</em> (see StringIO#new).</p>
+            
+
+            
+            <div class="method-source-code" id="reopen-source">
+<pre>
+static VALUE
+strio_reopen(int argc, VALUE *argv, VALUE self)
+{
+    rb_io_taint_check(self);
+    if (argc == 1 &amp;&amp; TYPE(*argv) != T_STRING) {
+        return strio_copy(self, *argv);
+    }
+    strio_init(argc, argv, StringIO(self));
+    return self;
+}</pre>
+            </div><!-- reopen-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- reopen-method -->
+
+      
+        <div id="rewind-method" class="method-detail ">
+          <a name="method-i-rewind"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">rewind    &rarr; 0</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Positions <b>strio</b> to the beginning of input, resetting <tt>lineno</tt>
+to zero.</p>
+            
+
+            
+            <div class="method-source-code" id="rewind-source">
+<pre>
+static VALUE
+strio_rewind(VALUE self)
+{
+    struct StringIO *ptr = StringIO(self);
+    ptr-&gt;pos = 0;
+    ptr-&gt;lineno = 0;
+    return INT2FIX(0);
+}</pre>
+            </div><!-- rewind-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- rewind-method -->
+
+      
+        <div id="seek-method" class="method-detail ">
+          <a name="method-i-seek"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">seek(amount, whence=SEEK_SET) &rarr; 0</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Seeks to a given offset <em>amount</em> in the stream according to the
+value of <em>whence</em> (see IO#seek).</p>
+            
+
+            
+            <div class="method-source-code" id="seek-source">
+<pre>
+static VALUE
+strio_seek(int argc, VALUE *argv, VALUE self)
+{
+    VALUE whence;
+    struct StringIO *ptr = StringIO(self);
+    long offset;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, NULL, &amp;whence);
+    offset = NUM2LONG(argv[0]);
+    if (CLOSED(ptr)) {
+        rb_raise(rb_eIOError, &quot;closed stream&quot;);
+    }
+    switch (NIL_P(whence) ? 0 : NUM2LONG(whence)) {
+      case 0:
+        break;
+      case 1:
+        offset += ptr-&gt;pos;
+        break;
+      case 2:
+        offset += RSTRING_LEN(ptr-&gt;string);
+        break;
+      default:
+        error_inval(&quot;invalid whence&quot;);
+    }
+    if (offset &lt; 0) {
+        error_inval(0);
+    }
+    ptr-&gt;pos = offset;
+    return INT2FIX(0);
+}</pre>
+            </div><!-- seek-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- seek-method -->
+
+      
+        <div id="set_encoding-method" class="method-detail ">
+          <a name="method-i-set_encoding"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">set_encoding(ext_enc, [int_enc[, opt]])  => strio</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Specify the encoding of the <a href="StringIO.html">StringIO</a> as
+<em>ext_enc</em>. Use the default external encoding if <em>ext_enc</em> is
+nil. 2nd argument <em>int_enc</em> and optional hash <em>opt</em> argument
+are ignored; they are for API compatibility to <a href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="set_encoding-source">
+<pre>
+static VALUE
+strio_set_encoding(int argc, VALUE *argv, VALUE self)
+{
+    rb_encoding* enc;
+    VALUE str = StringIO(self)-&gt;string;
+    VALUE ext_enc, int_enc, opt;
+
+    argc = rb_scan_args(argc, argv, &quot;11:&quot;, &amp;ext_enc, &amp;int_enc, &amp;opt);
+
+    if (NIL_P(ext_enc)) {
+        enc = rb_default_external_encoding();
+    }
+    else {
+        enc = rb_to_encoding(ext_enc);
+    }
+    rb_enc_associate(str, enc);
+    return self;
+}</pre>
+            </div><!-- set_encoding-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- set_encoding-method -->
+
+      
+        <div id="size-method" class="method-detail ">
+          <a name="method-i-size"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">size   &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the size of the buffer string.</p>
+            
+
+            
+            <div class="method-source-code" id="size-source">
+<pre>
+static VALUE
+strio_size(VALUE self)
+{
+    VALUE string = StringIO(self)-&gt;string;
+    if (NIL_P(string)) {
+        rb_raise(rb_eIOError, &quot;not opened&quot;);
+    }
+    return ULONG2NUM(RSTRING_LEN(string));
+}</pre>
+            </div><!-- size-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- size-method -->
+
+      
+        <div id="string-method" class="method-detail ">
+          <a name="method-i-string"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">string     &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns underlying <a href="String.html">String</a> object, the subject of
+<a href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="string-source">
+<pre>
+static VALUE
+strio_get_string(VALUE self)
+{
+    return StringIO(self)-&gt;string;
+}</pre>
+            </div><!-- string-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- string-method -->
+
+      
+        <div id="string-3D-method" class="method-detail ">
+          <a name="method-i-string-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">string = string  &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Changes underlying <a href="String.html">String</a> object, the subject of
+<a href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="string-3D-source">
+<pre>
+static VALUE
+strio_set_string(VALUE self, VALUE string)
+{
+    struct StringIO *ptr = StringIO(self);
+
+    rb_io_taint_check(self);
+    ptr-&gt;flags &amp;= ~FMODE_READWRITE;
+    StringValue(string);
+    ptr-&gt;flags = OBJ_FROZEN(string) ? FMODE_READABLE : FMODE_READWRITE;
+    ptr-&gt;pos = 0;
+    ptr-&gt;lineno = 0;
+    return ptr-&gt;string = string;
+}</pre>
+            </div><!-- string-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- string-3D-method -->
+
+      
+        <div id="sync-method" class="method-detail ">
+          <a name="method-i-sync"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sync    &rarr; true</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <tt>true</tt> always.</p>
+            
+
+            
+            <div class="method-source-code" id="sync-source">
+<pre>
+static VALUE
+strio_get_sync(VALUE self)
+{
+    StringIO(self);
+    return Qtrue;
+}</pre>
+            </div><!-- sync-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sync-method -->
+
+      
+        <div id="sync-3D-method" class="method-detail ">
+          <a name="method-i-sync-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sync = boolean &rarr; boolean</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the argument unchanged.  Just for compatibility to <a
+href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="sync-3D-source">
+<pre>
+#define strio_set_sync strio_first</pre>
+            </div><!-- sync-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sync-3D-method -->
+
+      
+        <div id="sysread-method" class="method-detail ">
+          <a name="method-i-sysread"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sysread(integer[, outbuf])    &rarr; string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Similar to <a href="StringIO.html#method-i-read">read</a>, but raises
+<tt>EOFError</tt> at end of string instead of returning <tt>nil</tt>, as
+well as IO#sysread does.</p>
+            
+
+            
+            <div class="method-source-code" id="sysread-source">
+<pre>
+static VALUE
+strio_sysread(int argc, VALUE *argv, VALUE self)
+{
+    VALUE val = strio_read(argc, argv, self);
+    if (NIL_P(val)) {
+        rb_eof_error();
+    }
+    return val;
+}</pre>
+            </div><!-- sysread-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sysread-method -->
+
+      
+        <div id="syswrite-method" class="method-detail ">
+          <a name="method-i-syswrite"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">write(string)    &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">syswrite(string) &rarr; integer</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Appends the given string to the underlying buffer string of <b>strio</b>.
+The stream must be opened for writing.  If the argument is not a string, it
+will be converted to a string using <tt>to_s</tt>. Returns the number of
+bytes written.  See IO#write.</p>
+            
+
+            
+            <div class="method-source-code" id="syswrite-source">
+<pre>
+static VALUE
+strio_write(VALUE self, VALUE str)
+{
+    struct StringIO *ptr = writable(StringIO(self));
+    long len, olen;
+    rb_encoding *enc, *enc2;
+
+    RB_GC_GUARD(str);
+    if (TYPE(str) != T_STRING)
+        str = rb_obj_as_string(str);
+    enc = rb_enc_get(ptr-&gt;string);
+    enc2 = rb_enc_get(str);
+    if (enc != enc2 &amp;&amp; enc != rb_ascii8bit_encoding()) {
+        str = rb_str_conv_enc(str, enc2, enc);
+    }
+    len = RSTRING_LEN(str);
+    if (len == 0) return INT2FIX(0);
+    check_modifiable(ptr);
+    olen = RSTRING_LEN(ptr-&gt;string);
+    if (ptr-&gt;flags &amp; FMODE_APPEND) {
+        ptr-&gt;pos = olen;
+    }
+    if (ptr-&gt;pos == olen) {
+        rb_str_cat(ptr-&gt;string, RSTRING_PTR(str), len);
+    }
+    else {
+        strio_extend(ptr, ptr-&gt;pos, len);
+        memmove(RSTRING_PTR(ptr-&gt;string)+ptr-&gt;pos, RSTRING_PTR(str), len);
+        OBJ_INFECT(ptr-&gt;string, str);
+    }
+    OBJ_INFECT(ptr-&gt;string, self);
+    ptr-&gt;pos += len;
+    return LONG2NUM(len);
+}</pre>
+            </div><!-- syswrite-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- syswrite-method -->
+
+      
+        <div id="tell-method" class="method-detail ">
+          <a name="method-i-tell"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pos     &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">tell    &rarr; integer</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the current offset (in bytes) of <b>strio</b>.</p>
+            
+
+            
+            <div class="method-source-code" id="tell-source">
+<pre>
+static VALUE
+strio_get_pos(VALUE self)
+{
+    return LONG2NUM(StringIO(self)-&gt;pos);
+}</pre>
+            </div><!-- tell-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- tell-method -->
+
+      
+        <div id="truncate-method" class="method-detail ">
+          <a name="method-i-truncate"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">truncate(integer)    &rarr; 0</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Truncates the buffer string to at most <em>integer</em> bytes. The
+<b>strio</b> must be opened for writing.</p>
+            
+
+            
+            <div class="method-source-code" id="truncate-source">
+<pre>
+static VALUE
+strio_truncate(VALUE self, VALUE len)
+{
+    VALUE string = writable(StringIO(self))-&gt;string;
+    long l = NUM2LONG(len);
+    long plen = RSTRING_LEN(string);
+    if (l &lt; 0) {
+        error_inval(&quot;negative legnth&quot;);
+    }
+    rb_str_resize(string, l);
+    if (plen &lt; l) {
+        MEMZERO(RSTRING_PTR(string) + plen, char, l - plen);
+    }
+    return len;
+}</pre>
+            </div><!-- truncate-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- truncate-method -->
+
+      
+        <div id="tty-3F-method" class="method-detail ">
+          <a name="method-i-tty-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">isatty &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">tty? &rarr; nil</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns <tt>false</tt>.  Just for compatibility to <a
+href="IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="tty-3F-source">
+<pre>
+#define strio_isatty strio_false</pre>
+            </div><!-- tty-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- tty-3F-method -->
+
+      
+        <div id="ungetbyte-method" class="method-detail ">
+          <a name="method-i-ungetbyte"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">ungetbyte(fixnum)   &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>See IO#ungetbyte</p>
+            
+
+            
+            <div class="method-source-code" id="ungetbyte-source">
+<pre>
+static VALUE
+strio_ungetbyte(VALUE self, VALUE c)
+{
+    struct StringIO *ptr = readable(StringIO(self));
+    char buf[1], *cp = buf;
+    long pos = ptr-&gt;pos, cl = 1;
+    VALUE str = ptr-&gt;string;
+
+    if (NIL_P(c)) return Qnil;
+    if (FIXNUM_P(c)) {
+        buf[0] = (char)FIX2INT(c);
+    }
+    else {
+        SafeStringValue(c);
+        cp = RSTRING_PTR(c);
+        cl = RSTRING_LEN(c);
+        if (cl == 0) return Qnil;
+    }
+    rb_str_modify(str);
+    if (cl &gt; pos) {
+        char *s;
+        long rest = RSTRING_LEN(str) - pos;
+        rb_str_resize(str, rest + cl);
+        s = RSTRING_PTR(str);
+        memmove(s + cl, s + pos, rest);
+        pos = 0;
+    }
+    else {
+        pos -= cl;
+    }
+    memcpy(RSTRING_PTR(str) + pos, cp, cl);
+    ptr-&gt;pos = pos;
+    RB_GC_GUARD(c);
+    return Qnil;
+}</pre>
+            </div><!-- ungetbyte-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ungetbyte-method -->
+
+      
+        <div id="ungetc-method" class="method-detail ">
+          <a name="method-i-ungetc"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">ungetc(string)   &rarr; nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Pushes back one character (passed as a parameter) onto <b>strio</b> such
+that a subsequent buffered read will return it.  There is no limitation for
+multiple pushbacks including pushing back behind the beginning of the
+buffer string.</p>
+            
+
+            
+            <div class="method-source-code" id="ungetc-source">
+<pre>
+static VALUE
+strio_ungetc(VALUE self, VALUE c)
+{
+    struct StringIO *ptr = readable(StringIO(self));
+    long lpos, clen;
+    char *p, *pend;
+    rb_encoding *enc, *enc2;
+
+    if (NIL_P(c)) return Qnil;
+    if (FIXNUM_P(c)) {
+        int cc = FIX2INT(c);
+        char buf[16];
+
+        enc = rb_enc_get(ptr-&gt;string);
+        rb_enc_mbcput(cc, buf, enc);
+        c = rb_enc_str_new(buf, rb_enc_codelen(cc, enc), enc);
+    }
+    else {
+        SafeStringValue(c);
+        enc = rb_enc_get(ptr-&gt;string);
+        enc2 = rb_enc_get(c);
+        if (enc != enc2 &amp;&amp; enc != rb_ascii8bit_encoding()) {
+            c = rb_str_conv_enc(c, enc2, enc);
+        }
+    }
+    if (RSTRING_LEN(ptr-&gt;string) &lt; ptr-&gt;pos) {
+        long len = RSTRING_LEN(ptr-&gt;string);
+        rb_str_resize(ptr-&gt;string, ptr-&gt;pos - 1);
+        memset(RSTRING_PTR(ptr-&gt;string) + len, 0, ptr-&gt;pos - len - 1);
+        rb_str_concat(ptr-&gt;string, c);
+        ptr-&gt;pos--;
+    }
+    else {
+        /* get logical position */
+        lpos = 0; p = RSTRING_PTR(ptr-&gt;string); pend = p + ptr-&gt;pos;
+        for (;;) {
+            clen = rb_enc_mbclen(p, pend, enc);
+            if (p+clen &gt;= pend) break;
+            p += clen;
+            lpos++;
+        }
+        clen = p - RSTRING_PTR(ptr-&gt;string);
+        rb_str_update(ptr-&gt;string, lpos, ptr-&gt;pos ? 1 : 0, c);
+        ptr-&gt;pos = clen;
+    }
+
+    return Qnil;
+}</pre>
+            </div><!-- ungetc-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ungetc-method -->
+
+      
+        <div id="write-method" class="method-detail ">
+          <a name="method-i-write"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">write(string)    &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">syswrite(string) &rarr; integer</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Appends the given string to the underlying buffer string of <b>strio</b>.
+The stream must be opened for writing.  If the argument is not a string, it
+will be converted to a string using <tt>to_s</tt>. Returns the number of
+bytes written.  See IO#write.</p>
+            
+
+            
+            <div class="method-source-code" id="write-source">
+<pre>
+static VALUE
+strio_write(VALUE self, VALUE str)
+{
+    struct StringIO *ptr = writable(StringIO(self));
+    long len, olen;
+    rb_encoding *enc, *enc2;
+
+    RB_GC_GUARD(str);
+    if (TYPE(str) != T_STRING)
+        str = rb_obj_as_string(str);
+    enc = rb_enc_get(ptr-&gt;string);
+    enc2 = rb_enc_get(str);
+    if (enc != enc2 &amp;&amp; enc != rb_ascii8bit_encoding()) {
+        str = rb_str_conv_enc(str, enc2, enc);
+    }
+    len = RSTRING_LEN(str);
+    if (len == 0) return INT2FIX(0);
+    check_modifiable(ptr);
+    olen = RSTRING_LEN(ptr-&gt;string);
+    if (ptr-&gt;flags &amp; FMODE_APPEND) {
+        ptr-&gt;pos = olen;
+    }
+    if (ptr-&gt;pos == olen) {
+        rb_str_cat(ptr-&gt;string, RSTRING_PTR(str), len);
+    }
+    else {
+        strio_extend(ptr, ptr-&gt;pos, len);
+        memmove(RSTRING_PTR(ptr-&gt;string)+ptr-&gt;pos, RSTRING_PTR(str), len);
+        OBJ_INFECT(ptr-&gt;string, str);
+    }
+    OBJ_INFECT(ptr-&gt;string, self);
+    ptr-&gt;pos += len;
+    return LONG2NUM(len);
+}</pre>
+            </div><!-- write-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- write-method -->
+
+      
+        <div id="write_nonblock-method" class="method-detail ">
+          <a name="method-i-write_nonblock"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">write(string)    &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">syswrite(string) &rarr; integer</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Appends the given string to the underlying buffer string of <b>strio</b>.
+The stream must be opened for writing.  If the argument is not a string, it
+will be converted to a string using <tt>to_s</tt>. Returns the number of
+bytes written.  See IO#write.</p>
+            
+
+            
+            <div class="method-source-code" id="write_nonblock-source">
+<pre>
+static VALUE
+strio_write(VALUE self, VALUE str)
+{
+    struct StringIO *ptr = writable(StringIO(self));
+    long len, olen;
+    rb_encoding *enc, *enc2;
+
+    RB_GC_GUARD(str);
+    if (TYPE(str) != T_STRING)
+        str = rb_obj_as_string(str);
+    enc = rb_enc_get(ptr-&gt;string);
+    enc2 = rb_enc_get(str);
+    if (enc != enc2 &amp;&amp; enc != rb_ascii8bit_encoding()) {
+        str = rb_str_conv_enc(str, enc2, enc);
+    }
+    len = RSTRING_LEN(str);
+    if (len == 0) return INT2FIX(0);
+    check_modifiable(ptr);
+    olen = RSTRING_LEN(ptr-&gt;string);
+    if (ptr-&gt;flags &amp; FMODE_APPEND) {
+        ptr-&gt;pos = olen;
+    }
+    if (ptr-&gt;pos == olen) {
+        rb_str_cat(ptr-&gt;string, RSTRING_PTR(str), len);
+    }
+    else {
+        strio_extend(ptr, ptr-&gt;pos, len);
+        memmove(RSTRING_PTR(ptr-&gt;string)+ptr-&gt;pos, RSTRING_PTR(str), len);
+        OBJ_INFECT(ptr-&gt;string, str);
+    }
+    OBJ_INFECT(ptr-&gt;string, self);
+    ptr-&gt;pos += len;
+    return LONG2NUM(len);
+}</pre>
+            </div><!-- write_nonblock-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- write_nonblock-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,1781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: CSV::Table
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../CSV.html" title="CSV (class)">CSV</a></span></span>
+     &raquo; 
+    <span class="title">Table</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: CSV::Table
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">CSV::Table</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2"><span class='object_link'><a href="../Forwardable.html" title="Forwardable (module)">Forwardable</a></span></dd>
+      
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/csv.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A CSV::Table is a two-dimensional data structure for representing CSV
+documents.  Tables allow you to work with the data by row or column,
+manipulate the data, and even convert the results back to CSV, if needed.</p>
+
+<p>All tables returned by CSV will be constructed from this class, if header
+row processing is activated.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="../Forwardable.html" title="Forwardable (module)">Forwardable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Forwardable.html#FORWARDABLE_VERSION-constant" title="Forwardable::FORWARDABLE_VERSION (constant)">FORWARDABLE_VERSION</a></span></p>
+
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mode-instance_method" title="#mode (instance method)">- (Object) <strong>mode</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The current access mode for indexing and iteration.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3C-instance_method" title="#&lt;&lt; (instance method)">- (Object) <strong>&lt;&lt;</strong>(row_or_array) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds a new row to the bottom end of this table.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <tt>true</tt> if all rows of this table ==() <tt>other</tt>'s rows.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- (Object) <strong>[]</strong>(index_or_header) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>In the default mixed mode, this method returns rows for index access and
+columns for header access.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D%3D-instance_method" title="#[]= (instance method)">- (Object) <strong>[]=</strong>(index_or_header, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>In the default mixed mode, this method assigns rows for index access and
+columns for header access.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#by_col-instance_method" title="#by_col (instance method)">- (Object) <strong>by_col</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a duplicate table object, in column mode.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#by_col%21-instance_method" title="#by_col! (instance method)">- (Object) <strong>by_col!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Switches the mode of this table to column mode.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#by_col_or_row-instance_method" title="#by_col_or_row (instance method)">- (Object) <strong>by_col_or_row</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a duplicate table object, in mixed mode.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#by_col_or_row%21-instance_method" title="#by_col_or_row! (instance method)">- (Object) <strong>by_col_or_row!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Switches the mode of this table to mixed mode.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#by_row-instance_method" title="#by_row (instance method)">- (Object) <strong>by_row</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a duplicate table object, in row mode.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#by_row%21-instance_method" title="#by_row! (instance method)">- (Object) <strong>by_row!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Switches the mode of this table to row mode.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(index_or_header) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Removes and returns the indicated column or row.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_if-instance_method" title="#delete_if (instance method)">- (Object) <strong>delete_if</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Removes any column or row for which the block returns <tt>true</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>In the default mixed mode or row mode, iteration is the standard row major
+walking of rows.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#headers-instance_method" title="#headers (instance method)">- (Object) <strong>headers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the headers for the first row of this table (assumed to match all
+other rows).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Table) <strong>initialize</strong>(array_of_rows) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Construct a new CSV::Table from <tt>array_of_rows</tt>, which are expected
+to be CSV::Row objects.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shows the mode and size of this table in a US-ASCII String.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#push-instance_method" title="#push (instance method)">- (Object) <strong>push</strong>(*rows) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A shortcut for appending multiple rows.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_a-instance_method" title="#to_a (instance method)">- (Object) <strong>to_a</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the table as an Array of Arrays.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_csv-instance_method" title="#to_csv (instance method)">- (Object) <strong>to_csv</strong>(options = Hash.new) </a>
+    
+
+    
+      (also: #to_s)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the table as a complete CSV String.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#values_at-instance_method" title="#values_at (instance method)">- (Object) <strong>values_at</strong>(*indices_or_headers) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The mixed mode default is to treat a list of indices as row access,
+returning the rows indicated.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Forwardable.html" title="Forwardable (module)">Forwardable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Forwardable.html#def_instance_delegator-instance_method" title="Forwardable#def_instance_delegator (method)">def_instance_delegator</a></span>, <span class='object_link'><a href="../Forwardable.html#def_instance_delegators-instance_method" title="Forwardable#def_instance_delegators (method)">def_instance_delegators</a></span>, <span class='object_link'><a href="../Forwardable.html#instance_delegate-instance_method" title="Forwardable#instance_delegate (method)">instance_delegate</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Enumerable.html#to_set-instance_method" title="Enumerable#to_set (method)">#to_set</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="CSV::Table (class)">Table</a></span></tt>) <strong>initialize</strong>(array_of_rows) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Construct a new CSV::Table from <tt>array_of_rows</tt>, which are expected
+to be CSV::Row objects.  All rows are assumed to have the same headers.</p>
+
+<p>A CSV::Table object supports the following Array methods through
+delegation:</p>
+<ul><li>
+<p>empty?()</p>
+</li><li>
+<p>length()</p>
+</li><li>
+<p>size()</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+539
+540
+541
+542</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 539</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id array_of_rows'>array_of_rows</span><span class='rparen'>)</span>
+  <span class='ivar'>@table</span> <span class='op'>=</span> <span class='id array_of_rows'>array_of_rows</span>
+  <span class='ivar'>@mode</span>  <span class='op'>=</span> <span class='symbol'>:col_or_row</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="mode-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="mode-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>mode</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The current access mode for indexing and iteration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+545
+546
+547</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 545</span>
+
+<span class='kw'>def</span> <span class='id mode'>mode</span>
+  <span class='ivar'>@mode</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="<<-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>&lt;&lt;</strong>(row_or_array) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds a new row to the bottom end of this table.  You can provide an Array,
+which will be converted to a CSV::Row (inheriting the table's headers()),
+or a CSV::Row.</p>
+
+<p>This method returns the table for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+737
+738
+739
+740
+741
+742
+743
+744
+745</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 737</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id row_or_array'>row_or_array</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id row_or_array'>row_or_array</span><span class='period'>.</span><span class='id is_a?'>is_a?</span> <span class='const'>Array</span>  <span class='comment'># append Array
+</span>    <span class='ivar'>@table</span> <span class='op'>&lt;&lt;</span> <span class='const'>Row</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id headers'>headers</span><span class='comma'>,</span> <span class='id row_or_array'>row_or_array</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>                         <span class='comment'># append Row
+</span>    <span class='ivar'>@table</span> <span class='op'>&lt;&lt;</span> <span class='id row_or_array'>row_or_array</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>self</span>  <span class='comment'># for chaining
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="==-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>==</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <tt>true</tt> if all rows of this table ==() <tt>other</tt>'s rows.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+816
+817
+818</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 816</span>
+
+<span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='ivar'>@table</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id table'>table</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="[]-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]</strong>(index_or_header) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>In the default mixed mode, this method returns rows for index access and
+columns for header access.  You can force the index association by first
+calling by_col!() or by_row!().</p>
+
+<p>Columns are returned as an Array of values.  Altering that Array has no
+effect on the table.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+653
+654
+655
+656
+657
+658
+659
+660</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 653</span>
+
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id index_or_header'>index_or_header</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:row</span> <span class='kw'>or</span>  <span class='comment'># by index
+</span>     <span class='lparen'>(</span><span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:col_or_row</span> <span class='kw'>and</span> <span class='id index_or_header'>index_or_header</span><span class='period'>.</span><span class='id is_a?'>is_a?</span> <span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='ivar'>@table</span><span class='lbracket'>[</span><span class='id index_or_header'>index_or_header</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>                 <span class='comment'># by header
+</span>    <span class='ivar'>@table</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id row'>row</span><span class='op'>|</span> <span class='id row'>row</span><span class='lbracket'>[</span><span class='id index_or_header'>index_or_header</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="[]=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]=</strong>(index_or_header, value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>In the default mixed mode, this method assigns rows for index access and
+columns for header access.  You can force the index association by first
+calling by_col!() or by_row!().</p>
+
+<p>Rows may be set to an Array of values (which will inherit the table's
+headers()) or a CSV::Row.</p>
+
+<p>Columns may be set to a single value, which is copied to each row of the
+column, or an Array of values.  Arrays of values are assigned to rows top
+to bottom in row major order.  Excess values are ignored and if the Array
+does not have a value for each row the extra rows will receive a
+<tt>nil</tt>.</p>
+
+<p>Assigning to an existing column or row clobbers the data.  Assigning to new
+columns creates them at the right end of the table.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 678</span>
+
+<span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span><span class='id index_or_header'>index_or_header</span><span class='comma'>,</span> <span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:row</span> <span class='kw'>or</span>  <span class='comment'># by index
+</span>     <span class='lparen'>(</span><span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:col_or_row</span> <span class='kw'>and</span> <span class='id index_or_header'>index_or_header</span><span class='period'>.</span><span class='id is_a?'>is_a?</span> <span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id value'>value</span><span class='period'>.</span><span class='id is_a?'>is_a?</span> <span class='const'>Array</span>
+      <span class='ivar'>@table</span><span class='lbracket'>[</span><span class='id index_or_header'>index_or_header</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Row</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id headers'>headers</span><span class='comma'>,</span> <span class='id value'>value</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@table</span><span class='lbracket'>[</span><span class='id index_or_header'>index_or_header</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id value'>value</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>                 <span class='comment'># set column
+</span>    <span class='kw'>if</span> <span class='id value'>value</span><span class='period'>.</span><span class='id is_a?'>is_a?</span> <span class='const'>Array</span>  <span class='comment'># multiple values
+</span>      <span class='ivar'>@table</span><span class='period'>.</span><span class='id each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id row'>row</span><span class='comma'>,</span> <span class='id i'>i</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id row'>row</span><span class='period'>.</span><span class='id header_row?'>header_row?</span>
+          <span class='id row'>row</span><span class='lbracket'>[</span><span class='id index_or_header'>index_or_header</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id index_or_header'>index_or_header</span>
+        <span class='kw'>else</span>
+          <span class='id row'>row</span><span class='lbracket'>[</span><span class='id index_or_header'>index_or_header</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id value'>value</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>else</span>                  <span class='comment'># repeated value
+</span>      <span class='ivar'>@table</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id row'>row</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id row'>row</span><span class='period'>.</span><span class='id header_row?'>header_row?</span>
+          <span class='id row'>row</span><span class='lbracket'>[</span><span class='id index_or_header'>index_or_header</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id index_or_header'>index_or_header</span>
+        <span class='kw'>else</span>
+          <span class='id row'>row</span><span class='lbracket'>[</span><span class='id index_or_header'>index_or_header</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id value'>value</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="by_col-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>by_col</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a duplicate table object, in column mode.  This is handy for
+chaining in a single call without changing the table mode, but be aware
+that this method can consume a fair amount of memory for bigger data sets.</p>
+
+<p>This method returns the duplicate table for chaining.  Don't chain
+destructive methods (like []=()) this way though, since you are working
+with a duplicate.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+565
+566
+567</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 565</span>
+
+<span class='kw'>def</span> <span class='id by_col'>by_col</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@table</span><span class='period'>.</span><span class='id dup'>dup</span><span class='rparen'>)</span><span class='period'>.</span><span class='id by_col!'>by_col!</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="by_col!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>by_col!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Switches the mode of this table to column mode.  All calls to indexing and
+iteration methods will work with columns until the mode is changed again.</p>
+
+<p>This method returns the table and is safe to chain.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+575
+576
+577
+578
+579</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 575</span>
+
+<span class='kw'>def</span> <span class='id by_col!'>by_col!</span>
+  <span class='ivar'>@mode</span> <span class='op'>=</span> <span class='symbol'>:col</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="by_col_or_row-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>by_col_or_row</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a duplicate table object, in mixed mode.  This is handy for
+chaining in a single call without changing the table mode, but be aware
+that this method can consume a fair amount of memory for bigger data sets.</p>
+
+<p>This method returns the duplicate table for chaining.  Don't chain
+destructive methods (like []=()) this way though, since you are working
+with a duplicate.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+590
+591
+592</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 590</span>
+
+<span class='kw'>def</span> <span class='id by_col_or_row'>by_col_or_row</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@table</span><span class='period'>.</span><span class='id dup'>dup</span><span class='rparen'>)</span><span class='period'>.</span><span class='id by_col_or_row!'>by_col_or_row!</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="by_col_or_row!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>by_col_or_row!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Switches the mode of this table to mixed mode.  All calls to indexing and
+iteration methods will use the default intelligent indexing system until
+the mode is changed again.  In mixed mode an index is assumed to be a row
+reference while anything else is assumed to be column access by headers.</p>
+
+<p>This method returns the table and is safe to chain.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+602
+603
+604
+605
+606</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 602</span>
+
+<span class='kw'>def</span> <span class='id by_col_or_row!'>by_col_or_row!</span>
+  <span class='ivar'>@mode</span> <span class='op'>=</span> <span class='symbol'>:col_or_row</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="by_row-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>by_row</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a duplicate table object, in row mode.  This is handy for chaining
+in a single call without changing the table mode, but be aware that this
+method can consume a fair amount of memory for bigger data sets.</p>
+
+<p>This method returns the duplicate table for chaining.  Don't chain
+destructive methods (like []=()) this way though, since you are working
+with a duplicate.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+617
+618
+619</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 617</span>
+
+<span class='kw'>def</span> <span class='id by_row'>by_row</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@table</span><span class='period'>.</span><span class='id dup'>dup</span><span class='rparen'>)</span><span class='period'>.</span><span class='id by_row!'>by_row!</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="by_row!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>by_row!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Switches the mode of this table to row mode.  All calls to indexing and
+iteration methods will work with rows until the mode is changed again.</p>
+
+<p>This method returns the table and is safe to chain.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+627
+628
+629
+630
+631</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 627</span>
+
+<span class='kw'>def</span> <span class='id by_row!'>by_row!</span>
+  <span class='ivar'>@mode</span> <span class='op'>=</span> <span class='symbol'>:row</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete</strong>(index_or_header) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Removes and returns the indicated column or row.  In the default mixed mode
+indices refer to rows and everything else is assumed to be a column header.
+Use by_col!() or by_row!() to force the lookup.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+765
+766
+767
+768
+769
+770
+771
+772</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 765</span>
+
+<span class='kw'>def</span> <span class='id delete'>delete</span><span class='lparen'>(</span><span class='id index_or_header'>index_or_header</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:row</span> <span class='kw'>or</span>  <span class='comment'># by index
+</span>     <span class='lparen'>(</span><span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:col_or_row</span> <span class='kw'>and</span> <span class='id index_or_header'>index_or_header</span><span class='period'>.</span><span class='id is_a?'>is_a?</span> <span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='ivar'>@table</span><span class='period'>.</span><span class='id delete_at'>delete_at</span><span class='lparen'>(</span><span class='id index_or_header'>index_or_header</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>                 <span class='comment'># by header
+</span>    <span class='ivar'>@table</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id row'>row</span><span class='op'>|</span> <span class='id row'>row</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id index_or_header'>index_or_header</span><span class='rparen'>)</span><span class='period'>.</span><span class='id last'>last</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete_if-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete_if</strong>(&amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Removes any column or row for which the block returns <tt>true</tt>.  In
+the default mixed mode or row mode, iteration is the standard row major
+walking of rows.  In column mode, interation will <tt>yield</tt> two
+element tuples containing the column name and an Array of values for that
+column.</p>
+
+<p>This method returns the table for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 782</span>
+
+<span class='kw'>def</span> <span class='id delete_if'>delete_if</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:row</span> <span class='kw'>or</span> <span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:col_or_row</span>  <span class='comment'># by index
+</span>    <span class='ivar'>@table</span><span class='period'>.</span><span class='id delete_if'>delete_if</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>                                      <span class='comment'># by header
+</span>    <span class='id to_delete'>to_delete</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id new'>new</span>
+    <span class='id headers'>headers</span><span class='period'>.</span><span class='id each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id header'>header</span><span class='comma'>,</span> <span class='id i'>i</span><span class='op'>|</span>
+      <span class='id to_delete'>to_delete</span> <span class='op'>&lt;&lt;</span> <span class='id header'>header</span> <span class='kw'>if</span> <span class='id block'>block</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='id header'>header</span><span class='comma'>,</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id header'>header</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='id to_delete'>to_delete</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id header'>header</span><span class='op'>|</span> <span class='id delete'>delete</span><span class='lparen'>(</span><span class='id header'>header</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>self</span>  <span class='comment'># for chaining
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>each</strong>(&amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>In the default mixed mode or row mode, iteration is the standard row major
+walking of rows.  In column mode, interation will <tt>yield</tt> two
+element tuples containing the column name and an Array of values for that
+column.</p>
+
+<p>This method returns the table for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+805
+806
+807
+808
+809
+810
+811
+812
+813</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 805</span>
+
+<span class='kw'>def</span> <span class='id each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:col</span>
+    <span class='id headers'>headers</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id header'>header</span><span class='op'>|</span> <span class='id block'>block</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='id header'>header</span><span class='comma'>,</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id header'>header</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@table</span><span class='period'>.</span><span class='id each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>self</span>  <span class='comment'># for chaining
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="headers-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>headers</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the headers for the first row of this table (assumed to match all
+other rows).  An empty Array is returned for empty tables.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+637
+638
+639
+640
+641
+642
+643</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 637</span>
+
+<span class='kw'>def</span> <span class='id headers'>headers</span>
+  <span class='kw'>if</span> <span class='ivar'>@table</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='const'>Array</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@table</span><span class='period'>.</span><span class='id first'>first</span><span class='period'>.</span><span class='id headers'>headers</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Shows the mode and size of this table in a US-ASCII String.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+854
+855
+856</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 854</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> mode:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@mode</span><span class='rbrace'>}</span><span class='tstring_content'> row_count:</span><span class='embexpr_beg'>#{</span><span class='id to_a'>to_a</span><span class='period'>.</span><span class='id size'>size</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id encode'>encode</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>US-ASCII</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="push-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>push</strong>(*rows) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A shortcut for appending multiple rows.  Equivalent to:</p>
+
+<pre class="code"><span class='id rows'>rows</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id row'>row</span><span class='op'>|</span> <span class='kw'>self</span> <span class='op'>&lt;&lt;</span> <span class='id row'>row</span> <span class='rbrace'>}</span></pre>
+
+<p>This method returns the table for chaining.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+754
+755
+756
+757
+758</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 754</span>
+
+<span class='kw'>def</span> <span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id rows'>rows</span><span class='rparen'>)</span>
+  <span class='id rows'>rows</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id row'>row</span><span class='op'>|</span> <span class='kw'>self</span> <span class='op'>&lt;&lt;</span> <span class='id row'>row</span> <span class='rbrace'>}</span>
+
+  <span class='kw'>self</span>  <span class='comment'># for chaining
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_a-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_a</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the table as an Array of Arrays.  Headers will be the first row,
+then all of the field rows will follow.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+824
+825
+826
+827
+828
+829
+830
+831
+832</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 824</span>
+
+<span class='kw'>def</span> <span class='id to_a'>to_a</span>
+  <span class='ivar'>@table</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id headers'>headers</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id array'>array</span><span class='comma'>,</span> <span class='id row'>row</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id row'>row</span><span class='period'>.</span><span class='id header_row?'>header_row?</span>
+      <span class='id array'>array</span>
+    <span class='kw'>else</span>
+      <span class='id array'>array</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id row'>row</span><span class='period'>.</span><span class='id fields'>fields</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_csv-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_csv</strong>(options = Hash.new) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='to_s-instance_method'>to_s</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the table as a complete CSV String.  Headers will be listed first,
+then all of the field rows.</p>
+
+<p>This method assumes you want the Table.headers(), unless you explicitly
+pass <tt>:write_headers =&gt; false</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 841</span>
+
+<span class='kw'>def</span> <span class='id to_csv'>to_csv</span><span class='lparen'>(</span><span class='id options'>options</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span><span class='rparen'>)</span>
+  <span class='id wh'>wh</span> <span class='op'>=</span> <span class='id options'>options</span><span class='period'>.</span><span class='id fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:write_headers</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='ivar'>@table</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='id wh'>wh</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='id headers'>headers</span><span class='period'>.</span><span class='id to_csv'>to_csv</span><span class='lparen'>(</span><span class='id options'>options</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='lbracket'>[</span> <span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id rows'>rows</span><span class='comma'>,</span> <span class='id row'>row</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id row'>row</span><span class='period'>.</span><span class='id header_row?'>header_row?</span>
+      <span class='id rows'>rows</span>
+    <span class='kw'>else</span>
+      <span class='id rows'>rows</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id row'>row</span><span class='period'>.</span><span class='id fields'>fields</span><span class='period'>.</span><span class='id to_csv'>to_csv</span><span class='lparen'>(</span><span class='id options'>options</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="values_at-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>values_at</strong>(*indices_or_headers) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The mixed mode default is to treat a list of indices as row access,
+returning the rows indicated.  Anything else is considered columnar access.
+For columnar access, the return set has an Array for each row with the
+values indicated by the headers in each Array.  You can force column or row
+mode using by_col!() or by_row!().</p>
+
+<p>You cannot mix column and row access.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/csv.rb', line 716</span>
+
+<span class='kw'>def</span> <span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='op'>*</span><span class='id indices_or_headers'>indices_or_headers</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:row</span> <span class='kw'>or</span>  <span class='comment'># by indices
+</span>     <span class='lparen'>(</span> <span class='ivar'>@mode</span> <span class='op'>==</span> <span class='symbol'>:col_or_row</span> <span class='kw'>and</span> <span class='id indices_or_headers'>indices_or_headers</span><span class='period'>.</span><span class='id all?'>all?</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id index'>index</span><span class='op'>|</span>
+                                  <span class='id index'>index</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>         <span class='kw'>or</span>
+                                  <span class='lparen'>(</span> <span class='id index'>index</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Range</span><span class='rparen'>)</span>         <span class='kw'>and</span>
+                                    <span class='id index'>index</span><span class='period'>.</span><span class='id first'>first</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='kw'>and</span>
+                                    <span class='id index'>index</span><span class='period'>.</span><span class='id last'>last</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+                                <span class='kw'>end</span> <span class='rparen'>)</span>
+    <span class='ivar'>@table</span><span class='period'>.</span><span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='op'>*</span><span class='id indices_or_headers'>indices_or_headers</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>                 <span class='comment'># by headers
+</span>    <span class='ivar'>@table</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id row'>row</span><span class='op'>|</span> <span class='id row'>row</span><span class='period'>.</span><span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='op'>*</span><span class='id indices_or_headers'>indices_or_headers</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:09:59 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

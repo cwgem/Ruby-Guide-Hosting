@@ -1,0 +1,4166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: WEBrick::HTTPRequest
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (H)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../WEBrick.html" title="WEBrick (module)">WEBrick</a></span></span>
+     &raquo; 
+    <span class="title">HTTPRequest</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: WEBrick::HTTPRequest
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">WEBrick::HTTPRequest</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/webrick/httprequest.rb<span class="defines">,<br />
+  lib/webrick/https.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>An HTTP request.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="BODY_CONTAINABLE_METHODS-constant" class="">BODY_CONTAINABLE_METHODS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>POST</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PUT</span><span class='tstring_end'>&quot;</span></span> <span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="MAX_URI_LENGTH-constant" class="">MAX_URI_LENGTH =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>2083</span></pre></dd>
+      
+        <dt id="PrivateNetworkRegexp-constant" class="">PrivateNetworkRegexp =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>
+  ^unknown$|
+  ^((::ffff:)?127.0.0.1|::1)$|
+  ^(::ffff:)?(10|172\.(1[6-9]|2[0-9]|3[01])|192\.168)\.
+</span><span class='regexp_end'>/ixo</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept-instance_method" title="#accept (instance method)">- (Object) <strong>accept</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute accept.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_charset-instance_method" title="#accept_charset (instance method)">- (Object) <strong>accept_charset</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute accept_charset.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_encoding-instance_method" title="#accept_encoding (instance method)">- (Object) <strong>accept_encoding</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute accept_encoding.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_language-instance_method" title="#accept_language (instance method)">- (Object) <strong>accept_language</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute accept_language.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#addr-instance_method" title="#addr (instance method)">- (Object) <strong>addr</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute addr.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#attributes-instance_method" title="#attributes (instance method)">- (Object) <strong>attributes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute attributes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cipher-instance_method" title="#cipher (instance method)">- (Object) <strong>cipher</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute cipher.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#client_cert-instance_method" title="#client_cert (instance method)">- (Object) <strong>client_cert</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute client_cert.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cookies-instance_method" title="#cookies (instance method)">- (Object) <strong>cookies</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:section: Header and entity body.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#header-instance_method" title="#header (instance method)">- (Object) <strong>header</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:section: Header and entity body.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#http_version-instance_method" title="#http_version (instance method)">- (Object) <strong>http_version</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute http_version.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#keep_alive-instance_method" title="#keep_alive (instance method)">- (Object) <strong>keep_alive</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute keep_alive.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path-instance_method" title="#path (instance method)">- (Object) <strong>path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:section: Request-URI.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_info-instance_method" title="#path_info (instance method)">- (Object) <strong>path_info</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute path_info.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#peeraddr-instance_method" title="#peeraddr (instance method)">- (Object) <strong>peeraddr</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute peeraddr.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query_string-instance_method" title="#query_string (instance method)">- (Object) <strong>query_string</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute query_string.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#raw_header-instance_method" title="#raw_header (instance method)">- (Object) <strong>raw_header</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:section: Header and entity body.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request_line-instance_method" title="#request_line (instance method)">- (Object) <strong>request_line</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:section: Request line.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request_method-instance_method" title="#request_method (instance method)">- (Object) <strong>request_method</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute request_method.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request_time-instance_method" title="#request_time (instance method)">- (Object) <strong>request_time</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute request_time.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request_uri-instance_method" title="#request_uri (instance method)">- (Object) <strong>request_uri</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:section: Request-URI.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#script_name-instance_method" title="#script_name (instance method)">- (Object) <strong>script_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute script_name.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#server_cert-instance_method" title="#server_cert (instance method)">- (Object) <strong>server_cert</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute server_cert.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unparsed_uri-instance_method" title="#unparsed_uri (instance method)">- (Object) <strong>unparsed_uri</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute unparsed_uri.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user-instance_method" title="#user (instance method)">- (Object) <strong>user</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:section:.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- (Object) <strong>[]</strong>(header_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves <tt>header_name</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#_read_data-instance_method" title="#_read_data (instance method)">- (Object) <strong>_read_data</strong>(io, method, *arg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#body-instance_method" title="#body (instance method)">- (Object) <strong>body</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#content_length-instance_method" title="#content_length (instance method)">- (Object) <strong>content_length</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The content-length header.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#content_type-instance_method" title="#content_type (instance method)">- (Object) <strong>content_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The content-type header.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#continue-instance_method" title="#continue (instance method)">- (Object) <strong>continue</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate HTTP/1.1 100 continue response if the client expects it, otherwise
+does nothing.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterates over the request headers.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fixup-instance_method" title="#fixup (instance method)">- (Object) <strong>fixup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#host-instance_method" title="#host (instance method)">- (Object) <strong>host</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The host this request is for.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (HTTPRequest) <strong>initialize</strong>(config) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of HTTPRequest.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#keep_alive%3F-instance_method" title="#keep_alive? (instance method)">- (Boolean) <strong>keep_alive?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Should the connection this request was made on be kept alive?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#meta_vars-instance_method" title="#meta_vars (instance method)">- (Object) <strong>meta_vars</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This method provides the metavariables defined by the revision 3 of "The
+WWW Common Gateway Interface Version 1.1" <a
+href="http://Web.Golux.Com/coar/cgi">Web.Golux.Com/coar/cgi</a>/.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#orig_meta_vars-instance_method" title="#orig_meta_vars (instance method)">- (Object) <strong>orig_meta_vars</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#orig_parse-instance_method" title="#orig_parse (instance method)">- (Object) <strong>orig_parse</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#orig_parse_uri-instance_method" title="#orig_parse_uri (instance method)">- (Object) <strong>orig_parse_uri</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse-instance_method" title="#parse (instance method)">- (Object) <strong>parse</strong>(socket = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_query-instance_method" title="#parse_query (instance method)">- (Object) <strong>parse_query</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_uri-instance_method" title="#parse_uri (instance method)">- (Object) <strong>parse_uri</strong>(str, scheme = &quot;http&quot;) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#port-instance_method" title="#port (instance method)">- (Object) <strong>port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The port this request is for.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query-instance_method" title="#query (instance method)">- (Object) <strong>query</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Request query as a Hash.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_body-instance_method" title="#read_body (instance method)">- (Object) <strong>read_body</strong>(socket, block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_chunk_size-instance_method" title="#read_chunk_size (instance method)">- (Object) <strong>read_chunk_size</strong>(socket) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_chunked-instance_method" title="#read_chunked (instance method)">- (Object) <strong>read_chunked</strong>(socket, block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_data-instance_method" title="#read_data (instance method)">- (Object) <strong>read_data</strong>(io, size) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_header-instance_method" title="#read_header (instance method)">- (Object) <strong>read_header</strong>(socket) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_line-instance_method" title="#read_line (instance method)">- (Object) <strong>read_line</strong>(io, size = 4096) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_request_line-instance_method" title="#read_request_line (instance method)">- (Object) <strong>read_request_line</strong>(socket) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remote_ip-instance_method" title="#remote_ip (instance method)">- (Object) <strong>remote_ip</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The client's IP address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#server_name-instance_method" title="#server_name (instance method)">- (Object) <strong>server_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The server name this request is for.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_forwarded_info-instance_method" title="#setup_forwarded_info (instance method)">- (Object) <strong>setup_forwarded_info</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>It's said that all X-Forwarded-* headers will contain more than one
+(comma-separated) value if the original request already contained one of
+these headers.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ssl%3F-instance_method" title="#ssl? (instance method)">- (Boolean) <strong>ssl?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Is this an SSL request?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="WEBrick::HTTPRequest (class)">HTTPRequest</a></span></tt>) <strong>initialize</strong>(config) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of HTTPRequest</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id config'>config</span><span class='rparen'>)</span>
+  <span class='ivar'>@config</span> <span class='op'>=</span> <span class='id config'>config</span>
+  <span class='ivar'>@buffer_size</span> <span class='op'>=</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:InputBufferSize</span><span class='rbracket'>]</span>
+  <span class='ivar'>@logger</span> <span class='op'>=</span> <span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:Logger</span><span class='rbracket'>]</span>
+
+  <span class='ivar'>@request_line</span> <span class='op'>=</span> <span class='ivar'>@request_method</span> <span class='op'>=</span>
+    <span class='ivar'>@unparsed_uri</span> <span class='op'>=</span> <span class='ivar'>@http_version</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@request_uri</span> <span class='op'>=</span> <span class='ivar'>@host</span> <span class='op'>=</span> <span class='ivar'>@port</span> <span class='op'>=</span> <span class='ivar'>@path</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@script_name</span> <span class='op'>=</span> <span class='ivar'>@path_info</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@query_string</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@query</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@form_data</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@raw_header</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@header</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@cookies</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@accept</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@accept_charset</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@accept_encoding</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@accept_language</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='ivar'>@addr</span> <span class='op'>=</span> <span class='ivar'>@peeraddr</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@attributes</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@keep_alive</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@request_time</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@remaining_size</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@socket</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@forwarded_proto</span> <span class='op'>=</span> <span class='ivar'>@forwarded_host</span> <span class='op'>=</span> <span class='ivar'>@forwarded_port</span> <span class='op'>=</span>
+    <span class='ivar'>@forwarded_server</span> <span class='op'>=</span> <span class='ivar'>@forwarded_for</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="accept-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="accept-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute accept</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id accept'>accept</span>
+  <span class='ivar'>@accept</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="accept_charset-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="accept_charset-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_charset</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute accept_charset</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id accept_charset'>accept_charset</span>
+  <span class='ivar'>@accept_charset</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="accept_encoding-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="accept_encoding-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_encoding</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute accept_encoding</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id accept_encoding'>accept_encoding</span>
+  <span class='ivar'>@accept_encoding</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="accept_language-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="accept_language-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept_language</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute accept_language</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id accept_language'>accept_language</span>
+  <span class='ivar'>@accept_language</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="addr-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="addr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>addr</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute addr</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id addr'>addr</span>
+  <span class='ivar'>@addr</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="attributes-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="attributes-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>attributes</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute attributes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id attributes'>attributes</span>
+  <span class='ivar'>@attributes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="cipher-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="cipher-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>cipher</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute cipher</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/https.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='id cipher'>cipher</span>
+  <span class='ivar'>@cipher</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="client_cert-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="client_cert-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>client_cert</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute client_cert</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/https.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='id client_cert'>client_cert</span>
+  <span class='ivar'>@client_cert</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="cookies-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="cookies-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>cookies</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:section: Header and entity body</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id cookies'>cookies</span>
+  <span class='ivar'>@cookies</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="header-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="header-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>header</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:section: Header and entity body</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id header'>header</span>
+  <span class='ivar'>@header</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="http_version-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="http_version-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>http_version</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute http_version</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id http_version'>http_version</span>
+  <span class='ivar'>@http_version</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="keep_alive-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="keep_alive-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>keep_alive</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute keep_alive</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id keep_alive'>keep_alive</span>
+  <span class='ivar'>@keep_alive</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="path-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>path</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:section: Request-URI</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id path'>path</span>
+  <span class='ivar'>@path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="path_info=-instance_method"></span>
+      <span id="path_info-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="path_info-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>path_info</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute path_info</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id path_info'>path_info</span>
+  <span class='ivar'>@path_info</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="peeraddr-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="peeraddr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>peeraddr</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute peeraddr</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id peeraddr'>peeraddr</span>
+  <span class='ivar'>@peeraddr</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="query_string=-instance_method"></span>
+      <span id="query_string-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="query_string-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>query_string</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute query_string</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id query_string'>query_string</span>
+  <span class='ivar'>@query_string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="raw_header-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="raw_header-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>raw_header</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:section: Header and entity body</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id raw_header'>raw_header</span>
+  <span class='ivar'>@raw_header</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="request_line-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="request_line-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>request_line</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:section: Request line</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id request_line'>request_line</span>
+  <span class='ivar'>@request_line</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="request_method-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="request_method-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>request_method</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute request_method</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id request_method'>request_method</span>
+  <span class='ivar'>@request_method</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="request_time-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="request_time-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>request_time</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute request_time</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id request_time'>request_time</span>
+  <span class='ivar'>@request_time</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="request_uri-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="request_uri-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>request_uri</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:section: Request-URI</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id request_uri'>request_uri</span>
+  <span class='ivar'>@request_uri</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="script_name=-instance_method"></span>
+      <span id="script_name-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="script_name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>script_name</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute script_name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id script_name'>script_name</span>
+  <span class='ivar'>@script_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="server_cert-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="server_cert-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>server_cert</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute server_cert</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/https.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='id server_cert'>server_cert</span>
+  <span class='ivar'>@server_cert</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="unparsed_uri-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="unparsed_uri-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>unparsed_uri</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute unparsed_uri</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id unparsed_uri'>unparsed_uri</span>
+  <span class='ivar'>@unparsed_uri</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="user=-instance_method"></span>
+      <span id="user-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="user-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>user</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:section:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id user'>user</span>
+  <span class='ivar'>@user</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="[]-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]</strong>(header_name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves <tt>header_name</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+171
+172
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 171</span>
+
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id header_name'>header_name</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@header</span>
+    <span class='id value'>value</span> <span class='op'>=</span> <span class='ivar'>@header</span><span class='lbracket'>[</span><span class='id header_name'>header_name</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rbracket'>]</span>
+    <span class='id value'>value</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='id value'>value</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="_read_data-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>_read_data</strong>(io, method, *arg) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 396</span>
+
+<span class='kw'>def</span> <span class='id _read_data'>_read_data</span><span class='lparen'>(</span><span class='id io'>io</span><span class='comma'>,</span> <span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id arg'>arg</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='const'>WEBrick</span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id timeout'>timeout</span><span class='lparen'>(</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:RequestTimeout</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbrace'>{</span>
+      <span class='kw'>return</span> <span class='id io'>io</span><span class='period'>.</span><span class='id __send__'>__send__</span><span class='lparen'>(</span><span class='id method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id arg'>arg</span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ECONNRESET</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>rescue</span> <span class='const'>TimeoutError</span>
+    <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>RequestTimeout</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="body-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>body</strong>(&amp;block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 138</span>
+
+<span class='kw'>def</span> <span class='id body'>body</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id block'>block</span> <span class='op'>||=</span> <span class='const'>Proc</span><span class='period'>.</span><span class='id new'>new</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id chunk'>chunk</span><span class='op'>|</span> <span class='ivar'>@body</span> <span class='op'>&lt;&lt;</span> <span class='id chunk'>chunk</span> <span class='rbrace'>}</span>
+  <span class='id read_body'>read_body</span><span class='lparen'>(</span><span class='ivar'>@socket</span><span class='comma'>,</span> <span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@body</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='ivar'>@body</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="content_length-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>content_length</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The content-length header</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 157</span>
+
+<span class='kw'>def</span> <span class='id content_length'>content_length</span>
+  <span class='kw'>return</span> <span class='const'>Integer</span><span class='lparen'>(</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content-length</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="content_type-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>content_type</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The content-type header</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 164</span>
+
+<span class='kw'>def</span> <span class='id content_type'>content_type</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content-type</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="continue-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>continue</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate HTTP/1.1 100 continue response if the client expects it, otherwise
+does nothing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133
+134
+135
+136</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id continue'>continue</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>expect</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>100-continue</span><span class='tstring_end'>'</span></span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:HTTPVersion</span><span class='rbracket'>]</span> <span class='op'>&gt;=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1.1</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@socket</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HTTP/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:HTTPVersion</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'> 100 continue</span><span class='embexpr_beg'>#{</span><span class='const'>CRLF</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='const'>CRLF</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@header</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>expect</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="each-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>each</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterates over the request headers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183
+184
+185
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 181</span>
+
+<span class='kw'>def</span> <span class='id each'>each</span>
+  <span class='kw'>if</span> <span class='ivar'>@header</span>
+    <span class='ivar'>@header</span><span class='period'>.</span><span class='id each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span> <span class='id v'>v</span><span class='op'>|</span>
+      <span class='id value'>value</span> <span class='op'>=</span> <span class='ivar'>@header</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span>
+      <span class='kw'>yield</span><span class='lparen'>(</span><span class='id k'>k</span><span class='comma'>,</span> <span class='id value'>value</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='id value'>value</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fixup-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fixup</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 240</span>
+
+<span class='kw'>def</span> <span class='id fixup'>fixup</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id body'>body</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id chunk'>chunk</span><span class='op'>|</span> <span class='rbrace'>}</span>   <span class='comment'># read remaining body
+</span>  <span class='kw'>rescue</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>Error</span> <span class='op'>=&gt;</span> <span class='id ex'>ex</span>
+    <span class='ivar'>@logger</span><span class='period'>.</span><span class='id error'>error</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HTTPRequest#fixup: </span><span class='embexpr_beg'>#{</span><span class='id ex'>ex</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> occured.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='ivar'>@keep_alive</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id ex'>ex</span>
+    <span class='ivar'>@logger</span><span class='period'>.</span><span class='id error'>error</span><span class='lparen'>(</span><span class='id ex'>ex</span><span class='rparen'>)</span>
+    <span class='ivar'>@keep_alive</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="host-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>host</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The host this request is for</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193
+194
+195</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 193</span>
+
+<span class='kw'>def</span> <span class='id host'>host</span>
+  <span class='kw'>return</span> <span class='ivar'>@forwarded_host</span> <span class='op'>||</span> <span class='ivar'>@host</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="keep_alive?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>keep_alive?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Should the connection this request was made on be kept alive?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+228
+229
+230</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 228</span>
+
+<span class='kw'>def</span> <span class='id keep_alive?'>keep_alive?</span>
+  <span class='ivar'>@keep_alive</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="meta_vars-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>meta_vars</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>This method provides the metavariables defined by the revision 3 of "The
+WWW Common Gateway Interface Version 1.1" <a
+href="http://Web.Golux.Com/coar/cgi">Web.Golux.Com/coar/cgi</a>/</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 256</span>
+
+<span class='kw'>def</span> <span class='id meta_vars'>meta_vars</span>
+  <span class='id meta'>meta</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span>
+
+  <span class='id cl'>cl</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content-Length</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='id ct'>ct</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content-Type</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CONTENT_LENGTH</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>    <span class='op'>=</span> <span class='id cl'>cl</span> <span class='kw'>if</span> <span class='id cl'>cl</span><span class='period'>.</span><span class='id to_i'>to_i</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CONTENT_TYPE</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>      <span class='op'>=</span> <span class='id ct'>ct</span><span class='period'>.</span><span class='id dup'>dup</span> <span class='kw'>if</span> <span class='id ct'>ct</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GATEWAY_INTERFACE</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CGI/1.1</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PATH_INFO</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>         <span class='op'>=</span> <span class='ivar'>@path_info</span> <span class='op'>?</span> <span class='ivar'>@path_info</span><span class='period'>.</span><span class='id dup'>dup</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+ <span class='comment'>#meta[&quot;PATH_TRANSLATED&quot;]   = nil      # no plan to be provided
+</span>  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>QUERY_STRING</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>      <span class='op'>=</span> <span class='ivar'>@query_string</span> <span class='op'>?</span> <span class='ivar'>@query_string</span><span class='period'>.</span><span class='id dup'>dup</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>REMOTE_ADDR</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>       <span class='op'>=</span> <span class='ivar'>@peeraddr</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>REMOTE_HOST</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>       <span class='op'>=</span> <span class='ivar'>@peeraddr</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+ <span class='comment'>#meta[&quot;REMOTE_IDENT&quot;]      = nil      # no plan to be provided
+</span>  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>REMOTE_USER</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>       <span class='op'>=</span> <span class='ivar'>@user</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>REQUEST_METHOD</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>    <span class='op'>=</span> <span class='ivar'>@request_method</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>REQUEST_URI</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>       <span class='op'>=</span> <span class='ivar'>@request_uri</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SCRIPT_NAME</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>       <span class='op'>=</span> <span class='ivar'>@script_name</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SERVER_NAME</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>       <span class='op'>=</span> <span class='ivar'>@host</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SERVER_PORT</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>       <span class='op'>=</span> <span class='ivar'>@port</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SERVER_PROTOCOL</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>   <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HTTP/</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:HTTPVersion</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SERVER_SOFTWARE</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>   <span class='op'>=</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:ServerSoftware</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id dup'>dup</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id key'>key</span><span class='comma'>,</span> <span class='id val'>val</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^content-type$</span><span class='regexp_end'>/i</span></span> <span class='op'>=~</span> <span class='id key'>key</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^content-length$</span><span class='regexp_end'>/i</span></span> <span class='op'>=~</span> <span class='id key'>key</span>
+    <span class='id name'>name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HTTP_</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id key'>key</span>
+    <span class='id name'>name</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>-</span><span class='regexp_end'>/o</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id name'>name</span><span class='period'>.</span><span class='id upcase!'>upcase!</span>
+    <span class='id meta'>meta</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id val'>val</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id meta'>meta</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="orig_meta_vars-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>orig_meta_vars</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/https.rb', line 43</span>
+
+<span class='kw'>alias</span> <span class='id orig_meta_vars'>orig_meta_vars</span> <span class='id meta_vars'>meta_vars</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="orig_parse-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>orig_parse</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/https.rb', line 21</span>
+
+<span class='kw'>alias</span> <span class='id orig_parse'>orig_parse</span> <span class='id parse'>parse</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="orig_parse_uri-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>orig_parse_uri</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/https.rb', line 33</span>
+
+<span class='kw'>alias</span> <span class='id orig_parse_uri'>orig_parse_uri</span> <span class='id parse_uri'>parse_uri</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parse-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parse</strong>(socket = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/https.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id parse'>parse</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@socket</span> <span class='op'>=</span> <span class='id socket'>socket</span>
+  <span class='kw'>begin</span>
+    <span class='ivar'>@peeraddr</span> <span class='op'>=</span> <span class='id socket'>socket</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:peeraddr</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id socket'>socket</span><span class='period'>.</span><span class='id peeraddr'>peeraddr</span> <span class='op'>:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='ivar'>@addr</span> <span class='op'>=</span> <span class='id socket'>socket</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:addr</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id socket'>socket</span><span class='period'>.</span><span class='id addr'>addr</span> <span class='op'>:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOTCONN</span>
+    <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>EOFError</span>
+  <span class='kw'>end</span>
+
+  <span class='id read_request_line'>read_request_line</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@http_version</span><span class='period'>.</span><span class='id major'>major</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id read_header'>read_header</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>
+    <span class='ivar'>@header</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>cookie</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id cookie'>cookie</span><span class='op'>|</span>
+      <span class='ivar'>@cookies</span> <span class='op'>+=</span> <span class='const'>Cookie</span><span class='op'>::</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id cookie'>cookie</span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span>
+    <span class='ivar'>@accept</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='period'>.</span><span class='id parse_qvalues'>parse_qvalues</span><span class='lparen'>(</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>accept</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='ivar'>@accept_charset</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='period'>.</span><span class='id parse_qvalues'>parse_qvalues</span><span class='lparen'>(</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>accept-charset</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='ivar'>@accept_encoding</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='period'>.</span><span class='id parse_qvalues'>parse_qvalues</span><span class='lparen'>(</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>accept-encoding</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='ivar'>@accept_language</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='period'>.</span><span class='id parse_qvalues'>parse_qvalues</span><span class='lparen'>(</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>accept-language</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@request_method</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CONNECT</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@unparsed_uri</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>begin</span>
+    <span class='id setup_forwarded_info'>setup_forwarded_info</span>
+    <span class='ivar'>@request_uri</span> <span class='op'>=</span> <span class='id parse_uri'>parse_uri</span><span class='lparen'>(</span><span class='ivar'>@unparsed_uri</span><span class='rparen'>)</span>
+    <span class='ivar'>@path</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='op'>::</span><span class='id unescape'>unescape</span><span class='lparen'>(</span><span class='ivar'>@request_uri</span><span class='period'>.</span><span class='id path'>path</span><span class='rparen'>)</span>
+    <span class='ivar'>@path</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='op'>::</span><span class='id normalize_path'>normalize_path</span><span class='lparen'>(</span><span class='ivar'>@path</span><span class='rparen'>)</span>
+    <span class='ivar'>@host</span> <span class='op'>=</span> <span class='ivar'>@request_uri</span><span class='period'>.</span><span class='id host'>host</span>
+    <span class='ivar'>@port</span> <span class='op'>=</span> <span class='ivar'>@request_uri</span><span class='period'>.</span><span class='id port'>port</span>
+    <span class='ivar'>@query_string</span> <span class='op'>=</span> <span class='ivar'>@request_uri</span><span class='period'>.</span><span class='id query'>query</span>
+    <span class='ivar'>@script_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@path_info</span> <span class='op'>=</span> <span class='ivar'>@path</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='kw'>rescue</span>
+    <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>BadRequest</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad URI `</span><span class='embexpr_beg'>#{</span><span class='ivar'>@unparsed_uri</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>close</span><span class='regexp_end'>/io</span></span> <span class='op'>=~</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>connection</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='ivar'>@keep_alive</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>elsif</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>keep-alive</span><span class='regexp_end'>/io</span></span> <span class='op'>=~</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>connection</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='ivar'>@keep_alive</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>elsif</span> <span class='ivar'>@http_version</span> <span class='op'>&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1.1</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@keep_alive</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@keep_alive</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parse_query-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parse_query</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 416</span>
+
+<span class='kw'>def</span> <span class='id parse_query'>parse_query</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='kw'>if</span> <span class='ivar'>@request_method</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GET</span><span class='tstring_end'>&quot;</span></span> <span class='op'>||</span> <span class='ivar'>@request_method</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HEAD</span><span class='tstring_end'>&quot;</span></span>
+      <span class='ivar'>@query</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='op'>::</span><span class='id parse_query'>parse_query</span><span class='lparen'>(</span><span class='ivar'>@query_string</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content-type</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^application\/x-www-form-urlencoded</span><span class='regexp_end'>/</span></span>
+      <span class='ivar'>@query</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='op'>::</span><span class='id parse_query'>parse_query</span><span class='lparen'>(</span><span class='id body'>body</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content-type</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^multipart\/form-data; boundary=(.+)</span><span class='regexp_end'>/</span></span>
+      <span class='id boundary'>boundary</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='op'>::</span><span class='id dequote'>dequote</span><span class='lparen'>(</span><span class='backref'>$1</span><span class='rparen'>)</span>
+      <span class='ivar'>@query</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='op'>::</span><span class='id parse_form_data'>parse_form_data</span><span class='lparen'>(</span><span class='id body'>body</span><span class='comma'>,</span> <span class='id boundary'>boundary</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@query</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span>
+    <span class='kw'>end</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id ex'>ex</span>
+    <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>BadRequest</span><span class='comma'>,</span> <span class='id ex'>ex</span><span class='period'>.</span><span class='id message'>message</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parse_uri-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parse_uri</strong>(str, scheme = &quot;http&quot;) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/https.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id parse_uri'>parse_uri</span><span class='lparen'>(</span><span class='id str'>str</span><span class='comma'>,</span> <span class='id scheme'>scheme</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:Escape8bitURI</span><span class='rbracket'>]</span>
+    <span class='id str'>str</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='op'>::</span><span class='id escape8bit'>escape8bit</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id str'>str</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>\A/+</span><span class='regexp_end'>}o</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='op'>::</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id uri'>uri</span> <span class='kw'>if</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id absolute?'>absolute?</span>
+  <span class='kw'>if</span> <span class='ivar'>@forwarded_host</span>
+    <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='ivar'>@forwarded_host</span><span class='comma'>,</span> <span class='ivar'>@forwarded_port</span>
+  <span class='kw'>elsif</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>host</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id pattern'>pattern</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(</span><span class='embexpr_beg'>#{</span><span class='const'>URI</span><span class='op'>::</span><span class='const'>REGEXP</span><span class='op'>::</span><span class='const'>PATTERN</span><span class='op'>::</span><span class='const'>HOST</span><span class='rbrace'>}</span><span class='tstring_content'>)(?::(\d+))?\z</span><span class='regexp_end'>/n</span></span>
+    <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>host</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>elsif</span> <span class='ivar'>@addr</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='ivar'>@addr</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@addr</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span> <span class='op'>=</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:ServerName</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:Port</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='id uri'>uri</span><span class='period'>.</span><span class='id scheme'>scheme</span> <span class='op'>=</span> <span class='ivar'>@forwarded_proto</span> <span class='op'>||</span> <span class='id scheme'>scheme</span>
+  <span class='id uri'>uri</span><span class='period'>.</span><span class='id host'>host</span> <span class='op'>=</span> <span class='id host'>host</span>
+  <span class='id uri'>uri</span><span class='period'>.</span><span class='id port'>port</span> <span class='op'>=</span> <span class='id port'>port</span> <span class='op'>?</span> <span class='id port'>port</span><span class='period'>.</span><span class='id to_i'>to_i</span> <span class='op'>:</span> <span class='kw'>nil</span>
+  <span class='kw'>return</span> <span class='const'>URI</span><span class='op'>::</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="port-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The port this request is for</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+200
+201
+202</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 200</span>
+
+<span class='kw'>def</span> <span class='id port'>port</span>
+  <span class='kw'>return</span> <span class='ivar'>@forwarded_port</span> <span class='op'>||</span> <span class='ivar'>@port</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="query-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>query</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Request query as a Hash</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149
+150
+151
+152</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id query'>query</span>
+  <span class='kw'>unless</span> <span class='ivar'>@query</span>
+    <span class='id parse_query'>parse_query</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@query</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_body-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_body</strong>(socket, block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 345</span>
+
+<span class='kw'>def</span> <span class='id read_body'>read_body</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='comma'>,</span> <span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id socket'>socket</span>
+  <span class='kw'>if</span> <span class='id tc'>tc</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>transfer-encoding</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+    <span class='kw'>case</span> <span class='id tc'>tc</span>
+    <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>chunked</span><span class='regexp_end'>/io</span></span> <span class='kw'>then</span> <span class='id read_chunked'>read_chunked</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='comma'>,</span> <span class='id block'>block</span><span class='rparen'>)</span>
+    <span class='kw'>else</span> <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>NotImplemented</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Transfer-Encoding: </span><span class='embexpr_beg'>#{</span><span class='id tc'>tc</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>elsif</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content-length</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@remaining_size</span>
+    <span class='ivar'>@remaining_size</span> <span class='op'>||=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content-length</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+    <span class='kw'>while</span> <span class='ivar'>@remaining_size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+      <span class='id sz'>sz</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='ivar'>@buffer_size</span><span class='comma'>,</span> <span class='ivar'>@remaining_size</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id min'>min</span>
+      <span class='kw'>break</span> <span class='kw'>unless</span> <span class='id buf'>buf</span> <span class='op'>=</span> <span class='id read_data'>read_data</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='comma'>,</span> <span class='id sz'>sz</span><span class='rparen'>)</span>
+      <span class='ivar'>@remaining_size</span> <span class='op'>-=</span> <span class='id buf'>buf</span><span class='period'>.</span><span class='id bytesize'>bytesize</span>
+      <span class='id block'>block</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id buf'>buf</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='ivar'>@remaining_size</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@socket</span><span class='period'>.</span><span class='id eof?'>eof?</span>
+      <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>BadRequest</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid body size.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>elsif</span> <span class='const'>BODY_CONTAINABLE_METHODS</span><span class='period'>.</span><span class='id member?'>member?</span><span class='lparen'>(</span><span class='ivar'>@request_method</span><span class='rparen'>)</span>
+    <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>LengthRequired</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='ivar'>@body</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_chunk_size-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_chunk_size</strong>(socket) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 369</span>
+
+<span class='kw'>def</span> <span class='id read_chunk_size'>read_chunk_size</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>
+  <span class='id line'>line</span> <span class='op'>=</span> <span class='id read_line'>read_line</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^([0-9a-fA-F]+)(?:;(\S+))?</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id line'>line</span>
+    <span class='id chunk_size'>chunk_size</span> <span class='op'>=</span> <span class='backref'>$1</span><span class='period'>.</span><span class='id hex'>hex</span>
+    <span class='id chunk_ext'>chunk_ext</span> <span class='op'>=</span> <span class='backref'>$2</span>
+    <span class='lbracket'>[</span> <span class='id chunk_size'>chunk_size</span><span class='comma'>,</span> <span class='id chunk_ext'>chunk_ext</span> <span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>BadRequest</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad chunk `</span><span class='embexpr_beg'>#{</span><span class='id line'>line</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_chunked-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_chunked</strong>(socket, block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 380</span>
+
+<span class='kw'>def</span> <span class='id read_chunked'>read_chunked</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='comma'>,</span> <span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id chunk_size'>chunk_size</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id read_chunk_size'>read_chunk_size</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>
+  <span class='kw'>while</span> <span class='id chunk_size'>chunk_size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id data'>data</span> <span class='op'>=</span> <span class='id read_data'>read_data</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='comma'>,</span> <span class='id chunk_size'>chunk_size</span><span class='rparen'>)</span> <span class='comment'># read chunk-data
+</span>    <span class='kw'>if</span> <span class='id data'>data</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id data'>data</span><span class='period'>.</span><span class='id bytesize'>bytesize</span> <span class='op'>!=</span> <span class='id chunk_size'>chunk_size</span>
+      <span class='id raise'>raise</span> <span class='const'>BadRequest</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad chunk data size.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id read_line'>read_line</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>                    <span class='comment'># skip CRLF
+</span>    <span class='id block'>block</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+    <span class='id chunk_size'>chunk_size</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id read_chunk_size'>read_chunk_size</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id read_header'>read_header</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>                    <span class='comment'># trailer + CRLF
+</span>  <span class='ivar'>@header</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>transfer-encoding</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@remaining_size</span> <span class='op'>=</span> <span class='int'>0</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_data-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_data</strong>(io, size) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+412
+413
+414</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 412</span>
+
+<span class='kw'>def</span> <span class='id read_data'>read_data</span><span class='lparen'>(</span><span class='id io'>io</span><span class='comma'>,</span> <span class='id size'>size</span><span class='rparen'>)</span>
+  <span class='id _read_data'>_read_data</span><span class='lparen'>(</span><span class='id io'>io</span><span class='comma'>,</span> <span class='symbol'>:read</span><span class='comma'>,</span> <span class='id size'>size</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_header-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_header</strong>(socket) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+312
+313
+314
+315
+316
+317
+318
+319
+320</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 312</span>
+
+<span class='kw'>def</span> <span class='id read_header'>read_header</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id socket'>socket</span>
+    <span class='kw'>while</span> <span class='id line'>line</span> <span class='op'>=</span> <span class='id read_line'>read_line</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>
+      <span class='kw'>break</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(</span><span class='embexpr_beg'>#{</span><span class='const'>CRLF</span><span class='rbrace'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='const'>LF</span><span class='rbrace'>}</span><span class='tstring_content'>)\z</span><span class='regexp_end'>/om</span></span> <span class='op'>=~</span> <span class='id line'>line</span>
+      <span class='ivar'>@raw_header</span> <span class='op'>&lt;&lt;</span> <span class='id line'>line</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@header</span> <span class='op'>=</span> <span class='const'>HTTPUtils</span><span class='op'>::</span><span class='id parse_header'>parse_header</span><span class='lparen'>(</span><span class='ivar'>@raw_header</span><span class='period'>.</span><span class='id join'>join</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_line-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_line</strong>(io, size = 4096) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+408
+409
+410</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 408</span>
+
+<span class='kw'>def</span> <span class='id read_line'>read_line</span><span class='lparen'>(</span><span class='id io'>io</span><span class='comma'>,</span> <span class='id size'>size</span><span class='op'>=</span><span class='int'>4096</span><span class='rparen'>)</span>
+  <span class='id _read_data'>_read_data</span><span class='lparen'>(</span><span class='id io'>io</span><span class='comma'>,</span> <span class='symbol'>:gets</span><span class='comma'>,</span> <span class='const'>LF</span><span class='comma'>,</span> <span class='id size'>size</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read_request_line-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read_request_line</strong>(socket) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="HTTPStatus/EOFError.html" title="WEBrick::HTTPStatus::EOFError (class)">HTTPStatus::EOFError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 295</span>
+
+<span class='kw'>def</span> <span class='id read_request_line'>read_request_line</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='rparen'>)</span>
+  <span class='ivar'>@request_line</span> <span class='op'>=</span> <span class='id read_line'>read_line</span><span class='lparen'>(</span><span class='id socket'>socket</span><span class='comma'>,</span> <span class='const'>MAX_URI_LENGTH</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id socket'>socket</span>
+  <span class='kw'>if</span> <span class='ivar'>@request_line</span><span class='period'>.</span><span class='id bytesize'>bytesize</span> <span class='op'>&gt;=</span> <span class='const'>MAX_URI_LENGTH</span> <span class='kw'>and</span> <span class='ivar'>@request_line</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='const'>LF</span>
+    <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>RequestURITooLarge</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@request_time</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span>
+  <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>EOFError</span> <span class='kw'>unless</span> <span class='ivar'>@request_line</span>
+  <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^(\S+)\s+(\S++)(?:\s+HTTP\/(\d+\.\d+))?\r?\n</span><span class='regexp_end'>/mo</span></span> <span class='op'>=~</span> <span class='ivar'>@request_line</span>
+    <span class='ivar'>@request_method</span> <span class='op'>=</span> <span class='backref'>$1</span>
+    <span class='ivar'>@unparsed_uri</span>   <span class='op'>=</span> <span class='backref'>$2</span>
+    <span class='ivar'>@http_version</span>   <span class='op'>=</span> <span class='const'>HTTPVersion</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='backref'>$3</span> <span class='op'>?</span> <span class='backref'>$3</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.9</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id rl'>rl</span> <span class='op'>=</span> <span class='ivar'>@request_line</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\x0d?\x0a\z</span><span class='regexp_end'>/o</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='id raise'>raise</span> <span class='const'>HTTPStatus</span><span class='op'>::</span><span class='const'>BadRequest</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bad Request-Line `</span><span class='embexpr_beg'>#{</span><span class='id rl'>rl</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remote_ip-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>remote_ip</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The client's IP address</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+214
+215
+216</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 214</span>
+
+<span class='kw'>def</span> <span class='id remote_ip'>remote_ip</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>client-ip</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@forwarded_for</span> <span class='op'>||</span> <span class='ivar'>@peeraddr</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="server_name-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>server_name</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The server name this request is for</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 207</span>
+
+<span class='kw'>def</span> <span class='id server_name'>server_name</span>
+  <span class='kw'>return</span> <span class='ivar'>@forwarded_server</span> <span class='op'>||</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:ServerName</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="setup_forwarded_info-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>setup_forwarded_info</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>It's said that all X-Forwarded-* headers will contain more than one
+(comma-separated) value if the original request already contained one of
+these headers. Since we could use these values as Host header, we choose
+the initial(first) value. (apr_table_mergen() adds new value after the
+existing value with ", " prefix)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 444</span>
+
+<span class='kw'>def</span> <span class='id setup_forwarded_info'>setup_forwarded_info</span>
+  <span class='kw'>if</span> <span class='ivar'>@forwarded_server</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>x-forwarded-server</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='ivar'>@forwarded_server</span> <span class='op'>=</span> <span class='ivar'>@forwarded_server</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id first'>first</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@forwarded_proto</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>x-forwarded-proto</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id host_port'>host_port</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>x-forwarded-host</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id host_port'>host_port</span> <span class='op'>=</span> <span class='id host_port'>host_port</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id first'>first</span>
+    <span class='ivar'>@forwarded_host</span><span class='comma'>,</span> <span class='id tmp'>tmp</span> <span class='op'>=</span> <span class='id host_port'>host_port</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+    <span class='ivar'>@forwarded_port</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id tmp'>tmp</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='ivar'>@forwarded_proto</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https</span><span class='tstring_end'>&quot;</span></span> <span class='op'>?</span> <span class='int'>443</span> <span class='op'>:</span> <span class='int'>80</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id addrs'>addrs</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>x-forwarded-for</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id addrs'>addrs</span> <span class='op'>=</span> <span class='id addrs'>addrs</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:strip</span><span class='rparen'>)</span>
+    <span class='id addrs'>addrs</span><span class='period'>.</span><span class='id reject!'>reject!</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id ip'>ip</span><span class='op'>|</span> <span class='const'>PrivateNetworkRegexp</span> <span class='op'>=~</span> <span class='id ip'>ip</span> <span class='rbrace'>}</span>
+    <span class='ivar'>@forwarded_for</span> <span class='op'>=</span> <span class='id addrs'>addrs</span><span class='period'>.</span><span class='id first'>first</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ssl?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>ssl?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Is this an SSL request?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+221
+222
+223</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 221</span>
+
+<span class='kw'>def</span> <span class='id ssl?'>ssl?</span>
+  <span class='kw'>return</span> <span class='ivar'>@request_uri</span><span class='period'>.</span><span class='id scheme'>scheme</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+232
+233
+234
+235
+236
+237
+238</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/httprequest.rb', line 232</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span> <span class='comment'># :nodoc:
+</span>  <span class='id ret'>ret</span> <span class='op'>=</span> <span class='ivar'>@request_line</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='ivar'>@raw_header</span><span class='period'>.</span><span class='id each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span> <span class='id ret'>ret</span> <span class='op'>&lt;&lt;</span> <span class='id line'>line</span> <span class='rbrace'>}</span>
+  <span class='id ret'>ret</span> <span class='op'>&lt;&lt;</span> <span class='const'>CRLF</span>
+  <span class='id ret'>ret</span> <span class='op'>&lt;&lt;</span> <span class='id body'>body</span> <span class='kw'>if</span> <span class='id body'>body</span>
+  <span class='id ret'>ret</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:08 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

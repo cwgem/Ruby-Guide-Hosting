@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: REXML::Validation::Validator
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (V)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../REXML.html" title="REXML (module)">REXML</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Validation.html" title="REXML::Validation (module)">Validation</a></span></span>
+     &raquo; 
+    <span class="title">Validator</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: REXML::Validation::Validator
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="RelaxNG.html" title="REXML::Validation::RelaxNG (class)">RelaxNG</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rexml/validation/validation.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="NILEVENT-constant" class="">NILEVENT =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='kw'>nil</span> <span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump-instance_method" title="#dump (instance method)">- (Object) <strong>dump</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reset-instance_method" title="#reset (instance method)">- (Object) <strong>reset</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validate-instance_method" title="#validate (instance method)">- (Object) <strong>validate</strong>(event) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="dump-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>dump</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/validation/validation.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id dump'>dump</span>
+  <span class='id puts'>puts</span> <span class='ivar'>@root</span><span class='period'>.</span><span class='id inspect'>inspect</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="reset-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>reset</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/validation/validation.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id reset'>reset</span>
+  <span class='ivar'>@current</span> <span class='op'>=</span> <span class='ivar'>@root</span>
+  <span class='ivar'>@root</span><span class='period'>.</span><span class='id reset'>reset</span>
+  <span class='ivar'>@root</span><span class='period'>.</span><span class='id previous'>previous</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='ivar'>@attr_stack</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="validate-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>validate</strong>(event) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ValidationException.html" title="REXML::Validation::ValidationException (class)">ValidationException</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rexml/validation/validation.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id validate'>validate</span><span class='lparen'>(</span> <span class='id event'>event</span> <span class='rparen'>)</span>
+  <span class='comment'>#puts &quot;Current: #@current&quot;
+</span>  <span class='comment'>#puts &quot;Event: #{event.inspect}&quot;
+</span>  <span class='ivar'>@attr_stack</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='kw'>defined?</span> <span class='ivar'>@attr_stack</span>
+  <span class='id match'>match</span> <span class='op'>=</span> <span class='ivar'>@current</span><span class='period'>.</span><span class='id next'>next</span><span class='lparen'>(</span><span class='id event'>event</span><span class='rparen'>)</span>
+  <span class='id raise'>raise</span> <span class='const'>ValidationException</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Validation error.  Expected: </span><span class='tstring_end'>&quot;</span></span><span class='op'>+</span>
+    <span class='ivar'>@current</span><span class='period'>.</span><span class='id expected'>expected</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> or </span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> from </span><span class='embexpr_beg'>#{</span><span class='ivar'>@current</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='op'>+</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> but got </span><span class='embexpr_beg'>#{</span><span class='const'>Event</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='id event'>event</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id event'>event</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rparen'>)</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id match'>match</span>
+  <span class='ivar'>@current</span> <span class='op'>=</span> <span class='id match'>match</span>
+
+  <span class='comment'># Check for attributes
+</span>  <span class='kw'>case</span> <span class='id event'>event</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='symbol'>:start_element</span>
+    <span class='comment'>#puts &quot;Checking attributes&quot;
+</span>    <span class='ivar'>@attr_stack</span> <span class='op'>&lt;&lt;</span> <span class='id event'>event</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+    <span class='kw'>begin</span>
+      <span class='id sattr'>sattr</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:start_attribute</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+      <span class='id eattr'>eattr</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:end_attribute</span><span class='rbracket'>]</span>
+      <span class='id text'>text</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:text</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+      <span class='id k'>k</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id event'>event</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id key'>key</span><span class='comma'>,</span><span class='id value'>value</span><span class='op'>|</span>
+        <span class='id sattr'>sattr</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id key'>key</span>
+        <span class='comment'>#puts &quot;Looking for #{sattr.inspect}&quot;
+</span>        <span class='id m'>m</span> <span class='op'>=</span> <span class='ivar'>@current</span><span class='period'>.</span><span class='id next'>next</span><span class='lparen'>(</span> <span class='id sattr'>sattr</span> <span class='rparen'>)</span>
+        <span class='comment'>#puts &quot;Got #{m.inspect}&quot;
+</span>        <span class='kw'>if</span> <span class='id m'>m</span>
+          <span class='comment'># If the state has text children...
+</span>          <span class='comment'>#puts &quot;Looking for #{eattr.inspect}&quot;
+</span>          <span class='comment'>#puts &quot;Expect #{m.expected}&quot;
+</span>          <span class='kw'>if</span> <span class='id m'>m</span><span class='period'>.</span><span class='id matches?'>matches?</span><span class='lparen'>(</span> <span class='id eattr'>eattr</span> <span class='rparen'>)</span>
+            <span class='comment'>#puts &quot;Got end&quot;
+</span>            <span class='ivar'>@current</span> <span class='op'>=</span> <span class='id m'>m</span>
+          <span class='kw'>else</span>
+            <span class='comment'>#puts &quot;Didn't get end&quot;
+</span>            <span class='id text'>text</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id value'>value</span>
+            <span class='comment'>#puts &quot;Looking for #{text.inspect}&quot;
+</span>            <span class='id m'>m</span> <span class='op'>=</span> <span class='id m'>m</span><span class='period'>.</span><span class='id next'>next</span><span class='lparen'>(</span> <span class='id text'>text</span> <span class='rparen'>)</span>
+            <span class='comment'>#puts &quot;Got #{m.inspect}&quot;
+</span>            <span class='id text'>text</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
+            <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id m'>m</span>
+            <span class='ivar'>@current</span> <span class='op'>=</span> <span class='id m'>m</span> <span class='kw'>if</span> <span class='id m'>m</span>
+          <span class='kw'>end</span>
+          <span class='id m'>m</span> <span class='op'>=</span> <span class='ivar'>@current</span><span class='period'>.</span><span class='id next'>next</span><span class='lparen'>(</span> <span class='id eattr'>eattr</span> <span class='rparen'>)</span>
+          <span class='kw'>if</span> <span class='id m'>m</span>
+            <span class='ivar'>@current</span> <span class='op'>=</span> <span class='id m'>m</span>
+            <span class='kw'>true</span>
+          <span class='kw'>else</span>
+            <span class='kw'>false</span>
+          <span class='kw'>end</span>
+        <span class='kw'>else</span>
+          <span class='kw'>false</span>
+        <span class='kw'>end</span>
+      <span class='rbrace'>}</span>
+      <span class='id event'>event</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id k'>k</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id k'>k</span>
+    <span class='kw'>end</span> <span class='kw'>while</span> <span class='id k'>k</span>
+  <span class='kw'>when</span> <span class='symbol'>:end_element</span>
+    <span class='id attrs'>attrs</span> <span class='op'>=</span> <span class='ivar'>@attr_stack</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='id raise'>raise</span> <span class='const'>ValidationException</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Validation error.  Illegal </span><span class='tstring_end'>&quot;</span></span><span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> attributes: </span><span class='embexpr_beg'>#{</span><span class='id attrs'>attrs</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id attrs'>attrs</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:45 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

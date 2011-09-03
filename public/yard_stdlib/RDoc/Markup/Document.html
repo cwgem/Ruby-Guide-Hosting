@@ -1,0 +1,886 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RDoc::Markup::Document
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../RDoc.html" title="RDoc (module)">RDoc</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Markup.html" title="RDoc::Markup (class)">Markup</a></span></span>
+     &raquo; 
+    <span class="title">Document</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: RDoc::Markup::Document
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">RDoc::Markup::Document</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rdoc/markup/document.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A Document containing lists, headings, paragraphs, etc.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file-instance_method" title="#file (instance method)">- (Object) <strong>file</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The file this document was created from.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parts-instance_method" title="#parts (instance method)">- (Object) <strong>parts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The parts of the Document.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3C-instance_method" title="#&lt;&lt; (instance method)">- (Object) <strong>&lt;&lt;</strong>(part) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Appends <tt>part</tt> to the document.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept-instance_method" title="#accept (instance method)">- (Object) <strong>accept</strong>(visitor) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs this document and all its #items through <tt>visitor</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#empty%3F-instance_method" title="#empty? (instance method)">- (Boolean) <strong>empty?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Does this document have no parts?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Document) <strong>initialize</strong>(*parts) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new Document with <tt>parts</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#merge-instance_method" title="#merge (instance method)">- (Object) <strong>merge</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>When this is a collection of documents (#file is not set and this document
+contains only other documents as its direct children) #merge replaces
+documents in this class with documents from <tt>other</tt> when the file
+matches and adds documents from <tt>other</tt> when the files do not.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pretty_print-instance_method" title="#pretty_print (instance method)">- (Object) <strong>pretty_print</strong>(q) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#push-instance_method" title="#push (instance method)">- (Object) <strong>push</strong>(*parts) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Appends <tt>parts</tt> to the document.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RDoc::Markup::Document (class)">Document</a></span></tt>) <strong>initialize</strong>(*parts) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new Document with <tt>parts</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span> <span class='op'>*</span><span class='id parts'>parts</span>
+  <span class='ivar'>@parts</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@parts</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id parts'>parts</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@file</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="file=-instance_method"></span>
+      <span id="file-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="file-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>file</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The file this document was created from.  See also
+RDoc::ClassModule#add_comment</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id file'>file</span>
+  <span class='ivar'>@file</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="parts-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="parts-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parts</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The parts of the Document</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id parts'>parts</span>
+  <span class='ivar'>@parts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="<<-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>&lt;&lt;</strong>(part) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Appends <tt>part</tt> to the document</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;&lt;</span> <span class='id part'>part</span>
+  <span class='kw'>case</span> <span class='id part'>part</span>
+  <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span><span class='op'>::</span><span class='const'>Document</span> <span class='kw'>then</span>
+    <span class='kw'>unless</span> <span class='id part'>part</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='kw'>then</span>
+      <span class='id parts'>parts</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id part'>part</span><span class='period'>.</span><span class='id parts'>parts</span><span class='rparen'>)</span>
+      <span class='id parts'>parts</span> <span class='op'>&lt;&lt;</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span><span class='op'>::</span><span class='const'>BlankLine</span><span class='period'>.</span><span class='id new'>new</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='const'>String</span> <span class='kw'>then</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected RDoc::Markup::Document and friends, got String</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span>
+      <span class='id part'>part</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+  <span class='kw'>else</span>
+    <span class='id parts'>parts</span> <span class='op'>&lt;&lt;</span> <span class='id part'>part</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="==-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>==</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='op'>==</span> <span class='id other'>other</span> <span class='comment'># :nodoc:
+</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id class'>class</span> <span class='kw'>and</span>
+    <span class='ivar'>@file</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id file'>file</span> <span class='kw'>and</span>
+    <span class='ivar'>@parts</span> <span class='op'>==</span> <span class='id other'>other</span><span class='period'>.</span><span class='id parts'>parts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="accept-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>accept</strong>(visitor) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs this document and all its #items through <tt>visitor</tt></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id accept'>accept</span> <span class='id visitor'>visitor</span>
+  <span class='id visitor'>visitor</span><span class='period'>.</span><span class='id start_accepting'>start_accepting</span>
+
+  <span class='ivar'>@parts</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span>
+    <span class='kw'>case</span> <span class='id item'>item</span>
+    <span class='kw'>when</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span><span class='op'>::</span><span class='const'>Document</span> <span class='kw'>then</span> <span class='comment'># HACK
+</span>      <span class='id visitor'>visitor</span><span class='period'>.</span><span class='id accept_document'>accept_document</span> <span class='id item'>item</span>
+    <span class='kw'>else</span>
+      <span class='id item'>item</span><span class='period'>.</span><span class='id accept'>accept</span> <span class='id visitor'>visitor</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id visitor'>visitor</span><span class='period'>.</span><span class='id end_accepting'>end_accepting</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="empty?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>empty?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Does this document have no parts?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id empty?'>empty?</span>
+  <span class='ivar'>@parts</span><span class='period'>.</span><span class='id empty?'>empty?</span> <span class='kw'>or</span>
+    <span class='lparen'>(</span><span class='ivar'>@parts</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>==</span> <span class='int'>1</span> <span class='kw'>and</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Markup</span><span class='op'>::</span><span class='const'>Document</span> <span class='op'>===</span> <span class='ivar'>@parts</span><span class='period'>.</span><span class='id first'>first</span> <span class='kw'>and</span>
+     <span class='ivar'>@parts</span><span class='period'>.</span><span class='id first'>first</span><span class='period'>.</span><span class='id empty?'>empty?</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="merge-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>merge</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>When this is a collection of documents (#file is not set and this document
+contains only other documents as its direct children) #merge replaces
+documents in this class with documents from <tt>other</tt> when the file
+matches and adds documents from <tt>other</tt> when the files do not.</p>
+
+<p>The information in <tt>other</tt> is preferred over the receiver</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id merge'>merge</span> <span class='id other'>other</span>
+  <span class='id other'>other</span><span class='period'>.</span><span class='id parts'>parts</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id other_part'>other_part</span><span class='op'>|</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id parts'>parts</span><span class='period'>.</span><span class='id delete_if'>delete_if</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id self_part'>self_part</span><span class='op'>|</span>
+      <span class='id self_part'>self_part</span><span class='period'>.</span><span class='id file'>file</span> <span class='kw'>and</span> <span class='id self_part'>self_part</span><span class='period'>.</span><span class='id file'>file</span> <span class='op'>==</span> <span class='id other_part'>other_part</span><span class='period'>.</span><span class='id file'>file</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>self</span><span class='period'>.</span><span class='id parts'>parts</span> <span class='op'>&lt;&lt;</span> <span class='id other_part'>other_part</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pretty_print-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>pretty_print</strong>(q) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101
+102
+103
+104
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 99</span>
+
+<span class='kw'>def</span> <span class='id pretty_print'>pretty_print</span> <span class='id q'>q</span> <span class='comment'># :nodoc:
+</span>  <span class='id start'>start</span> <span class='op'>=</span> <span class='ivar'>@file</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[doc (</span><span class='embexpr_beg'>#{</span><span class='ivar'>@file</span><span class='rbrace'>}</span><span class='tstring_content'>): </span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>[doc: </span><span class='tstring_end'>'</span></span>
+
+  <span class='id q'>q</span><span class='period'>.</span><span class='id group'>group</span> <span class='int'>2</span><span class='comma'>,</span> <span class='id start'>start</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>]</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+    <span class='id q'>q</span><span class='period'>.</span><span class='id seplist'>seplist</span> <span class='ivar'>@parts</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id part'>part</span><span class='op'>|</span>
+      <span class='id q'>q</span><span class='period'>.</span><span class='id pp'>pp</span> <span class='id part'>part</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="push-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>push</strong>(*parts) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Appends <tt>parts</tt> to the document</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/markup/document.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id push'>push</span> <span class='op'>*</span><span class='id parts'>parts</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id parts'>parts</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id parts'>parts</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:31 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

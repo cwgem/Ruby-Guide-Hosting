@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: Psych::Parser</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../ext/psych/lib/psych/parser_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/psych/lib/psych/parser.rb">ext/psych/lib/psych/parser.rb</a></li>
+          
+            <li><a href="../ext/psych/emitter_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/psych/emitter.c">ext/psych/emitter.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="../Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">CLASS</span> <a href="Parser/Mark.html">Psych::Parser::Mark</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-external_encoding-3D">#external_encoding=</a></li>
+          
+          <li><a href="#method-i-mark">#mark</a></li>
+          
+          <li><a href="#method-i-parse">#parse</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="../OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="../OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="../OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="../OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="../OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="../OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="../OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="../OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="../OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="../OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="../OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="../OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="../OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="../OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="../OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="../OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="../OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="../OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="../OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="../OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="../OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="../OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="../OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="../OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="../Psych.html">Psych</a></li>
+        
+          <li><a href="../Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="../Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="../Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="../Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="../Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="../Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="../Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="../Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="../Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="../Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="../Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="../Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="../Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="../Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="../Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="../Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="../Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="../Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="../Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="../Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="../Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="../Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="../Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="../Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="../Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="../Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="../Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="../Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="../Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="../DL.html">DL</a></li>
+        
+          <li><a href="../DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="../DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="../DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="../DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="../DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="../DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="../DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="../DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="../DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="../DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="../DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="../DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="../DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="../DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="../DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="../DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="../DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="../DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="../DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="../DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="../DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="../DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="../Zlib.html">Zlib</a></li>
+        
+          <li><a href="../Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="../Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="../Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="../Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="../Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="../Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="../Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="../Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="../Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="../Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="../Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="../Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="../Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="../Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="../Win32.html">Win32</a></li>
+        
+          <li><a href="../Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="../Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="../Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="../Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="../Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="../Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="../Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="../Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="../Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="../Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="../Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="../Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="../Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="../Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="../JSON.html">JSON</a></li>
+        
+          <li><a href="../JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="../JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="../JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="../JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="../JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="../Iconv.html">Iconv</a></li>
+        
+          <li><a href="../Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="../Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="../Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="../Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="../Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="../Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="../Ripper.html">Ripper</a></li>
+        
+          <li><a href="../Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="../Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="../Digest.html">Digest</a></li>
+        
+          <li><a href="../Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="../Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="../Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="../Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="../Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="../Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="../Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="../Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="../DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="../Socket.html">Socket</a></li>
+        
+          <li><a href="../Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="../Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="../Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="../Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="../Curses.html">Curses</a></li>
+        
+          <li><a href="../Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="../Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="../Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="../PTY.html">PTY</a></li>
+        
+          <li><a href="../PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="../StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="../StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="../Syslog.html">Syslog</a></li>
+        
+          <li><a href="../Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="../WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="../WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="../Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="../BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="../BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="../BigMath.html">BigMath</a></li>
+        
+          <li><a href="../Class.html">Class</a></li>
+        
+          <li><a href="../Coverage.html">Coverage</a></li>
+        
+          <li><a href="../DBM.html">DBM</a></li>
+        
+          <li><a href="../DBMError.html">DBMError</a></li>
+        
+          <li><a href="../Date.html">Date</a></li>
+        
+          <li><a href="../DateTime.html">DateTime</a></li>
+        
+          <li><a href="../Etc.html">Etc</a></li>
+        
+          <li><a href="../Exception.html">Exception</a></li>
+        
+          <li><a href="../Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="../Float.html">Float</a></li>
+        
+          <li><a href="../GDBM.html">GDBM</a></li>
+        
+          <li><a href="../GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="../GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="../IO.html">IO</a></li>
+        
+          <li><a href="../IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="../Integer.html">Integer</a></li>
+        
+          <li><a href="../Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="../Kconv.html">Kconv</a></li>
+        
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="../Module.html">Module</a></li>
+        
+          <li><a href="../NKF.html">NKF</a></li>
+        
+          <li><a href="../Newton.html">Newton</a></li>
+        
+          <li><a href="../OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="../Object.html">Object</a></li>
+        
+          <li><a href="../Pathname.html">Pathname</a></li>
+        
+          <li><a href="../Range.html">Range</a></li>
+        
+          <li><a href="../Rational.html">Rational</a></li>
+        
+          <li><a href="../Readline.html">Readline</a></li>
+        
+          <li><a href="../Regexp.html">Regexp</a></li>
+        
+          <li><a href="../SDBM.html">SDBM</a></li>
+        
+          <li><a href="../SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="../SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="../SocketError.html">SocketError</a></li>
+        
+          <li><a href="../String.html">String</a></li>
+        
+          <li><a href="../StringIO.html">StringIO</a></li>
+        
+          <li><a href="../Struct.html">Struct</a></li>
+        
+          <li><a href="../Symbol.html">Symbol</a></li>
+        
+          <li><a href="../TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="../TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="../Thread.html">Thread</a></li>
+        
+          <li><a href="../Time.html">Time</a></li>
+        
+          <li><a href="../UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="../UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="../UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="../WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="../WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="../WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="../WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="../WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="../WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="../WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="../WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="../Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Psych::Parser</h1>
+
+    <div id="description" class="description">
+      
+<p>YAML event parser class.  This class parses a YAML document and calls
+events on the handler that is passed to the constructor.  The events can be
+used for things such as constructing a YAML AST or deserializing YAML
+documents.  It can even be fed back to <a
+href="Emitter.html">Psych::Emitter</a> to emit the same document that was
+parsed.</p>
+
+<p>See <a href="Handler.html">Psych::Handler</a> for documentation on the
+events that <a href="Parser.html">Psych::Parser</a> emits.</p>
+
+<p>Here is an example that prints out ever scalar found in a YAML document:</p>
+
+<pre># Handler for detecting scalar values
+class ScalarHandler &lt; Psych::Handler
+  def scalar value, anchor, tag, plain, quoted, style
+    puts value
+  end
+end
+
+parser = Psych::Parser.new(ScalarHandler.new)
+parser.parse(yaml_document)</pre>
+
+<p>Here is an example that feeds the parser back in to <a
+href="Emitter.html">Psych::Emitter</a>.  The YAML document is read from
+STDIN and written back out to STDERR:</p>
+
+<pre>parser = Psych::Parser.new(Psych::Emitter.new($stderr))
+parser.parse($stdin)</pre>
+
+<p><a href="../Psych.html">Psych</a> uses <a
+href="Parser.html">Psych::Parser</a> in combination with <a
+href="TreeBuilder.html">Psych::TreeBuilder</a> to construct an AST of the
+parsed YAML document.</p>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+      <!-- Constants -->
+      <div id="constants-list" class="section">
+        <h3 class="section-header">Constants</h3>
+        <dl>
+        
+          <dt><a name="ANY">ANY</a></dt>
+          
+          <dd class="description"><p>Let the parser choose the encoding</p></dd>
+          
+        
+          <dt><a name="UTF16BE">UTF16BE</a></dt>
+          
+          <dd class="description"><p>UTF-16-BE Encoding with BOM</p></dd>
+          
+        
+          <dt><a name="UTF16LE">UTF16LE</a></dt>
+          
+          <dd class="description"><p>UTF-16-LE Encoding with BOM</p></dd>
+          
+        
+          <dt><a name="UTF8">UTF8</a></dt>
+          
+          <dd class="description"><p>UTF-8 Encoding</p></dd>
+          
+        
+        </dl>
+      </div>
+      
+
+      
+      <!-- Attributes -->
+      <div id="attribute-method-details" class="method-section section">
+        <h3 class="section-header">Attributes</h3>
+
+        
+        <div id="handler-attribute-method" class="method-detail">
+          <a name="handler"></a>
+          
+          <a name="handler="></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">handler</span><span
+              class="attribute-access-type">[RW]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>The handler on which events will be called</p>
+          
+          </div>
+        </div>
+        
+      </div><!-- attribute-method-details -->
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(handler = Handler.new)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Creates a new <a href="Parser.html">Psych::Parser</a> instance with
+<tt>handler</tt>.  YAML events will be called on <tt>handler</tt>.  See <a
+href="Parser.html">Psych::Parser</a> for more details.</p>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File ext/psych/lib/psych/parser.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">handler</span> = <span class="ruby-constant">Handler</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@handler</span> = <span class="ruby-identifier">handler</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="external_encoding-3D-method" class="method-detail ">
+          <a name="method-i-external_encoding-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">external_encoding=(encoding)</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p><a href="Set.html">Set</a> the encoding for this parser to
+<tt>encoding</tt></p>
+            
+
+            
+            <div class="method-source-code" id="external_encoding-3D-source">
+<pre>
+static VALUE set_external_encoding(VALUE self, VALUE encoding)
+{
+    yaml_parser_t * parser;
+    VALUE exception;
+
+    Data_Get_Struct(self, yaml_parser_t, parser);
+
+    if(parser-&gt;encoding) {
+        exception = rb_const_get_at(mPsych, rb_intern(&quot;Exception&quot;));
+        rb_raise(exception, &quot;don't set the encoding twice!&quot;);
+    }
+
+    yaml_parser_set_encoding(parser, NUM2INT(encoding));
+
+    return encoding;
+}</pre>
+            </div><!-- external_encoding-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- external_encoding-3D-method -->
+
+      
+        <div id="mark-method" class="method-detail ">
+          <a name="method-i-mark"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">mark # => #<Psych::Parser::Mark></span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns a <a href="Parser/Mark.html">Psych::Parser::Mark</a> object that
+contains line, column, and index information.</p>
+            
+
+            
+            <div class="method-source-code" id="mark-source">
+<pre>
+static VALUE mark(VALUE self)
+{
+    VALUE mark_klass;
+    VALUE args[3];
+    yaml_parser_t * parser;
+
+    Data_Get_Struct(self, yaml_parser_t, parser);
+    mark_klass = rb_const_get_at(cPsychParser, rb_intern(&quot;Mark&quot;));
+    args[0] = INT2NUM(parser-&gt;mark.index);
+    args[1] = INT2NUM(parser-&gt;mark.line);
+    args[2] = INT2NUM(parser-&gt;mark.column);
+
+    return rb_class_new_instance(3, args, mark_klass);
+}</pre>
+            </div><!-- mark-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- mark-method -->
+
+      
+        <div id="parse-method" class="method-detail ">
+          <a name="method-i-parse"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">parse(yaml)</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Parse the YAML document contained in <tt>yaml</tt>.  Events will be called
+on the handler set on the parser instance.</p>
+
+<p>See <a href="Parser.html">Psych::Parser</a> and <a
+href="Parser.html#attribute-i-handler">Psych::Parser#handler</a></p>
+            
+
+            
+            <div class="method-source-code" id="parse-source">
+<pre>
+static VALUE parse(VALUE self, VALUE yaml)
+{
+    yaml_parser_t * parser;
+    yaml_event_t event;
+    int done = 0;
+    int tainted = 0;
+#ifdef HAVE_RUBY_ENCODING_H
+    int encoding = rb_utf8_encindex();
+    rb_encoding * internal_enc = rb_default_internal_encoding();
+#endif
+    VALUE handler = rb_iv_get(self, &quot;@handler&quot;);
+
+    Data_Get_Struct(self, yaml_parser_t, parser);
+
+    if (OBJ_TAINTED(yaml)) tainted = 1;
+
+    if(rb_respond_to(yaml, id_read)) {
+        yaml_parser_set_input(parser, io_reader, (void *)yaml);
+        if (RTEST(rb_obj_is_kind_of(yaml, rb_cIO))) tainted = 1;
+    } else {
+        StringValue(yaml);
+        yaml_parser_set_input_string(
+                parser,
+                (const unsigned char *)RSTRING_PTR(yaml),
+                (size_t)RSTRING_LEN(yaml)
+                );
+    }
+
+    while(!done) {
+        if(!yaml_parser_parse(parser, &amp;event)) {
+            VALUE path;
+            size_t line   = parser-&gt;mark.line;
+            size_t column = parser-&gt;mark.column;
+
+            if(rb_respond_to(yaml, id_path))
+                path = rb_funcall(yaml, id_path, 0);
+            else
+                path = rb_str_new2(&quot;&lt;unknown&gt;&quot;);
+
+            yaml_parser_delete(parser);
+            yaml_parser_initialize(parser);
+
+            rb_raise(ePsychSyntaxError, &quot;(%s): couldn't parse YAML at line %d column %d&quot;,
+                    StringValuePtr(path),
+                    (int)line, (int)column);
+        }
+
+        switch(event.type) {
+          case YAML_STREAM_START_EVENT:
+
+            rb_funcall(handler, id_start_stream, 1,
+                       INT2NUM((long)event.data.stream_start.encoding)
+                );
+            break;
+          case YAML_DOCUMENT_START_EVENT:
+            {
+                /* Get a list of tag directives (if any) */
+                VALUE tag_directives = rb_ary_new();
+                /* Grab the document version */
+                VALUE version = event.data.document_start.version_directive ?
+                    rb_ary_new3(
+                        (long)2,
+                        INT2NUM((long)event.data.document_start.version_directive-&gt;major),
+                        INT2NUM((long)event.data.document_start.version_directive-&gt;minor)
+                        ) : rb_ary_new();
+
+                if(event.data.document_start.tag_directives.start) {
+                    yaml_tag_directive_t *start =
+                        event.data.document_start.tag_directives.start;
+                    yaml_tag_directive_t *end =
+                        event.data.document_start.tag_directives.end;
+                    for(; start != end; start++) {
+                        VALUE handle = Qnil;
+                        VALUE prefix = Qnil;
+                        if(start-&gt;handle) {
+                            handle = rb_str_new2((const char *)start-&gt;handle);
+                            if (tainted) OBJ_TAINT(handle);
+#ifdef HAVE_RUBY_ENCODING_H
+                            PSYCH_TRANSCODE(handle, encoding, internal_enc);
+#endif
+                        }
+
+                        if(start-&gt;prefix) {
+                            prefix = rb_str_new2((const char *)start-&gt;prefix);
+                            if (tainted) OBJ_TAINT(prefix);
+#ifdef HAVE_RUBY_ENCODING_H
+                            PSYCH_TRANSCODE(prefix, encoding, internal_enc);
+#endif
+                        }
+
+                        rb_ary_push(tag_directives, rb_ary_new3((long)2, handle, prefix));
+                    }
+                }
+                rb_funcall(handler, id_start_document, 3,
+                           version, tag_directives,
+                           event.data.document_start.implicit == 1 ? Qtrue : Qfalse
+                    );
+            }
+            break;
+          case YAML_DOCUMENT_END_EVENT:
+            rb_funcall(handler, id_end_document, 1,
+                       event.data.document_end.implicit == 1 ? Qtrue : Qfalse
+                );
+            break;
+          case YAML_ALIAS_EVENT:
+            {
+                VALUE alias = Qnil;
+                if(event.data.alias.anchor) {
+                    alias = rb_str_new2((const char *)event.data.alias.anchor);
+                    if (tainted) OBJ_TAINT(alias);
+#ifdef HAVE_RUBY_ENCODING_H
+                    PSYCH_TRANSCODE(alias, encoding, internal_enc);
+#endif
+                }
+
+                rb_funcall(handler, id_alias, 1, alias);
+            }
+            break;
+          case YAML_SCALAR_EVENT:
+            {
+                VALUE anchor = Qnil;
+                VALUE tag = Qnil;
+                VALUE plain_implicit, quoted_implicit, style;
+                VALUE val = rb_str_new(
+                    (const char *)event.data.scalar.value,
+                    (long)event.data.scalar.length
+                    );
+                if (tainted) OBJ_TAINT(val);
+
+#ifdef HAVE_RUBY_ENCODING_H
+                PSYCH_TRANSCODE(val, encoding, internal_enc);
+#endif
+
+                if(event.data.scalar.anchor) {
+                    anchor = rb_str_new2((const char *)event.data.scalar.anchor);
+                    if (tainted) OBJ_TAINT(anchor);
+#ifdef HAVE_RUBY_ENCODING_H
+                    PSYCH_TRANSCODE(anchor, encoding, internal_enc);
+#endif
+                }
+
+                if(event.data.scalar.tag) {
+                    tag = rb_str_new2((const char *)event.data.scalar.tag);
+                    if (tainted) OBJ_TAINT(tag);
+#ifdef HAVE_RUBY_ENCODING_H
+                    PSYCH_TRANSCODE(tag, encoding, internal_enc);
+#endif
+                }
+
+                plain_implicit =
+                    event.data.scalar.plain_implicit == 0 ? Qfalse : Qtrue;
+
+                quoted_implicit =
+                    event.data.scalar.quoted_implicit == 0 ? Qfalse : Qtrue;
+
+                style = INT2NUM((long)event.data.scalar.style);
+
+                rb_funcall(handler, id_scalar, 6,
+                           val, anchor, tag, plain_implicit, quoted_implicit, style);
+            }
+            break;
+          case YAML_SEQUENCE_START_EVENT:
+            {
+                VALUE anchor = Qnil;
+                VALUE tag = Qnil;
+                VALUE implicit, style;
+                if(event.data.sequence_start.anchor) {
+                    anchor = rb_str_new2((const char *)event.data.sequence_start.anchor);
+                    if (tainted) OBJ_TAINT(anchor);
+#ifdef HAVE_RUBY_ENCODING_H
+                    PSYCH_TRANSCODE(anchor, encoding, internal_enc);
+#endif
+                }
+
+                tag = Qnil;
+                if(event.data.sequence_start.tag) {
+                    tag = rb_str_new2((const char *)event.data.sequence_start.tag);
+                    if (tainted) OBJ_TAINT(tag);
+#ifdef HAVE_RUBY_ENCODING_H
+                    PSYCH_TRANSCODE(tag, encoding, internal_enc);
+#endif
+                }
+
+                implicit =
+                    event.data.sequence_start.implicit == 0 ? Qfalse : Qtrue;
+
+                style = INT2NUM((long)event.data.sequence_start.style);
+
+                rb_funcall(handler, id_start_sequence, 4,
+                           anchor, tag, implicit, style);
+            }
+            break;
+          case YAML_SEQUENCE_END_EVENT:
+            rb_funcall(handler, id_end_sequence, 0);
+            break;
+          case YAML_MAPPING_START_EVENT:
+            {
+                VALUE anchor = Qnil;
+                VALUE tag = Qnil;
+                VALUE implicit, style;
+                if(event.data.mapping_start.anchor) {
+                    anchor = rb_str_new2((const char *)event.data.mapping_start.anchor);
+                    if (tainted) OBJ_TAINT(anchor);
+#ifdef HAVE_RUBY_ENCODING_H
+                    PSYCH_TRANSCODE(anchor, encoding, internal_enc);
+#endif
+                }
+
+                if(event.data.mapping_start.tag) {
+                    tag = rb_str_new2((const char *)event.data.mapping_start.tag);
+                    if (tainted) OBJ_TAINT(tag);
+#ifdef HAVE_RUBY_ENCODING_H
+                    PSYCH_TRANSCODE(tag, encoding, internal_enc);
+#endif
+                }
+
+                implicit =
+                    event.data.mapping_start.implicit == 0 ? Qfalse : Qtrue;
+
+                style = INT2NUM((long)event.data.mapping_start.style);
+
+                rb_funcall(handler, id_start_mapping, 4,
+                           anchor, tag, implicit, style);
+            }
+            break;
+          case YAML_MAPPING_END_EVENT:
+            rb_funcall(handler, id_end_mapping, 0);
+            break;
+          case YAML_NO_EVENT:
+            rb_funcall(handler, id_empty, 0);
+            break;
+          case YAML_STREAM_END_EVENT:
+            rb_funcall(handler, id_end_stream, 0);
+            done = 1;
+            break;
+        }
+        yaml_event_delete(&amp;event);
+    }
+
+    return self;
+}</pre>
+            </div><!-- parse-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- parse-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

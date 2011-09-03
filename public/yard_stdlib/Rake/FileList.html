@@ -1,0 +1,2185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Rake::FileList
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (F)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Rake.html" title="Rake (module)">Rake</a></span></span>
+     &raquo; 
+    <span class="title">FileList</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Rake::FileList
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Rake::FileList</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Cloneable.html" title="Rake::Cloneable (module)">Cloneable</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rake/file_list.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>######################################################################### A
+FileList is essentially an array with a few helper methods defined to make
+file manipulation a bit easier.</p>
+
+<p>FileLists are lazy.  When given a list of glob patterns for possible files
+to be included in the file list, instead of searching the file structures
+to find the files, a FileList holds the pattern for latter use.</p>
+
+<p>This allows us to define a number of FileList to match any number of files,
+but only search out the actual files when then FileList itself is actually
+used.  The key is that the first time an element of the FileList/Array is
+requested, the pending patterns are resolved into a real list of file
+names.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="ARRAY_METHODS-constant" class="">ARRAY_METHODS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>List of array methods (that are not in <tt>Object</tt>) that need to be
+delegated.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lparen'>(</span><span class='const'>Array</span><span class='period'>.</span><span class='id instance_methods'>instance_methods</span> <span class='op'>-</span> <span class='const'>Object</span><span class='period'>.</span><span class='id instance_methods'>instance_methods</span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id n'>n</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="MUST_DEFINE-constant" class="">MUST_DEFINE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>List of additional methods that must be delegated.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code">ls_ext'
+require 'rake/pathmap'
+
+######################################################################
+module Rake
+
+  # #########################################################################
+  # A FileList is essentially an array with a few helper methods defined to
+  # make file manipulation a bit easier.
+  #
+  # FileLists are lazy.  When given a list of glob patterns for possible files
+  # to be included in the file list, instead of searching the file structures
+  # to find the files, a FileList holds the pattern for latter use.
+  #
+  # This allows us to define a number of FileList to match any number of
+  # files, but only search out the actual files when then FileList itself is
+  # actually used.  The key is that the first time an element of the
+  # FileList/Array is requested, the pending patterns are resolved into a real
+  # list of file names.
+  #
+  class FileList
+
+include Cloneable
+
+# == Method Delegation
+#
+# The lazy evaluation magic of FileLists happens by implementing all the
+# array specific methods to call +resolve+ before delegating the heavy
+# lifting to an embedded array object (@items).
+#
+# In addition, there are two kinds of delegation calls.  The regular kind
+# delegates to the @items array and returns the result directly.  Well,
+# almost directly.  It checks if the returned value is the @items object
+# itself, and if so will return the FileList object instead.
+#
+# The second kind of delegation call is used in methods that normally
+# return a new Array object.  We want to capture the return value of these
+# methods and wrap them in a new FileList object.  We enumerate these
+# methods in the +SPECIAL_RETURN+ list below.
+
+# List of array methods (that are not in +Object+) that need to be
+# delegated.
+ARRAY_METHODS = (Array.instance_methods - Object.instance_methods).map { |n| n.to_s }
+
+# List of additional methods that must be delegated.
+MUST_DEFINE = %w[to_a inspect &lt;=&gt;]</pre></dd>
+      
+        <dt id="MUST_NOT_DEFINE-constant" class="">MUST_NOT_DEFINE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>List of methods that should not be delegated here (we define special
+versions of them explicitly below).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code">xt'
+require 'rake/pathmap'
+
+######################################################################
+module Rake
+
+  # #########################################################################
+  # A FileList is essentially an array with a few helper methods defined to
+  # make file manipulation a bit easier.
+  #
+  # FileLists are lazy.  When given a list of glob patterns for possible files
+  # to be included in the file list, instead of searching the file structures
+  # to find the files, a FileList holds the pattern for latter use.
+  #
+  # This allows us to define a number of FileList to match any number of
+  # files, but only search out the actual files when then FileList itself is
+  # actually used.  The key is that the first time an element of the
+  # FileList/Array is requested, the pending patterns are resolved into a real
+  # list of file names.
+  #
+  class FileList
+
+include Cloneable
+
+# == Method Delegation
+#
+# The lazy evaluation magic of FileLists happens by implementing all the
+# array specific methods to call +resolve+ before delegating the heavy
+# lifting to an embedded array object (@items).
+#
+# In addition, there are two kinds of delegation calls.  The regular kind
+# delegates to the @items array and returns the result directly.  Well,
+# almost directly.  It checks if the returned value is the @items object
+# itself, and if so will return the FileList object instead.
+#
+# The second kind of delegation call is used in methods that normally
+# return a new Array object.  We want to capture the return value of these
+# methods and wrap them in a new FileList object.  We enumerate these
+# methods in the +SPECIAL_RETURN+ list below.
+
+# List of array methods (that are not in +Object+) that need to be
+# delegated.
+ARRAY_METHODS = (Array.instance_methods - Object.instance_methods).map { |n| n.to_s }
+
+# List of additional methods that must be delegated.
+MUST_DEFINE = %w[to_a inspect &lt;=&gt;]
+
+# List of methods that should not be delegated here (we define special
+# versions of them explicitly below).
+MUST_NOT_DEFINE = %w[to_a to_ary partition *]</pre></dd>
+      
+        <dt id="SPECIAL_RETURN-constant" class="">SPECIAL_RETURN =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>List of delegated methods that return new array values which need wrapping.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code">ire 'rake/pathmap'
+
+######################################################################
+module Rake
+
+  # #########################################################################
+  # A FileList is essentially an array with a few helper methods defined to
+  # make file manipulation a bit easier.
+  #
+  # FileLists are lazy.  When given a list of glob patterns for possible files
+  # to be included in the file list, instead of searching the file structures
+  # to find the files, a FileList holds the pattern for latter use.
+  #
+  # This allows us to define a number of FileList to match any number of
+  # files, but only search out the actual files when then FileList itself is
+  # actually used.  The key is that the first time an element of the
+  # FileList/Array is requested, the pending patterns are resolved into a real
+  # list of file names.
+  #
+  class FileList
+
+include Cloneable
+
+# == Method Delegation
+#
+# The lazy evaluation magic of FileLists happens by implementing all the
+# array specific methods to call +resolve+ before delegating the heavy
+# lifting to an embedded array object (@items).
+#
+# In addition, there are two kinds of delegation calls.  The regular kind
+# delegates to the @items array and returns the result directly.  Well,
+# almost directly.  It checks if the returned value is the @items object
+# itself, and if so will return the FileList object instead.
+#
+# The second kind of delegation call is used in methods that normally
+# return a new Array object.  We want to capture the return value of these
+# methods and wrap them in a new FileList object.  We enumerate these
+# methods in the +SPECIAL_RETURN+ list below.
+
+# List of array methods (that are not in +Object+) that need to be
+# delegated.
+ARRAY_METHODS = (Array.instance_methods - Object.instance_methods).map { |n| n.to_s }
+
+# List of additional methods that must be delegated.
+MUST_DEFINE = %w[to_a inspect &lt;=&gt;]
+
+# List of methods that should not be delegated here (we define special
+# versions of them explicitly below).
+MUST_NOT_DEFINE = %w[to_a to_ary partition *]
+
+# List of delegated methods that return new array values which need
+# wrapping.
+SPECIAL_RETURN = %w[
+  map collect sort sort_by select find_all reject grep
+  compact flatten uniq values_at
+  + - &amp; |
+]</pre></dd>
+      
+        <dt id="DELEGATING_METHODS-constant" class="">DELEGATING_METHODS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lparen'>(</span><span class='const'>ARRAY_METHODS</span> <span class='op'>+</span> <span class='const'>MUST_DEFINE</span> <span class='op'>-</span> <span class='const'>MUST_NOT_DEFINE</span><span class='rparen'>)</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='id s'>s</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id sort'>sort</span><span class='period'>.</span><span class='id uniq'>uniq</span></pre></dd>
+      
+        <dt id="DEFAULT_IGNORE_PATTERNS-constant" class="">DEFAULT_IGNORE_PATTERNS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+  <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(^|[\/\\])CVS([\/\\]|$)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(^|[\/\\])\.svn([\/\\]|$)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.bak$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>~$</span><span class='regexp_end'>/</span></span>
+<span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="DEFAULT_IGNORE_PROCS-constant" class="">DEFAULT_IGNORE_PROCS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+  <span class='id proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='op'>|</span> <span class='id fn'>fn</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(^|[\/\\])core$</span><span class='regexp_end'>/</span></span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span> <span class='const'>File</span><span class='period'>.</span><span class='id directory?'>directory?</span><span class='lparen'>(</span><span class='id fn'>fn</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+
+
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-class_method" title="[] (class method)">+ (Object) <strong>[]</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new file list including the files listed.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2A-instance_method" title="#* (instance method)">- (Object) <strong>*</strong>(other) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Redefine * to return either a string or a new file list.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(array) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define equality.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear_exclude-instance_method" title="#clear_exclude (instance method)">- (Object) <strong>clear_exclude</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Clear all the exclude patterns so that we exclude nothing.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#egrep-instance_method" title="#egrep (instance method)">- (Object) <strong>egrep</strong>(pattern, *options) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Grep each of the files in the filelist using the given pattern.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclude-instance_method" title="#exclude (instance method)">- (Object) <strong>exclude</strong>(*patterns, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Register a list of file name patterns that should be excluded from the
+list.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclude%3F-instance_method" title="#exclude? (instance method)">- (Boolean) <strong>exclude?</strong>(fn) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Should the given file name be excluded?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#existing-instance_method" title="#existing (instance method)">- (Object) <strong>existing</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a new file list that only contains file names from the current file
+list that exist on the file system.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#existing%21-instance_method" title="#existing! (instance method)">- (Object) <strong>existing!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Modify the current file list so that it contains only file name that exist
+on the file system.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ext-instance_method" title="#ext (instance method)">- (Object) <strong>ext</strong>(newext = '') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a new FileList with <tt>String#ext</tt> method applied to each
+member of the array.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gsub-instance_method" title="#gsub (instance method)">- (Object) <strong>gsub</strong>(pat, rep) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a new FileList with the results of running <tt>gsub</tt> against
+each element of the original list.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gsub%21-instance_method" title="#gsub! (instance method)">- (Object) <strong>gsub!</strong>(pat, rep) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <tt>gsub</tt> except that the original file list is modified.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#import-instance_method" title="#import (instance method)">- (Object) <strong>import</strong>(array) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include-instance_method" title="#include (instance method)">- (Object) <strong>include</strong>(*filenames) </a>
+    
+
+    
+      (also: #add)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add file names defined by glob patterns to the file list.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (FileList) <strong>initialize</strong>(*patterns) {|_self| ... }</a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a file list from the globbable patterns given.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_a%3F-instance_method" title="#is_a? (instance method)">- (Boolean) <strong>is_a?</strong>(klass) </a>
+    
+
+    
+      (also: #kind_of?)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Lie about our class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#partition-instance_method" title="#partition (instance method)">- (Object) <strong>partition</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>FileList version of partition.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pathmap-instance_method" title="#pathmap (instance method)">- (Object) <strong>pathmap</strong>(spec = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply the pathmap spec to each of the included file names, returning a new
+file list with the modified paths.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve-instance_method" title="#resolve (instance method)">- (Object) <strong>resolve</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Resolve all the pending adds now.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sub-instance_method" title="#sub (instance method)">- (Object) <strong>sub</strong>(pat, rep) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a new FileList with the results of running <tt>sub</tt> against each
+element of the original list.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sub%21-instance_method" title="#sub! (instance method)">- (Object) <strong>sub!</strong>(pat, rep) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <tt>sub</tt> except that the original file list is modified.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_a-instance_method" title="#to_a (instance method)">- (Object) <strong>to_a</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the internal array object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_ary-instance_method" title="#to_ary (instance method)">- (Object) <strong>to_ary</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the internal array object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Convert a FileList to a string by joining all elements with a space.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Cloneable.html" title="Rake::Cloneable (module)">Cloneable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Cloneable.html#clone-instance_method" title="Rake::Cloneable#clone (method)">#clone</a></span>, <span class='object_link'><a href="Cloneable.html#dup-instance_method" title="Rake::Cloneable#dup (method)">#dup</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Rake::FileList (class)">FileList</a></span></tt>) <strong>initialize</strong>(*patterns) {|_self| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a file list from the globbable patterns given.  If you wish to
+perform multiple includes or excludes at object build time, use the "yield
+self" pattern.</p>
+
+<p>Example:</p>
+
+<pre class="code"><span class='id file_list'>file_list</span> <span class='op'>=</span> <span class='const'>FileList</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>lib/**/*.rb</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>test/test*.rb</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+<span class='id pkg_files'>pkg_files</span> <span class='op'>=</span> <span class='const'>FileList</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>lib/**/*</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id fl'>fl</span><span class='op'>|</span>
+  <span class='id fl'>fl</span><span class='period'>.</span><span class='id exclude'>exclude</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\bCVS\b</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>_self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Yield Parameters:</h3>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>_self</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rake::FileList (class)">Rake::FileList</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object that the method was called on</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99
+100
+101
+102
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id patterns'>patterns</span><span class='rparen'>)</span>
+  <span class='ivar'>@pending_add</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@pending</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@exclude_patterns</span> <span class='op'>=</span> <span class='const'>DEFAULT_IGNORE_PATTERNS</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='ivar'>@exclude_procs</span> <span class='op'>=</span> <span class='const'>DEFAULT_IGNORE_PROCS</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='ivar'>@items</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id patterns'>patterns</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id pattern'>pattern</span><span class='op'>|</span> <span class='id include'>include</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>yield</span> <span class='kw'>self</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="[]-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>[]</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new file list including the files listed. Similar to:</p>
+
+<pre class="code"><span class='const'>FileList</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+383
+384
+385</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 383</span>
+
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='id new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="*-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>*</strong>(other) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Redefine * to return either a string or a new file list.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190
+191
+192
+193
+194
+195
+196
+197
+198</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 190</span>
+
+<span class='kw'>def</span> <span class='op'>*</span><span class='lparen'>(</span><span class='id other'>other</span><span class='rparen'>)</span>
+  <span class='id result'>result</span> <span class='op'>=</span> <span class='ivar'>@items</span> <span class='op'>*</span> <span class='id other'>other</span>
+  <span class='kw'>case</span> <span class='id result'>result</span>
+  <span class='kw'>when</span> <span class='const'>Array</span>
+    <span class='const'>FileList</span><span class='period'>.</span><span class='id new'>new</span><span class='period'>.</span><span class='id import'>import</span><span class='lparen'>(</span><span class='id result'>result</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id result'>result</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="==-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>==</strong>(array) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Define equality.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 168</span>
+
+<span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id array'>array</span><span class='rparen'>)</span>
+  <span class='id to_ary'>to_ary</span> <span class='op'>==</span> <span class='id array'>array</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="clear_exclude-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>clear_exclude</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Clear all the exclude patterns so that we exclude nothing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161
+162
+163
+164
+165</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 161</span>
+
+<span class='kw'>def</span> <span class='id clear_exclude'>clear_exclude</span>
+  <span class='ivar'>@exclude_patterns</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@exclude_procs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="egrep-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>egrep</strong>(pattern, *options) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Grep each of the files in the filelist using the given pattern. If a block
+is given, call the block on each matching line, passing the file name, line
+number, and the matching line of text.  If no block is given, a standard
+emacs style file:linenumber:line message will be printed to standard out. 
+Returns the number of matched items.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 285</span>
+
+<span class='kw'>def</span> <span class='id egrep'>egrep</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='comma'>,</span> <span class='op'>*</span><span class='id options'>options</span><span class='rparen'>)</span>
+  <span class='id matched'>matched</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='op'>|</span>
+    <span class='kw'>begin</span>
+      <span class='id open'>open</span><span class='lparen'>(</span><span class='id fn'>fn</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id options'>options</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id inf'>inf</span><span class='op'>|</span>
+        <span class='id count'>count</span> <span class='op'>=</span> <span class='int'>0</span>
+        <span class='id inf'>inf</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+          <span class='id count'>count</span> <span class='op'>+=</span> <span class='int'>1</span>
+          <span class='kw'>if</span> <span class='id pattern'>pattern</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='id line'>line</span><span class='rparen'>)</span>
+            <span class='id matched'>matched</span> <span class='op'>+=</span> <span class='int'>1</span>
+            <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+              <span class='kw'>yield</span> <span class='id fn'>fn</span><span class='comma'>,</span> <span class='id count'>count</span><span class='comma'>,</span> <span class='id line'>line</span>
+            <span class='kw'>else</span>
+              <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id fn'>fn</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id count'>count</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id line'>line</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+            <span class='kw'>end</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>rescue</span> <span class='const'>StandardError</span> <span class='op'>=&gt;</span> <span class='id ex'>ex</span>
+      <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error while processing '</span><span class='embexpr_beg'>#{</span><span class='id fn'>fn</span><span class='rbrace'>}</span><span class='tstring_content'>': </span><span class='embexpr_beg'>#{</span><span class='id ex'>ex</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id matched'>matched</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="exclude-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>exclude</strong>(*patterns, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Register a list of file name patterns that should be excluded from the
+list.  Patterns may be regular expressions, glob patterns or regular
+strings.  In addition, a block given to exclude will remove entries that
+return true when given to the block.</p>
+
+<p>Note that glob patterns are expanded against the file system. If a file is
+explicitly added to a file list, but does not exist in the file system,
+then an glob pattern in the exclude list will not exclude the file.</p>
+
+<p>Examples:</p>
+
+<pre class="code">FileList['a.c', 'b.c'].exclude(&quot;a.c&quot;) =&gt; ['b.c']
+FileList['a.c', 'b.c'].exclude(/^a/)  =&gt; ['b.c']</pre>
+
+<p>If "a.c" is a file, then ...</p>
+
+<pre class="code">FileList['a.c', 'b.c'].exclude(&quot;a.*&quot;) =&gt; ['b.c']</pre>
+
+<p>If "a.c" is not a file, then ...</p>
+
+<pre class="code">FileList['a.c', 'b.c'].exclude(&quot;a.*&quot;) =&gt; ['a.c', 'b.c']</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 148</span>
+
+<span class='kw'>def</span> <span class='id exclude'>exclude</span><span class='lparen'>(</span><span class='op'>*</span><span class='id patterns'>patterns</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id patterns'>patterns</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id pat'>pat</span><span class='op'>|</span>
+    <span class='ivar'>@exclude_patterns</span> <span class='op'>&lt;&lt;</span> <span class='id pat'>pat</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+    <span class='ivar'>@exclude_procs</span> <span class='op'>&lt;&lt;</span> <span class='id block'>block</span>
+  <span class='kw'>end</span>
+  <span class='id resolve_exclude'>resolve_exclude</span> <span class='kw'>if</span> <span class='op'>!</span> <span class='ivar'>@pending</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="exclude?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>exclude?</strong>(fn) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Should the given file name be excluded?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 350</span>
+
+<span class='kw'>def</span> <span class='id exclude?'>exclude?</span><span class='lparen'>(</span><span class='id fn'>fn</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@exclude_patterns</span><span class='period'>.</span><span class='id any?'>any?</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id pat'>pat</span><span class='op'>|</span>
+    <span class='kw'>case</span> <span class='id pat'>pat</span>
+    <span class='kw'>when</span> <span class='const'>Regexp</span>
+      <span class='id fn'>fn</span> <span class='op'>=~</span> <span class='id pat'>pat</span>
+    <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[*?]</span><span class='regexp_end'>/</span></span>
+      <span class='const'>File</span><span class='period'>.</span><span class='id fnmatch?'>fnmatch?</span><span class='lparen'>(</span><span class='id pat'>pat</span><span class='comma'>,</span> <span class='id fn'>fn</span><span class='comma'>,</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>FNM_PATHNAME</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id fn'>fn</span> <span class='op'>==</span> <span class='id pat'>pat</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@exclude_procs</span><span class='period'>.</span><span class='id any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id p'>p</span><span class='op'>|</span> <span class='id p'>p</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id fn'>fn</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="existing-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>existing</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a new file list that only contains file names from the current file
+list that exist on the file system.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+312
+313
+314</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 312</span>
+
+<span class='kw'>def</span> <span class='id existing'>existing</span>
+  <span class='id select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='id fn'>fn</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="existing!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>existing!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Modify the current file list so that it contains only file name that exist
+on the file system.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+318
+319
+320
+321
+322</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 318</span>
+
+<span class='kw'>def</span> <span class='id existing!'>existing!</span>
+  <span class='id resolve'>resolve</span>
+  <span class='ivar'>@items</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='id fn'>fn</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ext-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>ext</strong>(newext = '') 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a new FileList with <tt>String#ext</tt> method applied to each
+member of the array.</p>
+
+<p>This method is a shortcut for:</p>
+
+<pre class="code"><span class='id array'>array</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span> <span class='id item'>item</span><span class='period'>.</span><span class='id ext'>ext</span><span class='lparen'>(</span><span class='id newext'>newext</span><span class='rparen'>)</span> <span class='rbrace'>}</span></pre>
+
+<p><tt>ext</tt> is a user added method for the Array class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+275
+276
+277</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 275</span>
+
+<span class='kw'>def</span> <span class='id ext'>ext</span><span class='lparen'>(</span><span class='id newext'>newext</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='op'>|</span> <span class='id fn'>fn</span><span class='period'>.</span><span class='id ext'>ext</span><span class='lparen'>(</span><span class='id newext'>newext</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="gsub-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>gsub</strong>(pat, rep) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a new FileList with the results of running <tt>gsub</tt> against
+each element of the original list.</p>
+
+<p>Example:</p>
+
+<pre class="code">FileList['lib/test/file', 'x/y'].gsub(/\//, &quot;\\&quot;)
+   =&gt; ['lib\\test\\file', 'x\\y']</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+244
+245
+246</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 244</span>
+
+<span class='kw'>def</span> <span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='id pat'>pat</span><span class='comma'>,</span> <span class='id rep'>rep</span><span class='rparen'>)</span>
+  <span class='id inject'>inject</span><span class='lparen'>(</span><span class='const'>FileList</span><span class='period'>.</span><span class='id new'>new</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id res'>res</span><span class='comma'>,</span> <span class='id fn'>fn</span><span class='op'>|</span> <span class='id res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id fn'>fn</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='id pat'>pat</span><span class='comma'>,</span><span class='id rep'>rep</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="gsub!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>gsub!</strong>(pat, rep) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <tt>gsub</tt> except that the original file list is modified.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+255
+256
+257
+258</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 255</span>
+
+<span class='kw'>def</span> <span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='id pat'>pat</span><span class='comma'>,</span> <span class='id rep'>rep</span><span class='rparen'>)</span>
+  <span class='id each_with_index'>each_with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='comma'>,</span> <span class='id i'>i</span><span class='op'>|</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id fn'>fn</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='id pat'>pat</span><span class='comma'>,</span><span class='id rep'>rep</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="import-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>import</strong>(array) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+374
+375
+376
+377</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 374</span>
+
+<span class='kw'>def</span> <span class='id import'>import</span><span class='lparen'>(</span><span class='id array'>array</span><span class='rparen'>)</span>
+  <span class='ivar'>@items</span> <span class='op'>=</span> <span class='id array'>array</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="include-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>include</strong>(*filenames) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='add-instance_method'>add</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Add file names defined by glob patterns to the file list.  If an array is
+given, add each element of the array.</p>
+
+<p>Example:</p>
+
+<pre class="code"><span class='id file_list'>file_list</span><span class='period'>.</span><span class='id include'>include</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.java</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.cfg</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id file_list'>file_list</span><span class='period'>.</span><span class='id include'>include</span> <span class='qwords_beg'>%w( </span><span class='tstring_content'>math.c</span><span class='words_sep'> </span><span class='tstring_content'>lib.h</span><span class='words_sep'> </span><span class='tstring_content'>*.o</span><span class='words_sep'> )</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 114</span>
+
+<span class='kw'>def</span> <span class='id include'>include</span><span class='lparen'>(</span><span class='op'>*</span><span class='id filenames'>filenames</span><span class='rparen'>)</span>
+  <span class='comment'># TODO: check for pending
+</span>  <span class='id filenames'>filenames</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id fn'>fn</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span> <span class='symbol'>:to_ary</span>
+      <span class='id include'>include</span><span class='lparen'>(</span><span class='op'>*</span><span class='id fn'>fn</span><span class='period'>.</span><span class='id to_ary'>to_ary</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@pending_add</span> <span class='op'>&lt;&lt;</span> <span class='id fn'>fn</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@pending</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="is_a?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>is_a?</strong>(klass) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='kind_of?-instance_method'>kind_of?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Lie about our class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+184
+185
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 184</span>
+
+<span class='kw'>def</span> <span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='id klass'>klass</span><span class='rparen'>)</span>
+  <span class='id klass'>klass</span> <span class='op'>==</span> <span class='const'>Array</span> <span class='op'>||</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='id klass'>klass</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="partition-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>partition</strong>(&amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>FileList version of partition.  Needed because the nested arrays should be
+FileLists in this version.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+326
+327
+328
+329
+330
+331
+332
+333</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 326</span>
+
+<span class='kw'>def</span> <span class='id partition'>partition</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>       <span class='comment'># :nodoc:
+</span>  <span class='id resolve'>resolve</span>
+  <span class='id result'>result</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id partition'>partition</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='lbracket'>[</span>
+    <span class='const'>FileList</span><span class='period'>.</span><span class='id new'>new</span><span class='period'>.</span><span class='id import'>import</span><span class='lparen'>(</span><span class='id result'>result</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>FileList</span><span class='period'>.</span><span class='id new'>new</span><span class='period'>.</span><span class='id import'>import</span><span class='lparen'>(</span><span class='id result'>result</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pathmap-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>pathmap</strong>(spec = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Apply the pathmap spec to each of the included file names, returning a new
+file list with the modified paths.  (See String#pathmap for details.)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 263</span>
+
+<span class='kw'>def</span> <span class='id pathmap'>pathmap</span><span class='lparen'>(</span><span class='id spec'>spec</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='op'>|</span> <span class='id fn'>fn</span><span class='period'>.</span><span class='id pathmap'>pathmap</span><span class='lparen'>(</span><span class='id spec'>spec</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="resolve-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>resolve</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Resolve all the pending adds now.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+201
+202
+203
+204
+205
+206
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 201</span>
+
+<span class='kw'>def</span> <span class='id resolve'>resolve</span>
+  <span class='kw'>if</span> <span class='ivar'>@pending</span>
+    <span class='ivar'>@pending</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='ivar'>@pending_add</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='op'>|</span> <span class='id resolve_add'>resolve_add</span><span class='lparen'>(</span><span class='id fn'>fn</span><span class='rparen'>)</span> <span class='kw'>end</span>
+    <span class='ivar'>@pending_add</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id resolve_exclude'>resolve_exclude</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="sub-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>sub</strong>(pat, rep) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a new FileList with the results of running <tt>sub</tt> against each
+element of the original list.</p>
+
+<p>Example:</p>
+
+<pre class="code">FileList['a.c', 'b.c'].sub(/\.c$/, '.o')  =&gt; ['a.o', 'b.o']</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+233
+234
+235</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 233</span>
+
+<span class='kw'>def</span> <span class='id sub'>sub</span><span class='lparen'>(</span><span class='id pat'>pat</span><span class='comma'>,</span> <span class='id rep'>rep</span><span class='rparen'>)</span>
+  <span class='id inject'>inject</span><span class='lparen'>(</span><span class='const'>FileList</span><span class='period'>.</span><span class='id new'>new</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id res'>res</span><span class='comma'>,</span> <span class='id fn'>fn</span><span class='op'>|</span> <span class='id res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id fn'>fn</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='id pat'>pat</span><span class='comma'>,</span><span class='id rep'>rep</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="sub!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>sub!</strong>(pat, rep) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <tt>sub</tt> except that the original file list is modified.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+249
+250
+251
+252</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 249</span>
+
+<span class='kw'>def</span> <span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='id pat'>pat</span><span class='comma'>,</span> <span class='id rep'>rep</span><span class='rparen'>)</span>
+  <span class='id each_with_index'>each_with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id fn'>fn</span><span class='comma'>,</span> <span class='id i'>i</span><span class='op'>|</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id fn'>fn</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='id pat'>pat</span><span class='comma'>,</span><span class='id rep'>rep</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_a-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_a</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the internal array object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='id to_a'>to_a</span>
+  <span class='id resolve'>resolve</span>
+  <span class='ivar'>@items</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_ary-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_ary</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the internal array object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179
+180
+181</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 179</span>
+
+<span class='kw'>def</span> <span class='id to_ary'>to_ary</span>
+  <span class='id to_a'>to_a</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Convert a FileList to a string by joining all elements with a space.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+336
+337
+338
+339</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rake/file_list.rb', line 336</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='id resolve'>resolve</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:10 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,1480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: WIN32OLE_TYPELIB</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./ext/win32ole/win32ole_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/win32ole/win32ole.c">ext/win32ole/win32ole.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-c-typelibs">::typelibs</a></li>
+          
+          <li><a href="#method-i-guid">#guid</a></li>
+          
+          <li><a href="#method-i-inspect">#inspect</a></li>
+          
+          <li><a href="#method-i-library_name">#library_name</a></li>
+          
+          <li><a href="#method-i-major_version">#major_version</a></li>
+          
+          <li><a href="#method-i-minor_version">#minor_version</a></li>
+          
+          <li><a href="#method-i-name">#name</a></li>
+          
+          <li><a href="#method-i-ole_classes">#ole_classes</a></li>
+          
+          <li><a href="#method-i-ole_types">#ole_types</a></li>
+          
+          <li><a href="#method-i-path">#path</a></li>
+          
+          <li><a href="#method-i-to_s">#to_s</a></li>
+          
+          <li><a href="#method-i-version">#version</a></li>
+          
+          <li><a href="#method-i-visible-3F">#visible?</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="./OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="./OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="./OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="./OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="./OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="./OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="./OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="./OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="./OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="./OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="./OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="./OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="./OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="./OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="./OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="./OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="./OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="./OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="./OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="./OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="./OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="./OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="./OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="./OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="./OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="./OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="./OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="./OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="./OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="./OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="./OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="./OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="./OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="./OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="./OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="./OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="./OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="./OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="./OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="./OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="./OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="./OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="./OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="./Psych.html">Psych</a></li>
+        
+          <li><a href="./Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="./Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="./Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="./Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="./Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="./Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="./Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="./Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="./Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="./Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="./Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="./Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="./Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="./Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="./Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="./Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="./Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="./Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="./Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="./Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="./Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="./Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="./Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="./Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="./Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="./Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="./Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="./Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="./Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="./Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="./DL.html">DL</a></li>
+        
+          <li><a href="./DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="./DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="./DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="./DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="./DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="./DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="./DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="./DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="./DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="./DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="./DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="./DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="./DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="./DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="./DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="./DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="./DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="./DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="./DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="./DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="./DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="./DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="./Zlib.html">Zlib</a></li>
+        
+          <li><a href="./Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="./Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="./Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="./Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="./Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="./Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="./Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="./Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="./Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="./Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="./Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="./Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="./Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="./Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="./Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="./Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="./Win32.html">Win32</a></li>
+        
+          <li><a href="./Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="./Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="./Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="./Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="./Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="./Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="./Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="./Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="./Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="./Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="./Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="./Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="./Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="./Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="./Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="./JSON.html">JSON</a></li>
+        
+          <li><a href="./JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="./JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="./JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="./JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="./JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="./JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="./Iconv.html">Iconv</a></li>
+        
+          <li><a href="./Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="./Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="./Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="./Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="./Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="./Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="./Ripper.html">Ripper</a></li>
+        
+          <li><a href="./Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="./Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="./Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="./Digest.html">Digest</a></li>
+        
+          <li><a href="./Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="./Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="./Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="./Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="./Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="./Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="./Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="./Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="./DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="./Socket.html">Socket</a></li>
+        
+          <li><a href="./Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="./Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="./Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="./Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="./Curses.html">Curses</a></li>
+        
+          <li><a href="./Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="./Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="./Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="./PTY.html">PTY</a></li>
+        
+          <li><a href="./PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="./StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="./StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="./Syslog.html">Syslog</a></li>
+        
+          <li><a href="./Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="./WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="./WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="./Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="./BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="./BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="./BigMath.html">BigMath</a></li>
+        
+          <li><a href="./Class.html">Class</a></li>
+        
+          <li><a href="./Coverage.html">Coverage</a></li>
+        
+          <li><a href="./DBM.html">DBM</a></li>
+        
+          <li><a href="./DBMError.html">DBMError</a></li>
+        
+          <li><a href="./Date.html">Date</a></li>
+        
+          <li><a href="./DateTime.html">DateTime</a></li>
+        
+          <li><a href="./Etc.html">Etc</a></li>
+        
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          <li><a href="./Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="./Float.html">Float</a></li>
+        
+          <li><a href="./GDBM.html">GDBM</a></li>
+        
+          <li><a href="./GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="./GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="./IO.html">IO</a></li>
+        
+          <li><a href="./IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          <li><a href="./Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="./Kconv.html">Kconv</a></li>
+        
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          <li><a href="./LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="./Module.html">Module</a></li>
+        
+          <li><a href="./NKF.html">NKF</a></li>
+        
+          <li><a href="./Newton.html">Newton</a></li>
+        
+          <li><a href="./OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Pathname.html">Pathname</a></li>
+        
+          <li><a href="./Range.html">Range</a></li>
+        
+          <li><a href="./Rational.html">Rational</a></li>
+        
+          <li><a href="./Readline.html">Readline</a></li>
+        
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          <li><a href="./SDBM.html">SDBM</a></li>
+        
+          <li><a href="./SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="./SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="./SocketError.html">SocketError</a></li>
+        
+          <li><a href="./String.html">String</a></li>
+        
+          <li><a href="./StringIO.html">StringIO</a></li>
+        
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          <li><a href="./TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="./TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          <li><a href="./Time.html">Time</a></li>
+        
+          <li><a href="./UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="./UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="./UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="./WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="./WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="./WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="./WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="./WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="./WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="./WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="./WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="./Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">WIN32OLE_TYPELIB</h1>
+
+    <div id="description" class="description">
+      
+<p><tt><a href="WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></tt> objects
+represent OLE tyblib information.</p>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">new(typelib [, version1, version2]) &rarr; WIN32OLE_TYPELIB object</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns a new <a href="WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a> object.</p>
+
+<p>The first argument <em>typelib</em>  specifies OLE type library name or
+GUID or OLE library file. The second argument is major version or version
+of the type library. The third argument is minor version. The second
+argument and third argument are optional. If the first argument is type
+library name, then the second and third argument are ignored.</p>
+
+<pre>tlib1 = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+tlib2 = WIN32OLE_TYPELIB.new('{00020813-0000-0000-C000-000000000046}')
+tlib3 = WIN32OLE_TYPELIB.new('{00020813-0000-0000-C000-000000000046}', 1.3)
+tlib4 = WIN32OLE_TYPELIB.new('{00020813-0000-0000-C000-000000000046}', 1, 3)
+tlib5 = WIN32OLE_TYPELIB.new(&quot;C:\\WINNT\\SYSTEM32\\SHELL32.DLL&quot;)
+puts tlib1.name  # -&gt; 'Microsoft Excel 9.0 Object Library'
+puts tlib2.name  # -&gt; 'Microsoft Excel 9.0 Object Library'
+puts tlib3.name  # -&gt; 'Microsoft Excel 9.0 Object Library'
+puts tlib4.name  # -&gt; 'Microsoft Excel 9.0 Object Library'
+puts tlib5.name  # -&gt; 'Microsoft Shell Controls And Automation'</pre>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+static VALUE
+foletypelib_initialize(VALUE self, VALUE args)
+{
+    VALUE found = Qfalse;
+    VALUE typelib = Qnil;
+    int len = 0;
+    OLECHAR * pbuf;
+    ITypeLib *pTypeLib;
+    HRESULT hr = S_OK;
+
+    len = RARRAY_LEN(args);
+    if (len &lt; 1 || len &gt; 3) {
+        rb_raise(rb_eArgError, &quot;wrong number of arguments (%d for 1..3)&quot;, len);
+    }
+
+    typelib = rb_ary_entry(args, 0);
+
+    SafeStringValue(typelib);
+
+    found = oletypelib_search_registry(self, typelib);
+    if (found == Qfalse) {
+        found = oletypelib_search_registry2(self, args);
+    }
+    if (found == Qfalse) {
+        pbuf = ole_vstr2wc(typelib);
+        hr = LoadTypeLibEx(pbuf, REGKIND_NONE, &amp;pTypeLib);
+        SysFreeString(pbuf);
+        if (SUCCEEDED(hr)) {
+            found = Qtrue;
+            oletypelib_set_member(self, pTypeLib);
+        }
+    }
+
+    if (found == Qfalse) {
+        rb_raise(eWIN32OLERuntimeError, &quot;not found type library `%s`&quot;,
+                 StringValuePtr(typelib));
+    }
+    return self;
+}</pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+        <div id="typelibs-method" class="method-detail ">
+          <a name="method-c-typelibs"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">typelibs</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the array of <a href="WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a>
+object.</p>
+
+<pre>tlibs = WIN32OLE_TYPELIB.typelibs</pre>
+            
+
+            
+            <div class="method-source-code" id="typelibs-source">
+<pre>
+static VALUE
+foletypelib_s_typelibs(VALUE self)
+{
+    HKEY htypelib, hguid;
+    DWORD i, j;
+    LONG err;
+    VALUE guid;
+    VALUE version;
+    VALUE name = Qnil;
+    VALUE typelibs = rb_ary_new();
+    VALUE typelib = Qnil;
+    HRESULT hr;
+    ITypeLib *pTypeLib;
+
+    err = reg_open_key(HKEY_CLASSES_ROOT, &quot;TypeLib&quot;, &amp;htypelib);
+    if(err != ERROR_SUCCESS) {
+        return typelibs;
+    }
+    for(i = 0; ; i++) {
+        guid = reg_enum_key(htypelib, i);
+        if (guid == Qnil)
+            break;
+        err = reg_open_vkey(htypelib, guid, &amp;hguid);
+        if (err != ERROR_SUCCESS)
+            continue;
+        for(j = 0; ; j++) {
+            version = reg_enum_key(hguid, j);
+            if (version == Qnil)
+                break;
+            if ( (name = reg_get_val2(hguid, StringValuePtr(version))) != Qnil ) {
+                hr = oletypelib_from_guid(guid, version, &amp;pTypeLib);
+                if (SUCCEEDED(hr)) {
+                    typelib = rb_funcall(cWIN32OLE_TYPELIB, rb_intern(&quot;allocate&quot;), 0);
+                    oletypelib_set_member(typelib, pTypeLib);
+                    rb_ary_push(typelibs, typelib);
+                }
+            }
+        }
+        RegCloseKey(hguid);
+    }
+    RegCloseKey(htypelib);
+    return typelibs;
+}</pre>
+            </div><!-- typelibs-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- typelibs-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="guid-method" class="method-detail ">
+          <a name="method-i-guid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#guid &rarr; The guid string.</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns guid string which specifies type library.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+guid = tlib.guid # -&gt; '{00020813-0000-0000-C000-000000000046}'</pre>
+            
+
+            
+            <div class="method-source-code" id="guid-source">
+<pre>
+static VALUE
+foletypelib_guid(VALUE self)
+{
+    ITypeLib *pTypeLib;
+    OLECHAR bstr[80];
+    VALUE guid = Qnil;
+    int len;
+    TLIBATTR *pTLibAttr;
+
+    pTypeLib = oletypelib_get_typelib(self);
+    oletypelib_get_libattr(pTypeLib, &amp;pTLibAttr);
+    len = StringFromGUID2(&amp;pTLibAttr-&gt;guid, bstr, sizeof(bstr)/sizeof(OLECHAR));
+    if (len &gt; 3) {
+        guid = ole_wc2vstr(bstr, FALSE);
+    }
+    pTypeLib-&gt;lpVtbl-&gt;ReleaseTLibAttr(pTypeLib, pTLibAttr);
+    return guid;
+}</pre>
+            </div><!-- guid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- guid-method -->
+
+      
+        <div id="inspect-method" class="method-detail ">
+          <a name="method-i-inspect"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#inspect &rarr; String</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the type library name with class name.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+tlib.inspect # =&gt; &quot;&lt;#WIN32OLE_TYPELIB:Microsoft Excel 9.0 Object Library&gt;&quot;</pre>
+            
+
+            
+            <div class="method-source-code" id="inspect-source">
+<pre>
+static VALUE
+foletypelib_inspect(VALUE self)
+{
+    return default_inspect(self, &quot;WIN32OLE_TYPELIB&quot;);
+}</pre>
+            </div><!-- inspect-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- inspect-method -->
+
+      
+        <div id="library_name-method" class="method-detail ">
+          <a name="method-i-library_name"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#library_name</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns library name. If the method fails to access library name, <a
+href="WIN32OLERuntimeError.html">WIN32OLERuntimeError</a> is raised.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+tlib.library_name # =&gt; Excel</pre>
+            
+
+            
+            <div class="method-source-code" id="library_name-source">
+<pre>
+static VALUE
+foletypelib_library_name(VALUE self)
+{
+    HRESULT hr;
+    ITypeLib *pTypeLib = NULL;
+    VALUE libname = Qnil;
+    BSTR bstr;
+
+    pTypeLib = oletypelib_get_typelib(self);
+    hr = pTypeLib-&gt;lpVtbl-&gt;GetDocumentation(pTypeLib, -1,
+                                            &amp;bstr, NULL, NULL, NULL);
+    if (FAILED(hr)) {
+        ole_raise(hr, eWIN32OLERuntimeError, &quot;failed to get library name&quot;);
+    }
+    libname = WC2VSTR(bstr);
+    return libname;
+}</pre>
+            </div><!-- library_name-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- library_name-method -->
+
+      
+        <div id="major_version-method" class="method-detail ">
+          <a name="method-i-major_version"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#major_version &rarr; The type library major version.</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the type library major version.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+puts tlib.major_version # -&gt; 1</pre>
+            
+
+            
+            <div class="method-source-code" id="major_version-source">
+<pre>
+static VALUE
+foletypelib_major_version(VALUE self)
+{
+    TLIBATTR *pTLibAttr;
+    VALUE major;
+    ITypeLib *pTypeLib;
+    pTypeLib = oletypelib_get_typelib(self);
+    oletypelib_get_libattr(pTypeLib, &amp;pTLibAttr);
+
+    major =  INT2NUM(pTLibAttr-&gt;wMajorVerNum);
+    pTypeLib-&gt;lpVtbl-&gt;ReleaseTLibAttr(pTypeLib, pTLibAttr);
+    return major;
+}</pre>
+            </div><!-- major_version-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- major_version-method -->
+
+      
+        <div id="minor_version-method" class="method-detail ">
+          <a name="method-i-minor_version"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#minor_version &rarr; The type library minor version.</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the type library minor version.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+puts tlib.minor_version # -&gt; 3</pre>
+            
+
+            
+            <div class="method-source-code" id="minor_version-source">
+<pre>
+static VALUE
+foletypelib_minor_version(VALUE self)
+{
+    TLIBATTR *pTLibAttr;
+    VALUE minor;
+    ITypeLib *pTypeLib;
+    pTypeLib = oletypelib_get_typelib(self);
+    oletypelib_get_libattr(pTypeLib, &amp;pTLibAttr);
+    minor =  INT2NUM(pTLibAttr-&gt;wMinorVerNum);
+    pTypeLib-&gt;lpVtbl-&gt;ReleaseTLibAttr(pTypeLib, pTLibAttr);
+    return minor;
+}</pre>
+            </div><!-- minor_version-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- minor_version-method -->
+
+      
+        <div id="name-method" class="method-detail ">
+          <a name="method-i-name"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#name &rarr; The type library name</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the type library name.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+name = tlib.name # -&gt; 'Microsoft Excel 9.0 Object Library'</pre>
+            
+
+            
+            <div class="method-source-code" id="name-source">
+<pre>
+static VALUE
+foletypelib_name(VALUE self)
+{
+    ITypeLib *pTypeLib;
+    HRESULT hr;
+    BSTR bstr;
+    VALUE name;
+    pTypeLib = oletypelib_get_typelib(self);
+    hr = pTypeLib-&gt;lpVtbl-&gt;GetDocumentation(pTypeLib, -1,
+                                            NULL, &amp;bstr, NULL, NULL);
+
+    if (FAILED(hr)) {
+        ole_raise(hr, eWIN32OLERuntimeError, &quot;failed to get name from ITypeLib&quot;);
+    }
+    name = WC2VSTR(bstr);
+    return rb_enc_str_new(StringValuePtr(name), strlen(StringValuePtr(name)), cWIN32OLE_enc);
+}</pre>
+            </div><!-- name-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="WIN32OLE_TYPELIB.html#method-i-to_s">to_s</a>
+          </div>
+          
+
+          
+        </div><!-- name-method -->
+
+      
+        <div id="ole_classes-method" class="method-detail method-alias">
+          <a name="method-i-ole_classes"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">ole_classes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="WIN32OLE_TYPELIB.html#method-i-ole_types">ole_types</a>
+          </div>
+          
+        </div><!-- ole_classes-method -->
+
+      
+        <div id="ole_types-method" class="method-detail ">
+          <a name="method-i-ole_types"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#ole_types &rarr; The array of WIN32OLE_TYPE object included the type library.</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the type library file path.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+classes = tlib.ole_types.collect{|k| k.name} # -&gt; ['AddIn', 'AddIns' ...]</pre>
+            
+
+            
+            <div class="method-source-code" id="ole_types-source">
+<pre>
+static VALUE
+foletypelib_ole_types(VALUE self)
+{
+    ITypeLib *pTypeLib = NULL;
+    VALUE classes = rb_ary_new();
+    pTypeLib = oletypelib_get_typelib(self);
+    ole_types_from_typelib(pTypeLib, classes);
+    return classes;
+}</pre>
+            </div><!-- ole_types-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="WIN32OLE_TYPELIB.html#method-i-ole_classes">ole_classes</a>
+          </div>
+          
+
+          
+        </div><!-- ole_types-method -->
+
+      
+        <div id="path-method" class="method-detail ">
+          <a name="method-i-path"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#path &rarr; The type library file path.</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the type library file path.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+puts tlib.path #-&gt; 'C:\...\EXCEL9.OLB'</pre>
+            
+
+            
+            <div class="method-source-code" id="path-source">
+<pre>
+static VALUE
+foletypelib_path(VALUE self)
+{
+    TLIBATTR *pTLibAttr;
+    HRESULT hr = S_OK;
+    BSTR bstr;
+    LCID lcid = cWIN32OLE_lcid;
+    VALUE path;
+    ITypeLib *pTypeLib;
+
+    pTypeLib = oletypelib_get_typelib(self);
+    oletypelib_get_libattr(pTypeLib, &amp;pTLibAttr);
+    hr = QueryPathOfRegTypeLib(&amp;pTLibAttr-&gt;guid,
+                               pTLibAttr-&gt;wMajorVerNum,
+                               pTLibAttr-&gt;wMinorVerNum,
+                               lcid,
+                               &amp;bstr);
+    if (FAILED(hr)) {
+        pTypeLib-&gt;lpVtbl-&gt;ReleaseTLibAttr(pTypeLib, pTLibAttr);
+        ole_raise(hr, eWIN32OLERuntimeError, &quot;failed to QueryPathOfRegTypeTypeLib&quot;);
+    }
+
+    pTypeLib-&gt;lpVtbl-&gt;ReleaseTLibAttr(pTypeLib, pTLibAttr);
+    path = WC2VSTR(bstr);
+    return rb_enc_str_new(StringValuePtr(path), strlen(StringValuePtr(path)), cWIN32OLE_enc);
+}</pre>
+            </div><!-- path-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- path-method -->
+
+      
+        <div id="to_s-method" class="method-detail method-alias">
+          <a name="method-i-to_s"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="WIN32OLE_TYPELIB.html#method-i-name">name</a>
+          </div>
+          
+        </div><!-- to_s-method -->
+
+      
+        <div id="version-method" class="method-detail ">
+          <a name="method-i-version"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#version &rarr; The type library version.</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns the type library version.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+puts tlib.version #-&gt; 1.3</pre>
+            
+
+            
+            <div class="method-source-code" id="version-source">
+<pre>
+static VALUE
+foletypelib_version(VALUE self)
+{
+    TLIBATTR *pTLibAttr;
+    VALUE major;
+    VALUE minor;
+    ITypeLib *pTypeLib;
+
+    pTypeLib = oletypelib_get_typelib(self);
+    oletypelib_get_libattr(pTypeLib, &amp;pTLibAttr);
+    major = INT2NUM(pTLibAttr-&gt;wMajorVerNum);
+    minor = INT2NUM(pTLibAttr-&gt;wMinorVerNum);
+    pTypeLib-&gt;lpVtbl-&gt;ReleaseTLibAttr(pTypeLib, pTLibAttr);
+    return rb_Float(make_version_str(major, minor));
+}</pre>
+            </div><!-- version-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- version-method -->
+
+      
+        <div id="visible-3F-method" class="method-detail ">
+          <a name="method-i-visible-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">WIN32OLE_TYPELIB#visible?</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Returns true if the type library information is not hidden. If wLibFlags of
+TLIBATTR is 0 or LIBFLAG_FRESTRICTED or LIBFLAG_FHIDDEN, the method returns
+false, otherwise, returns true. If the method fails to access the TLIBATTR
+information, then <a
+href="WIN32OLERuntimeError.html">WIN32OLERuntimeError</a> is raised.</p>
+
+<pre>tlib = WIN32OLE_TYPELIB.new('Microsoft Excel 9.0 Object Library')
+tlib.visible? # =&gt; true</pre>
+            
+
+            
+            <div class="method-source-code" id="visible-3F-source">
+<pre>
+static VALUE
+foletypelib_visible(VALUE self)
+{
+    ITypeLib *pTypeLib = NULL;
+    VALUE visible = Qtrue;
+    TLIBATTR *pTLibAttr;
+
+    pTypeLib = oletypelib_get_typelib(self);
+    oletypelib_get_libattr(pTypeLib, &amp;pTLibAttr);
+
+    if ((pTLibAttr-&gt;wLibFlags == 0) ||
+        (pTLibAttr-&gt;wLibFlags &amp; LIBFLAG_FRESTRICTED) ||
+        (pTLibAttr-&gt;wLibFlags &amp; LIBFLAG_FHIDDEN)) {
+        visible = Qfalse;
+    }
+    pTypeLib-&gt;lpVtbl-&gt;ReleaseTLibAttr(pTypeLib, pTLibAttr);
+    return visible;
+}</pre>
+            </div><!-- visible-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- visible-3F-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

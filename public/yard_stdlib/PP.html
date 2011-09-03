@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: PP
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (P)</a> &raquo; 
+    
+    
+    <span class="title">PP</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: PP
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="PrettyPrint.html" title="PrettyPrint (class)">PrettyPrint</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="PrettyPrint.html" title="PrettyPrint (class)">PrettyPrint</a></span></li>
+          
+            <li class="next">PP</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="PP/PPMethods.html" title="PP::PPMethods (module)">PPMethods</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/pp.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="PP/ObjectMixin.html" title="PP::ObjectMixin (module)">ObjectMixin</a></span>, <span class='object_link'><a href="PP/PPMethods.html" title="PP::PPMethods (module)">PPMethods</a></span>
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="PP/SingleLine.html" title="PP::SingleLine (class)">SingleLine</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="PP/PPMethods.html" title="PP::PPMethods (module)">PPMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="PP/PPMethods.html#PointerMask-constant" title="PP::PPMethods::PointerMask (constant)">PointerMask</a></span></p>
+
+  
+  
+  
+  
+  <h2>Class Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sharing_detection-class_method" title="sharing_detection (class method)">+ (Object) <strong>sharing_detection</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the sharing detection flag as a boolean value.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="PrettyPrint.html" title="PrettyPrint (class)">PrettyPrint</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="PrettyPrint.html#genspace-instance_method" title="PrettyPrint#genspace (method)">genspace</a></span>, <span class='object_link'><a href="PrettyPrint.html#group_queue-instance_method" title="PrettyPrint#group_queue (method)">group_queue</a></span>, <span class='object_link'><a href="PrettyPrint.html#indent-instance_method" title="PrettyPrint#indent (method)">indent</a></span>, <span class='object_link'><a href="PrettyPrint.html#maxwidth-instance_method" title="PrettyPrint#maxwidth (method)">maxwidth</a></span>, <span class='object_link'><a href="PrettyPrint.html#newline-instance_method" title="PrettyPrint#newline (method)">newline</a></span>, <span class='object_link'><a href="PrettyPrint.html#output-instance_method" title="PrettyPrint#output (method)">output</a></span></p>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mcall-class_method" title="mcall (class method)">+ (Object) <strong>mcall</strong>(obj, mod, meth, *args, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:stopdoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pp-class_method" title="pp (class method)">+ (Object) <strong>pp</strong>(obj, out = $&gt;, width = 79) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Outputs <tt>obj</tt> to <tt>out</tt> in pretty printed format of
+<tt>width</tt> columns in width.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#singleline_pp-class_method" title="singleline_pp (class method)">+ (Object) <strong>singleline_pp</strong>(obj, out = $&gt;) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Outputs <tt>obj</tt> to <tt>out</tt> like PP.pp but with no indent and
+newline.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="PP/PPMethods.html" title="PP::PPMethods (module)">PPMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="PP/PPMethods.html#check_inspect_key-instance_method" title="PP::PPMethods#check_inspect_key (method)">#check_inspect_key</a></span>, <span class='object_link'><a href="PP/PPMethods.html#comma_breakable-instance_method" title="PP::PPMethods#comma_breakable (method)">#comma_breakable</a></span>, <span class='object_link'><a href="PP/PPMethods.html#guard_inspect_key-instance_method" title="PP::PPMethods#guard_inspect_key (method)">#guard_inspect_key</a></span>, <span class='object_link'><a href="PP/PPMethods.html#object_address_group-instance_method" title="PP::PPMethods#object_address_group (method)">#object_address_group</a></span>, <span class='object_link'><a href="PP/PPMethods.html#object_group-instance_method" title="PP::PPMethods#object_group (method)">#object_group</a></span>, <span class='object_link'><a href="PP/PPMethods.html#pop_inspect_key-instance_method" title="PP::PPMethods#pop_inspect_key (method)">#pop_inspect_key</a></span>, <span class='object_link'><a href="PP/PPMethods.html#pp-instance_method" title="PP::PPMethods#pp (method)">#pp</a></span>, <span class='object_link'><a href="PP/PPMethods.html#pp_hash-instance_method" title="PP::PPMethods#pp_hash (method)">#pp_hash</a></span>, <span class='object_link'><a href="PP/PPMethods.html#pp_object-instance_method" title="PP::PPMethods#pp_object (method)">#pp_object</a></span>, <span class='object_link'><a href="PP/PPMethods.html#push_inspect_key-instance_method" title="PP::PPMethods#push_inspect_key (method)">#push_inspect_key</a></span>, <span class='object_link'><a href="PP/PPMethods.html#seplist-instance_method" title="PP::PPMethods#seplist (method)">#seplist</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="PrettyPrint.html" title="PrettyPrint (class)">PrettyPrint</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="PrettyPrint.html#break_outmost_groups-instance_method" title="PrettyPrint#break_outmost_groups (method)">#break_outmost_groups</a></span>, <span class='object_link'><a href="PrettyPrint.html#breakable-instance_method" title="PrettyPrint#breakable (method)">#breakable</a></span>, <span class='object_link'><a href="PrettyPrint.html#current_group-instance_method" title="PrettyPrint#current_group (method)">#current_group</a></span>, <span class='object_link'><a href="PrettyPrint.html#fill_breakable-instance_method" title="PrettyPrint#fill_breakable (method)">#fill_breakable</a></span>, <span class='object_link'><a href="PrettyPrint.html#first%3F-instance_method" title="PrettyPrint#first? (method)">#first?</a></span>, <span class='object_link'><a href="PrettyPrint.html#flush-instance_method" title="PrettyPrint#flush (method)">#flush</a></span>, <span class='object_link'><a href="PrettyPrint.html#format-class_method" title="PrettyPrint.format (method)">format</a></span>, <span class='object_link'><a href="PrettyPrint.html#group-instance_method" title="PrettyPrint#group (method)">#group</a></span>, <span class='object_link'><a href="PrettyPrint.html#group_sub-instance_method" title="PrettyPrint#group_sub (method)">#group_sub</a></span>, <span class='object_link'><a href="PrettyPrint.html#initialize-instance_method" title="PrettyPrint#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="PrettyPrint.html#nest-instance_method" title="PrettyPrint#nest (method)">#nest</a></span>, <span class='object_link'><a href="PrettyPrint.html#singleline_format-class_method" title="PrettyPrint.singleline_format (method)">singleline_format</a></span>, <span class='object_link'><a href="PrettyPrint.html#text-instance_method" title="PrettyPrint#text (method)">#text</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="PrettyPrint.html#initialize-instance_method" title="PrettyPrint#initialize (method)">PrettyPrint</a></span></p>
+  
+</div>
+
+  <div id="class_attr_details" class="attr_details">
+    <h2>Class Attribute Details</h2>
+    
+      
+      <span id="sharing_detection=-class_method"></span>
+      <span id="sharing_detection-class_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="sharing_detection-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>sharing_detection</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the sharing detection flag as a boolean value. It is false by
+default.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pp.rb', line 104</span>
+
+<span class='kw'>def</span> <span class='id sharing_detection'>sharing_detection</span>
+  <span class='ivar'>@sharing_detection</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="mcall-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>mcall</strong>(obj, mod, meth, *args, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:stopdoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pp.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='const'>PP</span><span class='period'>.</span><span class='id mcall'>mcall</span><span class='lparen'>(</span><span class='id obj'>obj</span><span class='comma'>,</span> <span class='id mod'>mod</span><span class='comma'>,</span> <span class='id meth'>meth</span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id mod'>mod</span><span class='period'>.</span><span class='id instance_method'>instance_method</span><span class='lparen'>(</span><span class='id meth'>meth</span><span class='rparen'>)</span><span class='period'>.</span><span class='id bind'>bind</span><span class='lparen'>(</span><span class='id obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pp-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>pp</strong>(obj, out = $&gt;, width = 79) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Outputs <tt>obj</tt> to <tt>out</tt> in pretty printed format of
+<tt>width</tt> columns in width.</p>
+
+<p>If <tt>out</tt> is omitted, <tt>$&amp;gt;</tt> is assumed. If <tt>width</tt> is
+omitted, 79 is assumed.</p>
+
+<p>PP.pp returns <tt>out</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pp.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='const'>PP</span><span class='period'>.</span><span class='id pp'>pp</span><span class='lparen'>(</span><span class='id obj'>obj</span><span class='comma'>,</span> <span class='id out'>out</span><span class='op'>=</span><span class='gvar'>$&gt;</span><span class='comma'>,</span> <span class='id width'>width</span><span class='op'>=</span><span class='int'>79</span><span class='rparen'>)</span>
+  <span class='id q'>q</span> <span class='op'>=</span> <span class='const'>PP</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id out'>out</span><span class='comma'>,</span> <span class='id width'>width</span><span class='rparen'>)</span>
+  <span class='id q'>q</span><span class='period'>.</span><span class='id guard_inspect_key'>guard_inspect_key</span> <span class='lbrace'>{</span><span class='id q'>q</span><span class='period'>.</span><span class='id pp'>pp</span> <span class='id obj'>obj</span><span class='rbrace'>}</span>
+  <span class='id q'>q</span><span class='period'>.</span><span class='id flush'>flush</span>
+  <span class='comment'>#$pp = q
+</span>  <span class='id out'>out</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="singleline_pp-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>singleline_pp</strong>(obj, out = $&gt;) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Outputs <tt>obj</tt> to <tt>out</tt> like PP.pp but with no indent and
+newline.</p>
+
+<p>PP.singleline_pp returns <tt>out</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pp.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='const'>PP</span><span class='period'>.</span><span class='id singleline_pp'>singleline_pp</span><span class='lparen'>(</span><span class='id obj'>obj</span><span class='comma'>,</span> <span class='id out'>out</span><span class='op'>=</span><span class='gvar'>$&gt;</span><span class='rparen'>)</span>
+  <span class='id q'>q</span> <span class='op'>=</span> <span class='const'>SingleLine</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id out'>out</span><span class='rparen'>)</span>
+  <span class='id q'>q</span><span class='period'>.</span><span class='id guard_inspect_key'>guard_inspect_key</span> <span class='lbrace'>{</span><span class='id q'>q</span><span class='period'>.</span><span class='id pp'>pp</span> <span class='id obj'>obj</span><span class='rbrace'>}</span>
+  <span class='id q'>q</span><span class='period'>.</span><span class='id flush'>flush</span>
+  <span class='id out'>out</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:09:54 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

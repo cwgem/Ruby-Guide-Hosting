@@ -1,0 +1,3804 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: URI::Generic
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (G)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../URI.html" title="URI (module)">URI</a></span></span>
+     &raquo; 
+    <span class="title">Generic</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: URI::Generic
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">URI::Generic</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="../URI.html" title="URI (module)">URI</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/uri/generic.rb<span class="defines">,<br />
+  lib/open-uri.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Base class for all URI classes. Implements generic URI syntax as per RFC
+2396.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="FTP.html" title="URI::FTP (class)">FTP</a></span>, <span class='object_link'><a href="HTTP.html" title="URI::HTTP (class)">HTTP</a></span>, <span class='object_link'><a href="LDAP.html" title="URI::LDAP (class)">LDAP</a></span>, <span class='object_link'><a href="MailTo.html" title="URI::MailTo (class)">MailTo</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DEFAULT_PORT-constant" class="">DEFAULT_PORT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A Default port of nil for URI::Generic</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
+      
+        <dt id="COMPONENT-constant" class="">COMPONENT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>An Array of the available components for URI::Generic</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+  <span class='symbol'>:scheme</span><span class='comma'>,</span>
+  <span class='symbol'>:userinfo</span><span class='comma'>,</span> <span class='symbol'>:host</span><span class='comma'>,</span> <span class='symbol'>:port</span><span class='comma'>,</span> <span class='symbol'>:registry</span><span class='comma'>,</span>
+  <span class='symbol'>:path</span><span class='comma'>,</span> <span class='symbol'>:opaque</span><span class='comma'>,</span>
+  <span class='symbol'>:query</span><span class='comma'>,</span>
+  <span class='symbol'>:fragment</span>
+<span class='rbracket'>]</span><span class='period'>.</span><span class='id freeze'>freeze</span></pre></dd>
+      
+        <dt id="USE_REGISTRY-constant" class="">USE_REGISTRY =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Default to not use the registry for a URI::Generic</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='kw'>false</span></pre></dd>
+      
+        <dt id="to_s-classvariable" class="">@@to_s =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Kernel</span><span class='period'>.</span><span class='id instance_method'>instance_method</span><span class='lparen'>(</span><span class='symbol'>:to_s</span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="../URI.html" title="URI (module)">URI</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../URI.html#DEFAULT_PARSER-constant" title="URI::DEFAULT_PARSER (constant)">DEFAULT_PARSER</a></span>, <span class='object_link'><a href="../URI.html#HTML5ASCIIINCOMPAT-constant" title="URI::HTML5ASCIIINCOMPAT (constant)">HTML5ASCIIINCOMPAT</a></span>, <span class='object_link'><a href="../URI.html#TBLDECWWWCOMP_-constant" title="URI::TBLDECWWWCOMP_ (constant)">TBLDECWWWCOMP_</a></span>, <span class='object_link'><a href="../URI.html#TBLENCWWWCOMP_-constant" title="URI::TBLENCWWWCOMP_ (constant)">TBLENCWWWCOMP_</a></span>, <span class='object_link'><a href="../URI.html#VERSION-constant" title="URI::VERSION (constant)">VERSION</a></span>, <span class='object_link'><a href="../URI.html#VERSION_CODE-constant" title="URI::VERSION_CODE (constant)">VERSION_CODE</a></span>, <span class='object_link'><a href="../URI.html#WFKV_-constant" title="URI::WFKV_ (constant)">WFKV_</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fragment-instance_method" title="#fragment (instance method)">- (Object) <strong>fragment</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the fragment component of the URI.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#host-instance_method" title="#host (instance method)">- (Object) <strong>host</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the host component of the URI.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#opaque-instance_method" title="#opaque (instance method)">- (Object) <strong>opaque</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the opaque part of the URI.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path-instance_method" title="#path (instance method)">- (Object) <strong>path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the path component of the URI.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#port-instance_method" title="#port (instance method)">- (Object) <strong>port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the port component of the URI.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query-instance_method" title="#query (instance method)">- (Object) <strong>query</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the query component of the URI.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#registry-instance_method" title="#registry (instance method)">- (Object) <strong>registry</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the registry component of the URI.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scheme-instance_method" title="#scheme (instance method)">- (Object) <strong>scheme</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the scheme component of the URI.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build-class_method" title="build (class method)">+ (Object) <strong>build</strong>(args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Synopsis.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build2-class_method" title="build2 (class method)">+ (Object) <strong>build2</strong>(args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Synopsis.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#component-class_method" title="component (class method)">+ (Object) <strong>component</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Components of the URI in the order.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_port-class_method" title="default_port (class method)">+ (Object) <strong>default_port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns default port.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#use_registry-class_method" title="use_registry (class method)">+ (Object) <strong>use_registry</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether a registry of naming authorities are being used.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(oth) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compares to URI's.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#absolute%3F-instance_method" title="#absolute? (instance method)">- (Boolean) <strong>absolute?</strong> </a>
+    
+
+    
+      (also: #absolute)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks if URI is an absolute one.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coerce-instance_method" title="#coerce (instance method)">- (Object) <strong>coerce</strong>(oth) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#component-instance_method" title="#component (instance method)">- (Object) <strong>component</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Components of the URI in the order.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_port-instance_method" title="#default_port (instance method)">- (Object) <strong>default_port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns default port.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#eql%3F-instance_method" title="#eql? (instance method)">- (Boolean) <strong>eql?</strong>(oth) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#find_proxy-instance_method" title="#find_proxy (instance method)">- (Object) <strong>find_proxy</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns a proxy URI.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash-instance_method" title="#hash (instance method)">- (Object) <strong>hash</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hierarchical%3F-instance_method" title="#hierarchical? (instance method)">- (Boolean) <strong>hierarchical?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks if URI has a path.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hostname-instance_method" title="#hostname (instance method)">- (Object) <strong>hostname</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>extract the host part of the URI and unwrap brackets for IPv6 addresses.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hostname%3D-instance_method" title="#hostname= (instance method)">- (Object) <strong>hostname=</strong>(v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>set the host part of the URI as the argument with brackets for IPv6
+addresses.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Generic) <strong>initialize</strong>(scheme, userinfo, host, port, registry, path, opaque, query, fragment, parser = DEFAULT_PARSER, arg_check = false) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#merge-instance_method" title="#merge (instance method)">- (Object) <strong>merge</strong>(oth) </a>
+    
+
+    
+      (also: #+)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#merge%21-instance_method" title="#merge! (instance method)">- (Object) <strong>merge!</strong>(oth) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#normalize-instance_method" title="#normalize (instance method)">- (Object) <strong>normalize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns normalized URI.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#normalize%21-instance_method" title="#normalize! (instance method)">- (Object) <strong>normalize!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Destructive version of #normalize.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parser-instance_method" title="#parser (instance method)">- (Object) <strong>parser</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the parser to be used.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#password-instance_method" title="#password (instance method)">- (Object) <strong>password</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the password component.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#password%3D-instance_method" title="#password= (instance method)">- (Object) <strong>password=</strong>(password) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#relative%3F-instance_method" title="#relative? (instance method)">- (Boolean) <strong>relative?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks if URI is relative.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#route_from-instance_method" title="#route_from (instance method)">- (Object) <strong>route_from</strong>(oth) </a>
+    
+
+    
+      (also: #-)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#route_to-instance_method" title="#route_to (instance method)">- (Object) <strong>route_to</strong>(oth) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#select-instance_method" title="#select (instance method)">- (Object) <strong>select</strong>(*components) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs String from URI.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user-instance_method" title="#user (instance method)">- (Object) <strong>user</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the user component.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user%3D-instance_method" title="#user= (instance method)">- (Object) <strong>user=</strong>(user) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h2>Args.</h2>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#userinfo-instance_method" title="#userinfo (instance method)">- (Object) <strong>userinfo</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>returns the userinfo, either as 'user' or 'user:password'.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#userinfo%3D-instance_method" title="#userinfo= (instance method)">- (Object) <strong>userinfo=</strong>(userinfo) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets userinfo, argument is string like 'name:pass'.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../URI.html" title="URI (module)">URI</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../URI.html#decode_www_form-class_method" title="URI.decode_www_form (method)">decode_www_form</a></span>, <span class='object_link'><a href="../URI.html#decode_www_form_component-class_method" title="URI.decode_www_form_component (method)">decode_www_form_component</a></span>, <span class='object_link'><a href="../URI.html#encode_www_form-class_method" title="URI.encode_www_form (method)">encode_www_form</a></span>, <span class='object_link'><a href="../URI.html#encode_www_form_component-class_method" title="URI.encode_www_form_component (method)">encode_www_form_component</a></span>, <span class='object_link'><a href="../URI.html#extract-class_method" title="URI.extract (method)">extract</a></span>, <span class='object_link'><a href="../URI.html#join-class_method" title="URI.join (method)">join</a></span>, <span class='object_link'><a href="../URI.html#parse-class_method" title="URI.parse (method)">parse</a></span>, <span class='object_link'><a href="../URI.html#regexp-class_method" title="URI.regexp (method)">regexp</a></span>, <span class='object_link'><a href="../URI.html#scheme_list-class_method" title="URI.scheme_list (method)">scheme_list</a></span>, <span class='object_link'><a href="../URI.html#split-class_method" title="URI.split (method)">split</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Escape.html" title="URI::Escape (module)">Escape</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Escape.html#escape-instance_method" title="URI::Escape#escape (method)">#escape</a></span>, <span class='object_link'><a href="Escape.html#unescape-instance_method" title="URI::Escape#unescape (method)">#unescape</a></span></p>
+
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="URI::Generic (class)">Generic</a></span></tt>) <strong>initialize</strong>(scheme, userinfo, host, port, registry, path, opaque, query, fragment, parser = DEFAULT_PARSER, arg_check = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>scheme</tt></p></td>
+<td>
+<p>Protocol scheme, i.e. 'http','ftp','mailto' and so on.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>userinfo</tt></p></td>
+<td>
+<p>User name and password, i.e. 'sdmitry:bla'</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>host</tt></p></td>
+<td>
+<p>Server host name</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>port</tt></p></td>
+<td>
+<p>Server port</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>registry</tt></p></td>
+<td>
+<p>Registry of naming authorities.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>path</tt></p></td>
+<td>
+<p>Path on server</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>opaque</tt></p></td>
+<td>
+<p>Opaque part</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>query</tt></p></td>
+<td>
+<p>Query data</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>fragment</tt></p></td>
+<td>
+<p>A part of URI after '#' sign</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>parser</tt></p></td>
+<td>
+<p>Parser for internal use [URI::DEFAULT_PARSER by default]</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>arg_check</tt></p></td>
+<td>
+<p>Check arguments [false by default]</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Creates a new URI::Generic instance from "generic" components without
+check.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 172</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id scheme'>scheme</span><span class='comma'>,</span>
+               <span class='id userinfo'>userinfo</span><span class='comma'>,</span> <span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='comma'>,</span> <span class='id registry'>registry</span><span class='comma'>,</span>
+               <span class='id path'>path</span><span class='comma'>,</span> <span class='id opaque'>opaque</span><span class='comma'>,</span>
+               <span class='id query'>query</span><span class='comma'>,</span>
+               <span class='id fragment'>fragment</span><span class='comma'>,</span>
+               <span class='id parser'>parser</span> <span class='op'>=</span> <span class='const'>DEFAULT_PARSER</span><span class='comma'>,</span>
+               <span class='id arg_check'>arg_check</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@scheme</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@password</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@host</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@port</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@path</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@query</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@opaque</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@registry</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@fragment</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@parser</span> <span class='op'>=</span> <span class='id parser'>parser</span> <span class='op'>==</span> <span class='const'>DEFAULT_PARSER</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='id parser'>parser</span>
+
+  <span class='kw'>if</span> <span class='id arg_check'>arg_check</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id scheme'>scheme</span> <span class='op'>=</span> <span class='id scheme'>scheme</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id userinfo'>userinfo</span> <span class='op'>=</span> <span class='id userinfo'>userinfo</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id host'>host</span> <span class='op'>=</span> <span class='id host'>host</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id port'>port</span> <span class='op'>=</span> <span class='id port'>port</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id path'>path</span> <span class='op'>=</span> <span class='id path'>path</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id query'>query</span> <span class='op'>=</span> <span class='id query'>query</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id opaque'>opaque</span> <span class='op'>=</span> <span class='id opaque'>opaque</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id registry'>registry</span> <span class='op'>=</span> <span class='id registry'>registry</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id fragment'>fragment</span> <span class='op'>=</span> <span class='id fragment'>fragment</span>
+  <span class='kw'>else</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id set_scheme'>set_scheme</span><span class='lparen'>(</span><span class='id scheme'>scheme</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id set_userinfo'>set_userinfo</span><span class='lparen'>(</span><span class='id userinfo'>userinfo</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id set_host'>set_host</span><span class='lparen'>(</span><span class='id host'>host</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id set_port'>set_port</span><span class='lparen'>(</span><span class='id port'>port</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id set_path'>set_path</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id set_query'>set_query</span><span class='lparen'>(</span><span class='id query'>query</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id set_opaque'>set_opaque</span><span class='lparen'>(</span><span class='id opaque'>opaque</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id set_registry'>set_registry</span><span class='lparen'>(</span><span class='id registry'>registry</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id set_fragment'>set_fragment</span><span class='lparen'>(</span><span class='id fragment'>fragment</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@registry</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id use_registry'>use_registry</span>
+    <span class='id raise'>raise</span> <span class='const'>InvalidURIError</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>the scheme </span><span class='embexpr_beg'>#{</span><span class='ivar'>@scheme</span><span class='rbrace'>}</span><span class='tstring_content'> does not accept registry part: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@registry</span><span class='rbrace'>}</span><span class='tstring_content'> (or bad hostname?)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@scheme</span><span class='period'>.</span><span class='id freeze'>freeze</span> <span class='kw'>if</span> <span class='ivar'>@scheme</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id set_path'>set_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@path</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='ivar'>@opaque</span> <span class='comment'># (see RFC2396 Section 5.2)
+</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id set_port'>set_port</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id default_port'>default_port</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id default_port'>default_port</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='ivar'>@port</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="fragment=-instance_method"></span>
+      <span id="fragment-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="fragment-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>fragment</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the fragment component of the URI.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://foo/bar/baz?search=FooBar#ponies</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id fragment'>fragment</span> <span class='comment'>#=&gt; &quot;ponies&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+291
+292
+293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 291</span>
+
+<span class='kw'>def</span> <span class='id fragment'>fragment</span>
+  <span class='ivar'>@fragment</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="host=-instance_method"></span>
+      <span id="host-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="host-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>host</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the host component of the URI.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://foo/bar/baz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id host'>host</span> <span class='comment'>#=&gt; &quot;foo&quot;</span></pre>
+
+<p>It returns nil if no host component.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mailto:foo@example.org</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id host'>host</span> <span class='comment'>#=&gt; nil</span></pre>
+
+<p>The component doesn't contains the port number.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://foo:8080/bar/baz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id host'>host</span> <span class='comment'>#=&gt; &quot;foo&quot;</span></pre>
+
+<p>Since IPv6 addresses are wrapped by brackets in URIs, this method returns
+IPv6 addresses wrapped by brackets. This form is not appropriate to pass
+socket methods such as TCPSocket.open. If unwrapped host names are
+required, use "hostname" method.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://[::1]/bar/baz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id host'>host</span> <span class='comment'>#=&gt; &quot;[::1]&quot;
+</span><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://[::1]/bar/baz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id hostname'>hostname</span> <span class='comment'>#=&gt; &quot;::1&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+249
+250
+251</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 249</span>
+
+<span class='kw'>def</span> <span class='id host'>host</span>
+  <span class='ivar'>@host</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="opaque=-instance_method"></span>
+      <span id="opaque-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="opaque-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>opaque</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the opaque part of the URI.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mailto:foo@example.org</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id opaque'>opaque</span> <span class='comment'>#=&gt; &quot;foo@example.org&quot;</span></pre>
+
+<p>Portion of the path that does make use of the slash '/'. The path typically
+refers to the absolute path and the opaque part.</p>
+
+<pre class="code"><span class='lparen'>(</span><span class='id see'>see</span> <span class='const'>RFC2396</span> <span class='const'>Section</span> <span class='int'>3</span> <span class='kw'>and</span> <span class='float'>5.2</span><span class='rparen'>)</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+285
+286
+287</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 285</span>
+
+<span class='kw'>def</span> <span class='id opaque'>opaque</span>
+  <span class='ivar'>@opaque</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="path=-instance_method"></span>
+      <span id="path-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>path</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the path component of the URI.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://foo/bar/baz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id path'>path</span> <span class='comment'>#=&gt; &quot;/bar/baz&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+269
+270
+271</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 269</span>
+
+<span class='kw'>def</span> <span class='id path'>path</span>
+  <span class='ivar'>@path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="port=-instance_method"></span>
+      <span id="port-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="port-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the port component of the URI.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://foo/bar/baz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id port'>port</span> <span class='comment'>#=&gt; &quot;80&quot;
+</span>
+<span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://foo:8080/bar/baz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id port'>port</span> <span class='comment'>#=&gt; &quot;8080&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+257
+258
+259</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 257</span>
+
+<span class='kw'>def</span> <span class='id port'>port</span>
+  <span class='ivar'>@port</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="query=-instance_method"></span>
+      <span id="query-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="query-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>query</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the query component of the URI.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://foo/bar/baz?search=FooBar</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id query'>query</span> <span class='comment'>#=&gt; &quot;search=FooBar&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+275
+276
+277</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 275</span>
+
+<span class='kw'>def</span> <span class='id query'>query</span>
+  <span class='ivar'>@query</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="registry=-instance_method"></span>
+      <span id="registry-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="registry-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>registry</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the registry component of the URI.</p>
+
+<pre class="code"><span class='lparen'>(</span><span class='id see'>see</span> <span class='const'>RFC2396</span> <span class='const'>Section</span> <span class='float'>3.2</span><span class='rparen'>)</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 263</span>
+
+<span class='kw'>def</span> <span class='id registry'>registry</span>
+  <span class='ivar'>@registry</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="scheme=-instance_method"></span>
+      <span id="scheme-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="scheme-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>scheme</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the scheme component of the URI.</p>
+
+<pre class="code"><span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://foo/bar/baz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id scheme'>scheme</span> <span class='comment'>#=&gt; &quot;http&quot;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+227
+228
+229</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 227</span>
+
+<span class='kw'>def</span> <span class='id scheme'>scheme</span>
+  <span class='ivar'>@scheme</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="build-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>build</strong>(args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Synopsis</h2>
+
+<p>See #new</p>
+
+<h2>Description</h2>
+
+<p>Creates a new URI::Generic instance from components of URI::Generic with
+check.  Components are: scheme, userinfo, host, port, registry, path,
+opaque, query and fragment. You can provide arguments either by an Array or
+a Hash. See #new for hash keys to use or for order of array items.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id build'>build</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id args'>args</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span>
+      <span class='id args'>args</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='op'>::</span><span class='const'>URI</span><span class='op'>::</span><span class='const'>Generic</span><span class='op'>::</span><span class='const'>COMPONENT</span><span class='period'>.</span><span class='id size'>size</span>
+    <span class='id tmp'>tmp</span> <span class='op'>=</span> <span class='id args'>args</span>
+  <span class='kw'>elsif</span> <span class='id args'>args</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+    <span class='id tmp'>tmp</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>URI</span><span class='op'>::</span><span class='const'>Generic</span><span class='op'>::</span><span class='const'>COMPONENT</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id c'>c</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='id args'>args</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id c'>c</span><span class='rparen'>)</span>
+        <span class='id args'>args</span><span class='lbracket'>[</span><span class='id c'>c</span><span class='rbracket'>]</span>
+      <span class='kw'>else</span>
+        <span class='kw'>nil</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected Array of or Hash of components of </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id component'>component</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id tmp'>tmp</span> <span class='op'>&lt;&lt;</span> <span class='kw'>nil</span>
+  <span class='id tmp'>tmp</span> <span class='op'>&lt;&lt;</span> <span class='kw'>true</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id tmp'>tmp</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build2-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>build2</strong>(args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Synopsis</h2>
+
+<p>See #new</p>
+
+<h2>Description</h2>
+
+<p>At first, tries to create a new URI::Generic instance using
+URI::Generic::build. But, if exception URI::InvalidComponentError is
+raised, then it URI::Escape.escape all URI components and tries again.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id build2'>build2</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id build'>build</span><span class='lparen'>(</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>InvalidComponentError</span>
+    <span class='kw'>if</span> <span class='id args'>args</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id build'>build</span><span class='lparen'>(</span><span class='id args'>args</span><span class='period'>.</span><span class='id collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id x'>x</span>
+          <span class='id parser'>parser</span><span class='period'>.</span><span class='id escape'>escape</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span>
+        <span class='kw'>else</span>
+          <span class='id x'>x</span>
+        <span class='kw'>end</span>
+      <span class='rbrace'>}</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='id args'>args</span><span class='period'>.</span><span class='id kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+      <span class='id tmp'>tmp</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+      <span class='id args'>args</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id key'>key</span><span class='comma'>,</span> <span class='id value'>value</span><span class='op'>|</span>
+        <span class='id tmp'>tmp</span><span class='lbracket'>[</span><span class='id key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id value'>value</span>
+            <span class='id parser'>parser</span><span class='period'>.</span><span class='id escape'>escape</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
+          <span class='kw'>else</span>
+            <span class='id value'>value</span>
+          <span class='kw'>end</span>
+      <span class='kw'>end</span>
+      <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id build'>build</span><span class='lparen'>(</span><span class='id tmp'>tmp</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="component-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>component</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Components of the URI in the order.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id component'>component</span>
+  <span class='kw'>self</span><span class='op'>::</span><span class='const'>COMPONENT</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_port-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>default_port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns default port</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id default_port'>default_port</span>
+  <span class='kw'>self</span><span class='op'>::</span><span class='const'>DEFAULT_PORT</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="use_registry-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>use_registry</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether a registry of naming authorities are being used.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id use_registry'>use_registry</span>
+  <span class='kw'>self</span><span class='op'>::</span><span class='const'>USE_REGISTRY</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="==-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>==</strong>(oth) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Compares to URI's</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1497
+1498
+1499
+1500
+1501
+1502
+1503</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1497</span>
+
+<span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span> <span class='op'>==</span> <span class='id oth'>oth</span><span class='period'>.</span><span class='id class'>class</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id normalize'>normalize</span><span class='period'>.</span><span class='id component_ary'>component_ary</span> <span class='op'>==</span> <span class='id oth'>oth</span><span class='period'>.</span><span class='id normalize'>normalize</span><span class='period'>.</span><span class='id component_ary'>component_ary</span>
+  <span class='kw'>else</span>
+    <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="absolute?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>absolute?</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='absolute-instance_method'>absolute</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks if URI is an absolute one</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1060
+1061
+1062
+1063
+1064
+1065
+1066</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1060</span>
+
+<span class='kw'>def</span> <span class='id absolute?'>absolute?</span>
+  <span class='kw'>if</span> <span class='ivar'>@scheme</span>
+    <span class='kw'>true</span>
+  <span class='kw'>else</span>
+    <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="coerce-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>coerce</strong>(oth) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>v</tt></p></td>
+<td>
+<p>URI or String</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<pre class="code"><span class='id attempt'>attempt</span> <span class='id to'>to</span> <span class='id parse'>parse</span> <span class='id other'>other</span> <span class='const'>URI</span> <span class='op'>&lt;</span><span class='id tt'>tt</span><span class='op'>&gt;</span><span class='id oth'>oth</span><span class='op'>&lt;</span><span class='tstring'><span class='regexp_beg'>/</span><span class='regexp_end'>tt&gt;
+</span></span></pre>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://my.example.com</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id uri'>uri</span><span class='period'>.</span><span class='id coerce'>coerce</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://foo.com</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; [#&lt;URI::HTTP:0x00000000bcb028 URL:http://foo.com/&gt;, #&lt;URI::HTTP:0x00000000d92178 URL:http://my.example.com&gt;]</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1588
+1589
+1590
+1591
+1592
+1593
+1594
+1595
+1596
+1597</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1588</span>
+
+<span class='kw'>def</span> <span class='id coerce'>coerce</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id oth'>oth</span>
+  <span class='kw'>when</span> <span class='const'>String</span>
+    <span class='id oth'>oth</span> <span class='op'>=</span> <span class='id parser'>parser</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>super</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id oth'>oth</span><span class='comma'>,</span> <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="component-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>component</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Components of the URI in the order.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+320
+321
+322</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 320</span>
+
+<span class='kw'>def</span> <span class='id component'>component</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id component'>component</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_port-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>default_port</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns default port</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id default_port'>default_port</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id default_port'>default_port</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="eql?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>eql?</strong>(oth) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1509
+1510
+1511
+1512
+1513</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1509</span>
+
+<span class='kw'>def</span> <span class='id eql?'>eql?</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span> <span class='op'>==</span> <span class='id oth'>oth</span><span class='period'>.</span><span class='id class'>class</span> <span class='op'>&amp;&amp;</span>
+  <span class='id parser'>parser</span> <span class='op'>==</span> <span class='id oth'>oth</span><span class='period'>.</span><span class='id parser'>parser</span> <span class='op'>&amp;&amp;</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id component_ary'>component_ary</span><span class='period'>.</span><span class='id eql?'>eql?</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='period'>.</span><span class='id component_ary'>component_ary</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="find_proxy-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>find_proxy</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns a proxy URI. The proxy URI is obtained from environment variables
+such as http_proxy, ftp_proxy, no_proxy, etc. If there is no proper proxy,
+nil is returned.</p>
+
+<p>Note that capitalized variables (HTTP_PROXY, FTP_PROXY, NO_PROXY, etc.) are
+examined too.</p>
+
+<p>But http_proxy and HTTP_PROXY is treated specially under CGI environment.
+It's because HTTP_PROXY may be set by Proxy: header. So HTTP_PROXY is not
+used. http_proxy is not used too if the variable is case insensitive.
+CGI_HTTP_PROXY can be used instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/open-uri.rb', line 703</span>
+
+<span class='kw'>def</span> <span class='id find_proxy'>find_proxy</span>
+  <span class='id name'>name</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id scheme'>scheme</span><span class='period'>.</span><span class='id downcase'>downcase</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>_proxy</span><span class='tstring_end'>'</span></span>
+  <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>if</span> <span class='id name'>name</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http_proxy</span><span class='tstring_end'>'</span></span> <span class='op'>&amp;&amp;</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>REQUEST_METHOD</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'># CGI?
+</span>    <span class='comment'># HTTP_PROXY conflicts with *_proxy for proxy settings and
+</span>    <span class='comment'># HTTP_* for header information in CGI.
+</span>    <span class='comment'># So it should be careful to use it.
+</span>    <span class='id pairs'>pairs</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id reject'>reject</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span> <span class='id v'>v</span><span class='op'>|</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\Ahttp_proxy\z</span><span class='regexp_end'>/i</span></span> <span class='op'>!~</span> <span class='id k'>k</span> <span class='rbrace'>}</span>
+    <span class='kw'>case</span> <span class='id pairs'>pairs</span><span class='period'>.</span><span class='id length'>length</span>
+    <span class='kw'>when</span> <span class='int'>0</span> <span class='comment'># no proxy setting anyway.
+</span>      <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>when</span> <span class='int'>1</span>
+      <span class='id k'>k</span><span class='comma'>,</span> <span class='id _'>_</span> <span class='op'>=</span> <span class='id pairs'>pairs</span><span class='period'>.</span><span class='id shift'>shift</span>
+      <span class='kw'>if</span> <span class='id k'>k</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http_proxy</span><span class='tstring_end'>'</span></span> <span class='op'>&amp;&amp;</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='period'>.</span><span class='id upcase'>upcase</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span>
+        <span class='comment'># http_proxy is safe to use because ENV is case sensitive.
+</span>        <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span>
+      <span class='kw'>else</span>
+        <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='kw'>nil</span>
+      <span class='kw'>end</span>
+    <span class='kw'>else</span> <span class='comment'># http_proxy is safe to use because ENV is case sensitive.
+</span>      <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='period'>.</span><span class='id to_hash'>to_hash</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='id proxy_uri'>proxy_uri</span>
+      <span class='comment'># Use CGI_HTTP_PROXY.  cf. libwww-perl.
+</span>      <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CGI_</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='period'>.</span><span class='id upcase'>upcase</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+  <span class='kw'>elsif</span> <span class='id name'>name</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http_proxy</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>unless</span> <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span>
+      <span class='kw'>if</span> <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='period'>.</span><span class='id upcase'>upcase</span><span class='rbracket'>]</span>
+        <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The environment variable HTTP_PROXY is discouraged.  Use http_proxy.</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='period'>.</span><span class='id upcase'>upcase</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id proxy_uri'>proxy_uri</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id hostname'>hostname</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>socket</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>begin</span>
+      <span class='id addr'>addr</span> <span class='op'>=</span> <span class='const'>IPSocket</span><span class='period'>.</span><span class='id getaddress'>getaddress</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id hostname'>hostname</span><span class='rparen'>)</span>
+      <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A127\.|\A::1\z</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id addr'>addr</span>
+    <span class='kw'>rescue</span> <span class='const'>SocketError</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id proxy_uri'>proxy_uri</span>
+    <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id proxy_uri'>proxy_uri</span><span class='rparen'>)</span>
+    <span class='id name'>name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>no_proxy</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>if</span> <span class='id no_proxy'>no_proxy</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='id name'>name</span><span class='period'>.</span><span class='id upcase'>upcase</span><span class='rbracket'>]</span>
+      <span class='id no_proxy'>no_proxy</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>([^:,]*)(?::(\d+))?</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id host'>host</span><span class='comma'>,</span> <span class='id port'>port</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\A|\.)</span><span class='embexpr_beg'>#{</span><span class='const'>Regexp</span><span class='period'>.</span><span class='id quote'>quote</span> <span class='id host'>host</span><span class='rbrace'>}</span><span class='tstring_content'>\z</span><span class='regexp_end'>/i</span></span> <span class='op'>=~</span> <span class='kw'>self</span><span class='period'>.</span><span class='id host'>host</span> <span class='op'>&amp;&amp;</span>
+           <span class='lparen'>(</span><span class='op'>!</span><span class='id port'>port</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id port'>port</span> <span class='op'>==</span> <span class='id port'>port</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='rparen'>)</span>
+          <span class='id proxy_uri'>proxy_uri</span> <span class='op'>=</span> <span class='kw'>nil</span>
+          <span class='kw'>break</span>
+        <span class='kw'>end</span>
+      <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='id proxy_uri'>proxy_uri</span>
+  <span class='kw'>else</span>
+    <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="hash-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>hash</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1505
+1506
+1507</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1505</span>
+
+<span class='kw'>def</span> <span class='id hash'>hash</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id component_ary'>component_ary</span><span class='period'>.</span><span class='id hash'>hash</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="hierarchical?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>hierarchical?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks if URI has a path</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1049
+1050
+1051
+1052
+1053
+1054
+1055</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1049</span>
+
+<span class='kw'>def</span> <span class='id hierarchical?'>hierarchical?</span>
+  <span class='kw'>if</span> <span class='ivar'>@path</span>
+    <span class='kw'>true</span>
+  <span class='kw'>else</span>
+    <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="hostname-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>hostname</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>extract the host part of the URI and unwrap brackets for IPv6 addresses.</p>
+
+<p>This method is same as URI::Generic#host except brackets for IPv6 (andn
+future IP) addresses are removed.</p>
+
+<p>u = URI("<a href="http://[::1]/bar">[::1]/bar</a>") p u.hostname     
+#=&gt; "::1" p u.host          #=&gt; "[::1]"</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+659
+660
+661
+662</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 659</span>
+
+<span class='kw'>def</span> <span class='id hostname'>hostname</span>
+  <span class='id v'>v</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id host'>host</span>
+  <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A\[(.*)\]\z</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id v'>v</span> <span class='op'>?</span> <span class='backref'>$1</span> <span class='op'>:</span> <span class='id v'>v</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="hostname=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>hostname=</strong>(v) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>set the host part of the URI as the argument with brackets for IPv6
+addresses.</p>
+
+<p>This method is same as URI::Generic#host= except the argument can be bare
+IPv6 address.</p>
+
+<p>u = URI("<a href="http://foo/bar">foo/bar</a>") p u.to_s                 
+#=&gt; "<a href="http://foo/bar">foo/bar</a>" u.hostname = "::1" p u.to_s  
+#=&gt; "<a href="http://[::1]/bar">[::1]/bar</a>"</p>
+
+<p>If the arugument seems IPv6 address, it is wrapped by brackets.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+677
+678
+679
+680</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 677</span>
+
+<span class='kw'>def</span> <span class='id hostname='>hostname=</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span>
+  <span class='id v'>v</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='embexpr_beg'>#{</span><span class='id v'>v</span><span class='rbrace'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A\[.*\]\z</span><span class='regexp_end'>/</span></span> <span class='op'>!~</span> <span class='id v'>v</span> <span class='op'>&amp;&amp;</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>:</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id v'>v</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id host'>host</span> <span class='op'>=</span> <span class='id v'>v</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1565
+1566
+1567</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1565</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='cvar'>@@to_s</span><span class='period'>.</span><span class='id bind'>bind</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id call'>call</span><span class='period'>.</span><span class='id sub!'>sub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&gt;\z</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> URL:</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="merge-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>merge</strong>(oth) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='+-instance_method'>+</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>oth</tt></p></td>
+<td>
+<p>URI or String</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Merges two URI's.</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://my.example.com</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id p'>p</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/main.rbx?page=1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt;  #&lt;URI::HTTP:0x2021f3b0 URL:http://my.example.com/main.rbx?page=1&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1198
+1199
+1200
+1201
+1202
+1203
+1204
+1205
+1206
+1207
+1208
+1209
+1210
+1211
+1212
+1213
+1214
+1215
+1216
+1217
+1218
+1219
+1220
+1221
+1222
+1223
+1224
+1225
+1226
+1227
+1228
+1229
+1230
+1231
+1232
+1233
+1234
+1235
+1236</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1198</span>
+
+<span class='kw'>def</span> <span class='id merge'>merge</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id base'>base</span><span class='comma'>,</span> <span class='id rel'>rel</span> <span class='op'>=</span> <span class='id merge0'>merge0</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span>
+    <span class='id raise'>raise</span> <span class='gvar'>$!</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='gvar'>$!</span><span class='period'>.</span><span class='id message'>message</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id base'>base</span> <span class='op'>==</span> <span class='id rel'>rel</span>
+    <span class='kw'>return</span> <span class='id base'>base</span>
+  <span class='kw'>end</span>
+
+  <span class='id authority'>authority</span> <span class='op'>=</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id userinfo'>userinfo</span> <span class='op'>||</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id host'>host</span> <span class='op'>||</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id port'>port</span>
+
+  <span class='comment'># RFC2396, Section 5.2, 2)
+</span>  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id rel'>rel</span><span class='period'>.</span><span class='id path'>path</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id path'>path</span><span class='period'>.</span><span class='id empty?'>empty?</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id authority'>authority</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id rel'>rel</span><span class='period'>.</span><span class='id query'>query</span>
+    <span class='id base'>base</span><span class='period'>.</span><span class='id set_fragment'>set_fragment</span><span class='lparen'>(</span><span class='id rel'>rel</span><span class='period'>.</span><span class='id fragment'>fragment</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id fragment'>fragment</span>
+    <span class='kw'>return</span> <span class='id base'>base</span>
+  <span class='kw'>end</span>
+
+  <span class='id base'>base</span><span class='period'>.</span><span class='id set_query'>set_query</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id base'>base</span><span class='period'>.</span><span class='id set_fragment'>set_fragment</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span>
+
+  <span class='comment'># RFC2396, Section 5.2, 4)
+</span>  <span class='kw'>if</span> <span class='op'>!</span><span class='id authority'>authority</span>
+    <span class='id base'>base</span><span class='period'>.</span><span class='id set_path'>set_path</span><span class='lparen'>(</span><span class='id merge_path'>merge_path</span><span class='lparen'>(</span><span class='id base'>base</span><span class='period'>.</span><span class='id path'>path</span><span class='comma'>,</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id path'>path</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id base'>base</span><span class='period'>.</span><span class='id path'>path</span> <span class='op'>&amp;&amp;</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id path'>path</span>
+  <span class='kw'>else</span>
+    <span class='comment'># RFC2396, Section 5.2, 4)
+</span>    <span class='id base'>base</span><span class='period'>.</span><span class='id set_path'>set_path</span><span class='lparen'>(</span><span class='id rel'>rel</span><span class='period'>.</span><span class='id path'>path</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id path'>path</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># RFC2396, Section 5.2, 7)
+</span>  <span class='id base'>base</span><span class='period'>.</span><span class='id set_userinfo'>set_userinfo</span><span class='lparen'>(</span><span class='id rel'>rel</span><span class='period'>.</span><span class='id userinfo'>userinfo</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id userinfo'>userinfo</span>
+  <span class='id base'>base</span><span class='period'>.</span><span class='id set_host'>set_host</span><span class='lparen'>(</span><span class='id rel'>rel</span><span class='period'>.</span><span class='id host'>host</span><span class='rparen'>)</span>         <span class='kw'>if</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id host'>host</span>
+  <span class='id base'>base</span><span class='period'>.</span><span class='id set_port'>set_port</span><span class='lparen'>(</span><span class='id rel'>rel</span><span class='period'>.</span><span class='id port'>port</span><span class='rparen'>)</span>         <span class='kw'>if</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id port'>port</span>
+  <span class='id base'>base</span><span class='period'>.</span><span class='id set_query'>set_query</span><span class='lparen'>(</span><span class='id rel'>rel</span><span class='period'>.</span><span class='id query'>query</span><span class='rparen'>)</span>       <span class='kw'>if</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id query'>query</span>
+  <span class='id base'>base</span><span class='period'>.</span><span class='id set_fragment'>set_fragment</span><span class='lparen'>(</span><span class='id rel'>rel</span><span class='period'>.</span><span class='id fragment'>fragment</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id fragment'>fragment</span>
+
+  <span class='kw'>return</span> <span class='id base'>base</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="merge!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>merge!</strong>(oth) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>oth</tt></p></td>
+<td>
+<p>URI or String</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Destructive form of #merge</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://my.example.com</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id uri'>uri</span><span class='period'>.</span><span class='id merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/main.rbx?page=1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id p'>p</span> <span class='id uri'>uri</span>
+<span class='comment'># =&gt;  #&lt;URI::HTTP:0x2021f3b0 URL:http://my.example.com/main.rbx?page=1&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1170
+1171
+1172
+1173
+1174
+1175
+1176
+1177
+1178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1170</span>
+
+<span class='kw'>def</span> <span class='id merge!'>merge!</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='id t'>t</span> <span class='op'>=</span> <span class='id merge'>merge</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='kw'>self</span> <span class='op'>==</span> <span class='id t'>t</span>
+    <span class='kw'>nil</span>
+  <span class='kw'>else</span>
+    <span class='id replace!'>replace!</span><span class='lparen'>(</span><span class='id t'>t</span><span class='rparen'>)</span>
+    <span class='kw'>self</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="normalize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>normalize</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns normalized URI</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1419
+1420
+1421
+1422
+1423</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1419</span>
+
+<span class='kw'>def</span> <span class='id normalize'>normalize</span>
+  <span class='id uri'>uri</span> <span class='op'>=</span> <span class='id dup'>dup</span>
+  <span class='id uri'>uri</span><span class='period'>.</span><span class='id normalize!'>normalize!</span>
+  <span class='id uri'>uri</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="normalize!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>normalize!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Destructive version of #normalize</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1428
+1429
+1430
+1431
+1432
+1433
+1434
+1435
+1436
+1437
+1438</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1428</span>
+
+<span class='kw'>def</span> <span class='id normalize!'>normalize!</span>
+  <span class='kw'>if</span> <span class='id path'>path</span> <span class='op'>&amp;&amp;</span> <span class='id path'>path</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+    <span class='id set_path'>set_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id scheme'>scheme</span> <span class='op'>&amp;&amp;</span> <span class='id scheme'>scheme</span> <span class='op'>!=</span> <span class='id scheme'>scheme</span><span class='period'>.</span><span class='id downcase'>downcase</span>
+    <span class='id set_scheme'>set_scheme</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id scheme'>scheme</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id host'>host</span> <span class='op'>&amp;&amp;</span> <span class='id host'>host</span> <span class='op'>!=</span> <span class='id host'>host</span><span class='period'>.</span><span class='id downcase'>downcase</span>
+    <span class='id set_host'>set_host</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id host'>host</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parser-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>parser</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the parser to be used.</p>
+
+<p>Unless a URI::Parser is defined, then DEFAULT_PARSER is used.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+297
+298
+299
+300
+301
+302
+303</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 297</span>
+
+<span class='kw'>def</span> <span class='id parser'>parser</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>defined?</span><span class='lparen'>(</span><span class='ivar'>@parser</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='op'>!</span><span class='ivar'>@parser</span>
+    <span class='const'>DEFAULT_PARSER</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@parser</span> <span class='op'>||</span> <span class='const'>DEFAULT_PARSER</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="password-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>password</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the password component</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+586
+587
+588</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 586</span>
+
+<span class='kw'>def</span> <span class='id password'>password</span>
+  <span class='ivar'>@password</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="password=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>password=</strong>(password) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>v</tt></p></td>
+<td>
+<p>String</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>public setter for the <tt>password</tt> component. (with validation)</p>
+
+<p>see also URI::Generic.check_password</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://john:S3nsit1ve@my.example.com</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id uri'>uri</span><span class='period'>.</span><span class='id password'>password</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>V3ry_S3nsit1ve</span><span class='tstring_end'>&quot;</span></span>
+<span class='comment'># =&gt;  &quot;V3ry_S3nsit1ve&quot;
+</span><span class='id uri'>uri</span>
+<span class='comment'>#=&gt; #&lt;URI::HTTP:0x00000000881d90 URL:http://john:V3ry_S3nsit1ve@my.example.com&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+511
+512
+513
+514
+515</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 511</span>
+
+<span class='kw'>def</span> <span class='id password='>password=</span><span class='lparen'>(</span><span class='id password'>password</span><span class='rparen'>)</span>
+  <span class='id check_password'>check_password</span><span class='lparen'>(</span><span class='id password'>password</span><span class='rparen'>)</span>
+  <span class='id set_password'>set_password</span><span class='lparen'>(</span><span class='id password'>password</span><span class='rparen'>)</span>
+  <span class='comment'># returns password
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="relative?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>relative?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks if URI is relative</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1072
+1073
+1074</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1072</span>
+
+<span class='kw'>def</span> <span class='id relative?'>relative?</span>
+  <span class='op'>!</span><span class='id absolute?'>absolute?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="route_from-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>route_from</strong>(oth) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='--instance_method'>-</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>oth</tt></p></td>
+<td>
+<p>URI or String</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Calculates relative path from oth to self</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://my.example.com/main.rbx?page=1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id p'>p</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id route_from'>route_from</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://my.example.com</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; #&lt;URI::Generic:0x20218858 URL:/main.rbx?page=1&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1372
+1373
+1374
+1375
+1376
+1377
+1378
+1379
+1380
+1381
+1382
+1383
+1384
+1385
+1386
+1387
+1388
+1389
+1390</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1372</span>
+
+<span class='kw'>def</span> <span class='id route_from'>route_from</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='comment'># you can modify `rel', but can not `oth'.
+</span>  <span class='kw'>begin</span>
+    <span class='id oth'>oth</span><span class='comma'>,</span> <span class='id rel'>rel</span> <span class='op'>=</span> <span class='id route_from0'>route_from0</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span>
+    <span class='id raise'>raise</span> <span class='gvar'>$!</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='gvar'>$!</span><span class='period'>.</span><span class='id message'>message</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id oth'>oth</span> <span class='op'>==</span> <span class='id rel'>rel</span>
+    <span class='kw'>return</span> <span class='id rel'>rel</span>
+  <span class='kw'>end</span>
+
+  <span class='id rel'>rel</span><span class='period'>.</span><span class='id set_path'>set_path</span><span class='lparen'>(</span><span class='id route_from_path'>route_from_path</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='period'>.</span><span class='id path'>path</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id path'>path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id rel'>rel</span><span class='period'>.</span><span class='id path'>path</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>./</span><span class='tstring_end'>'</span></span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id query'>query</span>
+    <span class='comment'># &quot;./?foo&quot; -&gt; &quot;?foo&quot;
+</span>    <span class='id rel'>rel</span><span class='period'>.</span><span class='id set_path'>set_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id rel'>rel</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="route_to-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>route_to</strong>(oth) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>oth</tt></p></td>
+<td>
+<p>URI or String</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Calculates relative path to oth from self</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://my.example.com</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id p'>p</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id route_to'>route_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://my.example.com/main.rbx?page=1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; #&lt;URI::Generic:0x2020c2f6 URL:/main.rbx?page=1&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1412
+1413
+1414</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1412</span>
+
+<span class='kw'>def</span> <span class='id route_to'>route_to</span><span class='lparen'>(</span><span class='id oth'>oth</span><span class='rparen'>)</span>
+  <span class='id parser'>parser</span><span class='period'>.</span><span class='id send'>send</span><span class='lparen'>(</span><span class='symbol'>:convert_to_uri</span><span class='comma'>,</span> <span class='id oth'>oth</span><span class='rparen'>)</span><span class='period'>.</span><span class='id route_from'>route_from</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="select-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>select</strong>(*components) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>components</tt></p></td>
+<td>
+<p>Multiple Symbol arguments defined in URI::HTTP</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>Selects specified components from URI</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://myuser:mypass@my.example.com/test.rbx</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id p'>p</span> <span class='id uri'>uri</span><span class='period'>.</span><span class='id select'>select</span><span class='lparen'>(</span><span class='symbol'>:userinfo</span><span class='comma'>,</span> <span class='symbol'>:host</span><span class='comma'>,</span> <span class='symbol'>:path</span><span class='rparen'>)</span>
+<span class='comment'># =&gt; [&quot;myuser:mypass&quot;, &quot;my.example.com&quot;, &quot;/test.rbx&quot;]</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1553
+1554
+1555
+1556
+1557
+1558
+1559
+1560
+1561
+1562</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1553</span>
+
+<span class='kw'>def</span> <span class='id select'>select</span><span class='lparen'>(</span><span class='op'>*</span><span class='id components'>components</span><span class='rparen'>)</span>
+  <span class='id components'>components</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id c'>c</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id component'>component</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id c'>c</span><span class='rparen'>)</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id send'>send</span><span class='lparen'>(</span><span class='id c'>c</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected of components of </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id component'>component</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs String from URI</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1453
+1454
+1455
+1456
+1457
+1458
+1459
+1460
+1461
+1462
+1463
+1464
+1465
+1466
+1467
+1468
+1469
+1470
+1471
+1472
+1473
+1474
+1475
+1476
+1477
+1478
+1479
+1480
+1481
+1482
+1483
+1484
+1485
+1486
+1487
+1488
+1489
+1490
+1491
+1492</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 1453</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='id str'>str</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='ivar'>@scheme</span>
+    <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@scheme</span>
+    <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@opaque</span>
+    <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@opaque</span>
+
+  <span class='kw'>else</span>
+    <span class='kw'>if</span> <span class='ivar'>@registry</span>
+      <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@registry</span>
+    <span class='kw'>else</span>
+      <span class='kw'>if</span> <span class='ivar'>@host</span>
+        <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>//</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>end</span>
+      <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id userinfo'>userinfo</span>
+        <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id userinfo'>userinfo</span>
+        <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>@</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>end</span>
+      <span class='kw'>if</span> <span class='ivar'>@host</span>
+        <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@host</span>
+      <span class='kw'>end</span>
+      <span class='kw'>if</span> <span class='ivar'>@port</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@port</span> <span class='op'>!=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id default_port'>default_port</span>
+        <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span>
+        <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@port</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='id path_query'>path_query</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@fragment</span>
+    <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>#</span><span class='tstring_end'>'</span></span>
+    <span class='id str'>str</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@fragment</span>
+  <span class='kw'>end</span>
+
+  <span class='id str'>str</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="user-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>user</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the user component</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+581
+582
+583</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 581</span>
+
+<span class='kw'>def</span> <span class='id user'>user</span>
+  <span class='ivar'>@user</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="user=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>user=</strong>(user) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<h2>Args</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>v</tt></p></td>
+<td>
+<p>String</p>
+</td></tr></table>
+
+<h2>Description</h2>
+
+<p>public setter for the <tt>user</tt> component. (with validation)</p>
+
+<p>see also URI::Generic.check_user</p>
+
+<h2>Usage</h2>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://john:S3nsit1ve@my.example.com</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id uri'>uri</span><span class='period'>.</span><span class='id user'>user</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sam</span><span class='tstring_end'>&quot;</span></span>
+<span class='comment'># =&gt;  &quot;sam&quot;
+</span><span class='id uri'>uri</span>
+<span class='comment'>#=&gt; #&lt;URI::HTTP:0x00000000881d90 URL:http://sam:V3ry_S3nsit1ve@my.example.com&gt;</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+482
+483
+484
+485
+486</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 482</span>
+
+<span class='kw'>def</span> <span class='id user='>user=</span><span class='lparen'>(</span><span class='id user'>user</span><span class='rparen'>)</span>
+  <span class='id check_user'>check_user</span><span class='lparen'>(</span><span class='id user'>user</span><span class='rparen'>)</span>
+  <span class='id set_user'>set_user</span><span class='lparen'>(</span><span class='id user'>user</span><span class='rparen'>)</span>
+  <span class='comment'># returns user
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="userinfo-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>userinfo</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>returns the userinfo, either as 'user' or 'user:password'</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+570
+571
+572
+573
+574
+575
+576
+577
+578</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 570</span>
+
+<span class='kw'>def</span> <span class='id userinfo'>userinfo</span>
+  <span class='kw'>if</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>nil</span>
+  <span class='kw'>elsif</span> <span class='ivar'>@password</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='ivar'>@user</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@user</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='ivar'>@password</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="userinfo=-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>userinfo=</strong>(userinfo) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets userinfo, argument is string like 'name:pass'</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+450
+451
+452
+453
+454
+455
+456
+457</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uri/generic.rb', line 450</span>
+
+<span class='kw'>def</span> <span class='id userinfo='>userinfo=</span><span class='lparen'>(</span><span class='id userinfo'>userinfo</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id userinfo'>userinfo</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+  <span class='id check_userinfo'>check_userinfo</span><span class='lparen'>(</span><span class='op'>*</span><span class='id userinfo'>userinfo</span><span class='rparen'>)</span>
+  <span class='id set_userinfo'>set_userinfo</span><span class='lparen'>(</span><span class='op'>*</span><span class='id userinfo'>userinfo</span><span class='rparen'>)</span>
+  <span class='comment'># returns userinfo
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:32 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

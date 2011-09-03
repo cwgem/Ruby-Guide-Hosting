@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSS::Maker::DublinCoreModel
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../RSS.html" title="RSS (module)">RSS</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Maker.html" title="RSS::Maker (module)">Maker</a></span></span>
+     &raquo; 
+    <span class="title">DublinCoreModel</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: RSS::Maker::DublinCoreModel
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="ChannelBase.html" title="RSS::Maker::ChannelBase (class)">ChannelBase</a></span>, <span class='object_link'><a href="ImageBase.html" title="RSS::Maker::ImageBase (class)">ImageBase</a></span>, <span class='object_link'><a href="ImageFaviconModel/ImageFaviconBase.html" title="RSS::Maker::ImageFaviconModel::ImageFaviconBase (class)">ImageFaviconModel::ImageFaviconBase</a></span>, <span class='object_link'><a href="ImageItemModel/ImageItemBase.html" title="RSS::Maker::ImageItemModel::ImageItemBase (class)">ImageItemModel::ImageItemBase</a></span>, <span class='object_link'><a href="ItemsBase/ItemBase.html" title="RSS::Maker::ItemsBase::ItemBase (class)">ItemsBase::ItemBase</a></span>, <span class='object_link'><a href="TextinputBase.html" title="RSS::Maker::TextinputBase (class)">TextinputBase</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rss/maker/dublincore.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#append_features-class_method" title="append_features (class method)">+ (Object) <strong>append_features</strong>(klass) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_dublin_core-class_method" title="install_dublin_core (class method)">+ (Object) <strong>install_dublin_core</strong>(klass) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="append_features-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>append_features</strong>(klass) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/maker/dublincore.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id append_features'>append_features</span><span class='lparen'>(</span><span class='id klass'>klass</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
+
+  <span class='op'>::</span><span class='const'>RSS</span><span class='op'>::</span><span class='const'>DublinCoreModel</span><span class='op'>::</span><span class='const'>ELEMENT_NAME_INFOS</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id plural_name'>plural_name</span><span class='op'>|</span>
+    <span class='id plural_name'>plural_name</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id full_name'>full_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>RSS</span><span class='op'>::</span><span class='const'>DC_PREFIX</span><span class='rbrace'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id full_plural_name'>full_plural_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>RSS</span><span class='op'>::</span><span class='const'>DC_PREFIX</span><span class='rbrace'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id plural_name'>plural_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id plural_klass_name'>plural_klass_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DublinCore</span><span class='embexpr_beg'>#{</span><span class='const'>Utils</span><span class='period'>.</span><span class='id to_class_name'>to_class_name</span><span class='lparen'>(</span><span class='id plural_name'>plural_name</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id klass'>klass</span><span class='period'>.</span><span class='id def_classed_elements'>def_classed_elements</span><span class='lparen'>(</span><span class='id full_name'>full_name</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>value</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id plural_klass_name'>plural_klass_name</span><span class='comma'>,</span>
+                               <span class='id full_plural_name'>full_plural_name</span><span class='comma'>,</span> <span class='id name'>name</span><span class='rparen'>)</span>
+    <span class='id klass'>klass</span><span class='period'>.</span><span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>      def new_</span><span class='embexpr_beg'>#{</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'>(value=nil)
+</span><span class='embexpr_beg'>        _#{</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id full_plural_name'>full_plural_name</span><span class='rbrace'>}</span><span class='tstring_content'>.new_</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>        _#{</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'>.value = value
+        if block_given?
+</span><span class='embexpr_beg'>          yield _#{</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'>
+        else
+</span><span class='embexpr_beg'>          _#{</span><span class='id full_name'>full_name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'>
+        end
+      end
+</span><span class='heredoc_end'>    EOC
+</span>  <span class='kw'>end</span>
+
+  <span class='id klass'>klass</span><span class='period'>.</span><span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    # For backward compatibility
+</span><span class='embexpr_beg'>    alias #{</span><span class='const'>DC_PREFIX</span><span class='rbrace'>}</span><span class='tstring_content'>_rightses </span><span class='embexpr_beg'>#{</span><span class='const'>DC_PREFIX</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'>_rights_list
+</span><span class='heredoc_end'>  EOC
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="install_dublin_core-class_method">
+  
+    + (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>install_dublin_core</strong>(klass) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/maker/dublincore.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id install_dublin_core'>install_dublin_core</span><span class='lparen'>(</span><span class='id klass'>klass</span><span class='rparen'>)</span>
+  <span class='op'>::</span><span class='const'>RSS</span><span class='op'>::</span><span class='const'>DublinCoreModel</span><span class='op'>::</span><span class='const'>ELEMENT_NAME_INFOS</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id plural_name'>plural_name</span><span class='op'>|</span>
+    <span class='id plural_name'>plural_name</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id klass_name'>klass_name</span> <span class='op'>=</span> <span class='const'>Utils</span><span class='period'>.</span><span class='id to_class_name'>to_class_name</span><span class='lparen'>(</span><span class='id name'>name</span><span class='rparen'>)</span>
+    <span class='id full_klass_name'>full_klass_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DublinCore</span><span class='embexpr_beg'>#{</span><span class='id klass_name'>klass_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id plural_klass_name'>plural_klass_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DublinCore</span><span class='embexpr_beg'>#{</span><span class='const'>Utils</span><span class='period'>.</span><span class='id to_class_name'>to_class_name</span><span class='lparen'>(</span><span class='id plural_name'>plural_name</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id klass'>klass</span><span class='period'>.</span><span class='id module_eval'>module_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-EOC</span><span class='tstring_content'>    class </span><span class='embexpr_beg'>#{</span><span class='id plural_klass_name'>plural_klass_name</span><span class='rbrace'>}</span><span class='tstring_content'> &lt; </span><span class='embexpr_beg'>#{</span><span class='id plural_klass_name'>plural_klass_name</span><span class='rbrace'>}</span><span class='tstring_content'>Base
+</span><span class='embexpr_beg'>      class #{</span><span class='id full_klass_name'>full_klass_name</span><span class='rbrace'>}</span><span class='tstring_content'> &lt; </span><span class='embexpr_beg'>#{</span><span class='id full_klass_name'>full_klass_name</span><span class='rbrace'>}</span><span class='tstring_content'>Base
+      end
+</span><span class='embexpr_beg'>      #{</span><span class='id klass_name'>klass_name</span><span class='rbrace'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id full_klass_name'>full_klass_name</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='tstring_content'>
+    end
+</span><span class='heredoc_end'>EOC
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:30 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

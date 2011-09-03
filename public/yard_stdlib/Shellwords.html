@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Shellwords
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (S)</a> &raquo; 
+    
+    
+    <span class="title">Shellwords</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Shellwords
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/shellwords.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This module manipulates strings according to the word parsing rules of the
+UNIX Bourne shell.</p>
+
+<p>The shellwords() function was originally a port of shellwords.pl, but
+modified to conform to POSIX / SUSv3 (IEEE Std 1003.1-2001).</p>
+
+<p>Authors:</p>
+
+<pre class="code">- Wakou Aoyama
+- Akinori MUSHA &lt;knu@iDaemons.org&gt;</pre>
+
+<p>Contact:</p>
+
+<pre class="code">- Akinori MUSHA &lt;knu@iDaemons.org&gt; (current maintainer)</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#shellescape-instance_method" title="#shellescape (instance method)">- (Object) <strong>shellescape</strong>(str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Escapes a string so that it can be safely used in a Bourne shell command
+line.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#shelljoin-instance_method" title="#shelljoin (instance method)">- (Object) <strong>shelljoin</strong>(array) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Builds a command line string from an argument list <tt>array</tt> joining
+all elements escaped for Bourne shell and separated by a space.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#shellsplit-instance_method" title="#shellsplit (instance method)">- (Object) <strong>shellsplit</strong>(line) </a>
+    
+
+    
+      (also: #shellwords)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Splits a string into an array of tokens in the same way the UNIX Bourne
+shell does.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="shellescape-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>shellescape</strong>(str) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Escapes a string so that it can be safely used in a Bourne shell command
+line.</p>
+
+<p>Note that a resulted string should be used unquoted and is not intended for
+use in double quotes nor in single quotes.</p>
+
+<pre class="code"><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>| grep </span><span class='embexpr_beg'>#{</span><span class='const'>Shellwords</span><span class='period'>.</span><span class='id escape'>escape</span><span class='lparen'>(</span><span class='id pattern'>pattern</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'> file</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id pipe'>pipe</span><span class='op'>|</span>
+  <span class='comment'># ...
+</span><span class='rbrace'>}</span></pre>
+
+<p><tt>String#shellescape</tt> is a shorthand for this function.</p>
+
+<pre class="code"><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>| grep </span><span class='embexpr_beg'>#{</span><span class='id pattern'>pattern</span><span class='period'>.</span><span class='id shellescape'>shellescape</span><span class='rbrace'>}</span><span class='tstring_content'> file</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id pipe'>pipe</span><span class='op'>|</span>
+  <span class='comment'># ...
+</span><span class='rbrace'>}</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shellwords.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='id shellescape'>shellescape</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='comment'># An empty argument will be skipped, so return empty quotes.
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>''</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id str'>str</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+
+  <span class='id str'>str</span> <span class='op'>=</span> <span class='id str'>str</span><span class='period'>.</span><span class='id dup'>dup</span>
+
+  <span class='comment'># Process as a single byte sequence because not all shell
+</span>  <span class='comment'># implementations are multibyte aware.
+</span>  <span class='id str'>str</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>([^A-Za-z0-9_\-.,:\/@\n])</span><span class='regexp_end'>/n</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\\\\\1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='comment'># A LF cannot be escaped with a backslash because a backslash + LF
+</span>  <span class='comment'># combo is regarded as line continuation and simply ignored.
+</span>  <span class='id str'>str</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'\n'</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id str'>str</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="shelljoin-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>shelljoin</strong>(array) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Builds a command line string from an argument list <tt>array</tt> joining
+all elements escaped for Bourne shell and separated by a space.</p>
+
+<pre class="code"><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>|</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='const'>Shellwords</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>grep</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id pattern'>pattern</span><span class='comma'>,</span> <span class='op'>*</span><span class='id files'>files</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id pipe'>pipe</span><span class='op'>|</span>
+  <span class='comment'># ...
+</span><span class='rbrace'>}</span></pre>
+
+<p><tt>Array#shelljoin</tt> is a shorthand for this function.</p>
+
+<pre class="code"><span class='id open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>|</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>grep</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id pattern'>pattern</span><span class='comma'>,</span> <span class='op'>*</span><span class='id files'>files</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id shelljoin'>shelljoin</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id pipe'>pipe</span><span class='op'>|</span>
+  <span class='comment'># ...
+</span><span class='rbrace'>}</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shellwords.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='id shelljoin'>shelljoin</span><span class='lparen'>(</span><span class='id array'>array</span><span class='rparen'>)</span>
+  <span class='id array'>array</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id arg'>arg</span><span class='op'>|</span> <span class='id shellescape'>shellescape</span><span class='lparen'>(</span><span class='id arg'>arg</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="shellsplit-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>shellsplit</strong>(line) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='shellwords-instance_method'>shellwords</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Splits a string into an array of tokens in the same way the UNIX Bourne
+shell does.</p>
+
+<pre class="code"><span class='id argv'>argv</span> <span class='op'>=</span> <span class='const'>Shellwords</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>here are &quot;two words&quot;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id argv'>argv</span> <span class='comment'>#=&gt; [&quot;here&quot;, &quot;are&quot;, &quot;two words&quot;]</span></pre>
+
+<p><tt>String#shellsplit</tt> is a shorthand for this function.</p>
+
+<pre class="code"><span class='id argv'>argv</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>here are &quot;two words&quot;</span><span class='tstring_end'>'</span></span><span class='period'>.</span><span class='id shellsplit'>shellsplit</span>
+<span class='id argv'>argv</span> <span class='comment'>#=&gt; [&quot;here&quot;, &quot;are&quot;, &quot;two words&quot;]</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/shellwords.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id shellsplit'>shellsplit</span><span class='lparen'>(</span><span class='id line'>line</span><span class='rparen'>)</span>
+  <span class='id words'>words</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id field'>field</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='id line'>line</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\G\s*(?&gt;([^\s\\\'\&quot;]+)|'([^\']*)'|&quot;((?:[^\&quot;\\]|\\.)*)&quot;|(\\.?)|(\S))(\s|\z)?</span><span class='regexp_end'>/m</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='op'>|</span><span class='id word'>word</span><span class='comma'>,</span> <span class='id sq'>sq</span><span class='comma'>,</span> <span class='id dq'>dq</span><span class='comma'>,</span> <span class='id esc'>esc</span><span class='comma'>,</span> <span class='id garbage'>garbage</span><span class='comma'>,</span> <span class='id sep'>sep</span><span class='op'>|</span>
+    <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unmatched double quote: </span><span class='embexpr_beg'>#{</span><span class='id line'>line</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id garbage'>garbage</span>
+    <span class='id field'>field</span> <span class='op'>&lt;&lt;</span> <span class='lparen'>(</span><span class='id word'>word</span> <span class='op'>||</span> <span class='id sq'>sq</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id dq'>dq</span> <span class='op'>||</span> <span class='id esc'>esc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\\(?=.)</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id sep'>sep</span>
+      <span class='id words'>words</span> <span class='op'>&lt;&lt;</span> <span class='id field'>field</span>
+      <span class='id field'>field</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id words'>words</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:53 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

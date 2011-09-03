@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Observable
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (O)</a> &raquo; 
+    
+    
+    <span class="title">Observable</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Observable
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="DRb/DRbObservable.html" title="DRb::DRbObservable (module)">DRb::DRbObservable</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/observer.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>The Observer pattern (also known as publish/subscribe) provides a simple
+mechanism for one object to inform a set of interested third-party objects
+when its state changes.</p>
+
+<h2>Mechanism</h2>
+
+<p>The notifying class mixes in the <tt>Observable</tt> module, which provides
+the methods for managing the associated observer objects.</p>
+
+<p>The observers must implement a method called <tt>update</tt> to receive
+notifications.</p>
+
+<p>The observable object must:</p>
+<ul><li>
+<p>assert that it has <tt>#changed</tt></p>
+</li><li>
+<p>call <tt>#notify_observers</tt></p>
+</li></ul>
+
+<h3>Example</h3>
+
+<p>The following example demonstrates this nicely.  A <tt>Ticker</tt>, when
+run, continually receives the stock <tt>Price</tt> for its
+<tt>@symbol</tt>.  A <tt>Warner</tt> is a general observer of the price,
+and two warners are demonstrated, a <tt>WarnLow</tt> and a
+<tt>WarnHigh</tt>, which print a warning if the price is below or above
+their set limits, respectively.</p>
+
+<p>The <tt>update</tt> callback allows the warners to run without being
+explicitly called.  The system is set up with the <tt>Ticker</tt> and
+several observers, and the observers do their duty without the top-level
+code having to interfere.</p>
+
+<p>Note that the contract between publisher and subscriber (observable and
+observer) is not declared or enforced.  The <tt>Ticker</tt> publishes a
+time and a price, and the warners receive that.  But if you don't ensure
+that your contracts are correct, nothing else can warn you.</p>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>observer</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='kw'>class</span> <span class='const'>Ticker</span>          <span class='comment'>### Periodically fetch a stock price.
+</span>  <span class='id include'>include</span> <span class='const'>Observable</span>
+
+  <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id symbol'>symbol</span><span class='rparen'>)</span>
+    <span class='ivar'>@symbol</span> <span class='op'>=</span> <span class='id symbol'>symbol</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id run'>run</span>
+    <span class='id lastPrice'>lastPrice</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='id loop'>loop</span> <span class='kw'>do</span>
+      <span class='id price'>price</span> <span class='op'>=</span> <span class='const'>Price</span><span class='period'>.</span><span class='id fetch'>fetch</span><span class='lparen'>(</span><span class='ivar'>@symbol</span><span class='rparen'>)</span>
+      <span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Current price: </span><span class='embexpr_beg'>#{</span><span class='id price'>price</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>if</span> <span class='id price'>price</span> <span class='op'>!=</span> <span class='id lastPrice'>lastPrice</span>
+        <span class='id changed'>changed</span>                 <span class='comment'># notify observers
+</span>        <span class='id lastPrice'>lastPrice</span> <span class='op'>=</span> <span class='id price'>price</span>
+        <span class='id notify_observers'>notify_observers</span><span class='lparen'>(</span><span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span><span class='comma'>,</span> <span class='id price'>price</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='id sleep'>sleep</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='kw'>class</span> <span class='const'>Price</span>           <span class='comment'>### A mock class to fetch a stock price (60 - 140).
+</span>  <span class='kw'>def</span> <span class='const'>Price</span><span class='period'>.</span><span class='id fetch'>fetch</span><span class='lparen'>(</span><span class='id symbol'>symbol</span><span class='rparen'>)</span>
+    <span class='int'>60</span> <span class='op'>+</span> <span class='id rand'>rand</span><span class='lparen'>(</span><span class='int'>80</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='kw'>class</span> <span class='const'>Warner</span>          <span class='comment'>### An abstract observer of Ticker objects.
+</span>  <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id ticker'>ticker</span><span class='comma'>,</span> <span class='id limit'>limit</span><span class='rparen'>)</span>
+    <span class='ivar'>@limit</span> <span class='op'>=</span> <span class='id limit'>limit</span>
+    <span class='id ticker'>ticker</span><span class='period'>.</span><span class='id add_observer'>add_observer</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='kw'>class</span> <span class='const'>WarnLow</span> <span class='op'>&lt;</span> <span class='const'>Warner</span>
+  <span class='kw'>def</span> <span class='id update'>update</span><span class='lparen'>(</span><span class='id time'>time</span><span class='comma'>,</span> <span class='id price'>price</span><span class='rparen'>)</span>       <span class='comment'># callback for observer
+</span>    <span class='kw'>if</span> <span class='id price'>price</span> <span class='op'>&lt;</span> <span class='ivar'>@limit</span>
+      <span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--- </span><span class='embexpr_beg'>#{</span><span class='id time'>time</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'>: Price below </span><span class='embvar'>#</span><span class='ivar'>@limit</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id price'>price</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='kw'>class</span> <span class='const'>WarnHigh</span> <span class='op'>&lt;</span> <span class='const'>Warner</span>
+  <span class='kw'>def</span> <span class='id update'>update</span><span class='lparen'>(</span><span class='id time'>time</span><span class='comma'>,</span> <span class='id price'>price</span><span class='rparen'>)</span>       <span class='comment'># callback for observer
+</span>    <span class='kw'>if</span> <span class='id price'>price</span> <span class='op'>&gt;</span> <span class='ivar'>@limit</span>
+      <span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>+++ </span><span class='embexpr_beg'>#{</span><span class='id time'>time</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'>: Price above </span><span class='embvar'>#</span><span class='ivar'>@limit</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id price'>price</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id ticker'>ticker</span> <span class='op'>=</span> <span class='const'>Ticker</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MSFT</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='const'>WarnLow</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id ticker'>ticker</span><span class='comma'>,</span> <span class='int'>80</span><span class='rparen'>)</span>
+<span class='const'>WarnHigh</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id ticker'>ticker</span><span class='comma'>,</span> <span class='int'>120</span><span class='rparen'>)</span>
+<span class='id ticker'>ticker</span><span class='period'>.</span><span class='id run'>run</span></pre>
+
+<p>Produces:</p>
+
+<pre class="code">Current price: 83
+Current price: 75
+--- Sun Jun 09 00:10:25 CDT 2002: Price below 80: 75
+Current price: 90
+Current price: 134
++++ Sun Jun 09 00:10:25 CDT 2002: Price above 120: 134
+Current price: 134
+Current price: 112
+Current price: 79
+--- Sun Jun 09 00:10:25 CDT 2002: Price below 80: 79</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_observer-instance_method" title="#add_observer (instance method)">- (Object) <strong>add_observer</strong>(observer, func = :update) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add <tt>observer</tt> as an observer on this object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#changed-instance_method" title="#changed (instance method)">- (Object) <strong>changed</strong>(state = true) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set the changed state of this object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#changed%3F-instance_method" title="#changed? (instance method)">- (Boolean) <strong>changed?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if this object's state has been changed since the last
+#notify_observers call.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#count_observers-instance_method" title="#count_observers (instance method)">- (Object) <strong>count_observers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the number of observers associated with this object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_observer-instance_method" title="#delete_observer (instance method)">- (Object) <strong>delete_observer</strong>(observer) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Remove <tt>observer</tt> as an observer on this object so that it will no
+longer receive notifications.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_observers-instance_method" title="#delete_observers (instance method)">- (Object) <strong>delete_observers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Remove all observers associated with this object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify_observers-instance_method" title="#notify_observers (instance method)">- (Object) <strong>notify_observers</strong>(*arg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Notify observers of a change in state <b>if</b> this object's changed state
+is <tt>true</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_observer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_observer</strong>(observer, func = :update) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Add <tt>observer</tt> as an observer on this object. so that it will
+receive notifications.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>observer</tt></p></td>
+<td>
+<p>the object that will be notified of changes.</p>
+</td></tr><tr><td class="rdoc-term"><p><tt>func</tt></p></td>
+<td>
+<p>Symbol naming the method that will be called when this Observable has
+changes.</p>
+
+<p>This method must return true for <tt>observer.respond_to?</tt> and will
+receive <tt>*arg</tt> when #notify_observers is called, where <tt>*arg</tt>
+is the value passed to #notify_observers by this Observable</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128
+129
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/observer.rb', line 126</span>
+
+<span class='kw'>def</span> <span class='id add_observer'>add_observer</span><span class='lparen'>(</span><span class='id observer'>observer</span><span class='comma'>,</span> <span class='id func'>func</span><span class='op'>=</span><span class='symbol'>:update</span><span class='rparen'>)</span>
+  <span class='ivar'>@observer_peers</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='kw'>unless</span> <span class='kw'>defined?</span> <span class='ivar'>@observer_peers</span>
+  <span class='kw'>unless</span> <span class='id observer'>observer</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span> <span class='id func'>func</span>
+    <span class='id raise'>raise</span> <span class='const'>NoMethodError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>observer does not respond to `</span><span class='embexpr_beg'>#{</span><span class='id func'>func</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@observer_peers</span><span class='lbracket'>[</span><span class='id observer'>observer</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id func'>func</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="changed-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>changed</strong>(state = true) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Set the changed state of this object.  Notifications will be sent only if
+the changed <tt>state</tt> is <tt>true</tt>.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>state</tt></p></td>
+<td>
+<p>Boolean indicating the changed state of this Observable.</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/observer.rb', line 167</span>
+
+<span class='kw'>def</span> <span class='id changed'>changed</span><span class='lparen'>(</span><span class='id state'>state</span><span class='op'>=</span><span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='ivar'>@observer_state</span> <span class='op'>=</span> <span class='id state'>state</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="changed?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>changed?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if this object's state has been changed since the last
+#notify_observers call.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177
+178
+179
+180
+181</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/observer.rb', line 175</span>
+
+<span class='kw'>def</span> <span class='id changed?'>changed?</span>
+  <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='ivar'>@observer_state</span> <span class='kw'>and</span> <span class='ivar'>@observer_state</span>
+    <span class='kw'>true</span>
+  <span class='kw'>else</span>
+    <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="count_observers-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>count_observers</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the number of observers associated with this object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/observer.rb', line 153</span>
+
+<span class='kw'>def</span> <span class='id count_observers'>count_observers</span>
+  <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='ivar'>@observer_peers</span>
+    <span class='ivar'>@observer_peers</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='kw'>else</span>
+    <span class='int'>0</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete_observer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete_observer</strong>(observer) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Remove <tt>observer</tt> as an observer on this object so that it will no
+longer receive notifications.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>observer</tt></p></td>
+<td>
+<p>An observer of this Observable</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/observer.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id delete_observer'>delete_observer</span><span class='lparen'>(</span><span class='id observer'>observer</span><span class='rparen'>)</span>
+  <span class='ivar'>@observer_peers</span><span class='period'>.</span><span class='id delete'>delete</span> <span class='id observer'>observer</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='ivar'>@observer_peers</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete_observers-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>delete_observers</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Remove all observers associated with this object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+146
+147
+148</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/observer.rb', line 146</span>
+
+<span class='kw'>def</span> <span class='id delete_observers'>delete_observers</span>
+  <span class='ivar'>@observer_peers</span><span class='period'>.</span><span class='id clear'>clear</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='ivar'>@observer_peers</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="notify_observers-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>notify_observers</strong>(*arg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Notify observers of a change in state <b>if</b> this object's changed state
+is <tt>true</tt>.</p>
+
+<p>This will invoke the method named in #add_observer, pasing <tt>*arg</tt>.
+The changed state is then set to <tt>false</tt>.</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p><tt>*arg</tt></p></td>
+<td>
+<p>Any arguments to pass to the observers.</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/observer.rb', line 191</span>
+
+<span class='kw'>def</span> <span class='id notify_observers'>notify_observers</span><span class='lparen'>(</span><span class='op'>*</span><span class='id arg'>arg</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='ivar'>@observer_state</span> <span class='kw'>and</span> <span class='ivar'>@observer_state</span>
+    <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='ivar'>@observer_peers</span>
+      <span class='ivar'>@observer_peers</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id k'>k</span><span class='comma'>,</span> <span class='id v'>v</span><span class='op'>|</span>
+        <span class='id k'>k</span><span class='period'>.</span><span class='id send'>send</span> <span class='id v'>v</span><span class='comma'>,</span> <span class='op'>*</span><span class='id arg'>arg</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='ivar'>@observer_state</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:32 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

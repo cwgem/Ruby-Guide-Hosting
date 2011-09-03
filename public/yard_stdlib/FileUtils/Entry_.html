@@ -1,0 +1,2672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: FileUtils::Entry_
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (E)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../FileUtils.html" title="FileUtils (module)">FileUtils</a></span></span>
+     &raquo; 
+    <span class="title">Entry_</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: FileUtils::Entry_
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">FileUtils::Entry_</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="StreamUtils_.html" title="FileUtils::StreamUtils_ (module)">StreamUtils_</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/fileutils.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc: internal use only</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="S_IF_DOOR-constant" class="">S_IF_DOOR =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>0xD000</span></pre></dd>
+      
+        <dt id="DIRECTORY_TERM-constant" class="">DIRECTORY_TERM =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(?=/|\\z)</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id freeze'>freeze</span></pre></dd>
+      
+        <dt id="SYSCASE-constant" class="">SYSCASE =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>File</span><span class='op'>::</span><span class='const'>FNM_SYSCASE</span><span class='period'>.</span><span class='id nonzero?'>nonzero?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-i</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#blockdev%3F-instance_method" title="#blockdev? (instance method)">- (Boolean) <strong>blockdev?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chardev%3F-instance_method" title="#chardev? (instance method)">- (Boolean) <strong>chardev?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check_have_lchmod%3F-instance_method" title="#check_have_lchmod? (instance method)">- (Boolean) <strong>check_have_lchmod?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check_have_lchown%3F-instance_method" title="#check_have_lchown? (instance method)">- (Boolean) <strong>check_have_lchown?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chmod-instance_method" title="#chmod (instance method)">- (Object) <strong>chmod</strong>(mode) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chown-instance_method" title="#chown (instance method)">- (Object) <strong>chown</strong>(uid, gid) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#copy-instance_method" title="#copy (instance method)">- (Object) <strong>copy</strong>(dest) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#copy_file-instance_method" title="#copy_file (instance method)">- (Object) <strong>copy_file</strong>(dest) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#copy_metadata-instance_method" title="#copy_metadata (instance method)">- (Object) <strong>copy_metadata</strong>(path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dereference%3F-instance_method" title="#dereference? (instance method)">- (Boolean) <strong>dereference?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#descendant_diretory%3F-instance_method" title="#descendant_diretory? (instance method)">- (Boolean) <strong>descendant_diretory?</strong>(descendant, ascendant) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#directory%3F-instance_method" title="#directory? (instance method)">- (Boolean) <strong>directory?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#door%3F-instance_method" title="#door? (instance method)">- (Boolean) <strong>door?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#entries-instance_method" title="#entries (instance method)">- (Object) <strong>entries</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exist%3F-instance_method" title="#exist? (instance method)">- (Boolean) <strong>exist?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file%3F-instance_method" title="#file? (instance method)">- (Boolean) <strong>file?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#have_lchmod%3F-instance_method" title="#have_lchmod? (instance method)">- (Boolean) <strong>have_lchmod?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#have_lchown%3F-instance_method" title="#have_lchown? (instance method)">- (Boolean) <strong>have_lchown?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Entry_) <strong>initialize</strong>(a, b = nil, deref = false) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Entry_.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#join-instance_method" title="#join (instance method)">- (Object) <strong>join</strong>(dir, base) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#lstat-instance_method" title="#lstat (instance method)">- (Object) <strong>lstat</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#lstat%21-instance_method" title="#lstat! (instance method)">- (Object) <strong>lstat!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path-instance_method" title="#path (instance method)">- (Object) <strong>path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pipe%3F-instance_method" title="#pipe? (instance method)">- (Boolean) <strong>pipe?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#platform_support-instance_method" title="#platform_support (instance method)">- (Object) <strong>platform_support</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#postorder_traverse-instance_method" title="#postorder_traverse (instance method)">- (Object) <strong>postorder_traverse</strong> {|_self| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prefix-instance_method" title="#prefix (instance method)">- (Object) <strong>prefix</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#preorder_traverse-instance_method" title="#preorder_traverse (instance method)">- (Object) <strong>preorder_traverse</strong> </a>
+    
+
+    
+      (also: #traverse)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rel-instance_method" title="#rel (instance method)">- (Object) <strong>rel</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove-instance_method" title="#remove (instance method)">- (Object) <strong>remove</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_dir1-instance_method" title="#remove_dir1 (instance method)">- (Object) <strong>remove_dir1</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_file-instance_method" title="#remove_file (instance method)">- (Object) <strong>remove_file</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#socket%3F-instance_method" title="#socket? (instance method)">- (Boolean) <strong>socket?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stat-instance_method" title="#stat (instance method)">- (Object) <strong>stat</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stat%21-instance_method" title="#stat! (instance method)">- (Object) <strong>stat!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#symlink%3F-instance_method" title="#symlink? (instance method)">- (Boolean) <strong>symlink?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="StreamUtils_.html" title="FileUtils::StreamUtils_ (module)">StreamUtils_</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="StreamUtils_.html#fu_blksize-instance_method" title="FileUtils::StreamUtils_#fu_blksize (method)">#fu_blksize</a></span>, <span class='object_link'><a href="StreamUtils_.html#fu_copy_stream0-instance_method" title="FileUtils::StreamUtils_#fu_copy_stream0 (method)">#fu_copy_stream0</a></span>, <span class='object_link'><a href="StreamUtils_.html#fu_default_blksize-instance_method" title="FileUtils::StreamUtils_#fu_default_blksize (method)">#fu_default_blksize</a></span>, <span class='object_link'><a href="StreamUtils_.html#fu_stream_blksize-instance_method" title="FileUtils::StreamUtils_#fu_stream_blksize (method)">#fu_stream_blksize</a></span>, <span class='object_link'><a href="StreamUtils_.html#fu_windows%3F-instance_method" title="FileUtils::StreamUtils_#fu_windows? (method)">#fu_windows?</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="FileUtils::Entry_ (class)">Entry_</a></span></tt>) <strong>initialize</strong>(a, b = nil, deref = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of Entry_</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1192
+1193
+1194
+1195
+1196
+1197
+1198
+1199
+1200
+1201
+1202
+1203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1192</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id a'>a</span><span class='comma'>,</span> <span class='id b'>b</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id deref'>deref</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@prefix</span> <span class='op'>=</span> <span class='ivar'>@rel</span> <span class='op'>=</span> <span class='ivar'>@path</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>if</span> <span class='id b'>b</span>
+    <span class='ivar'>@prefix</span> <span class='op'>=</span> <span class='id a'>a</span>
+    <span class='ivar'>@rel</span> <span class='op'>=</span> <span class='id b'>b</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@path</span> <span class='op'>=</span> <span class='id a'>a</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@deref</span> <span class='op'>=</span> <span class='id deref'>deref</span>
+  <span class='ivar'>@stat</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@lstat</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="blockdev?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>blockdev?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1253
+1254
+1255
+1256</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1253</span>
+
+<span class='kw'>def</span> <span class='id blockdev?'>blockdev?</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id lstat!'>lstat!</span>
+  <span class='id s'>s</span> <span class='kw'>and</span> <span class='id s'>s</span><span class='period'>.</span><span class='id blockdev?'>blockdev?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="chardev?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>chardev?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1248
+1249
+1250
+1251</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1248</span>
+
+<span class='kw'>def</span> <span class='id chardev?'>chardev?</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id lstat!'>lstat!</span>
+  <span class='id s'>s</span> <span class='kw'>and</span> <span class='id s'>s</span><span class='period'>.</span><span class='id chardev?'>chardev?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="check_have_lchmod?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>check_have_lchmod?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1463
+1464
+1465
+1466
+1467
+1468
+1469</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1463</span>
+
+<span class='kw'>def</span> <span class='id check_have_lchmod?'>check_have_lchmod?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:lchmod</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id lchmod'>lchmod</span> <span class='int'>0</span>
+  <span class='kw'>return</span> <span class='kw'>true</span>
+<span class='kw'>rescue</span> <span class='const'>NotImplementedError</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="check_have_lchown?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>check_have_lchown?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1481
+1482
+1483
+1484
+1485
+1486
+1487</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1481</span>
+
+<span class='kw'>def</span> <span class='id check_have_lchown?'>check_have_lchown?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:lchown</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id lchown'>lchown</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span>
+  <span class='kw'>return</span> <span class='kw'>true</span>
+<span class='kw'>rescue</span> <span class='const'>NotImplementedError</span>
+  <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="chmod-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>chmod</strong>(mode) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1319
+1320
+1321
+1322
+1323
+1324
+1325</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1319</span>
+
+<span class='kw'>def</span> <span class='id chmod'>chmod</span><span class='lparen'>(</span><span class='id mode'>mode</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id symlink?'>symlink?</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id lchmod'>lchmod</span> <span class='id mode'>mode</span><span class='comma'>,</span> <span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id have_lchmod?'>have_lchmod?</span>
+  <span class='kw'>else</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id chmod'>chmod</span> <span class='id mode'>mode</span><span class='comma'>,</span> <span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="chown-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>chown</strong>(uid, gid) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1327
+1328
+1329
+1330
+1331
+1332
+1333</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1327</span>
+
+<span class='kw'>def</span> <span class='id chown'>chown</span><span class='lparen'>(</span><span class='id uid'>uid</span><span class='comma'>,</span> <span class='id gid'>gid</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id symlink?'>symlink?</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id lchown'>lchown</span> <span class='id uid'>uid</span><span class='comma'>,</span> <span class='id gid'>gid</span><span class='comma'>,</span> <span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id have_lchown?'>have_lchown?</span>
+  <span class='kw'>else</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id chown'>chown</span> <span class='id uid'>uid</span><span class='comma'>,</span> <span class='id gid'>gid</span><span class='comma'>,</span> <span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="copy-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>copy</strong>(dest) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1335
+1336
+1337
+1338
+1339
+1340
+1341
+1342
+1343
+1344
+1345
+1346
+1347
+1348
+1349
+1350
+1351
+1352
+1353
+1354
+1355
+1356
+1357
+1358
+1359
+1360
+1361
+1362
+1363
+1364
+1365
+1366
+1367</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1335</span>
+
+<span class='kw'>def</span> <span class='id copy'>copy</span><span class='lparen'>(</span><span class='id dest'>dest</span><span class='rparen'>)</span>
+  <span class='kw'>case</span>
+  <span class='kw'>when</span> <span class='id file?'>file?</span>
+    <span class='id copy_file'>copy_file</span> <span class='id dest'>dest</span>
+  <span class='kw'>when</span> <span class='id directory?'>directory?</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span><span class='lparen'>(</span><span class='id dest'>dest</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id descendant_diretory?'>descendant_diretory?</span><span class='lparen'>(</span><span class='id dest'>dest</span><span class='comma'>,</span> <span class='id path'>path</span><span class='rparen'>)</span>
+      <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cannot copy directory %s to itself %s</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id path'>path</span><span class='comma'>,</span> <span class='id dest'>dest</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='kw'>begin</span>
+      <span class='const'>Dir</span><span class='period'>.</span><span class='id mkdir'>mkdir</span> <span class='id dest'>dest</span>
+    <span class='kw'>rescue</span>
+      <span class='id raise'>raise</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id directory?'>directory?</span><span class='lparen'>(</span><span class='id dest'>dest</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='id symlink?'>symlink?</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id symlink'>symlink</span> <span class='const'>File</span><span class='period'>.</span><span class='id readlink'>readlink</span><span class='lparen'>(</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id dest'>dest</span>
+  <span class='kw'>when</span> <span class='id chardev?'>chardev?</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cannot handle device file</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:mknod</span><span class='rparen'>)</span>
+    <span class='id mknod'>mknod</span> <span class='id dest'>dest</span><span class='comma'>,</span> <span class='CHAR'>?c</span><span class='comma'>,</span> <span class='int'>0666</span><span class='comma'>,</span> <span class='id lstat'>lstat</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id rdev'>rdev</span>
+  <span class='kw'>when</span> <span class='id blockdev?'>blockdev?</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cannot handle device file</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:mknod</span><span class='rparen'>)</span>
+    <span class='id mknod'>mknod</span> <span class='id dest'>dest</span><span class='comma'>,</span> <span class='CHAR'>?b</span><span class='comma'>,</span> <span class='int'>0666</span><span class='comma'>,</span> <span class='id lstat'>lstat</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id rdev'>rdev</span>
+  <span class='kw'>when</span> <span class='id socket?'>socket?</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cannot handle socket</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:mknod</span><span class='rparen'>)</span>
+    <span class='id mknod'>mknod</span> <span class='id dest'>dest</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id lstat'>lstat</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id mode'>mode</span><span class='comma'>,</span> <span class='int'>0</span>
+  <span class='kw'>when</span> <span class='id pipe?'>pipe?</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cannot handle FIFO</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:mkfifo</span><span class='rparen'>)</span>
+    <span class='id mkfifo'>mkfifo</span> <span class='id dest'>dest</span><span class='comma'>,</span> <span class='int'>0666</span>
+  <span class='kw'>when</span> <span class='id door?'>door?</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cannot handle door: </span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unknown file type: </span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="copy_file-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>copy_file</strong>(dest) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1369
+1370
+1371
+1372
+1373
+1374
+1375</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1369</span>
+
+<span class='kw'>def</span> <span class='id copy_file'>copy_file</span><span class='lparen'>(</span><span class='id dest'>dest</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id dest'>dest</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>wb</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id s'>s</span><span class='period'>.</span><span class='id stat'>stat</span><span class='period'>.</span><span class='id mode'>mode</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+      <span class='const'>IO</span><span class='period'>.</span><span class='id copy_stream'>copy_stream</span><span class='lparen'>(</span><span class='id s'>s</span><span class='comma'>,</span> <span class='id f'>f</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="copy_metadata-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>copy_metadata</strong>(path) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1377
+1378
+1379
+1380
+1381
+1382
+1383
+1384
+1385
+1386
+1387
+1388</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1377</span>
+
+<span class='kw'>def</span> <span class='id copy_metadata'>copy_metadata</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span>
+  <span class='id st'>st</span> <span class='op'>=</span> <span class='id lstat'>lstat</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id utime'>utime</span> <span class='id st'>st</span><span class='period'>.</span><span class='id atime'>atime</span><span class='comma'>,</span> <span class='id st'>st</span><span class='period'>.</span><span class='id mtime'>mtime</span><span class='comma'>,</span> <span class='id path'>path</span>
+  <span class='kw'>begin</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id chown'>chown</span> <span class='id st'>st</span><span class='period'>.</span><span class='id uid'>uid</span><span class='comma'>,</span> <span class='id st'>st</span><span class='period'>.</span><span class='id gid'>gid</span><span class='comma'>,</span> <span class='id path'>path</span>
+  <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>EPERM</span>
+    <span class='comment'># clear setuid/setgid
+</span>    <span class='const'>File</span><span class='period'>.</span><span class='id chmod'>chmod</span> <span class='id st'>st</span><span class='period'>.</span><span class='id mode'>mode</span> <span class='op'>&amp;</span> <span class='int'>01777</span><span class='comma'>,</span> <span class='id path'>path</span>
+  <span class='kw'>else</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id chmod'>chmod</span> <span class='id st'>st</span><span class='period'>.</span><span class='id mode'>mode</span><span class='comma'>,</span> <span class='id path'>path</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="dereference?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>dereference?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1225
+1226
+1227</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1225</span>
+
+<span class='kw'>def</span> <span class='id dereference?'>dereference?</span>
+  <span class='ivar'>@deref</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="descendant_diretory?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>descendant_diretory?</strong>(descendant, ascendant) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1502
+1503
+1504</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1502</span>
+
+<span class='kw'>def</span> <span class='id descendant_diretory?'>descendant_diretory?</span><span class='lparen'>(</span><span class='id descendant'>descendant</span><span class='comma'>,</span> <span class='id ascendant'>ascendant</span><span class='rparen'>)</span>
+  <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(?</span><span class='embexpr_beg'>#{</span><span class='const'>SYSCASE</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='const'>Regexp</span><span class='period'>.</span><span class='id quote'>quote</span><span class='lparen'>(</span><span class='id ascendant'>ascendant</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='embexpr_beg'>#{</span><span class='const'>DIRECTORY_TERM</span><span class='rbrace'>}</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span><span class='lparen'>(</span><span class='id descendant'>descendant</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="directory?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>directory?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1238
+1239
+1240
+1241</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1238</span>
+
+<span class='kw'>def</span> <span class='id directory?'>directory?</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id lstat!'>lstat!</span>
+  <span class='id s'>s</span> <span class='kw'>and</span> <span class='id s'>s</span><span class='period'>.</span><span class='id directory?'>directory?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="door?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>door?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1270
+1271
+1272
+1273</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1270</span>
+
+<span class='kw'>def</span> <span class='id door?'>door?</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id lstat!'>lstat!</span>
+  <span class='id s'>s</span> <span class='kw'>and</span> <span class='lparen'>(</span><span class='id s'>s</span><span class='period'>.</span><span class='id mode'>mode</span> <span class='op'>&amp;</span> <span class='int'>0xF000</span> <span class='op'>==</span> <span class='const'>S_IF_DOOR</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="entries-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>entries</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1275
+1276
+1277
+1278
+1279
+1280
+1281</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1275</span>
+
+<span class='kw'>def</span> <span class='id entries'>entries</span>
+  <span class='id opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:encoding</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>UTF-8</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>mswin|mignw</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='const'>RUBY_PLATFORM</span>
+  <span class='const'>Dir</span><span class='period'>.</span><span class='id entries'>entries</span><span class='lparen'>(</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id opts'>opts</span><span class='rparen'>)</span>\
+      <span class='period'>.</span><span class='id reject'>reject</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id n'>n</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span> <span class='kw'>or</span> <span class='id n'>n</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>..</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>\
+      <span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='const'>Entry_</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id prefix'>prefix</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id join'>join</span><span class='lparen'>(</span><span class='id rel'>rel</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id n'>n</span><span class='period'>.</span><span class='id untaint'>untaint</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="exist?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>exist?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1229
+1230
+1231</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1229</span>
+
+<span class='kw'>def</span> <span class='id exist?'>exist?</span>
+  <span class='id lstat!'>lstat!</span> <span class='op'>?</span> <span class='kw'>true</span> <span class='op'>:</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="file?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>file?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1233
+1234
+1235
+1236</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1233</span>
+
+<span class='kw'>def</span> <span class='id file?'>file?</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id lstat!'>lstat!</span>
+  <span class='id s'>s</span> <span class='kw'>and</span> <span class='id s'>s</span><span class='period'>.</span><span class='id file?'>file?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="have_lchmod?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>have_lchmod?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1455
+1456
+1457
+1458
+1459
+1460
+1461</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1455</span>
+
+<span class='kw'>def</span> <span class='id have_lchmod?'>have_lchmod?</span>
+  <span class='comment'># This is not MT-safe, but it does not matter.
+</span>  <span class='kw'>if</span> <span class='gvar'>$fileutils_rb_have_lchmod</span> <span class='op'>==</span> <span class='kw'>nil</span>
+    <span class='gvar'>$fileutils_rb_have_lchmod</span> <span class='op'>=</span> <span class='id check_have_lchmod?'>check_have_lchmod?</span>
+  <span class='kw'>end</span>
+  <span class='gvar'>$fileutils_rb_have_lchmod</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="have_lchown?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>have_lchown?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1473
+1474
+1475
+1476
+1477
+1478
+1479</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1473</span>
+
+<span class='kw'>def</span> <span class='id have_lchown?'>have_lchown?</span>
+  <span class='comment'># This is not MT-safe, but it does not matter.
+</span>  <span class='kw'>if</span> <span class='gvar'>$fileutils_rb_have_lchown</span> <span class='op'>==</span> <span class='kw'>nil</span>
+    <span class='gvar'>$fileutils_rb_have_lchown</span> <span class='op'>=</span> <span class='id check_have_lchown?'>check_have_lchown?</span>
+  <span class='kw'>end</span>
+  <span class='gvar'>$fileutils_rb_have_lchown</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1205
+1206
+1207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1205</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="join-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>join</strong>(dir, base) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1489
+1490
+1491
+1492
+1493</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1489</span>
+
+<span class='kw'>def</span> <span class='id join'>join</span><span class='lparen'>(</span><span class='id dir'>dir</span><span class='comma'>,</span> <span class='id base'>base</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>File</span><span class='period'>.</span><span class='id path'>path</span><span class='lparen'>(</span><span class='id dir'>dir</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='kw'>not</span> <span class='id base'>base</span> <span class='kw'>or</span> <span class='id base'>base</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>return</span> <span class='const'>File</span><span class='period'>.</span><span class='id path'>path</span><span class='lparen'>(</span><span class='id base'>base</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='kw'>not</span> <span class='id dir'>dir</span> <span class='kw'>or</span> <span class='id dir'>dir</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='id dir'>dir</span><span class='comma'>,</span> <span class='id base'>base</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="lstat-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>lstat</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1305
+1306
+1307
+1308
+1309
+1310
+1311</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1305</span>
+
+<span class='kw'>def</span> <span class='id lstat'>lstat</span>
+  <span class='kw'>if</span> <span class='id dereference?'>dereference?</span>
+    <span class='ivar'>@lstat</span> <span class='op'>||=</span> <span class='const'>File</span><span class='period'>.</span><span class='id stat'>stat</span><span class='lparen'>(</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@lstat</span> <span class='op'>||=</span> <span class='const'>File</span><span class='period'>.</span><span class='id lstat'>lstat</span><span class='lparen'>(</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="lstat!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>lstat!</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1313
+1314
+1315
+1316
+1317</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1313</span>
+
+<span class='kw'>def</span> <span class='id lstat!'>lstat!</span>
+  <span class='id lstat'>lstat</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='kw'>rescue</span> <span class='const'>SystemCallError</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="path-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>path</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1209
+1210
+1211
+1212
+1213
+1214
+1215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1209</span>
+
+<span class='kw'>def</span> <span class='id path'>path</span>
+  <span class='kw'>if</span> <span class='ivar'>@path</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id path'>path</span><span class='lparen'>(</span><span class='ivar'>@path</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id join'>join</span><span class='lparen'>(</span><span class='ivar'>@prefix</span><span class='comma'>,</span> <span class='ivar'>@rel</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pipe?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>pipe?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1263
+1264
+1265
+1266</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1263</span>
+
+<span class='kw'>def</span> <span class='id pipe?'>pipe?</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id lstat!'>lstat!</span>
+  <span class='id s'>s</span> <span class='kw'>and</span> <span class='id s'>s</span><span class='period'>.</span><span class='id pipe?'>pipe?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="platform_support-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>platform_support</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1410
+1411
+1412
+1413
+1414
+1415
+1416
+1417
+1418
+1419
+1420
+1421
+1422
+1423
+1424
+1425
+1426
+1427
+1428</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1410</span>
+
+<span class='kw'>def</span> <span class='id platform_support'>platform_support</span>
+  <span class='kw'>return</span> <span class='kw'>yield</span> <span class='kw'>unless</span> <span class='id fu_windows?'>fu_windows?</span>
+  <span class='id first_time_p'>first_time_p</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>begin</span>
+    <span class='kw'>yield</span>
+  <span class='kw'>rescue</span> <span class='const'>Errno</span><span class='op'>::</span><span class='const'>ENOENT</span>
+    <span class='id raise'>raise</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id err'>err</span>
+    <span class='kw'>if</span> <span class='id first_time_p'>first_time_p</span>
+      <span class='id first_time_p'>first_time_p</span> <span class='op'>=</span> <span class='kw'>false</span>
+      <span class='kw'>begin</span>
+        <span class='const'>File</span><span class='period'>.</span><span class='id chmod'>chmod</span> <span class='int'>0700</span><span class='comma'>,</span> <span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span>   <span class='comment'># Windows does not have symlink
+</span>        <span class='kw'>retry</span>
+      <span class='kw'>rescue</span> <span class='const'>SystemCallError</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='id raise'>raise</span> <span class='id err'>err</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="postorder_traverse-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>postorder_traverse</strong> {|_self| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>_self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Yield Parameters:</h3>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>_self</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="FileUtils::Entry_ (class)">FileUtils::Entry_</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object that the method was called on</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1440
+1441
+1442
+1443
+1444
+1445
+1446
+1447
+1448
+1449</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1440</span>
+
+<span class='kw'>def</span> <span class='id postorder_traverse'>postorder_traverse</span>
+  <span class='kw'>if</span> <span class='id directory?'>directory?</span>
+    <span class='id entries'>entries</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id ent'>ent</span><span class='op'>|</span>
+      <span class='id ent'>ent</span><span class='period'>.</span><span class='id postorder_traverse'>postorder_traverse</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span>
+        <span class='kw'>yield</span> <span class='id e'>e</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>yield</span> <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="prefix-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>prefix</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1217
+1218
+1219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1217</span>
+
+<span class='kw'>def</span> <span class='id prefix'>prefix</span>
+  <span class='ivar'>@prefix</span> <span class='op'>||</span> <span class='ivar'>@path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="preorder_traverse-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>preorder_traverse</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='traverse-instance_method'>traverse</span></span>
+    </span>
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1430
+1431
+1432
+1433
+1434
+1435
+1436</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1430</span>
+
+<span class='kw'>def</span> <span class='id preorder_traverse'>preorder_traverse</span>
+  <span class='id stack'>stack</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='rbracket'>]</span>
+  <span class='kw'>while</span> <span class='id ent'>ent</span> <span class='op'>=</span> <span class='id stack'>stack</span><span class='period'>.</span><span class='id pop'>pop</span>
+    <span class='kw'>yield</span> <span class='id ent'>ent</span>
+    <span class='id stack'>stack</span><span class='period'>.</span><span class='id concat'>concat</span> <span class='id ent'>ent</span><span class='period'>.</span><span class='id entries'>entries</span><span class='period'>.</span><span class='id reverse'>reverse</span> <span class='kw'>if</span> <span class='id ent'>ent</span><span class='period'>.</span><span class='id directory?'>directory?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rel-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>rel</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1221
+1222
+1223</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1221</span>
+
+<span class='kw'>def</span> <span class='id rel'>rel</span>
+  <span class='ivar'>@rel</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>remove</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1390
+1391
+1392
+1393
+1394
+1395
+1396</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1390</span>
+
+<span class='kw'>def</span> <span class='id remove'>remove</span>
+  <span class='kw'>if</span> <span class='id directory?'>directory?</span>
+    <span class='id remove_dir1'>remove_dir1</span>
+  <span class='kw'>else</span>
+    <span class='id remove_file'>remove_file</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove_dir1-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>remove_dir1</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1398
+1399
+1400
+1401
+1402</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1398</span>
+
+<span class='kw'>def</span> <span class='id remove_dir1'>remove_dir1</span>
+  <span class='id platform_support'>platform_support</span> <span class='lbrace'>{</span>
+    <span class='const'>Dir</span><span class='period'>.</span><span class='id rmdir'>rmdir</span> <span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>%r&lt;</span><span class='tstring_content'>/\z</span><span class='regexp_end'>&gt;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove_file-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>remove_file</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1404
+1405
+1406
+1407
+1408</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1404</span>
+
+<span class='kw'>def</span> <span class='id remove_file'>remove_file</span>
+  <span class='id platform_support'>platform_support</span> <span class='lbrace'>{</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id unlink'>unlink</span> <span class='id path'>path</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="socket?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>socket?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1258
+1259
+1260
+1261</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1258</span>
+
+<span class='kw'>def</span> <span class='id socket?'>socket?</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id lstat!'>lstat!</span>
+  <span class='id s'>s</span> <span class='kw'>and</span> <span class='id s'>s</span><span class='period'>.</span><span class='id socket?'>socket?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stat-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>stat</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1283
+1284
+1285
+1286
+1287
+1288
+1289
+1290
+1291</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1283</span>
+
+<span class='kw'>def</span> <span class='id stat'>stat</span>
+  <span class='kw'>return</span> <span class='ivar'>@stat</span> <span class='kw'>if</span> <span class='ivar'>@stat</span>
+  <span class='kw'>if</span> <span class='id lstat'>lstat</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id lstat'>lstat</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id symlink?'>symlink?</span>
+    <span class='ivar'>@stat</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id stat'>stat</span><span class='lparen'>(</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@stat</span> <span class='op'>=</span> <span class='id lstat'>lstat</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@stat</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stat!-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>stat!</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1293
+1294
+1295
+1296
+1297
+1298
+1299
+1300
+1301
+1302
+1303</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1293</span>
+
+<span class='kw'>def</span> <span class='id stat!'>stat!</span>
+  <span class='kw'>return</span> <span class='ivar'>@stat</span> <span class='kw'>if</span> <span class='ivar'>@stat</span>
+  <span class='kw'>if</span> <span class='id lstat!'>lstat!</span> <span class='kw'>and</span> <span class='id lstat!'>lstat!</span><span class='period'>.</span><span class='id symlink?'>symlink?</span>
+    <span class='ivar'>@stat</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id stat'>stat</span><span class='lparen'>(</span><span class='id path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@stat</span> <span class='op'>=</span> <span class='id lstat!'>lstat!</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@stat</span>
+<span class='kw'>rescue</span> <span class='const'>SystemCallError</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="symlink?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>symlink?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1243
+1244
+1245
+1246</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/fileutils.rb', line 1243</span>
+
+<span class='kw'>def</span> <span class='id symlink?'>symlink?</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id lstat!'>lstat!</span>
+  <span class='id s'>s</span> <span class='kw'>and</span> <span class='id s'>s</span><span class='period'>.</span><span class='id symlink?'>symlink?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:50 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

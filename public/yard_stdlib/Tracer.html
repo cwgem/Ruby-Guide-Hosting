@@ -1,0 +1,1662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Tracer
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (T)</a> &raquo; 
+    
+    
+    <span class="title">Tracer</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Tracer
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Tracer</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/tracer.rb<span class="defines">,<br />
+  lib/debug.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>tracer main class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="EVENT_SYMBOL-constant" class="">EVENT_SYMBOL =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Symbol table used for displaying trace information</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>line</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>call</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>return</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>class</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>C</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>end</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>E</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>raise</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>^</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>c-call</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>c-return</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unknown</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>?</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="Single-constant" class="">Single =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Reference to singleton instance of Tracer</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='id new'>new</span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Class Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#display_c_call-class_method" title="display_c_call (class method)">+ (Object) <strong>display_c_call</strong> </a>
+    
+
+    
+      (also: display_c_call?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>display C-routine calls in trace output (defaults to false).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#display_process_id-class_method" title="display_process_id (class method)">+ (Object) <strong>display_process_id</strong> </a>
+    
+
+    
+      (also: display_process_id?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>display process id in trace output (defaults to false).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#display_thread_id-class_method" title="display_thread_id (class method)">+ (Object) <strong>display_thread_id</strong> </a>
+    
+
+    
+      (also: display_thread_id?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>display thread id in trace output (defaults to true).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stdout-class_method" title="stdout (class method)">+ (Object) <strong>stdout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>output stream used to output trace (defaults to STDOUT).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stdout_mutex-class_method" title="stdout_mutex (class method)">+ (Object) <strong>stdout_mutex</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>mutex lock used by tracer for displaying trace output.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verbose-class_method" title="verbose (class method)">+ (Object) <strong>verbose</strong> </a>
+    
+
+    
+      (also: verbose?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>display additional debug information (defaults to false).</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_filter-class_method" title="add_filter (class method)">+ (Object) <strong>add_filter</strong>(p = proc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to filter unwanted trace output.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#off-class_method" title="off (class method)">+ (Object) <strong>off</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Disable tracing.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on-class_method" title="on (class method)">+ (Object) <strong>on</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Start tracing.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_get_line_procs-class_method" title="set_get_line_procs (class method)">+ (Object) <strong>set_get_line_procs</strong>(file_name, p = proc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Register an event handler <tt>p</tt> which is called everytime a line in
+<tt>file_name</tt> is executed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trace_func-class_method" title="trace_func (class method)">+ (Object) <strong>trace_func</strong>(*vars) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_filter-instance_method" title="#add_filter (instance method)">- (Object) <strong>add_filter</strong>(p = proc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_line-instance_method" title="#get_line (instance method)">- (Object) <strong>get_line</strong>(file, line) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_thread_no-instance_method" title="#get_thread_no (instance method)">- (Object) <strong>get_thread_no</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Tracer) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#off-instance_method" title="#off (instance method)">- (Object) <strong>off</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on-instance_method" title="#on (instance method)">- (Object) <strong>on</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_get_line_procs-instance_method" title="#set_get_line_procs (instance method)">- (Object) <strong>set_get_line_procs</strong>(file, p = proc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stdout-instance_method" title="#stdout (instance method)">- (Object) <strong>stdout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trace_func-instance_method" title="#trace_func (instance method)">- (Object) <strong>trace_func</strong>(event, file, line, id, binding, klass) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Tracer (class)">Tracer</a></span></tt>) <strong>initialize</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span> <span class='comment'># :nodoc:
+</span>  <span class='ivar'>@threads</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id main'>main</span>
+    <span class='ivar'>@threads</span><span class='lbracket'>[</span><span class='const'>Thread</span><span class='period'>.</span><span class='id main'>main</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@threads</span><span class='lbracket'>[</span><span class='const'>Thread</span><span class='period'>.</span><span class='id current'>current</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@get_line_procs</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+  <span class='ivar'>@filters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="class_attr_details" class="attr_details">
+    <h2>Class Attribute Details</h2>
+    
+      
+      <span id="display_c_call=-class_method"></span>
+      <span id="display_c_call-class_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="display_c_call-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>display_c_call</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='display_c_call?-class_method'>display_c_call?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>display C-routine calls in trace output (defaults to false)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id display_c_call'>display_c_call</span>
+  <span class='ivar'>@display_c_call</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="display_process_id=-class_method"></span>
+      <span id="display_process_id-class_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="display_process_id-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>display_process_id</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='display_process_id?-class_method'>display_process_id?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>display process id in trace output (defaults to false)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id display_process_id'>display_process_id</span>
+  <span class='ivar'>@display_process_id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="display_thread_id=-class_method"></span>
+      <span id="display_thread_id-class_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="display_thread_id-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>display_thread_id</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='display_thread_id?-class_method'>display_thread_id?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>display thread id in trace output (defaults to true)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='id display_thread_id'>display_thread_id</span>
+  <span class='ivar'>@display_thread_id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="stdout=-class_method"></span>
+      <span id="stdout-class_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="stdout-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>stdout</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>output stream used to output trace (defaults to STDOUT)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id stdout'>stdout</span>
+  <span class='ivar'>@stdout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="stdout_mutex-class_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="stdout_mutex-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>stdout_mutex</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>mutex lock used by tracer for displaying trace output</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id stdout_mutex'>stdout_mutex</span>
+  <span class='ivar'>@stdout_mutex</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="verbose=-class_method"></span>
+      <span id="verbose-class_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="verbose-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>verbose</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='verbose?-class_method'>verbose?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>display additional debug information (defaults to false)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id verbose'>verbose</span>
+  <span class='ivar'>@verbose</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_filter-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_filter</strong>(p = proc) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Used to filter unwanted trace output</p>
+
+<p>Example which only outputs lines of code executed within the Kernel class:</p>
+
+<pre class="code"><span class='const'>Tracer</span><span class='period'>.</span><span class='id add_filter'>add_filter</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id event'>event</span><span class='comma'>,</span> <span class='id file'>file</span><span class='comma'>,</span> <span class='id line'>line</span><span class='comma'>,</span> <span class='id id'>id</span><span class='comma'>,</span> <span class='id binding'>binding</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='comma'>,</span> <span class='op'>*</span><span class='id rest'>rest</span><span class='op'>|</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Kernel</span><span class='tstring_end'>&quot;</span></span> <span class='op'>==</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+<span class='kw'>end</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+275
+276
+277</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 275</span>
+
+<span class='kw'>def</span> <span class='const'>Tracer</span><span class='period'>.</span><span class='id add_filter'>add_filter</span><span class='lparen'>(</span><span class='id p'>p</span> <span class='op'>=</span> <span class='id proc'>proc</span><span class='rparen'>)</span>
+  <span class='const'>Single</span><span class='period'>.</span><span class='id add_filter'>add_filter</span><span class='lparen'>(</span><span class='id p'>p</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="off-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>off</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Disable tracing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+248
+249
+250</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 248</span>
+
+<span class='kw'>def</span> <span class='const'>Tracer</span><span class='period'>.</span><span class='id off'>off</span>
+  <span class='const'>Single</span><span class='period'>.</span><span class='id off'>off</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="on-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>on</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Start tracing</p>
+
+<h3>Example</h3>
+
+<pre class="code"><span class='const'>Tracer</span><span class='period'>.</span><span class='id on'>on</span>
+<span class='comment'># code to trace here
+</span><span class='const'>Tracer</span><span class='period'>.</span><span class='id off'>off</span></pre>
+
+<p>You can also pass a block:</p>
+
+<pre class="code"><span class='const'>Tracer</span><span class='period'>.</span><span class='id on'>on</span> <span class='lbrace'>{</span>
+  <span class='comment'># trace everything in this block
+</span><span class='rbrace'>}</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239
+240
+241
+242
+243</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 237</span>
+
+<span class='kw'>def</span> <span class='const'>Tracer</span><span class='period'>.</span><span class='id on'>on</span>
+  <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+    <span class='const'>Single</span><span class='period'>.</span><span class='id on'>on</span><span class='lbrace'>{</span><span class='kw'>yield</span><span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='const'>Single</span><span class='period'>.</span><span class='id on'>on</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_get_line_procs-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>set_get_line_procs</strong>(file_name, p = proc) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Register an event handler <tt>p</tt> which is called everytime a line in
+<tt>file_name</tt> is executed.</p>
+
+<p>Example:</p>
+
+<pre class="code"><span class='const'>Tracer</span><span class='period'>.</span><span class='id set_get_line_procs'>set_get_line_procs</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>example.rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>line number executed is </span><span class='embexpr_beg'>#{</span><span class='id line'>line</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span><span class='rparen'>)</span></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+262
+263
+264</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 262</span>
+
+<span class='kw'>def</span> <span class='const'>Tracer</span><span class='period'>.</span><span class='id set_get_line_procs'>set_get_line_procs</span><span class='lparen'>(</span><span class='id file_name'>file_name</span><span class='comma'>,</span> <span class='id p'>p</span> <span class='op'>=</span> <span class='id proc'>proc</span><span class='rparen'>)</span>
+  <span class='const'>Single</span><span class='period'>.</span><span class='id set_get_line_procs'>set_get_line_procs</span><span class='lparen'>(</span><span class='id file_name'>file_name</span><span class='comma'>,</span> <span class='id p'>p</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="trace_func-class_method">
+  
+    + (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>trace_func</strong>(*vars) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/debug.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='const'>Tracer</span><span class='period'>.</span><span class='id trace_func'>trace_func</span><span class='lparen'>(</span><span class='op'>*</span><span class='id vars'>vars</span><span class='rparen'>)</span>
+  <span class='const'>Single</span><span class='period'>.</span><span class='id trace_func'>trace_func</span><span class='lparen'>(</span><span class='op'>*</span><span class='id vars'>vars</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_filter-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_filter</strong>(p = proc) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 148</span>
+
+<span class='kw'>def</span> <span class='id add_filter'>add_filter</span><span class='lparen'>(</span><span class='id p'>p</span> <span class='op'>=</span> <span class='id proc'>proc</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='ivar'>@filters</span><span class='period'>.</span><span class='id push'>push</span> <span class='id p'>p</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_line-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_line</strong>(file, line) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 156</span>
+
+<span class='kw'>def</span> <span class='id get_line'>get_line</span><span class='lparen'>(</span><span class='id file'>file</span><span class='comma'>,</span> <span class='id line'>line</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='kw'>if</span> <span class='id p'>p</span> <span class='op'>=</span> <span class='ivar'>@get_line_procs</span><span class='lbracket'>[</span><span class='id file'>file</span><span class='rbracket'>]</span>
+    <span class='kw'>return</span> <span class='id p'>p</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id line'>line</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id list'>list</span> <span class='op'>=</span> <span class='const'>SCRIPT_LINES__</span><span class='lbracket'>[</span><span class='id file'>file</span><span class='rbracket'>]</span>
+    <span class='kw'>begin</span>
+      <span class='id f'>f</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id file'>file</span><span class='rparen'>)</span>
+      <span class='kw'>begin</span>
+        <span class='const'>SCRIPT_LINES__</span><span class='lbracket'>[</span><span class='id file'>file</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id list'>list</span> <span class='op'>=</span> <span class='id f'>f</span><span class='period'>.</span><span class='id readlines'>readlines</span>
+      <span class='kw'>ensure</span>
+        <span class='id f'>f</span><span class='period'>.</span><span class='id close'>close</span>
+      <span class='kw'>end</span>
+    <span class='kw'>rescue</span>
+      <span class='const'>SCRIPT_LINES__</span><span class='lbracket'>[</span><span class='id file'>file</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id list'>list</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id l'>l</span> <span class='op'>=</span> <span class='id list'>list</span><span class='lbracket'>[</span><span class='id line'>line</span> <span class='op'>-</span> <span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id l'>l</span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_thread_no-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_thread_no</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183
+184
+185
+186
+187</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 181</span>
+
+<span class='kw'>def</span> <span class='id get_thread_no'>get_thread_no</span> <span class='comment'># :nodoc:
+</span>  <span class='kw'>if</span> <span class='id no'>no</span> <span class='op'>=</span> <span class='ivar'>@threads</span><span class='lbracket'>[</span><span class='const'>Thread</span><span class='period'>.</span><span class='id current'>current</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='rbracket'>]</span>
+    <span class='id no'>no</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@threads</span><span class='lbracket'>[</span><span class='const'>Thread</span><span class='period'>.</span><span class='id current'>current</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@threads</span><span class='period'>.</span><span class='id size'>size</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="off-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>off</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145
+146</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id off'>off</span> <span class='comment'># :nodoc:
+</span>  <span class='id set_trace_func'>set_trace_func</span> <span class='kw'>nil</span>
+  <span class='id stdout'>stdout</span><span class='period'>.</span><span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Trace off\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='const'>Tracer</span><span class='period'>.</span><span class='id verbose?'>verbose?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="on-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>on</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 129</span>
+
+<span class='kw'>def</span> <span class='id on'>on</span> <span class='comment'># :nodoc:
+</span>  <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+    <span class='id on'>on</span>
+    <span class='kw'>begin</span>
+      <span class='kw'>yield</span>
+    <span class='kw'>ensure</span>
+      <span class='id off'>off</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id set_trace_func'>set_trace_func</span> <span class='id method'>method</span><span class='lparen'>(</span><span class='symbol'>:trace_func</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_proc'>to_proc</span>
+    <span class='id stdout'>stdout</span><span class='period'>.</span><span class='id print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Trace on\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='const'>Tracer</span><span class='period'>.</span><span class='id verbose?'>verbose?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_get_line_procs-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>set_get_line_procs</strong>(file, p = proc) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id set_get_line_procs'>set_get_line_procs</span><span class='lparen'>(</span><span class='id file'>file</span><span class='comma'>,</span> <span class='id p'>p</span> <span class='op'>=</span> <span class='id proc'>proc</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='ivar'>@get_line_procs</span><span class='lbracket'>[</span><span class='id file'>file</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id p'>p</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stdout-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>stdout</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id stdout'>stdout</span> <span class='comment'># :nodoc:
+</span>  <span class='const'>Tracer</span><span class='period'>.</span><span class='id stdout'>stdout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="trace_func-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>) <strong>trace_func</strong>(event, file, line, id, binding, klass) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tracer.rb', line 189</span>
+
+<span class='kw'>def</span> <span class='id trace_func'>trace_func</span><span class='lparen'>(</span><span class='id event'>event</span><span class='comma'>,</span> <span class='id file'>file</span><span class='comma'>,</span> <span class='id line'>line</span><span class='comma'>,</span> <span class='id id'>id</span><span class='comma'>,</span> <span class='id binding'>binding</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='comma'>,</span> <span class='op'>*</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id file'>file</span> <span class='op'>==</span> <span class='kw'>__FILE__</span>
+
+  <span class='kw'>for</span> <span class='id p'>p</span> <span class='kw'>in</span> <span class='ivar'>@filters</span>
+    <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id p'>p</span><span class='period'>.</span><span class='id call'>call</span> <span class='id event'>event</span><span class='comma'>,</span> <span class='id file'>file</span><span class='comma'>,</span> <span class='id line'>line</span><span class='comma'>,</span> <span class='id id'>id</span><span class='comma'>,</span> <span class='id binding'>binding</span><span class='comma'>,</span> <span class='id klass'>klass</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='const'>Tracer</span><span class='op'>::</span><span class='id display_c_call?'>display_c_call?</span> <span class='kw'>or</span>
+    <span class='id event'>event</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>c-call</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='id event'>event</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>c-return</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='const'>Tracer</span><span class='op'>::</span><span class='id stdout_mutex'>stdout_mutex</span><span class='period'>.</span><span class='id synchronize'>synchronize</span> <span class='kw'>do</span>
+    <span class='kw'>if</span> <span class='const'>EVENT_SYMBOL</span><span class='lbracket'>[</span><span class='id event'>event</span><span class='rbracket'>]</span>
+      <span class='id stdout'>stdout</span><span class='period'>.</span><span class='id printf'>printf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;%d&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='gvar'>$$</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='const'>Tracer</span><span class='op'>::</span><span class='id display_process_id?'>display_process_id?</span>
+      <span class='id stdout'>stdout</span><span class='period'>.</span><span class='id printf'>printf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#%d:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id get_thread_no'>get_thread_no</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='const'>Tracer</span><span class='op'>::</span><span class='id display_thread_id?'>display_thread_id?</span>
+      <span class='kw'>if</span> <span class='id line'>line</span> <span class='op'>==</span> <span class='int'>0</span>
+        <span class='id source'>source</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>?\n</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>else</span>
+        <span class='id source'>source</span> <span class='op'>=</span> <span class='id get_line'>get_line</span><span class='lparen'>(</span><span class='id file'>file</span><span class='comma'>,</span> <span class='id line'>line</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+      <span class='id printf'>printf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s:%d:%s:%s: %s</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+             <span class='id file'>file</span><span class='comma'>,</span>
+             <span class='id line'>line</span><span class='comma'>,</span>
+             <span class='id klass'>klass</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+             <span class='const'>EVENT_SYMBOL</span><span class='lbracket'>[</span><span class='id event'>event</span><span class='rbracket'>]</span><span class='comma'>,</span>
+             <span class='id source'>source</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:02 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

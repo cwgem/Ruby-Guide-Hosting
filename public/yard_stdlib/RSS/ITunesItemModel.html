@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSS::ITunesItemModel
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (I)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../RSS.html" title="RSS (module)">RSS</a></span></span>
+     &raquo; 
+    <span class="title">ITunesItemModel</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: RSS::ITunesItemModel
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1"><span class='object_link'><a href="BaseModel.html" title="RSS::BaseModel (module)">BaseModel</a></span>, <span class='object_link'><a href="ITunesModelUtils.html" title="RSS::ITunesModelUtils (module)">ITunesModelUtils</a></span></dd>
+      
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="ITunesBaseModel.html" title="RSS::ITunesBaseModel (module)">ITunesBaseModel</a></span></dd>
+      
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="Rss/Channel/Item.html" title="RSS::Rss::Channel::Item (class)">Rss::Channel::Item</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rss/itunes.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="ITunesItemModel/ITunesDuration.html" title="RSS::ITunesItemModel::ITunesDuration (class)">ITunesDuration</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="ELEMENT_INFOS-constant" class="">ELEMENT_INFOS =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>ITunesBaseModel</span><span class='op'>::</span><span class='const'>ELEMENT_INFOS</span> <span class='op'>+</span>
+<span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>duration</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:element</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>content</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="ITunesBaseModel.html" title="RSS::ITunesBaseModel (module)">ITunesBaseModel</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ITunesBaseModel.html#ELEMENTS-constant" title="RSS::ITunesBaseModel::ELEMENTS (constant)">ELEMENTS</a></span>, <span class='object_link'><a href="ITunesBaseModel.html#ELEMENT_INFOS-constant" title="RSS::ITunesBaseModel::ELEMENT_INFOS (constant)">ELEMENT_INFOS</a></span></p>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#append_features-class_method" title="append_features (class method)">+ (Object) <strong>append_features</strong>(klass) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="ITunesModelUtils.html" title="RSS::ITunesModelUtils (module)">ITunesModelUtils</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ITunesModelUtils.html#def_class_accessor-instance_method" title="RSS::ITunesModelUtils#def_class_accessor (method)">def_class_accessor</a></span>, <span class='object_link'><a href="ITunesModelUtils.html#def_element_class_accessor-instance_method" title="RSS::ITunesModelUtils#def_element_class_accessor (method)">def_element_class_accessor</a></span>, <span class='object_link'><a href="ITunesModelUtils.html#def_elements_class_accessor-instance_method" title="RSS::ITunesModelUtils#def_elements_class_accessor (method)">def_elements_class_accessor</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Utils.html" title="RSS::Utils (module)">Utils</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Utils.html#element_initialize_arguments%3F-instance_method" title="RSS::Utils#element_initialize_arguments? (method)">#element_initialize_arguments?</a></span>, <span class='object_link'><a href="Utils.html#get_file_and_line_from_caller-instance_method" title="RSS::Utils#get_file_and_line_from_caller (method)">#get_file_and_line_from_caller</a></span>, <span class='object_link'><a href="Utils.html#html_escape-instance_method" title="RSS::Utils#html_escape (method)">#html_escape</a></span>, <span class='object_link'><a href="Utils.html#new_with_value_if_need-instance_method" title="RSS::Utils#new_with_value_if_need (method)">#new_with_value_if_need</a></span>, <span class='object_link'><a href="Utils.html#to_class_name-instance_method" title="RSS::Utils#to_class_name (method)">#to_class_name</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="BaseModel.html" title="RSS::BaseModel (module)">BaseModel</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseModel.html#boolean_writer-instance_method" title="RSS::BaseModel#boolean_writer (method)">boolean_writer</a></span>, <span class='object_link'><a href="BaseModel.html#content_writer-instance_method" title="RSS::BaseModel#content_writer (method)">content_writer</a></span>, <span class='object_link'><a href="BaseModel.html#convert_attr_reader-instance_method" title="RSS::BaseModel#convert_attr_reader (method)">convert_attr_reader</a></span>, <span class='object_link'><a href="BaseModel.html#csv_attr_reader-instance_method" title="RSS::BaseModel#csv_attr_reader (method)">csv_attr_reader</a></span>, <span class='object_link'><a href="BaseModel.html#csv_integer_writer-instance_method" title="RSS::BaseModel#csv_integer_writer (method)">csv_integer_writer</a></span>, <span class='object_link'><a href="BaseModel.html#csv_writer-instance_method" title="RSS::BaseModel#csv_writer (method)">csv_writer</a></span>, <span class='object_link'><a href="BaseModel.html#date_writer-instance_method" title="RSS::BaseModel#date_writer (method)">date_writer</a></span>, <span class='object_link'><a href="BaseModel.html#def_children_accessor-instance_method" title="RSS::BaseModel#def_children_accessor (method)">def_children_accessor</a></span>, <span class='object_link'><a href="BaseModel.html#inherit_convert_attr_reader-instance_method" title="RSS::BaseModel#inherit_convert_attr_reader (method)">inherit_convert_attr_reader</a></span>, <span class='object_link'><a href="BaseModel.html#install_date_element-instance_method" title="RSS::BaseModel#install_date_element (method)">install_date_element</a></span>, <span class='object_link'><a href="BaseModel.html#install_element-instance_method" title="RSS::BaseModel#install_element (method)">install_element</a></span>, <span class='object_link'><a href="BaseModel.html#install_have_child_element-instance_method" title="RSS::BaseModel#install_have_child_element (method)">install_have_child_element</a></span>, <span class='object_link'><a href="BaseModel.html#install_have_children_element-instance_method" title="RSS::BaseModel#install_have_children_element (method)">install_have_children_element</a></span>, <span class='object_link'><a href="BaseModel.html#install_text_element-instance_method" title="RSS::BaseModel#install_text_element (method)">install_text_element</a></span>, <span class='object_link'><a href="BaseModel.html#integer_writer-instance_method" title="RSS::BaseModel#integer_writer (method)">integer_writer</a></span>, <span class='object_link'><a href="BaseModel.html#positive_integer_writer-instance_method" title="RSS::BaseModel#positive_integer_writer (method)">positive_integer_writer</a></span>, <span class='object_link'><a href="BaseModel.html#text_type_writer-instance_method" title="RSS::BaseModel#text_type_writer (method)">text_type_writer</a></span>, <span class='object_link'><a href="BaseModel.html#uri_convert_attr_reader-instance_method" title="RSS::BaseModel#uri_convert_attr_reader (method)">uri_convert_attr_reader</a></span>, <span class='object_link'><a href="BaseModel.html#yes_clean_other_attr_reader-instance_method" title="RSS::BaseModel#yes_clean_other_attr_reader (method)">yes_clean_other_attr_reader</a></span>, <span class='object_link'><a href="BaseModel.html#yes_clean_other_writer-instance_method" title="RSS::BaseModel#yes_clean_other_writer (method)">yes_clean_other_writer</a></span>, <span class='object_link'><a href="BaseModel.html#yes_other_attr_reader-instance_method" title="RSS::BaseModel#yes_other_attr_reader (method)">yes_other_attr_reader</a></span>, <span class='object_link'><a href="BaseModel.html#yes_other_writer-instance_method" title="RSS::BaseModel#yes_other_writer (method)">yes_other_writer</a></span></p>
+
+  
+  
+  
+  
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="append_features-class_method">
+  
+    + (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>append_features</strong>(klass) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+247
+248
+249
+250
+251
+252
+253
+254</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rss/itunes.rb', line 247</span>
+
+<span class='kw'>def</span> <span class='id append_features'>append_features</span><span class='lparen'>(</span><span class='id klass'>klass</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
+
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id instance_of?'>instance_of?</span><span class='lparen'>(</span><span class='const'>Module</span><span class='rparen'>)</span>
+  <span class='const'>ELEMENT_INFOS</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id type'>type</span><span class='op'>|</span>
+    <span class='id def_class_accessor'>def_class_accessor</span><span class='lparen'>(</span><span class='id klass'>klass</span><span class='comma'>,</span> <span class='id name'>name</span><span class='comma'>,</span> <span class='id type'>type</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:51 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

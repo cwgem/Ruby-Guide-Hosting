@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: DRb::DRbProtocol
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../DRb.html" title="DRb (module)">DRb</a></span></span>
+     &raquo; 
+    <span class="title">DRbProtocol</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: DRb::DRbProtocol
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/drb/drb.rb<span class="defines">,<br />
+  lib/drb/drb.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Module managing the underlying network protocol(s) used by drb.</p>
+
+<p>By default, drb uses the DRbTCPSocket protocol.  Other protocols can be
+defined.  A protocol must define the following class methods:</p>
+
+<pre class="code">[open(uri, config)] Open a client connection to the server at &lt;tt&gt;uri&lt;/tt&gt;,
+                    using configuration &lt;tt&gt;config&lt;/tt&gt;.  Return a protocol
+                    instance for this connection.
+[open_server(uri, config)] Open a server listening at &lt;tt&gt;uri&lt;/tt&gt;,
+                           using configuration &lt;tt&gt;config&lt;/tt&gt;.  Return a
+                           protocol instance for this listener.
+[uri_option(uri, config)] Take a URI, possibly containing an option
+                          component (e.g. a trailing '?param=val'),
+                          and return a [uri, option] tuple.</pre>
+
+<p>All of these methods should raise a DRbBadScheme error if the URI does not
+identify the protocol they support (e.g. "druby:" for the standard Ruby
+protocol).  This is how the DRbProtocol module, given a URI, determines
+which protocol implementation serves that protocol.</p>
+
+<p>The protocol instance returned by #open_server must have the following
+methods:</p>
+<dl class="rdoc-list"><dt>accept</dt>
+<dd>
+<p>Accept a new connection to the server.  Returns a protocol instance capable
+of communicating with the client.</p>
+</dd><dt>close</dt>
+<dd>
+<p>Close the server connection.</p>
+</dd><dt>uri</dt>
+<dd>
+<p>Get the URI for this server.</p>
+</dd></dl>
+
+<p>The protocol instance returned by #open must have the following methods:</p>
+<dl class="rdoc-list"><dt>send_request (ref, msg_id, arg, b)</dt>
+<dd>
+<p>Send a request to <tt>ref</tt> with the given message id and arguments.
+This is most easily implemented by calling DRbMessage.send_request,
+providing a stream that sits on top of the current protocol.</p>
+</dd><dt>recv_reply</dt>
+<dd>
+<p>Receive a reply from the server and return it as a [success-boolean,
+reply-value] pair.  This is most easily implemented by calling
+DRb.recv_reply, providing a stream that sits on top of the current
+protocol.</p>
+</dd><dt>alive?</dt>
+<dd>
+<p>Is this connection still alive?</p>
+</dd><dt>close</dt>
+<dd>
+<p>Close this connection.</p>
+</dd></dl>
+
+<p>The protocol instance returned by #open_server().accept() must have the
+following methods:</p>
+<dl class="rdoc-list"><dt>recv_request</dt>
+<dd>
+<p>Receive a request from the client and return a [object, message, args,
+block] tuple.  This is most easily implemented by calling
+DRbMessage.recv_request, providing a stream that sits on top of the current
+protocol.</p>
+</dd><dt>send_reply(succ, result)</dt>
+<dd>
+<p>Send a reply to the client.  This is most easily implemented by calling
+DRbMessage.send_reply, providing a stream that sits on top of the current
+protocol.</p>
+</dd><dt>close</dt>
+<dd>
+<p>Close this connection.</p>
+</dd></dl>
+
+<p>A new protocol is registered with the DRbProtocol module using the
+add_protocol method.</p>
+
+<p>For examples of other protocols, see DRbUNIXSocket in drb/unix.rb, and
+HTTP0 in sample/http0.rb and sample/http0serv.rb in the full drb
+distribution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_protocol-instance_method" title="#add_protocol (instance method)">- (Object) <strong>add_protocol</strong>(prot) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add a new protocol to the DRbProtocol module.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#auto_load-instance_method" title="#auto_load (instance method)">- (Object) <strong>auto_load</strong>(uri, config) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open-instance_method" title="#open (instance method)">- (Object) <strong>open</strong>(uri, config, first = true) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Open a client connection to <tt>uri</tt> with the configuration
+<tt>config</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open_server-instance_method" title="#open_server (instance method)">- (Object) <strong>open_server</strong>(uri, config, first = true) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Open a server listening for connections at <tt>uri</tt> with configuration
+<tt>config</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uri_option-instance_method" title="#uri_option (instance method)">- (Object) <strong>uri_option</strong>(uri, config, first = true) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Parse <tt>uri</tt> into a [uri, option] pair.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_protocol-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>add_protocol</strong>(prot) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Add a new protocol to the DRbProtocol module.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+716
+717
+718</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 716</span>
+
+<span class='kw'>def</span> <span class='id add_protocol'>add_protocol</span><span class='lparen'>(</span><span class='id prot'>prot</span><span class='rparen'>)</span>
+  <span class='ivar'>@protocol</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='id prot'>prot</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="auto_load-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>auto_load</strong>(uri, config) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+794
+795
+796
+797
+798</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 794</span>
+
+<span class='kw'>def</span> <span class='id auto_load'>auto_load</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>  <span class='comment'># :nodoc:
+</span>  <span class='kw'>if</span> <span class='id uri'>uri</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^drb([a-z0-9]+):</span><span class='regexp_end'>/</span></span>
+    <span class='id require'>require</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>drb/</span><span class='embexpr_beg'>#{</span><span class='backref'>$1</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="open-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>open</strong>(uri, config, first = true) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Open a client connection to <tt>uri</tt> with the configuration
+<tt>config</tt>.</p>
+
+<p>The DRbProtocol module asks each registered protocol in turn to try to open
+the URI.  Each protocol signals that it does not handle that URI by raising
+a DRbBadScheme error.  If no protocol recognises the URI, then a DRbBadURI
+error is raised.  If a protocol accepts the URI, but an error occurs in
+opening it, a DRbConnError is raised.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="DRbBadURI.html" title="DRb::DRbBadURI (class)">DRbBadURI</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 728</span>
+
+<span class='kw'>def</span> <span class='id open'>open</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='comma'>,</span> <span class='id first'>first</span><span class='op'>=</span><span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='ivar'>@protocol</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id prot'>prot</span><span class='op'>|</span>
+    <span class='kw'>begin</span>
+      <span class='kw'>return</span> <span class='id prot'>prot</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='const'>DRbBadScheme</span>
+    <span class='kw'>rescue</span> <span class='const'>DRbConnError</span>
+      <span class='id raise'>raise</span><span class='lparen'>(</span><span class='gvar'>$!</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span>
+      <span class='id raise'>raise</span><span class='lparen'>(</span><span class='const'>DRbConnError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id uri'>uri</span><span class='rbrace'>}</span><span class='tstring_content'> - </span><span class='embexpr_beg'>#{</span><span class='gvar'>$!</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id first'>first</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:auto_load</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+    <span class='id auto_load'>auto_load</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id open'>open</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id raise'>raise</span> <span class='const'>DRbBadURI</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>can\'t parse uri:</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id uri'>uri</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="open_server-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>open_server</strong>(uri, config, first = true) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Open a server listening for connections at <tt>uri</tt> with configuration
+<tt>config</tt>.</p>
+
+<p>The DRbProtocol module asks each registered protocol in turn to try to open
+a server at the URI.  Each protocol signals that it does not handle that
+URI by raising a DRbBadScheme error.  If no protocol recognises the URI,
+then a DRbBadURI error is raised.  If a protocol accepts the URI, but an
+error occurs in opening it, the underlying error is passed on to the
+caller.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="DRbBadURI.html" title="DRb::DRbBadURI (class)">DRbBadURI</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 756</span>
+
+<span class='kw'>def</span> <span class='id open_server'>open_server</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='comma'>,</span> <span class='id first'>first</span><span class='op'>=</span><span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='ivar'>@protocol</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id prot'>prot</span><span class='op'>|</span>
+    <span class='kw'>begin</span>
+      <span class='kw'>return</span> <span class='id prot'>prot</span><span class='period'>.</span><span class='id open_server'>open_server</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='const'>DRbBadScheme</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id first'>first</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:auto_load</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+    <span class='id auto_load'>auto_load</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id open_server'>open_server</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id raise'>raise</span> <span class='const'>DRbBadURI</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>can\'t parse uri:</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id uri'>uri</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="uri_option-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>uri_option</strong>(uri, config, first = true) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Parse <tt>uri</tt> into a [uri, option] pair.</p>
+
+<p>The DRbProtocol module asks each registered protocol in turn to try to
+parse the URI.  Each protocol signals that it does not handle that URI by
+raising a DRbBadScheme error.  If no protocol recognises the URI, then a
+DRbBadURI error is raised.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="DRbBadURI.html" title="DRb::DRbBadURI (class)">DRbBadURI</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/drb/drb.rb', line 777</span>
+
+<span class='kw'>def</span> <span class='id uri_option'>uri_option</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='comma'>,</span> <span class='id first'>first</span><span class='op'>=</span><span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='ivar'>@protocol</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id prot'>prot</span><span class='op'>|</span>
+    <span class='kw'>begin</span>
+      <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id opt'>opt</span> <span class='op'>=</span> <span class='id prot'>prot</span><span class='period'>.</span><span class='id uri_option'>uri_option</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+      <span class='comment'># opt = nil if opt == ''
+</span>      <span class='kw'>return</span> <span class='id uri'>uri</span><span class='comma'>,</span> <span class='id opt'>opt</span>
+    <span class='kw'>rescue</span> <span class='const'>DRbBadScheme</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id first'>first</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:auto_load</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+    <span class='id auto_load'>auto_load</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id uri_option'>uri_option</span><span class='lparen'>(</span><span class='id uri'>uri</span><span class='comma'>,</span> <span class='id config'>config</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id raise'>raise</span> <span class='const'>DRbBadURI</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>can\'t parse uri:</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id uri'>uri</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:15 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

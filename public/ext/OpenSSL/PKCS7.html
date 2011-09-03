@@ -1,0 +1,2195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: OpenSSL::PKCS7</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../ext/openssl/ossl_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/openssl/ossl.c">ext/openssl/ossl.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="../Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">CLASS</span> <a href="PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-encrypt">::encrypt</a></li>
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-c-read_smime">::read_smime</a></li>
+          
+          <li><a href="#method-c-sign">::sign</a></li>
+          
+          <li><a href="#method-c-write_smime">::write_smime</a></li>
+          
+          <li><a href="#method-i-add_certificate">#add_certificate</a></li>
+          
+          <li><a href="#method-i-add_crl">#add_crl</a></li>
+          
+          <li><a href="#method-i-add_data">#add_data</a></li>
+          
+          <li><a href="#method-i-add_recipient">#add_recipient</a></li>
+          
+          <li><a href="#method-i-add_signer">#add_signer</a></li>
+          
+          <li><a href="#method-i-certificates">#certificates</a></li>
+          
+          <li><a href="#method-i-certificates-3D">#certificates=</a></li>
+          
+          <li><a href="#method-i-cipher-3D">#cipher=</a></li>
+          
+          <li><a href="#method-i-crls">#crls</a></li>
+          
+          <li><a href="#method-i-crls-3D">#crls=</a></li>
+          
+          <li><a href="#method-i-data-3D">#data=</a></li>
+          
+          <li><a href="#method-i-decrypt">#decrypt</a></li>
+          
+          <li><a href="#method-i-detached">#detached</a></li>
+          
+          <li><a href="#method-i-detached-3D">#detached=</a></li>
+          
+          <li><a href="#method-i-detached-3F">#detached?</a></li>
+          
+          <li><a href="#method-i-recipients">#recipients</a></li>
+          
+          <li><a href="#method-i-signers">#signers</a></li>
+          
+          <li><a href="#method-i-to_der">#to_der</a></li>
+          
+          <li><a href="#method-i-to_pem">#to_pem</a></li>
+          
+          <li><a href="#method-i-to_s">#to_s</a></li>
+          
+          <li><a href="#method-i-type">#type</a></li>
+          
+          <li><a href="#method-i-type-3D">#type=</a></li>
+          
+          <li><a href="#method-i-verify">#verify</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="../OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="../OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="../OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="../OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="../OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="../OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="../OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="../OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="../OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="../OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="../OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="../OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="../OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="../OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="../OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="../OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="../OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="../OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="../OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="../OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="../OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="../OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="../OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="../OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="../Psych.html">Psych</a></li>
+        
+          <li><a href="../Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="../Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="../Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="../Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="../Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="../Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="../Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="../Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="../Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="../Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="../Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="../Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="../Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="../Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="../Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="../Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="../Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="../Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="../Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="../Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="../Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="../Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="../Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="../Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="../Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="../Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="../Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="../Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="../Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="../DL.html">DL</a></li>
+        
+          <li><a href="../DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="../DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="../DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="../DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="../DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="../DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="../DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="../DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="../DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="../DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="../DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="../DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="../DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="../DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="../DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="../DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="../DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="../DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="../DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="../DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="../DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="../DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="../Zlib.html">Zlib</a></li>
+        
+          <li><a href="../Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="../Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="../Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="../Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="../Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="../Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="../Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="../Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="../Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="../Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="../Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="../Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="../Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="../Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="../Win32.html">Win32</a></li>
+        
+          <li><a href="../Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="../Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="../Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="../Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="../Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="../Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="../Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="../Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="../Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="../Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="../Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="../Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="../Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="../Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="../JSON.html">JSON</a></li>
+        
+          <li><a href="../JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="../JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="../JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="../JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="../JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="../Iconv.html">Iconv</a></li>
+        
+          <li><a href="../Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="../Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="../Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="../Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="../Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="../Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="../Ripper.html">Ripper</a></li>
+        
+          <li><a href="../Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="../Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="../Digest.html">Digest</a></li>
+        
+          <li><a href="../Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="../Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="../Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="../Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="../Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="../Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="../Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="../Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="../DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="../Socket.html">Socket</a></li>
+        
+          <li><a href="../Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="../Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="../Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="../Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="../Curses.html">Curses</a></li>
+        
+          <li><a href="../Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="../Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="../Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="../PTY.html">PTY</a></li>
+        
+          <li><a href="../PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="../StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="../StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="../Syslog.html">Syslog</a></li>
+        
+          <li><a href="../Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="../WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="../WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="../Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="../BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="../BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="../BigMath.html">BigMath</a></li>
+        
+          <li><a href="../Class.html">Class</a></li>
+        
+          <li><a href="../Coverage.html">Coverage</a></li>
+        
+          <li><a href="../DBM.html">DBM</a></li>
+        
+          <li><a href="../DBMError.html">DBMError</a></li>
+        
+          <li><a href="../Date.html">Date</a></li>
+        
+          <li><a href="../DateTime.html">DateTime</a></li>
+        
+          <li><a href="../Etc.html">Etc</a></li>
+        
+          <li><a href="../Exception.html">Exception</a></li>
+        
+          <li><a href="../Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="../Float.html">Float</a></li>
+        
+          <li><a href="../GDBM.html">GDBM</a></li>
+        
+          <li><a href="../GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="../GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="../IO.html">IO</a></li>
+        
+          <li><a href="../IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="../Integer.html">Integer</a></li>
+        
+          <li><a href="../Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="../Kconv.html">Kconv</a></li>
+        
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="../Module.html">Module</a></li>
+        
+          <li><a href="../NKF.html">NKF</a></li>
+        
+          <li><a href="../Newton.html">Newton</a></li>
+        
+          <li><a href="../OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="../Object.html">Object</a></li>
+        
+          <li><a href="../Pathname.html">Pathname</a></li>
+        
+          <li><a href="../Range.html">Range</a></li>
+        
+          <li><a href="../Rational.html">Rational</a></li>
+        
+          <li><a href="../Readline.html">Readline</a></li>
+        
+          <li><a href="../Regexp.html">Regexp</a></li>
+        
+          <li><a href="../SDBM.html">SDBM</a></li>
+        
+          <li><a href="../SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="../SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="../SocketError.html">SocketError</a></li>
+        
+          <li><a href="../String.html">String</a></li>
+        
+          <li><a href="../StringIO.html">StringIO</a></li>
+        
+          <li><a href="../Struct.html">Struct</a></li>
+        
+          <li><a href="../Symbol.html">Symbol</a></li>
+        
+          <li><a href="../TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="../TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="../Thread.html">Thread</a></li>
+        
+          <li><a href="../Time.html">Time</a></li>
+        
+          <li><a href="../UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="../UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="../UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="../WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="../WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="../WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="../WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="../WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="../WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="../WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="../WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="../Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">OpenSSL::PKCS7</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+      <!-- Constants -->
+      <div id="constants-list" class="section">
+        <h3 class="section-header">Constants</h3>
+        <dl>
+        
+          <dt><a name="Signer">Signer</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+        </dl>
+      </div>
+      
+
+      
+      <!-- Attributes -->
+      <div id="attribute-method-details" class="method-section section">
+        <h3 class="section-header">Attributes</h3>
+
+        
+        <div id="data-attribute-method" class="method-detail">
+          <a name="data"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">data</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="error_string-attribute-method" class="method-detail">
+          <a name="error_string"></a>
+          
+          <a name="error_string="></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">error_string</span><span
+              class="attribute-access-type">[RW]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+      </div><!-- attribute-method-details -->
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="encrypt-method" class="method-detail ">
+          <a name="method-c-encrypt"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">encrypt(certs, data, [, cipher [, flags]]) => pkcs7</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="encrypt-source">
+<pre>
+static VALUE
+ossl_pkcs7_s_encrypt(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE certs, data, cipher, flags;
+    STACK_OF(X509) *x509s;
+    BIO *in;
+    const EVP_CIPHER *ciph;
+    int flg, status = 0;
+    VALUE ret;
+    PKCS7 *p7;
+
+    rb_scan_args(argc, argv, &quot;22&quot;, &amp;certs, &amp;data, &amp;cipher, &amp;flags);
+    if(NIL_P(cipher)){
+#if !defined(OPENSSL_NO_RC2)
+        ciph = EVP_rc2_40_cbc();
+#elif !defined(OPENSSL_NO_DES)
+        ciph = EVP_des_ede3_cbc();
+#elif !defined(OPENSSL_NO_RC2)
+        ciph = EVP_rc2_40_cbc();
+#elif !defined(OPENSSL_NO_AES)
+        ciph = EVP_EVP_aes_128_cbc();
+#else
+        ossl_raise(ePKCS7Error, &quot;Must specify cipher&quot;);
+#endif
+
+    }
+    else ciph = GetCipherPtr(cipher); /* NO NEED TO DUP */
+    flg = NIL_P(flags) ? 0 : NUM2INT(flags);
+    in = ossl_obj2bio(data);
+    x509s = ossl_protect_x509_ary2sk(certs, &amp;status);
+    if(status){
+        BIO_free(in);
+        rb_jump_tag(status);
+    }
+    if(!(p7 = PKCS7_encrypt(x509s, in, (EVP_CIPHER*)ciph, flg))){
+        BIO_free(in);
+        sk_X509_pop_free(x509s, X509_free);
+        ossl_raise(ePKCS7Error, NULL);
+    }
+    BIO_free(in);
+    WrapPKCS7(cPKCS7, ret, p7);
+    ossl_pkcs7_set_data(ret, data);
+    sk_X509_pop_free(x509s, X509_free);
+
+    return ret;
+}</pre>
+            </div><!-- encrypt-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- encrypt-method -->
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">new => pkcs7</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">new(string) => pkcs7</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Many methods in this class aren’t documented.</p>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+static VALUE
+ossl_pkcs7_initialize(int argc, VALUE *argv, VALUE self)
+{
+    PKCS7 *p7, *pkcs = DATA_PTR(self);
+    BIO *in;
+    VALUE arg;
+
+    if(rb_scan_args(argc, argv, &quot;01&quot;, &amp;arg) == 0)
+        return self;
+    arg = ossl_to_der_if_possible(arg);
+    in = ossl_obj2bio(arg);
+    p7 = PEM_read_bio_PKCS7(in, &amp;pkcs, NULL, NULL);
+    DATA_PTR(self) = pkcs;
+    if (!p7) {
+        OSSL_BIO_reset(in);
+        p7 = d2i_PKCS7_bio(in, &amp;pkcs);
+        if (!p7)
+            ossl_raise(rb_eArgError, &quot;Could not parse the PKCS7&quot;);
+        DATA_PTR(self) = pkcs;
+    }
+    BIO_free(in);
+    ossl_pkcs7_set_data(self, Qnil);
+    ossl_pkcs7_set_err_string(self, Qnil);
+
+    return self;
+}</pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+        <div id="read_smime-method" class="method-detail ">
+          <a name="method-c-read_smime"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">read_smime(string) => pkcs7</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="read_smime-source">
+<pre>
+static VALUE
+ossl_pkcs7_s_read_smime(VALUE klass, VALUE arg)
+{
+    BIO *in, *out;
+    PKCS7 *pkcs7;
+    VALUE ret, data;
+
+    in = ossl_obj2bio(arg);
+    out = NULL;
+    pkcs7 = SMIME_read_PKCS7(in, &amp;out);
+    BIO_free(in);
+    if(!pkcs7) ossl_raise(ePKCS7Error, NULL);
+    data = out ? ossl_membio2str(out) : Qnil;
+    WrapPKCS7(cPKCS7, ret, pkcs7);
+    ossl_pkcs7_set_data(ret, data);
+    ossl_pkcs7_set_err_string(ret, Qnil);
+
+    return ret;
+}</pre>
+            </div><!-- read_smime-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- read_smime-method -->
+
+      
+        <div id="sign-method" class="method-detail ">
+          <a name="method-c-sign"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sign(cert, key, data, [, certs [, flags]]) => pkcs7</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="sign-source">
+<pre>
+static VALUE
+ossl_pkcs7_s_sign(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE cert, key, data, certs, flags;
+    X509 *x509;
+    EVP_PKEY *pkey;
+    BIO *in;
+    STACK_OF(X509) *x509s;
+    int flg, status = 0;
+    PKCS7 *pkcs7;
+    VALUE ret;
+
+    rb_scan_args(argc, argv, &quot;32&quot;, &amp;cert, &amp;key, &amp;data, &amp;certs, &amp;flags);
+    x509 = GetX509CertPtr(cert); /* NO NEED TO DUP */
+    pkey = GetPrivPKeyPtr(key); /* NO NEED TO DUP */
+    flg = NIL_P(flags) ? 0 : NUM2INT(flags);
+    in = ossl_obj2bio(data);
+    if(NIL_P(certs)) x509s = NULL;
+    else{
+        x509s = ossl_protect_x509_ary2sk(certs, &amp;status);
+        if(status){
+            BIO_free(in);
+            rb_jump_tag(status);
+        }
+    }
+    if(!(pkcs7 = PKCS7_sign(x509, pkey, x509s, in, flg))){
+        BIO_free(in);
+        sk_X509_pop_free(x509s, X509_free);
+        ossl_raise(ePKCS7Error, NULL);
+    }
+    WrapPKCS7(cPKCS7, ret, pkcs7);
+    ossl_pkcs7_set_data(ret, data);
+    ossl_pkcs7_set_err_string(ret, Qnil);
+    BIO_free(in);
+    sk_X509_pop_free(x509s, X509_free);
+
+    return ret;
+}</pre>
+            </div><!-- sign-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sign-method -->
+
+      
+        <div id="write_smime-method" class="method-detail ">
+          <a name="method-c-write_smime"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">write_smime(pkcs7 [, data [, flags]]) => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="write_smime-source">
+<pre>
+static VALUE
+ossl_pkcs7_s_write_smime(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE pkcs7, data, flags;
+    BIO *out, *in;
+    PKCS7 *p7;
+    VALUE str;
+    int flg;
+
+    rb_scan_args(argc, argv, &quot;12&quot;, &amp;pkcs7, &amp;data, &amp;flags);
+    flg = NIL_P(flags) ? 0 : NUM2INT(flags);
+    if(NIL_P(data)) data = ossl_pkcs7_get_data(pkcs7);
+    SafeGetPKCS7(pkcs7, p7);
+    if(!NIL_P(data) &amp;&amp; PKCS7_is_detached(p7))
+        flg |= PKCS7_DETACHED;
+    in = NIL_P(data) ? NULL : ossl_obj2bio(data);
+    if(!(out = BIO_new(BIO_s_mem()))){
+        BIO_free(in);
+        ossl_raise(ePKCS7Error, NULL);
+    }
+    if(!SMIME_write_PKCS7(out, p7, in, flg)){
+        BIO_free(out);
+        BIO_free(in);
+        ossl_raise(ePKCS7Error, NULL);
+    }
+    BIO_free(in);
+    str = ossl_membio2str(out);
+
+    return str;
+}</pre>
+            </div><!-- write_smime-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- write_smime-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="add_certificate-method" class="method-detail ">
+          <a name="method-i-add_certificate"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">add_certificate</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="add_certificate-source">
+<pre>
+static VALUE
+ossl_pkcs7_add_certificate(VALUE self, VALUE cert)
+{
+    PKCS7 *pkcs7;
+    X509 *x509;
+
+    GetPKCS7(self, pkcs7);
+    x509 = GetX509CertPtr(cert);  /* NO NEED TO DUP */
+    if (!PKCS7_add_certificate(pkcs7, x509)){
+        ossl_raise(ePKCS7Error, NULL);
+    }
+
+    return self;
+}</pre>
+            </div><!-- add_certificate-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- add_certificate-method -->
+
+      
+        <div id="add_crl-method" class="method-detail ">
+          <a name="method-i-add_crl"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">add_crl</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="add_crl-source">
+<pre>
+static VALUE
+ossl_pkcs7_add_crl(VALUE self, VALUE crl)
+{
+    PKCS7 *pkcs7;
+    X509_CRL *x509crl;
+
+    GetPKCS7(self, pkcs7); /* NO DUP needed! */
+    x509crl = GetX509CRLPtr(crl);
+    if (!PKCS7_add_crl(pkcs7, x509crl)) {
+        ossl_raise(ePKCS7Error, NULL);
+    }
+
+    return self;
+}</pre>
+            </div><!-- add_crl-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- add_crl-method -->
+
+      
+        <div id="add_data-method" class="method-detail ">
+          <a name="method-i-add_data"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">add_data</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="add_data-source">
+<pre>
+static VALUE
+ossl_pkcs7_add_data(VALUE self, VALUE data)
+{
+    PKCS7 *pkcs7;
+    BIO *out, *in;
+    char buf[4096];
+    int len;
+
+    in = ossl_obj2bio(data);
+    GetPKCS7(self, pkcs7);
+    if(PKCS7_type_is_signed(pkcs7)){
+        if(!PKCS7_content_new(pkcs7, NID_pkcs7_data))
+            ossl_raise(ePKCS7Error, NULL);
+    }
+    if(!(out = PKCS7_dataInit(pkcs7, NULL))) goto err;
+    for(;;){
+        if((len = BIO_read(in, buf, sizeof(buf))) &lt;= 0)
+            break;
+        if(BIO_write(out, buf, len) != len)
+            goto err;
+    }
+    if(!PKCS7_dataFinal(pkcs7, out)) goto err;
+    ossl_pkcs7_set_data(self, Qnil);
+
+ err:
+    BIO_free(out);
+    BIO_free(in);
+    if(ERR_peek_error()){
+        ossl_raise(ePKCS7Error, NULL);
+    }
+
+    return data;
+}</pre>
+            </div><!-- add_data-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="PKCS7.html#method-i-data-3D">data=</a>
+          </div>
+          
+
+          
+        </div><!-- add_data-method -->
+
+      
+        <div id="add_recipient-method" class="method-detail ">
+          <a name="method-i-add_recipient"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">add_recipient</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="add_recipient-source">
+<pre>
+static VALUE
+ossl_pkcs7_add_recipient(VALUE self, VALUE recip)
+{
+    PKCS7 *pkcs7;
+    PKCS7_RECIP_INFO *ri;
+
+    ri = DupPKCS7RecipientPtr(recip); /* NEED TO DUP */
+    GetPKCS7(self, pkcs7);
+    if (!PKCS7_add_recipient_info(pkcs7, ri)) {
+        PKCS7_RECIP_INFO_free(ri);
+        ossl_raise(ePKCS7Error, &quot;Could not add recipient.&quot;);
+    }
+
+    return self;
+}</pre>
+            </div><!-- add_recipient-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- add_recipient-method -->
+
+      
+        <div id="add_signer-method" class="method-detail ">
+          <a name="method-i-add_signer"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">add_signer</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="add_signer-source">
+<pre>
+static VALUE
+ossl_pkcs7_add_signer(VALUE self, VALUE signer)
+{
+    PKCS7 *pkcs7;
+    PKCS7_SIGNER_INFO *p7si;
+
+    p7si = DupPKCS7SignerPtr(signer); /* NEED TO DUP */
+    GetPKCS7(self, pkcs7);
+    if (!PKCS7_add_signer(pkcs7, p7si)) {
+        PKCS7_SIGNER_INFO_free(p7si);
+        ossl_raise(ePKCS7Error, &quot;Could not add signer.&quot;);
+    }
+    if (PKCS7_type_is_signed(pkcs7)){
+        PKCS7_add_signed_attribute(p7si, NID_pkcs9_contentType,
+                                   V_ASN1_OBJECT, OBJ_nid2obj(NID_pkcs7_data));
+    }
+
+    return self;
+}</pre>
+            </div><!-- add_signer-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- add_signer-method -->
+
+      
+        <div id="certificates-method" class="method-detail ">
+          <a name="method-i-certificates"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">certificates</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="certificates-source">
+<pre>
+static VALUE
+ossl_pkcs7_get_certificates(VALUE self)
+{
+    return ossl_x509_sk2ary(pkcs7_get_certs(self));
+}</pre>
+            </div><!-- certificates-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- certificates-method -->
+
+      
+        <div id="certificates-3D-method" class="method-detail ">
+          <a name="method-i-certificates-3D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">certificates=</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="certificates-3D-source">
+<pre>
+static VALUE
+ossl_pkcs7_set_certificates(VALUE self, VALUE ary)
+{
+    STACK_OF(X509) *certs;
+    X509 *cert;
+
+    certs = pkcs7_get_certs(self);
+    while((cert = sk_X509_pop(certs))) X509_free(cert);
+    rb_block_call(ary, rb_intern(&quot;each&quot;), 0, 0, ossl_pkcs7_set_certs_i, self);
+
+    return ary;
+}</pre>
+            </div><!-- certificates-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- certificates-3D-method -->
+
+      
+        <div id="cipher-3D-method" class="method-detail ">
+          <a name="method-i-cipher-3D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">cipher=</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="cipher-3D-source">
+<pre>
+static VALUE
+ossl_pkcs7_set_cipher(VALUE self, VALUE cipher)
+{
+    PKCS7 *pkcs7;
+
+    GetPKCS7(self, pkcs7);
+    if (!PKCS7_set_cipher(pkcs7, GetCipherPtr(cipher))) {
+        ossl_raise(ePKCS7Error, NULL);
+    }
+
+    return cipher;
+}</pre>
+            </div><!-- cipher-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- cipher-3D-method -->
+
+      
+        <div id="crls-method" class="method-detail ">
+          <a name="method-i-crls"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">crls</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="crls-source">
+<pre>
+static VALUE
+ossl_pkcs7_get_crls(VALUE self)
+{
+    return ossl_x509crl_sk2ary(pkcs7_get_crls(self));
+}</pre>
+            </div><!-- crls-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- crls-method -->
+
+      
+        <div id="crls-3D-method" class="method-detail ">
+          <a name="method-i-crls-3D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">crls=</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="crls-3D-source">
+<pre>
+static VALUE
+ossl_pkcs7_set_crls(VALUE self, VALUE ary)
+{
+    STACK_OF(X509_CRL) *crls;
+    X509_CRL *crl;
+
+    crls = pkcs7_get_crls(self);
+    while((crl = sk_X509_CRL_pop(crls))) X509_CRL_free(crl);
+    rb_block_call(ary, rb_intern(&quot;each&quot;), 0, 0, ossl_pkcs7_set_crls_i, self);
+
+    return ary;
+}</pre>
+            </div><!-- crls-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- crls-3D-method -->
+
+      
+        <div id="data-3D-method" class="method-detail method-alias">
+          <a name="method-i-data-3D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">data=</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="PKCS7.html#method-i-add_data">add_data</a>
+          </div>
+          
+        </div><!-- data-3D-method -->
+
+      
+        <div id="decrypt-method" class="method-detail ">
+          <a name="method-i-decrypt"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">decrypt</span><span
+              class="method-args">(p1, p2, p3 = v3)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="decrypt-source">
+<pre>
+static VALUE
+ossl_pkcs7_decrypt(int argc, VALUE *argv, VALUE self)
+{
+    VALUE pkey, cert, flags;
+    EVP_PKEY *key;
+    X509 *x509;
+    int flg;
+    PKCS7 *p7;
+    BIO *out;
+    VALUE str;
+
+    rb_scan_args(argc, argv, &quot;21&quot;, &amp;pkey, &amp;cert, &amp;flags);
+    key = GetPrivPKeyPtr(pkey); /* NO NEED TO DUP */
+    x509 = GetX509CertPtr(cert); /* NO NEED TO DUP */
+    flg = NIL_P(flags) ? 0 : NUM2INT(flags);
+    GetPKCS7(self, p7);
+    if(!(out = BIO_new(BIO_s_mem())))
+        ossl_raise(ePKCS7Error, NULL);
+    if(!PKCS7_decrypt(p7, key, x509, out, flg)){
+        BIO_free(out);
+        ossl_raise(ePKCS7Error, NULL);
+    }
+    str = ossl_membio2str(out); /* out will be free */
+
+    return str;
+}</pre>
+            </div><!-- decrypt-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- decrypt-method -->
+
+      
+        <div id="detached-method" class="method-detail ">
+          <a name="method-i-detached"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">detached</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="detached-source">
+<pre>
+static VALUE
+ossl_pkcs7_get_detached(VALUE self)
+{
+    PKCS7 *p7;
+    GetPKCS7(self, p7);
+    return PKCS7_get_detached(p7) ? Qtrue : Qfalse;
+}</pre>
+            </div><!-- detached-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- detached-method -->
+
+      
+        <div id="detached-3D-method" class="method-detail ">
+          <a name="method-i-detached-3D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">detached=</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="detached-3D-source">
+<pre>
+static VALUE
+ossl_pkcs7_set_detached(VALUE self, VALUE flag)
+{
+    PKCS7 *p7;
+
+    GetPKCS7(self, p7);
+    if(flag != Qtrue &amp;&amp; flag != Qfalse)
+        ossl_raise(ePKCS7Error, &quot;must specify a boolean&quot;);
+    if(!PKCS7_set_detached(p7, flag == Qtrue ? 1 : 0))
+        ossl_raise(ePKCS7Error, NULL);
+
+    return flag;
+}</pre>
+            </div><!-- detached-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- detached-3D-method -->
+
+      
+        <div id="detached-3F-method" class="method-detail ">
+          <a name="method-i-detached-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">detached?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="detached-3F-source">
+<pre>
+static VALUE
+ossl_pkcs7_detached_p(VALUE self)
+{
+    PKCS7 *p7;
+    GetPKCS7(self, p7);
+    return PKCS7_is_detached(p7) ? Qtrue : Qfalse;
+}</pre>
+            </div><!-- detached-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- detached-3F-method -->
+
+      
+        <div id="recipients-method" class="method-detail ">
+          <a name="method-i-recipients"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">recipients</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="recipients-source">
+<pre>
+static VALUE
+ossl_pkcs7_get_recipient(VALUE self)
+{
+    PKCS7 *pkcs7;
+    STACK_OF(PKCS7_RECIP_INFO) *sk;
+    PKCS7_RECIP_INFO *si;
+    int num, i;
+    VALUE ary;
+
+    GetPKCS7(self, pkcs7);
+    if (PKCS7_type_is_enveloped(pkcs7))
+        sk = pkcs7-&gt;d.enveloped-&gt;recipientinfo;
+    else if (PKCS7_type_is_signedAndEnveloped(pkcs7))
+        sk = pkcs7-&gt;d.signed_and_enveloped-&gt;recipientinfo;
+    else sk = NULL;
+    if (!sk) return rb_ary_new();
+    if ((num = sk_PKCS7_RECIP_INFO_num(sk)) &lt; 0) {
+        ossl_raise(ePKCS7Error, &quot;Negative number of recipient!&quot;);
+    }
+    ary = rb_ary_new2(num);
+    for (i=0; i&lt;num; i++) {
+        si = sk_PKCS7_RECIP_INFO_value(sk, i);
+        rb_ary_push(ary, ossl_pkcs7ri_new(si));
+    }
+
+    return ary;
+}</pre>
+            </div><!-- recipients-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- recipients-method -->
+
+      
+        <div id="signers-method" class="method-detail ">
+          <a name="method-i-signers"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">signers</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="signers-source">
+<pre>
+static VALUE
+ossl_pkcs7_get_signer(VALUE self)
+{
+    PKCS7 *pkcs7;
+    STACK_OF(PKCS7_SIGNER_INFO) *sk;
+    PKCS7_SIGNER_INFO *si;
+    int num, i;
+    VALUE ary;
+
+    GetPKCS7(self, pkcs7);
+    if (!(sk = PKCS7_get_signer_info(pkcs7))) {
+        OSSL_Debug(&quot;OpenSSL::PKCS7#get_signer_info == NULL!&quot;);
+        return rb_ary_new();
+    }
+    if ((num = sk_PKCS7_SIGNER_INFO_num(sk)) &lt; 0) {
+        ossl_raise(ePKCS7Error, &quot;Negative number of signers!&quot;);
+    }
+    ary = rb_ary_new2(num);
+    for (i=0; i&lt;num; i++) {
+        si = sk_PKCS7_SIGNER_INFO_value(sk, i);
+        rb_ary_push(ary, ossl_pkcs7si_new(si));
+    }
+
+    return ary;
+}</pre>
+            </div><!-- signers-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- signers-method -->
+
+      
+        <div id="to_der-method" class="method-detail ">
+          <a name="method-i-to_der"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_der</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="to_der-source">
+<pre>
+static VALUE
+ossl_pkcs7_to_der(VALUE self)
+{
+    PKCS7 *pkcs7;
+    VALUE str;
+    long len;
+    unsigned char *p;
+
+    GetPKCS7(self, pkcs7);
+    if((len = i2d_PKCS7(pkcs7, NULL)) &lt;= 0)
+        ossl_raise(ePKCS7Error, NULL);
+    str = rb_str_new(0, len);
+    p = (unsigned char *)RSTRING_PTR(str);
+    if(i2d_PKCS7(pkcs7, &amp;p) &lt;= 0)
+        ossl_raise(ePKCS7Error, NULL);
+    ossl_str_adjust(str, p);
+
+    return str;
+}</pre>
+            </div><!-- to_der-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_der-method -->
+
+      
+        <div id="to_pem-method" class="method-detail ">
+          <a name="method-i-to_pem"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_pem</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="to_pem-source">
+<pre>
+static VALUE
+ossl_pkcs7_to_pem(VALUE self)
+{
+    PKCS7 *pkcs7;
+    BIO *out;
+    VALUE str;
+
+    GetPKCS7(self, pkcs7);
+    if (!(out = BIO_new(BIO_s_mem()))) {
+        ossl_raise(ePKCS7Error, NULL);
+    }
+    if (!PEM_write_bio_PKCS7(out, pkcs7)) {
+        BIO_free(out);
+        ossl_raise(ePKCS7Error, NULL);
+    }
+    str = ossl_membio2str(out);
+
+    return str;
+}</pre>
+            </div><!-- to_pem-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="PKCS7.html#method-i-to_s">to_s</a>
+          </div>
+          
+
+          
+        </div><!-- to_pem-method -->
+
+      
+        <div id="to_s-method" class="method-detail method-alias">
+          <a name="method-i-to_s"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="PKCS7.html#method-i-to_pem">to_pem</a>
+          </div>
+          
+        </div><!-- to_s-method -->
+
+      
+        <div id="type-method" class="method-detail ">
+          <a name="method-i-type"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">type => string or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="type-source">
+<pre>
+static VALUE
+ossl_pkcs7_get_type(VALUE self)
+{
+    PKCS7 *p7;
+
+    GetPKCS7(self, p7);
+    if(PKCS7_type_is_signed(p7))
+        return ID2SYM(rb_intern(&quot;signed&quot;));
+    if(PKCS7_type_is_encrypted(p7))
+        return ID2SYM(rb_intern(&quot;encrypted&quot;));
+    if(PKCS7_type_is_enveloped(p7))
+        return ID2SYM(rb_intern(&quot;enveloped&quot;));
+    if(PKCS7_type_is_signedAndEnveloped(p7))
+        return ID2SYM(rb_intern(&quot;signedAndEnveloped&quot;));
+    if(PKCS7_type_is_data(p7))
+        return ID2SYM(rb_intern(&quot;data&quot;));
+    return Qnil;
+}</pre>
+            </div><!-- type-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- type-method -->
+
+      
+        <div id="type-3D-method" class="method-detail ">
+          <a name="method-i-type-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">type = type => type</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="type-3D-source">
+<pre>
+static VALUE
+ossl_pkcs7_set_type(VALUE self, VALUE type)
+{
+    PKCS7 *p7;
+
+    GetPKCS7(self, p7);
+    if(!PKCS7_set_type(p7, ossl_pkcs7_sym2typeid(type)))
+        ossl_raise(ePKCS7Error, NULL);
+
+    return type;
+}</pre>
+            </div><!-- type-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- type-3D-method -->
+
+      
+        <div id="verify-method" class="method-detail ">
+          <a name="method-i-verify"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">verify</span><span
+              class="method-args">(p1, p2, p3 = v3, p4 = v4)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="verify-source">
+<pre>
+static VALUE
+ossl_pkcs7_verify(int argc, VALUE *argv, VALUE self)
+{
+    VALUE certs, store, indata, flags;
+    STACK_OF(X509) *x509s;
+    X509_STORE *x509st;
+    int flg, ok, status = 0;
+    BIO *in, *out;
+    PKCS7 *p7;
+    VALUE data;
+    const char *msg;
+
+    rb_scan_args(argc, argv, &quot;22&quot;, &amp;certs, &amp;store, &amp;indata, &amp;flags);
+    flg = NIL_P(flags) ? 0 : NUM2INT(flags);
+    if(NIL_P(indata)) indata = ossl_pkcs7_get_data(self);
+    in = NIL_P(indata) ? NULL : ossl_obj2bio(indata);
+    if(NIL_P(certs)) x509s = NULL;
+    else{
+        x509s = ossl_protect_x509_ary2sk(certs, &amp;status);
+        if(status){
+            BIO_free(in);
+            rb_jump_tag(status);
+        }
+    }
+    x509st = GetX509StorePtr(store);
+    GetPKCS7(self, p7);
+    if(!(out = BIO_new(BIO_s_mem()))){
+        BIO_free(in);
+        sk_X509_pop_free(x509s, X509_free);
+        ossl_raise(ePKCS7Error, NULL);
+    }
+    ok = PKCS7_verify(p7, x509s, x509st, in, out, flg);
+    BIO_free(in);
+    if (ok &lt; 0) ossl_raise(ePKCS7Error, NULL);
+    msg = ERR_reason_error_string(ERR_get_error());
+    ossl_pkcs7_set_err_string(self, msg ? rb_str_new2(msg) : Qnil);
+    ERR_clear_error();
+    data = ossl_membio2str(out);
+    ossl_pkcs7_set_data(self, data);
+    sk_X509_pop_free(x509s, X509_free);
+
+    return (ok == 1) ? Qtrue : Qfalse;
+}</pre>
+            </div><!-- verify-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- verify-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

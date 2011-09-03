@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><ul><li>
+<p>What’s Ruby</p>
+</li></ul>
+
+<p>Ruby is the interpreted scripting language for quick and easy
+object-oriented programming.  It has many features to process text files
+and to do system management tasks (as in Perl).  It is simple,
+straight-forward, and extensible.</p>
+<ul><li>
+<p>Features of Ruby</p>
+
+<p>+ Simple Syntax + <b>Normal</b> Object-Oriented features(ex. class, method
+calls) + <b>Advanced</b> Object-Oriented features(ex. Mix-in,
+Singleton-method) + Operator Overloading + Exception Handling + Iterators
+and Closures + Garbage Collection + Dynamic Loading of Object files(on some
+architecture) + Highly Portable (works on many Unix-like/POSIX compatible
+platforms</p>
+
+<pre class="code">as well as Windows, Mac OS X, BeOS etc.)
+cf. http://redmine.ruby-lang.org/wiki/ruby-19/SupportedPlatforms</pre>
+</li><li>
+<p>How to get Ruby</p>
+</li></ul>
+
+<p>The Ruby distribution files can be found in the following FTP site:</p>
+
+<pre class="code">ftp://ftp.ruby-lang.org/pub/ruby/</pre>
+
+<p>The trunk of the Ruby source tree can be checked out with the following
+command:</p>
+
+<pre class="code">$ svn co http://svn.ruby-lang.org/repos/ruby/trunk/ ruby</pre>
+
+<p>There are some other branches under development.  Try the following command
+and see the list of branches:</p>
+
+<pre class="code">$ svn ls http://svn.ruby-lang.org/repos/ruby/branches/</pre>
+<ul><li>
+<p>Ruby home-page</p>
+</li></ul>
+
+<p>The URL of the Ruby home-page is:</p>
+
+<pre class="code">http://www.ruby-lang.org/</pre>
+<ul><li>
+<p>Mailing list</p>
+</li></ul>
+
+<p>There is a mailing list to talk about Ruby. To subscribe this list, please
+send the following phrase</p>
+
+<p>subscribe YourFirstName YourFamilyName e.g.</p>
+
+<pre class="code"><span class='id subscribe'>subscribe</span> <span class='const'>Joseph</span> <span class='const'>Smith</span></pre>
+
+<p>in the mail body (not subject) to the address
+&lt;ruby-talk-ctl@ruby-lang.org&gt;.</p>
+<ul><li>
+<p>How to compile and install</p>
+</li></ul>
+
+<p>This is what you need to do to compile and install Ruby:</p>
+
+<pre class="code">1. If ./configure does not exist or is older than configure.in,
+   run autoconf to (re)generate configure.
+
+2. Run ./configure, which will generate config.h and Makefile.
+
+   Some C compiler flags may be added by default depending on your
+   environment.  Specify optflags=.. and warnflags=.. as necessary
+   to override them.
+
+3. Edit defines.h if you need.  Usually this step will not be needed.
+
+4. Remove comment mark(#) before the module names from ext/Setup (or
+   add module names if not present), if you want to link modules
+   statically.
+
+   If you don't want to compile non static extension modules
+   (probably on architectures which does not allow dynamic loading),
+   remove comment mark from the line &quot;#option nodynamic&quot; in
+   ext/Setup.
+
+5. Run make.
+
+6. Optionally, run 'make test' to check whether the compiled Ruby
+   interpreter works well.  If you see the message &quot;test succeeded&quot;,
+   your ruby works as it should (hopefully).
+
+7. Run 'make install'
+
+   This command will create following directories and install files
+   onto them.
+
+     * ${DESTDIR}${prefix}/bin
+     * ${DESTDIR}${prefix}/include/ruby-${MAJOR}.${MINOR}.${TEENY}
+     * ${DESTDIR}${prefix}/include/ruby-${MAJOR}.${MINOR}.${TEENY}/${PLATFORM}
+     * ${DESTDIR}${prefix}/lib
+     * ${DESTDIR}${prefix}/lib/ruby
+     * ${DESTDIR}${prefix}/lib/ruby/${MAJOR}.${MINOR}.${TEENY}
+     * ${DESTDIR}${prefix}/lib/ruby/${MAJOR}.${MINOR}.${TEENY}/${PLATFORM}
+     * ${DESTDIR}${prefix}/lib/ruby/site_ruby
+     * ${DESTDIR}${prefix}/lib/ruby/site_ruby/${MAJOR}.${MINOR}.${TEENY}
+     * ${DESTDIR}${prefix}/lib/ruby/site_ruby/${MAJOR}.${MINOR}.${TEENY}/${PLATFORM}
+     * ${DESTDIR}${prefix}/lib/ruby/vendor_ruby
+     * ${DESTDIR}${prefix}/lib/ruby/vendor_ruby/${MAJOR}.${MINOR}.${TEENY}
+     * ${DESTDIR}${prefix}/lib/ruby/vendor_ruby/${MAJOR}.${MINOR}.${TEENY}/${PLATFORM}
+     * ${DESTDIR}${prefix}/lib/ruby/gems/${MAJOR}.${MINOR}.${TEENY}
+     * ${DESTDIR}${prefix}/share/man/man1
+     * ${DESTDIR}${prefix}/share/ri/${MAJOR}.${MINOR}.${TEENY}/system
+
+   If Ruby's API version is `x.y.z', the ((|${MAJOR}|)) is `x', the
+   ((|${MINOR}|)) is `y', and the ((|${TEENY}|)) is `z'.
+
+   NOTE: teeny of the API version may be different from one of
+   Ruby's program version
+
+   You may have to be a super user to install ruby.</pre>
+
+<p>If you fail to compile ruby, please send the detailed error report with the
+error log and machine/OS type, to help others.</p>
+<ul><li>
+<p>Copying</p>
+</li></ul>
+
+<p>See the file COPYING.</p>
+<ul><li>
+<p>The Author</p>
+</li></ul>
+
+<p>Feel free to send comments and bug reports to the author.  Here is the 
+author’s latest mail address:</p>
+
+<pre class="code"><span class='id matz'>matz</span><span class='ivar'>@netlab</span><span class='period'>.</span><span class='id jp'>jp</span></pre>
+<hr style="height: 10px">
+
+<p>created at: Thu Aug  3 11:57:36 JST 1995 Local variables: mode:
+indented-text end:</p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:09:53 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

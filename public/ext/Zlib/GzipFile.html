@@ -1,0 +1,1312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: Zlib::GzipFile</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../ext/zlib/zlib_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="ext/zlib/zlib.c">ext/zlib/zlib.c</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="../Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">CLASS</span> <a href="GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-wrap">::wrap</a></li>
+          
+          <li><a href="#method-i-close">#close</a></li>
+          
+          <li><a href="#method-i-closed-3F">#closed?</a></li>
+          
+          <li><a href="#method-i-comment">#comment</a></li>
+          
+          <li><a href="#method-i-crc">#crc</a></li>
+          
+          <li><a href="#method-i-finish">#finish</a></li>
+          
+          <li><a href="#method-i-level">#level</a></li>
+          
+          <li><a href="#method-i-mtime">#mtime</a></li>
+          
+          <li><a href="#method-i-orig_name">#orig_name</a></li>
+          
+          <li><a href="#method-i-os_code">#os_code</a></li>
+          
+          <li><a href="#method-i-sync">#sync</a></li>
+          
+          <li><a href="#method-i-sync-3D">#sync=</a></li>
+          
+          <li><a href="#method-i-to_io">#to_io</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../OpenSSL.html">OpenSSL</a></li>
+        
+          <li><a href="../OpenSSL/ASN1.html">OpenSSL::ASN1</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Data.html">OpenSSL::ASN1::ASN1Data</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/ASN1Error.html">OpenSSL::ASN1::ASN1Error</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Constructive.html">OpenSSL::ASN1::Constructive</a></li>
+        
+          <li><a href="../OpenSSL/ASN1/Primitive.html">OpenSSL::ASN1::Primitive</a></li>
+        
+          <li><a href="../OpenSSL/BN.html">OpenSSL::BN</a></li>
+        
+          <li><a href="../OpenSSL/BNError.html">OpenSSL::BNError</a></li>
+        
+          <li><a href="../OpenSSL/Buffering.html">OpenSSL::Buffering</a></li>
+        
+          <li><a href="../OpenSSL/Cipher.html">OpenSSL::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/Cipher.html">OpenSSL::Cipher::Cipher</a></li>
+        
+          <li><a href="../OpenSSL/Cipher/CipherError.html">OpenSSL::Cipher::CipherError</a></li>
+        
+          <li><a href="../OpenSSL/Config.html">OpenSSL::Config</a></li>
+        
+          <li><a href="../OpenSSL/ConfigError.html">OpenSSL::ConfigError</a></li>
+        
+          <li><a href="../OpenSSL/Digest.html">OpenSSL::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/Digest.html">OpenSSL::Digest::Digest</a></li>
+        
+          <li><a href="../OpenSSL/Digest/DigestError.html">OpenSSL::Digest::DigestError</a></li>
+        
+          <li><a href="../OpenSSL/Engine.html">OpenSSL::Engine</a></li>
+        
+          <li><a href="../OpenSSL/Engine/EngineError.html">OpenSSL::Engine::EngineError</a></li>
+        
+          <li><a href="../OpenSSL/HMAC.html">OpenSSL::HMAC</a></li>
+        
+          <li><a href="../OpenSSL/HMACError.html">OpenSSL::HMACError</a></li>
+        
+          <li><a href="../OpenSSL/Netscape.html">OpenSSL::Netscape</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKI.html">OpenSSL::Netscape::SPKI</a></li>
+        
+          <li><a href="../OpenSSL/Netscape/SPKIError.html">OpenSSL::Netscape::SPKIError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP.html">OpenSSL::OCSP</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/BasicResponse.html">OpenSSL::OCSP::BasicResponse</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/CertificateId.html">OpenSSL::OCSP::CertificateId</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/OCSPError.html">OpenSSL::OCSP::OCSPError</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Request.html">OpenSSL::OCSP::Request</a></li>
+        
+          <li><a href="../OpenSSL/OCSP/Response.html">OpenSSL::OCSP::Response</a></li>
+        
+          <li><a href="../OpenSSL/OpenSSLError.html">OpenSSL::OpenSSLError</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12.html">OpenSSL::PKCS12</a></li>
+        
+          <li><a href="../OpenSSL/PKCS12/PKCS12Error.html">OpenSSL::PKCS12::PKCS12Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5.html">OpenSSL::PKCS5</a></li>
+        
+          <li><a href="../OpenSSL/PKCS5/PKCS5Error.html">OpenSSL::PKCS5::PKCS5Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7.html">OpenSSL::PKCS7</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/PKCS7Error.html">OpenSSL::PKCS7::PKCS7Error</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/RecipientInfo.html">OpenSSL::PKCS7::RecipientInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKCS7/SignerInfo.html">OpenSSL::PKCS7::SignerInfo</a></li>
+        
+          <li><a href="../OpenSSL/PKey.html">OpenSSL::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DH.html">OpenSSL::PKey::DH</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DHError.html">OpenSSL::PKey::DHError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSA.html">OpenSSL::PKey::DSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/DSAError.html">OpenSSL::PKey::DSAError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC.html">OpenSSL::PKey::EC</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group.html">OpenSSL::PKey::EC::Group</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Group/Error.html">OpenSSL::PKey::EC::Group::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point.html">OpenSSL::PKey::EC::Point</a></li>
+        
+          <li><a href="../OpenSSL/PKey/EC/Point/Error.html">OpenSSL::PKey::EC::Point::Error</a></li>
+        
+          <li><a href="../OpenSSL/PKey/ECError.html">OpenSSL::PKey::ECError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKey.html">OpenSSL::PKey::PKey</a></li>
+        
+          <li><a href="../OpenSSL/PKey/PKeyError.html">OpenSSL::PKey::PKeyError</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a></li>
+        
+          <li><a href="../OpenSSL/PKey/RSAError.html">OpenSSL::PKey::RSAError</a></li>
+        
+          <li><a href="../OpenSSL/Random.html">OpenSSL::Random</a></li>
+        
+          <li><a href="../OpenSSL/Random/RandomError.html">OpenSSL::Random::RandomError</a></li>
+        
+          <li><a href="../OpenSSL/SSL.html">OpenSSL::SSL</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Nonblock.html">OpenSSL::SSL::Nonblock</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLContext.html">OpenSSL::SSL::SSLContext</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLError.html">OpenSSL::SSL::SSLError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLServer.html">OpenSSL::SSL::SSLServer</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SSLSocket.html">OpenSSL::SSL::SSLSocket</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session.html">OpenSSL::SSL::Session</a></li>
+        
+          <li><a href="../OpenSSL/SSL/Session/SessionError.html">OpenSSL::SSL::Session::SessionError</a></li>
+        
+          <li><a href="../OpenSSL/SSL/SocketForwarder.html">OpenSSL::SSL::SocketForwarder</a></li>
+        
+          <li><a href="../OpenSSL/X509.html">OpenSSL::X509</a></li>
+        
+          <li><a href="../OpenSSL/X509/Attribute.html">OpenSSL::X509::Attribute</a></li>
+        
+          <li><a href="../OpenSSL/X509/AttributeError.html">OpenSSL::X509::AttributeError</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRL.html">OpenSSL::X509::CRL</a></li>
+        
+          <li><a href="../OpenSSL/X509/CRLError.html">OpenSSL::X509::CRLError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Certificate.html">OpenSSL::X509::Certificate</a></li>
+        
+          <li><a href="../OpenSSL/X509/CertificateError.html">OpenSSL::X509::CertificateError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Extension.html">OpenSSL::X509::Extension</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionError.html">OpenSSL::X509::ExtensionError</a></li>
+        
+          <li><a href="../OpenSSL/X509/ExtensionFactory.html">OpenSSL::X509::ExtensionFactory</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name.html">OpenSSL::X509::Name</a></li>
+        
+          <li><a href="../OpenSSL/X509/Name/RFC2253DN.html">OpenSSL::X509::Name::RFC2253DN</a></li>
+        
+          <li><a href="../OpenSSL/X509/NameError.html">OpenSSL::X509::NameError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Request.html">OpenSSL::X509::Request</a></li>
+        
+          <li><a href="../OpenSSL/X509/RequestError.html">OpenSSL::X509::RequestError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Revoked.html">OpenSSL::X509::Revoked</a></li>
+        
+          <li><a href="../OpenSSL/X509/RevokedError.html">OpenSSL::X509::RevokedError</a></li>
+        
+          <li><a href="../OpenSSL/X509/Store.html">OpenSSL::X509::Store</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreContext.html">OpenSSL::X509::StoreContext</a></li>
+        
+          <li><a href="../OpenSSL/X509/StoreError.html">OpenSSL::X509::StoreError</a></li>
+        
+          <li><a href="../Psych.html">Psych</a></li>
+        
+          <li><a href="../Psych/Coder.html">Psych::Coder</a></li>
+        
+          <li><a href="../Psych/Emitter.html">Psych::Emitter</a></li>
+        
+          <li><a href="../Psych/Exception.html">Psych::Exception</a></li>
+        
+          <li><a href="../Psych/Handler.html">Psych::Handler</a></li>
+        
+          <li><a href="../Psych/JSON.html">Psych::JSON</a></li>
+        
+          <li><a href="../Psych/JSON/Stream.html">Psych::JSON::Stream</a></li>
+        
+          <li><a href="../Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Nodes.html">Psych::Nodes</a></li>
+        
+          <li><a href="../Psych/Nodes/Alias.html">Psych::Nodes::Alias</a></li>
+        
+          <li><a href="../Psych/Nodes/Document.html">Psych::Nodes::Document</a></li>
+        
+          <li><a href="../Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a></li>
+        
+          <li><a href="../Psych/Nodes/Node.html">Psych::Nodes::Node</a></li>
+        
+          <li><a href="../Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a></li>
+        
+          <li><a href="../Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a></li>
+        
+          <li><a href="../Psych/Nodes/Stream.html">Psych::Nodes::Stream</a></li>
+        
+          <li><a href="../Psych/Omap.html">Psych::Omap</a></li>
+        
+          <li><a href="../Psych/Parser.html">Psych::Parser</a></li>
+        
+          <li><a href="../Psych/Parser/Mark.html">Psych::Parser::Mark</a></li>
+        
+          <li><a href="../Psych/ScalarScanner.html">Psych::ScalarScanner</a></li>
+        
+          <li><a href="../Psych/Set.html">Psych::Set</a></li>
+        
+          <li><a href="../Psych/Stream.html">Psych::Stream</a></li>
+        
+          <li><a href="../Psych/Streaming.html">Psych::Streaming</a></li>
+        
+          <li><a href="../Psych/SyntaxError.html">Psych::SyntaxError</a></li>
+        
+          <li><a href="../Psych/TreeBuilder.html">Psych::TreeBuilder</a></li>
+        
+          <li><a href="../Psych/Visitors.html">Psych::Visitors</a></li>
+        
+          <li><a href="../Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a></li>
+        
+          <li><a href="../Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a></li>
+        
+          <li><a href="../Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a></li>
+        
+          <li><a href="../Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a></li>
+        
+          <li><a href="../Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a></li>
+        
+          <li><a href="../Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a></li>
+        
+          <li><a href="../DL.html">DL</a></li>
+        
+          <li><a href="../DL/BasicTypes.html">DL::BasicTypes</a></li>
+        
+          <li><a href="../DL/CFunc.html">DL::CFunc</a></li>
+        
+          <li><a href="../DL/CParser.html">DL::CParser</a></li>
+        
+          <li><a href="../DL/CPtr.html">DL::CPtr</a></li>
+        
+          <li><a href="../DL/CStruct.html">DL::CStruct</a></li>
+        
+          <li><a href="../DL/CStructBuilder.html">DL::CStructBuilder</a></li>
+        
+          <li><a href="../DL/CStructEntity.html">DL::CStructEntity</a></li>
+        
+          <li><a href="../DL/CUnion.html">DL::CUnion</a></li>
+        
+          <li><a href="../DL/CUnionEntity.html">DL::CUnionEntity</a></li>
+        
+          <li><a href="../DL/CarriedFunction.html">DL::CarriedFunction</a></li>
+        
+          <li><a href="../DL/CompositeHandler.html">DL::CompositeHandler</a></li>
+        
+          <li><a href="../DL/DLError.html">DL::DLError</a></li>
+        
+          <li><a href="../DL/DLTypeError.html">DL::DLTypeError</a></li>
+        
+          <li><a href="../DL/Function.html">DL::Function</a></li>
+        
+          <li><a href="../DL/Handle.html">DL::Handle</a></li>
+        
+          <li><a href="../DL/Importer.html">DL::Importer</a></li>
+        
+          <li><a href="../DL/PackInfo.html">DL::PackInfo</a></li>
+        
+          <li><a href="../DL/Packer.html">DL::Packer</a></li>
+        
+          <li><a href="../DL/Stack.html">DL::Stack</a></li>
+        
+          <li><a href="../DL/TempFunction.html">DL::TempFunction</a></li>
+        
+          <li><a href="../DL/ValueUtil.html">DL::ValueUtil</a></li>
+        
+          <li><a href="../DL/Win32Types.html">DL::Win32Types</a></li>
+        
+          <li><a href="../Zlib.html">Zlib</a></li>
+        
+          <li><a href="../Zlib/BufError.html">Zlib::BufError</a></li>
+        
+          <li><a href="../Zlib/DataError.html">Zlib::DataError</a></li>
+        
+          <li><a href="../Zlib/Deflate.html">Zlib::Deflate</a></li>
+        
+          <li><a href="../Zlib/Error.html">Zlib::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile.html">Zlib::GzipFile</a></li>
+        
+          <li><a href="../Zlib/GzipFile/CRCError.html">Zlib::GzipFile::CRCError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/Error.html">Zlib::GzipFile::Error</a></li>
+        
+          <li><a href="../Zlib/GzipFile/LengthError.html">Zlib::GzipFile::LengthError</a></li>
+        
+          <li><a href="../Zlib/GzipFile/NoFooter.html">Zlib::GzipFile::NoFooter</a></li>
+        
+          <li><a href="../Zlib/GzipReader.html">Zlib::GzipReader</a></li>
+        
+          <li><a href="../Zlib/GzipWriter.html">Zlib::GzipWriter</a></li>
+        
+          <li><a href="../Zlib/Inflate.html">Zlib::Inflate</a></li>
+        
+          <li><a href="../Zlib/MemError.html">Zlib::MemError</a></li>
+        
+          <li><a href="../Zlib/NeedDict.html">Zlib::NeedDict</a></li>
+        
+          <li><a href="../Zlib/StreamEnd.html">Zlib::StreamEnd</a></li>
+        
+          <li><a href="../Zlib/StreamError.html">Zlib::StreamError</a></li>
+        
+          <li><a href="../Zlib/VersionError.html">Zlib::VersionError</a></li>
+        
+          <li><a href="../Zlib/ZStream.html">Zlib::ZStream</a></li>
+        
+          <li><a href="../Win32.html">Win32</a></li>
+        
+          <li><a href="../Win32/Registry.html">Win32::Registry</a></li>
+        
+          <li><a href="../Win32/Registry/API.html">Win32::Registry::API</a></li>
+        
+          <li><a href="../Win32/Registry/Constants.html">Win32::Registry::Constants</a></li>
+        
+          <li><a href="../Win32/Registry/Error.html">Win32::Registry::Error</a></li>
+        
+          <li><a href="../Win32/Registry/Error/Kernel32.html">Win32::Registry::Error::Kernel32</a></li>
+        
+          <li><a href="../Win32/Registry/PredefinedKey.html">Win32::Registry::PredefinedKey</a></li>
+        
+          <li><a href="../Win32/Resolv.html">Win32::Resolv</a></li>
+        
+          <li><a href="../Win32/Resolv/Kernel32.html">Win32::Resolv::Kernel32</a></li>
+        
+          <li><a href="../Win32/SSPI.html">Win32::SSPI</a></li>
+        
+          <li><a href="../Win32/SSPI/API.html">Win32::SSPI::API</a></li>
+        
+          <li><a href="../Win32/SSPI/Identity.html">Win32::SSPI::Identity</a></li>
+        
+          <li><a href="../Win32/SSPI/NegotiateAuth.html">Win32::SSPI::NegotiateAuth</a></li>
+        
+          <li><a href="../Win32/SSPI/SSPIResult.html">Win32::SSPI::SSPIResult</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityBuffer.html">Win32::SSPI::SecurityBuffer</a></li>
+        
+          <li><a href="../Win32/SSPI/SecurityHandle.html">Win32::SSPI::SecurityHandle</a></li>
+        
+          <li><a href="../Win32/SSPI/TimeStamp.html">Win32::SSPI::TimeStamp</a></li>
+        
+          <li><a href="../JSON.html">JSON</a></li>
+        
+          <li><a href="../JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="../JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="../JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="../JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="../JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="../Iconv.html">Iconv</a></li>
+        
+          <li><a href="../Iconv/BrokenLibrary.html">Iconv::BrokenLibrary</a></li>
+        
+          <li><a href="../Iconv/Failure.html">Iconv::Failure</a></li>
+        
+          <li><a href="../Iconv/IllegalSequence.html">Iconv::IllegalSequence</a></li>
+        
+          <li><a href="../Iconv/InvalidCharacter.html">Iconv::InvalidCharacter</a></li>
+        
+          <li><a href="../Iconv/InvalidEncoding.html">Iconv::InvalidEncoding</a></li>
+        
+          <li><a href="../Iconv/OutOfRange.html">Iconv::OutOfRange</a></li>
+        
+          <li><a href="../Ripper.html">Ripper</a></li>
+        
+          <li><a href="../Ripper/Filter.html">Ripper::Filter</a></li>
+        
+          <li><a href="../Ripper/TokenPattern.html">Ripper::TokenPattern</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/CompileError.html">Ripper::TokenPattern::CompileError</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/Error.html">Ripper::TokenPattern::Error</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchData.html">Ripper::TokenPattern::MatchData</a></li>
+        
+          <li><a href="../Ripper/TokenPattern/MatchError.html">Ripper::TokenPattern::MatchError</a></li>
+        
+          <li><a href="../Digest.html">Digest</a></li>
+        
+          <li><a href="../Digest/Base.html">Digest::Base</a></li>
+        
+          <li><a href="../Digest/Class.html">Digest::Class</a></li>
+        
+          <li><a href="../Digest/HMAC.html">Digest::HMAC</a></li>
+        
+          <li><a href="../Digest/Instance.html">Digest::Instance</a></li>
+        
+          <li><a href="../Fiddle.html">Fiddle</a></li>
+        
+          <li><a href="../Fiddle/Closure.html">Fiddle::Closure</a></li>
+        
+          <li><a href="../Fiddle/Closure/BlockCaller.html">Fiddle::Closure::BlockCaller</a></li>
+        
+          <li><a href="../Fiddle/Function.html">Fiddle::Function</a></li>
+        
+          <li><a href="../DL/CPtr.html">Fiddle::Pointer</a></li>
+        
+          <li><a href="../Socket.html">Socket</a></li>
+        
+          <li><a href="../Socket/AncillaryData.html">Socket::AncillaryData</a></li>
+        
+          <li><a href="../Socket/Constants.html">Socket::Constants</a></li>
+        
+          <li><a href="../Socket/Option.html">Socket::Option</a></li>
+        
+          <li><a href="../Socket/UDPSource.html">Socket::UDPSource</a></li>
+        
+          <li><a href="../Curses.html">Curses</a></li>
+        
+          <li><a href="../Curses/Key.html">Curses::Key</a></li>
+        
+          <li><a href="../Curses/MouseEvent.html">Curses::MouseEvent</a></li>
+        
+          <li><a href="../Curses/Window.html">Curses::Window</a></li>
+        
+          <li><a href="../PTY.html">PTY</a></li>
+        
+          <li><a href="../PTY/ChildExited.html">PTY::ChildExited</a></li>
+        
+          <li><a href="../StringScanner.html">StringScanner</a></li>
+        
+          <li><a href="../StringScanner/Error.html">StringScanner::Error</a></li>
+        
+          <li><a href="../Syslog.html">Syslog</a></li>
+        
+          <li><a href="../Syslog/Constants.html">Syslog::Constants</a></li>
+        
+          <li><a href="../WIN32OLE.html">WIN32OLE</a></li>
+        
+          <li><a href="../WIN32OLE/VARIANT.html">WIN32OLE::VARIANT</a></li>
+        
+          <li><a href="../Addrinfo.html">Addrinfo</a></li>
+        
+          <li><a href="../BasicSocket.html">BasicSocket</a></li>
+        
+          <li><a href="../BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="../BigMath.html">BigMath</a></li>
+        
+          <li><a href="../Class.html">Class</a></li>
+        
+          <li><a href="../Coverage.html">Coverage</a></li>
+        
+          <li><a href="../DBM.html">DBM</a></li>
+        
+          <li><a href="../DBMError.html">DBMError</a></li>
+        
+          <li><a href="../Date.html">Date</a></li>
+        
+          <li><a href="../DateTime.html">DateTime</a></li>
+        
+          <li><a href="../Etc.html">Etc</a></li>
+        
+          <li><a href="../Exception.html">Exception</a></li>
+        
+          <li><a href="../Fcntl.html">Fcntl</a></li>
+        
+          <li><a href="../Float.html">Float</a></li>
+        
+          <li><a href="../GDBM.html">GDBM</a></li>
+        
+          <li><a href="../GDBMError.html">GDBMError</a></li>
+        
+          <li><a href="../GDBMFatalError.html">GDBMFatalError</a></li>
+        
+          <li><a href="../IO.html">IO</a></li>
+        
+          <li><a href="../IPSocket.html">IPSocket</a></li>
+        
+          <li><a href="../Integer.html">Integer</a></li>
+        
+          <li><a href="../Jacobian.html">Jacobian</a></li>
+        
+          <li><a href="../Kconv.html">Kconv</a></li>
+        
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../LUSolve.html">LUSolve</a></li>
+        
+          <li><a href="../Module.html">Module</a></li>
+        
+          <li><a href="../NKF.html">NKF</a></li>
+        
+          <li><a href="../Newton.html">Newton</a></li>
+        
+          <li><a href="../OLEProperty.html">OLEProperty</a></li>
+        
+          <li><a href="../Object.html">Object</a></li>
+        
+          <li><a href="../Pathname.html">Pathname</a></li>
+        
+          <li><a href="../Range.html">Range</a></li>
+        
+          <li><a href="../Rational.html">Rational</a></li>
+        
+          <li><a href="../Readline.html">Readline</a></li>
+        
+          <li><a href="../Regexp.html">Regexp</a></li>
+        
+          <li><a href="../SDBM.html">SDBM</a></li>
+        
+          <li><a href="../SDBMError.html">SDBMError</a></li>
+        
+          <li><a href="../SOCKSSocket.html">SOCKSSocket</a></li>
+        
+          <li><a href="../SocketError.html">SocketError</a></li>
+        
+          <li><a href="../String.html">String</a></li>
+        
+          <li><a href="../StringIO.html">StringIO</a></li>
+        
+          <li><a href="../Struct.html">Struct</a></li>
+        
+          <li><a href="../Symbol.html">Symbol</a></li>
+        
+          <li><a href="../TCPServer.html">TCPServer</a></li>
+        
+          <li><a href="../TCPSocket.html">TCPSocket</a></li>
+        
+          <li><a href="../Thread.html">Thread</a></li>
+        
+          <li><a href="../Time.html">Time</a></li>
+        
+          <li><a href="../UDPSocket.html">UDPSocket</a></li>
+        
+          <li><a href="../UNIXServer.html">UNIXServer</a></li>
+        
+          <li><a href="../UNIXSocket.html">UNIXSocket</a></li>
+        
+          <li><a href="../WIN32OLERuntimeError.html">WIN32OLERuntimeError</a></li>
+        
+          <li><a href="../WIN32OLE_EVENT.html">WIN32OLE_EVENT</a></li>
+        
+          <li><a href="../WIN32OLE_METHOD.html">WIN32OLE_METHOD</a></li>
+        
+          <li><a href="../WIN32OLE_PARAM.html">WIN32OLE_PARAM</a></li>
+        
+          <li><a href="../WIN32OLE_TYPE.html">WIN32OLE_TYPE</a></li>
+        
+          <li><a href="../WIN32OLE_TYPELIB.html">WIN32OLE_TYPELIB</a></li>
+        
+          <li><a href="../WIN32OLE_VARIABLE.html">WIN32OLE_VARIABLE</a></li>
+        
+          <li><a href="../WIN32OLE_VARIANT.html">WIN32OLE_VARIANT</a></li>
+        
+          <li><a href="../Win32API.html">Win32API</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Zlib::GzipFile</h1>
+
+    <div id="description" class="description">
+      
+<p><a href="GzipFile.html">Zlib::GzipFile</a> is an abstract class for
+handling a gzip formatted compressed file. The operations are defined in
+the subclasses, <a href="GzipReader.html">Zlib::GzipReader</a> for reading,
+and <a href="GzipWriter.html">Zlib::GzipWriter</a> for writing.</p>
+
+<p><a href="GzipReader.html">GzipReader</a> should be used by associating an
+<a href="../IO.html">IO</a>, or IO-like, object.</p>
+
+<h2>Method Catalogue</h2>
+<ul><li>
+<p><a href="GzipFile.html#method-c-wrap">::wrap</a></p>
+</li><li>
+<p>::open (<a href="GzipReader.html#method-c-open">Zlib::GzipReader::open</a>
+and <a href="GzipWriter.html#method-c-open">Zlib::GzipWriter::open</a>)</p>
+</li><li>
+<p><a href="GzipFile.html#method-i-close">close</a></p>
+</li><li>
+<p><a href="GzipFile.html#method-i-closed-3F">closed?</a></p>
+</li><li>
+<p><a href="GzipFile.html#method-i-comment">comment</a></p>
+</li><li>
+<p>comment= (<a
+href="GzipWriter.html#method-i-comment-3D">Zlib::GzipWriter#comment=</a>)</p>
+</li><li>
+<p><a href="GzipFile.html#method-i-crc">crc</a></p>
+</li><li>
+<p>eof? (<a href="GzipReader.html#method-i-eof-3F">Zlib::GzipReader#eof?</a>)</p>
+</li><li>
+<p><a href="GzipFile.html#method-i-finish">finish</a></p>
+</li><li>
+<p><a href="GzipFile.html#method-i-level">level</a></p>
+</li><li>
+<p>lineno (<a
+href="GzipReader.html#method-i-lineno">Zlib::GzipReader#lineno</a>)</p>
+</li><li>
+<p>lineno= (<a
+href="GzipReader.html#method-i-lineno-3D">Zlib::GzipReader#lineno=</a>)</p>
+</li><li>
+<p><a href="GzipFile.html#method-i-mtime">mtime</a></p>
+</li><li>
+<p>mtime= (<a
+href="GzipWriter.html#method-i-mtime-3D">Zlib::GzipWriter#mtime=</a>)</p>
+</li><li>
+<p><a href="GzipFile.html#method-i-orig_name">orig_name</a></p>
+</li><li>
+<p><a href="GzipFile.html#method-i-orig_name">orig_name</a> (<a
+href="GzipWriter.html#method-i-orig_name-3D">Zlib::GzipWriter#orig_name=</a>)</p>
+</li><li>
+<p><a href="GzipFile.html#method-i-os_code">os_code</a></p>
+</li><li>
+<p>path (when the underlying <a href="../IO.html">IO</a> supports #path)</p>
+</li><li>
+<p><a href="GzipFile.html#method-i-sync">sync</a></p>
+</li><li>
+<p><a href="GzipFile.html#method-i-sync-3D">sync=</a></p>
+</li><li>
+<p><a href="GzipFile.html#method-i-to_io">to_io</a></p>
+</li></ul>
+
+<p>(due to internal structure, documentation may appear under <a
+href="GzipReader.html">Zlib::GzipReader</a> or <a
+href="GzipWriter.html">Zlib::GzipWriter</a>)</p>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="wrap-method" class="method-detail ">
+          <a name="method-c-wrap"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">Zlib::GzipFile.wrap(io) { |gz| ... }</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Creates a <a href="GzipFile.html">GzipFile</a> object associated with
+<tt>io</tt>, and executes the block with the newly created <a
+href="GzipFile.html">GzipFile</a> object, just like File.open. The <a
+href="GzipFile.html">GzipFile</a> object will be closed automatically after
+executing the block. If you want to keep the associated <a
+href="../IO.html">IO</a> object opening, you may call +<a
+href="GzipFile.html#method-i-finish">Zlib::GzipFile#finish</a>+ method in
+the block.</p>
+            
+
+            
+            <div class="method-source-code" id="wrap-source">
+<pre>
+static VALUE
+rb_gzfile_s_wrap(int argc, VALUE *argv, VALUE klass)
+{
+    return gzfile_wrap(argc, argv, klass, 0);
+}</pre>
+            </div><!-- wrap-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- wrap-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="close-method" class="method-detail ">
+          <a name="method-i-close"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">close</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Closes the <a href="GzipFile.html">GzipFile</a> object. This method calls
+close method of the associated <a href="../IO.html">IO</a> object. Returns
+the associated <a href="../IO.html">IO</a> object.</p>
+            
+
+            
+            <div class="method-source-code" id="close-source">
+<pre>
+static VALUE
+rb_gzfile_close(VALUE obj)
+{
+    struct gzfile *gz = get_gzfile(obj);
+    VALUE io;
+
+    io = gz-&gt;io;
+    gzfile_close(gz, 1);
+    return io;
+}</pre>
+            </div><!-- close-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close-method -->
+
+      
+        <div id="closed-3F-method" class="method-detail ">
+          <a name="method-i-closed-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">closed?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Same as IO#closed?</p>
+            
+
+            
+            <div class="method-source-code" id="closed-3F-source">
+<pre>
+static VALUE
+rb_gzfile_closed_p(VALUE obj)
+{
+    struct gzfile *gz;
+    Data_Get_Struct(obj, struct gzfile, gz);
+    return NIL_P(gz-&gt;io) ? Qtrue : Qfalse;
+}</pre>
+            </div><!-- closed-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- closed-3F-method -->
+
+      
+        <div id="comment-method" class="method-detail ">
+          <a name="method-i-comment"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">comment</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns comments recorded in the gzip file header, or nil if the comments
+is not present.</p>
+            
+
+            
+            <div class="method-source-code" id="comment-source">
+<pre>
+static VALUE
+rb_gzfile_comment(VALUE obj)
+{
+    VALUE str = get_gzfile(obj)-&gt;comment;
+    if (!NIL_P(str)) {
+        str = rb_str_dup(str);
+    }
+    OBJ_TAINT(str);  /* for safe */
+    return str;
+}</pre>
+            </div><!-- comment-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- comment-method -->
+
+      
+        <div id="crc-method" class="method-detail ">
+          <a name="method-i-crc"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">crc</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns CRC value of the uncompressed data.</p>
+            
+
+            
+            <div class="method-source-code" id="crc-source">
+<pre>
+static VALUE
+rb_gzfile_crc(VALUE obj)
+{
+    return rb_uint2inum(get_gzfile(obj)-&gt;crc);
+}</pre>
+            </div><!-- crc-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- crc-method -->
+
+      
+        <div id="finish-method" class="method-detail ">
+          <a name="method-i-finish"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">finish</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Closes the <a href="GzipFile.html">GzipFile</a> object. Unlike <a
+href="GzipFile.html#method-i-close">Zlib::GzipFile#close</a>, this method
+never calls the close method of the associated <a href="../IO.html">IO</a>
+object. Returns the associated <a href="../IO.html">IO</a> object.</p>
+            
+
+            
+            <div class="method-source-code" id="finish-source">
+<pre>
+static VALUE
+rb_gzfile_finish(VALUE obj)
+{
+    struct gzfile *gz = get_gzfile(obj);
+    VALUE io;
+
+    io = gz-&gt;io;
+    gzfile_close(gz, 0);
+    return io;
+}</pre>
+            </div><!-- finish-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- finish-method -->
+
+      
+        <div id="level-method" class="method-detail ">
+          <a name="method-i-level"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">level</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns compression level.</p>
+            
+
+            
+            <div class="method-source-code" id="level-source">
+<pre>
+static VALUE
+rb_gzfile_level(VALUE obj)
+{
+    return INT2FIX(get_gzfile(obj)-&gt;level);
+}</pre>
+            </div><!-- level-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- level-method -->
+
+      
+        <div id="mtime-method" class="method-detail ">
+          <a name="method-i-mtime"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">mtime</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns last modification time recorded in the gzip file header.</p>
+            
+
+            
+            <div class="method-source-code" id="mtime-source">
+<pre>
+static VALUE
+rb_gzfile_mtime(VALUE obj)
+{
+    return rb_time_new(get_gzfile(obj)-&gt;mtime, (time_t)0);
+}</pre>
+            </div><!-- mtime-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- mtime-method -->
+
+      
+        <div id="orig_name-method" class="method-detail ">
+          <a name="method-i-orig_name"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">orig_name</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns original filename recorded in the gzip file header, or <tt>nil</tt>
+if original filename is not present.</p>
+            
+
+            
+            <div class="method-source-code" id="orig_name-source">
+<pre>
+static VALUE
+rb_gzfile_orig_name(VALUE obj)
+{
+    VALUE str = get_gzfile(obj)-&gt;orig_name;
+    if (!NIL_P(str)) {
+        str = rb_str_dup(str);
+    }
+    OBJ_TAINT(str);  /* for safe */
+    return str;
+}</pre>
+            </div><!-- orig_name-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- orig_name-method -->
+
+      
+        <div id="os_code-method" class="method-detail ">
+          <a name="method-i-os_code"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">os_code</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns OS code number recorded in the gzip file header.</p>
+            
+
+            
+            <div class="method-source-code" id="os_code-source">
+<pre>
+static VALUE
+rb_gzfile_os_code(VALUE obj)
+{
+    return INT2FIX(get_gzfile(obj)-&gt;os_code);
+}</pre>
+            </div><!-- os_code-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- os_code-method -->
+
+      
+        <div id="sync-method" class="method-detail ">
+          <a name="method-i-sync"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">sync</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Same as IO#sync</p>
+            
+
+            
+            <div class="method-source-code" id="sync-source">
+<pre>
+static VALUE
+rb_gzfile_sync(VALUE obj)
+{
+    return (get_gzfile(obj)-&gt;z.flags &amp; GZFILE_FLAG_SYNC) ? Qtrue : Qfalse;
+}</pre>
+            </div><!-- sync-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sync-method -->
+
+      
+        <div id="sync-3D-method" class="method-detail ">
+          <a name="method-i-sync-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sync = flag</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+
+          <div class="method-description">
+            
+            <p>Same as <a href="../IO.html">IO</a>.  If flag is <tt>true</tt>, the
+associated <a href="../IO.html">IO</a> object must respond to the
+<tt>flush</tt> method.  While <tt>sync</tt> mode is <tt>true</tt>, the
+compression ratio decreases sharply.</p>
+            
+
+            
+            <div class="method-source-code" id="sync-3D-source">
+<pre>
+static VALUE
+rb_gzfile_set_sync(VALUE obj, VALUE mode)
+{
+    struct gzfile *gz = get_gzfile(obj);
+
+    if (RTEST(mode)) {
+        gz-&gt;z.flags |= GZFILE_FLAG_SYNC;
+    }
+    else {
+        gz-&gt;z.flags &amp;= ~GZFILE_FLAG_SYNC;
+    }
+    return mode;
+}</pre>
+            </div><!-- sync-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sync-3D-method -->
+
+      
+        <div id="to_io-method" class="method-detail ">
+          <a name="method-i-to_io"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_io</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Same as <a href="../IO.html">IO</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="to_io-source">
+<pre>
+static VALUE
+rb_gzfile_to_io(VALUE obj)
+{
+    return get_gzfile(obj)-&gt;io;
+}</pre>
+            </div><!-- to_io-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_io-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

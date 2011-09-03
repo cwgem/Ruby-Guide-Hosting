@@ -1,0 +1,1709 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RDoc::Generator::Darkfish
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../RDoc.html" title="RDoc (module)">RDoc</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Generator.html" title="RDoc::Generator (module)">Generator</a></span></span>
+     &raquo; 
+    <span class="title">Darkfish</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: RDoc::Generator::Darkfish
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">RDoc::Generator::Darkfish</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="../../ERB/Util.html" title="ERB::Util (module)">ERB::Util</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rdoc/generator/darkfish.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Darkfish RDoc HTML Generator</p>
+
+<p>$Id: darkfish.rb 52 2009-01-07 02:08:11Z deveiant $</p>
+
+<h2>Author/s</h2>
+<ul><li>
+<p>Michael Granger (ged@FaerieMUD.org)</p>
+</li></ul>
+
+<h2>Contributors</h2>
+<ul><li>
+<p>Mahlon E. Smith (mahlon@martini.nu)</p>
+</li><li>
+<p>Eric Hodel (drbrain@segment7.net)</p>
+</li></ul>
+
+<h2>License</h2>
+
+<p>Copyright (c) 2007, 2008, Michael Granger. All rights reserved.</p>
+
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ul><li>
+<p>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</p>
+</li><li>
+<p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p>
+</li><li>
+<p>Neither the name of the author/s, nor the names of the project's
+contributors may be used to endorse or promote products derived from this
+software without specific prior written permission.</p>
+</li></ul>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="GENERATOR_DIR-constant" class="">GENERATOR_DIR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Path to this file's parent directory. Used to find templates and other
+resources.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>File</span><span class='period'>.</span><span class='id join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rdoc</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>generator</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Release Version</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>2</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="DESCRIPTION-constant" class="">DESCRIPTION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Description of this generator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HTML generator, written by Michael Granger</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="SVNID_PATTERN-constant" class="">SVNID_PATTERN =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>%q$Id: darkfish.rb 52 2009-01-07 02:08:11Z deveiant $"</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>
+  \$Id:\s
+  (\S+)\s                # filename
+  (\d+)\s                # rev
+  (\d{4}-\d{2}-\d{2})\s  # Date (YYYY-MM-DD)
+  (\d{2}:\d{2}:\d{2}Z)\s # Time (HH:MM:SSZ)
+  (\w+)\s                # committer
+  \$$
+</span><span class='regexp_end'>/x</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#outputdir-instance_method" title="#outputdir (instance method)">- (Object) <strong>outputdir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The output directory.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#class_dir-instance_method" title="#class_dir (instance method)">- (Object) <strong>class_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Directory where generated class HTML files live relative to the output dir.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug_msg-instance_method" title="#debug_msg (instance method)">- (Object) <strong>debug_msg</strong>(*msg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Output progress information if debugging is enabled.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file_dir-instance_method" title="#file_dir (instance method)">- (Object) <strong>file_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Directory where generated class HTML files live relative to the output dir.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gen_sub_directories-instance_method" title="#gen_sub_directories (instance method)">- (Object) <strong>gen_sub_directories</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create the directories the generated docs will live in if they don't
+already exist.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate-instance_method" title="#generate (instance method)">- (Object) <strong>generate</strong>(top_levels) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Build the initial indices and output objects based on an array of TopLevel
+objects containing the extracted information.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_class_files-instance_method" title="#generate_class_files (instance method)">- (Object) <strong>generate_class_files</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate a documentation file for each class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_file_files-instance_method" title="#generate_file_files (instance method)">- (Object) <strong>generate_file_files</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate a documentation file for each file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_index-instance_method" title="#generate_index (instance method)">- (Object) <strong>generate_index</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate an index page which lists all the classes which are documented.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_sorted_module_list-instance_method" title="#get_sorted_module_list (instance method)">- (Object) <strong>get_sorted_module_list</strong>(classes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a list of the documented modules sorted by salience first, then by
+name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_svninfo-instance_method" title="#get_svninfo (instance method)">- (Object) <strong>get_svninfo</strong>(klass) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Try to extract Subversion information out of the first constant whose value
+looks like a subversion Id tag.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Darkfish) <strong>initialize</strong>(options) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize a few instance variables before we start.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#render_template-instance_method" title="#render_template (instance method)">- (Object) <strong>render_template</strong>(template_file, out_file) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Load and render the erb template in the given <tt>template_file</tt> and
+write it out to <tt>out_file</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#template_for-instance_method" title="#template_for (instance method)">- (Object) <strong>template_for</strong>(file) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves a cache template for <tt>file</tt>, if present, or fills the
+cache.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#template_result-instance_method" title="#template_result (instance method)">- (Object) <strong>template_result</strong>(template, context, template_file) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates the result for <tt>template</tt> with <tt>context</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#time_delta_string-instance_method" title="#time_delta_string (instance method)">- (Object) <strong>time_delta_string</strong>(seconds) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a string describing the amount of time in the given number of
+seconds in terms a human can understand easily.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_style_sheet-instance_method" title="#write_style_sheet (instance method)">- (Object) <strong>write_style_sheet</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Copy over the stylesheet into the appropriate place in the output
+directory.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../ERB/Util.html" title="ERB::Util (module)">ERB::Util</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../ERB/Util.html#html_escape-instance_method" title="ERB::Util#html_escape (method)">#html_escape</a></span>, <span class='object_link'><a href="../../ERB/Util.html#url_encode-instance_method" title="ERB::Util#url_encode (method)">#url_encode</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RDoc::Generator::Darkfish (class)">Darkfish</a></span></tt>) <strong>initialize</strong>(options) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize a few instance variables before we start</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 74</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span> <span class='id options'>options</span>
+  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='id options'>options</span>
+
+  <span class='ivar'>@template_dir</span> <span class='op'>=</span> <span class='const'>Pathname</span><span class='period'>.</span><span class='id new'>new</span> <span class='id options'>options</span><span class='period'>.</span><span class='id template_dir'>template_dir</span>
+  <span class='ivar'>@template_cache</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+  <span class='ivar'>@files</span>      <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@classes</span>    <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@basedir</span> <span class='op'>=</span> <span class='const'>Pathname</span><span class='period'>.</span><span class='id pwd'>pwd</span><span class='period'>.</span><span class='id expand_path'>expand_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="outputdir-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="outputdir-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>outputdir</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The output directory</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id outputdir'>outputdir</span>
+  <span class='ivar'>@outputdir</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="class_dir-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>class_dir</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Directory where generated class HTML files live relative to the output dir.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id class_dir'>class_dir</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="debug_msg-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>debug_msg</strong>(*msg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Output progress information if debugging is enabled</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id debug_msg'>debug_msg</span> <span class='op'>*</span><span class='id msg'>msg</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='gvar'>$DEBUG_RDOC</span>
+  <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id puts'>puts</span><span class='lparen'>(</span><span class='op'>*</span><span class='id msg'>msg</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="file_dir-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>file_dir</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Directory where generated class HTML files live relative to the output dir.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 111</span>
+
+<span class='kw'>def</span> <span class='id file_dir'>file_dir</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="gen_sub_directories-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>gen_sub_directories</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create the directories the generated docs will live in if they don't
+already exist.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='id gen_sub_directories'>gen_sub_directories</span>
+  <span class='ivar'>@outputdir</span><span class='period'>.</span><span class='id mkpath'>mkpath</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="generate-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>generate</strong>(top_levels) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Build the initial indices and output objects based on an array of TopLevel
+objects containing the extracted information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id generate'>generate</span> <span class='id top_levels'>top_levels</span>
+  <span class='ivar'>@outputdir</span> <span class='op'>=</span> <span class='const'>Pathname</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='period'>.</span><span class='id op_dir'>op_dir</span><span class='rparen'>)</span><span class='period'>.</span><span class='id expand_path'>expand_path</span><span class='lparen'>(</span><span class='ivar'>@basedir</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@files</span> <span class='op'>=</span> <span class='id top_levels'>top_levels</span><span class='period'>.</span><span class='id sort'>sort</span>
+  <span class='ivar'>@classes</span> <span class='op'>=</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>TopLevel</span><span class='period'>.</span><span class='id all_classes_and_modules'>all_classes_and_modules</span><span class='period'>.</span><span class='id sort'>sort</span>
+  <span class='ivar'>@methods</span> <span class='op'>=</span> <span class='ivar'>@classes</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span> <span class='id m'>m</span><span class='period'>.</span><span class='id method_list'>method_list</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id flatten'>flatten</span><span class='period'>.</span><span class='id sort'>sort</span>
+  <span class='ivar'>@modsort</span> <span class='op'>=</span> <span class='id get_sorted_module_list'>get_sorted_module_list</span><span class='lparen'>(</span><span class='ivar'>@classes</span><span class='rparen'>)</span>
+
+  <span class='comment'># Now actually write the output
+</span>  <span class='id write_style_sheet'>write_style_sheet</span>
+  <span class='id generate_index'>generate_index</span>
+  <span class='id generate_class_files'>generate_class_files</span>
+  <span class='id generate_file_files'>generate_file_files</span>
+
+<span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+  <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s: %s\n  %s</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+    <span class='id e'>e</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id name'>name</span><span class='comma'>,</span> <span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='comma'>,</span> <span class='id e'>e</span><span class='period'>.</span><span class='id backtrace'>backtrace</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n  </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='rbracket'>]</span>
+
+  <span class='id raise'>raise</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="generate_class_files-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>generate_class_files</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate a documentation file for each class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 222</span>
+
+<span class='kw'>def</span> <span class='id generate_class_files'>generate_class_files</span>
+  <span class='id template_file'>template_file</span> <span class='op'>=</span> <span class='ivar'>@template_dir</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>classpage.rhtml</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id template_file'>template_file</span><span class='period'>.</span><span class='id exist?'>exist?</span>
+  <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Generating class documentation in </span><span class='embexpr_beg'>#{</span><span class='ivar'>@outputdir</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id current'>current</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@classes</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id klass'>klass</span><span class='op'>|</span>
+    <span class='id current'>current</span> <span class='op'>=</span> <span class='id klass'>klass</span>
+    <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  working on %s (%s)</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id klass'>klass</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id path'>path</span><span class='rbracket'>]</span>
+    <span class='id out_file'>out_file</span>   <span class='op'>=</span> <span class='ivar'>@outputdir</span> <span class='op'>+</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id path'>path</span>
+    <span class='comment'># suppress 1.9.3 warning
+</span>    <span class='id rel_prefix'>rel_prefix</span> <span class='op'>=</span> <span class='id rel_prefix'>rel_prefix</span> <span class='op'>=</span> <span class='ivar'>@outputdir</span><span class='period'>.</span><span class='id relative_path_from'>relative_path_from</span><span class='lparen'>(</span><span class='id out_file'>out_file</span><span class='period'>.</span><span class='id dirname'>dirname</span><span class='rparen'>)</span>
+    <span class='id svninfo'>svninfo</span>    <span class='op'>=</span> <span class='id svninfo'>svninfo</span>    <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id get_svninfo'>get_svninfo</span><span class='lparen'>(</span><span class='id klass'>klass</span><span class='rparen'>)</span>
+
+    <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  rendering </span><span class='embexpr_beg'>#{</span><span class='id out_file'>out_file</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id render_template'>render_template</span> <span class='id template_file'>template_file</span><span class='comma'>,</span> <span class='id out_file'>out_file</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span> <span class='id binding'>binding</span> <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+  <span class='id error'>error</span> <span class='op'>=</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Error</span><span class='period'>.</span><span class='id new'>new</span> \
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error generating </span><span class='embexpr_beg'>#{</span><span class='id current'>current</span><span class='period'>.</span><span class='id path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id error'>error</span><span class='period'>.</span><span class='id set_backtrace'>set_backtrace</span> <span class='id e'>e</span><span class='period'>.</span><span class='id backtrace'>backtrace</span>
+
+  <span class='id raise'>raise</span> <span class='id error'>error</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="generate_file_files-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>generate_file_files</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate a documentation file for each file</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 251</span>
+
+<span class='kw'>def</span> <span class='id generate_file_files'>generate_file_files</span>
+  <span class='id template_file'>template_file</span> <span class='op'>=</span> <span class='ivar'>@template_dir</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filepage.rhtml</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id template_file'>template_file</span><span class='period'>.</span><span class='id exist?'>exist?</span>
+  <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Generating file documentation in </span><span class='embexpr_beg'>#{</span><span class='ivar'>@outputdir</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id out_file'>out_file</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='ivar'>@files</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id file'>file</span><span class='op'>|</span>
+    <span class='id out_file'>out_file</span>     <span class='op'>=</span> <span class='ivar'>@outputdir</span> <span class='op'>+</span> <span class='id file'>file</span><span class='period'>.</span><span class='id path'>path</span>
+    <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  working on %s (%s)</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id file'>file</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='comma'>,</span> <span class='id out_file'>out_file</span><span class='rbracket'>]</span>
+    <span class='comment'># suppress 1.9.3 warning
+</span>    <span class='id rel_prefix'>rel_prefix</span> <span class='op'>=</span> <span class='id rel_prefix'>rel_prefix</span>  <span class='op'>=</span> <span class='ivar'>@outputdir</span><span class='period'>.</span><span class='id relative_path_from'>relative_path_from</span><span class='lparen'>(</span><span class='id out_file'>out_file</span><span class='period'>.</span><span class='id dirname'>dirname</span><span class='rparen'>)</span>
+
+    <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  rendering </span><span class='embexpr_beg'>#{</span><span class='id out_file'>out_file</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id render_template'>render_template</span> <span class='id template_file'>template_file</span><span class='comma'>,</span> <span class='id out_file'>out_file</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span> <span class='id binding'>binding</span> <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+  <span class='id error'>error</span> <span class='op'>=</span>
+    <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Error</span><span class='period'>.</span><span class='id new'>new</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error generating </span><span class='embexpr_beg'>#{</span><span class='id out_file'>out_file</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id error'>error</span><span class='period'>.</span><span class='id set_backtrace'>set_backtrace</span> <span class='id e'>e</span><span class='period'>.</span><span class='id backtrace'>backtrace</span>
+
+  <span class='id raise'>raise</span> <span class='id error'>error</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="generate_index-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>generate_index</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate an index page which lists all the classes which are documented.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 202</span>
+
+<span class='kw'>def</span> <span class='id generate_index'>generate_index</span>
+  <span class='id template_file'>template_file</span> <span class='op'>=</span> <span class='ivar'>@template_dir</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.rhtml</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id template_file'>template_file</span><span class='period'>.</span><span class='id exist?'>exist?</span>
+
+  <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rendering the index page...</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id out_file'>out_file</span> <span class='op'>=</span> <span class='ivar'>@basedir</span> <span class='op'>+</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id op_dir'>op_dir</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.html</span><span class='tstring_end'>'</span></span>
+
+  <span class='id render_template'>render_template</span> <span class='id template_file'>template_file</span><span class='comma'>,</span> <span class='id out_file'>out_file</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span> <span class='id binding'>binding</span> <span class='kw'>end</span>
+<span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+  <span class='id error'>error</span> <span class='op'>=</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Error</span><span class='period'>.</span><span class='id new'>new</span> \
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error generating index.html: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id error'>error</span><span class='period'>.</span><span class='id set_backtrace'>set_backtrace</span> <span class='id e'>e</span><span class='period'>.</span><span class='id backtrace'>backtrace</span>
+
+  <span class='id raise'>raise</span> <span class='id error'>error</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_sorted_module_list-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_sorted_module_list</strong>(classes) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a list of the documented modules sorted by salience first, then by
+name.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 179</span>
+
+<span class='kw'>def</span> <span class='id get_sorted_module_list'>get_sorted_module_list</span><span class='lparen'>(</span><span class='id classes'>classes</span><span class='rparen'>)</span>
+  <span class='id nscounts'>nscounts</span> <span class='op'>=</span> <span class='id classes'>classes</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id counthash'>counthash</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='op'>|</span>
+    <span class='id top_level'>top_level</span> <span class='op'>=</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>::.*</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='id counthash'>counthash</span><span class='lbracket'>[</span><span class='id top_level'>top_level</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='int'>0</span>
+    <span class='id counthash'>counthash</span><span class='lbracket'>[</span><span class='id top_level'>top_level</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='int'>1</span>
+
+    <span class='id counthash'>counthash</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Sort based on how often the top level namespace occurs, and then on the
+</span>  <span class='comment'># name of the module -- this works for projects that put their stuff into
+</span>  <span class='comment'># a namespace, of course, but doesn't hurt if they don't.
+</span>  <span class='id classes'>classes</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id klass'>klass</span><span class='op'>|</span>
+    <span class='id top_level'>top_level</span> <span class='op'>=</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>::.*</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='rparen'>)</span>
+    <span class='lbracket'>[</span><span class='id nscounts'>nscounts</span><span class='lbracket'>[</span><span class='id top_level'>top_level</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id full_name'>full_name</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span><span class='period'>.</span><span class='id select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id klass'>klass</span><span class='op'>|</span>
+    <span class='id klass'>klass</span><span class='period'>.</span><span class='id document_self'>document_self</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_svninfo-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>get_svninfo</strong>(klass) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Try to extract Subversion information out of the first constant whose value
+looks like a subversion Id tag. If no matching constant is found, and empty
+hash is returned.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 310</span>
+
+<span class='kw'>def</span> <span class='id get_svninfo'>get_svninfo</span> <span class='id klass'>klass</span>
+  <span class='id constants'>constants</span> <span class='op'>=</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id constants'>constants</span> <span class='kw'>or</span> <span class='kw'>return</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+  <span class='id constants'>constants</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id c'>c</span><span class='op'>|</span> <span class='id c'>c</span><span class='period'>.</span><span class='id value'>value</span> <span class='op'>=~</span> <span class='const'>SVNID_PATTERN</span> <span class='rbrace'>}</span> <span class='kw'>or</span> <span class='kw'>return</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+  <span class='id filename'>filename</span><span class='comma'>,</span> <span class='id rev'>rev</span><span class='comma'>,</span> <span class='id date'>date</span><span class='comma'>,</span> <span class='id time'>time</span><span class='comma'>,</span> <span class='id committer'>committer</span> <span class='op'>=</span> <span class='gvar'>$~</span><span class='period'>.</span><span class='id captures'>captures</span>
+  <span class='id commitdate'>commitdate</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id date'>date</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id time'>time</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>return</span> <span class='lbrace'>{</span>
+    <span class='symbol'>:filename</span>    <span class='op'>=&gt;</span> <span class='id filename'>filename</span><span class='comma'>,</span>
+    <span class='symbol'>:rev</span>         <span class='op'>=&gt;</span> <span class='const'>Integer</span><span class='lparen'>(</span><span class='id rev'>rev</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='symbol'>:commitdate</span>  <span class='op'>=&gt;</span> <span class='id commitdate'>commitdate</span><span class='comma'>,</span>
+    <span class='symbol'>:commitdelta</span> <span class='op'>=&gt;</span> <span class='id time_delta_string'>time_delta_string</span><span class='lparen'>(</span><span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span> <span class='op'>-</span> <span class='id commitdate'>commitdate</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='symbol'>:committer</span>   <span class='op'>=&gt;</span> <span class='id committer'>committer</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="render_template-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>render_template</strong>(template_file, out_file) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Load and render the erb template in the given <tt>template_file</tt> and
+write it out to <tt>out_file</tt>.</p>
+
+<p>Both <tt>template_file</tt> and <tt>out_file</tt> should be Pathname-like
+objects.</p>
+
+<p>An io will be yielded which must be captured by binding in the caller.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 335</span>
+
+<span class='kw'>def</span> <span class='id render_template'>render_template</span> <span class='id template_file'>template_file</span><span class='comma'>,</span> <span class='id out_file'>out_file</span> <span class='comment'># :yield: io
+</span>  <span class='id template'>template</span> <span class='op'>=</span> <span class='id template_for'>template_for</span> <span class='id template_file'>template_file</span>
+
+  <span class='kw'>unless</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id dry_run'>dry_run</span> <span class='kw'>then</span>
+    <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Outputting to %s</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id out_file'>out_file</span><span class='period'>.</span><span class='id expand_path'>expand_path</span><span class='rbracket'>]</span>
+
+    <span class='id out_file'>out_file</span><span class='period'>.</span><span class='id dirname'>dirname</span><span class='period'>.</span><span class='id mkpath'>mkpath</span>
+    <span class='id out_file'>out_file</span><span class='period'>.</span><span class='id open'>open</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>w</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>0644</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span>
+      <span class='id io'>io</span><span class='period'>.</span><span class='id set_encoding'>set_encoding</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id encoding'>encoding</span> <span class='kw'>if</span> <span class='const'>Object</span><span class='period'>.</span><span class='id const_defined?'>const_defined?</span> <span class='symbol'>:Encoding</span>
+
+      <span class='id context'>context</span> <span class='op'>=</span> <span class='kw'>yield</span> <span class='id io'>io</span>
+
+      <span class='id template_result'>template_result</span> <span class='id template'>template</span><span class='comma'>,</span> <span class='id context'>context</span><span class='comma'>,</span> <span class='id template_file'>template_file</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id context'>context</span> <span class='op'>=</span> <span class='kw'>yield</span> <span class='kw'>nil</span>
+
+    <span class='id output'>output</span> <span class='op'>=</span> <span class='id template_result'>template_result</span> <span class='id template'>template</span><span class='comma'>,</span> <span class='id context'>context</span><span class='comma'>,</span> <span class='id template_file'>template_file</span>
+
+    <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  would have written %d characters to %s</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+      <span class='id output'>output</span><span class='period'>.</span><span class='id length'>length</span><span class='comma'>,</span> <span class='id out_file'>out_file</span><span class='period'>.</span><span class='id expand_path'>expand_path</span>
+    <span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="template_for-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>template_for</strong>(file) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves a cache template for <tt>file</tt>, if present, or fills the
+cache.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 377</span>
+
+<span class='kw'>def</span> <span class='id template_for'>template_for</span> <span class='id file'>file</span>
+  <span class='id template'>template</span> <span class='op'>=</span> <span class='ivar'>@template_cache</span><span class='lbracket'>[</span><span class='id file'>file</span><span class='rbracket'>]</span>
+
+  <span class='kw'>return</span> <span class='id template'>template</span> <span class='kw'>if</span> <span class='id template'>template</span>
+
+  <span class='id klass'>klass</span> <span class='op'>=</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id dry_run'>dry_run</span> <span class='op'>?</span> <span class='const'>ERB</span> <span class='op'>:</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>ERBIO</span>
+
+  <span class='id template'>template</span> <span class='op'>=</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id new'>new</span> <span class='id file'>file</span><span class='period'>.</span><span class='id read'>read</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;&gt;</span><span class='tstring_end'>'</span></span>
+  <span class='ivar'>@template_cache</span><span class='lbracket'>[</span><span class='id file'>file</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id template'>template</span>
+  <span class='id template'>template</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="template_result-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>template_result</strong>(template, context, template_file) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates the result for <tt>template</tt> with <tt>context</tt>.  If an
+error is raised a Pathname <tt>template_file</tt> will indicate the file
+where the error occurred.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+364
+365
+366
+367
+368
+369
+370
+371
+372</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 364</span>
+
+<span class='kw'>def</span> <span class='id template_result'>template_result</span> <span class='id template'>template</span><span class='comma'>,</span> <span class='id context'>context</span><span class='comma'>,</span> <span class='id template_file'>template_file</span>
+  <span class='id template'>template</span><span class='period'>.</span><span class='id filename'>filename</span> <span class='op'>=</span> <span class='id template_file'>template_file</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='id template'>template</span><span class='period'>.</span><span class='id result'>result</span> <span class='id context'>context</span>
+<span class='kw'>rescue</span> <span class='const'>NoMethodError</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+  <span class='id raise'>raise</span> <span class='const'>RDoc</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error while evaluating %s: %s</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+    <span class='id template_file'>template_file</span><span class='period'>.</span><span class='id expand_path'>expand_path</span><span class='comma'>,</span>
+    <span class='id e'>e</span><span class='period'>.</span><span class='id message'>message</span><span class='comma'>,</span>
+  <span class='rbracket'>]</span><span class='comma'>,</span> <span class='id e'>e</span><span class='period'>.</span><span class='id backtrace'>backtrace</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="time_delta_string-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>time_delta_string</strong>(seconds) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a string describing the amount of time in the given number of
+seconds in terms a human can understand easily.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 279</span>
+
+<span class='kw'>def</span> <span class='id time_delta_string'>time_delta_string</span> <span class='id seconds'>seconds</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>less than a minute</span><span class='tstring_end'>'</span></span>          <span class='kw'>if</span> <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>60</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id seconds'>seconds</span> <span class='op'>/</span> <span class='int'>60</span><span class='rbrace'>}</span><span class='tstring_content'> minute</span><span class='embexpr_beg'>#{</span><span class='id seconds'>seconds</span> <span class='op'>/</span> <span class='int'>60</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>s</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span>
+                                          <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>3000</span>     <span class='comment'># 50 minutes
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>about one hour</span><span class='tstring_end'>'</span></span>              <span class='kw'>if</span> <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>5400</span>     <span class='comment'># 90 minutes
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id seconds'>seconds</span> <span class='op'>/</span> <span class='int'>3600</span><span class='rbrace'>}</span><span class='tstring_content'> hours</span><span class='tstring_end'>&quot;</span></span>     <span class='kw'>if</span> <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>64800</span>    <span class='comment'># 18 hours
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>one day</span><span class='tstring_end'>'</span></span>                     <span class='kw'>if</span> <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>86400</span>    <span class='comment'>#  1 day
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>about one day</span><span class='tstring_end'>'</span></span>               <span class='kw'>if</span> <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>172800</span>   <span class='comment'>#  2 days
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id seconds'>seconds</span> <span class='op'>/</span> <span class='int'>86400</span><span class='rbrace'>}</span><span class='tstring_content'> days</span><span class='tstring_end'>&quot;</span></span>     <span class='kw'>if</span> <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>604800</span>   <span class='comment'>#  1 week
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>about one week</span><span class='tstring_end'>'</span></span>              <span class='kw'>if</span> <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>1209600</span>  <span class='comment'>#  2 week
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id seconds'>seconds</span> <span class='op'>/</span> <span class='int'>604800</span><span class='rbrace'>}</span><span class='tstring_content'> weeks</span><span class='tstring_end'>&quot;</span></span>   <span class='kw'>if</span> <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>7257600</span>  <span class='comment'>#  3 months
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id seconds'>seconds</span> <span class='op'>/</span> <span class='int'>2419200</span><span class='rbrace'>}</span><span class='tstring_content'> months</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id seconds'>seconds</span> <span class='op'>&lt;</span> <span class='int'>31536000</span> <span class='comment'>#  1 year
+</span>  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id seconds'>seconds</span> <span class='op'>/</span> <span class='int'>31536000</span><span class='rbrace'>}</span><span class='tstring_content'> years</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="write_style_sheet-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Object.html" title="Object (class)">Object</a></span></tt>) <strong>write_style_sheet</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Copy over the stylesheet into the appropriate place in the output
+directory.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rdoc/generator/darkfish.rb', line 127</span>
+
+<span class='kw'>def</span> <span class='id write_style_sheet'>write_style_sheet</span>
+  <span class='id debug_msg'>debug_msg</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Copying static files</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:verbose</span> <span class='op'>=&gt;</span> <span class='gvar'>$DEBUG_RDOC</span><span class='comma'>,</span> <span class='symbol'>:noop</span> <span class='op'>=&gt;</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id dry_run'>dry_run</span> <span class='rbrace'>}</span>
+
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id cp'>cp</span> <span class='ivar'>@template_dir</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rdoc.css</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id options'>options</span>
+
+  <span class='const'>Dir</span><span class='lbracket'>[</span><span class='lparen'>(</span><span class='ivar'>@template_dir</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{js,images}/**/*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id path'>path</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id directory?'>directory?</span> <span class='id path'>path</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id basename'>basename</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\.</span><span class='regexp_end'>/</span></span>
+
+      <span class='id dst'>dst</span> <span class='op'>=</span> <span class='const'>Pathname</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id path'>path</span><span class='rparen'>)</span><span class='period'>.</span><span class='id relative_path_from'>relative_path_from</span> <span class='ivar'>@template_dir</span>
+
+    <span class='comment'># I suck at glob
+</span>    <span class='id dst_dir'>dst_dir</span> <span class='op'>=</span> <span class='id dst'>dst</span><span class='period'>.</span><span class='id dirname'>dirname</span>
+    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span> <span class='id dst_dir'>dst_dir</span><span class='comma'>,</span> <span class='id options'>options</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id exist?'>exist?</span> <span class='id dst_dir'>dst_dir</span>
+
+    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id cp'>cp</span> <span class='ivar'>@template_dir</span> <span class='op'>+</span> <span class='id path'>path</span><span class='comma'>,</span> <span class='id dst'>dst</span><span class='comma'>,</span> <span class='id options'>options</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:39 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

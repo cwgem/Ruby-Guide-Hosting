@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSS
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (R)</a> &raquo; 
+    
+    
+    <span class="title">RSS</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: RSS
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rss.rb<span class="defines">,<br />
+  lib/rss/xml.rb,<br /> lib/rss/rss.rb,<br /> lib/rss/1.0.rb,<br /> lib/rss/atom.rb,<br /> lib/rss/utils.rb,<br /> lib/rss/slash.rb,<br /> lib/rss/maker.rb,<br /> lib/rss/itunes.rb,<br /> lib/rss/parser.rb,<br /> lib/rss/content.rb,<br /> lib/rss/xmlparser.rb,<br /> lib/rss/converter.rb,<br /> lib/rss/xmlscanner.rb,<br /> lib/rss/dublincore.rb,<br /> lib/rss/maker/entry.rb,<br /> lib/rss/maker/image.rb,<br /> lib/rss/rexmlparser.rb,<br /> lib/rss/content/2.0.rb,<br /> lib/rss/content/1.0.rb,<br /> lib/rss/maker/slash.rb,<br /> lib/rss/maker/itunes.rb,<br /> lib/rss/maker/content.rb,<br /> lib/rss/maker/taxonomy.rb,<br /> lib/rss/dublincore/2.0.rb,<br /> lib/rss/dublincore/1.0.rb,<br /> lib/rss/dublincore/atom.rb,<br /> lib/rss/maker/trackback.rb,<br /> lib/rss/maker/dublincore.rb,<br /> lib/rss/maker/syndication.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h1>RSS reading and writing</h1>
+
+<p>Really Simple Syndication (RSS) is a family of formats that describe
+'feeds,' specially constructed XML documents that allow an interested
+person to subscribe and receive updates from a particular web service. This
+portion of the standard library provides tooling to read and create these
+feeds.</p>
+
+<p>The standard library supports RSS 0.91, 1.0, 2.0, and Atom, a related
+format. Here are some links to the standards documents for these formats:</p>
+<ul><li>
+<p>RSS</p>
+<ul><li>
+<p><a href="http://www.rssboard.org/rss-0-9-1-netscape">0.9.1</a></p>
+</li><li>
+<p><a href="http://web.resource.org/rss/1.0/">1.0</a></p>
+</li><li>
+<p><a href="http://www.rssboard.org/rss-specification">2.0</a></p>
+</li></ul>
+</li><li>
+<p><a href="http://tools.ietf.org/html/rfc4287">Atom</a></p>
+</li></ul>
+
+<h2>Consuming RSS</h2>
+
+<p>If you'd like to read someone's RSS feed with your Ruby code, you've come
+to the right place. It's really easy to do this, but we'll need the help of
+open-uri:</p>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rss</span><span class='tstring_end'>'</span></span>
+<span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>open-uri</span><span class='tstring_end'>'</span></span>
+
+<span class='id url'>url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://www.ruby-lang.org/en/feeds/news.rss</span><span class='tstring_end'>'</span></span>
+<span class='id open'>open</span><span class='lparen'>(</span><span class='id url'>url</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id rss'>rss</span><span class='op'>|</span>
+  <span class='id feed'>feed</span> <span class='op'>=</span> <span class='const'>RSS</span><span class='op'>::</span><span class='const'>Parser</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id rss'>rss</span><span class='rparen'>)</span>
+  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Title: </span><span class='embexpr_beg'>#{</span><span class='id feed'>feed</span><span class='period'>.</span><span class='id channel'>channel</span><span class='period'>.</span><span class='id title'>title</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id feed'>feed</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span>
+    <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Item: </span><span class='embexpr_beg'>#{</span><span class='id item'>item</span><span class='period'>.</span><span class='id title'>title</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+
+<p>As you can see, the workhorse is RSS::Parser#parse, which takes the source
+of the feed and a parameter that performs validation on the feed. We get
+back an object that has all of the data from our feed, accessible through
+methods. This example shows getting the title out of the channel element,
+and looping through the list of items.</p>
+
+<h2>Producing RSS</h2>
+
+<p>Producing our own RSS feeds is easy as well. Let's make a very basic feed:</p>
+
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rss</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id rss'>rss</span> <span class='op'>=</span> <span class='const'>RSS</span><span class='op'>::</span><span class='const'>Maker</span><span class='period'>.</span><span class='id make'>make</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>atom</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id maker'>maker</span><span class='op'>|</span>
+  <span class='id maker'>maker</span><span class='period'>.</span><span class='id channel'>channel</span><span class='period'>.</span><span class='id author'>author</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>matz</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id maker'>maker</span><span class='period'>.</span><span class='id channel'>channel</span><span class='period'>.</span><span class='id updated'>updated</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='id maker'>maker</span><span class='period'>.</span><span class='id channel'>channel</span><span class='period'>.</span><span class='id about'>about</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://www.ruby-lang.org/en/feeds/news.rss</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id maker'>maker</span><span class='period'>.</span><span class='id channel'>channel</span><span class='period'>.</span><span class='id title'>title</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Example Feed</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id maker'>maker</span><span class='period'>.</span><span class='id items'>items</span><span class='period'>.</span><span class='id new_item'>new_item</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span>
+    <span class='id item'>item</span><span class='period'>.</span><span class='id link'>link</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://www.ruby-lang.org/en/news/2010/12/25/ruby-1-9-2-p136-is-released/</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id item'>item</span><span class='period'>.</span><span class='id title'>title</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ruby 1.9.2-p136 is released</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id item'>item</span><span class='period'>.</span><span class='id updated'>updated</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id puts'>puts</span> <span class='id rss'>rss</span></pre>
+
+<p>As you can see, this is a very Builder-like DSL. This code will spit out an
+Atom feed with one item. If we needed a second item, we'd make another
+block with maker.items.new_item and build a second one.</p>
+
+<h2>Copyright</h2>
+
+<p>Copyright (c) 2003-2007 Kouhei Sutou &lt;kou@cozmixng.org&gt;</p>
+
+<p>You can redistribute it and/or modify it under the same terms as Ruby.</p>
+
+<p>There is an additional tutorial by the author of RSS at: <a
+href="http://www.cozmixng.org/~rwiki/?cmd=view;name=RSS+Parser%3A%3ATutorial.en">www.cozmixng.org/~rwiki/?cmd=view;name=RSS+Parser%3A%3ATutorial.en</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RSS/Atom.html" title="RSS::Atom (module)">Atom</a></span>, <span class='object_link'><a href="RSS/BaseDublinCoreModel.html" title="RSS::BaseDublinCoreModel (module)">BaseDublinCoreModel</a></span>, <span class='object_link'><a href="RSS/BaseModel.html" title="RSS::BaseModel (module)">BaseModel</a></span>, <span class='object_link'><a href="RSS/ContentModel.html" title="RSS::ContentModel (module)">ContentModel</a></span>, <span class='object_link'><a href="RSS/DublinCoreModel.html" title="RSS::DublinCoreModel (module)">DublinCoreModel</a></span>, <span class='object_link'><a href="RSS/ITunesBaseModel.html" title="RSS::ITunesBaseModel (module)">ITunesBaseModel</a></span>, <span class='object_link'><a href="RSS/ITunesChannelModel.html" title="RSS::ITunesChannelModel (module)">ITunesChannelModel</a></span>, <span class='object_link'><a href="RSS/ITunesItemModel.html" title="RSS::ITunesItemModel (module)">ITunesItemModel</a></span>, <span class='object_link'><a href="RSS/ITunesModelUtils.html" title="RSS::ITunesModelUtils (module)">ITunesModelUtils</a></span>, <span class='object_link'><a href="RSS/ListenerMixin.html" title="RSS::ListenerMixin (module)">ListenerMixin</a></span>, <span class='object_link'><a href="RSS/Maker.html" title="RSS::Maker (module)">Maker</a></span>, <span class='object_link'><a href="RSS/RSS10.html" title="RSS::RSS10 (module)">RSS10</a></span>, <span class='object_link'><a href="RSS/RootElementMixin.html" title="RSS::RootElementMixin (module)">RootElementMixin</a></span>, <span class='object_link'><a href="RSS/SetupMaker.html" title="RSS::SetupMaker (module)">SetupMaker</a></span>, <span class='object_link'><a href="RSS/SlashModel.html" title="RSS::SlashModel (module)">SlashModel</a></span>, <span class='object_link'><a href="RSS/Utils.html" title="RSS::Utils (module)">Utils</a></span>, <span class='object_link'><a href="RSS/XML.html" title="RSS::XML (module)">XML</a></span>
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RSS/BaseListener.html" title="RSS::BaseListener (class)">BaseListener</a></span>, <span class='object_link'><a href="RSS/BaseParser.html" title="RSS::BaseParser (class)">BaseParser</a></span>, <span class='object_link'><a href="RSS/ConversionError.html" title="RSS::ConversionError (class)">ConversionError</a></span>, <span class='object_link'><a href="RSS/Converter.html" title="RSS::Converter (class)">Converter</a></span>, <span class='object_link'><a href="RSS/Element.html" title="RSS::Element (class)">Element</a></span>, <span class='object_link'><a href="RSS/Error.html" title="RSS::Error (class)">Error</a></span>, <span class='object_link'><a href="RSS/InvalidRSSError.html" title="RSS::InvalidRSSError (class)">InvalidRSSError</a></span>, <span class='object_link'><a href="RSS/MissingAttributeError.html" title="RSS::MissingAttributeError (class)">MissingAttributeError</a></span>, <span class='object_link'><a href="RSS/MissingTagError.html" title="RSS::MissingTagError (class)">MissingTagError</a></span>, <span class='object_link'><a href="RSS/NSError.html" title="RSS::NSError (class)">NSError</a></span>, <span class='object_link'><a href="RSS/NotAvailableValueError.html" title="RSS::NotAvailableValueError (class)">NotAvailableValueError</a></span>, <span class='object_link'><a href="RSS/NotExpectedTagError.html" title="RSS::NotExpectedTagError (class)">NotExpectedTagError</a></span>, <span class='object_link'><a href="RSS/NotSetError.html" title="RSS::NotSetError (class)">NotSetError</a></span>, <span class='object_link'><a href="RSS/NotValidXMLParser.html" title="RSS::NotValidXMLParser (class)">NotValidXMLParser</a></span>, <span class='object_link'><a href="RSS/NotWellFormedError.html" title="RSS::NotWellFormedError (class)">NotWellFormedError</a></span>, <span class='object_link'><a href="RSS/OverlappedPrefixError.html" title="RSS::OverlappedPrefixError (class)">OverlappedPrefixError</a></span>, <span class='object_link'><a href="RSS/Parser.html" title="RSS::Parser (class)">Parser</a></span>, <span class='object_link'><a href="RSS/RDF.html" title="RSS::RDF (class)">RDF</a></span>, <span class='object_link'><a href="RSS/REXMLLikeXMLParser.html" title="RSS::REXMLLikeXMLParser (class)">REXMLLikeXMLParser</a></span>, <span class='object_link'><a href="RSS/REXMLListener.html" title="RSS::REXMLListener (class)">REXMLListener</a></span>, <span class='object_link'><a href="RSS/REXMLParser.html" title="RSS::REXMLParser (class)">REXMLParser</a></span>, <span class='object_link'><a href="RSS/Rss.html" title="RSS::Rss (class)">Rss</a></span>, <span class='object_link'><a href="RSS/TooMuchTagError.html" title="RSS::TooMuchTagError (class)">TooMuchTagError</a></span>, <span class='object_link'><a href="RSS/UnknownConversionMethodError.html" title="RSS::UnknownConversionMethodError (class)">UnknownConversionMethodError</a></span>, <span class='object_link'><a href="RSS/UnknownTagError.html" title="RSS::UnknownTagError (class)">UnknownTagError</a></span>, <span class='object_link'><a href="RSS/UnsupportedMakerVersionError.html" title="RSS::UnsupportedMakerVersionError (class)">UnsupportedMakerVersionError</a></span>, <span class='object_link'><a href="RSS/XMLParserListener.html" title="RSS::XMLParserListener (class)">XMLParserListener</a></span>, <span class='object_link'><a href="RSS/XMLParserNotFound.html" title="RSS::XMLParserNotFound (class)">XMLParserNotFound</a></span>, <span class='object_link'><a href="RSS/XMLParserParser.html" title="RSS::XMLParserParser (class)">XMLParserParser</a></span>, <span class='object_link'><a href="RSS/XMLScanListener.html" title="RSS::XMLScanListener (class)">XMLScanListener</a></span>, <span class='object_link'><a href="RSS/XMLScanParser.html" title="RSS::XMLScanParser (class)">XMLScanParser</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.2.7</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="URI-constant" class="">URI =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://purl.org/rss/1.0/</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="DEBUG-constant" class="">DEBUG =
+          
+        </dt>
+        <dd><pre class="code"><span class='kw'>false</span></pre></dd>
+      
+        <dt id="NotExceptedTagError-constant" class="">NotExceptedTagError =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>For backward compatibility :X</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>NotExpectedTagError</span></pre></dd>
+      
+        <dt id="UnknownConvertMethod-constant" class="">UnknownConvertMethod =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>for backward compatibility</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>UnknownConversionMethodError</span></pre></dd>
+      
+        <dt id="SLASH_PREFIX-constant" class="">SLASH_PREFIX =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>slash</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="SLASH_URI-constant" class="">SLASH_URI =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://purl.org/rss/1.0/modules/slash/</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="ITUNES_PREFIX-constant" class="">ITUNES_PREFIX =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>itunes</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="ITUNES_URI-constant" class="">ITUNES_URI =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://www.itunes.com/dtds/podcast-1.0.dtd</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="AVAILABLE_PARSER_LIBRARIES-constant" class="">AVAILABLE_PARSER_LIBRARIES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+  <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rss/xmlparser</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:XMLParserParser</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rss/xmlscanner</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:XMLScanParser</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rss/rexmlparser</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:REXMLParser</span><span class='rbracket'>]</span><span class='comma'>,</span>
+<span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="AVAILABLE_PARSERS-constant" class="">AVAILABLE_PARSERS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="CONTENT_PREFIX-constant" class="">CONTENT_PREFIX =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="CONTENT_URI-constant" class="">CONTENT_URI =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://purl.org/rss/1.0/modules/content/</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="DC_PREFIX-constant" class="">DC_PREFIX =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>dc</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="DC_URI-constant" class="">DC_URI =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://purl.org/dc/elements/1.1/</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="DublincoreModel-constant" class="">DublincoreModel =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>For backward compatibility</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>DublinCoreModel</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:09:55 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

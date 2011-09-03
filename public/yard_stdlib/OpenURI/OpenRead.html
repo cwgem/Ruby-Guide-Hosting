@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: OpenURI::OpenRead
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (O)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../OpenURI.html" title="OpenURI (module)">OpenURI</a></span></span>
+     &raquo; 
+    <span class="title">OpenRead</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: OpenURI::OpenRead
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../URI/FTP.html" title="URI::FTP (class)">URI::FTP</a></span>, <span class='object_link'><a href="../URI/HTTP.html" title="URI::HTTP (class)">URI::HTTP</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/open-uri.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Mixin for HTTP and FTP URIs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open-instance_method" title="#open (instance method)">- (Object) <strong>open</strong>(*rest, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>OpenURI::OpenRead#open provides `open' for URI::HTTP and URI::FTP.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read-instance_method" title="#read (instance method)">- (Object) <strong>read</strong>(options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>OpenURI::OpenRead#read([options]) reads a content referenced by self and
+returns the content as string.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="open-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>open</strong>(*rest, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>OpenURI::OpenRead#open provides `open' for URI::HTTP and URI::FTP.</p>
+
+<p>OpenURI::OpenRead#open takes optional 3 arguments as:
+OpenURI::OpenRead#open([mode [, perm]] [, options]) [{|io| ... }]</p>
+
+<p>`mode', `perm' is same as Kernel#open.</p>
+
+<p>However, `mode' must be read mode because OpenURI::OpenRead#open doesn't
+support write mode (yet). Also `perm' is just ignored because it is
+meaningful only for file creation.</p>
+
+<p>`options' must be a hash.</p>
+
+<p>Each pairs which key is a string in the hash specify a extra header field
+for HTTP. I.e. it is ignored for FTP without HTTP proxy.</p>
+
+<p>The hash may include other options which key is a symbol:</p>
+<dl class="rdoc-list"><dt>:proxy</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:proxy =&gt; &quot;http://proxy.foo.com:8000/&quot;
+:proxy =&gt; URI.parse(&quot;http://proxy.foo.com:8000/&quot;)
+:proxy =&gt; true
+:proxy =&gt; false
+:proxy =&gt; nil</pre>
+
+<p>If :proxy option is specified, the value should be String, URI, boolean or
+nil. When String or URI is given, it is treated as proxy URI. When true is
+given or the option itself is not specified, environment variable
+`scheme_proxy' is examined. `scheme' is replaced by `http', `https' or
+`ftp'. When false or nil is given, the environment variables are ignored
+and connection will be made to a server directly.</p>
+</dd><dt>:proxy_http_basic_authentication</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:proxy_http_basic_authentication =&gt; [&quot;http://proxy.foo.com:8000/&quot;, &quot;proxy-user&quot;, &quot;proxy-password&quot;]
+:proxy_http_basic_authentication =&gt; [URI.parse(&quot;http://proxy.foo.com:8000/&quot;), &quot;proxy-user&quot;, &quot;proxy-password&quot;]</pre>
+
+<p>If :proxy option is specified, the value should be an Array with 3
+elements. It should contain a proxy URI, a proxy user name and a proxy
+password. The proxy URI should be a String, an URI or nil. The proxy user
+name and password should be a String.</p>
+
+<p>If nil is given for the proxy URI, this option is just ignored.</p>
+
+<p>If :proxy and :proxy_http_basic_authentication is specified, ArgumentError
+is raised.</p>
+</dd><dt>:http_basic_authentication</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:http_basic_authentication=&gt;[user, password]</pre>
+
+<p>If :http_basic_authentication is specified, the value should be an array
+which contains 2 strings: username and password. It is used for HTTP Basic
+authentication defined by RFC 2617.</p>
+</dd><dt>:content_length_proc</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:content_length_proc =&gt; lambda {|content_length| ... }</pre>
+
+<p>If :content_length_proc option is specified, the option value procedure is
+called before actual transfer is started. It takes one argument which is
+expected content length in bytes.</p>
+
+<p>If two or more transfer is done by HTTP redirection, the procedure is
+called only one for a last transfer.</p>
+
+<p>When expected content length is unknown, the procedure is called with nil.
+It is happen when HTTP response has no Content-Length header.</p>
+</dd><dt>:progress_proc</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:progress_proc =&gt; lambda {|size| ...}</pre>
+
+<p>If :progress_proc option is specified, the proc is called with one argument
+each time when `open' gets content fragment from network. The argument
+`size' `size' is a accumulated transferred size in bytes.</p>
+
+<p>If two or more transfer is done by HTTP redirection, the procedure is
+called only one for a last transfer.</p>
+
+<p>:progress_proc and :content_length_proc are intended to be used for
+progress bar. For example, it can be implemented as follows using
+Ruby/ProgressBar.</p>
+
+<pre class="code">pbar = nil
+open(&quot;http://...&quot;,
+  :content_length_proc =&gt; lambda {|t|
+    if t &amp;&amp; 0 &lt; t
+      pbar = ProgressBar.new(&quot;...&quot;, t)
+      pbar.file_transfer_mode
+    end
+  },
+  :progress_proc =&gt; lambda {|s|
+    pbar.set s if pbar
+  }) {|f| ... }</pre>
+</dd><dt>:read_timeout</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:read_timeout=&gt;nil     (no timeout)
+:read_timeout=&gt;10      (10 second)</pre>
+
+<p>:read_timeout option specifies a timeout of read for http connections.</p>
+</dd><dt>:ssl_ca_cert</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:ssl_ca_cert=&gt;filename</pre>
+
+<p>:ssl_ca_cert is used to specify CA certificate for SSL. If it is given,
+default certificates are not used.</p>
+</dd><dt>:ssl_verify_mode</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:ssl_verify_mode=&gt;mode</pre>
+
+<p>:ssl_verify_mode is used to specify openssl verify mode.</p>
+</dd></dl>
+
+<p>OpenURI::OpenRead#open returns an IO like object if block is not given.
+Otherwise it yields the IO object and return the value of the block. The IO
+object is extended with OpenURI::Meta.</p>
+<dl class="rdoc-list"><dt>:ftp_active_mode</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:ftp_active_mode=&gt;bool</pre>
+</dd></dl>
+
+<p>:ftp_active_mode=&gt;true is used to make ftp active mode. Note that the
+active mode is default in Ruby 1.8 or prior. Ruby 1.9 uses passive mode by
+default.</p>
+<dl class="rdoc-list"><dt>:redirect</dt>
+<dd>
+<p>Synopsis:</p>
+
+<pre class="code">:redirect=&gt;bool</pre>
+</dd></dl>
+
+<p>:redirect=&gt;false is used to disable HTTP redirects at all.
+OpenURI::HTTPRedirect exception raised on redirection. It is true by
+default. The true means redirections between http and ftp is permitted.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+670
+671
+672</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/open-uri.rb', line 670</span>
+
+<span class='kw'>def</span> <span class='id open'>open</span><span class='lparen'>(</span><span class='op'>*</span><span class='id rest'>rest</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='const'>OpenURI</span><span class='period'>.</span><span class='id open_uri'>open_uri</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='op'>*</span><span class='id rest'>rest</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="read-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>read</strong>(options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>OpenURI::OpenRead#read([options]) reads a content referenced by self and
+returns the content as string. The string is extended with OpenURI::Meta.
+The argument `options' is same as OpenURI::OpenRead#open.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+678
+679
+680
+681
+682
+683
+684</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/open-uri.rb', line 678</span>
+
+<span class='kw'>def</span> <span class='id read'>read</span><span class='lparen'>(</span><span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id options'>options</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span>
+    <span class='id str'>str</span> <span class='op'>=</span> <span class='id f'>f</span><span class='period'>.</span><span class='id read'>read</span>
+    <span class='const'>Meta</span><span class='period'>.</span><span class='id init'>init</span> <span class='id str'>str</span><span class='comma'>,</span> <span class='id f'>f</span>
+    <span class='id str'>str</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:31 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

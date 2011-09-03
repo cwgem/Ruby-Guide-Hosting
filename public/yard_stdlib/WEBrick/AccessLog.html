@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: WEBrick::AccessLog
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (A)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../WEBrick.html" title="WEBrick (module)">WEBrick</a></span></span>
+     &raquo; 
+    <span class="title">AccessLog</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: WEBrick::AccessLog
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/webrick/accesslog.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>AccessLog provides logging to various files in various formats.</p>
+
+<p>Multiple logs may be written to at the same time:</p>
+
+<pre class="code"><span class='id access_log'>access_log</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+  <span class='lbracket'>[</span><span class='gvar'>$stderr</span><span class='comma'>,</span> <span class='const'>WEBrick</span><span class='op'>::</span><span class='const'>AccessLog</span><span class='op'>::</span><span class='const'>COMMON_LOG_FORMAT</span><span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='lbracket'>[</span><span class='gvar'>$stderr</span><span class='comma'>,</span> <span class='const'>WEBrick</span><span class='op'>::</span><span class='const'>AccessLog</span><span class='op'>::</span><span class='const'>REFERER_LOG_FORMAT</span><span class='rbracket'>]</span><span class='comma'>,</span>
+<span class='rbracket'>]</span>
+
+<span class='id server'>server</span> <span class='op'>=</span> <span class='const'>WEBrick</span><span class='op'>::</span><span class='const'>HTTPServer</span><span class='period'>.</span><span class='id new'>new</span> <span class='symbol'>:AccessLog</span> <span class='op'>=&gt;</span> <span class='id access_log'>access_log</span></pre>
+
+<p>Custom log formats may be defined.  WEBrick::AccessLog provides a subset of
+the formatting from Apache's mod_log_config <a
+href="http://httpd.apache.org/docs/mod/mod_log_config.html#formats">httpd.apache.org/docs/mod/mod_log_config.html#formats</a>.
+See AccessLog::setup_params for a list of supported options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="AccessLog/AccessLogError.html" title="WEBrick::AccessLog::AccessLogError (class)">AccessLogError</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="CLF_TIME_FORMAT-constant" class="">CLF_TIME_FORMAT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The Common Log Format's time format</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[%d/%b/%Y:%H:%M:%S %Z]</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="COMMON_LOG_FORMAT-constant" class="">COMMON_LOG_FORMAT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Common Log Format</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%h %l %u %t \&quot;%r\&quot; %s %b</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="CLF-constant" class="">CLF =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Short alias for Common Log Format</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>COMMON_LOG_FORMAT</span></pre></dd>
+      
+        <dt id="REFERER_LOG_FORMAT-constant" class="">REFERER_LOG_FORMAT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Referer Log Format</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%{Referer}i -&gt; %U</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="AGENT_LOG_FORMAT-constant" class="">AGENT_LOG_FORMAT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>User-Agent Log Format</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%{User-Agent}i</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="COMBINED_LOG_FORMAT-constant" class="">COMBINED_LOG_FORMAT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Combined Log Format</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>CLF</span><span class='rbrace'>}</span><span class='tstring_content'> \&quot;%{Referer}i\&quot; \&quot;%{User-agent}i\&quot;</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escape-instance_method" title="#escape (instance method)">- (Object) <strong>escape</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format-instance_method" title="#format (instance method)">- (Object) <strong>format</strong>(format_string, params) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_params-instance_method" title="#setup_params (instance method)">- (Object) <strong>setup_params</strong>(config, req, res) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This format specification is a subset of mod_log_config of Apache:.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="escape-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>escape</strong>(data) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145
+146
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/accesslog.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id escape'>escape</span><span class='lparen'>(</span><span class='id data'>data</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id data'>data</span><span class='period'>.</span><span class='id tainted?'>tainted?</span>
+    <span class='id data'>data</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[[:cntrl:]\\]+</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='backref'>$&amp;</span><span class='period'>.</span><span class='id dump'>dump</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>...</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id untaint'>untaint</span>
+  <span class='kw'>else</span>
+    <span class='id data'>data</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="format-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>format</strong>(format_string, params) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/accesslog.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='id format'>format</span><span class='lparen'>(</span><span class='id format_string'>format_string</span><span class='comma'>,</span> <span class='id params'>params</span><span class='rparen'>)</span>
+  <span class='id format_string'>format_string</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\%(?:\{(.*?)\})?&gt;?([a-zA-Z%])</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='lbrace'>{</span>
+     <span class='id param'>param</span><span class='comma'>,</span> <span class='id spec'>spec</span> <span class='op'>=</span> <span class='backref'>$1</span><span class='comma'>,</span> <span class='backref'>$2</span>
+     <span class='kw'>case</span> <span class='id spec'>spec</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+     <span class='kw'>when</span> <span class='CHAR'>?e</span><span class='comma'>,</span> <span class='CHAR'>?i</span><span class='comma'>,</span> <span class='CHAR'>?n</span><span class='comma'>,</span> <span class='CHAR'>?o</span>
+       <span class='id raise'>raise</span> <span class='const'>AccessLogError</span><span class='comma'>,</span>
+         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>parameter is required for \&quot;</span><span class='embexpr_beg'>#{</span><span class='id spec'>spec</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id param'>param</span>
+       <span class='lparen'>(</span><span class='id param'>param</span> <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='id spec'>spec</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id param'>param</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id escape'>escape</span><span class='lparen'>(</span><span class='id param'>param</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span>
+     <span class='kw'>when</span> <span class='CHAR'>?t</span>
+       <span class='id params'>params</span><span class='lbracket'>[</span><span class='id spec'>spec</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id strftime'>strftime</span><span class='lparen'>(</span><span class='id param'>param</span> <span class='op'>||</span> <span class='const'>CLF_TIME_FORMAT</span><span class='rparen'>)</span>
+     <span class='kw'>when</span> <span class='CHAR'>?p</span>
+       <span class='kw'>case</span> <span class='id param'>param</span>
+       <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>remote</span><span class='tstring_end'>'</span></span>
+         <span class='id escape'>escape</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>i</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id peeraddr'>peeraddr</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+       <span class='kw'>else</span>
+         <span class='id escape'>escape</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>p</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+       <span class='kw'>end</span>
+     <span class='kw'>when</span> <span class='CHAR'>?%</span>
+       <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span>
+     <span class='kw'>else</span>
+       <span class='id escape'>escape</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='id spec'>spec</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rparen'>)</span>
+     <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="setup_params-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt>) <strong>setup_params</strong>(config, req, res) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>This format specification is a subset of mod_log_config of Apache:</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>%a</p></td>
+<td>
+<p>Remote IP address</p>
+</td></tr><tr><td class="rdoc-term"><p>%b</p></td>
+<td>
+<p>Total response size</p>
+</td></tr><tr><td class="rdoc-term"><p>%evariable</p></td>
+<td>
+<p>Given variable in ENV</p>
+</td></tr><tr><td class="rdoc-term"><p>%f</p></td>
+<td>
+<p>Response filename</p>
+</td></tr><tr><td class="rdoc-term"><p>%h</p></td>
+<td>
+<p>Remote host name</p>
+</td></tr><tr><td class="rdoc-term"><p>%headeri</p></td>
+<td>
+<p>Given request header</p>
+</td></tr><tr><td class="rdoc-term"><p>%l</p></td>
+<td>
+<p>Remote logname, always "-"</p>
+</td></tr><tr><td class="rdoc-term"><p>%m</p></td>
+<td>
+<p>Request method</p>
+</td></tr><tr><td class="rdoc-term"><p>%attrn</p></td>
+<td>
+<p>Given request attribute from <tt>req.attributes</tt></p>
+</td></tr><tr><td class="rdoc-term"><p>%headero</p></td>
+<td>
+<p>Given response header</p>
+</td></tr><tr><td class="rdoc-term"><p>%p</p></td>
+<td>
+<p>Server's request port</p>
+</td></tr><tr><td class="rdoc-term"><p>%formatp</p></td>
+<td>
+<p>The canonical port of the server serving the request or the actual port or
+the client's actual port.  Valid formats are canonical, local or remote.</p>
+</td></tr><tr><td class="rdoc-term"><p>%q</p></td>
+<td>
+<p>Request query string</p>
+</td></tr><tr><td class="rdoc-term"><p>%r</p></td>
+<td>
+<p>First line of the request</p>
+</td></tr><tr><td class="rdoc-term"><p>%s</p></td>
+<td>
+<p>Request status</p>
+</td></tr><tr><td class="rdoc-term"><p>%t</p></td>
+<td>
+<p>Time the request was recieved</p>
+</td></tr><tr><td class="rdoc-term"><p>%T</p></td>
+<td>
+<p>Time taken to process the request</p>
+</td></tr><tr><td class="rdoc-term"><p>%u</p></td>
+<td>
+<p>Remote user from auth</p>
+</td></tr><tr><td class="rdoc-term"><p>%U</p></td>
+<td>
+<p>Unparsed URI</p>
+</td></tr><tr><td class="rdoc-term"><p>%%</p></td>
+<td>
+<p>Literal %</p>
+</td></tr></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/webrick/accesslog.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id setup_params'>setup_params</span><span class='lparen'>(</span><span class='id config'>config</span><span class='comma'>,</span> <span class='id req'>req</span><span class='comma'>,</span> <span class='id res'>res</span><span class='rparen'>)</span>
+  <span class='id params'>params</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id peeraddr'>peeraddr</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id res'>res</span><span class='period'>.</span><span class='id sent_size'>sent_size</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>e</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>ENV</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>f</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id res'>res</span><span class='period'>.</span><span class='id filename'>filename</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id peeraddr'>peeraddr</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>i</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>l</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>m</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id request_method'>request_method</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>n</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id attributes'>attributes</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>o</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id res'>res</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>p</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id port'>port</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>q</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id query_string'>query_string</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>r</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id request_line'>request_line</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\x0d?\x0a\z</span><span class='regexp_end'>/o</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id res'>res</span><span class='period'>.</span><span class='id status'>status</span>       <span class='comment'># won't support &quot;%&gt;s&quot;
+</span>  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>t</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id request_time'>request_time</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>T</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id now'>now</span> <span class='op'>-</span> <span class='id req'>req</span><span class='period'>.</span><span class='id request_time'>request_time</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>u</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id user'>user</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>U</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id req'>req</span><span class='period'>.</span><span class='id unparsed_uri'>unparsed_uri</span>
+  <span class='id params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>v</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:ServerName</span><span class='rbracket'>]</span>
+  <span class='id params'>params</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:11:21 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Net
+  
+    &mdash; Ruby 1.9 Ruby Standard Library
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (N)</a> &raquo; 
+    
+    
+    <span class="title">Net</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Net
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/net/http.rb<span class="defines">,<br />
+  lib/net/pop.rb,<br /> lib/net/ftp.rb,<br /> lib/net/smtp.rb,<br /> lib/net/imap.rb,<br /> lib/net/telnet.rb,<br /> lib/net/protocol.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Net/HTTPExceptions.html" title="Net::HTTPExceptions (module)">HTTPExceptions</a></span>, <span class='object_link'><a href="Net/HTTPHeader.html" title="Net::HTTPHeader (module)">HTTPHeader</a></span>, <span class='object_link'><a href="Net/NetPrivate.html" title="Net::NetPrivate (module)">NetPrivate</a></span>, <span class='object_link'><a href="Net/SMTPError.html" title="Net::SMTPError (module)">SMTPError</a></span>
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Net/APOP.html" title="Net::APOP (class)">APOP</a></span>, <span class='object_link'><a href="Net/BufferedIO.html" title="Net::BufferedIO (class)">BufferedIO</a></span>, <span class='object_link'><a href="Net/FTP.html" title="Net::FTP (class)">FTP</a></span>, <span class='object_link'><a href="Net/FTPConnectionError.html" title="Net::FTPConnectionError (class)">FTPConnectionError</a></span>, <span class='object_link'><a href="Net/FTPError.html" title="Net::FTPError (class)">FTPError</a></span>, <span class='object_link'><a href="Net/FTPPermError.html" title="Net::FTPPermError (class)">FTPPermError</a></span>, <span class='object_link'><a href="Net/FTPProtoError.html" title="Net::FTPProtoError (class)">FTPProtoError</a></span>, <span class='object_link'><a href="Net/FTPReplyError.html" title="Net::FTPReplyError (class)">FTPReplyError</a></span>, <span class='object_link'><a href="Net/FTPTempError.html" title="Net::FTPTempError (class)">FTPTempError</a></span>, <span class='object_link'><a href="Net/HTTP.html" title="Net::HTTP (class)">HTTP</a></span>, <span class='object_link'><a href="Net/HTTPAccepted.html" title="Net::HTTPAccepted (class)">HTTPAccepted</a></span>, <span class='object_link'><a href="Net/HTTPBadGateway.html" title="Net::HTTPBadGateway (class)">HTTPBadGateway</a></span>, <span class='object_link'><a href="Net/HTTPBadRequest.html" title="Net::HTTPBadRequest (class)">HTTPBadRequest</a></span>, <span class='object_link'><a href="Net/HTTPBadResponse.html" title="Net::HTTPBadResponse (class)">HTTPBadResponse</a></span>, <span class='object_link'><a href="Net/HTTPClientError.html" title="Net::HTTPClientError (class)">HTTPClientError</a></span>, <span class='object_link'><a href="Net/HTTPConflict.html" title="Net::HTTPConflict (class)">HTTPConflict</a></span>, <span class='object_link'><a href="Net/HTTPContinue.html" title="Net::HTTPContinue (class)">HTTPContinue</a></span>, <span class='object_link'><a href="Net/HTTPCreated.html" title="Net::HTTPCreated (class)">HTTPCreated</a></span>, <span class='object_link'><a href="Net/HTTPError.html" title="Net::HTTPError (class)">HTTPError</a></span>, <span class='object_link'><a href="Net/HTTPExpectationFailed.html" title="Net::HTTPExpectationFailed (class)">HTTPExpectationFailed</a></span>, <span class='object_link'><a href="Net/HTTPFatalError.html" title="Net::HTTPFatalError (class)">HTTPFatalError</a></span>, <span class='object_link'><a href="Net/HTTPForbidden.html" title="Net::HTTPForbidden (class)">HTTPForbidden</a></span>, <span class='object_link'><a href="Net/HTTPFound.html" title="Net::HTTPFound (class)">HTTPFound</a></span>, <span class='object_link'><a href="Net/HTTPGatewayTimeOut.html" title="Net::HTTPGatewayTimeOut (class)">HTTPGatewayTimeOut</a></span>, <span class='object_link'><a href="Net/HTTPGenericRequest.html" title="Net::HTTPGenericRequest (class)">HTTPGenericRequest</a></span>, <span class='object_link'><a href="Net/HTTPGone.html" title="Net::HTTPGone (class)">HTTPGone</a></span>, <span class='object_link'><a href="Net/HTTPHeaderSyntaxError.html" title="Net::HTTPHeaderSyntaxError (class)">HTTPHeaderSyntaxError</a></span>, <span class='object_link'><a href="Net/HTTPInformation.html" title="Net::HTTPInformation (class)">HTTPInformation</a></span>, <span class='object_link'><a href="Net/HTTPInternalServerError.html" title="Net::HTTPInternalServerError (class)">HTTPInternalServerError</a></span>, <span class='object_link'><a href="Net/HTTPLengthRequired.html" title="Net::HTTPLengthRequired (class)">HTTPLengthRequired</a></span>, <span class='object_link'><a href="Net/HTTPMethodNotAllowed.html" title="Net::HTTPMethodNotAllowed (class)">HTTPMethodNotAllowed</a></span>, <span class='object_link'><a href="Net/HTTPMovedPermanently.html" title="Net::HTTPMovedPermanently (class)">HTTPMovedPermanently</a></span>, <span class='object_link'><a href="Net/HTTPMultipleChoice.html" title="Net::HTTPMultipleChoice (class)">HTTPMultipleChoice</a></span>, <span class='object_link'><a href="Net/HTTPNoContent.html" title="Net::HTTPNoContent (class)">HTTPNoContent</a></span>, <span class='object_link'><a href="Net/HTTPNonAuthoritativeInformation.html" title="Net::HTTPNonAuthoritativeInformation (class)">HTTPNonAuthoritativeInformation</a></span>, <span class='object_link'><a href="Net/HTTPNotAcceptable.html" title="Net::HTTPNotAcceptable (class)">HTTPNotAcceptable</a></span>, <span class='object_link'><a href="Net/HTTPNotFound.html" title="Net::HTTPNotFound (class)">HTTPNotFound</a></span>, <span class='object_link'><a href="Net/HTTPNotImplemented.html" title="Net::HTTPNotImplemented (class)">HTTPNotImplemented</a></span>, <span class='object_link'><a href="Net/HTTPNotModified.html" title="Net::HTTPNotModified (class)">HTTPNotModified</a></span>, <span class='object_link'><a href="Net/HTTPOK.html" title="Net::HTTPOK (class)">HTTPOK</a></span>, <span class='object_link'><a href="Net/HTTPPartialContent.html" title="Net::HTTPPartialContent (class)">HTTPPartialContent</a></span>, <span class='object_link'><a href="Net/HTTPPaymentRequired.html" title="Net::HTTPPaymentRequired (class)">HTTPPaymentRequired</a></span>, <span class='object_link'><a href="Net/HTTPPreconditionFailed.html" title="Net::HTTPPreconditionFailed (class)">HTTPPreconditionFailed</a></span>, <span class='object_link'><a href="Net/HTTPProxyAuthenticationRequired.html" title="Net::HTTPProxyAuthenticationRequired (class)">HTTPProxyAuthenticationRequired</a></span>, <span class='object_link'><a href="Net/HTTPRedirection.html" title="Net::HTTPRedirection (class)">HTTPRedirection</a></span>, <span class='object_link'><a href="Net/HTTPRequest.html" title="Net::HTTPRequest (class)">HTTPRequest</a></span>, <span class='object_link'><a href="Net/HTTPRequestEntityTooLarge.html" title="Net::HTTPRequestEntityTooLarge (class)">HTTPRequestEntityTooLarge</a></span>, <span class='object_link'><a href="Net/HTTPRequestTimeOut.html" title="Net::HTTPRequestTimeOut (class)">HTTPRequestTimeOut</a></span>, <span class='object_link'><a href="Net/HTTPRequestURITooLong.html" title="Net::HTTPRequestURITooLong (class)">HTTPRequestURITooLong</a></span>, <span class='object_link'><a href="Net/HTTPRequestedRangeNotSatisfiable.html" title="Net::HTTPRequestedRangeNotSatisfiable (class)">HTTPRequestedRangeNotSatisfiable</a></span>, <span class='object_link'><a href="Net/HTTPResetContent.html" title="Net::HTTPResetContent (class)">HTTPResetContent</a></span>, <span class='object_link'><a href="Net/HTTPResponse.html" title="Net::HTTPResponse (class)">HTTPResponse</a></span>, <span class='object_link'><a href="Net/HTTPRetriableError.html" title="Net::HTTPRetriableError (class)">HTTPRetriableError</a></span>, <span class='object_link'><a href="Net/HTTPSeeOther.html" title="Net::HTTPSeeOther (class)">HTTPSeeOther</a></span>, <span class='object_link'><a href="Net/HTTPServerError.html" title="Net::HTTPServerError (class)">HTTPServerError</a></span>, <span class='object_link'><a href="Net/HTTPServerException.html" title="Net::HTTPServerException (class)">HTTPServerException</a></span>, <span class='object_link'><a href="Net/HTTPServiceUnavailable.html" title="Net::HTTPServiceUnavailable (class)">HTTPServiceUnavailable</a></span>, <span class='object_link'><a href="Net/HTTPSuccess.html" title="Net::HTTPSuccess (class)">HTTPSuccess</a></span>, <span class='object_link'><a href="Net/HTTPSwitchProtocol.html" title="Net::HTTPSwitchProtocol (class)">HTTPSwitchProtocol</a></span>, <span class='object_link'><a href="Net/HTTPTemporaryRedirect.html" title="Net::HTTPTemporaryRedirect (class)">HTTPTemporaryRedirect</a></span>, <span class='object_link'><a href="Net/HTTPUnauthorized.html" title="Net::HTTPUnauthorized (class)">HTTPUnauthorized</a></span>, <span class='object_link'><a href="Net/HTTPUnknownResponse.html" title="Net::HTTPUnknownResponse (class)">HTTPUnknownResponse</a></span>, <span class='object_link'><a href="Net/HTTPUnsupportedMediaType.html" title="Net::HTTPUnsupportedMediaType (class)">HTTPUnsupportedMediaType</a></span>, <span class='object_link'><a href="Net/HTTPUseProxy.html" title="Net::HTTPUseProxy (class)">HTTPUseProxy</a></span>, <span class='object_link'><a href="Net/HTTPVersionNotSupported.html" title="Net::HTTPVersionNotSupported (class)">HTTPVersionNotSupported</a></span>, <span class='object_link'><a href="Net/IMAP.html" title="Net::IMAP (class)">IMAP</a></span>, <span class='object_link'><a href="Net/InternetMessageIO.html" title="Net::InternetMessageIO (class)">InternetMessageIO</a></span>, <span class='object_link'><a href="Net/POP3.html" title="Net::POP3 (class)">POP3</a></span>, <span class='object_link'><a href="Net/POP3Command.html" title="Net::POP3Command (class)">POP3Command</a></span>, <span class='object_link'><a href="Net/POPAuthenticationError.html" title="Net::POPAuthenticationError (class)">POPAuthenticationError</a></span>, <span class='object_link'><a href="Net/POPBadResponse.html" title="Net::POPBadResponse (class)">POPBadResponse</a></span>, <span class='object_link'><a href="Net/POPError.html" title="Net::POPError (class)">POPError</a></span>, <span class='object_link'><a href="Net/POPMail.html" title="Net::POPMail (class)">POPMail</a></span>, <span class='object_link'><a href="Net/ProtoAuthError.html" title="Net::ProtoAuthError (class)">ProtoAuthError</a></span>, <span class='object_link'><a href="Net/ProtoCommandError.html" title="Net::ProtoCommandError (class)">ProtoCommandError</a></span>, <span class='object_link'><a href="Net/ProtoFatalError.html" title="Net::ProtoFatalError (class)">ProtoFatalError</a></span>, <span class='object_link'><a href="Net/ProtoRetriableError.html" title="Net::ProtoRetriableError (class)">ProtoRetriableError</a></span>, <span class='object_link'><a href="Net/ProtoServerError.html" title="Net::ProtoServerError (class)">ProtoServerError</a></span>, <span class='object_link'><a href="Net/ProtoSyntaxError.html" title="Net::ProtoSyntaxError (class)">ProtoSyntaxError</a></span>, <span class='object_link'><a href="Net/ProtoUnknownError.html" title="Net::ProtoUnknownError (class)">ProtoUnknownError</a></span>, <span class='object_link'><a href="Net/Protocol.html" title="Net::Protocol (class)">Protocol</a></span>, <span class='object_link'><a href="Net/ProtocolError.html" title="Net::ProtocolError (class)">ProtocolError</a></span>, <span class='object_link'><a href="Net/ReadAdapter.html" title="Net::ReadAdapter (class)">ReadAdapter</a></span>, <span class='object_link'><a href="Net/SMTP.html" title="Net::SMTP (class)">SMTP</a></span>, <span class='object_link'><a href="Net/SMTPAuthenticationError.html" title="Net::SMTPAuthenticationError (class)">SMTPAuthenticationError</a></span>, <span class='object_link'><a href="Net/SMTPFatalError.html" title="Net::SMTPFatalError (class)">SMTPFatalError</a></span>, <span class='object_link'><a href="Net/SMTPServerBusy.html" title="Net::SMTPServerBusy (class)">SMTPServerBusy</a></span>, <span class='object_link'><a href="Net/SMTPSyntaxError.html" title="Net::SMTPSyntaxError (class)">SMTPSyntaxError</a></span>, <span class='object_link'><a href="Net/SMTPUnknownError.html" title="Net::SMTPUnknownError (class)">SMTPUnknownError</a></span>, <span class='object_link'><a href="Net/SMTPUnsupportedCommand.html" title="Net::SMTPUnsupportedCommand (class)">SMTPUnsupportedCommand</a></span>, <span class='object_link'><a href="Net/Telnet.html" title="Net::Telnet (class)">Telnet</a></span>, <span class='object_link'><a href="Net/WriteAdapter.html" title="Net::WriteAdapter (class)">WriteAdapter</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="POP-constant" class="">POP =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>class aliases</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>POP3</span></pre></dd>
+      
+        <dt id="POPSession-constant" class="">POPSession =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>POP3</span></pre></dd>
+      
+        <dt id="POP3Session-constant" class="">POP3Session =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>POP3</span></pre></dd>
+      
+        <dt id="APOPSession-constant" class="">APOPSession =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>class aliases</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>APOP</span></pre></dd>
+      
+        <dt id="SMTPSession-constant" class="">SMTPSession =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>class SMTP</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>SMTP</span></pre></dd>
+      
+        <dt id="HTTPSession-constant" class="">HTTPSession =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTP</span></pre></dd>
+      
+        <dt id="HTTPMovedTemporarily-constant" class="">HTTPMovedTemporarily =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPFound</span></pre></dd>
+      
+        <dt id="HTTPRequestURITooLarge-constant" class="">HTTPRequestURITooLarge =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPRequestURITooLong</span></pre></dd>
+      
+        <dt id="HTTPInformationCode-constant" class="">HTTPInformationCode =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPInformation</span></pre></dd>
+      
+        <dt id="HTTPSuccessCode-constant" class="">HTTPSuccessCode =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPSuccess</span></pre></dd>
+      
+        <dt id="HTTPRedirectionCode-constant" class="">HTTPRedirectionCode =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPRedirection</span></pre></dd>
+      
+        <dt id="HTTPRetriableCode-constant" class="">HTTPRetriableCode =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPRedirection</span></pre></dd>
+      
+        <dt id="HTTPClientErrorCode-constant" class="">HTTPClientErrorCode =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPClientError</span></pre></dd>
+      
+        <dt id="HTTPFatalErrorCode-constant" class="">HTTPFatalErrorCode =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPClientError</span></pre></dd>
+      
+        <dt id="HTTPServerErrorCode-constant" class="">HTTPServerErrorCode =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPServerError</span></pre></dd>
+      
+        <dt id="HTTPResponceReceiver-constant" class="">HTTPResponceReceiver =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>HTTPResponse</span></pre></dd>
+      
+        <dt id="ProtocRetryError-constant" class="">ProtocRetryError =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>ProtoRetriableError</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Sep  3 14:10:17 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

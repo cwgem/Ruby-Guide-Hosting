@@ -1030,13 +1030,107 @@ Throw out all of the books in the bookshelf on the left
 <div class="paragraph"><p>It&#8217;s faster and doesn&#8217;t have fragmentation issues, so it&#8217;s perfect! So let&#8217;s get started right away. Unfortunately there&#8217;s a problem. There are no empty bookshelves laying around. All of the bookshelves are packed with books *facepalm* Comparing to Mark &amp; Sweep, twice the storage space is required. This certainly does no good. A new bookshelf could be purchased, but that seems a bit overkill. Next up a fundamentally different method will be tested.</p></div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_reference_count">Reference Count</h3>
+<div class="paragraph"><p>Is the reader the type that works on summer homework everyday, or the type that waits until the last two days to complete it? I happen to be in the later group. Because of this, I have recollections of my parents scolding me saying "It&#8217;s because you&#8217;re out playing everyday that things turn out like this!" With this in mind, how about throwing out the notion that the bookshelf needs to be arranged at the end of the year? If the bookshelf is arranged regularly, there&#8217;s no need to fumble around at the end of the year doing it.</p></div>
+<div class="paragraph"><p>With this in mind the "Don&#8217;t Toss Me Card" method is created.</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/bookshelf_rf_01.jpg" alt="The Don&#8217;t Toss Me Card" />
+</span></p></div>
+<div class="paragraph"><p>The "Don&#8217;t Toss Me Card" is as the name states a card in which anyone who considers the book valuable will write their name in the card. This card is created for each and every book, then placed inside of it. So how does the usage of the "Don&#8217;t Toss Me Card" work? Take for example a fictional character "Mr. A" who has purchased a new book.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Mr. A purchases the book
+</p>
+</li>
+<li>
+<p>
+He then creates the "Don&#8217;t Toss Me Card"
+</p>
+</li>
+<li>
+<p>
+Mr. A then writes his name in the "Don&#8217;t Toss Me Card" and places it inside the book
+</p>
+</li>
+<li>
+<p>
+Mr. B realizes the presences of the new book
+</p>
+</li>
+<li>
+<p>
+Mr. B thinks to himself "I think I might want to read this book" and writes his name in the "Don&#8217;t Toss Me Card"
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>At this point, the "Don&#8217;t Toss Me Card" looks something like this:</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/bookshelf_rf_02.jpg" alt="The Filled Out Don&#8217;t Toss Me Card" />
+</span></p></div>
+<div class="paragraph"><p>In this manner, the book that Mr. A purchases begins to fill up with more names. So, how does this book become unnecessary? It works something like this:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Mr. A finishes reading the book and thinks to himself "I&#8217;m won&#8217;t read this again so I don&#8217;t need it anymore"
+</p>
+</li>
+<li>
+<p>
+Mr. A crosses his name off the "Don&#8217;t Toss Me Card"
+</p>
+</li>
+<li>
+<p>
+Mr. B thinks to himself "The technology in this book has gotten pretty old so I don&#8217;t feel like reading it anymore"
+</p>
+</li>
+<li>
+<p>
+Mr. B crosses his name off the "Don&#8217;t Toss Me Card"
+</p>
+</li>
+<li>
+<p>
+Since all the names have been crossed off the "Don&#8217;t Toss Me Card", the book is considered unnecessary
+</p>
+</li>
+<li>
+<p>
+The last person to cross their name off, Mr. B, throws the book away
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>In this manner unnecessary books are safely disposed of.</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/bookshelf_rf_03.jpg" alt="A Don&#8217;t Toss Me Card for an unnecessary book" />
+</span></p></div>
+<div class="paragraph"><p>This method is referred to as the "Reference Count Algorithm". In the example the interests of the employees are referenced and counted. However in a more practical sense references of mutual objects are instead counted.</p></div>
+<div class="sect3">
+<h4 id="_pros_2">Pros</h4>
+<div class="paragraph"><p>The benefit of this method is the burden is now decentralized. Cleaning the bookshelf at the end of the year is very difficult, but handling it on a normal basis is much more manageable.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_cons_2">Cons</h4>
+<div class="paragraph"><p>Annoyance is the main problem with this algorithm. With the Reference Count algorithm, one must ensure that they fill out their name and erase it later. However someone is likely to forget to do this. If someone doesn&#8217;t fill out their name, a valuable book could get thrown out, and if someone forgets to cross out their name, a useless book is left sticking around. This is very annoying.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_so_how_fares_the_arranging">So How Fares The Arranging?</h3>
+<div class="paragraph"><p>The book arrangement is very annoying isn&#8217;t it? Fragmentation can occur, another bookshelf could become necessary&#8230; However this is quite a distorted view of things to show how garbage collection works. A more practical solution would simply be to throw out books that no longer look necessary. Also there&#8217;s the method of not sorting the books at all :-) In my case I simply threw out books that didn&#8217;t look necessary to me. There&#8217;s the chance that someone wanted to read that book, but oh well that&#8217;s life!</p></div>
+</div>
+<div class="sect2">
+<h3 id="_a_quick_summary">A Quick Summary</h3>
+<div class="paragraph"><p>This section used an easy to understand explanation of garbage collection using the arrangement of books as an example. It was a bit distorted however. I wonder if there is still the reader who thinks to themselves "I want to try and implement this!", or feels that this explanation is not detailed enough.</p></div>
+</div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-09-05 12:41:01 PDT
+Last updated 2011-09-05 14:15:45 PDT
 </div>
 </div>
 </body>

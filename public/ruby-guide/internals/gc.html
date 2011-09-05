@@ -899,7 +899,7 @@ Reference Count
 </span></p></div>
 </div>
 <div class="sect2">
-<h3 id="_mark_amp_sweep">Mark &amp; Sweep</h3>
+<h3 id="mark-and-sweep">Mark &amp; Sweep</h3>
 <div class="paragraph"><p>While a bit of an experimental idea, how about the following method. I&#8217;ll take each an every book from the bookshelf, and ask everyone in the office "Do you think you&#8217;ll use this book next year?" The more specific method would work as follows:</p></div>
 <div class="olist arabic"><ol class="arabic">
 <li>
@@ -962,12 +962,72 @@ Repeat this process, working down to the lower right corner of the bookshelf
 </span></p></div>
 <div class="paragraph"><p>Using this method, valuable books are returned to the bookshelf, and unnecessary books are disposed of. Now only the valuable books are left. This process is known as the "Sweep Phase". The entire process is therefore known as "Mark &amp; Sweep".</p></div>
 <div class="sect3">
-<h4 id="_cons">Cons</h4>
+<h4 id="mark-and-sweep-cons">Cons</h4>
 <div class="paragraph"><p>The bookshelf is now sorted, and all is fine and dandy. However there unfortunately remains one problem. Between some of the books there is a space of variable width. So if a book is slightly larger than any of the space, it won&#8217;t fit into the bookshelf.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/bookshelf_ms_04.jpg" alt="the fragmentation problem" />
 </span></p></div>
 <div class="paragraph"><p>This problem is known as "Fragmentation". If a new book needs to be put into the bookshelf, it may lead to issues. This requires thinking up a new method for sorting. As a side note CRuby utilizes this Mark &amp; Sweep algorithm, and is subject to the same fragmentation problem.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="copying">Copying</h3>
+<div class="paragraph"><p>With just one bookshelf there is the problem of fragmentation. So instead two bookshelves will be used for arranging the books.</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/bookshelf_cp_01.jpg" alt="full bookshelf and empty bookshelf" />
+</span></p></div>
+<div class="paragraph"><p>Specifically the following process will be used for arranging:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Start by taking a single book from the top left of the shelf
+</p>
+</li>
+<li>
+<p>
+Walk around the office and ask "Do you think you&#8217;ll use this book next year?"
+</p>
+</li>
+<li>
+<p>
+If someone answers "Yes, I will!", place the book in the empty bookshelf
+</p>
+</li>
+<li>
+<p>
+If everyone answers "No, don&#8217;t need it at all", return the book to the original bookshelf
+</p>
+</li>
+<li>
+<p>
+Repeat this process, working down to the lower right corner of the bookshelf
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Once all is said and done the result looks something like the following:</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/bookshelf_cp_02.jpg" alt="arranged bookshelves" />
+</span></p></div>
+<div class="paragraph"><p>Using this method, valuable books end up in the bookshelf on the right, and unnecessary books end up in the original bookshelf. With the Mark &amp; Sweep method unnecessary books were indicated through the lack of a mark. With this method, they are instead designated by the resulting location that they are put in. So now to go about the removal of the unnecessary books. Well that&#8217;s quite simple:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Throw out all of the books in the bookshelf on the left
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>This gives the following:</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/bookshelf_cp_03.jpg" alt="copying disposed books" />
+</span></p></div>
+<div class="paragraph"><p>Without thinking about anything all of the books on the left bookshelf can be disposed of. This is method is known as the "Copying" algorithm.  Another thing to note is that the next time books are to be arranged, valuable books will be transferred to the bookshelf on the left instead.</p></div>
+<div class="sect3">
+<h4 id="_pros">Pros</h4>
+<div class="paragraph"><p>Copying provides faster sorting than Mark &amp; Sweep. The Mark &amp; Sweep method also requires an additional pass over all the books in order to dispose of the unnecessary books properly, whereas Copying doesn&#8217;t require this. Also the issue with fragmentation doesn&#8217;t exist, and it&#8217;s easier to fit in new books.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_cons">Cons</h4>
+<div class="paragraph"><p>It&#8217;s faster and doesn&#8217;t have fragmentation issues, so it&#8217;s perfect! So let&#8217;s get started right away. Unfortunately there&#8217;s a problem. There are no empty bookshelves laying around. All of the bookshelves are packed with books *facepalm* Comparing to Mark &amp; Sweep, twice the storage space is required. This certainly does no good. A new bookshelf could be purchased, but that seems a bit overkill. Next up a fundamentally different method will be tested.</p></div>
 </div>
 </div>
 </div>
@@ -976,7 +1036,7 @@ Repeat this process, working down to the lower right corner of the bookshelf
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-09-05 09:00:53 PDT
+Last updated 2011-09-05 12:41:01 PDT
 </div>
 </div>
 </body>

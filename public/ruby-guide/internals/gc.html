@@ -1126,11 +1126,96 @@ The last person to cross their name off, Mr. B, throws the book away
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_the_ruby_gc_structure">The Ruby GC Structure</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Now that the reader has become familiar with the basics of garbage collection algorithms, I&#8217;ll explain the structure of the Ruby GC. First off it is, as mentioned previously, based on the Mark &amp; Sweep algorithm. Since the basics of algorithm have been touched upon in the previous section, we&#8217;ll look at how the Ruby GC implements it.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">From here on out a good amount of knowledge in C and Ruby is required</td>
+</tr></table>
+</div>
+<div class="sect2">
+<h3 id="_mark_amp_sweep">Mark &amp; Sweep</h3>
+<div class="paragraph"><p>Below is a sample program that has been prepared for explanation purposes:</p></div>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="c1">#Child class definition</span>
+<span class="k">class</span> <span class="nc">Child</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="c1">#Array creation</span>
+<span class="n">arry1</span> <span class="o">=</span> <span class="o">[]</span>
+<span class="c1">#Insertion of Child class instance</span>
+<span class="n">arry1</span> <span class="o">&lt;&lt;</span> <span class="no">Child</span><span class="o">.</span><span class="n">new</span>
+
+<span class="c1">#Array creation</span>
+<span class="n">arry2</span> <span class="o">=</span> <span class="o">[]</span>
+<span class="c1">#Insertion of Child class instance</span>
+<span class="n">arry2</span> <span class="o">&lt;&lt;</span> <span class="no">Child</span><span class="o">.</span><span class="n">new</span>
+<span class="n">arry2</span> <span class="o">&lt;&lt;</span> <span class="no">Child</span><span class="o">.</span><span class="n">new</span>
+<span class="c1">#Destroy the reference</span>
+<span class="n">arry2</span> <span class="o">=</span> <span class="kp">nil</span>
+
+<span class="c1">#Start the GC process!</span>
+<span class="no">GC</span><span class="o">.</span><span class="n">start</span>
+</pre></div></div></div>
+<div class="paragraph"><p>We&#8217;ll now take a look at how CRuby would operate if we were to run this program. First is the class definition and the creation of the array.</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_01.jpg" alt="Array creation" />
+</span></p></div>
+<div class="paragraph"><p>First is the heap area referenced in the diagram. This heap area is not referring to the C heap area, but instead the heap area that is used by Ruby. The Ruby heap area is maintained as a collection of RVALUE types.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">For the curious, RVALUE is declared in gc.c in the Ruby source.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The RArray that was just created is defined in this heap area. This is the structure of the array instance created by Ruby. When an array is created in Ruby, the CRuby side stores the result in a structure called RArray. Afterwards, a pointer to the RArray is inserted in the root area. This pointer has a similar role to the <tt>arry1</tt> variable on the Ruby side. The details of root will be explained later on, so for now think of this like the management of local variables.</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_02.jpg" alt="Object insertion" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_03.jpg" alt="Second array creation" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_04.jpg" alt="Second array object insertion" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_05.jpg" alt="Second array second object insertion" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_06.jpg" alt="Second array dereference" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_07.jpg" alt="GC mark phase 1" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_08.jpg" alt="GC mark phase 2" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_09.jpg" alt="GC sweep phase 3" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_010.jpg" alt="GC sweep phase 2" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_011.jpg" alt="GC object removal" />
+</span></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/crubygc_ms_012.jpg" alt="GC completion" />
+</span></p></div>
+</div>
+</div>
+</div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-09-05 18:51:05 PDT
+Last updated 2011-09-08 15:31:46 PDT
 </div>
 </div>
 </body>

@@ -1178,21 +1178,26 @@ The last person to cross their name off, Mr. B, throws the book away
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_02.jpg" alt="Object insertion" />
 </span></p></div>
+<div class="paragraph"><p>A Child class instance has been created. This object is stored in the heap area internally in a structure called RObject. Additionally, a pointer to the object is inserted into the RArray.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_03.jpg" alt="Second array creation" />
 </span></p></div>
+<div class="paragraph"><p>As with before, an RArray structure is added to the heap area, and a pointer referencing it is inserted into the root.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_04.jpg" alt="Second array object insertion" />
 </span></p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_05.jpg" alt="Second array second object insertion" />
 </span></p></div>
+<div class="paragraph"><p>The same explanation applies here as before.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_06.jpg" alt="Second array dereference" />
 </span></p></div>
+<div class="paragraph"><p>The local variable arry2 is set to nil. This causes the removal of the pointer to the RArray from the root. As you can tell from the image, there is no longer a reference pointing to the RArray object on the heap. This means the object is no longer necessary and should be collected as garbage. The same status applies for the RObjects contained within the RArray.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_07.jpg" alt="GC mark phase 1" />
 </span></p></div>
+<div class="paragraph"><p>Now for the long awaited garbage collection phase. In what way will the unnecessary objects be freed?</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_08.jpg" alt="GC mark phase 2" />
 </span></p></div>
@@ -1215,7 +1220,7 @@ The last person to cross their name off, Mr. B, throws the book away
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-09-08 15:31:46 PDT
+Last updated 2011-09-09 12:29:05 PDT
 </div>
 </div>
 </body>

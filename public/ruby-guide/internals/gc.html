@@ -1279,14 +1279,148 @@ If the value is outside of the heap area, it is considered not to be a pointer t
 </pre></div></div></div>
 <div class="paragraph"><p>If there is an inactive object at address <tt>0x0500</tt>, it will be mistaken for an active object. With this method anything that looks like an object pointer is considered to be active. This is unfortunately something that can&#8217;t be helped&#8230; This method of attempting to safely remove doubtful objects is a very conservative outlook, and thus this process is known as "Conservative GC". CRuby uses this conservative GC in its implementation.</p></div>
 </div>
+<div class="sect3">
+<h4 id="_issues">Issues</h4>
+<div class="paragraph"><p>Isn&#8217;t it strange though? Is it really okay that garbage objects are considered active? It seems as though a fatal bug could occur. The reason why such issues will not occur is because it&#8217;s all about objects that are no longer necessary to the user. Since garbage objects are hidden from the user, they are not accessible. Therefore even if such objects are active they still won&#8217;t cause the user issues directly. Of course, if such objects increase to much then memory will be exhausted. This is definitely an issue.</p></div>
 </div>
+<div class="sect3">
+<h4 id="_weaknesses">Weaknesses</h4>
+<div class="paragraph"><p>The major weakness of Conservative GC is that it is limited in the algorithms that it can use. For example, the previously mentioned Copying GC cannot be utilized. This is because in order to transfer the entire object, the pointer to the object must also be rewritten. However, Conservative GC is unable to determine the difference between pointer and integer values. If an integer value was overwritten the result would be disastrous. It is likely that the result of <tt>1+1</tt> would change occasionally.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exact_gc">Exact GC</h3>
+<div class="paragraph"><p>The opposite of Conservative GC is known as Exact GC. Exact GC does not check the machine stack or registers. The image is that it manages object pointers. Due to this implementation, it is able to free all unnecessary objects. For those who would like to see an implementation of Exact GC, I recommend looking at <a href="http://tinyscheme.sourceforge.net/">TinyScheme</a> and other Scheme implementations. It is very simple and easy to understand. <a href="http://rubini.us/">Rubinius</a> also implements an Exact GC, but it is complex so I can&#8217;t recommend it to beginners.</p></div>
+<div class="sect3">
+<h4 id="_strong_points">Strong Points</h4>
+<div class="paragraph"><p>The main strength of Exact GC is that it is able to implement a large number of GC algorithms. Algorithms that move around objects like Copying GC are possible. There is no concern over accidentally overwriting a value that was an integer. Of course, it is also able to implement the Mark &amp; Sweep algorithm.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_weaknesses_2">Weaknesses</h4>
+<div class="paragraph"><p>For the GC implementor things are nice and simple, but from the user perspective it becomes complicated. For example, in CRuby extension libraries can be easily implemented, but if an Exact GC was used this would become very difficult. It is possible that the user could scatter object pointers about the stack and registers. If this was a single reference, it would be picked up as an object and mistakingly collected. Letting the user freely deal with object pointers becomes problematic. This means the user side would inevitably become more restricted.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_recent_trends">Recent Trends</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Lately there has been much activity around improving the CRuby GC implementation. In October of 2008, 3 possible RubyGC implementations were proposed at the Matsue (the town where Ruby was developed) <a href="http://www.math.nagoya-u.ac.jp/~garrigue/pro71/">71st Data Processing Academic Conference Programming Research Paper Meeting (Japanese)</a>. This event was explained by Koichi Sasada as "It&#8217;s this kind, no that kind of event". I see :-). I will now provide a basic introduction to the three proposed GC implementations. The details are left out, and those seeking more information can refer to the links below.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">The links below are in Japanese, so please be warned!</td>
+</tr></table>
+</div>
+<div class="sect2">
+<h3 id="_bitmapmarking_gc">BitmapMarking GC</h3>
+<div class="paragraph"><p>BitmapMarking GC is an improved GC that was proposed by Yukihiro Matsumoto (Ruby&#8217;s creator) and myself. A proof of concept implementation was put into use in <a href="http://www.rubyenterpriseedition.com/index.html">Ruby Enterprise Edition (REE)</a>. However the REE BitmapMarking algorithm is O(n), and is not practical performance wise. The improved version looks to achieve O(1) performance. Whether or not it will be included in future CRuby versions is a difficult situation.</p></div>
+<div class="sect3">
+<h4 id="_more_information">More Information</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://www.ustream.tv/recorded/838010">4th NaCL Study Group ~ BitmapMarkingGC ~</a> - A video of myself explaining the algorithm at the NaCL Study Group
+</p>
+</li>
+<li>
+<p>
+<a href="http://www.narihiro.info/resource/presen/bitmap_gc.pdf">Utilization Of An Effective Bitmap Marking Implementation For Ruby</a> - A paper on the algorithm written by Matsumoto and myself
+</p>
+</li>
+<li>
+<p>
+<a href="http://github.com/authorNari/ruby/tree/master/patch/gc_bitmap_by_align_to_v_1_9_0_4.patch">Patch</a> - A Practical Implementation
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_snapshot_gc">Snapshot GC</h3>
+<div class="paragraph"><p>The product of the University of Tokyo Hikari Aikawa&#8217;s research titled "Implementation of Snapshot GC on the Ruby Interpreter". This is an attempt to implement incremental garbage collection in the Ruby GC. I learned of a very beneficial feature, "You need to stick a write barrier here or it&#8217;s no good!" in the research and implementation. At the moment it can only run in miniruby, but I look forward to how it progresses.</p></div>
+<div class="sect3">
+<h4 id="_more_information_2">More Information</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://www.yuasa.kuis.kyoto-u.ac.jp/~aikawa/files/presentation.ppt">Support Of Write Barrier Insertion in The CRuby Interpreter</a> - Mr. Aikawa was kind enough to distribute research materials which should provide a starting point for those interested.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mostly_copying_gc">Mostly Copying GC</h3>
+<div class="paragraph"><p>The product of the University of Electro Communication Tomoharu Ugawa&#8217;s research titled "Mostly Copying GC Implementation For The RubyVM". This algorithm is an attempt to introduce Copying GC to a Conservative GC. If this algorithm is implemented it would help to improve the fragmentation issue. Mr. Matsumoto stated "If it&#8217;s all right I&#8217;d like to add it sometime tomorrow." Wow. Currently there is only a patch against YARV before it was merged into 1.9, but I look forward to how it turns out.</p></div>
+<div class="sect3">
+<h4 id="_more_information_3">More Information</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/19909">ruby-core:19909</a> - Ruby Core thread 19909 contains the published materials regarding Mostly Copying GC
+</p>
+</li>
+<li>
+<p>
+<a href="http://wiki.livedoor.jp/author_nari/d/GC/extend/MostlyCopyingGC(Bartlett%201989)">MostlyCopyingGC(Bartlett 1989)</a> - Those interested in the details of the algorithm can read more about it here
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_related_documents">Related Documents</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://i.loveruby.net/ja/rhg/book/gc.html">RHG (Ruby Hacking Guide) Chapter 5: Garbage Collection</a> - Those wanting to learn more about the RubyGC can read more on it in the Ruby Hacking Guide (RHG) by Minero Aoki
+</p>
+</li>
+<li>
+<p>
+<a href="http://matsu-www.is.titech.ac.jp/~endo/gc/gc.pdf">Garbage Collection Overview</a> - An easy to understand explanation of garbage collection in general
+</p>
+</li>
+<li>
+<p>
+<a href="http://wiki.livedoor.jp/author_nari/d/GC">Garbage Collection In Detail</a> - Those wishing to know more about Garbage Collection algorithms can take a look at the wiki that I&#8217;m working on
+</p>
+</li>
+<li>
+<p>
+<a href="http://www.amazon.co.jp/Garbage-Collection-Algorithms-Automatic-Management/dp/0471941484/">Garbage Collection: Algorithms for Automatic Dynamic Memory Management</a> - For those serious about learning garbage collection I recommend this book. It is a very comprehensive book on the matter
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Thank you to those of you that came this far. I hope that reading this article has given you even a little interest in garbage collection. Unless the GC in your head has judged this article to be garbage :-)</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about_the_author">About The Author</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><a href="http://d.hatena.ne.jp/authorNari/">nari</a></p></div>
+<div class="paragraph"><p>Member of the <a href="http://www.netlab.jp/">Network Applied Communication Laboratory</a>. Likes GC. Not to found of real life garbage collection though&#8230;
+== About The Translator ==</p></div>
+<div class="paragraph"><p>Hello I&#8217;m Chris White and a passionate Rubyist. I&#8217;ve been studying Japanese for many years, and enjoy doing technical translations. As someone who loves learning more about the inner workings of Ruby this was an enjoyable document to work on! Thank you to nari-san for such an interesting article!</p></div>
+<div class="paragraph"><p>As a final note I&#8217;ve removed the author&#8217;s contact information in the "About The Author" section to avoid surprise English emails. If you would like to send your thoughts, please contact me instead and I will pass them on! You can reach me at cwprogram at live dot com.</p></div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-09-19 12:12:53 PDT
+Last updated 2011-09-19 14:24:41 PDT
 </div>
 </div>
 </body>

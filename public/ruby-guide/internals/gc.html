@@ -793,12 +793,231 @@ asciidoc.install();
 <td class="content">This document is a translation of a Japanese article by nari regarding garbage collection (GC), published in <a href="http://jp.rubyist.net/magazine/?0025-RareAreGCTalk">Rubyist Magazine</a>.</td>
 </tr></table>
 </div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#introduction">Introduction</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#the-gc-talk">When It Comes To Talking About Garbage Collection</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#what-is-gc">What Is GC?</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#gc-enabled-language-processors">GC Enabled Language Processors</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#gc-algo">GC Algorithms</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#three-major-algo">The Three Major Algorithms</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#before-we-begin">Before We Begin</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#book-arrangement-and-gc">Book Arrangement And Garbage Collection</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#mark-and-sweep">Mark &amp; Sweep</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#mark-and-sweep-cons">Cons</a>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#copying">Copying</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#copying-pros">Pros</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#copying-cons">Cons</a>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#ref-count">Reference Count</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#ref-count-pros">Pros</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#ref-count-cons">Cons</a>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#how-fares">So How Fares The Arranging?</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#quick-summary">A Quick Summary</a>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#ruby-gc-structure">The Ruby GC Structure</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#mark-sweep-ruby-gc">Mark &amp; Sweep</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#conservative-gc">Conservative GC</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#object-lifetime">Object Lifetime Definition</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#pointer-determine">Determining Pointers That Reference Objects</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#conservative-issues">Issues</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#conservative-weakness">Weaknesses</a>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#exact-gc">Exact GC</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#exact-strengths">Strong Points</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#exact-weakness">Weaknesses</a>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#recent-trends">Recent Trends</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#bitmap-marking">Bitmap Marking GC</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#bitmap-info">More Information</a>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#snapshot-gc">Snapshot GC</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#snapshot-info">More Information</a>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#mostly-copying">Mostly Copying GC</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#mostly-copying-info">More Information</a>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#related-documents">Related Documents</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#conclusion">Conclusion</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#about-the-author">About The Author</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#about-the-translator">About The Translator</a>
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="introduction">Introduction</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>This article is meant to be an easy to understand explanation of GC algorithms to those who think to themselves "I get that garbage collection is useful, but I don&#8217;t really understand how it all works". An explanation of how the CRuby GC works will follow. Finally we&#8217;ll look a little at recent studies on Ruby GC alternatives. Oh, just to set the record straight, the GC described in this article and the Game Cube system has no relationship :-)</p></div>
+<div class="paragraph"><p>This article is meant to be an easy to understand explanation of GC algorithms to those who think to themselves "I get that garbage collection is useful, but I don&#8217;t really understand how it all works". An explanation of how the CRuby<a id="ftm01"></a><a href="#ftm01-end"><sub>*1</sub></a> GC works will follow. Finally we&#8217;ll look a little at recent studies on Ruby GC alternatives. Oh, just to set the record straight, the GC described in this article and the Game Cube system has no relationship :-)</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -808,7 +1027,7 @@ asciidoc.install();
 </div>
 </div>
 <div class="sect1">
-<h2 id="what-is-gc">What Is GC</h2>
+<h2 id="what-is-gc">What Is GC?</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>GC is an abbreviation for "Garbage Collection". To execute GC means detecting unused regions in memory and freeing the memory held by these regions. It goes without saying that many programmers consider this a great blessing, so I think I&#8217;ll leave the basic definition at that.</p></div>
 </div>
@@ -857,7 +1076,7 @@ Gauche
 <div class="sectionbody">
 <div class="paragraph"><p>Now then how does garbage collection decide what is considered garbage for collection? Lets take a look at some of the garbage collection algorithms.</p></div>
 <div class="sect2">
-<h3 id="three-major-algo">The 3 Major Algorithms</h3>
+<h3 id="three-major-algo">The Three Major Algorithms</h3>
 <div class="paragraph"><p>Garbage collection was first implemented at around the year 1960. Since then much work has gone into the field, and gave birth to the riser of newer algorithms. A good majority of these algorithms can be traced back to three standard algorithms. These are:</p></div>
 <div class="ulist"><ul>
 <li>
@@ -967,7 +1186,7 @@ Repeat this process, working down to the lower right corner of the bookshelf
 <div class="paragraph"><p><span class="image">
 <img src="images/bookshelf_ms_04.jpg" alt="the fragmentation problem" />
 </span></p></div>
-<div class="paragraph"><p>This problem is known as "Fragmentation". If a new book needs to be put into the bookshelf, it may lead to issues. This requires thinking up a new method for sorting. As a side note CRuby utilizes this Mark &amp; Sweep algorithm, and is subject to the same fragmentation problem.</p></div>
+<div class="paragraph"><p>This problem is known as "Fragmentation". If a new book needs to be put into the bookshelf, it may lead to issues. This requires thinking up a new method for sorting. As a side note CRuby utilizes this Mark &amp; Sweep algorithm, and is subject to the same fragmentation problem<a id="ftm02"></a><a href="#ftm02-end"><sub>*2</sub></a>.</p></div>
 </div>
 </div>
 <div class="sect2">
@@ -1022,16 +1241,16 @@ Throw out all of the books in the bookshelf on the left
 </span></p></div>
 <div class="paragraph"><p>Without thinking about anything all of the books on the left bookshelf can be disposed of. This is method is known as the "Copying" algorithm.  Another thing to note is that the next time books are to be arranged, valuable books will be transferred to the bookshelf on the left instead.</p></div>
 <div class="sect3">
-<h4 id="_pros">Pros</h4>
+<h4 id="copying-pros">Pros</h4>
 <div class="paragraph"><p>Copying provides faster sorting than Mark &amp; Sweep. The Mark &amp; Sweep method also requires an additional pass over all the books in order to dispose of the unnecessary books properly, whereas Copying doesn&#8217;t require this. Also the issue with fragmentation doesn&#8217;t exist, and it&#8217;s easier to fit in new books.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_cons">Cons</h4>
-<div class="paragraph"><p>It&#8217;s faster and doesn&#8217;t have fragmentation issues, so it&#8217;s perfect! So let&#8217;s get started right away. Unfortunately there&#8217;s a problem. There are no empty bookshelves laying around. All of the bookshelves are packed with books *facepalm* Comparing to Mark &amp; Sweep, twice the storage space is required. This certainly does no good. A new bookshelf could be purchased, but that seems a bit overkill. Next up a fundamentally different method will be tested.</p></div>
+<h4 id="copying-cons">Cons</h4>
+<div class="paragraph"><p>It&#8217;s faster and doesn&#8217;t have fragmentation issues, so it&#8217;s perfect! So let&#8217;s get started right away. Unfortunately there&#8217;s a problem. There are no empty bookshelves laying around. All of the bookshelves are packed with books *facepalm* Comparing to Mark &amp; Sweep, twice the storage space is required. This certainly does no good. A new bookshelf could be purchased<a id="ftm03"></a><a href="#ftm03-end"><sub>*3</sub></a>, but that seems a bit overkill. Next up a fundamentally different method will be tested.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reference_count">Reference Count</h3>
+<h3 id="ref-count">Reference Count</h3>
 <div class="paragraph"><p>Is the reader the type that works on summer homework everyday, or the type that waits until the last two days to complete it? I happen to be in the later group. Because of this, I have recollections of my parents scolding me saying "It&#8217;s because you&#8217;re out playing everyday that things turn out like this!" With this in mind, how about throwing out the notion that the bookshelf needs to be arranged at the end of the year? If the bookshelf is arranged regularly, there&#8217;s no need to fumble around at the end of the year doing it.</p></div>
 <div class="paragraph"><p>With this in mind the "Don&#8217;t Toss Me Card" method is created.</p></div>
 <div class="paragraph"><p><span class="image">
@@ -1108,26 +1327,26 @@ The last person to cross their name off, Mr. B, throws the book away
 </span></p></div>
 <div class="paragraph"><p>This method is referred to as the "Reference Count Algorithm". In the example the interests of the employees are referenced and counted. However in a more practical sense references of mutual objects are instead counted.</p></div>
 <div class="sect3">
-<h4 id="_pros_2">Pros</h4>
+<h4 id="ref-count-pros">Pros</h4>
 <div class="paragraph"><p>The benefit of this method is the burden is now decentralized. Cleaning the bookshelf at the end of the year is very difficult, but handling it on a normal basis is much more manageable.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_cons_2">Cons</h4>
+<h4 id="ref-count-cons">Cons</h4>
 <div class="paragraph"><p>Annoyance is the main problem with this algorithm. With the Reference Count algorithm, one must ensure that they fill out their name and erase it later. However someone is likely to forget to do this. If someone doesn&#8217;t fill out their name, a valuable book could get thrown out, and if someone forgets to cross out their name, a useless book is left sticking around. This is very annoying.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_so_how_fares_the_arranging">So How Fares The Arranging?</h3>
+<h3 id="how-fares">So How Fares The Arranging?</h3>
 <div class="paragraph"><p>The book arrangement is very annoying isn&#8217;t it? Fragmentation can occur, another bookshelf could become necessary&#8230; However this is quite a distorted view of things to show how garbage collection works. A more practical solution would simply be to throw out books that no longer look necessary. Also there&#8217;s the method of not sorting the books at all :-) In my case I simply threw out books that didn&#8217;t look necessary to me. There&#8217;s the chance that someone wanted to read that book, but oh well that&#8217;s life!</p></div>
 </div>
 <div class="sect2">
-<h3 id="_a_quick_summary">A Quick Summary</h3>
+<h3 id="quick-summary">A Quick Summary</h3>
 <div class="paragraph"><p>This section used an easy to understand explanation of garbage collection using the arrangement of books as an example. It was a bit distorted however. I wonder if there is still the reader who thinks to themselves "I want to try and implement this!", or feels that this explanation is not detailed enough.</p></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_the_ruby_gc_structure">The Ruby GC Structure</h2>
+<h2 id="ruby-gc-structure">The Ruby GC Structure</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Now that the reader has become familiar with the basics of garbage collection algorithms, I&#8217;ll explain the structure of the Ruby GC. First off it is, as mentioned previously, based on the Mark &amp; Sweep algorithm. Since the basics of algorithm have been touched upon in the previous section, we&#8217;ll look at how the Ruby GC implements it.</p></div>
 <div class="admonitionblock">
@@ -1139,7 +1358,7 @@ The last person to cross their name off, Mr. B, throws the book away
 </tr></table>
 </div>
 <div class="sect2">
-<h3 id="_mark_amp_sweep">Mark &amp; Sweep</h3>
+<h3 id="mark-sweep-ruby-gc">Mark &amp; Sweep</h3>
 <div class="paragraph"><p>Below is a sample program that has been prepared for explanation purposes:</p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="c1">#Child class definition</span>
@@ -1220,10 +1439,10 @@ The last person to cross their name off, Mr. B, throws the book away
 <div class="paragraph"><p>Now unnecessary objects are removed and only active objects remain.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_conservative_gc">Conservative GC</h3>
+<h3 id="conservative-gc">Conservative GC</h3>
 <div class="paragraph"><p>Now what about the talk about root that was put off from before? What exactly is root? Put simply it is the area in which pointers to objects are stored. More specifically it is the area where the machine stack, register, global variables, and Ruby internal global variable management table is stored. If an object is pointed to from a pointer in root, that object is considered active. Following the bookshelf example, the root is the bookshelf shared by everyone, and pointers in the root are considered to be the feeling that the book is important.</p></div>
 <div class="sect3">
-<h4 id="_object_lifetime_definition">Object Lifetime Definition</h4>
+<h4 id="object-lifetime">Object Lifetime Definition</h4>
 <div class="paragraph"><p>The definition of object lifetime is as follows:</p></div>
 <div class="ulist"><ul>
 <li>
@@ -1244,7 +1463,7 @@ All other objects are considered to be garbage and collected accordingly
 </ul></div>
 </div>
 <div class="sect3">
-<h4 id="_determining_pointers_that_reference_objects">Determining Pointers That Reference Objects</h4>
+<h4 id="pointer-determine">Determining Pointers That Reference Objects</h4>
 <div class="paragraph"><p>In the machine stack and register there are numerous values stored that have no relation to pointers. For example, <tt>int</tt> values or <tt>char</tt> values. Basically many values are mixed together without any type of sorting. With this in mind, how are pointers to objects identified? In CRuby, this is determined by whether or not the value is stored in the heap area. As it is bit difficult to put into words, I&#8217;ve written some Ruby code to help explain. The heap area is assumed to be from <tt>0x0000</tt> to <tt>0x1000</tt>.</p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="k">def</span> <span class="nf">is_pointer_to_heap?</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
@@ -1280,32 +1499,32 @@ If the value is outside of the heap area, it is considered not to be a pointer t
 <div class="paragraph"><p>If there is an inactive object at address <tt>0x0500</tt>, it will be mistaken for an active object. With this method anything that looks like an object pointer is considered to be active. This is unfortunately something that can&#8217;t be helped&#8230; This method of attempting to safely remove doubtful objects is a very conservative outlook, and thus this process is known as "Conservative GC". CRuby uses this conservative GC in its implementation.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_issues">Issues</h4>
+<h4 id="conservative-issues">Issues</h4>
 <div class="paragraph"><p>Isn&#8217;t it strange though? Is it really okay that garbage objects are considered active? It seems as though a fatal bug could occur. The reason why such issues will not occur is because it&#8217;s all about objects that are no longer necessary to the user. Since garbage objects are hidden from the user, they are not accessible. Therefore even if such objects are active they still won&#8217;t cause the user issues directly. Of course, if such objects increase to much then memory will be exhausted. This is definitely an issue.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_weaknesses">Weaknesses</h4>
+<h4 id="conservative-weakness">Weaknesses</h4>
 <div class="paragraph"><p>The major weakness of Conservative GC is that it is limited in the algorithms that it can use. For example, the previously mentioned Copying GC cannot be utilized. This is because in order to transfer the entire object, the pointer to the object must also be rewritten. However, Conservative GC is unable to determine the difference between pointer and integer values. If an integer value was overwritten the result would be disastrous. It is likely that the result of <tt>1+1</tt> would change occasionally.</p></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exact_gc">Exact GC</h3>
+<h3 id="exact-gc">Exact GC</h3>
 <div class="paragraph"><p>The opposite of Conservative GC is known as Exact GC. Exact GC does not check the machine stack or registers. The image is that it manages object pointers. Due to this implementation, it is able to free all unnecessary objects. For those who would like to see an implementation of Exact GC, I recommend looking at <a href="http://tinyscheme.sourceforge.net/">TinyScheme</a> and other Scheme implementations. It is very simple and easy to understand. <a href="http://rubini.us/">Rubinius</a> also implements an Exact GC, but it is complex so I can&#8217;t recommend it to beginners.</p></div>
 <div class="sect3">
-<h4 id="_strong_points">Strong Points</h4>
+<h4 id="exact-strengths">Strong Points</h4>
 <div class="paragraph"><p>The main strength of Exact GC is that it is able to implement a large number of GC algorithms. Algorithms that move around objects like Copying GC are possible. There is no concern over accidentally overwriting a value that was an integer. Of course, it is also able to implement the Mark &amp; Sweep algorithm.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_weaknesses_2">Weaknesses</h4>
+<h4 id="exact-weakness">Weaknesses</h4>
 <div class="paragraph"><p>For the GC implementor things are nice and simple, but from the user perspective it becomes complicated. For example, in CRuby extension libraries can be easily implemented, but if an Exact GC was used this would become very difficult. It is possible that the user could scatter object pointers about the stack and registers. If this was a single reference, it would be picked up as an object and mistakingly collected. Letting the user freely deal with object pointers becomes problematic. This means the user side would inevitably become more restricted.</p></div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_recent_trends">Recent Trends</h2>
+<h2 id="recent-trends">Recent Trends</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Lately there has been much activity around improving the CRuby GC implementation. In October of 2008, 3 possible RubyGC implementations were proposed at the Matsue (the town where Ruby was developed) <a href="http://www.math.nagoya-u.ac.jp/~garrigue/pro71/">71st Data Processing Academic Conference Programming Research Paper Meeting (Japanese)</a>. This event was explained by Koichi Sasada as "It&#8217;s this kind, no that kind of event". I see :-). I will now provide a basic introduction to the three proposed GC implementations. The details are left out, and those seeking more information can refer to the links below.</p></div>
+<div class="paragraph"><p>Lately there has been much activity around improving the CRuby GC implementation. In October of 2008, 3 possible RubyGC implementations were proposed at the Matsue (the town where Ruby was developed) <a href="http://www.math.nagoya-u.ac.jp/<sub>garrigue/pro71/">71st Data Processing Academic Conference Programming Research Paper Meeting (Japanese)</a>. This event was explained by Koichi Sasada as "It&#8217;s this kind, no that kind of event"<a id="ftm04"></a><a href="#ftm04-end"></sub>*4<sub></a> <a id="ftm05"></a><a href="#ftm05-end"></sub>*5</a>. I see :-). I will now provide a basic introduction to the three proposed GC implementations. The details are left out, and those seeking more information can refer to the links below.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -1315,10 +1534,10 @@ If the value is outside of the heap area, it is considered not to be a pointer t
 </tr></table>
 </div>
 <div class="sect2">
-<h3 id="_bitmapmarking_gc">BitmapMarking GC</h3>
+<h3 id="bitmap-marking">Bitmap Marking GC</h3>
 <div class="paragraph"><p>BitmapMarking GC is an improved GC that was proposed by Yukihiro Matsumoto (Ruby&#8217;s creator) and myself. A proof of concept implementation was put into use in <a href="http://www.rubyenterpriseedition.com/index.html">Ruby Enterprise Edition (REE)</a>. However the REE BitmapMarking algorithm is O(n), and is not practical performance wise. The improved version looks to achieve O(1) performance. Whether or not it will be included in future CRuby versions is a difficult situation.</p></div>
 <div class="sect3">
-<h4 id="_more_information">More Information</h4>
+<h4 id="bitmap-info">More Information</h4>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -1339,10 +1558,10 @@ If the value is outside of the heap area, it is considered not to be a pointer t
 </div>
 </div>
 <div class="sect2">
-<h3 id="_snapshot_gc">Snapshot GC</h3>
-<div class="paragraph"><p>The product of the University of Tokyo Hikari Aikawa&#8217;s research titled "Implementation of Snapshot GC on the Ruby Interpreter". This is an attempt to implement incremental garbage collection in the Ruby GC. I learned of a very beneficial feature, "You need to stick a write barrier here or it&#8217;s no good!" in the research and implementation. At the moment it can only run in miniruby, but I look forward to how it progresses.</p></div>
+<h3 id="snapshot-gc">Snapshot GC</h3>
+<div class="paragraph"><p>The product of the University of Tokyo Hikari Aikawa&#8217;s research titled "Implementation of Snapshot GC on the Ruby Interpreter". This is an attempt to implement incremental garbage collection in the Ruby GC. I learned of a very beneficial feature, "You need to stick a write barrier here or it&#8217;s no good!" in the research and implementation. At the moment it can only run in miniruby<a id="ftm06"></a><a href="#ftm06-end"><sub>*6</sub></a>, but I look forward to how it progresses.</p></div>
 <div class="sect3">
-<h4 id="_more_information_2">More Information</h4>
+<h4 id="snapshot-info">More Information</h4>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -1353,10 +1572,10 @@ If the value is outside of the heap area, it is considered not to be a pointer t
 </div>
 </div>
 <div class="sect2">
-<h3 id="_mostly_copying_gc">Mostly Copying GC</h3>
+<h3 id="mostly-copying">Mostly Copying GC</h3>
 <div class="paragraph"><p>The product of the University of Electro Communication Tomoharu Ugawa&#8217;s research titled "Mostly Copying GC Implementation For The RubyVM". This algorithm is an attempt to introduce Copying GC to a Conservative GC. If this algorithm is implemented it would help to improve the fragmentation issue. Mr. Matsumoto stated "If it&#8217;s all right I&#8217;d like to add it sometime tomorrow." Wow. Currently there is only a patch against YARV before it was merged into 1.9, but I look forward to how it turns out.</p></div>
 <div class="sect3">
-<h4 id="_more_information_3">More Information</h4>
+<h4 id="mostly-copying-info">More Information</h4>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -1374,7 +1593,7 @@ If the value is outside of the heap area, it is considered not to be a pointer t
 </div>
 </div>
 <div class="sect1">
-<h2 id="_related_documents">Related Documents</h2>
+<h2 id="related-documents">Related Documents</h2>
 <div class="sectionbody">
 <div class="ulist"><ul>
 <li>
@@ -1401,30 +1620,36 @@ If the value is outside of the heap area, it is considered not to be a pointer t
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conclusion">Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Thank you to those of you that came this far. I hope that reading this article has given you even a little interest in garbage collection. Unless the GC in your head has judged this article to be garbage :-)</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_about_the_author">About The Author</h2>
+<h2 id="about-the-author">About The Author</h2>
 <div class="sectionbody">
 <div class="paragraph"><p><a href="http://d.hatena.ne.jp/authorNari/">nari</a></p></div>
 <div class="paragraph"><p>Member of the <a href="http://www.netlab.jp/">Network Applied Communication Laboratory</a>. Likes GC. Not to found of real life garbage collection though.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_about_the_translator">About The Translator</h2>
+<h2 id="about-the-translator">About The Translator</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Hello I&#8217;m Chris White and a passionate Rubyist. I&#8217;ve been studying Japanese for many years, and enjoy doing technical translations. As someone who loves learning more about the inner workings of Ruby this was an enjoyable document to work on! Thank you to nari-san for such an interesting article!</p></div>
+<div class="paragraph"><p>Hello I&#8217;m Chris White, a passionate Rubyist. I&#8217;ve been studying Japanese for many years, and enjoy doing technical translations. As someone who loves learning more about the inner workings of Ruby this was an enjoyable document to work on! Thank you to nari-san for such an interesting article!</p></div>
 <div class="paragraph"><p>As a final note I&#8217;ve removed the author&#8217;s contact information in the "About The Author" section to avoid surprise English emails. If you would like to send your thoughts, please contact me instead and I will pass them on! You can reach me at cwprogram at live dot com.</p></div>
+<div class="paragraph"><p><a id="ftm01-end"></a><a href="#ftm01">*1</a> The C-based Ruby implementation by Yukihiro Matsumoto<br />
+<a id="ftm02-end"></a><a href="#ftm02">*2</a> There are many effective countermeasures against this which may be discussed in more detail in the future<br />
+<a id="ftm03-end"></a><a href="#ftm03">*3</a> No, putting them on the floor isn&#8217;t the answer either :-)<br />
+<a id="ftm04-end"></a><a href="#ftm04">*4</a> <a href="http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-list/45519">ruby-list:45519</a><br />
+<a id="ftm05-end"></a><a href="#ftm05">*5</a> This is where the idea for the title came from (Editor&#8217;s note: this is referring to the original Japanese title)<br />
+<a id="ftm06-end"></a><a href="#ftm06">*6</a> This is a minimum configuration Ruby implementation without any extension libraries generated at build time</p></div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-09-19 14:27:40 PDT
+Last updated 2011-09-19 15:11:00 PDT
 </div>
 </div>
 </body>

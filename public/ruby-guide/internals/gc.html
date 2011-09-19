@@ -1201,18 +1201,84 @@ The last person to cross their name off, Mr. B, throws the book away
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_08.jpg" alt="GC mark phase 2" />
 </span></p></div>
+<div class="paragraph"><p>This is the beginning of the Mark processing phase. During this phase active objects are marked recursively starting from root. More specifically it sets every structure&#8217;s mark bit to 1. If the object has already been marked then it will be skipped. The important thing to note is that objects which are not referenced are not marked. This is similar to the story about the bookshelf. In this manner active objects can be discerned from unnecessary objects.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_09.jpg" alt="GC sweep phase 3" />
 </span></p></div>
+<div class="paragraph"><p>Next is the sweep phase. In the sweep phase, objects are checked to see if they have been marked or not.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_010.jpg" alt="GC sweep phase 2" />
 </span></p></div>
+<div class="paragraph"><p>If the object has the bit mark set, its bit mark is set back to 0. This is to prevent bugs from occurring during the next GC pass.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_011.jpg" alt="GC object removal" />
 </span></p></div>
+<div class="paragraph"><p>If the mark bit is not set, then the objects are removed. This completes the GC process.</p></div>
 <div class="paragraph"><p><span class="image">
 <img src="images/crubygc_ms_012.jpg" alt="GC completion" />
 </span></p></div>
+<div class="paragraph"><p>Now unnecessary objects are removed and only active objects remain.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_conservative_gc">Conservative GC</h3>
+<div class="paragraph"><p>Now what about the talk about root that was put off from before? What exactly is root? Put simply it is the area in which pointers to objects are stored. More specifically it is the area where the machine stack, register, global variables, and Ruby internal global variable management table is stored. If an object is pointed to from a pointer in root, that object is considered active. Following the bookshelf example, the root is the bookshelf shared by everyone, and pointers in the root are considered to be the feeling that the book is important.</p></div>
+<div class="sect3">
+<h4 id="_object_lifetime_definition">Object Lifetime Definition</h4>
+<div class="paragraph"><p>The definition of object lifetime is as follows:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Objects pointed to by the current user program&#8217;s memory area (register, stack, global variables, etc. in other words root) are considered active (necessary objects)
+</p>
+</li>
+<li>
+<p>
+Objects pointed to by other active objects are themselves active
+</p>
+</li>
+<li>
+<p>
+All other objects are considered to be garbage and collected accordingly
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_determining_pointers_that_reference_objects">Determining Pointers That Reference Objects</h4>
+<div class="paragraph"><p>In the machine stack and register there are numerous values stored that have no relation to pointers. For example, <tt>int</tt> values or <tt>char</tt> values. Basically many values are mixed together without any type of sorting. With this in mind, how are pointers to objects identified? In CRuby, this is determined by whether or not the value is stored in the heap area. As it is bit difficult to put into words, I&#8217;ve written some Ruby code to help explain. The heap area is assumed to be from <tt>0x0000</tt> to <tt>0x1000</tt>.</p></div>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="k">def</span> <span class="nf">is_pointer_to_heap?</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+  <span class="n">heap_start</span> <span class="o">=</span> <span class="mh">0x0000</span>
+  <span class="n">heap_end</span>   <span class="o">=</span> <span class="mh">0x1000</span>
+  <span class="k">return</span> <span class="kp">true</span> <span class="k">if</span> <span class="n">heap_start</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">heap_end</span>
+  <span class="k">return</span> <span class="kp">false</span>
+<span class="k">end</span>
+
+<span class="n">stacks</span> <span class="o">=</span> <span class="o">[</span><span class="mh">0x0000</span><span class="p">,</span> <span class="mh">0x0500</span><span class="p">,</span> <span class="mh">0x10000</span><span class="o">]</span>
+<span class="n">is_pointer_to_heap?</span><span class="p">(</span><span class="n">stacks</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span>     <span class="c1">#=&gt; true</span>
+<span class="n">is_pointer_to_heap?</span><span class="p">(</span><span class="n">stacks</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>     <span class="c1">#=&gt; true</span>
+<span class="n">is_pointer_to_heap?</span><span class="p">(</span><span class="n">stacks</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>     <span class="c1">#=&gt; false</span>
+</pre></div></div></div>
+<div class="paragraph"><p>As per the code above, pointers to objects are determined through the following method:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+If the value is inside the heap area, it is considered a pointer to an object
+</p>
+</li>
+<li>
+<p>
+If the value is outside of the heap area, it is considered not to be a pointer to an object
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Through this method it is easy to determine what pointers are pointing to objects. However this method is not perfect. For example, it is unable to determine the difference between the pointer <tt>0x0500</tt> and the integer <tt>0x0500</tt>.</p></div>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre><span class="n">integer</span> <span class="o">=</span> <span class="mh">0x0500</span>
+<span class="n">is_pointer_to_heap</span><span class="p">(</span><span class="n">integer</span><span class="p">)</span> <span class="c1">#=&gt; true</span>
+</pre></div></div></div>
+<div class="paragraph"><p>If there is an inactive object at address <tt>0x0500</tt>, it will be mistaken for an active object. With this method anything that looks like an object pointer is considered to be active. This is unfortunately something that can&#8217;t be helped&#8230; This method of attempting to safely remove doubtful objects is a very conservative outlook, and thus this process is known as "Conservative GC". CRuby uses this conservative GC in its implementation.</p></div>
+</div>
 </div>
 </div>
 </div>
@@ -1220,7 +1286,7 @@ The last person to cross their name off, Mr. B, throws the book away
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-09-09 12:29:05 PDT
+Last updated 2011-09-19 12:12:53 PDT
 </div>
 </div>
 </body>
